@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="python-programming.html">
-<link rel="next" href="final-words.html">
+<link rel="next" href="summary.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -154,15 +154,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.1" data-path="python-programming.html"><a href="python-programming.html#import-libraries"><i class="fa fa-check"></i><b>4.4.1</b> Import libraries</a></li>
 <li class="chapter" data-level="4.4.2" data-path="python-programming.html"><a href="python-programming.html#import-data"><i class="fa fa-check"></i><b>4.4.2</b> Import data</a></li>
 <li class="chapter" data-level="4.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>4.4.3</b> Simple plot</a></li>
-<li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualization-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualization data</a></li>
+<li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualizing-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualizing data</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.5</b> Recommended Python Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
-<li class="chapter" data-level="5.1" data-path="javascript.html"><a href="javascript.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="javascript.html"><a href="javascript.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="5.1" data-path="javascript.html"><a href="javascript.html#what-is-javascript"><i class="fa fa-check"></i><b>5.1</b> What is JavaScript?</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="javascript.html"><a href="javascript.html#javascript-data-types"><i class="fa fa-check"></i><b>5.1.1</b> JavaScript Data Types</a></li>
+<li class="chapter" data-level="5.1.2" data-path="javascript.html"><a href="javascript.html#json"><i class="fa fa-check"></i><b>5.1.2</b> JSON</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="5.2" data-path="javascript.html"><a href="javascript.html#what-is-d3"><i class="fa fa-check"></i><b>5.2</b> What is D3?</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="javascript.html"><a href="javascript.html#d3-and-web-documents"><i class="fa fa-check"></i><b>5.2.1</b> D3 and web documents</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>6</b> Summary</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -186,13 +191,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="javascript" class="section level1">
 <h1><span class="header-section-number">Chapter 5</span> JavaScript</h1>
-<p>Some JavaScript examples are demonstrated in this chapter.</p>
-<div id="example-one" class="section level2">
-<h2><span class="header-section-number">5.1</span> Example one</h2>
+<div id="what-is-javascript" class="section level2">
+<h2><span class="header-section-number">5.1</span> What is JavaScript?</h2>
+<div class="figure" style="text-align: right"><span id="fig:JavaScriptinventor"></span>
+<img src="JavaScriptinventor.png" alt="JavaScript Inventor Brendan Eich" width="25%" />
+<p class="caption">
+Figure 5.1: JavaScript Inventor Brendan Eich
+</p>
 </div>
-<div id="example-two" class="section level2">
-<h2><span class="header-section-number">5.2</span> Example two</h2>
+<ul>
+<li>JavaScript is not related to Java</li>
+<li>Created by Brendan Eich in 1995</li>
+<li>Originally developed as a prototype language for web browser (Client-side).</li>
+<li>Now used in server-side (Node.js) as well.</li>
+<li>Not related to Java, just named similarly for marketing purpose.</li>
+<li>C style syntax but got inspiration from Functional programming</li>
+<li>for, while, continue, break, if/else, switch are similar to C</li>
+<li>operators (+,-,*,/,%) are also similar (except ==,!=,||)</li>
+<li>include function operations such as map, reduce, forEach.</li>
+</ul>
+<div id="javascript-data-types" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> JavaScript Data Types</h3>
+<p>Data Types</p>
+<ul>
+<li>Numbers: 42, 3.14159</li>
+<li>Logical: true, false</li>
+<li>Strings: “Hello”, ‘Taiwan’</li>
+<li>null</li>
+<li>undefined* - undefined is not null!</li>
+</ul>
+</div>
+<div id="json" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> JSON</h3>
+<ul>
+<li>JavaScript Object Notation</li>
+<li>JavaScript as an XML alternative for storing data</li>
+<li>e.g.</li>
+</ul>
+<p>[{“Station”:“Alishan”,“Temperature”:14.5,“Precipitation”:812.4,“Humidity”:95,“Pressure”:762.5,“dayrain”:30},….]</p>
+</div>
+</div>
+<div id="what-is-d3" class="section level2">
+<h2><span class="header-section-number">5.2</span> What is D3?</h2>
+<ul>
+<li>D3 stands for Data-Driven Documents.
+-d3.js (D3) is “a JavaScript library for manipulating documents based on data”.</li>
+<li>D3 can be used in conjunction with HTML and CSS (amongst others) to visualize data on a webpage.</li>
+<li>It’s an open framework.</li>
+<li>It embeds or includes data in scripts to create images in webpages.</li>
+</ul>
+<blockquote>
+<p>“With D3, designers selectively bind input data to arbitrary document elements, applying dynamic transforms to both generate and modify content.”</p>
+<p>—<a href="https://data3.mprog.nl/course/15%20Readings/60%20Reading%206/Bostock_D3.pdf">Bostock, Ogievetsky and Heer, 2011</a></p>
+</blockquote>
+<div id="d3-and-web-documents" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> D3 and web documents</h3>
+<ul>
+<li>D3 is web-based, working with following components:
+<ul>
+<li>HTML (Hypertext Markup Language)</li>
+<li>CSS (Cascade Style Sheet)</li>
+<li>JavaScript(js)</li>
+<li>SVG (Scalable Vector Graphics), interpreted graphic output</li>
+</ul></li>
+</ul>
+<p>All of the above can be coded using a text editor. Output needs a browser with JavaScript console</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -201,7 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="python-programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final-words.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="summary.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

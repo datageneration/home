@@ -545,18 +545,18 @@ To assign a value to a variable use ``\textless-'' or ``='':
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.2184 -1.5983  0.0557  1.7879  6.3834 
+## -6.9247 -1.9524 -0.0354  1.5675  7.7577 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   1.5737     1.3125   1.199    0.246    
-## x             0.8512     0.1096   7.769 3.71e-07 ***
+## (Intercept)   0.8856     1.5076   0.587    0.564    
+## x             0.8525     0.1259   6.774  2.4e-06 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 2.826 on 18 degrees of freedom
-## Multiple R-squared:  0.7703, Adjusted R-squared:  0.7575 
-## F-statistic: 60.36 on 1 and 18 DF,  p-value: 3.71e-07
+## Residual standard error: 3.246 on 18 degrees of freedom
+## Multiple R-squared:  0.7182, Adjusted R-squared:  0.7026 
+## F-statistic: 45.88 on 1 and 18 DF,  p-value: 2.404e-06
 \end{verbatim}
 
 \begin{Shaded}
@@ -578,18 +578,18 @@ To assign a value to a variable use ``\textless-'' or ``='':
 ## 
 ## Weighted Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1.54731 -0.75181  0.00033  0.78643  2.90707 
+## -2.26070 -0.76719  0.00333  0.72287  2.44758 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   1.3966     1.0220   1.367    0.189    
-## x             0.8668     0.1042   8.317  1.4e-07 ***
+## (Intercept)   0.4316     1.0474   0.412    0.685    
+## x             0.8948     0.1068   8.378 1.26e-07 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 1.129 on 18 degrees of freedom
-## Multiple R-squared:  0.7935, Adjusted R-squared:  0.782 
-## F-statistic: 69.17 on 1 and 18 DF,  p-value: 1.403e-07
+## Residual standard error: 1.157 on 18 degrees of freedom
+## Multiple R-squared:  0.7959, Adjusted R-squared:  0.7846 
+## F-statistic: 70.19 on 1 and 18 DF,  p-value: 1.262e-07
 \end{verbatim}
 
 \begin{Shaded}
@@ -896,8 +896,8 @@ Choice of Integrated Desktop Environment matters! There are plenty of IDE availa
 
 \includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-10-1.pdf}
 
-\hypertarget{visualization-data}{%
-\subsection{Visualization data}\label{visualization-data}}
+\hypertarget{visualizing-data}{%
+\subsection{Visualizing data}\label{visualizing-data}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -933,18 +933,125 @@ Choice of Integrated Desktop Environment matters! There are plenty of IDE availa
 \hypertarget{javascript}{%
 \chapter{JavaScript}\label{javascript}}
 
-Some JavaScript examples are demonstrated in this chapter.
+\hypertarget{what-is-javascript}{%
+\section{What is JavaScript?}\label{what-is-javascript}}
 
-\hypertarget{example-one}{%
-\section{Example one}\label{example-one}}
+\begin{figure}
 
-\hypertarget{example-two}{%
-\section{Example two}\label{example-two}}
+\hfill{}\includegraphics[width=0.25\linewidth]{JavaScriptinventor} 
 
-\hypertarget{final-words}{%
-\chapter{Final Words}\label{final-words}}
+\caption{JavaScript Inventor Brendan Eich}\label{fig:JavaScriptinventor}
+\end{figure}
 
-We have finished a nice book.
+\begin{itemize}
+\tightlist
+\item
+  JavaScript is not related to Java
+\item
+  Created by Brendan Eich in 1995
+\item
+  Originally developed as a prototype language for web browser (Client-side).
+\item
+  Now used in server-side (Node.js) as well.
+\item
+  Not related to Java, just named similarly for marketing purpose.
+\item
+  C style syntax but got inspiration from Functional programming
+\item
+  for, while, continue, break, if/else, switch are similar to C
+\item
+  operators (+,-,*,/,\%) are also similar (except ==,!=,\textbar\textbar)
+\item
+  include function operations such as map, reduce, forEach.
+\end{itemize}
+
+\hypertarget{javascript-data-types}{%
+\subsection{JavaScript Data Types}\label{javascript-data-types}}
+
+Data Types
+
+\begin{itemize}
+\tightlist
+\item
+  Numbers: 42, 3.14159
+\item
+  Logical: true, false
+\item
+  Strings: ``Hello'', `Taiwan'
+\item
+  null
+\item
+  undefined* - undefined is not null!
+\end{itemize}
+
+\hypertarget{json}{%
+\subsection{JSON}\label{json}}
+
+\begin{itemize}
+\tightlist
+\item
+  JavaScript Object Notation
+\item
+  JavaScript as an XML alternative for storing data
+\item
+  e.g.
+\end{itemize}
+
+{[}\{``Station'':``Alishan'',``Temperature'':14.5,``Precipitation'':812.4,``Humidity'':95,``Pressure'':762.5,``dayrain'':30\},\ldots.{]}
+
+\hypertarget{what-is-d3}{%
+\section{What is D3?}\label{what-is-d3}}
+
+\begin{itemize}
+\tightlist
+\item
+  D3 stands for Data-Driven Documents.
+  -d3.js (D3) is ``a JavaScript library for manipulating documents based on data''.
+\item
+  D3 can be used in conjunction with HTML and CSS (amongst others) to visualize data on a webpage.
+\item
+  It's an open framework.
+\item
+  It embeds or includes data in scripts to create images in webpages.
+\end{itemize}
+
+\begin{quote}
+``With D3, designers selectively bind input data to arbitrary document elements, applying dynamic transforms to both generate and modify content.''
+
+---\href{https://data3.mprog.nl/course/15\%20Readings/60\%20Reading\%206/Bostock_D3.pdf}{Bostock, Ogievetsky and Heer, 2011}
+\end{quote}
+
+\hypertarget{d3-and-web-documents}{%
+\subsection{D3 and web documents}\label{d3-and-web-documents}}
+
+\begin{itemize}
+\tightlist
+\item
+  D3 is web-based, working with following components:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    HTML (Hypertext Markup Language)
+  \item
+    CSS (Cascade Style Sheet)
+  \item
+    JavaScript(js)
+  \item
+    SVG (Scalable Vector Graphics), interpreted graphic output
+  \end{itemize}
+\end{itemize}
+
+All of the above can be coded using a text editor. Output needs a browser with JavaScript console
+
+\hypertarget{summary}{%
+\chapter{Summary}\label{summary}}
+
+This manuscript provides brief notes and sample programs for the ``Data Programming'' course covering the basic programming for Data Science. The languages included in this volume are primarily R, Python and JavaScript. There will be more developments to add materials and sample programs to build this manuscript into a full-blown codebook for data science.
+
+More materials can be accessed at the GitHub:
+
+\url{https://www.github.com/datageneration/dataprogramming/}
 
 \bibliography{book.bib,packages.bib}
 
