@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho" />
 
 
-<meta name="date" content="2019-05-25" />
+<meta name="date" content="2019-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,13 +140,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.2" data-path="r-programming.html"><a href="r-programming.html#it-is"><i class="fa fa-check"></i><b>3.1.2</b> It is:</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="r-programming.html"><a href="r-programming.html#why-r"><i class="fa fa-check"></i><b>3.2</b> Why R?</a></li>
-<li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="r-programming.html"><a href="r-programming.html#getting-started"><i class="fa fa-check"></i><b>3.3.1</b> Getting started</a></li>
-</ul></li>
+<li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
 <li class="chapter" data-level="3.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>3.4</b> Basic operations and object assignment</a></li>
 <li class="chapter" data-level="3.5" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.5</b> Recommended R Resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a></li>
+<li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a><ul>
+<li class="chapter" data-level="4.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>4.1</b> What is Python?</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="python-programming.html"><a href="python-programming.html#python-attributes"><i class="fa fa-check"></i><b>4.1.1</b> Python attributes:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="python-programming.html"><a href="python-programming.html#python-basic-packges"><i class="fa fa-check"></i><b>4.2</b> Python basic packges:</a></li>
+<li class="chapter" data-level="4.3" data-path="python-programming.html"><a href="python-programming.html#python-ide"><i class="fa fa-check"></i><b>4.3</b> Python IDE</a></li>
+<li class="chapter" data-level="4.4" data-path="python-programming.html"><a href="python-programming.html#basic-operations-and-object-assignment-1"><i class="fa fa-check"></i><b>4.4</b> Basic operations and object assignment</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="python-programming.html"><a href="python-programming.html#import-libraries"><i class="fa fa-check"></i><b>4.4.1</b> Import libraries</a></li>
+<li class="chapter" data-level="4.4.2" data-path="python-programming.html"><a href="python-programming.html#import-data"><i class="fa fa-check"></i><b>4.4.2</b> Import data</a></li>
+<li class="chapter" data-level="4.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>4.4.3</b> Simple plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualization-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualization data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.5</b> Recommended Python Resources:</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
 <li class="chapter" data-level="5.1" data-path="javascript.html"><a href="javascript.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
 <li class="chapter" data-level="5.2" data-path="javascript.html"><a href="javascript.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
@@ -175,8 +186,156 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="python-programming" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Python Programming</h1>
-<p>We describe Python in this chapter.</p>
+<div id="what-is-python" class="section level2">
+<h2><span class="header-section-number">4.1</span> What is Python?</h2>
+<ul>
+<li>Interpreted, high level computer language</li>
+<li>Invented by Dutch programmer Guido van Rossum</li>
+<li>Named after the TV Show <em>Monty Python’s Flying Circus</em></li>
+<li>Open sourced programming language</li>
+</ul>
+<div class="figure" style="text-align: right"><span id="fig:Pythoninventor"></span>
+<img src="Pythoninventor.png" alt="Python Inventor Guido van Rossum" width="50%" />
+<p class="caption">
+Figure 4.1: Python Inventor Guido van Rossum
+</p>
+</div>
+<div id="python-attributes" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Python attributes:</h3>
+<ul>
+<li>Simplicity</li>
+<li>Large ecosystem of domain-specific tools to facilitate scientific - computing and data science</li>
+<li>User-built packages</li>
+<li>Data management
+<ul>
+<li>Web data</li>
+<li>Data munging</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="python-basic-packges" class="section level2">
+<h2><span class="header-section-number">4.2</span> Python basic packges:</h2>
+<ol style="list-style-type: decimal">
+<li>NumPy - manipulation of homogeneous array-based data</li>
+<li>Pandas - manipulation of heterogeneous and labeled data</li>
+<li>SciPy - for common scientific computing tasks</li>
+<li>Matplotlib - data visualizations</li>
+<li>IPython - interactive execution and sharing of code using Jupyter notebook</li>
+<li>Scikit-Learn - machine learning</li>
+</ol>
+</div>
+<div id="python-ide" class="section level2">
+<h2><span class="header-section-number">4.3</span> Python IDE</h2>
+<p>Choice of Integrated Desktop Environment matters! There are plenty of IDE available for python programming and developments. To name a few:</p>
+<ul>
+<li>IDLE</li>
+<li>Pycharm</li>
+<li>Jupyter Notebook</li>
+<li>Spyder</li>
+<li>Rodeo</li>
+<li>R Studio</li>
+</ul>
+</div>
+<div id="basic-operations-and-object-assignment-1" class="section level2">
+<h2><span class="header-section-number">4.4</span> Basic operations and object assignment</h2>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Python example program 0</span>
+<span class="co"># Some basics</span>
 
+<span class="co"># Print a one-line message</span>
+<span class="bu">print</span> (<span class="st">&quot;Hello NCHU 中興大學 friends!!&quot;</span>)
+
+<span class="co"># Create some variables</span></code></pre>
+<pre><code>## Hello NCHU 中興大學 friends!!</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">x<span class="op">=</span><span class="dv">5</span>
+y<span class="op">=</span><span class="dv">3</span>
+
+<span class="co"># Perform some mathematical operations</span>
+x<span class="op">*</span>y</code></pre>
+<pre><code>## 15</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">x<span class="op">**</span>y</code></pre>
+<pre><code>## 125</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">x<span class="op">%</span>y</code></pre>
+<pre><code>## 2</code></pre>
+<div id="import-libraries" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Import libraries</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">#Import Python Libraries</span>
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="im">import</span> scipy <span class="im">as</span> sp
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> matplotlib <span class="im">as</span> mpl
+<span class="im">import</span> seaborn <span class="im">as</span> sns
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="im">import</span> seaborn <span class="im">as</span> sns</code></pre>
+</div>
+<div id="import-data" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Import data</h3>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="co"># Import a text file in csv format</span>
+<span class="im">import</span> pandas <span class="im">as</span> pd
+CO2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;https://raw.githubusercontent.com/kho777/data-visualization/master/data/CO2.csv&quot;</span>)
+
+<span class="co"># Take a glimpse of the data file</span>
+CO2.head()</code></pre>
+<pre><code>##                country               CO2 _kt  CO2pc  CO2percent
+## 0                       Australia    446,348   18.6       1.23%
+## 1                   United States  5,172,336   16.1      14.26%
+## 2                    Saudi Arabia    505,565   16.0       1.39%
+## 3                          Canada    555,401   15.5       1.53%
+## 4                          Russia  1,760,895   12.3       4.86%</code></pre>
+</div>
+<div id="simple-plot" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Simple plot</h3>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Creating variables</span>
+xs <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">7</span>,<span class="dv">9</span>]
+ys <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> xs]
+
+<span class="co"># Simple plot</span>
+plt.plot(xs, ys)
+
+xs <span class="op">=</span> <span class="bu">range</span>(<span class="op">-</span><span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">10</span>)
+x2 <span class="op">=</span> [x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> xs]
+negx2 <span class="op">=</span> [<span class="op">-</span>x<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> x <span class="kw">in</span> xs]
+
+<span class="co"># Combined plot</span>
+
+plt.plot(xs, x2)
+plt.plot(xs, negx2)
+plt.xlabel(<span class="st">&quot;x&quot;</span>)
+plt.ylabel(<span class="st">&quot;y&quot;</span>)
+plt.ylim(<span class="op">-</span><span class="dv">2000</span>, <span class="dv">2000</span>)</code></pre>
+<pre><code>## (-2000, 2000)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">plt.axhline(<span class="dv">0</span>,color<span class="op">=</span><span class="st">&quot;red&quot;</span>) <span class="co"># horiz line</span>
+plt.axvline(<span class="dv">0</span>,color<span class="op">=</span><span class="st">&quot;green&quot;</span>) <span class="co"># vert line</span>
+plt.show()</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="visualization-data" class="section level3">
+<h3><span class="header-section-number">4.4.4</span> Visualization data</h3>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+
+x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">100</span>)
+plt.plot(x, x, label<span class="op">=</span><span class="st">&#39;linear&#39;</span>,color<span class="op">=</span><span class="st">&quot;pink&quot;</span>)
+plt.plot(x, x<span class="op">**</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">&#39;quadratic&#39;</span>)
+plt.plot(x, x<span class="op">**</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">&#39;cubic&#39;</span>)
+plt.xlabel(<span class="st">&#39;x&#39;</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)
+plt.ylabel(<span class="st">&#39;y&#39;</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)
+
+plt.title(<span class="st">&quot;Plotting functions: Linear, quadratic and cubic&quot;</span>, fontsize<span class="op">=</span><span class="dv">16</span>,fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
+<div id="recommended-python-resources" class="section level2">
+<h2><span class="header-section-number">4.5</span> Recommended Python Resources:</h2>
+<ul>
+<li><a href="https://jakevdp.github.io/WhirlwindTourOfPython/00-introduction.html">A Whirlwind Tool of Python</a>: Getting started</li>
+<li><a href="https://datacamp.com">Datacamp</a>: Online training courses</li>
+<li><a href="http://matplotlib.org">Matplotlib.org</a>: Data visualization</li>
+</ul>
+
+</div>
 </div>
             </section>
 

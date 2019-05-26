@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho" />
 
 
-<meta name="date" content="2019-05-25" />
+<meta name="date" content="2019-05-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,13 +140,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.2" data-path="r-programming.html"><a href="r-programming.html#it-is"><i class="fa fa-check"></i><b>3.1.2</b> It is:</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="r-programming.html"><a href="r-programming.html#why-r"><i class="fa fa-check"></i><b>3.2</b> Why R?</a></li>
-<li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="r-programming.html"><a href="r-programming.html#getting-started"><i class="fa fa-check"></i><b>3.3.1</b> Getting started</a></li>
-</ul></li>
+<li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
 <li class="chapter" data-level="3.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>3.4</b> Basic operations and object assignment</a></li>
 <li class="chapter" data-level="3.5" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.5</b> Recommended R Resources:</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a></li>
+<li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a><ul>
+<li class="chapter" data-level="4.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>4.1</b> What is Python?</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="python-programming.html"><a href="python-programming.html#python-attributes"><i class="fa fa-check"></i><b>4.1.1</b> Python attributes:</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="python-programming.html"><a href="python-programming.html#python-basic-packges"><i class="fa fa-check"></i><b>4.2</b> Python basic packges:</a></li>
+<li class="chapter" data-level="4.3" data-path="python-programming.html"><a href="python-programming.html#python-ide"><i class="fa fa-check"></i><b>4.3</b> Python IDE</a></li>
+<li class="chapter" data-level="4.4" data-path="python-programming.html"><a href="python-programming.html#basic-operations-and-object-assignment-1"><i class="fa fa-check"></i><b>4.4</b> Basic operations and object assignment</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="python-programming.html"><a href="python-programming.html#import-libraries"><i class="fa fa-check"></i><b>4.4.1</b> Import libraries</a></li>
+<li class="chapter" data-level="4.4.2" data-path="python-programming.html"><a href="python-programming.html#import-data"><i class="fa fa-check"></i><b>4.4.2</b> Import data</a></li>
+<li class="chapter" data-level="4.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>4.4.3</b> Simple plot</a></li>
+<li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualization-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualization data</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.5</b> Recommended Python Resources:</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
 <li class="chapter" data-level="5.1" data-path="javascript.html"><a href="javascript.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
 <li class="chapter" data-level="5.2" data-path="javascript.html"><a href="javascript.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
@@ -220,7 +231,7 @@ Figure 3.2: Prominent R Developers
 <ul>
 <li>A programming platform environment</li>
 <li>Allow development of software/packages by users</li>
-<li>Currently, the CRAN package repository features 12,108 available packages (as of 1/31/2018).</li>
+<li>Currently, the CRAN package repository features over 14,000 available packages (as of May, 2019).</li>
 <li>Graphics!!!</li>
 <li>Scaleble and Portable</li>
 <li>Interface with other platform/langauges (e.g. C++, Python, JavaScript, Stan, SQL)</li>
@@ -251,9 +262,6 @@ Figure 3.3: R Compared with other statistical programs/platforms
 <p class="caption">
 Figure 3.4: RStudio screenshot
 </p>
-</div>
-<div id="getting-started" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Getting started</h3>
 </div>
 </div>
 <div id="basic-operations-and-object-assignment" class="section level2">
@@ -299,18 +307,18 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.5672 -1.6651  0.0747  1.4326  3.8015 
+## -5.0857 -1.2587 -0.1414  1.6798  7.2285 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  1.19058    1.02590   1.161    0.261    
-## x            0.85961    0.08564  10.037 8.43e-09 ***
+## (Intercept)   0.9045     1.2090   0.748    0.464    
+## x             0.9848     0.1009   9.757  1.3e-08 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.208 on 18 degrees of freedom
-## Multiple R-squared:  0.8484, Adjusted R-squared:   0.84 
-## F-statistic: 100.8 on 1 and 18 DF,  p-value: 8.432e-09</code></pre>
+## Residual standard error: 2.603 on 18 degrees of freedom
+## Multiple R-squared:  0.841,  Adjusted R-squared:  0.8322 
+## F-statistic:  95.2 on 1 and 18 DF,  p-value: 1.302e-08</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -323,19 +331,19 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## lm(formula = y ~ x, data = dummy, weights = 1/w^2)
 ## 
 ## Weighted Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.66196 -0.50519 -0.01594  0.55876  1.72870 
+##     Min      1Q  Median      3Q     Max 
+## -1.7619 -0.3838 -0.0694  0.3773  3.6061 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   1.4497     0.8032   1.805   0.0878 .  
-## x             0.8358     0.0819  10.205 6.53e-09 ***
+## (Intercept)   0.1534     1.0231    0.15    0.882    
+## x             1.0531     0.1043   10.10 7.72e-09 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.8876 on 18 degrees of freedom
-## Multiple R-squared:  0.8526, Adjusted R-squared:  0.8445 
-## F-statistic: 104.1 on 1 and 18 DF,  p-value: 6.526e-09</code></pre>
+## Residual standard error: 1.131 on 18 degrees of freedom
+## Multiple R-squared:  0.8499, Adjusted R-squared:  0.8415 
+## F-statistic: 101.9 on 1 and 18 DF,  p-value: 7.719e-09</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)
