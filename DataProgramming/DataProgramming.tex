@@ -1,0 +1,767 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Data Programming},
+            pdfauthor={Karl Ho},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{Data Programming}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Karl Ho}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{2019-05-25}
+
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{prerequisites}{%
+\chapter{Prerequisites}\label{prerequisites}}
+
+This course requires no prior experience in programming. Yet, if you have some programming experience (e.g.~SPSS, Stata, HTML), it will be helpful. R, Python and JavaScript are all interpreted languages. In other words, the programs do not need compilation but will run in an environment to get the outputs.
+
+All packages and accounts are free and supported by open sources. It is recommended students bring their own computers (not mobile device) running MacOS, Linux or Windows operating systems.
+
+Recommended software and IDE's:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  R (\url{https://cran.r-project.org})
+\item
+  RStudio (\url{https://www.rstudio.com})
+\item
+  Anaconda 3 (\url{https://www.anaconda.com})*
+\item
+  Text editor of own choice (e.g.~Atom, Sublime Text, Ultraedit)
+\end{enumerate}
+
+Recommended websites/accounts:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  GitHub (\url{https://github.com})
+\item
+  RStudio Cloud
+\end{enumerate}
+
+(*) -- Python 3.x only.
+
+\hypertarget{intro}{%
+\chapter{Introduction}\label{intro}}
+
+This chapter introduces the general principles for coding or programming involving data.
+
+\href{http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf}{Gentzkow and Shapiro (2014)} list out some principles for data programming.
+
+\hypertarget{principle-of-programming}{%
+\section{Principle of Programming}\label{principle-of-programming}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Automation
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  For replicability (future-proof, for the future you)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Version Control
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Allow evolution and updated edition
+\item
+  Use Git and GitHub
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Directories
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Organize by functions
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Keys
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Index variable (relational)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Abstraction
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  KISS (Keep in short and simple)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Documentation
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Comments for communicating to later users
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Management
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Collaboration ready
+\end{itemize}
+
+\hypertarget{functionalities-of-data-programs}{%
+\section{Functionalities of Data Programs}\label{functionalities-of-data-programs}}
+
+A data program can perform :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Documentation of data
+\item
+  Importing and exporting data
+\item
+  Management of data
+\item
+  Visualization of data
+\item
+  Data models
+\end{enumerate}
+
+Sample R Programs:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create variables composed of random numbers}
+\NormalTok{x <-}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{50}\NormalTok{) }
+\NormalTok{y =}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(x)}
+
+\CommentTok{# Plot the points in the plane }
+\KeywordTok{plot}\NormalTok{(x, y)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot better, using the ggplot2 package }
+\CommentTok{## Prerequisite: install and load the ggplot2 package}
+\CommentTok{## install.packages("ggplot2")}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{qplot}\NormalTok{(x,y)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-1-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Plot better better with ggplot2}
+\KeywordTok{ggplot}\NormalTok{(,}\KeywordTok{aes}\NormalTok{(x,y)) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme_bw}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-1-3.pdf}
+
+Sample Python Programs (\#\# represents output)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Python example program 0}
+\CommentTok{# Some basics}
+
+\CommentTok{# Print a one-line message}
+\BuiltInTok{print}\NormalTok{ (}\StringTok{"Hello NCHU friends!!"}\NormalTok{)}
+
+\CommentTok{# Create some variables}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Hello NCHU friends!!
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OperatorTok{=}\DecValTok{5}
+\NormalTok{y}\OperatorTok{=}\DecValTok{3}
+
+\CommentTok{# Perform some mathematical operations}
+\NormalTok{x}\OperatorTok{*}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 15
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OperatorTok{**}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 125
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x}\OperatorTok{%}\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Import Python Libraries}
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ scipy }\ImportTok{as}\NormalTok{ sp}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ matplotlib }\ImportTok{as}\NormalTok{ mpl}
+\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ sns}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\ImportTok{import}\NormalTok{ seaborn }\ImportTok{as}\NormalTok{ sns}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\CommentTok{# Import a text file in csv format}
+\ImportTok{import}\NormalTok{ pandas }\ImportTok{as}\NormalTok{ pd}
+\NormalTok{CO2 }\OperatorTok{=}\NormalTok{ pd.read_csv(}\StringTok{"https://raw.githubusercontent.com/kho777/data-visualization/master/data/CO2.csv"}\NormalTok{)}
+
+\CommentTok{# Take a glimpse of the data file}
+\NormalTok{CO2.head()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                country               CO2 _kt  CO2pc  CO2percent
+## 0                       Australia    446,348   18.6       1.23%
+## 1                   United States  5,172,336   16.1      14.26%
+## 2                    Saudi Arabia    505,565   16.0       1.39%
+## 3                          Canada    555,401   15.5       1.53%
+## 4                          Russia  1,760,895   12.3       4.86%
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Using matplotlib to do a simple plot}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\NormalTok{CO2pc}\OperatorTok{=}\NormalTok{CO2[}\StringTok{"CO2pc"}\NormalTok{]}
+\NormalTok{plt.plot(CO2pc)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+In the following chapters, sample programs will be provided to illustrate these functionalities.
+
+\hypertarget{r-programming}{%
+\chapter{R Programming}\label{r-programming}}
+
+\hypertarget{what-is-r}{%
+\section{What is R?}\label{what-is-r}}
+
+The R statistical programming language is a free, open source package based on the S language developed by John Chambers.
+
+\hypertarget{some-history-of-r-and-s}{%
+\subsection{Some history of R and S}\label{some-history-of-r-and-s}}
+
+S was further developed into R by Robert Gentlemen (Canada) and Ross Ihaka (New Zealand)
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{Rinventors} \caption{R Inventors}\label{fig:Rinventors}
+\end{figure}
+
+Source: \href{https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x}{Nick Thieme. 2018. R Generation: 25 years of R}
+
+\hypertarget{it-is}{%
+\subsection{It is:}\label{it-is}}
+
+\begin{itemize}
+\tightlist
+\item
+  Large, probably one of the largest based on the user-written add-ons/procedures
+\item
+  Object-oriented
+\item
+  Interactive
+\item
+  Multiplatform: Windows, Mac, Linux
+\end{itemize}
+
+According to John Chambers (2009), six facets of R:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  an interface to computational procedures of many kinds;
+\item
+  interactive, hands-on in real time;
+\item
+  functional in its model of programming;
+\item
+  object-oriented, ``everything is an object'';
+\item
+  modular, built from standardized pieces; and,
+\item
+  collaborative, a world-wide, open-source effort.
+\end{enumerate}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{Rdevelopers} \caption{Prominent R Developers}\label{fig:Rdevelopers}
+\end{figure}
+
+Source: \href{https://rss.onlinelibrary.wiley.com/doi/10.1111/j.1740-9713.2018.01169.x}{Nick Thieme. 2018. R Generation: 25 years of R}
+
+\hypertarget{why-r}{%
+\section{Why R?}\label{why-r}}
+
+\begin{itemize}
+\tightlist
+\item
+  A programming platform environment
+\item
+  Allow development of software/packages by users
+\item
+  Currently, the CRAN package repository features 12,108 available packages (as of 1/31/2018).
+\item
+  Graphics!!!
+\item
+  Scaleble and Portable
+\item
+  Interface with other platform/langauges (e.g.~C++, Python, JavaScript, Stan, SQL)
+\item
+  Comparing R with other software?
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{Rcompare} \caption{R Compared with other statistical programs/platforms}\label{fig:Rcompare}
+\end{figure}
+
+Source: Oscar Torres-Reyna. 2010. \href{https://dss.princeton.edu/training/RStata.pdf}{Getting Started in R\textasciitilde Stata Notes on Exploring Data}
+
+\hypertarget{rstudio}{%
+\section{RStudio}\label{rstudio}}
+
+RStudio is a user interface for the statistical programming software R.
+
+\begin{itemize}
+\tightlist
+\item
+  Object-based environment
+\item
+  Window system
+\item
+  Point and click operations
+\item
+  Coding recommended\\
+\item
+  Expansions and development
+\item
+  a multi-functional Integrated Development Environment (IDE)
+\end{itemize}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{RStudioscreenshot} \caption{RStudio screenshot}\label{fig:Rstudioscreenshot}
+\end{figure}
+
+\hypertarget{getting-started}{%
+\subsection{Getting started}\label{getting-started}}
+
+\hypertarget{basic-operations-and-object-assignment}{%
+\section{Basic operations and object assignment}\label{basic-operations-and-object-assignment}}
+
+Arithmetic Operations:
+
++, -, *, /, \^{} are the standard arithmetic operators.
+
+Assignment
+
+To assign a value to a variable use ``\textless-'' or ``='':
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Introduction to R sample program }
+\CommentTok{## file: introR02.R}
+\CommentTok{## Adapted from Venables, W.N., Smith, D.M. and Team, R.C., 2018. An Introduction to R, Version 3.5.1 (2018-07-02)}
+
+
+\CommentTok{# Clear any existing objects }
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{())}
+
+\CommentTok{# Generate x, y and w to demontrate linear models and plots.}
+\CommentTok{# Make x = (1,2,...,20).}
+
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{20}
+
+\CommentTok{# Create A ‘weight’ vector of standard deviations.}
+
+\NormalTok{w <-}\StringTok{ }\DecValTok{1} \OperatorTok{+}\StringTok{ }\KeywordTok{sqrt}\NormalTok{(x)}\OperatorTok{/}\DecValTok{2}
+
+\CommentTok{# Create a data frame of two columns, x and y.}
+
+\NormalTok{dummy <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{ x }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(x)}\OperatorTok{*}\NormalTok{w)}
+
+\CommentTok{# Fit a simple linear regression }
+\CommentTok{# With y to the left of the tilde then x, meaning y being dependent on x.}
+\CommentTok{# Unlike other statistical packages, R does not display all output.  It is recommended}
+\CommentTok{# to create an object to store the estimates.}
+
+\NormalTok{fm <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y }\OperatorTok{~}\StringTok{ }\NormalTok{x, }\DataTypeTok{data=}\NormalTok{dummy) }
+
+\CommentTok{# Display the summary of the output of model fm.}
+
+\KeywordTok{summary}\NormalTok{(fm)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ x, data = dummy)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.9525 -2.1010 -0.2029  1.6209  5.1769 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  -0.1631     1.3046  -0.125    0.902    
+## x             1.0002     0.1089   9.184 3.26e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 2.808 on 18 degrees of freedom
+## Multiple R-squared:  0.8241, Adjusted R-squared:  0.8144 
+## F-statistic: 84.35 on 1 and 18 DF,  p-value: 3.255e-08
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Use w for a weighted regression.}
+
+\NormalTok{fm1 <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(y }\OperatorTok{~}\StringTok{ }\NormalTok{x, }\DataTypeTok{data=}\NormalTok{dummy, }\DataTypeTok{weight=}\DecValTok{1}\OperatorTok{/}\NormalTok{w}\OperatorTok{^}\DecValTok{2}\NormalTok{) }
+
+\CommentTok{# Display the summary of the output of model fm1.}
+
+\KeywordTok{summary}\NormalTok{(fm1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ x, data = dummy, weights = 1/w^2)
+## 
+## Weighted Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -2.2022 -0.7335 -0.1511  0.6572  1.9363 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   1.1781     1.0186   1.157    0.263    
+## x             0.8781     0.1039   8.454 1.11e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 1.126 on 18 degrees of freedom
+## Multiple R-squared:  0.7988, Adjusted R-squared:  0.7876 
+## F-statistic: 71.47 on 1 and 18 DF,  p-value: 1.107e-07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Make the columns in the data frame visible as variables.}
+
+\KeywordTok{attach}\NormalTok{(dummy)}
+
+\CommentTok{# Make a nonparametric local regression function. }
+
+\NormalTok{lrf <-}\StringTok{ }\KeywordTok{lowess}\NormalTok{(x, y)}
+
+\CommentTok{# Standard point plot, with plotting character (pch) as bullet.}
+
+\KeywordTok{plot}\NormalTok{(x, y,}\DataTypeTok{pch=}\DecValTok{20}\NormalTok{) }
+
+\CommentTok{# Add in the local regression.}
+
+\KeywordTok{lines}\NormalTok{(x, lrf}\OperatorTok{$}\NormalTok{y)}
+
+\CommentTok{# The true regression line: (intercept 0, slope 1, with dotted line type )}
+
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{3}\NormalTok{)}
+
+\CommentTok{# Unweighted regression line.}
+
+\KeywordTok{abline}\NormalTok{(}\KeywordTok{coef}\NormalTok{(fm))}
+
+\CommentTok{# Weighted regression line.}
+
+\KeywordTok{abline}\NormalTok{(}\KeywordTok{coef}\NormalTok{(fm1), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# A standard regression diagnostic plot to check for heteroscedasticity. Can you see it?}
+
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{fitted}\NormalTok{(fm), }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\KeywordTok{resid}\NormalTok{(fm), }\DataTypeTok{xlab=}\StringTok{"Fitted values"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Residuals"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Residuals vs Fitted"}\NormalTok{)}
+
+\CommentTok{# How about now?}
+
+\KeywordTok{abline}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)  }
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-6-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# A normal scores plot to check for skewness, kurtosis and outliers.}
+
+\KeywordTok{qqnorm}\NormalTok{(}\KeywordTok{resid}\NormalTok{(fm), }\DataTypeTok{main=}\StringTok{"Residuals Rankit Plot"}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{17}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-6-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Cleaning up}
+
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list =} \KeywordTok{ls}\NormalTok{())}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{recommended-r-resources}{%
+\section{Recommended R Resources:}\label{recommended-r-resources}}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{http://journal.r-project.org/}{The R Journal}
+\item
+  \href{http://cran.r-project.org/doc/manuals/R-intro.pdf}{Introduction to R by W. N. Venables, D. M. Smith and the R Core Team}
+\item
+  \href{http://www.ats.ucla.edu/stat/r/seminars/intro.htm}{Introduction to R Seminar at UCLA}
+\item
+  \href{https://dss.princeton.edu/training/}{Getting Started in Data Analysis using Stata and R by Data and Statistical Services, Princeton University}
+\end{itemize}
+
+\hypertarget{python-programming}{%
+\chapter{Python Programming}\label{python-programming}}
+
+We describe Python in this chapter.
+
+\hypertarget{javascript}{%
+\chapter{JavaScript}\label{javascript}}
+
+Some JavaScript examples are demonstrated in this chapter.
+
+\hypertarget{example-one}{%
+\section{Example one}\label{example-one}}
+
+\hypertarget{example-two}{%
+\section{Example two}\label{example-two}}
+
+\hypertarget{final-words}{%
+\chapter{Final Words}\label{final-words}}
+
+We have finished a nice book.
+
+\bibliography{book.bib,packages.bib}
+
+
+\end{document}
