@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-05-26}
+    \date{2019-05-27}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -545,18 +545,18 @@ To assign a value to a variable use ``\textless-'' or ``='':
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -6.9247 -1.9524 -0.0354  1.5675  7.7577 
+## -5.8589 -1.3735 -0.2644  1.4780  5.2399 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   0.8856     1.5076   0.587    0.564    
-## x             0.8525     0.1259   6.774  2.4e-06 ***
+## (Intercept) -0.04807    1.21831  -0.039    0.969    
+## x            0.97835    0.10170   9.620 1.62e-08 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 3.246 on 18 degrees of freedom
-## Multiple R-squared:  0.7182, Adjusted R-squared:  0.7026 
-## F-statistic: 45.88 on 1 and 18 DF,  p-value: 2.404e-06
+## Residual standard error: 2.623 on 18 degrees of freedom
+## Multiple R-squared:  0.8372, Adjusted R-squared:  0.8281 
+## F-statistic: 92.54 on 1 and 18 DF,  p-value: 1.616e-08
 \end{verbatim}
 
 \begin{Shaded}
@@ -577,19 +577,19 @@ To assign a value to a variable use ``\textless-'' or ``='':
 ## lm(formula = y ~ x, data = dummy, weights = 1/w^2)
 ## 
 ## Weighted Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -2.26070 -0.76719  0.00333  0.72287  2.44758 
+##     Min      1Q  Median      3Q     Max 
+## -1.8042 -0.5083 -0.2117  0.5598  1.7095 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   0.4316     1.0474   0.412    0.685    
-## x             0.8948     0.1068   8.378 1.26e-07 ***
+## (Intercept)  0.30746    0.87513   0.351    0.729    
+## x            0.94598    0.08923  10.601 3.61e-09 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 1.157 on 18 degrees of freedom
-## Multiple R-squared:  0.7959, Adjusted R-squared:  0.7846 
-## F-statistic: 70.19 on 1 and 18 DF,  p-value: 1.262e-07
+## Residual standard error: 0.9671 on 18 degrees of freedom
+## Multiple R-squared:  0.8619, Adjusted R-squared:  0.8543 
+## F-statistic: 112.4 on 1 and 18 DF,  p-value: 3.611e-09
 \end{verbatim}
 
 \begin{Shaded}
@@ -658,6 +658,36 @@ To assign a value to a variable use ``\textless-'' or ``='':
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{illustration}{%
+\section{Illustration}\label{illustration}}
+
+Taiwan Election and Democratization Study 2016 data
+install.packages(``haven'')
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Import the TEDS 2016 data in Stata format using the haven package}
+
+\KeywordTok{library}\NormalTok{(haven)}
+\NormalTok{TEDS_}\DecValTok{2016}\NormalTok{ <-}\StringTok{ }\KeywordTok{read_stata}\NormalTok{(}\StringTok{"https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true"}\NormalTok{)}
+
+\CommentTok{# Prepare the analyze the Party ID variable }
+\CommentTok{# Assign label to the values (1=KMT, 2=DPP, 3=NP, 4=PFP, 5=TSU, 6=NPP, 7="Other/Neutral)}
+
+\NormalTok{TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"KMT"}\NormalTok{,}\StringTok{"DPP"}\NormalTok{,}\StringTok{"NP"}\NormalTok{,}\StringTok{"PFP"}\NormalTok{, }\StringTok{"TSU"}\NormalTok{, }\StringTok{"NPP"}\NormalTok{,}\StringTok{"Others/Neutral"}\NormalTok{))}
+
+\CommentTok{# Plot the Party ID variable}
+\KeywordTok{ggplot}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{, }\KeywordTok{aes}\NormalTok{(PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (..count..)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(..count..))) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{scales}\OperatorTok{::}\NormalTok{percent) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"relative frequencies"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-7-1.pdf}
+\#\# Exercise
+
 \hypertarget{recommended-r-resources}{%
 \section{Recommended R Resources:}\label{recommended-r-resources}}
 
@@ -698,8 +728,8 @@ To assign a value to a variable use ``\textless-'' or ``='':
 \caption{Python Inventor Guido van Rossum}\label{fig:Pythoninventor}
 \end{figure}
 
-\hypertarget{python-attributes}{%
-\subsection{Python attributes:}\label{python-attributes}}
+\hypertarget{why-python}{%
+\subsection{Why Python?}\label{why-python}}
 
 \begin{itemize}
 \tightlist
@@ -894,7 +924,7 @@ Choice of Integrated Desktop Environment matters! There are plenty of IDE availa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 \hypertarget{visualizing-data}{%
 \subsection{Visualizing data}\label{visualizing-data}}
@@ -915,7 +945,10 @@ Choice of Integrated Desktop Environment matters! There are plenty of IDE availa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-11-1.pdf}
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\hypertarget{exercise}{%
+\section{Exercise}\label{exercise}}
 
 \hypertarget{recommended-python-resources}{%
 \section{Recommended Python Resources:}\label{recommended-python-resources}}
@@ -1043,6 +1076,27 @@ Data Types
 \end{itemize}
 
 All of the above can be coded using a text editor. Output needs a browser with JavaScript console
+
+\hypertarget{sample-d3-graphics}{%
+\subsection{Sample D3 graphics}\label{sample-d3-graphics}}
+
+Interactive Ladder Graph
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{laddergraph_twclimate} \caption{D3: Ladder graph}\label{fig:D3laddergraph}
+\end{figure}
+
+Click \href{https://karl-ho.github.io/D3/lg_twclimate/index.html}{here} to access the online version
+
+Interactive Aster Graph
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{astergraph_twhkdemocracy} \caption{D3: Aster graph}\label{fig:D3astergraph}
+\end{figure}
+
+Click \href{https://www.utdallas.edu/~kyho/present/aster/lpm.html}{here} to access the online version
+
+\href{https://karl-ho.github.io/D3/createnetwork/index.html}{Interactive Network Graph}
 
 \hypertarget{summary}{%
 \chapter{Summary}\label{summary}}

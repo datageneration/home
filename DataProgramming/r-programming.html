@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho" />
 
 
-<meta name="date" content="2019-05-26" />
+<meta name="date" content="2019-05-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,11 +142,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="r-programming.html"><a href="r-programming.html#why-r"><i class="fa fa-check"></i><b>3.2</b> Why R?</a></li>
 <li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
 <li class="chapter" data-level="3.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>3.4</b> Basic operations and object assignment</a></li>
-<li class="chapter" data-level="3.5" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.5</b> Recommended R Resources:</a></li>
+<li class="chapter" data-level="3.5" data-path="r-programming.html"><a href="r-programming.html#illustration"><i class="fa fa-check"></i><b>3.5</b> Illustration</a></li>
+<li class="chapter" data-level="3.6" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.6</b> Recommended R Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a><ul>
 <li class="chapter" data-level="4.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>4.1</b> What is Python?</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="python-programming.html"><a href="python-programming.html#python-attributes"><i class="fa fa-check"></i><b>4.1.1</b> Python attributes:</a></li>
+<li class="chapter" data-level="4.1.1" data-path="python-programming.html"><a href="python-programming.html#why-python"><i class="fa fa-check"></i><b>4.1.1</b> Why Python?</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="python-programming.html"><a href="python-programming.html#python-basic-packges"><i class="fa fa-check"></i><b>4.2</b> Python basic packges:</a></li>
 <li class="chapter" data-level="4.3" data-path="python-programming.html"><a href="python-programming.html#python-ide"><i class="fa fa-check"></i><b>4.3</b> Python IDE</a></li>
@@ -156,7 +157,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>4.4.3</b> Simple plot</a></li>
 <li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualizing-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualizing data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.5</b> Recommended Python Resources:</a></li>
+<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#exercise"><i class="fa fa-check"></i><b>4.5</b> Exercise</a></li>
+<li class="chapter" data-level="4.6" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.6</b> Recommended Python Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
 <li class="chapter" data-level="5.1" data-path="javascript.html"><a href="javascript.html#what-is-javascript"><i class="fa fa-check"></i><b>5.1</b> What is JavaScript?</a><ul>
@@ -165,6 +167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="javascript.html"><a href="javascript.html#what-is-d3"><i class="fa fa-check"></i><b>5.2</b> What is D3?</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="javascript.html"><a href="javascript.html#d3-and-web-documents"><i class="fa fa-check"></i><b>5.2.1</b> D3 and web documents</a></li>
+<li class="chapter" data-level="5.2.2" data-path="javascript.html"><a href="javascript.html#sample-d3-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Sample D3 graphics</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>6</b> Summary</a></li>
@@ -312,18 +315,18 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -5.1074 -1.4957 -0.4465  1.0234  7.3134 
+## -3.8048 -1.1923 -0.3558  0.5461  7.4218 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   0.1920     1.3122   0.146    0.885    
-## x             0.9980     0.1095   9.111 3.67e-08 ***
+## (Intercept) -0.58341    1.11150  -0.525    0.606    
+## x            1.02445    0.09279  11.041 1.91e-09 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.825 on 18 degrees of freedom
-## Multiple R-squared:  0.8218, Adjusted R-squared:  0.8119 
-## F-statistic:    83 on 1 and 18 DF,  p-value: 3.671e-08</code></pre>
+## Residual standard error: 2.393 on 18 degrees of freedom
+## Multiple R-squared:  0.8713, Adjusted R-squared:  0.8642 
+## F-statistic: 121.9 on 1 and 18 DF,  p-value: 1.906e-09</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -336,19 +339,19 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## lm(formula = y ~ x, data = dummy, weights = 1/w^2)
 ## 
 ## Weighted Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -1.6994 -0.5824 -0.1269  0.6123  2.4401 
+##      Min       1Q   Median       3Q      Max 
+## -1.45628 -0.46615 -0.03428  0.18297  2.79122 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -0.21418    0.95399  -0.225    0.825    
-## x            1.03496    0.09728  10.640 3.41e-09 ***
+## (Intercept) -1.10697    0.81456  -1.359    0.191    
+## x            1.07221    0.08306  12.909 1.54e-10 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.054 on 18 degrees of freedom
-## Multiple R-squared:  0.8628, Adjusted R-squared:  0.8552 
-## F-statistic: 113.2 on 1 and 18 DF,  p-value: 3.412e-09</code></pre>
+## Residual standard error: 0.9001 on 18 degrees of freedom
+## Multiple R-squared:  0.9025, Adjusted R-squared:  0.8971 
+## F-statistic: 166.6 on 1 and 18 DF,  p-value: 1.544e-10</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)
@@ -393,8 +396,31 @@ lrf &lt;-<span class="st"> </span><span class="kw">lowess</span>(x, y)
 
 <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre>
 </div>
+<div id="illustration" class="section level2">
+<h2><span class="header-section-number">3.5</span> Illustration</h2>
+<p>Taiwan Election and Democratization Study 2016 data
+install.packages(“haven”)</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Import the TEDS 2016 data in Stata format using the haven package</span>
+
+<span class="kw">library</span>(haven)
+TEDS_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">read_stata</span>(<span class="st">&quot;https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true&quot;</span>)
+
+<span class="co"># Prepare the analyze the Party ID variable </span>
+<span class="co"># Assign label to the values (1=KMT, 2=DPP, 3=NP, 4=PFP, 5=TSU, 6=NPP, 7=&quot;Other/Neutral)</span>
+
+TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID &lt;-<span class="st"> </span><span class="kw">factor</span>(TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;KMT&quot;</span>,<span class="st">&quot;DPP&quot;</span>,<span class="st">&quot;NP&quot;</span>,<span class="st">&quot;PFP&quot;</span>, <span class="st">&quot;TSU&quot;</span>, <span class="st">&quot;NPP&quot;</span>,<span class="st">&quot;Others/Neutral&quot;</span>))
+
+<span class="co"># Plot the Party ID variable</span>
+<span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y =</span> (..count..)<span class="op">/</span><span class="kw">sum</span>(..count..))) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>scales<span class="op">::</span>percent) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;relative frequencies&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+## Exercise</p>
+</div>
 <div id="recommended-r-resources" class="section level2">
-<h2><span class="header-section-number">3.5</span> Recommended R Resources:</h2>
+<h2><span class="header-section-number">3.6</span> Recommended R Resources:</h2>
 <ul>
 <li><a href="http://journal.r-project.org/">The R Journal</a></li>
 <li><a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R by W. N. Venables, D. M. Smith and the R Core Team</a></li>
