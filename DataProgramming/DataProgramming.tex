@@ -182,12 +182,12 @@ Recommended websites/accounts:
 \hypertarget{intro}{%
 \chapter{Introduction}\label{intro}}
 
-This chapter introduces the general principles for coding or programming involving data.
+This chapter introduces the general principles for data programmng or coding involving data. Data programming is a practice that works and evolves with data. Unlike the point-and-click approach, programming allows the user to manage most closely the data and process data in more effective manner. Programs are designed to be replicable, by user and collaborators. A data program can be developed and updated iteratively and incrementally. In other words, it is building on the culminated works without repeating the steps. It takes debugging, which is the process of identifying problems (bugs) but, in fact, updating the program in different situations or with differnt inputs when used in different contexts, including the programmer himself or herself working in future times.
 
-\href{http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf}{Gentzkow and Shapiro (2014)} list out some principles for data programming.
+\hypertarget{principles-of-programming}{%
+\section{Principles of Programming}\label{principles-of-programming}}
 
-\hypertarget{principle-of-programming}{%
-\section{Principle of Programming}\label{principle-of-programming}}
+\href{http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf}{Social scientists Gentzkow and Shapiro (2014)} list out some principles for data programming.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -223,13 +223,13 @@ This chapter introduces the general principles for coding or programming involvi
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Directories
+  Directories/Modularity
 \end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  Organize by functions
+  Organize by functions and data chunks
 \end{itemize}
 
 \begin{enumerate}
@@ -291,7 +291,7 @@ This chapter introduces the general principles for coding or programming involvi
 \hypertarget{functionalities-of-data-programs}{%
 \section{Functionalities of Data Programs}\label{functionalities-of-data-programs}}
 
-A data program can perform :
+A data program can provide or perform :
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -310,6 +310,12 @@ A data program can perform :
 
 Sample R Programs:
 
+\begin{itemize}
+\tightlist
+\item
+  R basics*
+\end{itemize}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Create variables composed of random numbers}
@@ -323,6 +329,12 @@ Sample R Programs:
 
 \includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-1-1.pdf}
 
+\begin{itemize}
+\tightlist
+\item
+  Using R packages*
+\end{itemize}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Plot better, using the ggplot2 package }
@@ -335,6 +347,12 @@ Sample R Programs:
 
 \includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-2-1.pdf}
 
+\begin{itemize}
+\tightlist
+\item
+  More R Data Visualization*
+\end{itemize}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Plot better better with ggplot2}
@@ -345,6 +363,12 @@ Sample R Programs:
 \includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-3-1.pdf}
 
 Sample Python Programs (\#\# represents output)
+
+\begin{itemize}
+\tightlist
+\item
+  Python using Pandas*
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -367,6 +391,12 @@ Sample Python Programs (\#\# represents output)
 ## 4                          Russia  1,760,895   12.3       4.86%
 \end{verbatim}
 
+\begin{itemize}
+\tightlist
+\item
+  Python using Matplotlib*
+\end{itemize}
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Using matplotlib to do a simple plot}
@@ -378,7 +408,7 @@ Sample Python Programs (\#\# represents output)
 
 \includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-5-1.pdf}
 
-In the following chapters, sample programs will be provided to illustrate these functionalities.
+In the subsequent chapters, sample programs will be provided to illustrate how to code or program in different environments to perform data science functionalities.
 
 \hypertarget{r-programming}{%
 \chapter{R Programming}\label{r-programming}}
@@ -545,18 +575,18 @@ To assign a value to a variable use ``\textless-'' or ``='':
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -5.8589 -1.3735 -0.2644  1.4780  5.2399 
+## -3.8181 -1.7326 -0.2321  1.5306  5.1695 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept) -0.04807    1.21831  -0.039    0.969    
-## x            0.97835    0.10170   9.620 1.62e-08 ***
+## (Intercept)  -0.3821     1.2061  -0.317    0.755    
+## x             0.9568     0.1007   9.503 1.95e-08 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 2.623 on 18 degrees of freedom
-## Multiple R-squared:  0.8372, Adjusted R-squared:  0.8281 
-## F-statistic: 92.54 on 1 and 18 DF,  p-value: 1.616e-08
+## Residual standard error: 2.596 on 18 degrees of freedom
+## Multiple R-squared:  0.8338, Adjusted R-squared:  0.8246 
+## F-statistic: 90.31 on 1 and 18 DF,  p-value: 1.945e-08
 \end{verbatim}
 
 \begin{Shaded}
@@ -578,18 +608,18 @@ To assign a value to a variable use ``\textless-'' or ``='':
 ## 
 ## Weighted Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -1.8042 -0.5083 -0.2117  0.5598  1.7095 
+## -1.5648 -0.7567 -0.1017  0.7389  2.0773 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  0.30746    0.87513   0.351    0.729    
-## x            0.94598    0.08923  10.601 3.61e-09 ***
+## (Intercept) -0.55447    0.94069  -0.589    0.563    
+## x            0.97329    0.09592  10.147 7.13e-09 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 0.9671 on 18 degrees of freedom
-## Multiple R-squared:  0.8619, Adjusted R-squared:  0.8543 
-## F-statistic: 112.4 on 1 and 18 DF,  p-value: 3.611e-09
+## Residual standard error: 1.04 on 18 degrees of freedom
+## Multiple R-squared:  0.8512, Adjusted R-squared:  0.8429 
+## F-statistic:   103 on 1 and 18 DF,  p-value: 7.131e-09
 \end{verbatim}
 
 \begin{Shaded}
@@ -661,32 +691,198 @@ To assign a value to a variable use ``\textless-'' or ``='':
 \hypertarget{illustration}{%
 \section{Illustration}\label{illustration}}
 
+In this section, we demonstrate exploring data about Taiwan elections in 2016. The Taiwan Election and Democratization Study (TEDS) is one of the longest and most comprehensive elections studies starting in 2001. TEDS collects data through different modes of surveys including face-to-face interviews, telephone interviews and internet surveys. More detail of TEDS can be found at the National Chengchi University Election Study Center website at \url{https://esc.nccu.edu.tw/main.php}.
+
 Taiwan Election and Democratization Study 2016 data
-install.packages(``haven'')
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Import the TEDS 2016 data in Stata format using the haven package}
+\CommentTok{## install.packages("haven")}
 
 \KeywordTok{library}\NormalTok{(haven)}
 \NormalTok{TEDS_}\DecValTok{2016}\NormalTok{ <-}\StringTok{ }\KeywordTok{read_stata}\NormalTok{(}\StringTok{"https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true"}\NormalTok{)}
 
 \CommentTok{# Prepare the analyze the Party ID variable }
-\CommentTok{# Assign label to the values (1=KMT, 2=DPP, 3=NP, 4=PFP, 5=TSU, 6=NPP, 7="Other/Neutral)}
+\CommentTok{# Assign label to the values (1=KMT, 2=DPP, 3=NP, 4=PFP, 5=TSU, 6=NPP, 7="NA")}
 
-\NormalTok{TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"KMT"}\NormalTok{,}\StringTok{"DPP"}\NormalTok{,}\StringTok{"NP"}\NormalTok{,}\StringTok{"PFP"}\NormalTok{, }\StringTok{"TSU"}\NormalTok{, }\StringTok{"NPP"}\NormalTok{,}\StringTok{"Others/Neutral"}\NormalTok{))}
+\NormalTok{TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID <-}\StringTok{ }\KeywordTok{factor}\NormalTok{(TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"KMT"}\NormalTok{,}\StringTok{"DPP"}\NormalTok{,}\StringTok{"NP"}\NormalTok{,}\StringTok{"PFP"}\NormalTok{, }\StringTok{"TSU"}\NormalTok{, }\StringTok{"NPP"}\NormalTok{,}\StringTok{"NA"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
 
+Take a look at the variable
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Check the variable}
+\KeywordTok{attach}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The following objects are masked from TEDS_2016 (pos = 13):
+## 
+##     age, Age, Arear, Blue, Career, Career8, District, DPP,
+##     Econ_worse, econworse5, edu, Edu, Ethnic, female,
+##     Govt_dont_care, Govt_for_public, green, Green, highincome,
+##     income, income_nm, Independence, Inequality, inequality5, KMT,
+##     lowincome, Mainland_father, Minnan_father, nI2, No_Party,
+##     noparty, north, npp, Party, PartyID, pfp, pubwelf5, Sex,
+##     South, sq, Taiwanese, Tondu, Tondu3, Unification, voteblue,
+##     voteblue_nm, votedpp_1, votekmt, votekmt_1, votekmt_nm,
+##     votetsai, votetsai_all, votetsai_nm, whitecollar
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(PartyID)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA  NA  KMT NA  NA  DPP
+## Levels: KMT DPP NP PFP TSU NPP NA
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tail}\NormalTok{(PartyID)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA  NA  DPP NA  NA  NA 
+## Levels: KMT DPP NP PFP TSU NPP NA
+\end{verbatim}
+
+Frequency table
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Run a frequency table of the Party ID variable using the descr package}
+\CommentTok{## install.packages("descr")}
+\KeywordTok{library}\NormalTok{(descr)}
+\KeywordTok{freq}\NormalTok{(TEDS_}\DecValTok{2016}\OperatorTok{$}\NormalTok{PartyID)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{verbatim}
+## TEDS_2016$PartyID 
+##       Frequency  Percent
+## KMT         388  22.9586
+## DPP         591  34.9704
+## NP            3   0.1775
+## PFP          32   1.8935
+## TSU           5   0.2959
+## NPP          43   2.5444
+## NA          628  37.1598
+## Total      1690 100.0000
+\end{verbatim}
+
+Get a better chart of the Party ID variable
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \CommentTok{# Plot the Party ID variable}
+\KeywordTok{ggplot}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{, }\KeywordTok{aes}\NormalTok{(PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+We can attend to more detail of the chart, such as adding labels to x and y axes, and calculating the percentage instead of counts
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{ggplot}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{, }\KeywordTok{aes}\NormalTok{(PartyID)) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (..count..)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(..count..))) }\OperatorTok{+}\StringTok{ }
 \StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{scales}\OperatorTok{::}\NormalTok{percent) }\OperatorTok{+}
-\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"relative frequencies"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Party Support (%)"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Taiwan Political Parties"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-11-1.pdf}
+
+Adding colors, with another theme
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{, }\KeywordTok{aes}\NormalTok{(PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (..count..)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(..count..),}\DataTypeTok{fill=}\NormalTok{PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{scales}\OperatorTok{::}\NormalTok{percent) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Party Support (%)"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Taiwan Political Parties"}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{theme_bw}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-7-1.pdf}
-\#\# Exercise
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+Hold on, colors are not right!
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{, }\KeywordTok{aes}\NormalTok{(PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (..count..)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(..count..),}\DataTypeTok{fill=}\NormalTok{PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{labels=}\NormalTok{scales}\OperatorTok{::}\NormalTok{percent) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Party Support (%)"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Taiwan Political Parties"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"steel blue"}\NormalTok{,}\StringTok{"forestgreen"}\NormalTok{,}\StringTok{"khaki1"}\NormalTok{,}\StringTok{"orange"}\NormalTok{,}\StringTok{"goldenrod"}\NormalTok{,}\StringTok{"yellow"}\NormalTok{,}\StringTok{"grey"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+To make the chart more meaningful, we can use a package called tidyverse to manage the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{##install.packages("tidyverse")}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\NormalTok{TEDS_}\DecValTok{2016} \OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{count}\NormalTok{(PartyID) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{perc =}\NormalTok{ n }\OperatorTok{/}\StringTok{ }\KeywordTok{nrow}\NormalTok{(TEDS_}\DecValTok{2016}\NormalTok{)) ->}\StringTok{ }\NormalTok{T2}
+\KeywordTok{ggplot}\NormalTok{(T2, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{reorder}\NormalTok{(PartyID, }\OperatorTok{-}\NormalTok{perc),}\DataTypeTok{y =}\NormalTok{ perc,}\DataTypeTok{fill=}\NormalTok{PartyID)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat =} \StringTok{"identity"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Party Support (%)"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Taiwan Political Parties"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_bw}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_manual}\NormalTok{(}\DataTypeTok{values=}\KeywordTok{c}\NormalTok{(}\StringTok{"steel blue"}\NormalTok{,}\StringTok{"forestgreen"}\NormalTok{,}\StringTok{"khaki1"}\NormalTok{,}\StringTok{"orange"}\NormalTok{,}\StringTok{"goldenrod"}\NormalTok{,}\StringTok{"yellow"}\NormalTok{,}\StringTok{"grey"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-14-1.pdf}
+
+\hypertarget{exercise}{%
+\section{Exercise}\label{exercise}}
+
+Analyze the Tondu (統獨）variable using the following procedures:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Assign label to each category
+\item
+  Run a frequency table using descr
+\item
+  Plot the variable using ggplot2
+\end{enumerate}
+
+Hint:
+
+\begin{itemize}
+\tightlist
+\item
+  Prepare the analyze the Tondu variable using these labesl: (``Unification now'',``Status quo, unif. in future'',``Status quo, decide later'',``Status quo forever'', ``Status quo, indep. in future'', ``Independence now'',``No response'')
+\item
+  Sample codes:
+\end{itemize}
 
 \hypertarget{recommended-r-resources}{%
 \section{Recommended R Resources:}\label{recommended-r-resources}}
@@ -924,7 +1120,7 @@ Choice of Integrated Desktop Environment matters! There are plenty of IDE availa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-11-1.pdf}
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-19-1.pdf}
 
 \hypertarget{visualizing-data}{%
 \subsection{Visualizing data}\label{visualizing-data}}
@@ -945,10 +1141,23 @@ Choice of Integrated Desktop Environment matters! There are plenty of IDE availa
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{DataProgramming_files/figure-latex/unnamed-chunk-20-1.pdf}
 
-\hypertarget{exercise}{%
-\section{Exercise}\label{exercise}}
+\hypertarget{exercise-1}{%
+\section{Exercise}\label{exercise-1}}
+
+This exercise is designed to run in class. Students are advised to install Anaconda 3 to own computer.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Launch Jupyter Notebook from Anaconda
+\item
+  On Applications pulldown menu, choose anaconda3
+\item
+  Run sample programs from class GitHub (\url{https://github.com/datageneration/dataprogramming/})
+\end{enumerate}
 
 \hypertarget{recommended-python-resources}{%
 \section{Recommended Python Resources:}\label{recommended-python-resources}}

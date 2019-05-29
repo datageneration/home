@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#principle-of-programming"><i class="fa fa-check"></i><b>2.1</b> Principle of Programming</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#principles-of-programming"><i class="fa fa-check"></i><b>2.1</b> Principles of Programming</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#functionalities-of-data-programs"><i class="fa fa-check"></i><b>2.2</b> Functionalities of Data Programs</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>3</b> R Programming</a><ul>
@@ -143,7 +143,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
 <li class="chapter" data-level="3.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>3.4</b> Basic operations and object assignment</a></li>
 <li class="chapter" data-level="3.5" data-path="r-programming.html"><a href="r-programming.html#illustration"><i class="fa fa-check"></i><b>3.5</b> Illustration</a></li>
-<li class="chapter" data-level="3.6" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.6</b> Recommended R Resources:</a></li>
+<li class="chapter" data-level="3.6" data-path="r-programming.html"><a href="r-programming.html#exercise"><i class="fa fa-check"></i><b>3.6</b> Exercise</a></li>
+<li class="chapter" data-level="3.7" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.7</b> Recommended R Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a><ul>
 <li class="chapter" data-level="4.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>4.1</b> What is Python?</a><ul>
@@ -157,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>4.4.3</b> Simple plot</a></li>
 <li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualizing-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualizing data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#exercise"><i class="fa fa-check"></i><b>4.5</b> Exercise</a></li>
+<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#exercise-1"><i class="fa fa-check"></i><b>4.5</b> Exercise</a></li>
 <li class="chapter" data-level="4.6" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.6</b> Recommended Python Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
@@ -194,10 +195,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-<p>This chapter introduces the general principles for coding or programming involving data.</p>
-<p><a href="http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf">Gentzkow and Shapiro (2014)</a> list out some principles for data programming.</p>
-<div id="principle-of-programming" class="section level2">
-<h2><span class="header-section-number">2.1</span> Principle of Programming</h2>
+<p>This chapter introduces the general principles for data programmng or coding involving data. Data programming is a practice that works and evolves with data. Unlike the point-and-click approach, programming allows the user to manage most closely the data and process data in more effective manner. Programs are designed to be replicable, by user and collaborators. A data program can be developed and updated iteratively and incrementally. In other words, it is building on the culminated works without repeating the steps. It takes debugging, which is the process of identifying problems (bugs) but, in fact, updating the program in different situations or with differnt inputs when used in different contexts, including the programmer himself or herself working in future times.</p>
+<div id="principles-of-programming" class="section level2">
+<h2><span class="header-section-number">2.1</span> Principles of Programming</h2>
+<p><a href="http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf">Social scientists Gentzkow and Shapiro (2014)</a> list out some principles for data programming.</p>
 <ol style="list-style-type: decimal">
 <li>Automation</li>
 </ol>
@@ -212,10 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use Git and GitHub</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Directories</li>
+<li>Directories/Modularity</li>
 </ol>
 <ul>
-<li>Organize by functions</li>
+<li>Organize by functions and data chunks</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Keys</li>
@@ -244,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="functionalities-of-data-programs" class="section level2">
 <h2><span class="header-section-number">2.2</span> Functionalities of Data Programs</h2>
-<p>A data program can perform :</p>
+<p>A data program can provide or perform :</p>
 <ol style="list-style-type: decimal">
 <li>Documentation of data</li>
 <li>Importing and exporting data</li>
@@ -253,6 +254,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Data models</li>
 </ol>
 <p>Sample R Programs:</p>
+<ul>
+<li>R basics*</li>
+</ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create variables composed of random numbers</span>
 x &lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>) 
 y =<span class="st"> </span><span class="kw">rnorm</span>(x)
@@ -260,16 +264,25 @@ y =<span class="st"> </span><span class="kw">rnorm</span>(x)
 <span class="co"># Plot the points in the plane </span>
 <span class="kw">plot</span>(x, y)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<ul>
+<li>Using R packages*</li>
+</ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot better, using the ggplot2 package </span>
 <span class="co">## Prerequisite: install and load the ggplot2 package</span>
 <span class="co">## install.packages(&quot;ggplot2&quot;)</span>
 <span class="kw">library</span>(ggplot2)
 <span class="kw">qplot</span>(x,y)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<ul>
+<li>More R Data Visualization*</li>
+</ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot better better with ggplot2</span>
 <span class="kw">ggplot</span>(,<span class="kw">aes</span>(x,y)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Sample Python Programs (## represents output)</p>
+<ul>
+<li>Python using Pandas*</li>
+</ul>
 <pre class="sourceCode python"><code class="sourceCode python">
 <span class="co"># Import a text file in csv format</span>
 <span class="im">import</span> pandas <span class="im">as</span> pd
@@ -283,12 +296,15 @@ CO2.head()</code></pre>
 ## 2                    Saudi Arabia    505,565   16.0       1.39%
 ## 3                          Canada    555,401   15.5       1.53%
 ## 4                          Russia  1,760,895   12.3       4.86%</code></pre>
+<ul>
+<li>Python using Matplotlib*</li>
+</ul>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Using matplotlib to do a simple plot</span>
 <span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
 CO2pc<span class="op">=</span>CO2[<span class="st">&quot;CO2pc&quot;</span>]
 plt.plot(CO2pc)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>In the following chapters, sample programs will be provided to illustrate these functionalities.</p>
+<p>In the subsequent chapters, sample programs will be provided to illustrate how to code or program in different environments to perform data science functionalities.</p>
 
 </div>
 </div>

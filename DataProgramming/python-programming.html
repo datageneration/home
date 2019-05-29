@@ -131,7 +131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#principle-of-programming"><i class="fa fa-check"></i><b>2.1</b> Principle of Programming</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#principles-of-programming"><i class="fa fa-check"></i><b>2.1</b> Principles of Programming</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#functionalities-of-data-programs"><i class="fa fa-check"></i><b>2.2</b> Functionalities of Data Programs</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>3</b> R Programming</a><ul>
@@ -143,7 +143,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
 <li class="chapter" data-level="3.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>3.4</b> Basic operations and object assignment</a></li>
 <li class="chapter" data-level="3.5" data-path="r-programming.html"><a href="r-programming.html#illustration"><i class="fa fa-check"></i><b>3.5</b> Illustration</a></li>
-<li class="chapter" data-level="3.6" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.6</b> Recommended R Resources:</a></li>
+<li class="chapter" data-level="3.6" data-path="r-programming.html"><a href="r-programming.html#exercise"><i class="fa fa-check"></i><b>3.6</b> Exercise</a></li>
+<li class="chapter" data-level="3.7" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>3.7</b> Recommended R Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>4</b> Python Programming</a><ul>
 <li class="chapter" data-level="4.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>4.1</b> What is Python?</a><ul>
@@ -157,7 +158,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>4.4.3</b> Simple plot</a></li>
 <li class="chapter" data-level="4.4.4" data-path="python-programming.html"><a href="python-programming.html#visualizing-data"><i class="fa fa-check"></i><b>4.4.4</b> Visualizing data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#exercise"><i class="fa fa-check"></i><b>4.5</b> Exercise</a></li>
+<li class="chapter" data-level="4.5" data-path="python-programming.html"><a href="python-programming.html#exercise-1"><i class="fa fa-check"></i><b>4.5</b> Exercise</a></li>
 <li class="chapter" data-level="4.6" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>4.6</b> Recommended Python Resources:</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
@@ -317,7 +318,7 @@ plt.ylim(<span class="op">-</span><span class="dv">2000</span>, <span class="dv"
 <pre class="sourceCode python"><code class="sourceCode python">plt.axhline(<span class="dv">0</span>,color<span class="op">=</span><span class="st">&quot;red&quot;</span>) <span class="co"># horiz line</span>
 plt.axvline(<span class="dv">0</span>,color<span class="op">=</span><span class="st">&quot;green&quot;</span>) <span class="co"># vert line</span>
 plt.show()</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <div id="visualizing-data" class="section level3">
 <h3><span class="header-section-number">4.4.4</span> Visualizing data</h3>
@@ -332,11 +333,17 @@ plt.xlabel(<span class="st">&#39;x&#39;</span>,fontsize<span class="op">=</span>
 plt.ylabel(<span class="st">&#39;y&#39;</span>,fontsize<span class="op">=</span><span class="dv">12</span>,fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)
 
 plt.title(<span class="st">&quot;Plotting functions: Linear, quadratic and cubic&quot;</span>, fontsize<span class="op">=</span><span class="dv">16</span>,fontweight<span class="op">=</span><span class="st">&#39;bold&#39;</span>)</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 </div>
 </div>
-<div id="exercise" class="section level2">
+<div id="exercise-1" class="section level2">
 <h2><span class="header-section-number">4.5</span> Exercise</h2>
+<p>This exercise is designed to run in class. Students are advised to install Anaconda 3 to own computer.</p>
+<ol style="list-style-type: decimal">
+<li>Launch Jupyter Notebook from Anaconda</li>
+<li>On Applications pulldown menu, choose anaconda3</li>
+<li>Run sample programs from class GitHub (<a href="https://github.com/datageneration/dataprogramming/" class="uri">https://github.com/datageneration/dataprogramming/</a>)</li>
+</ol>
 </div>
 <div id="recommended-python-resources" class="section level2">
 <h2><span class="header-section-number">4.6</span> Recommended Python Resources:</h2>
