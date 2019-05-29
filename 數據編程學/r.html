@@ -126,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Data Programming</a></li>
+<li><a href="./">數據編程學</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 課前準備</a></li>
@@ -311,18 +311,18 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -3.5373 -1.6025 -0.3803  1.5583  4.2728 
+## -5.2170 -2.1385 -0.1078  1.7470  7.4898 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -1.33351    1.02706  -1.298    0.211    
-## x            1.08531    0.08574  12.659 2.13e-10 ***
+## (Intercept)  -0.3730     1.5702  -0.238    0.815    
+## x             1.0084     0.1311   7.693 4.26e-07 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.211 on 18 degrees of freedom
-## Multiple R-squared:  0.899,  Adjusted R-squared:  0.8934 
-## F-statistic: 160.2 on 1 and 18 DF,  p-value: 2.125e-10</code></pre>
+## Residual standard error: 3.38 on 18 degrees of freedom
+## Multiple R-squared:  0.7668, Adjusted R-squared:  0.7538 
+## F-statistic: 59.19 on 1 and 18 DF,  p-value: 4.257e-07</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -335,19 +335,19 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## lm(formula = y ~ x, data = dummy, weights = 1/w^2)
 ## 
 ## Weighted Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -1.4311 -0.4948 -0.2328  0.7233  1.5055 
+##      Min       1Q   Median       3Q      Max 
+## -2.01035 -0.93298  0.03617  0.85342  3.13079 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -1.13172    0.76119  -1.487    0.154    
-## x            1.06738    0.07762  13.752 5.46e-11 ***
+## (Intercept)  -0.6039     1.1799  -0.512    0.615    
+## x             1.0287     0.1203   8.550 9.39e-08 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.8412 on 18 degrees of freedom
-## Multiple R-squared:  0.9131, Adjusted R-squared:  0.9083 
-## F-statistic: 189.1 on 1 and 18 DF,  p-value: 5.463e-11</code></pre>
+## Residual standard error: 1.304 on 18 degrees of freedom
+## Multiple R-squared:  0.8024, Adjusted R-squared:  0.7914 
+## F-statistic:  73.1 on 1 and 18 DF,  p-value: 9.385e-08</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)
