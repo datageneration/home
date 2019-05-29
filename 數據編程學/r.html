@@ -311,18 +311,18 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -6.2509 -1.0243  0.5882  1.1517  3.8039 
+## -3.5373 -1.6025 -0.3803  1.5583  4.2728 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   1.4951     1.1105   1.346    0.195    
-## x             0.8007     0.0927   8.637 8.09e-08 ***
+## (Intercept) -1.33351    1.02706  -1.298    0.211    
+## x            1.08531    0.08574  12.659 2.13e-10 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.391 on 18 degrees of freedom
-## Multiple R-squared:  0.8056, Adjusted R-squared:  0.7948 
-## F-statistic: 74.61 on 1 and 18 DF,  p-value: 8.087e-08</code></pre>
+## Residual standard error: 2.211 on 18 degrees of freedom
+## Multiple R-squared:  0.899,  Adjusted R-squared:  0.8934 
+## F-statistic: 160.2 on 1 and 18 DF,  p-value: 2.125e-10</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -336,18 +336,18 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## 
 ## Weighted Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -2.3609 -0.3758  0.2427  0.4268  2.3371 
+## -1.4311 -0.4948 -0.2328  0.7233  1.5055 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   1.2707     1.0001   1.270     0.22    
-## x             0.8201     0.1020   8.042 2.28e-07 ***
+## (Intercept) -1.13172    0.76119  -1.487    0.154    
+## x            1.06738    0.07762  13.752 5.46e-11 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.105 on 18 degrees of freedom
-## Multiple R-squared:  0.7823, Adjusted R-squared:  0.7702 
-## F-statistic: 64.67 on 1 and 18 DF,  p-value: 2.276e-07</code></pre>
+## Residual standard error: 0.8412 on 18 degrees of freedom
+## Multiple R-squared:  0.9131, Adjusted R-squared:  0.9083 
+## F-statistic: 189.1 on 1 and 18 DF,  p-value: 5.463e-11</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)
