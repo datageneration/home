@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho" />
 
 
-<meta name="date" content="2019-05-27" />
+<meta name="date" content="2019-05-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -254,9 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Data models</li>
 </ol>
 <p>Sample R Programs:</p>
-<ul>
-<li>R basics*</li>
-</ul>
+<p><em>R basics</em></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create variables composed of random numbers</span>
 x &lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>) 
 y =<span class="st"> </span><span class="kw">rnorm</span>(x)
@@ -264,25 +262,19 @@ y =<span class="st"> </span><span class="kw">rnorm</span>(x)
 <span class="co"># Plot the points in the plane </span>
 <span class="kw">plot</span>(x, y)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<ul>
-<li>Using R packages*</li>
-</ul>
+<p><em>Using R packages</em></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot better, using the ggplot2 package </span>
 <span class="co">## Prerequisite: install and load the ggplot2 package</span>
 <span class="co">## install.packages(&quot;ggplot2&quot;)</span>
 <span class="kw">library</span>(ggplot2)
 <span class="kw">qplot</span>(x,y)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<ul>
-<li>More R Data Visualization*</li>
-</ul>
+<p><em>More R Data Visualization</em></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot better better with ggplot2</span>
 <span class="kw">ggplot</span>(,<span class="kw">aes</span>(x,y)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre>
 <p><img src="DataProgramming_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Sample Python Programs (## represents output)</p>
-<ul>
-<li>Python using Pandas*</li>
-</ul>
+<p><em>Python using Pandas</em></p>
 <pre class="sourceCode python"><code class="sourceCode python">
 <span class="co"># Import a text file in csv format</span>
 <span class="im">import</span> pandas <span class="im">as</span> pd
@@ -296,9 +288,7 @@ CO2.head()</code></pre>
 ## 2                    Saudi Arabia    505,565   16.0       1.39%
 ## 3                          Canada    555,401   15.5       1.53%
 ## 4                          Russia  1,760,895   12.3       4.86%</code></pre>
-<ul>
-<li>Python using Matplotlib*</li>
-</ul>
+<p><em>Python using Matplotlib</em></p>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Using matplotlib to do a simple plot</span>
 <span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
 CO2pc<span class="op">=</span>CO2[<span class="st">&quot;CO2pc&quot;</span>]
