@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="This book is prepared for training data scientists to do data programming or programming targeting data collection, production, curation, visualizatio and modeling. The first part will be focused on general programming grammar and principles. The following three sections will be on R, Python and JavaScript. Future developments may include other langauges (e.g. Ruby,Julia) or technologies (e.g. MapReduce, RHIPE). Samples programs will be provided. Version control information: R 3.6, RStudio 1.2.1114, Python 3.7, Anaconda 1.9.7" />
   
 
-<meta name="author" content="Karl Ho 何嘉耀 (洪碩庭 翻譯）" />
+<meta name="author" content="Karl Ho 何嘉耀 (洪碩廷 翻譯）" />
 
 
 <meta name="date" content="2019-05-29" />
@@ -311,18 +311,18 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -8.0030 -1.4241  0.3294  2.2426  3.9404 
+## -6.2509 -1.0243  0.5882  1.1517  3.8039 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   0.7529     1.4460   0.521    0.609    
-## x             0.9243     0.1207   7.657 4.55e-07 ***
+## (Intercept)   1.4951     1.1105   1.346    0.195    
+## x             0.8007     0.0927   8.637 8.09e-08 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 3.113 on 18 degrees of freedom
-## Multiple R-squared:  0.7651, Adjusted R-squared:  0.7521 
-## F-statistic: 58.63 on 1 and 18 DF,  p-value: 4.548e-07</code></pre>
+## Residual standard error: 2.391 on 18 degrees of freedom
+## Multiple R-squared:  0.8056, Adjusted R-squared:  0.7948 
+## F-statistic: 74.61 on 1 and 18 DF,  p-value: 8.087e-08</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -336,18 +336,18 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## 
 ## Weighted Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -2.7233 -0.4399  0.1007  0.8977  1.4347 
+## -2.3609 -0.3758  0.2427  0.4268  2.3371 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   1.4208     1.0481   1.356    0.192    
-## x             0.8633     0.1069   8.079 2.13e-07 ***
+## (Intercept)   1.2707     1.0001   1.270     0.22    
+## x             0.8201     0.1020   8.042 2.28e-07 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.158 on 18 degrees of freedom
-## Multiple R-squared:  0.7838, Adjusted R-squared:  0.7718 
-## F-statistic: 65.26 on 1 and 18 DF,  p-value: 2.132e-07</code></pre>
+## Residual standard error: 1.105 on 18 degrees of freedom
+## Multiple R-squared:  0.7823, Adjusted R-squared:  0.7702 
+## F-statistic: 64.67 on 1 and 18 DF,  p-value: 2.276e-07</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)
