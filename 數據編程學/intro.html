@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 簡介 | Data Programming 數據編程學</title>
+  <meta name="description" content="This book is prepared for training data scientists to do data programming or programming targeting data collection, production, curation, visualizatio and modeling. The first part will be focused on general programming grammar and principles. The following three sections will be on R, Python and JavaScript. Future developments may include other langauges (e.g. Ruby,Julia) or technologies (e.g. MapReduce, RHIPE). Samples programs will be provided. Version control information: R 3.6, RStudio 1.2.1114, Python 3.7, Anaconda 1.9.7" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 簡介 | Data Programming 數據編程學" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book is prepared for training data scientists to do data programming or programming targeting data collection, production, curation, visualizatio and modeling. The first part will be focused on general programming grammar and principles. The following three sections will be on R, Python and JavaScript. Future developments may include other langauges (e.g. Ruby,Julia) or technologies (e.g. MapReduce, RHIPE). Samples programs will be provided. Version control information: R 3.6, RStudio 1.2.1114, Python 3.7, Anaconda 1.9.7" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 簡介 | Data Programming 數據編程學" />
+  
+  <meta name="twitter:description" content="This book is prepared for training data scientists to do data programming or programming targeting data collection, production, curation, visualizatio and modeling. The first part will be focused on general programming grammar and principles. The following three sections will be on R, Python and JavaScript. Future developments may include other langauges (e.g. Ruby,Julia) or technologies (e.g. MapReduce, RHIPE). Samples programs will be provided. Version control information: R 3.6, RStudio 1.2.1114, Python 3.7, Anaconda 1.9.7" />
+  
+
+<meta name="author" content="Karl Ho 何嘉耀 (洪碩庭 翻譯）" />
+
+
+<meta name="date" content="2019-05-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="r.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Programming</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 課前準備</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 簡介</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#section-1"><i class="fa fa-check"></i><b>2.1</b> 程式設計原則</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#section-2"><i class="fa fa-check"></i><b>2.2</b> 資料程式的功能</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>3</b> R語言程式設計</a><ul>
+<li class="chapter" data-level="3.1" data-path="r.html"><a href="r.html#r-1"><i class="fa fa-check"></i><b>3.1</b> 什麼是R？</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="r.html"><a href="r.html#rs"><i class="fa fa-check"></i><b>3.1.1</b> R和S的一些歷史</a></li>
+<li class="chapter" data-level="3.1.2" data-path="r.html"><a href="r.html#r-2"><i class="fa fa-check"></i><b>3.1.2</b> R是：</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="r.html"><a href="r.html#r-3"><i class="fa fa-check"></i><b>3.2</b> 為何選擇R？</a></li>
+<li class="chapter" data-level="3.3" data-path="r.html"><a href="r.html#rstudio"><i class="fa fa-check"></i><b>3.3</b> RStudio</a></li>
+<li class="chapter" data-level="3.4" data-path="r.html"><a href="r.html#section-3"><i class="fa fa-check"></i><b>3.4</b> 基本操作和賦值</a></li>
+<li class="chapter" data-level="3.5" data-path="r.html"><a href="r.html#section-4"><i class="fa fa-check"></i><b>3.5</b> 實例演示</a></li>
+<li class="chapter" data-level="3.6" data-path="r.html"><a href="r.html#section-5"><i class="fa fa-check"></i><b>3.6</b> 作業</a></li>
+<li class="chapter" data-level="3.7" data-path="r.html"><a href="r.html#r-4"><i class="fa fa-check"></i><b>3.7</b> R資源推薦：</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>4</b> Python程式設計</a><ul>
+<li class="chapter" data-level="4.1" data-path="python.html"><a href="python.html#python-1"><i class="fa fa-check"></i><b>4.1</b> 什麼是Python？</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="python.html"><a href="python.html#python-2"><i class="fa fa-check"></i><b>4.1.1</b> 為何選擇Python？</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="python.html"><a href="python.html#python-3"><i class="fa fa-check"></i><b>4.2</b> Python基本程式包：</a></li>
+<li class="chapter" data-level="4.3" data-path="python.html"><a href="python.html#python-ide"><i class="fa fa-check"></i><b>4.3</b> Python IDE整合式開發環境</a></li>
+<li class="chapter" data-level="4.4" data-path="python.html"><a href="python.html#section-6"><i class="fa fa-check"></i><b>4.4</b> 基本操作和賦值</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="python.html"><a href="python.html#section-7"><i class="fa fa-check"></i><b>4.4.1</b> 導入套件庫</a></li>
+<li class="chapter" data-level="4.4.2" data-path="python.html"><a href="python.html#section-8"><i class="fa fa-check"></i><b>4.4.2</b> 載入資料</a></li>
+<li class="chapter" data-level="4.4.3" data-path="python.html"><a href="python.html#section-9"><i class="fa fa-check"></i><b>4.4.3</b> 簡單的繪圖</a></li>
+<li class="chapter" data-level="4.4.4" data-path="python.html"><a href="python.html#section-10"><i class="fa fa-check"></i><b>4.4.4</b> 資料視覺化</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="python.html"><a href="python.html#section-11"><i class="fa fa-check"></i><b>4.5</b> 作業</a></li>
+<li class="chapter" data-level="4.6" data-path="python.html"><a href="python.html#python-4"><i class="fa fa-check"></i><b>4.6</b> Python資源推薦：</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>5</b> JavaScript</a><ul>
+<li class="chapter" data-level="5.1" data-path="javascript.html"><a href="javascript.html#javascript-1"><i class="fa fa-check"></i><b>5.1</b> 什麼是JavaScript?</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="javascript.html"><a href="javascript.html#javascript-2"><i class="fa fa-check"></i><b>5.1.1</b> JavaScript數據類型</a></li>
+<li class="chapter" data-level="5.1.2" data-path="javascript.html"><a href="javascript.html#javascript-object-notation-json"><i class="fa fa-check"></i><b>5.1.2</b> JavaScript Object Notation (JSON)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="javascript.html"><a href="javascript.html#d3"><i class="fa fa-check"></i><b>5.2</b> 什麼是D3?</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="javascript.html"><a href="javascript.html#d3web"><i class="fa fa-check"></i><b>5.2.1</b> D3和Web文檔</a></li>
+<li class="chapter" data-level="5.2.2" data-path="javascript.html"><a href="javascript.html#sample-d3-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Sample D3 graphics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="section-12.html"><a href="section-12.html"><i class="fa fa-check"></i><b>6</b> 總結</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Programming 數據編程學</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> 簡介</h1>
+<p>本章介紹資料程式設計的一般原則。資料程式設計是一種隨資料一起工作和發展的實踐。與點擊式方法不同，程式設計允許用戶以更有效的方式管理資料和處理資料。程式旨在由用戶和協作者進行複制。可以迭代地和遞增地開發和更新資料程式。換句話說，它是建立不重複的步驟達成高效率的成品。它需要調整測試，這是除錯的過程，但事實上，程式工程師自己在未來的工作中可以使用不同的輸入，或者在使用狀況不同的時候，來更新程式不同的情況。</p>
+<div id="section-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> 程式設計原則</h2>
+<p><a href="http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf">社會科學家 Gentzkow and Shapiro (2014)</a> 列出了資料程式設計的一些原則。</p>
+<ol style="list-style-type: decimal">
+<li>自動化</li>
+</ol>
+<ul>
+<li>可複制性（不過時，面向未來）</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>版本控制</li>
+</ol>
+<ul>
+<li>允許進化和更新版本</li>
+<li>使用Git和GitHub</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>目錄</li>
+</ol>
+<ul>
+<li>按功能組織</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>索引</li>
+</ol>
+<ul>
+<li>索引變數（關係型數據庫）</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>簡約化</li>
+</ol>
+<ul>
+<li>KISS（保持簡短）</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li>紀錄</li>
+</ol>
+<ul>
+<li>給後續使用者的註解</li>
+</ul>
+<ol start="7" style="list-style-type: decimal">
+<li>管理</li>
+</ol>
+<ul>
+<li>準備作共同開發</li>
+</ul>
+</div>
+<div id="section-2" class="section level2">
+<h2><span class="header-section-number">2.2</span> 資料程式的功能</h2>
+<p>一個數據程式可以具備或執行以下功能：
+1. 紀錄數據內容
+2. 導入和導出數據
+3. 管理數據
+4. 數據視覺化
+5. 數據模型</p>
+<p>Sample R Programs R 程式範例:</p>
+<p><em>R basics 基本程式</em></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Create variables composed of random numbers</span>
+x &lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>) 
+y =<span class="st"> </span><span class="kw">rnorm</span>(x)
+
+<span class="co"># Plot the points in the plane 平面制圖 </span>
+<span class="kw">plot</span>(x, y)</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><em>Using R packages R 組件包</em></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot better, using the ggplot2 package </span>
+<span class="co">## Prerequisite: install and load the ggplot2 package</span>
+<span class="co">## install.packages(&quot;ggplot2&quot;)</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">qplot</span>(x,y)</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><em>More R Data Visualization R 數據視覺化</em></p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot better better with ggplot2</span>
+<span class="kw">ggplot</span>(,<span class="kw">aes</span>(x,y)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Sample Python Programs Python 程式範例 (## 代表程式輸出)</p>
+<p><em>Python using Pandas</em></p>
+<pre class="sourceCode python"><code class="sourceCode python">
+<span class="co"># Import a text file in csv format</span>
+<span class="im">import</span> pandas <span class="im">as</span> pd
+CO2 <span class="op">=</span> pd.read_csv(<span class="st">&quot;https://raw.githubusercontent.com/kho777/data-visualization/master/data/CO2.csv&quot;</span>)
+
+<span class="co"># Take a glimpse of the data file</span>
+CO2.head()</code></pre>
+<pre><code>##                country               CO2 _kt  CO2pc  CO2percent
+## 0                       Australia    446,348   18.6       1.23%
+## 1                   United States  5,172,336   16.1      14.26%
+## 2                    Saudi Arabia    505,565   16.0       1.39%
+## 3                          Canada    555,401   15.5       1.53%
+## 4                          Russia  1,760,895   12.3       4.86%</code></pre>
+<p><em>Python using Matplotlib</em></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Using matplotlib to do a simple plot</span>
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+CO2pc<span class="op">=</span>CO2[<span class="st">&quot;CO2pc&quot;</span>]
+plt.plot(CO2pc)</code></pre>
+<p><img src="DataProgramming_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>在接下來的章節中，將提供示範程式來說明這些功能。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["DataProgramming.pdf", "DataProgramming.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
