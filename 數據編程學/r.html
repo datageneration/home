@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 R語言程式設計 | Data Programming 數據編程學</title>
+  <title> 3 R語言程式設計 | Data Programming 數據編程學</title>
   <meta name="description" content="This book is prepared for training data scientists to do data programming or programming targeting data collection, production, curation, visualizatio and modeling. The first part will be focused on general programming grammar and principles. The following three sections will be on R, Python and JavaScript. Future developments may include other langauges (e.g. Ruby,Julia) or technologies (e.g. MapReduce, RHIPE). Samples programs will be provided. Version control information: R 3.6, RStudio 1.2.1114, Python 3.7, Anaconda 1.9.7" />
   <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 R語言程式設計 | Data Programming 數據編程學" />
+  <meta property="og:title" content=" 3 R語言程式設計 | Data Programming 數據編程學" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 R語言程式設計 | Data Programming 數據編程學" />
+  <meta name="twitter:title" content=" 3 R語言程式設計 | Data Programming 數據編程學" />
   
   <meta name="twitter:description" content="This book is prepared for training data scientists to do data programming or programming targeting data collection, production, curation, visualizatio and modeling. The first part will be focused on general programming grammar and principles. The following three sections will be on R, Python and JavaScript. Future developments may include other langauges (e.g. Ruby,Julia) or technologies (e.g. MapReduce, RHIPE). Samples programs will be provided. Version control information: R 3.6, RStudio 1.2.1114, Python 3.7, Anaconda 1.9.7" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho 何嘉耀 (洪碩廷 翻譯）" />
 
 
-<meta name="date" content="2019-05-29" />
+<meta name="date" content="2019-05-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,7 +194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="r" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> R語言程式設計</h1>
+<h1><span class="header-section-number"> 3</span> R語言程式設計</h1>
 <div id="r-1" class="section level2">
 <h2><span class="header-section-number">3.1</span> 什麼是R？</h2>
 <p>R統計程式語言是一個免費開源軟件包，以John Chambers開發的S語言作為基礎。</p>
@@ -310,19 +310,19 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## lm(formula = y ~ x, data = dummy)
 ## 
 ## Residuals:
-##     Min      1Q  Median      3Q     Max 
-## -5.2170 -2.1385 -0.1078  1.7470  7.4898 
+##    Min     1Q Median     3Q    Max 
+## -4.118 -1.445  0.336  1.559  5.515 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  -0.3730     1.5702  -0.238    0.815    
-## x             1.0084     0.1311   7.693 4.26e-07 ***
+## (Intercept) -1.71094    1.10135  -1.553    0.138    
+## x            1.25188    0.09194  13.616 6.43e-11 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 3.38 on 18 degrees of freedom
-## Multiple R-squared:  0.7668, Adjusted R-squared:  0.7538 
-## F-statistic: 59.19 on 1 and 18 DF,  p-value: 4.257e-07</code></pre>
+## Residual standard error: 2.371 on 18 degrees of freedom
+## Multiple R-squared:  0.9115, Adjusted R-squared:  0.9066 
+## F-statistic: 185.4 on 1 and 18 DF,  p-value: 6.433e-11</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -336,18 +336,18 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## 
 ## Weighted Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -2.01035 -0.93298  0.03617  0.85342  3.13079 
+## -1.61960 -0.59622  0.00968  0.60198  1.89804 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  -0.6039     1.1799  -0.512    0.615    
-## x             1.0287     0.1203   8.550 9.39e-08 ***
+## (Intercept) -1.00224    0.79900  -1.254    0.226    
+## x            1.18724    0.08147  14.573 2.09e-11 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.304 on 18 degrees of freedom
-## Multiple R-squared:  0.8024, Adjusted R-squared:  0.7914 
-## F-statistic:  73.1 on 1 and 18 DF,  p-value: 9.385e-08</code></pre>
+## Residual standard error: 0.8829 on 18 degrees of freedom
+## Multiple R-squared:  0.9219, Adjusted R-squared:  0.9175 
+## F-statistic: 212.4 on 1 and 18 DF,  p-value: 2.089e-11</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)
@@ -375,7 +375,7 @@ lrf &lt;-<span class="st"> </span><span class="kw">lowess</span>(x, y)
 <span class="co"># Weighted regression line.</span>
 
 <span class="kw">abline</span>(<span class="kw">coef</span>(fm1), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A standard regression diagnostic plot to check for heteroscedasticity. Can you see it?</span>
 
 <span class="kw">plot</span>(<span class="kw">fitted</span>(fm), <span class="dt">pch=</span><span class="dv">20</span>, <span class="kw">resid</span>(fm), <span class="dt">xlab=</span><span class="st">&quot;Fitted values&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Residuals&quot;</span>, <span class="dt">main=</span><span class="st">&quot;Residuals vs Fitted&quot;</span>)
@@ -383,11 +383,11 @@ lrf &lt;-<span class="st"> </span><span class="kw">lowess</span>(x, y)
 <span class="co"># How about now?</span>
 
 <span class="kw">abline</span>(<span class="dv">0</span>,<span class="dv">0</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)  </code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A normal scores plot to check for skewness, kurtosis and outliers.</span>
 
 <span class="kw">qqnorm</span>(<span class="kw">resid</span>(fm), <span class="dt">main=</span><span class="st">&quot;Residuals Rankit Plot&quot;</span>, <span class="dt">pch=</span><span class="dv">17</span>)</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Cleaning up</span>
 
 <span class="kw">rm</span>(<span class="dt">list =</span> <span class="kw">ls</span>())</code></pre>
@@ -420,7 +420,7 @@ TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID &lt;-<span cla
 <span class="co">## install.packages(&quot;descr&quot;)</span>
 <span class="kw">library</span>(descr)
 <span class="kw">freq</span>(TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID)</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <pre><code>## TEDS_2016$PartyID 
 ##       Frequency  Percent
 ## KMT         388  22.9586
@@ -435,14 +435,14 @@ TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID &lt;-<span cla
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the Party ID variable</span>
 <span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>()</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>We can attend to more detail of the chart, such as adding labels to x and y axes, and calculating the percentage instead of counts.加入細節</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y =</span> (..count..)<span class="op">/</span><span class="kw">sum</span>(..count..))) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>scales<span class="op">::</span>percent) <span class="op">+</span>
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Party Support (%)&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>)</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>Adding colors, with another theme 加入顏色，設計:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y =</span> (..count..)<span class="op">/</span><span class="kw">sum</span>(..count..),<span class="dt">fill=</span>PartyID)) <span class="op">+</span><span class="st"> </span>
@@ -450,7 +450,7 @@ TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID &lt;-<span cla
 <span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Party Support (%)&quot;</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>()</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
 <p>Hold on, colors are not right!顏色有對嗎？</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y =</span> (..count..)<span class="op">/</span><span class="kw">sum</span>(..count..),<span class="dt">fill=</span>PartyID)) <span class="op">+</span><span class="st"> </span>
@@ -459,7 +459,7 @@ TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID &lt;-<span cla
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;steel blue&quot;</span>,<span class="st">&quot;forestgreen&quot;</span>,<span class="st">&quot;khaki1&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;goldenrod&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;grey&quot;</span>))</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 <p>To make the chart more meaningful, we can use a package called tidyverse to manage the data. 更專業的圖表需要用tidyverse程式包</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">##install.packages(&quot;tidyverse&quot;)</span>
 <span class="kw">library</span>(tidyverse)
@@ -472,7 +472,7 @@ TEDS_<span class="dv">2016</span> <span class="op">%&gt;%</span><span class="st"
 <span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;steel blue&quot;</span>,<span class="st">&quot;forestgreen&quot;</span>,<span class="st">&quot;khaki1&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;goldenrod&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;grey&quot;</span>))</code></pre>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="%E6%95%B8%E6%93%9A%E7%B7%A8%E7%A8%8B%E5%AD%B8_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 </div>
 <div id="section-5" class="section level2">
 <h2><span class="header-section-number">3.6</span> 作業</h2>
@@ -544,7 +544,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["DataProgramming.pdf", "DataProgramming.epub"],
+"download": ["數據編程學.pdf", "數據編程學.epub"],
 "toc": {
 "collapse": "subsection"
 }
