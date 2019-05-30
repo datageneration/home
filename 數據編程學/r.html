@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho 何嘉耀 (洪碩廷 翻譯）" />
 
 
-<meta name="date" content="2019-05-30" />
+<meta name="date" content="2019-05-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -130,7 +130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 課前準備</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 簡介</a><ul>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> 導論</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#section-1"><i class="fa fa-check"></i><b>2.1</b> 程式設計原則</a></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#section-2"><i class="fa fa-check"></i><b>2.2</b> 資料程式的功能</a></li>
 </ul></li>
@@ -217,13 +217,15 @@ Figure 3.1: R Inventors
 <li>互動</li>
 <li>支持多種作業系統：Windows，Mac，Linux</li>
 </ul>
-<p>根據John Chambers（2009）的解釋，R的六個方面包括：
-1. 一個具備多種類運算處理流程的功能介面;
-2. 互動，容易上手的;
-3. 具備功能性的程式模塊;
-4. 物件導向，“一切都是物件”;
-5. 模組化，由標準化元件製成;
-6. 全世界的開源與協做。</p>
+<p>根據John Chambers（2009）的解釋，R的六個方面包括：</p>
+<ol style="list-style-type: decimal">
+<li>一個具備多種類運算處理流程的功能介面;</li>
+<li>互動，容易上手的;</li>
+<li>具備功能性的程式模塊;</li>
+<li>物件導向，“一切都是物件”;</li>
+<li>模組化，由標準化元件製成;</li>
+<li>全世界的開源與協做。</li>
+</ol>
 <div class="figure"><span id="fig:Rdevelopers"></span>
 <img src="Rdevelopers.png" alt="Prominent R Developers" width="100%" />
 <p class="caption">
@@ -254,13 +256,15 @@ Figure 3.3: R Compared with other statistical programs/platforms
 </div>
 <div id="rstudio" class="section level2">
 <h2><span class="header-section-number">3.3</span> RStudio</h2>
-<p>RStudio是統計程式設計軟體R的使用者介面。
-- 物件導向的環境
-- 視窗化的使用者介面
-- 點擊操作
-- 編碼推薦
-- 擴張和發展
-- 多功能整合開發環境（IDE）</p>
+<p>RStudio是統計程式設計軟體R的使用者介面。</p>
+<ul>
+<li>物件導向的環境</li>
+<li>視窗化的使用者介面</li>
+<li>點擊操作</li>
+<li>編碼推薦</li>
+<li>擴張和發展</li>
+<li>多功能整合開發環境（IDE）</li>
+</ul>
 <div class="figure"><span id="fig:Rstudioscreenshot"></span>
 <img src="RStudioscreenshot.png" alt="RStudio screenshot" width="100%" />
 <p class="caption">
@@ -310,19 +314,19 @@ fm &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~
 ## lm(formula = y ~ x, data = dummy)
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -4.118 -1.445  0.336  1.559  5.515 
+##     Min      1Q  Median      3Q     Max 
+## -3.6924 -1.9391 -0.6987  1.7546  6.0045 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -1.71094    1.10135  -1.553    0.138    
-## x            1.25188    0.09194  13.616 6.43e-11 ***
+## (Intercept)   1.1202     1.2720   0.881     0.39    
+## x             0.8594     0.1062   8.094 2.07e-07 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.371 on 18 degrees of freedom
-## Multiple R-squared:  0.9115, Adjusted R-squared:  0.9066 
-## F-statistic: 185.4 on 1 and 18 DF,  p-value: 6.433e-11</code></pre>
+## Residual standard error: 2.738 on 18 degrees of freedom
+## Multiple R-squared:  0.7845, Adjusted R-squared:  0.7725 
+## F-statistic: 65.51 on 1 and 18 DF,  p-value: 2.074e-07</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use w for a weighted regression.</span>
 
 fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x, <span class="dt">data=</span>dummy, <span class="dt">weight=</span><span class="dv">1</span><span class="op">/</span>w<span class="op">^</span><span class="dv">2</span>) 
@@ -335,19 +339,19 @@ fm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">
 ## lm(formula = y ~ x, data = dummy, weights = 1/w^2)
 ## 
 ## Weighted Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -1.61960 -0.59622  0.00968  0.60198  1.89804 
+##     Min      1Q  Median      3Q     Max 
+## -1.7109 -0.8223 -0.1043  0.7199  2.0693 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -1.00224    0.79900  -1.254    0.226    
-## x            1.18724    0.08147  14.573 2.09e-11 ***
+## (Intercept) -0.01195    1.01339  -0.012    0.991    
+## x            0.96226    0.10333   9.312 2.64e-08 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.8829 on 18 degrees of freedom
-## Multiple R-squared:  0.9219, Adjusted R-squared:  0.9175 
-## F-statistic: 212.4 on 1 and 18 DF,  p-value: 2.089e-11</code></pre>
+## Residual standard error: 1.12 on 18 degrees of freedom
+## Multiple R-squared:  0.8281, Adjusted R-squared:  0.8186 
+## F-statistic: 86.72 on 1 and 18 DF,  p-value: 2.643e-08</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make the columns in the data frame visible as variables.</span>
 
 <span class="kw">attach</span>(dummy)

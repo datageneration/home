@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-05-29}
+    \date{2019-05-30}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -156,11 +156,11 @@
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  R（\url{https://cran.r-project.org}）
+  R version 3.6（\url{https://cran.r-project.org}）
 \item
-  RStudio（\url{https://www.rstudio.com}）
+  RStudio Version 1.2.x（\url{https://www.rstudio.com}）
 \item
-  Anaconda 3（\url{https://www.anaconda.com}）*
+  Anaconda 3 version 1.9.7（\url{https://www.anaconda.com}）*
 \item
   自己選擇的文本編輯器（例如Atom，Sublime Text，Ultraedit）
 \end{enumerate}
@@ -174,8 +174,9 @@
   GitHub（\url{https://github.com}）
 \item
   RStudio Cloud
-  （*） - 僅限Python 3.x.
 \end{enumerate}
+
+（*） - 僅限Python 3.x.
 
 \hypertarget{intro}{%
 \chapter{簡介}\label{intro}}
@@ -290,11 +291,21 @@
 \section{資料程式的功能}\label{section-2}}
 
 一個數據程式可以具備或執行以下功能：
-1. 紀錄數據內容
-2. 導入和導出數據
-3. 管理數據
-4. 數據視覺化
-5. 數據模型
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  紀錄數據內容
+\item
+  導入和導出數據
+\item
+  管理數據
+\item
+  數據視覺化
+\item
+  數據模型
+\end{enumerate}
 
 Sample R Programs R 程式範例:
 
@@ -519,18 +530,18 @@ RStudio是統計程式設計軟體R的使用者介面。
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -4.7984 -1.9825  0.1844  1.6870  4.7754 
+## -4.1767 -1.4080 -0.0829  1.4623  4.6022 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)   0.7154     1.3141   0.544    0.593    
-## x             0.8270     0.1097   7.539 5.65e-07 ***
+## (Intercept)   0.6537     1.1847   0.552    0.588    
+## x             0.8860     0.0989   8.958 4.72e-08 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 2.829 on 18 degrees of freedom
-## Multiple R-squared:  0.7595, Adjusted R-squared:  0.7461 
-## F-statistic: 56.84 on 1 and 18 DF,  p-value: 5.645e-07
+## Residual standard error: 2.55 on 18 degrees of freedom
+## Multiple R-squared:  0.8168, Adjusted R-squared:  0.8066 
+## F-statistic: 80.25 on 1 and 18 DF,  p-value: 4.718e-08
 \end{verbatim}
 
 \begin{Shaded}
@@ -552,18 +563,18 @@ RStudio是統計程式設計軟體R的使用者介面。
 ## 
 ## Weighted Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1.95722 -0.75273  0.07441  0.65563  1.69408 
+## -2.06173 -0.48750 -0.03294  0.53490  2.08590 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(>|t|)    
-## (Intercept)  0.44882    0.96764   0.464    0.648    
-## x            0.85121    0.09867   8.627 8.23e-08 ***
+## (Intercept)  0.57067    0.93354   0.611    0.549    
+## x            0.89343    0.09519   9.386 2.35e-08 ***
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ## 
-## Residual standard error: 1.069 on 18 degrees of freedom
-## Multiple R-squared:  0.8053, Adjusted R-squared:  0.7944 
-## F-statistic: 74.43 on 1 and 18 DF,  p-value: 8.231e-08
+## Residual standard error: 1.032 on 18 degrees of freedom
+## Multiple R-squared:  0.8303, Adjusted R-squared:  0.8209 
+## F-statistic: 88.09 on 1 and 18 DF,  p-value: 2.347e-08
 \end{verbatim}
 
 \begin{Shaded}
