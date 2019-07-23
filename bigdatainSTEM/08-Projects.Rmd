@@ -1,0 +1,91 @@
+# Project Challenge {#Projects}
+
+This chapters provide some project ideas for students to start brainstorming how to use data science to solve real world problems:
+
+1. Start with locating/search for usable data sources
+2. Download and prepare the data for use in R
+3. Visualize the data for discussions of the next steps
+4. Put together a plan to start a data-driven social project.
+
+## Project 1: The Homeless Situation
+
+- Dataset:
+
+https://data.world/dconc/2007-2017-homeless-point-in-time-count-all-us-communities
+
+-  Hint:
+
+The Point-in-Time (PIT) count is a count of sheltered and unsheltered homeless persons on a single night in January.
+Continuum of Care (CoC) Homeless Assistance Programs Homeless Populations and Subpopulations Reports provide counts for sheltered and unsheltered homeless persons by household type and subpopulation, available at the national and state level, and for each CoC.
+Using this dataset to find the situation of homeless population in every state.
+
+Sample R codes (note the data frame name):
+```{r eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library("httr")
+library("readxl")
+GET("https://query.data.world/s/dxnjpgn6rsevmkjti56ddpw4pduq3c", write_disk(tf1 <- tempfile(fileext = ".xlsx")))
+homeless <- read_excel(tf1)
+
+```
+
+## Project 2: Children in foster care
+
+- Dataset: 
+
+Children 0 to 17 in foster care in the United States Link: https://datacenter.kidscount.org/data/tables/6242-children-0-to-17-in-foster-care#detailed/2/2-53/false/870,573,869,36,868,867,133,38,35,18/any/12985,12986
+
+Definitions: The number and rate per 1,000 children under age 18 in the foster care system. Some states allow children to remain in the foster care system until their 18th birthday while other states have age limits that extend a few years beyond this. To allow for comparison across states, this indicator includes the population under age 18 in foster care. Children are categorized as being in foster care if they entered prior to the end of the current fiscal year and have not been discharged from their latest foster care spell by the end of the current fiscal year. Rates are based on Census Bureau estimates of the population of children ages 0 to 17 in each state, as of July 1st of the respective year. National estimates do not include Puerto Rico.
+
+Data Source: Child Trends analysis of data from the Adoption and Foster Care Analysis and Reporting System (AFCARS), made available through the National Data Archive on Child Abuse and Neglect.
+Using this dataset to find the situation of children in foster care in every state.
+
+Sample R codes (note the data frame name):
+```{r eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE, paged.print=FALSE}
+
+library("httr")
+library("readxl")
+GET("https://datacenter.kidscount.org/rawdata.axd?ind=6242&loc=1", write_disk(tf2<- tempfile(fileext = ".xlsx")))
+fosterkids <- read_excel(tf2)
+
+```
+
+
+
+## Project 3: Poverty in the U.S.
+
+- Dataset: 
+
+https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2503&prodType=table
+
+Source: U.S. Census Bureau, 2013-2017 American Community Survey 5-Year Estimates
+
+Use this dataset to find the income distribution in every State.
+
+
+## Project 4: The Disability 
+
+- Dataset: DISABILITY CHARACTERISTICS
+
+https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S1810&prodType=table
+
+- Dataset:
+
+https://data.cdc.gov/Disability-Health/Disability-and-Health-Data-System-DHDS-/k62p-6esq
+
+- Hint:
+
+Disability and Health Data System (DHDS) is an online source of state-level data on adults with disabilities. Users can access information on six functional disability types: cognitive (serious difficulty concentrating, remembering or making decisions), hearing (serious difficulty hearing or deaf), mobility (serious difficulty walking or climbing stairs), vision (serious difficulty seeing), self-care (difficulty dressing or bathing) and independent living (difficulty doing errands alone).
+Using this dataset to find the number of disabled people in every State.
+
+## Project 5: The Elderly
+
+- Dataset: 
+
+https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_GCT0103.US01PR&prodType=table
+
+- Hint: 
+
+It shows the percent of the total population who are 65 years and over from 2009 to 2017 in the United States.
+Why do some states have higher percentage? 
+  

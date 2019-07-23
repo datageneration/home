@@ -1,0 +1,6 @@
+book_filename: "BigdatainSTEM"
+language:
+  ui:
+    chapter_name: "Chapter "
+delete_merged_file: true
+rmd_files: ["index.Rmd", "01-intro.Rmd", "02-DataMethods.Rmd","03-DataProgramming.Rmd","04-RProgramming.Rmd","05-PythonProgramming.Rmd","06-JavaScript.Rmd","07-Summary.Rmd","09-References.Rmd","08-Projects.Rmd"]

@@ -1,0 +1,85 @@
+# Data Programming {#Dataprogramming}
+
+This chapter provides basic principles for data programming or coding involving data. Data programming is a practice that works and evolves with data.  Unlike the point-and-click approach, programming allows the user to manage most closely the data and process data in more effective manner.  Programs are designed to be replicable, by user and collaborators.  A data program can be developed and updated iteratively and incrementally.  In other words, it is building on the culminated works without repeating the steps.   It takes debugging, which is the process of identifying problems (bugs) but, in fact, updating the program in different situations or with differnt inputs when used in different contexts, including the programmer himself or herself working in future times. 
+
+## Principles of Programming 
+
+[Social scientists Gentzkow and Shapiro (2014)](http://home.bi.no/charlotte.ostergaard/students/CodeAndData.pdf) list out some principles for data programming.  
+
+1. Automation
+- For replicability (future-proof, for the future you)
+2. Version Control
+- Allow evolution and updated edition
+- Use Git and GitHub
+3. Directories/Modularity
+- Organize by functions and data chunks
+4. Keys
+- Index variable (relational)
+5. Abstraction
+- KISS (Keep in short and simple)
+6. Documentation
+- Comments for communicating to later users
+7. Management
+- Collaboration ready        
+
+
+## Functionalities of Data Programs
+
+A data program can provide or perform :
+  
+  1. Documentation of data
+2. Importing and exporting data
+3. Management of data
+4. Visualization of data
+5. Data models
+
+Sample R Programs:
+  
+  *R basics*
+```{r message=FALSE, warning=FALSE}
+# Create variables composed of random numbers
+x <-rnorm(50) 
+y = rnorm(x)
+
+# Plot the points in the plane 
+plot(x, y)
+```
+
+*Using R packages*
+```{r message=FALSE, warning=FALSE}
+# Plot better, using the ggplot2 package 
+## Prerequisite: install and load the ggplot2 package
+## install.packages("ggplot2")
+library(ggplot2)
+qplot(x,y)
+```
+
+*More R Data Visualization*
+```{r message=FALSE, warning=FALSE}
+# Plot better better with ggplot2
+ggplot(,aes(x,y)) + theme_bw() + geom_point(col="blue")
+```
+
+Sample Python Programs (## represents output)
+  
+  *Python using Pandas*
+```{python}
+
+# Import a text file in csv format
+import pandas as pd
+CO2 = pd.read_csv("https://raw.githubusercontent.com/kho777/data-visualization/master/data/CO2.csv")
+  
+# Take a glimpse of the data file
+CO2.head()
+```
+  
+*Python using Matplotlib*
+```{python}
+# Using matplotlib to do a simple plot
+import matplotlib.pyplot as plt
+CO2pc=CO2["CO2pc"]
+plt.plot(CO2pc)
+  
+```
+  
+  In the subsequent chapters, sample programs will be provided to illustrate how to code or program in different environments to perform data science functionalities.

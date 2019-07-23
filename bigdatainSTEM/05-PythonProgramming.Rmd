@@ -1,0 +1,143 @@
+# Python Programming
+
+## What is Python?
+
+- Interpreted, high level computer language
+- Invented by Dutch programmer Guido van Rossum
+- Named after the TV Show *Monty Python's Flying Circus*
+- Open sourced programming language
+
+```{r Pythoninventor, echo=FALSE, fig.cap="Python Inventor Guido van Rossum", out.width = '50%',fig.align="right"}
+knitr::include_graphics("Pythoninventor.png")
+```
+
+### Why Python?
+
+- Simplicity
+- Large ecosystem of domain-specific tools  to facilitate scientific - computing and data science
+- User-built packages
+- Data management
+  - Web data
+  - Data munging
+
+## Python basic packges:
+
+1. NumPy - manipulation of homogeneous array-based data
+2. Pandas - manipulation of heterogeneous and labeled data
+3. SciPy - for common scientific computing tasks
+4. Matplotlib - data visualizations
+5. IPython - interactive execution and sharing of code using Jupyter notebook
+6. Scikit-Learn - machine learning
+
+## Python IDE
+
+Choice of Integrated Desktop Environment matters! There are plenty of IDE available for python programming and developments.  To name a few:
+
+- IDLE
+- Pycharm
+- Jupyter Notebook
+- Spyder
+- Rodeo
+- R Studio
+
+## Basic operations and object assignment
+
+```{python}
+# Python example program 0
+# Some basics
+
+# Print a one-line message
+print ("Hello NCHU 中興大學 friends!!")
+
+# Create some variables
+x=5
+y=3
+
+# Perform some mathematical operations
+x*y
+x**y
+x%y
+```
+
+### Import libraries
+
+```{python}
+#Import Python Libraries
+import numpy as np
+import scipy as sp
+import pandas as pd
+import matplotlib as mpl
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+
+### Import data
+```{python}
+
+# Import a text file in csv format
+import pandas as pd
+CO2 = pd.read_csv("https://raw.githubusercontent.com/kho777/data-visualization/master/data/CO2.csv")
+
+# Take a glimpse of the data file
+CO2.head()
+```
+
+### Simple plot
+
+```{python}
+# Creating variables
+xs = [1,3,5,7,9]
+ys = [x**2 for x in xs]
+
+# Simple plot
+plt.plot(xs, ys)
+
+xs = range(-100,100,10)
+x2 = [x**2 for x in xs]
+negx2 = [-x**2 for x in xs]
+
+# Combined plot
+
+plt.plot(xs, x2)
+plt.plot(xs, negx2)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.ylim(-2000, 2000)
+plt.axhline(0,color="red") # horiz line
+plt.axvline(0,color="green") # vert line
+plt.show()
+
+```
+
+### Visualizing data
+
+```{python}
+
+import matplotlib.pyplot as plt
+
+x = np.linspace(0, 2, 100)
+plt.plot(x, x, label='linear',color="pink")
+plt.plot(x, x**2, label='quadratic')
+plt.plot(x, x**3, label='cubic')
+plt.xlabel('x',fontsize=12,fontweight='bold')
+plt.ylabel('y',fontsize=12,fontweight='bold')
+
+plt.title("Plotting functions: Linear, quadratic and cubic", fontsize=16,fontweight='bold')
+```
+
+## Exercise
+
+This exercise is designed to run in class.  Students are advised to install Anaconda 3 to own computer.  
+
+1. Launch Jupyter Notebook from Anaconda
+2. On Applications pulldown menu, choose anaconda3
+3. Run sample programs from class GitHub (https://github.com/datageneration/dataprogramming/)
+
+## Recommended Python Resources:
+
+- [A Whirlwind Tool of Python](https://jakevdp.github.io/WhirlwindTourOfPython/00-introduction.html): Getting started
+- [Datacamp](https://datacamp.com): Online training courses
+- [Matplotlib.org](http://matplotlib.org): Data visualization

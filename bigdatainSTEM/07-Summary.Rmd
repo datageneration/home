@@ -1,0 +1,7 @@
+# Summary {#summary}
+
+This manuscript provides brief notes and sample programs for the "Big Data in STEM" course covering the basics in Data Science and programming skills. The language used in this course is primarily R but notes in Python and JavaScript are also provided. There will be more developments to add materials and sample programs to build this manuscript into a full-blown codebook for data science.  
+
+More materials can be accessed at the GitHub:
+
+[https://www.github.com/datageneration/bigdatainSTEM/](https://www.github.com/datageneration/bigdatainSTEM/)

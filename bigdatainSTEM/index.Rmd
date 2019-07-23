@@ -1,0 +1,37 @@
+--- 
+title: "Big Data in STEM"
+author: "Karl Ho"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "This volume is prepared for the 'Big Data in STEM' course training data scientists to do data collection, visualization and modeling.  The first part will be focused on general data theory  and principles.  The following  sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects.  Version control information: R 3.6, RStudio 1.2.1114"
+---
+
+# Prerequisites
+
+This course requires no prior experience in data programming.  Yet, if you have some programming experience (e.g. SPSS, Stata, HTML), it will be helpful.  R will be the main language and platform used in this course.  The IDE is RStudio. R, Python and JavaScript are all interpreted languages.  In other words, the programs do not need compilation but will run in an environment (i.e. IDE) to get the outputs.
+
+All packages and accounts are free and supported by open sources. It is recommended students bring their own computers (not mobile device) running MacOS, Linux or Windows operating systems. Otherwise, users may acquire a Google and/or GitHub account for logging into RStudio Cloud for run programs in this volume. 
+
+*Recommended software and IDE’s*:
+
+1.	R version 3.6 (https://cran.r-project.org)
+2.	RStudio version 1.2.x (https://www.rstudio.com)
+
+* Optional software and IDE's *:
+
+3.	Anaconda 3 version 1.9.7 (https://www.anaconda.com)*
+4.  Text editor of own choice (e.g. Atom, Sublime Text, Ultraedit)
+
+*Recommended websites/accounts*: 
+
+1. GitHub (https://github.com)
+2. RStudio Cloud
+
+(*) – Python 3.x only. 
+

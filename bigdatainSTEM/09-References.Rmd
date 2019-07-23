@@ -1,0 +1,13 @@
+`r if (knitr:::is_html_output()) '
+# References {-}
+
+Ginsberg, J., Mohebbi, M.H., Patel, R.S., Brammer, L., Smolinski, M.S. and Brilliant, L., 2009. Detecting influenza epidemics using search engine query data. *Nature*, 457(7232), p.1012.
+
+Lazer, D., Kennedy, R., King, G. and Vespignani, A., 2014. The parable of Google Flu: traps in big data analysis. *Science*, 343(6176), pp.1203-1205.
+
+Monroe, Burt L. 2013. “The Five Vs of Big Data Political Science Introduction to the Virtual Issue on Big Data in Political Science Political Analysis.” *Political Analysis* 21 (V5). Cambridge University Press: 1–9.
+
+Munzert, Simon, Christian Rubba, Peter Meißner and Dominic Nyhuis. *Automated Data Collection with R: a Practical Guide to Web Scraping and Text Mining* *. Chichester, England: Wiley, 2015. Print.
+
+
+'`
