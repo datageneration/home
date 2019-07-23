@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Project Challenge | Big Data in STEM</title>
+  <meta name="description" content="This volume is prepared for the ‘Big Data in STEM’ course training data scientists to do data collection, visualization and modeling. The first part will be focused on general data theory and principles. The following sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects. Version control information: R 3.6, RStudio 1.2.1114" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Project Challenge | Big Data in STEM" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This volume is prepared for the ‘Big Data in STEM’ course training data scientists to do data collection, visualization and modeling. The first part will be focused on general data theory and principles. The following sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects. Version control information: R 3.6, RStudio 1.2.1114" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Project Challenge | Big Data in STEM" />
+  
+  <meta name="twitter:description" content="This volume is prepared for the ‘Big Data in STEM’ course training data scientists to do data collection, visualization and modeling. The first part will be focused on general data theory and principles. The following sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects. Version control information: R 3.6, RStudio 1.2.1114" />
+  
+
+<meta name="author" content="Karl Ho" />
+
+
+<meta name="date" content="2019-07-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="summary.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Big Data in STEM</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-data"><i class="fa fa-check"></i><b>2.1</b> What is data?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#what-is-big-data"><i class="fa fa-check"></i><b>2.2</b> What is big data?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#illustration-the-story-of-google-flu-trend"><i class="fa fa-check"></i><b>2.3</b> Illustration: The story of Google Flu Trend</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Datamethods.html"><a href="Datamethods.html"><i class="fa fa-check"></i><b>3</b> Data methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="Datamethods.html"><a href="Datamethods.html#data-production-and-collection"><i class="fa fa-check"></i><b>3.1</b> Data Production and Collection</a></li>
+<li class="chapter" data-level="3.2" data-path="Datamethods.html"><a href="Datamethods.html#data-collection-showcase-web-data"><i class="fa fa-check"></i><b>3.2</b> Data collection showcase: web data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Dataprogramming.html"><a href="Dataprogramming.html"><i class="fa fa-check"></i><b>4</b> Data Programming</a><ul>
+<li class="chapter" data-level="4.1" data-path="Dataprogramming.html"><a href="Dataprogramming.html#principles-of-programming"><i class="fa fa-check"></i><b>4.1</b> Principles of Programming</a></li>
+<li class="chapter" data-level="4.2" data-path="Dataprogramming.html"><a href="Dataprogramming.html#functionalities-of-data-programs"><i class="fa fa-check"></i><b>4.2</b> Functionalities of Data Programs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>5</b> R Programming</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-programming.html"><a href="r-programming.html#what-is-r"><i class="fa fa-check"></i><b>5.1</b> What is R?</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-programming.html"><a href="r-programming.html#some-history-of-r-and-s"><i class="fa fa-check"></i><b>5.1.1</b> Some history of R and S</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-programming.html"><a href="r-programming.html#it-is"><i class="fa fa-check"></i><b>5.1.2</b> It is:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-programming.html"><a href="r-programming.html#why-r"><i class="fa fa-check"></i><b>5.2</b> Why R?</a></li>
+<li class="chapter" data-level="5.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>5.3</b> RStudio</a></li>
+<li class="chapter" data-level="5.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>5.4</b> Basic operations and object assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="r-programming.html"><a href="r-programming.html#illustration"><i class="fa fa-check"></i><b>5.5</b> Illustration</a></li>
+<li class="chapter" data-level="5.6" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>5.6</b> Recommended R Resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>6</b> Python Programming</a><ul>
+<li class="chapter" data-level="6.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>6.1</b> What is Python?</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="python-programming.html"><a href="python-programming.html#why-python"><i class="fa fa-check"></i><b>6.1.1</b> Why Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="python-programming.html"><a href="python-programming.html#python-basic-packges"><i class="fa fa-check"></i><b>6.2</b> Python basic packges:</a></li>
+<li class="chapter" data-level="6.3" data-path="python-programming.html"><a href="python-programming.html#python-ide"><i class="fa fa-check"></i><b>6.3</b> Python IDE</a></li>
+<li class="chapter" data-level="6.4" data-path="python-programming.html"><a href="python-programming.html#basic-operations-and-object-assignment-1"><i class="fa fa-check"></i><b>6.4</b> Basic operations and object assignment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="python-programming.html"><a href="python-programming.html#import-libraries"><i class="fa fa-check"></i><b>6.4.1</b> Import libraries</a></li>
+<li class="chapter" data-level="6.4.2" data-path="python-programming.html"><a href="python-programming.html#import-data"><i class="fa fa-check"></i><b>6.4.2</b> Import data</a></li>
+<li class="chapter" data-level="6.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>6.4.3</b> Simple plot</a></li>
+<li class="chapter" data-level="6.4.4" data-path="python-programming.html"><a href="python-programming.html#visualizing-data"><i class="fa fa-check"></i><b>6.4.4</b> Visualizing data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="python-programming.html"><a href="python-programming.html#exercise"><i class="fa fa-check"></i><b>6.5</b> Exercise</a></li>
+<li class="chapter" data-level="6.6" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>6.6</b> Recommended Python Resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>7</b> JavaScript</a><ul>
+<li class="chapter" data-level="7.1" data-path="javascript.html"><a href="javascript.html#what-is-javascript"><i class="fa fa-check"></i><b>7.1</b> What is JavaScript?</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="javascript.html"><a href="javascript.html#javascript-data-types"><i class="fa fa-check"></i><b>7.1.1</b> JavaScript Data Types</a></li>
+<li class="chapter" data-level="7.1.2" data-path="javascript.html"><a href="javascript.html#json"><i class="fa fa-check"></i><b>7.1.2</b> JSON</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="javascript.html"><a href="javascript.html#what-is-d3"><i class="fa fa-check"></i><b>7.2</b> What is D3?</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="javascript.html"><a href="javascript.html#d3-and-web-documents"><i class="fa fa-check"></i><b>7.2.1</b> D3 and web documents</a></li>
+<li class="chapter" data-level="7.2.2" data-path="javascript.html"><a href="javascript.html#sample-d3-graphics"><i class="fa fa-check"></i><b>7.2.2</b> Sample D3 graphics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>8</b> Summary</a></li>
+<li class="chapter" data-level="9" data-path="Projects.html"><a href="Projects.html"><i class="fa fa-check"></i><b>9</b> Project Challenge</a><ul>
+<li class="chapter" data-level="9.1" data-path="Projects.html"><a href="Projects.html#project-1-the-homeless-situation"><i class="fa fa-check"></i><b>9.1</b> Project 1: The Homeless Situation</a></li>
+<li class="chapter" data-level="9.2" data-path="Projects.html"><a href="Projects.html#project-2-children-in-foster-care"><i class="fa fa-check"></i><b>9.2</b> Project 2: Children in foster care</a></li>
+<li class="chapter" data-level="9.3" data-path="Projects.html"><a href="Projects.html#project-3-poverty-in-the-u.s."><i class="fa fa-check"></i><b>9.3</b> Project 3: Poverty in the U.S.</a></li>
+<li class="chapter" data-level="9.4" data-path="Projects.html"><a href="Projects.html#project-4-the-disability"><i class="fa fa-check"></i><b>9.4</b> Project 4: The Disability</a></li>
+<li class="chapter" data-level="9.5" data-path="Projects.html"><a href="Projects.html#project-5-the-elderly"><i class="fa fa-check"></i><b>9.5</b> Project 5: The Elderly</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Big Data in STEM</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Projects" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> Project Challenge</h1>
+<p>This chapters provide some project ideas for students to start brainstorming how to use data science to solve real world problems:</p>
+<ol style="list-style-type: decimal">
+<li>Start with locating/search for usable data sources</li>
+<li>Download and prepare the data for use in R</li>
+<li>Visualize the data for discussions of the next steps</li>
+<li>Put together a plan to start a data-driven social project.</li>
+</ol>
+<div id="project-1-the-homeless-situation" class="section level2">
+<h2><span class="header-section-number">9.1</span> Project 1: The Homeless Situation</h2>
+<ul>
+<li>Dataset:</li>
+</ul>
+<p><a href="https://data.world/dconc/2007-2017-homeless-point-in-time-count-all-us-communities" class="uri">https://data.world/dconc/2007-2017-homeless-point-in-time-count-all-us-communities</a></p>
+<ul>
+<li>Hint:</li>
+</ul>
+<p>The Point-in-Time (PIT) count is a count of sheltered and unsheltered homeless persons on a single night in January.
+Continuum of Care (CoC) Homeless Assistance Programs Homeless Populations and Subpopulations Reports provide counts for sheltered and unsheltered homeless persons by household type and subpopulation, available at the national and state level, and for each CoC.
+Using this dataset to find the situation of homeless population in every state.</p>
+<p>Sample R codes (note the data frame name):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;httr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)
+<span class="kw">GET</span>(<span class="st">&quot;https://query.data.world/s/dxnjpgn6rsevmkjti56ddpw4pduq3c&quot;</span>, <span class="kw">write_disk</span>(tf1 &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">fileext =</span> <span class="st">&quot;.xlsx&quot;</span>)))
+homeless &lt;-<span class="st"> </span><span class="kw">read_excel</span>(tf1)</code></pre>
+</div>
+<div id="project-2-children-in-foster-care" class="section level2">
+<h2><span class="header-section-number">9.2</span> Project 2: Children in foster care</h2>
+<ul>
+<li>Dataset:</li>
+</ul>
+<p>Children 0 to 17 in foster care in the United States Link: <a href="https://datacenter.kidscount.org/data/tables/6242-children-0-to-17-in-foster-care#detailed/2/2-53/false/870,573,869,36,868,867,133,38,35,18/any/12985,12986" class="uri">https://datacenter.kidscount.org/data/tables/6242-children-0-to-17-in-foster-care#detailed/2/2-53/false/870,573,869,36,868,867,133,38,35,18/any/12985,12986</a></p>
+<p>Definitions: The number and rate per 1,000 children under age 18 in the foster care system. Some states allow children to remain in the foster care system until their 18th birthday while other states have age limits that extend a few years beyond this. To allow for comparison across states, this indicator includes the population under age 18 in foster care. Children are categorized as being in foster care if they entered prior to the end of the current fiscal year and have not been discharged from their latest foster care spell by the end of the current fiscal year. Rates are based on Census Bureau estimates of the population of children ages 0 to 17 in each state, as of July 1st of the respective year. National estimates do not include Puerto Rico.</p>
+<p>Data Source: Child Trends analysis of data from the Adoption and Foster Care Analysis and Reporting System (AFCARS), made available through the National Data Archive on Child Abuse and Neglect.
+Using this dataset to find the situation of children in foster care in every state.</p>
+<p>Sample R codes (note the data frame name):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;httr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)
+<span class="kw">GET</span>(<span class="st">&quot;https://datacenter.kidscount.org/rawdata.axd?ind=6242&amp;loc=1&quot;</span>, <span class="kw">write_disk</span>(tf2&lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">fileext =</span> <span class="st">&quot;.xlsx&quot;</span>)))
+fosterkids &lt;-<span class="st"> </span><span class="kw">read_excel</span>(tf2)</code></pre>
+</div>
+<div id="project-3-poverty-in-the-u.s." class="section level2">
+<h2><span class="header-section-number">9.3</span> Project 3: Poverty in the U.S.</h2>
+<ul>
+<li>Dataset:</li>
+</ul>
+<p><a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2503&amp;prodType=table" class="uri">https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2503&amp;prodType=table</a></p>
+<p>Source: U.S. Census Bureau, 2013-2017 American Community Survey 5-Year Estimates</p>
+<p>Use this dataset to find the income distribution in every State.</p>
+</div>
+<div id="project-4-the-disability" class="section level2">
+<h2><span class="header-section-number">9.4</span> Project 4: The Disability</h2>
+<ul>
+<li>Dataset: DISABILITY CHARACTERISTICS</li>
+</ul>
+<p><a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S1810&amp;prodType=table" class="uri">https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S1810&amp;prodType=table</a></p>
+<ul>
+<li>Dataset:</li>
+</ul>
+<p><a href="https://data.cdc.gov/Disability-Health/Disability-and-Health-Data-System-DHDS-/k62p-6esq" class="uri">https://data.cdc.gov/Disability-Health/Disability-and-Health-Data-System-DHDS-/k62p-6esq</a></p>
+<ul>
+<li>Hint:</li>
+</ul>
+<p>Disability and Health Data System (DHDS) is an online source of state-level data on adults with disabilities. Users can access information on six functional disability types: cognitive (serious difficulty concentrating, remembering or making decisions), hearing (serious difficulty hearing or deaf), mobility (serious difficulty walking or climbing stairs), vision (serious difficulty seeing), self-care (difficulty dressing or bathing) and independent living (difficulty doing errands alone).
+Using this dataset to find the number of disabled people in every State.</p>
+</div>
+<div id="project-5-the-elderly" class="section level2">
+<h2><span class="header-section-number">9.5</span> Project 5: The Elderly</h2>
+<ul>
+<li>Dataset:</li>
+</ul>
+<p><a href="https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_GCT0103.US01PR&amp;prodType=table" class="uri">https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_GCT0103.US01PR&amp;prodType=table</a></p>
+<ul>
+<li>Hint:</li>
+</ul>
+<p>It shows the percent of the total population who are 65 years and over from 2009 to 2017 in the United States.
+Why do some states have higher percentage?</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="summary.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/08-Projects.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["BigdatainSTEM.pdf", "BigdatainSTEM.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

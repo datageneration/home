@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Introduction | Big Data in STEM</title>
+  <meta name="description" content="This volume is prepared for the ‘Big Data in STEM’ course training data scientists to do data collection, visualization and modeling. The first part will be focused on general data theory and principles. The following sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects. Version control information: R 3.6, RStudio 1.2.1114" />
+  <meta name="generator" content="bookdown 0.10 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Introduction | Big Data in STEM" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This volume is prepared for the ‘Big Data in STEM’ course training data scientists to do data collection, visualization and modeling. The first part will be focused on general data theory and principles. The following sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects. Version control information: R 3.6, RStudio 1.2.1114" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Introduction | Big Data in STEM" />
+  
+  <meta name="twitter:description" content="This volume is prepared for the ‘Big Data in STEM’ course training data scientists to do data collection, visualization and modeling. The first part will be focused on general data theory and principles. The following sections will be on data visualization and modeling. Future developments will include new methods in knowledge mining and machine learning. Exercies programs will be provided, with case studies requiring students to design data collection and visualization projects. Version control information: R 3.6, RStudio 1.2.1114" />
+  
+
+<meta name="author" content="Karl Ho" />
+
+
+<meta name="date" content="2019-07-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="Datamethods.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Big Data in STEM</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#what-is-data"><i class="fa fa-check"></i><b>2.1</b> What is data?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#what-is-big-data"><i class="fa fa-check"></i><b>2.2</b> What is big data?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#illustration-the-story-of-google-flu-trend"><i class="fa fa-check"></i><b>2.3</b> Illustration: The story of Google Flu Trend</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="Datamethods.html"><a href="Datamethods.html"><i class="fa fa-check"></i><b>3</b> Data methods</a><ul>
+<li class="chapter" data-level="3.1" data-path="Datamethods.html"><a href="Datamethods.html#data-production-and-collection"><i class="fa fa-check"></i><b>3.1</b> Data Production and Collection</a></li>
+<li class="chapter" data-level="3.2" data-path="Datamethods.html"><a href="Datamethods.html#data-collection-showcase-web-data"><i class="fa fa-check"></i><b>3.2</b> Data collection showcase: web data</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="Dataprogramming.html"><a href="Dataprogramming.html"><i class="fa fa-check"></i><b>4</b> Data Programming</a><ul>
+<li class="chapter" data-level="4.1" data-path="Dataprogramming.html"><a href="Dataprogramming.html#principles-of-programming"><i class="fa fa-check"></i><b>4.1</b> Principles of Programming</a></li>
+<li class="chapter" data-level="4.2" data-path="Dataprogramming.html"><a href="Dataprogramming.html#functionalities-of-data-programs"><i class="fa fa-check"></i><b>4.2</b> Functionalities of Data Programs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="r-programming.html"><a href="r-programming.html"><i class="fa fa-check"></i><b>5</b> R Programming</a><ul>
+<li class="chapter" data-level="5.1" data-path="r-programming.html"><a href="r-programming.html#what-is-r"><i class="fa fa-check"></i><b>5.1</b> What is R?</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="r-programming.html"><a href="r-programming.html#some-history-of-r-and-s"><i class="fa fa-check"></i><b>5.1.1</b> Some history of R and S</a></li>
+<li class="chapter" data-level="5.1.2" data-path="r-programming.html"><a href="r-programming.html#it-is"><i class="fa fa-check"></i><b>5.1.2</b> It is:</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="r-programming.html"><a href="r-programming.html#why-r"><i class="fa fa-check"></i><b>5.2</b> Why R?</a></li>
+<li class="chapter" data-level="5.3" data-path="r-programming.html"><a href="r-programming.html#rstudio"><i class="fa fa-check"></i><b>5.3</b> RStudio</a></li>
+<li class="chapter" data-level="5.4" data-path="r-programming.html"><a href="r-programming.html#basic-operations-and-object-assignment"><i class="fa fa-check"></i><b>5.4</b> Basic operations and object assignment</a></li>
+<li class="chapter" data-level="5.5" data-path="r-programming.html"><a href="r-programming.html#illustration"><i class="fa fa-check"></i><b>5.5</b> Illustration</a></li>
+<li class="chapter" data-level="5.6" data-path="r-programming.html"><a href="r-programming.html#recommended-r-resources"><i class="fa fa-check"></i><b>5.6</b> Recommended R Resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="python-programming.html"><a href="python-programming.html"><i class="fa fa-check"></i><b>6</b> Python Programming</a><ul>
+<li class="chapter" data-level="6.1" data-path="python-programming.html"><a href="python-programming.html#what-is-python"><i class="fa fa-check"></i><b>6.1</b> What is Python?</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="python-programming.html"><a href="python-programming.html#why-python"><i class="fa fa-check"></i><b>6.1.1</b> Why Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="python-programming.html"><a href="python-programming.html#python-basic-packges"><i class="fa fa-check"></i><b>6.2</b> Python basic packges:</a></li>
+<li class="chapter" data-level="6.3" data-path="python-programming.html"><a href="python-programming.html#python-ide"><i class="fa fa-check"></i><b>6.3</b> Python IDE</a></li>
+<li class="chapter" data-level="6.4" data-path="python-programming.html"><a href="python-programming.html#basic-operations-and-object-assignment-1"><i class="fa fa-check"></i><b>6.4</b> Basic operations and object assignment</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="python-programming.html"><a href="python-programming.html#import-libraries"><i class="fa fa-check"></i><b>6.4.1</b> Import libraries</a></li>
+<li class="chapter" data-level="6.4.2" data-path="python-programming.html"><a href="python-programming.html#import-data"><i class="fa fa-check"></i><b>6.4.2</b> Import data</a></li>
+<li class="chapter" data-level="6.4.3" data-path="python-programming.html"><a href="python-programming.html#simple-plot"><i class="fa fa-check"></i><b>6.4.3</b> Simple plot</a></li>
+<li class="chapter" data-level="6.4.4" data-path="python-programming.html"><a href="python-programming.html#visualizing-data"><i class="fa fa-check"></i><b>6.4.4</b> Visualizing data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="python-programming.html"><a href="python-programming.html#exercise"><i class="fa fa-check"></i><b>6.5</b> Exercise</a></li>
+<li class="chapter" data-level="6.6" data-path="python-programming.html"><a href="python-programming.html#recommended-python-resources"><i class="fa fa-check"></i><b>6.6</b> Recommended Python Resources:</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="javascript.html"><a href="javascript.html"><i class="fa fa-check"></i><b>7</b> JavaScript</a><ul>
+<li class="chapter" data-level="7.1" data-path="javascript.html"><a href="javascript.html#what-is-javascript"><i class="fa fa-check"></i><b>7.1</b> What is JavaScript?</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="javascript.html"><a href="javascript.html#javascript-data-types"><i class="fa fa-check"></i><b>7.1.1</b> JavaScript Data Types</a></li>
+<li class="chapter" data-level="7.1.2" data-path="javascript.html"><a href="javascript.html#json"><i class="fa fa-check"></i><b>7.1.2</b> JSON</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="javascript.html"><a href="javascript.html#what-is-d3"><i class="fa fa-check"></i><b>7.2</b> What is D3?</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="javascript.html"><a href="javascript.html#d3-and-web-documents"><i class="fa fa-check"></i><b>7.2.1</b> D3 and web documents</a></li>
+<li class="chapter" data-level="7.2.2" data-path="javascript.html"><a href="javascript.html#sample-d3-graphics"><i class="fa fa-check"></i><b>7.2.2</b> Sample D3 graphics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>8</b> Summary</a></li>
+<li class="chapter" data-level="9" data-path="Projects.html"><a href="Projects.html"><i class="fa fa-check"></i><b>9</b> Project Challenge</a><ul>
+<li class="chapter" data-level="9.1" data-path="Projects.html"><a href="Projects.html#project-1-the-homeless-situation"><i class="fa fa-check"></i><b>9.1</b> Project 1: The Homeless Situation</a></li>
+<li class="chapter" data-level="9.2" data-path="Projects.html"><a href="Projects.html#project-2-children-in-foster-care"><i class="fa fa-check"></i><b>9.2</b> Project 2: Children in foster care</a></li>
+<li class="chapter" data-level="9.3" data-path="Projects.html"><a href="Projects.html#project-3-poverty-in-the-u.s."><i class="fa fa-check"></i><b>9.3</b> Project 3: Poverty in the U.S.</a></li>
+<li class="chapter" data-level="9.4" data-path="Projects.html"><a href="Projects.html#project-4-the-disability"><i class="fa fa-check"></i><b>9.4</b> Project 4: The Disability</a></li>
+<li class="chapter" data-level="9.5" data-path="Projects.html"><a href="Projects.html#project-5-the-elderly"><i class="fa fa-check"></i><b>9.5</b> Project 5: The Elderly</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Big Data in STEM</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
+<p>Big Data in STEM is a survey course in Data Science. It features hands-on examples and exercises in Data Science concepts, theories and technical skills in mastering big data in STEM and related disciplines. This training focuses on data theory, data collection methods, data visualization and data modeling. Practical programming exercises will be provided to try on programming and processing with real data. Students are encouraged to apply the newly learnt theories and concepts to solve real world problems with creative solutions.</p>
+<p>The first chapter introduces the general theory of data, followed by methods of data collections and management.</p>
+<div id="what-is-data" class="section level2">
+<h2><span class="header-section-number">2.1</span> What is data?</h2>
+<ol style="list-style-type: decimal">
+<li>Kinds of Data
+<ol style="list-style-type: decimal">
+<li>Quantitative vs. Qualitative</li>
+<li>Structured vs. Semi-/unstructured</li>
+</ol></li>
+<li>Measurement
+<ol style="list-style-type: decimal">
+<li>Nominal</li>
+<li>Ordinal</li>
+<li>Interval</li>
+<li>Ratio</li>
+</ol></li>
+</ol>
+</div>
+<div id="what-is-big-data" class="section level2">
+<h2><span class="header-section-number">2.2</span> What is big data?</h2>
+<p>The Big data is about data that has huge volume, cannot be on one computer. Has a lot of variety in data types, locations, formats and form. It is also getting created very very fast (velocity) (Doug Laney 2001).</p>
+<p>According Burt Monroe (2012), the new 5Vs of Big data include:</p>
+<ul>
+<li>Volume</li>
+<li>Variety</li>
+<li>Velocity</li>
+<li>Vinculation</li>
+<li>Validity</li>
+</ul>
+<p>Vinculation means “binding together”, indicating emphasizes interdependent nature or “networkedness” of social data and big data.</p>
+<p>Validity or veracity refers to the quality of the data and how relevant big data is to the question in interest. In particular, how one can draw inference from big data.</p>
+<p>Some researchers would also add “value” to emphasize whether the data provide insight instead of confusion to understanding the problem(s).</p>
+</div>
+<div id="illustration-the-story-of-google-flu-trend" class="section level2">
+<h2><span class="header-section-number">2.3</span> Illustration: The story of Google Flu Trend</h2>
+<p>By using Big Data of search queries, Google Flu Trend (GFT) predicted the flu-like illness rate in a population.</p>
+<p>The findings were published in the one of the top science journals <em>Nature</em> in 2008. However, shortly GFT failed and missed at the peak of the 2013 flu season by 140 percent.</p>
+<p>Lazer, Kennedy, King and Vespignani (2014) took up the scrutiny and identified the problem. They suggested: "
+“Traditional ‘small data’ often offer information that is not contained (or containable) in big data”, and “by combining GFT and lagged [traditional] CDC data, as well as dynamically recalibrating GFT… one can substantially improve on the performance of GFT or the CDC alone.” (Lazer et al. 2014 <em>Science</em>)</p>
+<p>Lesson learnt: Google should have highest power in data access but it still fails. Size still matters? Yes, but not first.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Datamethods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["BigdatainSTEM.pdf", "BigdatainSTEM.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
