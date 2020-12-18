@@ -1,1 +1,2 @@
-# Repository for Data Visualization in Practice Workshop
+# Data Visualization in Practice website
+
