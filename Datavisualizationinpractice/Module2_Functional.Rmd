@@ -1,0 +1,267 @@
+---
+title: 'Data Visualization in Practice'
+subtitle: 'Module 2: Functional Approach'
+author: "Karl Ho"
+date: "12/18/2020"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: default
+    theme: cosmo
+    number_sections: yes
+---
+[Class link](https://datageneration.org/gentlemachinelearning/)
+
+[Class GitHub](https://github.com/datageneration/gentlemachinelearning)
+  
+# Functional Approach
+
+In this module, we focus on what kind of data to plot and how to plot it.   First, we need to discern what the data type.  In other words, we need to know if the variable to be visualized is quantitative (numeric, continuous) or qualitative (categorical).  Then we decide incorporating one or more variables in the visualization.  
+
+## Thought starter 
+
+1. Univariate
+  - Distribution
+    - Histogram
+    - Line chart
+  - Composition
+    - Pie chart/Donut chart
+    - Treemap
+    - Stacked column chart
+    - Waterfall (negative values)
+2. Multivariate
+  - Scatterplot
+  - Time series
+  - Spatial (Choropleth)
+
+
+
+# Hands-on workshop 1: Taiwan Election and Democratization Study 2016 data
+
+Taiwan Election and Democratization Study (TEDS) is one of the longest and most comprehensive elections studies starting in 2001.  TEDS collects data through different modes of surveys including face-to-face interviews, telephone interviews and internet surveys.  More detail of TEDS can be found at the National Chengchi University Election Study Center website at [https://esc.nccu.edu.tw/main.php](https://esc.nccu.edu.tw/main.php).
+
+```{r}
+# Import the TEDS 2016 data in Stata format using the haven package
+##install.packages("haven")
+
+library(haven)
+TEDS_2016 <- haven::read_stata("https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true")
+
+# Prepare the analyze the Party ID variable 
+# Assign label to the values (1=KMT, 2=DPP, 3=NP, 4=PFP, 5=TSU, 6=NPP, 7="NA")
+
+TEDS_2016$PartyID <- factor(TEDS_2016$PartyID, labels=c("KMT","DPP","NP","PFP", "TSU", "NPP","NA"))
+```
+
+Take a look at the variable:
+
+```{r}
+# Check the variable
+attach(TEDS_2016)
+head(PartyID)
+tail(PartyID)
+```
+
+Frequency table:
+```{r message=TRUE, warning=TRUE}
+# Run a frequency table of the Party ID variable using the descr package
+## install.packages("descr")
+library(descr)
+freq(TEDS_2016$PartyID)
+```
+
+Get a better chart of the Party ID variable:
+```{r message=TRUE, warning=TRUE}
+# Plot the Party ID variable
+library(ggplot2)
+ggplot(TEDS_2016, aes(PartyID)) + 
+  geom_bar()
+```
+
+We can attend to more detail of the chart, such as adding labels to x and y axes, and calculating the percentage instead of counts.
+
+
+```{r echo=TRUE}
+ggplot2::ggplot(TEDS_2016, aes(PartyID)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..))) + 
+  scale_y_continuous(labels=scales::percent) +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties")
+```
+
+Adding colors, with another theme:
+
+```{r}
+ggplot2::ggplot(TEDS_2016, aes(PartyID)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..),fill=PartyID)) + 
+  scale_y_continuous(labels=scales::percent) +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties") +
+  theme_bw()
+```
+
+Hold on, colors are not right!
+
+```{r}
+
+## Better color control
+## install.packages("RColorBrewer")
+library(RColorBrewer)
+ggplot2::ggplot(TEDS_2016, aes(PartyID)) + 
+  geom_bar(aes(y = (..count..)/sum(..count..),fill=PartyID)) + 
+  scale_y_continuous(labels=scales::percent) +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties") +
+  theme_bw() +
+  scale_fill_manual(values=c("steel blue","forestgreen","khaki1","orange","goldenrod","yellow","grey")) 
+
+```
+
+To make the chart more meaningful, we can use a package called tidyverse to manage the data.  
+
+```{r message=FALSE, warning=FALSE}
+##install.packages("tidyverse")
+library(tidyverse)
+TEDS_2016 %>% 
+  count(PartyID) %>% 
+  mutate(perc = n / nrow(TEDS_2016)) -> T2
+ggplot2::ggplot(T2, aes(x = reorder(PartyID, -perc),y = perc,fill=PartyID)) + 
+  geom_bar(stat = "identity") +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties") +
+  theme_bw() +
+  scale_fill_manual(values=c("steelblue","forestgreen","khaki1","orange","goldenrod","yellow","grey"))
+
+## Customize font
+
+ggplot2::ggplot(T2, aes(x = reorder(PartyID, -perc),y = perc,fill=PartyID)) + 
+  geom_bar(stat = "identity") +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties") +
+  theme_bw() +
+  scale_fill_manual(values=c("steelblue","forestgreen","khaki1","orange","goldenrod","yellow","grey")) +
+  theme(text=element_text(size=14, family="Palatino"))
+
+## Resize and reposition the legend
+
+ggplot2::ggplot(T2, aes(x = reorder(PartyID, -perc),y = perc,fill=PartyID)) + 
+  geom_bar(stat = "identity") +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties") +
+  theme_bw() +
+  scale_fill_manual(values=c("steelblue","forestgreen","khaki1","orange","goldenrod","yellow","grey")) +
+  theme(text=element_text(size=14, family="Palatino"), legend.title = element_text(size=10), legend.position = c(0.8, 0.7)) 
+
+## How about a horizontal bar chart?
+## Add caption
+
+ggplot2::ggplot(T2, aes(x = reorder(PartyID, perc),y = perc,fill=PartyID)) + 
+  geom_bar(stat = "identity") +
+  ylab("Party Support (%)") + 
+  xlab("Taiwan Political Parties") +
+  coord_flip() +
+  theme_bw() +
+  scale_fill_manual(values=c("steelblue","forestgreen","khaki1","orange","goldenrod","yellow","grey")) +
+  theme(text=element_text(size=14, family="Palatino"), legend.title = element_text(size=10), legend.position = c(0.8, 0.3), axis.title.x = element_text(vjust=-.5)) +
+  labs(caption = "Data Source: Taiwan Election and Democratization Study 2016", vjust=-.5)
+```
+
+
+# Hands-on workshop 2: Happy Planet Index
+
+[Happy Planet Index](http://happyplanetindex.org) measures the sustainable well-being or how well nations are doing at achieving long, happy, sustainable lives in all countries in the world. Let's do a Boxplot of the variable Happy planet index.
+
+
+```{r message=FALSE, warning=FALSE}
+##install.packages("gdata")
+require(gdata)
+hpi2016=read.csv("https://raw.githubusercontent.com/kho777/data-visualization/master/data/hpi2016dataonly.csv")
+
+library(ggplot2)
+theme_set(theme_bw())
+
+# BoxPlot
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(varwidth=T, fill="plum") + 
+  labs(title="Box plot", 
+       subtitle="Happy Planet Index by Region, 2016",
+       caption="Source: HPI",
+       x="HPI",
+       y="Region")
+```
+
+The X-axis labels are not right.  Let's try repositioning the label.
+
+```{r message=FALSE, warning=FALSE}
+# Vertical X labels
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(varwidth=T, fill="plum") +
+  theme(axis.text.x = element_text(angle=90, vjust=0.6,size=12)) +
+  labs(title="Box plot", 
+       subtitle="Happy Planet Index by Region, 2016",
+       caption="Source: HPI",
+       x="HPI",
+       y="Region")
+
+# Replace space in X labels with "\n"
+levels(hpi2016$Region) <- gsub(" ", "\n", levels(hpi2016$Region))
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(varwidth=T, fill="plum") + 
+  labs(title="Box plot", 
+       subtitle="Happy Planet Index by Region, 2016",
+       caption="Source: HPI",
+       x="HPI",
+       y="Region")
+
+# Multiple colors, defining Region as factor
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(aes(fill=factor(Region))) + 
+  labs(title="Happy Planet Index by Region, 2016", 
+       subtitle="",
+       caption="Source: HPI",
+       x="Region",
+       y="HPI")
+
+# Drop the legend
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(aes(fill=factor(Region))) + 
+ theme(legend.position="none")+
+  labs(title="Happy Planet Index by Region, 2016", 
+       subtitle="",
+       caption="Source: HPI",
+       x="Region",
+       y="HPI")
+
+
+# Title larger
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(aes(fill=factor(Region))) + 
+  theme(legend.position="none") +
+  theme(plot.title = element_text(size=22)) +
+  labs(title="Happy Planet Index by Region, 2016", 
+       subtitle="",
+       caption="Source: HPI",
+       x="Region",
+       y="HPI")
+
+
+# Title larger, centered
+g <- ggplot(hpi2016, aes(Region, Happy.Planet.Index))
+g + geom_boxplot(aes(fill=factor(Region))) + 
+  theme(legend.position="none") +
+  theme(plot.title = element_text(size=22,hjust = 0.5)) +
+  labs(title="Happy Planet Index by Region, 2016", 
+       subtitle="",
+       caption="Source: HPI",
+       x="Region",
+       y="HPI")
+
+```
+
+Exercise:
+
+1. Can you use a different font?
+2. Can you manually choose different colors for different region?
+
+  
