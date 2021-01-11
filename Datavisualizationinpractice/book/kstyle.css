@@ -28,6 +28,14 @@ a {
   font-family: AppleGaramond;
 }
 
+li {
+  font-family: AppleGaramond;
+}
+
+ul {
+  font-family: AppleGaramond;
+}
+
 pre {
   word-break: normal;
   word-wrap: normal;
