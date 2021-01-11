@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Introduction | Data Visualization in Practice</title>
+  <meta name="description" content="Data Visualizaton in Practice is a workshop series training students to create and deliver data visualization products using different technologies." />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Introduction | Data Visualization in Practice" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Data Visualizaton in Practice is a workshop series training students to create and deliver data visualization products using different technologies." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Introduction | Data Visualization in Practice" />
+  
+  <meta name="twitter:description" content="Data Visualizaton in Practice is a workshop series training students to create and deliver data visualization products using different technologies." />
+  
+
+<meta name="author" content="Karl Ho" />
+
+
+<meta name="date" content="2021-01-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="functional.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="kstyle.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Visualization in Practice</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: Prerequisites for course</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#recommended-software-and-ides"><i class="fa fa-check"></i><b>0.1</b> Recommended software and IDE’s</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#cloud-websitesaccounts"><i class="fa fa-check"></i><b>0.2</b> Cloud websites/accounts</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#github"><i class="fa fa-check"></i><b>0.3</b> GitHub</a><ul>
+<li class="chapter" data-level="0.3.1" data-path="index.html"><a href="index.html#programming-in-rstudio-cloud"><i class="fa fa-check"></i><b>0.3.1</b> Programming in RStudio Cloud</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.0.1" data-path="intro.html"><a href="intro.html#what-is-data-visualization"><i class="fa fa-check"></i><b>1.0.1</b> What is Data Visualization?</a></li>
+<li class="chapter" data-level="1.0.2" data-path="intro.html"><a href="intro.html#learn-to-read-data"><i class="fa fa-check"></i><b>1.0.2</b> Learn to read data</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#know-your-data"><i class="fa fa-check"></i><b>1.1</b> Know your data</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#data-literacy"><i class="fa fa-check"></i><b>1.1.1</b> Data Literacy</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#hands-on-workshop-data-programming"><i class="fa fa-check"></i><b>1.1.2</b> Hands-on workshop: Data programming</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#ggplot2-starter"><i class="fa fa-check"></i><b>1.1.3</b> ggplot2 starter</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="functional.html"><a href="functional.html"><i class="fa fa-check"></i><b>2</b> Functional approach</a></li>
+<li class="chapter" data-level="3" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>3</b> Interactive</a><ul>
+<li class="chapter" data-level="3.1" data-path="interactive.html"><a href="interactive.html#ggiraph-package"><i class="fa fa-check"></i><b>3.1</b> ggiraph package</a></li>
+<li class="chapter" data-level="3.2" data-path="interactive.html"><a href="interactive.html#dash"><i class="fa fa-check"></i><b>3.2</b> Dash</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>4</b> Summary</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Visualization in Practice</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<div id="what-is-data-visualization" class="section level3">
+<h3><span class="header-section-number">1.0.1</span> What is Data Visualization?</h3>
+<p>Data visualization is to deliver a message from your data. It is like telling a story using the chart or data applications. Sometimes the data is huge or the story to too long to tell. Visualization provides an ability to comprehend huge amounts of data. The important information from more than a million measurements is immediately available.</p>
+<p>Visualization often enables problems with the data to become immediately apparent. A visualization commonly reveals things not only about the data itself but also about the way it is collected. With an appropriate visualization, errors and artifacts in the data often jump out at you. For this reason, visualizations can be invaluable in quality control.</p>
+<p>Visualization facilitates understanding of both large-scale and small-scale features of the data. It can be especially valuable in allowing the perception of patterns linking local features.</p>
+<p>Visualization facilitates hypothesis formation, inviting further inquiries into building a theory (Colin Ware 2012). It is exploratory data analysis (EDA) but can also provide the tools for hypothesis confirmation.</p>
+</div>
+<div id="learn-to-read-data" class="section level3">
+<h3><span class="header-section-number">1.0.2</span> Learn to read data</h3>
+<p><a href="https://www.edwardtufte.com/tufte/">Edward Tufte</a> is one of the earliest data scientists emphasizing visual thinking. He postulates that one should first learn to read data, before moving on to visualize. He suggests training the visual thinking, then preparing the educated eyes. His newest book is titled <a href="https://www.edwardtufte.com/tufte/seeing-with-fresh-eyes">SEEING WITH FRESH EYES: MEANING, SPACE, DATA, TRUTH</a>, vividly testifying his philosophy of connecting the human perception with the data message.</p>
+<p><img src="images/EdwardTufte.jpg" style="width:25.0%" alt="Edward Tufte" />
+<br>(Source: Keegan Peterzell, CC BY-SA 4.0 <a href="https://creativecommons.org/licenses/by-sa/4.0" class="uri">https://creativecommons.org/licenses/by-sa/4.0</a>, via Wikimedia Commons)</p>
+<p><img src="https://www.edwardtufte.com/tufte/graphics/fresh-eyes-cover.png" alt="Seeing with Fresh Eyes: Meaning, Space, Data, Truth" width = 25%></p>
+<p>For Tufte, number one thing to learn about data visualization is to discard the default.</p>
+<p>“If you’re not doing something different, you’re not doing anything at all.”
+- Edward Tufte</p>
+<p><br></p>
+<p><strong>Example: Multiple dimensions of data</strong></p>
+<p><img src="https://raw.githubusercontent.com/datageneration/home/master/Datavisualizationinpractice/images/hansroslingplot.gif" alt="Example: Multiple dimensions of data" width=50%></p>
+</div>
+<div id="know-your-data" class="section level2">
+<h2><span class="header-section-number">1.1</span> Know your data</h2>
+<ol style="list-style-type: decimal">
+<li>Data Literacy</li>
+<li>Data types</li>
+<li>Visual Vocabulary</li>
+</ol>
+<div id="data-literacy" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Data Literacy</h3>
+<p>This course focuses on hands-on applications using real world data. It is advised students bring own dataset for practices. Sample programs will demonstrate how to import the data into R using base or add-on packages (e.g. foreign, haven, vroom).</p>
+</div>
+<div id="hands-on-workshop-data-programming" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Hands-on workshop: Data programming</h3>
+<div id="data-programming" class="section level4">
+<h4><span class="header-section-number">1.1.2.1</span> Data Programming</h4>
+<p>This session starts with basic principles for data programming or coding involving data. Data programming is a practice that works and evolves with data. Data programming or coding allows the user to manage and process data in more effective manner. Programs are designed to be replicated or replicable by user and collaborators. A data program can be developed and updated iteratively and incrementally. In other words, it is building on the culminated works without repeating the steps. It takes debugging, which is the process of identifying problems (bugs) but, in fact, updating the program in different situations or with different inputs when used in different contexts, including the programmer himself or herself working in future times.</p>
+</div>
+<div id="getting-started-with-rstudio-cloud" class="section level4">
+<h4><span class="header-section-number">1.1.2.2</span> Getting started with RStudio Cloud</h4>
+<p>RStudio is the most popular IDE for programming in R. It is very powerful and versatile, providing an environment for data science functions including managing, modeling and visualizing data. Above all those, RStudio is also equipped with tools to interface with other languages such as Python, Stan and SQL and creating a variety of output products such as LaTeX documents for press-ready publication and web-ready html files for web publication. This document is also prepared and rendered inside RStudio.</p>
+<p>RStudio Cloud allows processing R programs in cloud using a browser only. This will free users from using local installation, which could sometimes be subject to hardware and/or operating system limits.</p>
+<p>Steps to start RStudio Cloud:</p>
+<ol style="list-style-type: decimal">
+<li>Use Google or GitHub account to login to the <a href="http://Rstudio.cloud">RStudio Cloud website</a></li>
+<li>At left menu, click on Your Workspace under Spaces.<br />
+</li>
+<li>Start a New Project (blue button on right) Project. Be sure to name your new project. A new R session will open.</li>
+<li>You are ready to code and visualize data!</li>
+</ol>
+</div>
+<div id="data-programming-in-r" class="section level4">
+<h4><span class="header-section-number">1.1.2.3</span> Data programming in R</h4>
+<p><em>R basics</em></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="co"># Create variables composed of random numbers using the rnorm function</span></span>
+<span id="cb1-2"><a href="intro.html#cb1-2"></a>x &lt;-<span class="kw">rnorm</span>(<span class="dv">50</span>) </span>
+<span id="cb1-3"><a href="intro.html#cb1-3"></a>y =<span class="st"> </span><span class="kw">rnorm</span>(x)</span>
+<span id="cb1-4"><a href="intro.html#cb1-4"></a></span>
+<span id="cb1-5"><a href="intro.html#cb1-5"></a><span class="co"># Plot the points in the plane </span></span>
+<span id="cb1-6"><a href="intro.html#cb1-6"></a><span class="kw">plot</span>(x, y)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="using-r-packages" class="section level4">
+<h4><span class="header-section-number">1.1.2.4</span> Using R packages</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1"></a><span class="co"># Plot better, using the ggplot2 package </span></span>
+<span id="cb2-2"><a href="intro.html#cb2-2"></a><span class="co">## Prerequisite: install and load the ggplot2 package</span></span>
+<span id="cb2-3"><a href="intro.html#cb2-3"></a><span class="co">## install.packages(&quot;ggplot2&quot;)</span></span>
+<span id="cb2-4"><a href="intro.html#cb2-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb2-5"><a href="intro.html#cb2-5"></a><span class="kw">qplot</span>(x,y)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ggplot2-starter" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> ggplot2 starter</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1"></a><span class="co"># Plot better better with ggplot2</span></span>
+<span id="cb3-2"><a href="intro.html#cb3-2"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">50</span>) </span>
+<span id="cb3-3"><a href="intro.html#cb3-3"></a>y =<span class="st"> </span><span class="kw">rnorm</span>(x)</span>
+<span id="cb3-4"><a href="intro.html#cb3-4"></a><span class="kw">ggplot</span>(,<span class="kw">aes</span>(x,y)) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div id="recommended-r-resources" class="section level4">
+<h4><span class="header-section-number">1.1.3.1</span> Recommended R Resources:</h4>
+<ul>
+<li><a href="http://journal.r-project.org/">The R Journal</a></li>
+<li><a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R by W. N. Venables, D. M. Smith and the R Core Team</a></li>
+<li><a href="http://www.ats.ucla.edu/stat/r/seminars/intro.htm">Introduction to R Seminar at UCLA</a></li>
+<li><a href="https://dss.princeton.edu/training/">Getting Started in Data Analysis using Stata and R by Data and Statistical Services, Princeton University</a></li>
+</ul>
+</div>
+<div id="references" class="section level4">
+<h4><span class="header-section-number">1.1.3.2</span> References:</h4>
+<p>Graham Williams 2011. <em>Data Mining with Rattle and R: The Art of Excavating Data for Knowledge</em></p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="functional.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book_dvp.pdf", "book_dvp.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

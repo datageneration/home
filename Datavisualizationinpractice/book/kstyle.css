@@ -1,0 +1,37 @@
+.book.font-family-1 {
+  font-family: 'AppleGaramond', arial, sans-serif;
+}
+p {
+  font-family: AppleGaramond;
+}
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+h1 {
+  font-family: AppleGaramond;
+}
+h2 {
+  font-family: AppleGaramond;
+}
+h3 {
+  font-family: AppleGaramond;
+}
+h4 {
+  font-family: AppleGaramond;
+}
+
+a {
+  font-family: AppleGaramond;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
