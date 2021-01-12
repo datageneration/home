@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho" />
 
 
-<meta name="date" content="2021-01-11" />
+<meta name="date" content="2021-01-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,12 +152,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#gallery"><i class="fa fa-check"></i><b>1.2</b> <span>Gallery</span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="functional.html"><a href="functional.html"><i class="fa fa-check"></i><b>2</b> Functional approach</a></li>
+<li class="chapter" data-level="2" data-path="functional.html"><a href="functional.html"><i class="fa fa-check"></i><b>2</b> Functional approach</a><ul>
+<li class="chapter" data-level="2.1" data-path="functional.html"><a href="functional.html#distribution"><i class="fa fa-check"></i><b>2.1</b> Distribution</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="functional.html"><a href="functional.html#univariate"><i class="fa fa-check"></i><b>2.1.1</b> Univariate</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="functional.html"><a href="functional.html#composition"><i class="fa fa-check"></i><b>2.2</b> Composition</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="functional.html"><a href="functional.html#stack-histogram"><i class="fa fa-check"></i><b>2.2.1</b> Stack histogram</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="functional.html"><a href="functional.html#comparison"><i class="fa fa-check"></i><b>2.3</b> Comparison</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="functional.html"><a href="functional.html#bar-charts"><i class="fa fa-check"></i><b>2.3.1</b> Bar charts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="functional.html"><a href="functional.html#relationship"><i class="fa fa-check"></i><b>2.4</b> Relationship</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="interactive.html"><a href="interactive.html"><i class="fa fa-check"></i><b>3</b> Interactive Charts</a><ul>
 <li class="chapter" data-level="3.1" data-path="interactive.html"><a href="interactive.html#ggiraph-package"><i class="fa fa-check"></i><b>3.1</b> ggiraph package</a></li>
 <li class="chapter" data-level="3.2" data-path="interactive.html"><a href="interactive.html#leaflet-for-interactive-map"><i class="fa fa-check"></i><b>3.2</b> Leaflet for interactive map</a></li>
-<li class="chapter" data-level="3.3" data-path="interactive.html"><a href="interactive.html#dash"><i class="fa fa-check"></i><b>3.3</b> Dash</a></li>
-<li class="chapter" data-level="3.4" data-path="interactive.html"><a href="interactive.html#shiny"><i class="fa fa-check"></i><b>3.4</b> Shiny</a></li>
+<li class="chapter" data-level="3.3" data-path="interactive.html"><a href="interactive.html#plotly"><i class="fa fa-check"></i><b>3.3</b> Plotly</a></li>
+<li class="chapter" data-level="3.4" data-path="interactive.html"><a href="interactive.html#dash"><i class="fa fa-check"></i><b>3.4</b> Dash</a></li>
+<li class="chapter" data-level="3.5" data-path="interactive.html"><a href="interactive.html#shiny"><i class="fa fa-check"></i><b>3.5</b> Shiny</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="summary.html"><a href="summary.html"><i class="fa fa-check"></i><b>4</b> Summary</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -188,7 +200,237 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/choosing_a_good_chart1-21.png" alt="" />
 <p class="caption">Starter: What to plot and How</p>
 </div>
+<div id="distribution" class="section level2">
+<h2><span class="header-section-number">2.1</span> Distribution</h2>
+<div id="univariate" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Univariate</h3>
+<div id="histogram" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> Histogram</h4>
+<p>The following example demonstrates creation of a histogram using four packages. The package <strong>vroom</strong> is the most convenient tool for importing data in text form. Other packages can also be used for importing data from other software applications. For instance, the packages <strong>haven</strong> can import SPSS, SAS and Stata data files. There are multiple packages that can import Excel files. The default is the package *readxl**.</p>
+<p>The package <strong>janitor</strong> is responsible for doing the cleaning jobs such as messy variable (e.g. with space embedded names) and the package <strong>RColorBrewer</strong> provides great choices of palettes and colors by names (e.g. steelblue).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="functional.html#cb1-1"></a><span class="kw">library</span>(vroom)</span>
+<span id="cb1-2"><a href="functional.html#cb1-2"></a><span class="kw">library</span>(janitor)</span>
+<span id="cb1-3"><a href="functional.html#cb1-3"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="functional.html#cb1-4"></a><span class="kw">library</span>(RColorBrewer)</span>
+<span id="cb1-5"><a href="functional.html#cb1-5"></a>hpi2016=vroom<span class="op">::</span><span class="kw">vroom</span>(<span class="st">&quot;https://raw.githubusercontent.com/datageneration/datavisualizationinpractice/main/data/happyplanetindex.csv&quot;</span>, <span class="dt">.name_repair =</span> janitor<span class="op">::</span>make_clean_names)</span>
+<span id="cb1-6"><a href="functional.html#cb1-6"></a></span>
+<span id="cb1-7"><a href="functional.html#cb1-7"></a><span class="kw">ggplot</span>(hpi2016) <span class="op">+</span></span>
+<span id="cb1-8"><a href="functional.html#cb1-8"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> happy_planet_index) <span class="op">+</span></span>
+<span id="cb1-9"><a href="functional.html#cb1-9"></a><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">9</span>, <span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="dt">alpha =</span><span class="fl">0.7</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb1-10"><a href="functional.html#cb1-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Happy Planet Index&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Source: https://happyplanetindex.org&quot;</span>,</span>
+<span id="cb1-11"><a href="functional.html#cb1-11"></a>  <span class="dt">x=</span><span class="st">&quot;Happy Planet Index&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
+<span id="cb1-12"><a href="functional.html#cb1-12"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb1-13"><a href="functional.html#cb1-13"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb1-14"><a href="functional.html#cb1-14"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Alternatively, the histogram can be built with tick marks between each bin using <code>geom_bar</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="functional.html#cb2-1"></a><span class="kw">ggplot</span>(hpi2016) <span class="op">+</span></span>
+<span id="cb2-2"><a href="functional.html#cb2-2"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> happy_planet_index) <span class="op">+</span></span>
+<span id="cb2-3"><a href="functional.html#cb2-3"></a><span class="st">   </span><span class="kw">geom_bar</span>(<span class="dt">fill =</span> <span class="st">&quot;steelblue&quot;</span>,  <span class="dt">alpha =</span><span class="fl">0.7</span>) <span class="op">+</span></span>
+<span id="cb2-4"><a href="functional.html#cb2-4"></a><span class="st">  </span><span class="kw">scale_x_binned</span>() <span class="op">+</span><span class="st"> </span></span>
+<span id="cb2-5"><a href="functional.html#cb2-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Happy Planet Index&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;Source: https://happyplanetindex.org&quot;</span>,</span>
+<span id="cb2-6"><a href="functional.html#cb2-6"></a>  <span class="dt">x=</span><span class="st">&quot;Happy Planet Index&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
+<span id="cb2-7"><a href="functional.html#cb2-7"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb2-8"><a href="functional.html#cb2-8"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb2-9"><a href="functional.html#cb2-9"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>For a line histogram, geom_freqpoly() can be used:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="functional.html#cb3-1"></a><span class="kw">ggplot</span>(hpi2016) <span class="op">+</span></span>
+<span id="cb3-2"><a href="functional.html#cb3-2"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> happy_planet_index) <span class="op">+</span></span>
+<span id="cb3-3"><a href="functional.html#cb3-3"></a><span class="st">  </span><span class="kw">geom_freqpoly</span>(<span class="dt">bins =</span> <span class="dv">10</span>) <span class="op">+</span></span>
+<span id="cb3-4"><a href="functional.html#cb3-4"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Happy Planet Index&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;https://happyplanetindex.org&quot;</span>,</span>
+<span id="cb3-5"><a href="functional.html#cb3-5"></a>       <span class="dt">x=</span><span class="st">&quot;Happy Planet Index&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
+<span id="cb3-6"><a href="functional.html#cb3-6"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb3-7"><a href="functional.html#cb3-7"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb3-8"><a href="functional.html#cb3-8"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="bivariatemultivariate" class="section level4">
+<h4><span class="header-section-number">2.1.1.2</span> Bivariate/Multivariate</h4>
+<p>With more than one variables, there are many choices for distribution charts. This example illustrates the faceted scatterplot.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="functional.html#cb4-1"></a><span class="kw">library</span>(gapminder)</span>
+<span id="cb4-2"><a href="functional.html#cb4-2"></a>gm=gapminder</span>
+<span id="cb4-3"><a href="functional.html#cb4-3"></a><span class="kw">ggplot</span>(gm) <span class="op">+</span></span>
+<span id="cb4-4"><a href="functional.html#cb4-4"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent) <span class="op">+</span></span>
+<span id="cb4-5"><a href="functional.html#cb4-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb4-6"><a href="functional.html#cb4-6"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb4-7"><a href="functional.html#cb4-7"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb4-8"><a href="functional.html#cb4-8"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(continent)) <span class="op">+</span></span>
+<span id="cb4-9"><a href="functional.html#cb4-9"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Life Expectacy and GDP Per Capita (logged)&quot;</span>, </span>
+<span id="cb4-10"><a href="functional.html#cb4-10"></a>       <span class="dt">x=</span><span class="st">&quot;GDP Per Capita&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: Gapminder.org&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb4-11"><a href="functional.html#cb4-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb4-12"><a href="functional.html#cb4-12"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>), <span class="dt">legend.position=</span><span class="kw">c</span>(.<span class="dv">9</span>,.<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="composition" class="section level2">
+<h2><span class="header-section-number">2.2</span> Composition</h2>
+<div id="stack-histogram" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Stack histogram</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="functional.html#cb5-1"></a><span class="kw">ggplot</span>(hpi2016) <span class="op">+</span></span>
+<span id="cb5-2"><a href="functional.html#cb5-2"></a><span class="st"> </span><span class="kw">aes</span>(<span class="dt">x =</span> happy_planet_index, <span class="dt">fill =</span> region) <span class="op">+</span></span>
+<span id="cb5-3"><a href="functional.html#cb5-3"></a><span class="st"> </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> 30L) <span class="op">+</span></span>
+<span id="cb5-4"><a href="functional.html#cb5-4"></a><span class="st"> </span><span class="kw">scale_fill_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set2&quot;</span>) <span class="op">+</span></span>
+<span id="cb5-5"><a href="functional.html#cb5-5"></a><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb5-6"><a href="functional.html#cb5-6"></a><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Happy Planet Index&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;2016&quot;</span>, <span class="dt">caption =</span> <span class="st">&quot;https://happyplanetindex.org&quot;</span>,</span>
+<span id="cb5-7"><a href="functional.html#cb5-7"></a>       <span class="dt">x=</span><span class="st">&quot;Happy Planet Index&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Count&quot;</span>) <span class="op">+</span></span>
+<span id="cb5-8"><a href="functional.html#cb5-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb5-9"><a href="functional.html#cb5-9"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), </span>
+<span id="cb5-10"><a href="functional.html#cb5-10"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">14</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>), <span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+</div>
+<div id="comparison" class="section level2">
+<h2><span class="header-section-number">2.3</span> Comparison</h2>
+<div id="bar-charts" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Bar charts</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="functional.html#cb6-1"></a><span class="co"># Import the TEDS 2016 data in Stata format using the haven package</span></span>
+<span id="cb6-2"><a href="functional.html#cb6-2"></a><span class="co"># install.packages(&quot;haven&quot;)</span></span>
+<span id="cb6-3"><a href="functional.html#cb6-3"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb6-4"><a href="functional.html#cb6-4"></a><span class="kw">library</span>(haven)</span>
+<span id="cb6-5"><a href="functional.html#cb6-5"></a>TEDS_<span class="dv">2016</span> &lt;-<span class="st"> </span><span class="kw">read_stata</span>(<span class="st">&quot;https://github.com/datageneration/home/blob/master/DataProgramming/data/TEDS_2016.dta?raw=true&quot;</span>)</span>
+<span id="cb6-6"><a href="functional.html#cb6-6"></a></span>
+<span id="cb6-7"><a href="functional.html#cb6-7"></a><span class="co"># Prepare the analyze the Party ID variable </span></span>
+<span id="cb6-8"><a href="functional.html#cb6-8"></a><span class="co"># Assign label to the values (1=KMT, 2=DPP, 3=NP, 4=PFP, 5=TSU, 6=NPP, 7=&quot;NA&quot;)</span></span>
+<span id="cb6-9"><a href="functional.html#cb6-9"></a></span>
+<span id="cb6-10"><a href="functional.html#cb6-10"></a>TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID &lt;-<span class="st"> </span><span class="kw">factor</span>(TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID, <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;KMT&quot;</span>,<span class="st">&quot;DPP&quot;</span>,<span class="st">&quot;NP&quot;</span>,<span class="st">&quot;PFP&quot;</span>, <span class="st">&quot;TSU&quot;</span>, <span class="st">&quot;NPP&quot;</span>,<span class="st">&quot;NA&quot;</span>))</span>
+<span id="cb6-11"><a href="functional.html#cb6-11"></a></span>
+<span id="cb6-12"><a href="functional.html#cb6-12"></a><span class="co"># Run a frequency table of the Party ID variable using the descr package</span></span>
+<span id="cb6-13"><a href="functional.html#cb6-13"></a><span class="co"># install.packages(&quot;descr&quot;)</span></span>
+<span id="cb6-14"><a href="functional.html#cb6-14"></a><span class="kw">library</span>(descr)</span>
+<span id="cb6-15"><a href="functional.html#cb6-15"></a><span class="kw">freq</span>(TEDS_<span class="dv">2016</span><span class="op">$</span>PartyID)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre><code>## TEDS_2016$PartyID 
+##       Frequency  Percent
+## KMT         388  22.9586
+## DPP         591  34.9704
+## NP            3   0.1775
+## PFP          32   1.8935
+## TSU           5   0.2959
+## NPP          43   2.5444
+## NA          628  37.1598
+## Total      1690 100.0000</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="functional.html#cb8-1"></a><span class="co"># Plot the Party ID variable</span></span>
+<span id="cb8-2"><a href="functional.html#cb8-2"></a><span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb8-3"><a href="functional.html#cb8-3"></a><span class="st">  </span><span class="kw">geom_bar</span>()</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="functional.html#cb9-1"></a><span class="co"># Better plot with colors</span></span>
+<span id="cb9-2"><a href="functional.html#cb9-2"></a><span class="co"># Apply percentages instead of counts</span></span>
+<span id="cb9-3"><a href="functional.html#cb9-3"></a><span class="kw">ggplot</span>(TEDS_<span class="dv">2016</span>, <span class="kw">aes</span>(PartyID)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb9-4"><a href="functional.html#cb9-4"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">y =</span> (..count..)<span class="op">/</span><span class="kw">sum</span>(..count..),<span class="dt">fill=</span>PartyID)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb9-5"><a href="functional.html#cb9-5"></a><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>scales<span class="op">::</span>percent) <span class="op">+</span></span>
+<span id="cb9-6"><a href="functional.html#cb9-6"></a><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Party Support (%)&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb9-7"><a href="functional.html#cb9-7"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="op">+</span></span>
+<span id="cb9-8"><a href="functional.html#cb9-8"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="functional.html#cb10-1"></a><span class="co"># Sort the distribution with party colors</span></span>
+<span id="cb10-2"><a href="functional.html#cb10-2"></a></span>
+<span id="cb10-3"><a href="functional.html#cb10-3"></a>TEDS_<span class="dv">2016</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-4"><a href="functional.html#cb10-4"></a><span class="st">  </span><span class="kw">count</span>(PartyID) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb10-5"><a href="functional.html#cb10-5"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">perc =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">nrow</span>(TEDS_<span class="dv">2016</span>)) -&gt;<span class="st"> </span>T2</span>
+<span id="cb10-6"><a href="functional.html#cb10-6"></a><span class="kw">ggplot</span>(T2, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw">reorder</span>(PartyID, <span class="op">-</span>perc),<span class="dt">y =</span> perc,<span class="dt">fill=</span>PartyID)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb10-7"><a href="functional.html#cb10-7"></a><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="op">+</span></span>
+<span id="cb10-8"><a href="functional.html#cb10-8"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Party Support in Taiwan&quot;</span>, <span class="dt">subtitle =</span> <span class="st">&quot;2016&quot;</span>,  </span>
+<span id="cb10-9"><a href="functional.html#cb10-9"></a>       <span class="dt">x=</span><span class="st">&quot;Taiwan Political Parties&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Party Support (%)&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: Taiwan Election and Democratization Study&quot;</span>) <span class="op">+</span></span>
+<span id="cb10-10"><a href="functional.html#cb10-10"></a><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb10-11"><a href="functional.html#cb10-11"></a><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;steel blue&quot;</span>,<span class="st">&quot;forestgreen&quot;</span>,<span class="st">&quot;khaki1&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;goldenrod&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span></span>
+<span id="cb10-12"><a href="functional.html#cb10-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),<span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb10-13"><a href="functional.html#cb10-13"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-6-4.png" width="672" />
+### Time series</p>
+<div id="stock-chart-using-package-quantmod" class="section level4">
+<h4><span class="header-section-number">2.3.1.1</span> Stock chart using package quantmod</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="functional.html#cb11-1"></a><span class="co"># install.packages(&quot;quantmod&quot;)</span></span>
+<span id="cb11-2"><a href="functional.html#cb11-2"></a><span class="kw">library</span>(quantmod)</span>
+<span id="cb11-3"><a href="functional.html#cb11-3"></a>quantmod<span class="op">::</span><span class="kw">getSymbols</span>(<span class="st">&quot;TWTR&quot;</span>, <span class="dt">src=</span><span class="st">&quot;yahoo&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;TWTR&quot;</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="functional.html#cb13-1"></a><span class="kw">chartSeries</span>(TWTR)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="functional.html#cb14-1"></a><span class="kw">chartSeries</span>(TWTR, <span class="dt">type =</span> <span class="kw">c</span>(<span class="st">&quot;auto&quot;</span>, <span class="st">&quot;candlesticks&quot;</span>, <span class="st">&quot;matchsticks&quot;</span>, <span class="st">&quot;bars&quot;</span>,<span class="st">&quot;line&quot;</span>), <span class="dt">subset=</span><span class="st">&#39;last 4 months&#39;</span>,<span class="dt">theme =</span> <span class="st">&quot;white&quot;</span>)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="functional.html#cb15-1"></a><span class="kw">barChart</span>(TWTR,<span class="dt">multi.col=</span><span class="ot">TRUE</span>,<span class="dt">theme =</span> <span class="st">&#39;white&#39;</span>)</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="functional.html#cb16-1"></a><span class="kw">lineChart</span>(TWTR,<span class="dt">line.type =</span> <span class="st">&#39;l&#39;</span>, <span class="dt">theme =</span> <span class="st">&#39;white&#39;</span>) <span class="co"># line, choices include l, h, c, b</span></span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="functional.html#cb17-1"></a><span class="kw">lineChart</span>(TWTR,<span class="dt">line.type =</span> <span class="st">&#39;h&#39;</span>,<span class="dt">theme =</span> <span class="kw">chartTheme</span>(<span class="st">&#39;white&#39;</span>, <span class="dt">up.col=</span><span class="st">&#39;steelblue&#39;</span>)) <span class="co"># histogram</span></span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-7-5.png" width="672" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="functional.html#cb18-1"></a><span class="kw">candleChart</span>(TWTR,<span class="dt">subset =</span> <span class="st">&quot;2020-11/2021-01&quot;</span>, <span class="dt">multi.col=</span><span class="ot">TRUE</span>,<span class="dt">theme =</span> <span class="kw">chartTheme</span>(<span class="st">&#39;white&#39;</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-7-6.png" width="672" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="functional.html#cb19-1"></a><span class="co">## grey =&gt; Open[t] &lt; Close[t] and Op[t] &lt; Cl[t-1]</span></span>
+<span id="cb19-2"><a href="functional.html#cb19-2"></a><span class="co">## white =&gt; Op[t] &lt; Cl[t] and Op[t] &gt; Cl[t-1]</span></span>
+<span id="cb19-3"><a href="functional.html#cb19-3"></a><span class="co">## red =&gt; Op[t] &gt; Cl[t] and Op[t] &lt; Cl[t-1]</span></span>
+<span id="cb19-4"><a href="functional.html#cb19-4"></a><span class="co">## black =&gt; Op[t] &gt; Cl[t] and Op[t] &gt; Cl[t-1]</span></span></code></pre></div>
+</div>
+<div id="plotting-multiple-time-series-stock-prices" class="section level4">
+<h4><span class="header-section-number">2.3.1.2</span> Plotting multiple time series: stock prices</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="functional.html#cb20-1"></a><span class="co"># Plotting time series (stock example)</span></span>
+<span id="cb20-2"><a href="functional.html#cb20-2"></a><span class="co"># install.packages(c(&quot;quantmod&quot;, &quot;ggplot2&quot;, &quot;magrittr&quot;,&quot;broom&quot;))</span></span>
+<span id="cb20-3"><a href="functional.html#cb20-3"></a><span class="co"># lapply(c(&quot;quantmod&quot;, &quot;ggplot2&quot;, &quot;magrittr&quot;,&quot;broom&quot;), require, character.only = TRUE)</span></span>
+<span id="cb20-4"><a href="functional.html#cb20-4"></a><span class="kw">library</span>(quantmod)</span>
+<span id="cb20-5"><a href="functional.html#cb20-5"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb20-6"><a href="functional.html#cb20-6"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb20-7"><a href="functional.html#cb20-7"></a><span class="kw">library</span>(broom)</span>
+<span id="cb20-8"><a href="functional.html#cb20-8"></a></span>
+<span id="cb20-9"><a href="functional.html#cb20-9"></a><span class="co">## Plotting multiple series using ggplot2</span></span>
+<span id="cb20-10"><a href="functional.html#cb20-10"></a></span>
+<span id="cb20-11"><a href="functional.html#cb20-11"></a><span class="co"># Setting time period</span></span>
+<span id="cb20-12"><a href="functional.html#cb20-12"></a>start =<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2020-10-01&quot;</span>) </span>
+<span id="cb20-13"><a href="functional.html#cb20-13"></a>end =<span class="st"> </span><span class="kw">as.Date</span>(<span class="st">&quot;2021-01-12&quot;</span>)</span>
+<span id="cb20-14"><a href="functional.html#cb20-14"></a></span>
+<span id="cb20-15"><a href="functional.html#cb20-15"></a><span class="co"># Collect stock names from Yahoo Finance</span></span>
+<span id="cb20-16"><a href="functional.html#cb20-16"></a><span class="kw">getSymbols</span>(<span class="kw">c</span>(<span class="st">&quot;AAPL&quot;</span>, <span class="st">&quot;FB&quot;</span>, <span class="st">&quot;TSM&quot;</span>), <span class="dt">src =</span> <span class="st">&quot;yahoo&quot;</span>, <span class="dt">from =</span> start, <span class="dt">to =</span> end)</span></code></pre></div>
+<pre><code>## [1] &quot;AAPL&quot; &quot;FB&quot;   &quot;TSM&quot;</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="functional.html#cb22-1"></a><span class="co"># Prepare data as xts (time series object)</span></span>
+<span id="cb22-2"><a href="functional.html#cb22-2"></a>stocks =<span class="st"> </span><span class="kw">as.xts</span>(<span class="kw">data.frame</span>(<span class="dt">AAPL =</span> AAPL[, <span class="st">&quot;AAPL.Adjusted&quot;</span>], </span>
+<span id="cb22-3"><a href="functional.html#cb22-3"></a>                           <span class="dt">FB =</span> FB[, <span class="st">&quot;FB.Adjusted&quot;</span>], </span>
+<span id="cb22-4"><a href="functional.html#cb22-4"></a>                           <span class="dt">TSM =</span> TSM[, <span class="st">&quot;TSM.Adjusted&quot;</span>]))</span>
+<span id="cb22-5"><a href="functional.html#cb22-5"></a></span>
+<span id="cb22-6"><a href="functional.html#cb22-6"></a><span class="co"># Index by date</span></span>
+<span id="cb22-7"><a href="functional.html#cb22-7"></a><span class="kw">names</span>(stocks) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Apple&quot;</span>, <span class="st">&quot;Facebook&quot;</span>, <span class="st">&quot;Taiwan Semiconductor Manu.&quot;</span>)</span>
+<span id="cb22-8"><a href="functional.html#cb22-8"></a><span class="kw">index</span>(stocks) =<span class="st"> </span><span class="kw">as.Date</span>(<span class="kw">index</span>(stocks))</span>
+<span id="cb22-9"><a href="functional.html#cb22-9"></a></span>
+<span id="cb22-10"><a href="functional.html#cb22-10"></a><span class="co"># Plot</span></span>
+<span id="cb22-11"><a href="functional.html#cb22-11"></a>stocks_series =<span class="st"> </span><span class="kw">tidy</span>(stocks) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb22-12"><a href="functional.html#cb22-12"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>index,<span class="dt">y=</span>value, <span class="dt">color=</span>series)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb22-13"><a href="functional.html#cb22-13"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">cex=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb22-14"><a href="functional.html#cb22-14"></a><span class="st">  </span><span class="kw">theme_bw</span>()</span>
+<span id="cb22-15"><a href="functional.html#cb22-15"></a>stocks_series</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="functional.html#cb23-1"></a>stocks_series =<span class="st"> </span><span class="kw">tidy</span>(stocks) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb23-2"><a href="functional.html#cb23-2"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x=</span>index,<span class="dt">y=</span>value, <span class="dt">color=</span>series)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb23-3"><a href="functional.html#cb23-3"></a><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">cex=</span><span class="dv">1</span>) <span class="op">+</span></span>
+<span id="cb23-4"><a href="functional.html#cb23-4"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb23-5"><a href="functional.html#cb23-5"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Daily Stock Prices, 10/1/2020 - 11/10/2020&quot;</span>,</span>
+<span id="cb23-6"><a href="functional.html#cb23-6"></a>     <span class="dt">subtitle =</span> <span class="st">&quot;End of Day Adjusted Prices&quot;</span>,</span>
+<span id="cb23-7"><a href="functional.html#cb23-7"></a>     <span class="dt">caption =</span> <span class="st">&quot;Source: Yahoo Finance&quot;</span>) <span class="op">+</span></span>
+<span id="cb23-8"><a href="functional.html#cb23-8"></a><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Date&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Price&quot;</span>) <span class="op">+</span></span>
+<span id="cb23-9"><a href="functional.html#cb23-9"></a><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;steelblue&quot;</span>, <span class="st">&quot;red&quot;</span>,<span class="st">&quot;purple&quot;</span>)) <span class="op">+</span></span>
+<span id="cb23-10"><a href="functional.html#cb23-10"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">&quot;Apple Garamond&quot;</span>), <span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>), <span class="dt">plot.subtitle =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>)) <span class="op">+</span></span>
+<span id="cb23-11"><a href="functional.html#cb23-11"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position=</span><span class="st">&quot;top&quot;</span>)</span>
+<span id="cb23-12"><a href="functional.html#cb23-12"></a>stocks_series</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-8-2.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="relationship" class="section level2">
+<h2><span class="header-section-number">2.4</span> Relationship</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="functional.html#cb24-1"></a><span class="kw">library</span>(gapminder)</span>
+<span id="cb24-2"><a href="functional.html#cb24-2"></a>gm=gapminder</span>
+<span id="cb24-3"><a href="functional.html#cb24-3"></a><span class="kw">ggplot</span>(gm) <span class="op">+</span></span>
+<span id="cb24-4"><a href="functional.html#cb24-4"></a><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x =</span> gdpPercap, <span class="dt">y =</span> lifeExp, <span class="dt">colour =</span> continent) <span class="op">+</span></span>
+<span id="cb24-5"><a href="functional.html#cb24-5"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.5</span>) <span class="op">+</span></span>
+<span id="cb24-6"><a href="functional.html#cb24-6"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">span =</span> <span class="fl">0.75</span>) <span class="op">+</span></span>
+<span id="cb24-7"><a href="functional.html#cb24-7"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">trans =</span> <span class="st">&quot;log10&quot;</span>, <span class="dt">labels =</span> scales<span class="op">::</span>comma) <span class="op">+</span></span>
+<span id="cb24-8"><a href="functional.html#cb24-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb24-9"><a href="functional.html#cb24-9"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(continent)) <span class="op">+</span></span>
+<span id="cb24-10"><a href="functional.html#cb24-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Life Expectacy and GDP Per Capita (logged)&quot;</span>, </span>
+<span id="cb24-11"><a href="functional.html#cb24-11"></a>       <span class="dt">x=</span><span class="st">&quot;GDP Per Capita&quot;</span>,<span class="dt">y=</span><span class="st">&quot;Life Expectancy&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;Source: Gapminder.org&quot;</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb24-12"><a href="functional.html#cb24-12"></a><span class="st">  </span><span class="kw">theme</span>(<span class="dt">plot.title =</span> <span class="kw">element_text</span>(<span class="dt">hjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb24-13"><a href="functional.html#cb24-13"></a>        <span class="dt">text=</span><span class="kw">element_text</span>(<span class="dt">size=</span><span class="dv">12</span>,<span class="dt">family=</span><span class="st">&quot;Palatino&quot;</span>), <span class="dt">legend.position=</span><span class="kw">c</span>(.<span class="dv">9</span>,.<span class="dv">2</span>))</span></code></pre></div>
+<p><img src="book_dvp_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
