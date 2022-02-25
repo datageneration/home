@@ -24,7 +24,7 @@
 <meta name="author" content="Karl Ho" />
 
 
-<meta name="date" content="2022-02-16" />
+<meta name="date" content="2022-02-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -346,18 +346,18 @@ Figure 3.4: RStudio screenshot
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -5.6321 -1.3762  0.2112  1.0709  4.4205 
+## -5.0958 -2.3579 -0.1242  1.4008  5.4649 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) -0.01622    1.06000  -0.015    0.988    
-## x            1.10986    0.08849  12.543 2.47e-10 ***
+## (Intercept)   0.2272     1.2520   0.181    0.858    
+## x             0.7660     0.1045   7.329 8.34e-07 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.282 on 18 degrees of freedom
-## Multiple R-squared:  0.8973, Adjusted R-squared:  0.8916 
-## F-statistic: 157.3 on 1 and 18 DF,  p-value: 2.468e-10</code></pre>
+## Residual standard error: 2.695 on 18 degrees of freedom
+## Multiple R-squared:  0.749,  Adjusted R-squared:  0.7351 
+## F-statistic: 53.71 on 1 and 18 DF,  p-value: 8.337e-07</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-programming.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use w for a weighted regression.</span></span>
 <span id="cb3-2"><a href="r-programming.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="r-programming.html#cb3-3" aria-hidden="true" tabindex="-1"></a>fm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data=</span>dummy, <span class="at">weight=</span><span class="dv">1</span><span class="sc">/</span>w<span class="sc">^</span><span class="dv">2</span>) </span>
@@ -371,18 +371,18 @@ Figure 3.4: RStudio screenshot
 ## 
 ## Weighted Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1.86736 -0.59488  0.08441  0.43477  1.40528 
+## -1.78814 -0.81695 -0.05702  0.68900  2.27589 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  0.04751    0.76241   0.062    0.951    
-## x            1.10400    0.07774  14.201 3.21e-11 ***
+## (Intercept)  0.10794    0.96591   0.112    0.912    
+## x            0.77720    0.09849   7.891 2.98e-07 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.8425 on 18 degrees of freedom
-## Multiple R-squared:  0.9181, Adjusted R-squared:  0.9135 
-## F-statistic: 201.7 on 1 and 18 DF,  p-value: 3.209e-11</code></pre>
+## Residual standard error: 1.067 on 18 degrees of freedom
+## Multiple R-squared:  0.7758, Adjusted R-squared:  0.7633 
+## F-statistic: 62.27 on 1 and 18 DF,  p-value: 2.977e-07</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-programming.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the columns in the data frame visible as variables.</span></span>
 <span id="cb5-2"><a href="r-programming.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="r-programming.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(dummy)</span>
