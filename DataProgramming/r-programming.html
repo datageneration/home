@@ -346,18 +346,18 @@ Figure 3.4: RStudio screenshot
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -5.0958 -2.3579 -0.1242  1.4008  5.4649 
+## -3.0756 -1.3643 -0.1197  0.6690  5.6433 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)   0.2272     1.2520   0.181    0.858    
-## x             0.7660     0.1045   7.329 8.34e-07 ***
+## (Intercept) -1.50105    0.93931  -1.598    0.127    
+## x            1.09498    0.07841  13.964 4.24e-11 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 2.695 on 18 degrees of freedom
-## Multiple R-squared:  0.749,  Adjusted R-squared:  0.7351 
-## F-statistic: 53.71 on 1 and 18 DF,  p-value: 8.337e-07</code></pre>
+## Residual standard error: 2.022 on 18 degrees of freedom
+## Multiple R-squared:  0.9155, Adjusted R-squared:  0.9108 
+## F-statistic:   195 on 1 and 18 DF,  p-value: 4.24e-11</code></pre>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-programming.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use w for a weighted regression.</span></span>
 <span id="cb3-2"><a href="r-programming.html#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="r-programming.html#cb3-3" aria-hidden="true" tabindex="-1"></a>fm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data=</span>dummy, <span class="at">weight=</span><span class="dv">1</span><span class="sc">/</span>w<span class="sc">^</span><span class="dv">2</span>) </span>
@@ -371,18 +371,18 @@ Figure 3.4: RStudio screenshot
 ## 
 ## Weighted Residuals:
 ##      Min       1Q   Median       3Q      Max 
-## -1.78814 -0.81695 -0.05702  0.68900  2.27589 
+## -1.15459 -0.45691  0.00188  0.27934  1.88730 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)  0.10794    0.96591   0.112    0.912    
-## x            0.77720    0.09849   7.891 2.98e-07 ***
+## (Intercept) -1.12842    0.67397  -1.674    0.111    
+## x            1.06052    0.06872  15.432 8.01e-12 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 1.067 on 18 degrees of freedom
-## Multiple R-squared:  0.7758, Adjusted R-squared:  0.7633 
-## F-statistic: 62.27 on 1 and 18 DF,  p-value: 2.977e-07</code></pre>
+## Residual standard error: 0.7448 on 18 degrees of freedom
+## Multiple R-squared:  0.9297, Adjusted R-squared:  0.9258 
+## F-statistic: 238.1 on 1 and 18 DF,  p-value: 8.007e-12</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-programming.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the columns in the data frame visible as variables.</span></span>
 <span id="cb5-2"><a href="r-programming.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="r-programming.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(dummy)</span>
@@ -455,7 +455,7 @@ Figure 3.4: RStudio screenshot
 <span id="cb14-2"><a href="r-programming.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages(&quot;descr&quot;)</span></span>
 <span id="cb14-3"><a href="r-programming.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(descr)</span>
 <span id="cb14-4"><a href="r-programming.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(TEDS_2016<span class="sc">$</span>PartyID)</span></code></pre></div>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/TEDS_illustration3-1.png" width="672" /></p>
 <pre><code>## TEDS_2016$PartyID 
 ##       Frequency  Percent
 ## KMT         388  22.9586
@@ -471,14 +471,14 @@ Figure 3.4: RStudio screenshot
 <span id="cb16-2"><a href="r-programming.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb16-3"><a href="r-programming.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(TEDS_2016, <span class="fu">aes</span>(PartyID)) <span class="sc">+</span> </span>
 <span id="cb16-4"><a href="r-programming.html#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/TEDS_illustration4-1.png" width="672" /></p>
 <p>We can attend to more detail of the chart, such as adding labels to x and y axes, and calculating the percentage instead of counts.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-programming.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(TEDS_2016, <span class="fu">aes</span>(PartyID)) <span class="sc">+</span> </span>
 <span id="cb17-2"><a href="r-programming.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> (..count..)<span class="sc">/</span><span class="fu">sum</span>(..count..))) <span class="sc">+</span> </span>
 <span id="cb17-3"><a href="r-programming.html#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels=</span>scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
 <span id="cb17-4"><a href="r-programming.html#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Party Support (%)&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb17-5"><a href="r-programming.html#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>)</span></code></pre></div>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/TEDS_illustration5-1.png" width="672" /></p>
 <p>Adding colors, with another theme:</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-programming.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(TEDS_2016, <span class="fu">aes</span>(PartyID)) <span class="sc">+</span> </span>
 <span id="cb18-2"><a href="r-programming.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> (..count..)<span class="sc">/</span><span class="fu">sum</span>(..count..),<span class="at">fill=</span>PartyID)) <span class="sc">+</span> </span>
@@ -486,7 +486,7 @@ Figure 3.4: RStudio screenshot
 <span id="cb18-4"><a href="r-programming.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Party Support (%)&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb18-5"><a href="r-programming.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="sc">+</span></span>
 <span id="cb18-6"><a href="r-programming.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/TEDS_illustration6-1.png" width="672" /></p>
 <p>Hold on, colors are not right!</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-programming.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(TEDS_2016, <span class="fu">aes</span>(PartyID)) <span class="sc">+</span> </span>
 <span id="cb19-2"><a href="r-programming.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> (..count..)<span class="sc">/</span><span class="fu">sum</span>(..count..),<span class="at">fill=</span>PartyID)) <span class="sc">+</span> </span>
@@ -495,7 +495,7 @@ Figure 3.4: RStudio screenshot
 <span id="cb19-5"><a href="r-programming.html#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="sc">+</span></span>
 <span id="cb19-6"><a href="r-programming.html#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb19-7"><a href="r-programming.html#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;steel blue&quot;</span>,<span class="st">&quot;forestgreen&quot;</span>,<span class="st">&quot;khaki1&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;goldenrod&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;grey&quot;</span>))</span></code></pre></div>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/TEDS_illustration7-1.png" width="672" /></p>
 <p>To make the chart more meaningful, we can use a package called tidyverse to manage the data.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-programming.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">##install.packages(&quot;tidyverse&quot;)</span></span>
 <span id="cb20-2"><a href="r-programming.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -508,7 +508,7 @@ Figure 3.4: RStudio screenshot
 <span id="cb20-9"><a href="r-programming.html#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Taiwan Political Parties&quot;</span>) <span class="sc">+</span></span>
 <span id="cb20-10"><a href="r-programming.html#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb20-11"><a href="r-programming.html#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&quot;steel blue&quot;</span>,<span class="st">&quot;forestgreen&quot;</span>,<span class="st">&quot;khaki1&quot;</span>,<span class="st">&quot;orange&quot;</span>,<span class="st">&quot;goldenrod&quot;</span>,<span class="st">&quot;yellow&quot;</span>,<span class="st">&quot;grey&quot;</span>))</span></code></pre></div>
-<p><img src="DataProgramming_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p><img src="DataProgramming_files/figure-html/TEDS_illustration8-1.png" width="672" /></p>
 </div>
 <div id="exercise" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Exercise</h2>
