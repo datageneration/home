@@ -1666,9 +1666,9 @@ academic conferences.</li>
 </ol>
 <p>Once approved, Twitter will provide API detail in four
 keys/secret/tokens.</p>
-<ol style="list-style-type: lower-alpha">
-<li>rtweet Open an R session and store the API data:</li>
-</ol>
+<div id="rtweet" class="section level2">
+<h2>1. rtweet</h2>
+<p>Open an R session and store the API data:</p>
 <pre class="r"><code>## Required package: rtweet
 # Create token for direct authentication to access Twitter data
 
@@ -1737,9 +1737,9 @@ ggraph(blm_g, layout = &#39;kk&#39;) +
   theme_graph(base_family=&quot;Apple Garamond&quot;) +
   theme(legend.position=&quot;none&quot;) 
 # End(Not run)</code></pre>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>academictwitteR</li>
-</ol>
+</div>
+<div id="academictwitter" class="section level2">
+<h2>2. academictwitteR</h2>
 <p>The academictwitteR is one of the newest packages allowing
 downloading substantial amount of Twitter data. The authors, Christopher
 Barrie and Justin Chun-ting Ho, provide a <a href="https://github.com/cjbarrie/academictwitteR">detailed description
@@ -1759,6 +1759,7 @@ cvtweets &lt;-
     file = &quot;covidtweets&quot;,
     n = 100000
   )</code></pre>
+</div>
 </div>
 <div id="ii.-using-non-api-method-to-collect-twitter-data" class="section level1">
 <h1>II. Using non-API Method to collect Twitter data</h1>
