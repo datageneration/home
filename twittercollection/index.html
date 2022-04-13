@@ -1746,19 +1746,42 @@ Barrie and Justin Chun-ting Ho, provide a <a href="https://github.com/cjbarrie/a
 page</a> with instructions to setting up the package and bearer token in
 RStudio.</p>
 <p>Sample program for downloading tweet data:</p>
-<pre class="r"><code>require(academictwitteR)
-set_bearer()
-# get_bearer()
+<pre class="r"><code># install.packages(&quot;academictwitteR&quot;)
+# installation instruction: https://github.com/cjbarrie/academictwitteR
 
-cvtweets &lt;-
-  get_all_tweets(
+# Setup
+require(academictwitteR)
+# set_bearer()
+get_bearer() # Check bearer token
+
+# Keyword search
+# Be sure not to do a long period, Twitter limits search with big data return
+# Recommended: start with three to six months 
+get_all_tweets(
     query = &quot;COVID&quot;,
-    start_tweets = &quot;2020-01-01T00:00:00Z&quot;,
+    start_tweets = &quot;2022-01-01T00:00:00Z&quot;,
     end_tweets = &quot;2022-03-31T00:00:00Z&quot;,
-    data_path = &quot;data/&quot;,
-    file = &quot;covidtweets&quot;,
+    data_path = &quot;data/&quot;,  # save json data by page in this directory, bind data afterward
+    file = &quot;covidtweets&quot;, # save rds format, could be skipped if file size becomes too large
     n = 100000
-  )</code></pre>
+  )
+
+
+## Get user data
+# Step 1. Get author id by username
+get_user_id(&quot;JoeBiden&quot;, get_bearer())
+
+# Step 2. Get tweet data by author id
+get_user_timeline(&quot;939091&quot;,
+                  start_tweets = &quot;2021-01-01T00:00:00Z&quot;, 
+                  end_tweets = &quot;2021-12-31T00:00:00Z&quot;,
+                  bearer_token = get_bearer(),
+                  data_path = &quot;biden21/&quot;,
+                  file =&quot;twt_biden21&quot;,
+                  n = 10000)
+
+# Step 3. Bind json data into data frame
+bidentwt21 = bind_tweets(data_path = &quot;biden21/&quot;, user = TRUE, output_format = &quot;tidy&quot;)</code></pre>
 </div>
 </div>
 <div id="ii.-using-non-api-method-to-collect-twitter-data" class="section level1">
