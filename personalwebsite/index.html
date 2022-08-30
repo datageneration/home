@@ -1701,8 +1701,7 @@ title: &quot;About&quot;
 
 More about this website.
 </code></pre>
-<p>Once all files are ready, use the Build website button (under Build
-tab in Environment window on top right of RStudio). The rendering
+<p>Once all files are ready, click on the Render button. The rendering
 process converts the .qmd files into html files under the _site
 folder.</p>
 <p>Now your website is ready <em>locally</em>. You can check the links
@@ -1814,9 +1813,10 @@ website:</p>
 <li>Uploading requires SSH and DUO two factor authentication. If you
 have installed the latter on your phone, you can authenticate every
 upload/operation one at a time.</li>
-<li>Once the files are uploaded, be sure to check the permission to be
-755 (Read and execute by others).</li>
+<li>Once the files are uploaded, be sure to change the permission to be
+755 (Read and execute by others), e.g.:</li>
 </ol>
+<pre class="bash"><code>chmod 755 index.html</code></pre>
 </div>
 
 
