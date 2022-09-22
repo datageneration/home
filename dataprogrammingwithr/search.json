@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Programming with R",
+    "section": "",
+    "text": "This course requires no prior experience in programming. Yet, if you have some programming experience (e.g. SPSS, Stata, HTML), it will be helpful. R is an interpreted languages. In other words, the programs do not need compilation but will run in an environment to get the outputs. In this course, that is RStudio.\nAll packages and accounts are free and supported by open sources. It is recommended students bring their own computers (not mobile device) running MacOS, Linux or Windows operating systems.\nRecommended software and IDE’s:\n\nR version 4.2.1 or later (https://cran.r-project.org)\nRStudio version 1.2.x (https://www.rstudio.com)\nText editor of own choice (e.g. Atom, Sublime Text, Ultraedit)\n\nRecommended websites/accounts:\n1. GitHub (https://github.com)\n2. RStudio Cloud"
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This chapter introduces the general principles for data programming or coding involving data. Data programming is a practice that works and evolves with data. Unlike the point-and-click approach, programming allows the user to manage most closely the data and process data in more effective manner. Programs are designed to be replicable, by user and collaborators. A data program can be developed and updated iteratively and incrementally. In other words, it is building on the culminated works without repeating the steps. It takes debugging, which is the process of identifying problems (bugs) but, in fact, updating the program in different situations or with different inputs when used in different contexts, including the programmer himself or herself working in future times."
+  },
+  {
+    "objectID": "intro.html#principles-of-programming",
+    "href": "intro.html#principles-of-programming",
+    "title": "1  Introduction",
+    "section": "1.1 Principles of Programming",
+    "text": "1.1 Principles of Programming\nSocial scientists Gentzkow and Shapiro (2014) list out some principles for data programming.\n\nAutomation\n\nFor replicability (future-proof, for the future you)\n\n\n\n\nVersion Control\n\nAllow evolution and updated edition\nUse Git and GitHub\n\n\n\n\nDirectories/Modularity\n\nOrganize by functions and data chunks\n\n\n\n\nKeys\n\nIndex variable (relational)\n\n\n\n\nAbstraction\n\nKISS (Keep in short and simple)\n\n\n\n\nDocumentation\n\nComments for communicating to later users\n\n\n\n\nManagement\n\nCollaboration ready"
+  },
+  {
+    "objectID": "intro.html#functionalities-of-data-programs",
+    "href": "intro.html#functionalities-of-data-programs",
+    "title": "1  Introduction",
+    "section": "1.2 Functionalities of Data Programs",
+    "text": "1.2 Functionalities of Data Programs\nA data program can provide or perform :\n\nData source\nDocumentation of data\nImporting and exporting data\nManagement of data\nVisualization of data\nData models\n\nSample R Programs:\nR basics\n\n# Create variables composed of random numbers\nx <-rnorm(50) \ny = rnorm(x)\n\n# Plot the points in the plane \nplot(x, y)\n\n\n\n\nUsing R packages\n\n# Plot better, using the ggplot2 package \n## Prerequisite: install and load the ggplot2 package\n## install.packages(\"ggplot2\")\nlibrary(ggplot2)\nqplot(x,y)\n\n\n\n\nMore R Data Visualization\n\n# Plot better better with ggplot2\nggplot(,aes(x,y)) + theme_bw() + geom_point(col=\"blue\")"
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "Data collection\nData visualization\nData management\nData modeling\n\nThe major platform is R with the IDE (Integrated Development Environment) is Rstudio. However, the principles and applications can be used for other languages and platforms such as Python and Julia."
+  }
+]
