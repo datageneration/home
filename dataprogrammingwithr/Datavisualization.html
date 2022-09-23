@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Programming with R - 1&nbsp; Summary</title>
+<title>Data Programming with R - 7&nbsp; Data Visualization with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./intro.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./Datamodeling.html" rel="next">
+<link href="./Datamanagement.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization with R</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -179,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Datavisualization.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization with R</span></a>
+  <a href="./Datavisualization.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization with R</span></a>
   </div>
 </li>
       </ul>
@@ -209,14 +209,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-data-visualization" id="toc-what-is-data-visualization" class="nav-link active" data-scroll-target="#what-is-data-visualization"><span class="toc-section-number">7.1</span>  What is Data Visualization?</a></li>
+  <li><a href="#learn-to-read-data" id="toc-learn-to-read-data" class="nav-link" data-scroll-target="#learn-to-read-data"><span class="toc-section-number">7.2</span>  Learn to read data</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">7.3</span>  References:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Summary</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Visualization with R</span></h1>
 </div>
 
 
@@ -230,16 +238,38 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This book is designed for the short course titled <strong>Data Programming with R</strong>, offered in the University of Texas at Dallas. It provides training for aspiring data scientists to program surrounding data using R. The primary goal is to build a comprehensive program preparing students in four major elements in Data Science:</p>
-<ol type="1">
-<li><p>Data collection</p></li>
-<li><p>Data visualization</p></li>
-<li><p>Data management</p></li>
-<li><p>Data modeling</p></li>
-</ol>
-<p>The major platform is R with the IDE (Integrated Development Environment) is Rstudio. However, the principles and applications can be used for other languages and platforms such as Python and Julia.</p>
+<section id="what-is-data-visualization" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="what-is-data-visualization"><span class="header-section-number">7.1</span> What is Data Visualization?</h2>
+<p>Data visualization is to deliver a message from your data. It is like telling a story using the chart or data applications. Sometimes the data is huge or the story to too long to tell. Visualization provides an ability to comprehend huge amounts of data. The important information from more than a million measurements is immediately available.</p>
+<p>Visualization often enables problems with the data to become immediately apparent. A visualization commonly reveals things not only about the data itself but also about the way it is collected. With an appropriate visualization, errors and artifacts in the data often jump out at you. For this reason, visualizations can be invaluable in quality control.</p>
+<p>Visualization facilitates understanding of both large-scale and small-scale features of the data. It can be especially valuable in allowing the perception of patterns linking local features.</p>
+<p>Visualization facilitates hypothesis formation, inviting further inquiries into building a theory (Colin Ware 2012). It is exploratory data anlaysis (EDA) but can also provide the tools for hypothesis confirmation.</p>
+</section>
+<section id="learn-to-read-data" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="learn-to-read-data"><span class="header-section-number">7.2</span> Learn to read data</h2>
+<p><a href="https://www.edwardtufte.com/tufte/">Edward Tufte</a> is one of the earliest data scientists emphasizing visual thinking. He postulates that one should first learn to read data, before moving on to visualize. He suggests training the visual thinking, then preparing the educated eyes. His newest book is titled <a href="https://www.edwardtufte.com/tufte/seeing-with-fresh-eyes">SEEING WITH FRESH EYES: MEANING, SPACE, DATA, TRUTH</a>, vividly testifying his philosophy of connecting the human perception with the data message.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Edward_Tufte.jpg" class="img-fluid figure-img" style="width:25.0%"></p>
+<p></p><figcaption class="figure-caption"><strong>Edward Tufte</strong></figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fresh-eyes-cover.png" class="img-fluid figure-img" style="width:25.0%"></p>
+<p></p><figcaption class="figure-caption"><strong>Seeing with Fresh Eyes: Meaning, Space, Data, Truth</strong></figcaption><p></p>
+</figure>
+</div>
+<p>For Tufte, number one thing to learn about data visualization is to discard the default.</p>
+<p>“If you’re not doing something different, you’re not doing anything at all.” - Edward Tufte</p>
+<p><br> <br></p>
+</section>
+<section id="references" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="references"><span class="header-section-number">7.3</span> References:</h2>
+<p>Graham Williams 2011. <em>Data Mining with Rattle and R: The Art of Excavating Data for Knowledge</em></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -342,13 +372,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./Datamanagement.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Data Management with R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Datamodeling.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Modeling with R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,31 +7,129 @@
     "text": "This course requires no prior experience in programming. Yet, if you have some programming experience (e.g. SPSS, Stata, HTML), it will be helpful. R is an interpreted languages. In other words, the programs do not need compilation but will run in an environment to get the outputs. In this course, that is RStudio.\nAll packages and accounts are free and supported by open sources. It is recommended students bring their own computers (not mobile device) running MacOS, Linux or Windows operating systems.\nRecommended software and IDE’s:\n\nR version 4.2.1 or later (https://cran.r-project.org)\nRStudio version 1.2.x (https://www.rstudio.com)\nText editor of own choice (e.g. Atom, Sublime Text, Ultraedit)\n\nRecommended websites/accounts:\n1. GitHub (https://github.com)\n2. RStudio Cloud"
   },
   {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "1  Summary",
+    "section": "",
+    "text": "Data collection\nData visualization\nData management\nData modeling\n\nThe major platform is R with the IDE (Integrated Development Environment) is Rstudio. However, the principles and applications can be used for other languages and platforms such as Python and Julia."
+  },
+  {
     "objectID": "intro.html",
     "href": "intro.html",
-    "title": "1  Introduction",
+    "title": "2  Introduction",
     "section": "",
     "text": "This chapter introduces the general principles for data programming or coding involving data. Data programming is a practice that works and evolves with data. Unlike the point-and-click approach, programming allows the user to manage most closely the data and process data in more effective manner. Programs are designed to be replicable, by user and collaborators. A data program can be developed and updated iteratively and incrementally. In other words, it is building on the culminated works without repeating the steps. It takes debugging, which is the process of identifying problems (bugs) but, in fact, updating the program in different situations or with different inputs when used in different contexts, including the programmer himself or herself working in future times."
   },
   {
-    "objectID": "intro.html#principles-of-programming",
-    "href": "intro.html#principles-of-programming",
-    "title": "1  Introduction",
-    "section": "1.1 Principles of Programming",
-    "text": "1.1 Principles of Programming\nSocial scientists Gentzkow and Shapiro (2014) list out some principles for data programming.\n\nAutomation\n\nFor replicability (future-proof, for the future you)\n\n\n\n\nVersion Control\n\nAllow evolution and updated edition\nUse Git and GitHub\n\n\n\n\nDirectories/Modularity\n\nOrganize by functions and data chunks\n\n\n\n\nKeys\n\nIndex variable (relational)\n\n\n\n\nAbstraction\n\nKISS (Keep in short and simple)\n\n\n\n\nDocumentation\n\nComments for communicating to later users\n\n\n\n\nManagement\n\nCollaboration ready"
+    "objectID": "intro.html#principles-of-data-programming",
+    "href": "intro.html#principles-of-data-programming",
+    "title": "2  Introduction",
+    "section": "2.1 Principles of Data Programming",
+    "text": "2.1 Principles of Data Programming\nSocial scientists Gentzkow and Shapiro (2014) list out some principles for data programming.\n\nAutomation\n\nFor replicability (future-proof, for the future you)\n\n\n\n\nVersion Control\n\nAllow evolution and updated edition\nUse Git and GitHub\n\n\n\n\nDirectories/Modularity\n\nOrganize by functions and data chunks\n\n\n\n\nKeys\n\nIndex variable (relational)\n\n\n\n\nAbstraction\n\nKISS (Keep in short and simple)\n\n\n\n\nDocumentation\n\nComments for communicating to later users\n\n\n\n\nManagement\n\nCollaboration ready"
   },
   {
     "objectID": "intro.html#functionalities-of-data-programs",
     "href": "intro.html#functionalities-of-data-programs",
-    "title": "1  Introduction",
-    "section": "1.2 Functionalities of Data Programs",
-    "text": "1.2 Functionalities of Data Programs\nA data program can provide or perform :\n\nData source\nDocumentation of data\nImporting and exporting data\nManagement of data\nVisualization of data\nData models\n\nSample R Programs:\nR basics\n\n# Create variables composed of random numbers\nx <-rnorm(50) \ny = rnorm(x)\n\n# Plot the points in the plane \nplot(x, y)\n\n\n\n\nUsing R packages\n\n# Plot better, using the ggplot2 package \n## Prerequisite: install and load the ggplot2 package\n## install.packages(\"ggplot2\")\nlibrary(ggplot2)\nqplot(x,y)\n\n\n\n\nMore R Data Visualization\n\n# Plot better better with ggplot2\nggplot(,aes(x,y)) + theme_bw() + geom_point(col=\"blue\")"
+    "title": "2  Introduction",
+    "section": "2.2 Functionalities of Data Programs",
+    "text": "2.2 Functionalities of Data Programs\nA data program can provide or perform :\n\nData source\nDocumentation of data\nImporting and exporting data\nManagement of data\nVisualization of data\nData models\n\nSample R Programs:\nR basics\n\n# Create variables composed of random numbers\nx <-rnorm(50) \ny = rnorm(x)\n\n# Plot the points in the plane \nplot(x, y)\n\n\n\n\nUsing R packages\n\n# Plot better, using the ggplot2 package \n## Prerequisite: install and load the ggplot2 package\n## install.packages(\"ggplot2\")\nlibrary(ggplot2)\nqplot(x,y)\n\n\n\n\nMore R Data Visualization\n\n# Plot better better with ggplot2\nlibrary(ggplot2)\nggplot(,aes(x,y)) + theme_bw() + geom_point(col=\"blue\")"
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
+    "objectID": "Rbasics.html",
+    "href": "Rbasics.html",
+    "title": "3  R Basic operations",
     "section": "",
-    "text": "Data collection\nData visualization\nData management\nData modeling\n\nThe major platform is R with the IDE (Integrated Development Environment) is Rstudio. However, the principles and applications can be used for other languages and platforms such as Python and Julia."
+    "text": "This chapter introduces basic R operations including installing packages, operators, loading libraries and writing functions."
+  },
+  {
+    "objectID": "Rbasics.html#create-a-project",
+    "href": "Rbasics.html#create-a-project",
+    "title": "3  R Basic operations",
+    "section": "3.1 Create a project",
+    "text": "3.1 Create a project\nBefore diving into R programming, it is highly recommended creating a project. It will organize all related objects and files under one roof. Version control can be applied for automatically saving history (log) and data objects. Projects can facilitate additional specialized works such as:\n\nWriting a book using Quarto or bookdown\nCreating a website or a blog using Quarto\n\nHighly recommended to use this feature to create personal website\n\nSoftware development\nData visualization using Shiny\nManage data in database servers or other platform\n\nHowever, to start R programming with a project helps better organize the process of data analytics. A program is not just running a procedure but performing more data science tasks that last more than just one time execution. It scales!\nFor more detail, consult Using RStudio Projects"
+  },
+  {
+    "objectID": "Rbasics.html#operators",
+    "href": "Rbasics.html#operators",
+    "title": "3  R Basic operations",
+    "section": "3.2 Operators",
+    "text": "3.2 Operators\n\n3.2.1 Assignment operators\n<- and = are both the assignment operator where as = must be used as top level.\n\na <- 0\nb = 1\n\n|> is the base R “pipe” operator, feeding value (arguement) into a function.\n\n1:5 |> sum()\n\n[1] 15\n\n\nThe other pipe operator %>% (package magrittr), which is more commonly used especially in tidyverse. Using %>%, the argument can be piped into the function without ().\n\nlibrary(magrittr)\n1:5 %>% sum\n\n[1] 15\n\n\n\n\n3.2.2 Math operators\nThe common operators used in math are also applicable in the R environment.\n\nArithmetic: +,-,*,/,^ (power)\nLogical: & (and), | (or), ! (Not)\nRelational: >,<, ==, >=, <=, !="
+  },
+  {
+    "objectID": "Rbasics.html#package-management",
+    "href": "Rbasics.html#package-management",
+    "title": "3  R Basic operations",
+    "section": "3.3 Package Management",
+    "text": "3.3 Package Management\n\n3.3.1 Install packages\nR comes with basic functions and demo datasets (e.g. mtcars, Titanic, iris). For additional functionalities or specialized functions, installing additional packages is needed. Use install.packages(\"ISLR2\") for installation and it only needs be done the first time. However, for every new session, library() function is needed to call in (load) the package for remaining program.\n\n\n3.3.2 Libraries\nThe library() function is used to load libraries, or groups of functions and data sets that are not included in the base R distribution. Basic functions that perform least squares linear regression and other simple analyses come standard with the base distribution, but more exotic functions require additional libraries. The \\(ISLR\\) book uses the MASS package, which is a very large collection of data sets and functions. The ISLR2 package also includes the data sets associated with this book for demonstration.\n\nlibrary(MASS)\nlibrary(ISLR2)\n\n\nAttaching package: 'ISLR2'\n\n\nThe following object is masked from 'package:MASS':\n\n    Boston\n\n\nIf you receive an error message when loading any of these libraries, it likely indicates that the corresponding library has not yet been installed on your system. Some libraries, such as MASS, come with R and do not need to be separately installed on your computer. However, other packages, such as ISLR2, must be downloaded the first time they are used. This can be done directly from within R. For example, on a Windows system, select the Install package option under the Packages tab. After you select any mirror site, a list of available packages will appear. Simply select the package you wish to install and R will automatically download the package. Alternatively, this can be done at the R command line via install.packages(\"ISLR2\"). This installation only needs to be done the first time you use a package. However, the library() function must be called within each R session.\n\n\n3.3.3 Speed and organization\nThe general principle of using packages is: only load what you need! There are over 20,000 packages but the memory is limited. This article gives some comparison on different methods of using and loading packages or libraries. Again, using Project to manage your resources and it is advised to restart the R session (Session –> Restart R) to start with a clean slate for each project."
+  },
+  {
+    "objectID": "Rbasics.html#writing-functions",
+    "href": "Rbasics.html#writing-functions",
+    "title": "3  R Basic operations",
+    "section": "3.4 Writing Functions",
+    "text": "3.4 Writing Functions\nAs we have seen, R comes with many useful functions, and still more functions are available by way of R libraries. However, we will often be interested in performing an operation for which no function is available. In this setting, we may want to write our own function. For instance, below we provide examples of simple functions. The first one reads in the ISLR2 and MASS libraries, called LoadLibraries(). Before we have created the function, R returns an error if we try to call it.\n\nLoadLibraries\n\nError in eval(expr, envir, enclos): object 'LoadLibraries' not found\n\nLoadLibraries()\n\nError in LoadLibraries(): could not find function \"LoadLibraries\"\n\n\nWe now create the function. Note that the + symbols are printed by R and should not be typed in. The { symbol informs R that multiple commands are about to be input. Hitting Enter after typing { will cause R to print the + symbol. We can then input as many commands as we wish, hitting {Enter} after each one. Finally the } symbol informs R that no further commands will be entered.\n\nLoadLibraries <- function() {\n  library(ISLR2)\n  library(MASS)\n  print(\"The libraries have been loaded.\")\n}\n\nNow if we type in LoadLibraries, R will tell us what is in the function.\n\nLoadLibraries()\n\n[1] \"The libraries have been loaded.\"\n\n\nIf we call the function, the libraries are loaded in and the print statement is output.\nThe following example demonstrates creating a function out of existing functions from different packages:\n\n###Writing R functions\n## Combine the lm, plot and abline functions to create a one step regression fit plot function\nregplot=function(x,y){\n  fit=lm(y~x)\n  plot(x,y)\n  abline(fit,col=\"red\")\n}\nattach(Carseats)\nregplot(Price,Sales)\n\n\n\n## Allow extra room for additional arguments/specifications\nregplot=function(x,y,...){\n  fit=lm(y~x)\n  plot(x,y,...)\n  abline(fit,col=\"red\")\n}\nregplot(Price,Sales,xlab=\"Price\",ylab=\"Sales\",col=\"blue\",pch=20)\n\n\n\n\nThe following example creates a function to deal with package management:\n\n# Create preload function\n# Check if a package is installed.\n# If yes, load the library\n# If no, install package and load the library\n\npreload<-function(x)\n{\n  x <- as.character(x)\n  if (!require(x,character.only=TRUE))\n  {\n    install.packages(pkgs=x,  repos=\"http://cran.r-project.org\")\n    require(x,character.only=TRUE)\n  }\n}\n\nLet’s try preloading the package name **tidyverse** (be sure to wrap the name with double quotes ““:"
+  },
+  {
+    "objectID": "Rbasics.html#workshop-1",
+    "href": "Rbasics.html#workshop-1",
+    "title": "3  R Basic operations",
+    "section": "3.5 Workshop 1",
+    "text": "3.5 Workshop 1\n\nCreate the following objects:\n\nx <-rnorm(30)\ny = rnorm(x)\n\nPlot:\n\nhistogram of y (hint: use the hist() function)\nBoth x and y, using pch=20 (choose your own color using col=““)\n\nCheck the environment\n\nClean all objects using the following command:\n\nrm(list=ls())\n\n\nAlternatively, you can Ctrl+Shift+F10 (Mac: Command+Shift+0) to restart R session\n\n\n3.5.1 Recommended R Resources:\n\nThe R Journal\nIntroduction to R by W. N. Venables, D. M. Smith and the R Core Team\nIntroduction to R Seminar at UCLA\nGetting Started in Data Analysis using Stata and R by Data and Statistical Services, Princeton University\n\n\n\n3.5.2 References:\nGraham Williams 2011. Data Mining with Rattle and R: The Art of Excavating Data for Knowledge"
+  },
+  {
+    "objectID": "Quarto.html",
+    "href": "Quarto.html",
+    "title": "4  Quarto",
+    "section": "",
+    "text": "This chapter gives a brief introduction of communicative programming using Quarto. The idea is to incorporate data programming elements into a publishable document. Formats including PDF and HTML."
+  },
+  {
+    "objectID": "Datacollection.html",
+    "href": "Datacollection.html",
+    "title": "5  Data Collection with R",
+    "section": "",
+    "text": "This chapter covers the basic methods of collecting data using R. Simple scrapping methods will be introduced like using rvest , rtweet and academictwitteR."
+  },
+  {
+    "objectID": "Datamanagement.html",
+    "href": "Datamanagement.html",
+    "title": "6  Data Management with R",
+    "section": "",
+    "text": "This chapter focuses on the “Data” part in Data programming. In other words, we will cover methods of managing data not just locally but on cloud. It will cover the use of sparklyr to interact with Spark. Some basic concepts of relational database, database management systems and interfacing with database servers will be introduced."
+  },
+  {
+    "objectID": "Datavisualization.html",
+    "href": "Datavisualization.html",
+    "title": "7  Data Visualization with R",
+    "section": "",
+    "text": "Data visualization is to deliver a message from your data. It is like telling a story using the chart or data applications. Sometimes the data is huge or the story to too long to tell. Visualization provides an ability to comprehend huge amounts of data. The important information from more than a million measurements is immediately available.\nVisualization often enables problems with the data to become immediately apparent. A visualization commonly reveals things not only about the data itself but also about the way it is collected. With an appropriate visualization, errors and artifacts in the data often jump out at you. For this reason, visualizations can be invaluable in quality control.\nVisualization facilitates understanding of both large-scale and small-scale features of the data. It can be especially valuable in allowing the perception of patterns linking local features.\nVisualization facilitates hypothesis formation, inviting further inquiries into building a theory (Colin Ware 2012). It is exploratory data anlaysis (EDA) but can also provide the tools for hypothesis confirmation."
+  },
+  {
+    "objectID": "Datavisualization.html#learn-to-read-data",
+    "href": "Datavisualization.html#learn-to-read-data",
+    "title": "7  Data Visualization with R",
+    "section": "7.2 Learn to read data",
+    "text": "7.2 Learn to read data\nEdward Tufte is one of the earliest data scientists emphasizing visual thinking. He postulates that one should first learn to read data, before moving on to visualize. He suggests training the visual thinking, then preparing the educated eyes. His newest book is titled SEEING WITH FRESH EYES: MEANING, SPACE, DATA, TRUTH, vividly testifying his philosophy of connecting the human perception with the data message.\n\n\n\nEdward Tufte\n\n\n\n\n\nSeeing with Fresh Eyes: Meaning, Space, Data, Truth\n\n\nFor Tufte, number one thing to learn about data visualization is to discard the default.\n“If you’re not doing something different, you’re not doing anything at all.” - Edward Tufte"
+  },
+  {
+    "objectID": "Datavisualization.html#references",
+    "href": "Datavisualization.html#references",
+    "title": "7  Data Visualization with R",
+    "section": "7.3 References:",
+    "text": "7.3 References:\nGraham Williams 2011. Data Mining with Rattle and R: The Art of Excavating Data for Knowledge"
+  },
+  {
+    "objectID": "Datamodeling.html",
+    "href": "Datamodeling.html",
+    "title": "8  Data Modeling with R",
+    "section": "",
+    "text": "unsupervised learning\nsupervised learning:\n\nClassification\nRegression\nTree-based models\n\nautomated machine learning\n\nH2O"
+  },
+  {
+    "objectID": "whatsnext.html",
+    "href": "whatsnext.html",
+    "title": "9  What’s next",
+    "section": "",
+    "text": "This book will continue to incorporate new materials including new data science topics and developments."
   }
 ]
