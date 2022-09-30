@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -209,7 +272,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-big-data" id="toc-what-is-big-data" class="nav-link active" data-scroll-target="#what-is-big-data"><span class="toc-section-number">5.0.1</span>  What is Big Data?</a></li>
+  <li><a href="#why-we-need-to-collect-data-or-original-data" id="toc-why-we-need-to-collect-data-or-original-data" class="nav-link" data-scroll-target="#why-we-need-to-collect-data-or-original-data"><span class="toc-section-number">5.0.2</span>  Why we need to collect data or original data?</a></li>
+  <li><a href="#types-of-data-by-data-generation" id="toc-types-of-data-by-data-generation" class="nav-link" data-scroll-target="#types-of-data-by-data-generation"><span class="toc-section-number">5.0.3</span>  Types of data by data generation</a></li>
+  <li><a href="#illustrations-open-data" id="toc-illustrations-open-data" class="nav-link" data-scroll-target="#illustrations-open-data"><span class="toc-section-number">5.0.4</span>  Illustrations: Open data</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,8 +303,331 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>This chapter covers the basic methods of collecting data using R. Simple scrapping methods will be introduced like using <em>rvest</em> , <em>rtweet</em> and <em>academictwitteR</em>.</p>
+<section id="what-is-big-data" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="what-is-big-data"><span class="header-section-number">5.0.1</span> What is Big Data?</h3>
+<p>The [term] <em>Big Data</em> is about data that has huge <span style="color:red">volume</span>, cannot be on one computer. Has a lot of <span style="color:red">variety</span> in data types, locations, formats and form. It is also getting created very very fast (<span style="color:red">velocity</span>) (Doug Laney 2001).</p>
+<p>Big data is about the size of the data file. Big data is about the data generating process and data collection process.</p>
+<p>Survey data, no matter how many cases, should be classified as small data instead of big data due to the collection process and design.</p>
+<p>Burt Monroe, the founder of the Social Data Analytics program at the Penn State University, which is the first of its kind, gave new V’s to Big Data.</p>
+<ul>
+<li>Volume</li>
+<li>Variety</li>
+<li>Velocity</li>
+<li>Vinculation</li>
+<li>Validity</li>
+</ul>
+<p>He argues that Big Data is not just big, diverse and fast, it is inter-connected and must search for significance.</p>
+</section>
+<section id="why-we-need-to-collect-data-or-original-data" class="level3" data-number="5.0.2">
+<h3 data-number="5.0.2" class="anchored" data-anchor-id="why-we-need-to-collect-data-or-original-data"><span class="header-section-number">5.0.2</span> Why we need to collect data or original data?</h3>
+<p>One key element of data programming is the program is created for data, including collecting and updating data. Collection or production of data constitutes the major component in data science. No data scientist can count on others to provide data without knowing the source and generation method of the data. Knowing the data generation process is critical in preparing data for the rest of the data science processes including management, visualization and in particular modeling. Imagine if the date generation process is unknown, visualization and model thus created could be faulty. Missing values, for instance, can mask the visualization and totally distort the modeling results.</p>
+</section>
+<section id="types-of-data-by-data-generation" class="level3" data-number="5.0.3">
+<h3 data-number="5.0.3" class="anchored" data-anchor-id="types-of-data-by-data-generation"><span class="header-section-number">5.0.3</span> Types of data by data generation</h3>
+<ol type="1">
+<li>Made data vs.&nbsp;Found data</li>
+<li>Structured vs.&nbsp;Semi/unstructured</li>
+<li>Primary vs.&nbsp;secondary data</li>
+<li>Derived data</li>
+<li>metadata, paradata</li>
+</ol>
+<section id="made-data-by-production" class="level4" data-number="5.0.3.1">
+<h4 data-number="5.0.3.1" class="anchored" data-anchor-id="made-data-by-production"><span class="header-section-number">5.0.3.1</span> Made data (by production)</h4>
+<ol type="1">
+<li>Survey</li>
+<li>Interviews</li>
+<li>Experiments</li>
+<li>Focus group</li>
+</ol>
+</section>
+<section id="found-data-by-collection" class="level4" data-number="5.0.3.2">
+<h4 data-number="5.0.3.2" class="anchored" data-anchor-id="found-data-by-collection"><span class="header-section-number">5.0.3.2</span> Found data (by collection)</h4>
+<ol type="1">
+<li><p>Open data</p></li>
+<li><p>API</p></li>
+<li><p>Non-API</p></li>
+<li><p>Open data</p></li>
+</ol>
+<p>Open data refers to the type of data usually offered by government (e.g.&nbsp;Census), organization or research institutions (e.g.&nbsp;<a href="https://www.icpsr.umich.edu">ICPSR</a>. Some may require application for access and others may be open for free access (usually via websites or GitHub).</p>
+<p>Since open data are provided by government agencies or research institutions, these data files are often:</p>
+<ul>
+<li>Structured</li>
+<li>Well documented</li>
+<li>Ready for data/research functions</li>
+</ul>
+<ol start="2" type="1">
+<li>API</li>
+</ol>
+<p>API stands for Application Programming Interface. It is a web service that allows an interaction with, and retrieval of, structured data from a company, organization or government agency.</p>
+<p>Example: Social media (e.g.&nbsp;Facebook, YouTube, Twitter), Government agency (e.g.&nbsp;Congress)</p>
+<p>APIs can take many different forms and be of varying quality and usefulness. RESTful API (Representational State Transfer) is a means of transferring data using web protocols</p>
+<p>Like open data, data available through API are generally:</p>
+<ul>
+<li>Structured</li>
+<li>Somewhat documented</li>
+<li>Not necessary fully open</li>
+<li>Subject to the discretion of data providers (e.g.&nbsp;Not all variables are available, rules may change without announcements, etc.)</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li><a href="http://api.crossref.org/works/10.1093/nar/gni170">Crossref API</a> - <a href="https://www.ly.gov.tw/WebAPI/LegislativeBill.aspx?from=1050201&amp;to=1050531&amp;proposer=&amp;mode=json">Taiwan Legislative Yuan (Congress) API</a></li>
+</ul>
+<ol start="3" type="1">
+<li>Non-API</li>
+</ol>
+<p>For the type of found data not available via API or open access, one can use non-API methods to collect this kind of data. These methods include scraping, which is to simulate web browsing but through automated scrolling and parsing to collect data. These data are usually non-structured and often times noisy. Researchers also have little control over data generation process and sampling design.</p>
+<p>Non-API data are generally:</p>
+<ul>
+<li>Non-structured</li>
+<li>Noisy</li>
+<li>Undocumented with no or little information on sampling</li>
+</ul>
+</section>
+</section>
+<section id="illustrations-open-data" class="level3" data-number="5.0.4">
+<h3 data-number="5.0.4" class="anchored" data-anchor-id="illustrations-open-data"><span class="header-section-number">5.0.4</span> Illustrations: Open data</h3>
+<p>COVID</p>
+<p>Many organizations put in tremendous efforts to collect, visualize and disseminate COVID data to facilitate research of the pandemic. The most well-known is the <a href="https://coronavirus.jhu.edu/map.html">Johns-Hopkins Coronavirus Resource Center</a>. Collecting data from all over the world data, these data are stored in the Center’s <a href="https://github.com/CSSEGISandData/COVID-19">GitHub</a> ready for any researchers to get access. Other widely used data GitHub’s includng <a href="https://github.com/nytimes/covid-19-data">New York Times</a> and <a href="https://github.com/owid/covid-19-data">Our World in Data (OWID)</a></p>
+<p>The following illustration uses the OWID data</p>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Illustration: collecting open COVID data from OWID GitHub</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Packages used: vroom, tidyverse, finalfit</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Use install.packages() function to install these packages.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vroom) <span class="co"># Fast reading in data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(finalfit) <span class="co">#for checking missingness and output visualization</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer) <span class="co">#for choice of more colors</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales) <span class="co"># for controlling scales for x and y axes</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading all real time data directly from OWID GitHub</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># vroom is the champion in reading github date, &lt; 3 sec.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">=</span> <span class="fu">vroom</span>(<span class="st">"https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.factor</span>(owidall[,<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]) <span class="co"># Redefining first 3 columns as factor (categorical variables)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> iso_code continent  location 
+     &lt;NA&gt;      &lt;NA&gt;      &lt;NA&gt; 
+3 Levels: c("AFG", "OWID_AFR", "ALB", "DZA", "AND", "AGO", "AIA", "ATG", "ARG", "ARM", "ABW", "OWID_ASI", "AUS", "AUT", "AZE", "BHS", "BHR", "BGD", "BRB", "BLR", "BEL", "BLZ", "BEN", "BMU", "BTN", "BOL", "BES", "BIH", "BWA", "BRA", "VGB", "BRN", "BGR", "BFA", "BDI", "KHM", "CMR", "CAN", "CPV", "CYM", "CAF", "TCD", "CHL", "CHN", "COL", "COM", "COG", "COK", "CRI", "CIV", "HRV", "CUB", "CUW", "CYP", "CZE", "COD", "DNK", "DJI", "DMA", "DOM", "ECU", "EGY", "SLV", "GNQ", "ERI", "EST", "SWZ", "ETH", "OWID_EUR", "OWID_EUN", \n"FRO", "FLK", "FJI", "FIN", "FRA", "PYF", "GAB", "GMB", "GEO", "DEU", "GHA", "GIB", "GRC", "GRL", "GRD", "GUM", "GTM", "GGY", "GIN", "GNB", "GUY", "HTI", "OWID_HIC", "HND", "HKG", "HUN", "ISL", "IND", "IDN", "OWID_INT", "IRN", "IRQ", "IRL", "IMN", "ISR", "ITA", "JAM", "JPN", "JEY", "JOR", "KAZ", "KEN", "KIR", "OWID_KOS", "KWT", "KGZ", "LAO", "LVA", "LBN", "LSO", "LBR", "LBY", "LIE", "LTU", "OWID_LIC", "OWID_LMC", "LUX", "MAC", "MDG", "MWI", "MYS", "MDV", "MLI", "MLT", "MHL", "MRT", "MUS", "MEX", \n"FSM", "MDA", "MCO", "MNG", "MNE", "MSR", "MAR", "MOZ", "MMR", "NAM", "NRU", "NPL", "NLD", "NCL", "NZL", "NIC", "NER", "NGA", "NIU", "OWID_NAM", "PRK", "MKD", "OWID_CYN", "MNP", "NOR", "OWID_OCE", "OMN", "PAK", "PLW", "PSE", "PAN", "PNG", "PRY", "PER", "PHL", "PCN", "POL", "PRT", "PRI", "QAT", "ROU", "RUS", "RWA", "SHN", "KNA", "LCA", "SPM", "VCT", "WSM", "SMR", "STP", "SAU", "SEN", "SRB", "SYC", "SLE", "SGP", "SXM", "SVK", "SVN", "SLB", "SOM", "ZAF", "OWID_SAM", "KOR", "SSD", "ESP", "LKA", "SDN", \n"SUR", "SWE", "CHE", "SYR", "TWN", "TJK", "TZA", "THA", "TLS", "TGO", "TKL", "TON", "TTO", "TUN", "TUR", "TKM", "TCA", "TUV", "UGA", "UKR", "ARE", "GBR", "USA", "VIR", "OWID_UMC", "URY", "UZB", "VUT", "VAT", "VEN", "VNM", "WLF", "ESH", "OWID_WRL", "YEM", "ZMB", "ZWE") ...</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset by year</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>owid2022 <span class="ot">=</span> <span class="fu">subset</span>(owidall, <span class="fu">format</span>(<span class="fu">as.Date</span>(date),<span class="st">"%Y"</span>)<span class="sc">==</span><span class="dv">2022</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>owid2021 <span class="ot">=</span> <span class="fu">subset</span>(owidall, <span class="fu">format</span>(<span class="fu">as.Date</span>(date),<span class="st">"%Y"</span>)<span class="sc">==</span><span class="dv">2021</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>owid2020 <span class="ot">=</span> <span class="fu">subset</span>(<span class="fu">vroom</span>(<span class="st">"https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true"</span>), <span class="fu">format</span>(<span class="fu">as.Date</span>(date),<span class="st">"%Y"</span>)<span class="sc">==</span><span class="dv">2020</span>) <span class="co"># Direct from source</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean up OWID*  cases</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Deselect cases/rows with OWID</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>owidall <span class="ot">=</span> owidall[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^OWID"</span>, owidall<span class="sc">$</span>iso_code), ] </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>owid2022 <span class="ot">=</span> owid2022[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^OWID"</span>, owid2022<span class="sc">$</span>iso_code), ] </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>owid2021 <span class="ot">=</span> owid2021[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^OWID"</span>, owid2021<span class="sc">$</span>iso_code), ]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>owid2020 <span class="ot">=</span> owid2020[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"^OWID"</span>, owid2020<span class="sc">$</span>iso_code), ]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>owidall<span class="sc">$</span>location<span class="ot">=</span><span class="fu">as.factor</span>(owidall<span class="sc">$</span>location)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Subset by country: United States</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>owidus <span class="ot">=</span> <span class="fu">subset</span>(owidall, location<span class="sc">==</span><span class="st">"United States"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>owideu <span class="ot">=</span> <span class="fu">subset</span>(owidall, continent<span class="sc">==</span><span class="st">"Europe"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>owidasia <span class="ot">=</span> <span class="fu">subset</span>(owidall, continent<span class="sc">==</span><span class="st">"Asia"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get today's COVID data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>owidtoday <span class="ot">=</span> <span class="fu">subset</span>(<span class="fu">vroom</span>(<span class="st">"https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true"</span>), date <span class="sc">==</span> <span class="fu">Sys.Date</span>())</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>owid09302022 <span class="ot">=</span> <span class="fu">subset</span>(owidall,  date <span class="sc">==</span> <span class="st">"2022-09-30"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>owidUStoday <span class="ot">=</span> <span class="fu">subset</span>(owid2022, location <span class="sc">==</span> <span class="st">"United States"</span> <span class="sc">&amp;</span> date <span class="sc">&gt;=</span><span class="st">"2022-09-30"</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>owidtw2022 <span class="ot">=</span> <span class="fu">subset</span>(owid2022, location <span class="sc">==</span> <span class="st">"Taiwan"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"Palatino"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Europe data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> owideu<span class="sc">$</span>new_deaths</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">as.Date</span>(owideu<span class="sc">$</span>date)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"#E7298A"</span>, <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">xlab =</span> <span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"COVID Deaths in Europe (Daily)"</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, x, <span class="fu">format</span>(x, <span class="st">"%Y-%m"</span>), <span class="at">cex.axis =</span> .<span class="dv">7</span>, <span class="at">las =</span> <span class="dv">3</span> , <span class="at">gap.axis =</span><span class="fl">1.5</span>, <span class="at">tick =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/eudata-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identify(x,y,owideu$location, ps=8, atpen=TRUE) </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Use identify function to manually click on cases using mouse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asia data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> owidasia<span class="sc">$</span>new_deaths</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">as.Date</span>(owidasia<span class="sc">$</span>date)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"#66A61E"</span>,  <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">xlab =</span> <span class="st">"Date"</span>, <span class="at">ylab =</span> <span class="st">"COVID Deaths in Asia (Daily)"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, x, <span class="fu">format</span>(x, <span class="st">"%Y-%m"</span>), <span class="at">cex.axis =</span> .<span class="dv">7</span>, <span class="at">las =</span> <span class="dv">3</span> , <span class="at">gap.axis =</span><span class="fl">1.5</span>, <span class="at">tick =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/asiadata-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># identify(x,y,owidasia$location, ps=8, atpen=TRUE)</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Format date</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>owidall<span class="sc">$</span>date<span class="ot">&lt;-</span><span class="fu">as.Date</span>(owidall<span class="sc">$</span>date,<span class="at">format=</span><span class="st">"%Y-%m-%d"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># World: new cases</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(owidall<span class="sc">$</span>date,owidall<span class="sc">$</span>new_cases, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">3</span>, <span class="at">xaxt=</span><span class="st">'n'</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(owidtw2022<span class="sc">$</span>date,owidtw2022<span class="sc">$</span>total_tests, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">cex =</span> .<span class="dv">5</span>, <span class="at">xaxt=</span><span class="st">'n'</span>, <span class="at">col =</span> <span class="st">"firebrick"</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, owidall<span class="sc">$</span>date, <span class="fu">format</span>(owidall<span class="sc">$</span>date, <span class="st">"%Y-%m-%d"</span>), <span class="at">cex.axis =</span> .<span class="dv">3</span>, <span class="at">las =</span> <span class="dv">3</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/asiadata-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(descr)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freq</span>(owidall<span class="sc">$</span>continent)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/asiadata-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>owidall$continent 
+              Frequency Percent
+Africa            50858  24.665
+Asia              46919  22.754
+Europe            46675  22.636
+North America     33864  16.423
+Oceania           15661   7.595
+South America     12221   5.927
+Total            206198 100.000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen=</span><span class="dv">999</span>) <span class="co"># No sci notation</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># format(new_cases, scientific = F)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Stock data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Collecting Stock data and plotting stock data as time series</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(c("quantmod", "ggplot2", "magrittr","broom","googlesheet4"))</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># lapply(c("quantmod", "ggplot2", "magrittr","broom","googlesheet4"), require, character.only = TRUE)</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Setting time period</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>start <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2010-07-01"</span>) </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>end <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="st">"2022-09-30"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">"AAPL"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "AAPL"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chartSeries</span>(AAPL, <span class="at">theme=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/stockdata-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download Taiwan Weighted Index</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">"^TWII"</span>, <span class="at">src=</span><span class="st">"yahoo"</span>) <span class="co"># TWSE:IND</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "^TWII"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download Dow Jones Industrial Average</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">"^DJI"</span>, <span class="at">src=</span><span class="st">"yahoo"</span>) <span class="co"># Dow Jones Industrial Average</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "^DJI"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple plot</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(TWII, <span class="at">col=</span><span class="st">"darkblue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot candle stick and other charts using quantmod</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chartSeries</span>(DJI)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chartSeries</span>(DJI, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"auto"</span>, <span class="st">"candlesticks"</span>, <span class="st">"matchsticks"</span>, <span class="st">"bars"</span>,<span class="st">"line"</span>), <span class="at">subset=</span><span class="st">'last 4 months'</span>,<span class="at">theme =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-3.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barChart</span>(DJI,<span class="at">multi.col=</span><span class="cn">TRUE</span>,<span class="at">theme =</span> <span class="st">'white'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-4.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lineChart</span>(DJI,<span class="at">line.type =</span> <span class="st">'l'</span>, <span class="at">theme =</span> <span class="st">'white'</span>) <span class="co"># line, choices include l, h, c, b</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-5.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lineChart</span>(DJI,<span class="at">line.type =</span> <span class="st">'h'</span>,<span class="at">theme =</span> <span class="fu">chartTheme</span>(<span class="st">'white'</span>, <span class="at">up.col=</span><span class="st">'steelblue'</span>)) <span class="co"># histogram</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-6.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">candleChart</span>(DJI,<span class="at">subset =</span> <span class="st">'2020-01/2022-01'</span>, <span class="at">multi.col=</span><span class="cn">TRUE</span>,<span class="at">theme =</span> <span class="fu">chartTheme</span>(<span class="st">'white'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/plotstockdata-7.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## grey =&gt; Open[t] &lt; Close[t] and Op[t] &lt; Cl[t-1]</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="do">## white =&gt; Op[t] &lt; Cl[t] and Op[t] &gt; Cl[t-1]</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="do">## red =&gt; Op[t] &gt; Cl[t] and Op[t] &lt; Cl[t-1]</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="do">## black =&gt; Op[t] &gt; Cl[t] and Op[t] &gt; Cl[t-1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plotting multiple series using ggplot2</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Collect stock names from Yahoo Finance</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="fu">c</span>(<span class="st">"AAPL"</span>, <span class="st">"MSFT"</span>, <span class="st">"AMZN"</span>, <span class="st">"TSLA"</span>, <span class="st">"GOOGL"</span>), <span class="at">src =</span> <span class="st">"yahoo"</span>, <span class="at">from =</span> start, <span class="at">to =</span> end)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "AAPL"  "MSFT"  "AMZN"  "TSLA"  "GOOGL"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data as xts (time series object)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>stocks <span class="ot">=</span> <span class="fu">as.xts</span>(<span class="fu">data.frame</span>(<span class="at">AAPL =</span> AAPL[, <span class="st">"AAPL.Adjusted"</span>], </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">MSFT =</span> MSFT[, <span class="st">"MSFT.Adjusted"</span>], </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>                           <span class="at">AMZN =</span> AMZN[, <span class="st">"AMZN.Adjusted"</span>],</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                           <span class="at">GOOGL =</span> GOOGL[, <span class="st">"GOOGL.Adjusted"</span>],</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>                           <span class="at">TSLA =</span> TSLA[, <span class="st">"TSLA.Adjusted"</span>]))</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Index by date</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(stocks) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Apple"</span>, <span class="st">"Microsoft"</span>, <span class="st">"Amazon"</span>, <span class="st">"Google"</span>, <span class="st">"Tesla"</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="fu">index</span>(stocks) <span class="ot">=</span> <span class="fu">as.Date</span>(<span class="fu">index</span>(stocks))</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>stocks_series <span class="ot">=</span> <span class="fu">tidy</span>(stocks) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>value, <span class="at">color=</span>series)) <span class="sc">+</span> </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">cex=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>stocks_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/allplot-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot TWII</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>TWII_series <span class="ot">=</span> <span class="fu">tidy</span>(TWII<span class="sc">$</span>TWII.Adjusted) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>value, <span class="at">color=</span>series)) <span class="sc">+</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">cex=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>TWII_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/allplot-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>stocks_series <span class="ot">=</span> <span class="fu">tidy</span>(stocks) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>index,<span class="at">y=</span>value, <span class="at">color=</span>series)) <span class="sc">+</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">cex=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Daily Stock Prices, 7/1/2010 - 11/16/2021"</span>,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">subtitle =</span> <span class="st">"End of Day Adjusted Prices"</span>,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">caption =</span> <span class="st">"Source: Yahoo Finance"</span>) <span class="sc">+</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Date"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Price"</span>) <span class="sc">+</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"firebrick"</span>,<span class="st">"purple"</span>, <span class="st">"forestgreen"</span>,<span class="st">"darkgray"</span>)) <span class="sc">+</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Palatino"</span>), <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>), <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"top"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>stocks_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Datacollection_files/figure-html/allplot-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fetching stock data using Googlesheet</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httpuv)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read stock data using Googlesheet with public link</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Needs authentication of Google account via browser (when prompted)</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co"># aapl = read_sheet("https://docs.google.com/spreadsheets/d/1vTdXZkqpIZwUsnxM8zXiXVyKI7BbZ9zdPNEV_WLWDXo/edit?usp=sharing")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
