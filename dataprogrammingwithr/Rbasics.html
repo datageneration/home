@@ -288,12 +288,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#install-packages" id="toc-install-packages" class="nav-link" data-scroll-target="#install-packages"><span class="toc-section-number">3.3.1</span>  Install packages</a></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries"><span class="toc-section-number">3.3.2</span>  Libraries</a></li>
   <li><a href="#speed-and-organization" id="toc-speed-and-organization" class="nav-link" data-scroll-target="#speed-and-organization"><span class="toc-section-number">3.3.3</span>  Speed and organization</a></li>
+  <li><a href="#managing-packages-and-library" id="toc-managing-packages-and-library" class="nav-link" data-scroll-target="#managing-packages-and-library"><span class="toc-section-number">3.3.4</span>  Managing packages and Library</a></li>
   </ul></li>
   <li><a href="#writing-functions" id="toc-writing-functions" class="nav-link" data-scroll-target="#writing-functions"><span class="toc-section-number">3.4</span>  Writing Functions</a></li>
-  <li><a href="#workshop-1" id="toc-workshop-1" class="nav-link" data-scroll-target="#workshop-1"><span class="toc-section-number">3.5</span>  Workshop 1</a>
+  <li><a href="#workshop-1" id="toc-workshop-1" class="nav-link" data-scroll-target="#workshop-1"><span class="toc-section-number">3.5</span>  Workshop 1</a></li>
+  <li><a href="#workshop-2" id="toc-workshop-2" class="nav-link" data-scroll-target="#workshop-2"><span class="toc-section-number">3.6</span>  Workshop 2</a>
   <ul class="collapse">
-  <li><a href="#recommended-r-resources" id="toc-recommended-r-resources" class="nav-link" data-scroll-target="#recommended-r-resources"><span class="toc-section-number">3.5.1</span>  Recommended R Resources:</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">3.5.2</span>  References:</a></li>
+  <li><a href="#recommended-r-resources" id="toc-recommended-r-resources" class="nav-link" data-scroll-target="#recommended-r-resources"><span class="toc-section-number">3.6.1</span>  Recommended R Resources:</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">3.6.2</span>  References:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -393,31 +395,56 @@ Attaching package: 'ISLR2'</code></pre>
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="speed-and-organization"><span class="header-section-number">3.3.3</span> Speed and organization</h3>
 <p>The general principle of using packages is: only load what you need! There are over 20,000 packages but the memory is limited. This <a href="https://towardsdatascience.com/fastest-way-to-install-load-libraries-in-r-f6fd56e3e4c4">article</a> gives some comparison on different methods of using and loading packages or libraries. Again, using Project to manage your resources and it is advised to restart the R session (Session –&gt; Restart R) to start with a clean slate for each project.</p>
 </section>
+<section id="managing-packages-and-library" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="managing-packages-and-library"><span class="header-section-number">3.3.4</span> Managing packages and Library</h3>
+<p>There are multiple ways of managing packages in each R session. Following the general principle of keeping a lean model, it is recommended to only load packages in library for each data program. Some useful hotkeys and functions:</p>
+<p>Some useful hotkeys:</p>
+<ul>
+<li><p>Restarting R: Ctrl+Shift+F10 (Mac: Command+Shift+0) = unload packages + clear objects (provided that in Preference, Save workspace to .RData option is unchecked)</p></li>
+<li><p>use gc() free up memory and report the memory usage.</p></li>
+<li><p>rm(ls()) clear objects manually</p></li>
+</ul>
+<div class="cell" data-paged.print="false">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
+Ncells  603431 32.3    1350651 72.2         NA  1350651 72.2
+Vcells 1114951  8.6    8388608 64.0      16384  1839939 14.1</code></pre>
+</div>
+</div>
+<ul>
+<li>rows “Ncells” (cons cells): 28 bytes each on 32-bit systems and 56 bytes on 64-bit systems).</li>
+<li>columns Vcells: allocated space for vectors in multiples of 8 bytes</li>
+<li>used column reports how many cells have been allocated and the following column reports the total size in Megabytes.</li>
+<li>gc trigger column reports when the next garbage collection will occur.</li>
+<li>max used reports the maximum memory that was used since the last call to the gc() function.</li>
+</ul>
+</section>
 </section>
 <section id="writing-functions" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="writing-functions"><span class="header-section-number">3.4</span> Writing Functions</h2>
 <p>As we have seen, <code>R</code> comes with many useful functions, and still more functions are available by way of <code>R</code> libraries. However, we will often be interested in performing an operation for which no function is available. In this setting, we may want to write our own function. For instance, below we provide examples of simple functions. The first one reads in the <code>ISLR2</code> and <code>MASS</code> libraries, called <code>LoadLibraries()</code>. Before we have created the function, <code>R</code> returns an error if we try to call it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>LoadLibraries</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>LoadLibraries</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in eval(expr, envir, enclos): object 'LoadLibraries' not found</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LoadLibraries</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LoadLibraries</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in LoadLibraries(): could not find function "LoadLibraries"</code></pre>
 </div>
 </div>
 <p>We now create the function. Note that the <code>+</code> symbols are printed by <code>R</code> and should not be typed in. The <code>{</code> symbol informs <code>R</code> that multiple commands are about to be input. Hitting <em>Enter</em> after typing <code>{</code> will cause <code>R</code> to print the <code>+</code> symbol. We can then input as many commands as we wish, hitting {<em>Enter</em>} after each one. Finally the <code>}</code> symbol informs <code>R</code> that no further commands will be entered.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>LoadLibraries <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ISLR2)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(MASS)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The libraries have been loaded."</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>LoadLibraries <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ISLR2)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(MASS)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The libraries have been loaded."</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now if we type in <code>LoadLibraries</code>, <code>R</code> will tell us what is in the function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LoadLibraries</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">LoadLibraries</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The libraries have been loaded."</code></pre>
 </div>
@@ -425,72 +452,81 @@ Attaching package: 'ISLR2'</code></pre>
 <p>If we call the function, the libraries are loaded in and the print statement is output.</p>
 <p>The following example demonstrates creating a function out of existing functions from different packages:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Writing R functions</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Combine the lm, plot and abline functions to create a one step regression fit plot function</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y){</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Carseats)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(Price,Sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">###Writing R functions</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Combine the lm, plot and abline functions to create a one step regression fit plot function</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y){</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(Carseats)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(Price,Sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Rbasics_files/figure-html/regplot-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Allow extra room for additional arguments/specifications</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y,...){</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y,...)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># "..." is called ellipsis, which is designed to take any number of named or unnamed arguments.</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(Price,Sales,<span class="at">xlab=</span><span class="st">"Price"</span>,<span class="at">ylab=</span><span class="st">"Sales"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Allow extra room for additional arguments/specifications</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>regplot<span class="ot">=</span><span class="cf">function</span>(x,y,...){</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  fit<span class="ot">=</span><span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(x,y,...)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(fit,<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>}  <span class="co"># "..." is called ellipsis, which is designed to take any number of named or unnamed arguments.</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">regplot</span>(Price,Sales,<span class="at">xlab=</span><span class="st">"Price"</span>,<span class="at">ylab=</span><span class="st">"Sales"</span>,<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">pch=</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="Rbasics_files/figure-html/regplot-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>The following example creates a function to deal with package management:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create preload function</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if a package is installed.</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If yes, load the library</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If no, install package and load the library</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>preload<span class="ot">&lt;-</span><span class="cf">function</span>(x)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x,<span class="at">character.only=</span><span class="cn">TRUE</span>))</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="at">pkgs=</span>x,  <span class="at">repos=</span><span class="st">"http://cran.r-project.org"</span>)</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">require</span>(x,<span class="at">character.only=</span><span class="cn">TRUE</span>)</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create preload function</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if a package is installed.</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># If yes, load the library</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If no, install package and load the library</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>preload<span class="ot">&lt;-</span><span class="cf">function</span>(x)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.character</span>(x)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(x,<span class="at">character.only=</span><span class="cn">TRUE</span>))</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="at">pkgs=</span>x,  <span class="at">repos=</span><span class="st">"http://cran.r-project.org"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">require</span>(x,<span class="at">character.only=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s try preloading the package name **tidyverse** (be sure to wrap the name with double quotes ““:</p>
 </section>
 <section id="workshop-1" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="workshop-1"><span class="header-section-number">3.5</span> Workshop 1</h2>
 <ol type="1">
-<li>Create the following objects:
+<li><p>Download and open packagemanagement.R from class <a href="https://github.com/datageneration/dataprogrammingwithr">GitHub</a> under codes</p></li>
+<li><p>Try each method one at a time</p></li>
+<li><p>Which one is more convenient to you?</p></li>
+</ol>
+</section>
+<section id="workshop-2" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="workshop-2"><span class="header-section-number">3.6</span> Workshop 2</h2>
+<ol type="1">
+<li><p>Create the following objects:</p>
 <ul>
 <li><p>x &lt;-rnorm(30)</p></li>
 <li><p>y = rnorm(x)</p></li>
 </ul></li>
-<li>Plot:
+<li><p>Plot:</p>
 <ul>
 <li><p>histogram of y (hint: use the hist() function)</p></li>
 <li><p>Both x and y, using pch=20 (choose your own color using col=““)</p></li>
 </ul></li>
-<li>Check the environment
+<li><p>Check the environment</p>
 <ol type="1">
 <li><p>Clean all objects using the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list=</span><span class="fu">ls</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></li>
 </ol></li>
-<li>Alternatively, you can Ctrl+Shift+F10 (Mac: Command+Shift+0) to restart R session</li>
+<li><p>Alternatively, you can use the hotkeys to restart R session</p></li>
+<li><p>Try preload function to install and load packages</p></li>
 </ol>
-<section id="recommended-r-resources" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="recommended-r-resources"><span class="header-section-number">3.5.1</span> Recommended R Resources:</h3>
+<section id="recommended-r-resources" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="recommended-r-resources"><span class="header-section-number">3.6.1</span> Recommended R Resources:</h3>
 <ul>
 <li><a href="http://journal.r-project.org/">The R Journal</a></li>
 <li><a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R by W. N. Venables, D. M. Smith and the R Core Team</a></li>
@@ -498,9 +534,9 @@ Attaching package: 'ISLR2'</code></pre>
 <li><a href="https://dss.princeton.edu/training/">Getting Started in Data Analysis using Stata and R by Data and Statistical Services, Princeton University</a></li>
 </ul>
 </section>
-<section id="references" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="references"><span class="header-section-number">3.5.2</span> References:</h3>
-<p>Graham Williams 2011. <em>Data Mining with Rattle and R: The Art of Excavating Data for Knowledge</em></p>
+<section id="references" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="references"><span class="header-section-number">3.6.2</span> References:</h3>
+<p>Bryan, Jenny. STAT 545 <a href="https://stat545.com">(https://stat545.com)</a> Bryan, Jenny and Jim Hester. <a href="https://rstats.wtf">What They Forgot to Teach You About R</a></p>
 
 
 </section>

@@ -209,7 +209,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-machine-learning" id="toc-what-is-machine-learning" class="nav-link active" data-scroll-target="#what-is-machine-learning"><span class="toc-section-number">8.1</span>  What is machine learning?</a>
+  <ul class="collapse">
+  <li><a href="#statistics-and-machine-learning" id="toc-statistics-and-machine-learning" class="nav-link" data-scroll-target="#statistics-and-machine-learning"><span class="toc-section-number">8.1.1</span>  Statistics and Machine Learning</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><span class="toc-section-number">8.1.2</span>  Machine learning</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -244,8 +254,40 @@ ul.task-list li input[type="checkbox"] {
 <li>H2O</li>
 </ul></li>
 </ul>
+<section id="what-is-machine-learning" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="what-is-machine-learning"><span class="header-section-number">8.1</span> What is machine learning?</h2>
+<section id="statistics-and-machine-learning" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="statistics-and-machine-learning"><span class="header-section-number">8.1.1</span> Statistics and Machine Learning</h3>
+<p>Let’s startswith basic concepts of statistics and machine learning models. Traditionally, we use statistics to estimate models and test hypotheses using data. We can collect data, describe variables such as averages, variances and distributions and then explain relationships between two or more variables. The roots of statistics lie in working with data and checking theory against data (Breiman 2001). This data model replies heavily on the theory and hypotheses to first generate or collect data to test the model, in an attempt to explain the relationship before prediction. Machine learning takes on a different approach. It focuses on prediction by using algorithmic models without first developing a theory then hypothesis. UC Berkeley Statistics professor Leo Breiman compares the two cultures of statistics in his famous 2001 paper and explains the difference. He argues that with so much data coming in from all sources and directions, using the data model approach alone may not be most effective in making the best use of data to solve the problem. He suggests employing algorithmic models to improve prediction. Algorithms refer to a sequence of computational and/or mathematical programs to solve the problem. The goal of algorithmic models is to identify an algorithm that operates on predictor variables (x) to best predict the response variable (y).</p>
+</section>
+<section id="machine-learning" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="machine-learning"><span class="header-section-number">8.1.2</span> Machine learning</h3>
+<p>The ultimate goal of data modeling is to explain and predict the variable of interest using data. Machine learning is to achieve this goal using computer algorithms in particular to more effectively make the prediction and solve the problem. According to Carnegie Mellon Computer Science professor Tom M. Mitchell, machine learning is the study of computer algorithms that allow computer programs to automatically improve through experience. To statisticians, the “improve through experience” part is the process of validation or cross validation. Learning can be done through repeated exercises to understand data. This involves having computer or statistics programs do repeated estimations, like human learns from experience and improve actions and decisions. This is called the training process in machine learning.</p>
+<p>“A computer algorithm/program is said to learn from performance measure P and experience E with some class of tasks T if its performance at tasks in T, as measured by P, improves with experience E.” -Tom M. Mitchell.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="http://www.cs.cmu.edu/~tom/TomWEF2017.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption"><strong>Tom M. Mitchell</strong></figcaption><p></p>
+</figure>
+</div>
+<p><br> <br></p>
+<div>
+
+<p><strong>Example: Multi-dimensional plot of data</strong></p>
+<p><img src="images/hansroslingplot.gif" class="img-fluid" style="width:50.0%" alt="Example: Multiple dimensions of data"><br><br><br> <strong>Example: Multi-dimensional plot of data</strong></p>
+<section id="recommended-r-resources" class="level4" data-number="8.1.2.1">
+<h4 data-number="8.1.2.1" class="anchored" data-anchor-id="recommended-r-resources"><span class="header-section-number">8.1.2.1</span> Recommended R Resources:</h4>
+<ul>
+<li><a href="http://journal.r-project.org/">The R Journal</a></li>
+<li><a href="http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction to R by W. N. Venables, D. M. Smith and the R Core Team</a></li>
+<li><a href="http://www.ats.ucla.edu/stat/r/seminars/intro.htm">Introduction to R Seminar at UCLA</a></li>
+<li><a href="https://dss.princeton.edu/training/">Getting Started in Data Analysis using Stata and R by Data and Statistical Services, Princeton University</a> ## Illustration: Taiwan election data using caret package</li>
+</ul>
 
 
+</section>
+</div></section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -209,7 +209,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#website" id="toc-website" class="nav-link active" data-scroll-target="#website"><span class="toc-section-number">4.1</span>  Website</a></li>
+  <li><a href="#blog" id="toc-blog" class="nav-link" data-scroll-target="#blog"><span class="toc-section-number">4.2</span>  Blog</a></li>
+  <li><a href="#academic-paper" id="toc-academic-paper" class="nav-link" data-scroll-target="#academic-paper"><span class="toc-section-number">4.3</span>  Academic paper</a></li>
+  <li><a href="#presentation" id="toc-presentation" class="nav-link" data-scroll-target="#presentation"><span class="toc-section-number">4.4</span>  Presentation</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,8 +240,95 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>This chapter gives a brief introduction of communicative programming using Quarto. The idea is to incorporate data programming elements into a publishable document. Formats including PDF and HTML.</p>
+<p><a href="https://quarto.org">Quarto</a> is an open-source scientific and technical publishing system built on a document converter called <a href="https://pandoc.org">Pandoc</a>. It is multilingual (R, Python, Julia and Observable) and can be used for creating a wide variety of documents using simple plain text markdown (e.g.&nbsp;R Markdown). Examples include website (static), academic reports, presentations, blogs. It can accommodate LaTeX for scientific equations and more advanced features such as blogs and conversion to pdf, html and MS Word.</p>
+<p>Think of Quarto a platform with programming tools using R Markdown for:</p>
+<ul>
+<li>Website</li>
+<li>Blogs</li>
+<li>Presentations (slides using reveal.js)</li>
+<li>Academic papers</li>
+<li>many other documents for dissemination on web or in pdf and MS Word formats</li>
+</ul>
+<section id="website" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="website"><span class="header-section-number">4.1</span> Website</h2>
+<p>This session is extracted from this online notebook <a href="https://datageneration.org/personalwebsite/">Building Personal Website on GitHub</a>.</p>
+<p><a href="https://karlho.github.io/quarto">Example</a></p>
+<ol type="1">
+<li><p>Creation of website files using Quarto</p></li>
+<li><p>Create a New Project (top right Project link in RStudio)</p></li>
+<li><p>Choose New Directory and Quarto Website</p></li>
+<li><p>Give the name of directory “username.github.io” with your GitHub username (e.g.&nbsp;karlho.github.io)</p></li>
+<li><p>Editing website files using Quarto</p></li>
+</ol>
+<p>First edit the _quarto.yml then other qmd files, which are Markdown files.</p>
+<p>The _quarto.yml controls the style of the website:</p>
+<pre><code>project:
+  type: website
+
+website:
+  title: "karlho.github.io"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+</code></pre>
+<p>In the website section, rename the title to your name (e.g.&nbsp;Karl Ho). The navbar controls the top navigation bar starting from the left. You can add other pages such as research, personal, etc.</p>
+<p>The format part control document output. In this case, it exports into html with the choice of theme, which is from <a href="https://bootswatch.com/3/">Bootstrap 3</a>. The <em>cosmo</em> theme is used here but choose your favorite theme from the Bootstrap website (e.g.&nbsp;united, sandpaper).</p>
+<p>Then, the index.qmd file. This file is the front page (will be converted to index.html), so it is recommended to use this to introduce yourself or the latest developments (e.g.&nbsp;presentations, projects, etc.). You can replace with the following sample text:</p>
+<pre><code>---
+title: "John Doe"
+---
+
+I am a doctoral student studying the political economy of East Asia and US.  My research topic is on rent-seeking behaviors in last two decades
+
+### More Information
+
+Interests:
+
+  * Data Science 
+  * Time series modeling
+
+### Contact me
+
+[johndoe@utdallas.edu](mailto:johndoe@utdallas.edu)
+
+[Website](https://johndoe.github.io)  </code></pre>
+<p>The rest will be just edit the pages (qmd) you want to post on your website (i.e.&nbsp;research.qmd, teach.qmd, etc)</p>
+<pre><code>
+---
+title: "About"
+---
+
+More about this website.
+</code></pre>
+<p>Once all files are ready, click on the Render button. The rendering process converts the .qmd files into html files under the _site folder.</p>
+<p>Now your website is ready <em>locally</em>. You can check the links and make sure they all work and that related files (e.g.&nbsp;CV) are in the same _site folder. The next part is to deploy to your host, which is GitHub.</p>
+</section>
+<section id="blog" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="blog"><span class="header-section-number">4.2</span> Blog</h2>
+</section>
+<section id="academic-paper" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="academic-paper"><span class="header-section-number">4.3</span> Academic paper</h2>
+</section>
+<section id="presentation" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="presentation"><span class="header-section-number">4.4</span> Presentation</h2>
+<p>References:</p>
+<p><a href="https://quarto.org/docs/websites/">Quarto Website</a></p>
+<p><a href="https://quarto.org/docs/websites/website-blog.html">Quarto Blog</a></p>
+<p><a href="https://quarto.org/docs/presentations/">Quarto Presentations</a></p>
+<p><a href="https://quarto.org/docs/journals/">Quarto Journal Articles</a></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
