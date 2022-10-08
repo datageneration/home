@@ -400,16 +400,16 @@ Attaching package: 'ISLR2'</code></pre>
 <p>There are multiple ways of managing packages in each R session. Following the general principle of keeping a lean model, it is recommended to only load packages in library for each data program. Some useful hotkeys and functions:</p>
 <p>Some useful hotkeys:</p>
 <ul>
-<li><p>Restarting R: Ctrl+Shift+F10 (Mac: Command+Shift+0) = unload packages + clear objects (provided that in Preference, Save workspace to .RData option is unchecked)</p></li>
+<li><p>Restarting R: Ctrl+Shift+F10 (Mac: Command+Shift+0) = unload packages + clear objects (provided that in Tools/ Global options in Windows (Preference in Mac), Save workspace to .RData option is unchecked and set to never)</p></li>
 <li><p>use gc() free up memory and report the memory usage.</p></li>
-<li><p>rm(ls()) clear objects manually</p></li>
+<li><p>rm(list=ls()) clear objects manually</p></li>
 </ul>
 <div class="cell" data-paged.print="false">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)
-Ncells  603431 32.3    1350651 72.2         NA  1350651 72.2
-Vcells 1114951  8.6    8388608 64.0      16384  1839939 14.1</code></pre>
+Ncells  603436 32.3    1350921 72.2         NA  1350921 72.2
+Vcells 1114950  8.6    8388608 64.0      16384  1839818 14.1</code></pre>
 </div>
 </div>
 <ul>
