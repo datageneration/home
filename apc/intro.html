@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>_book_APC - 1&nbsp; Introduction</title>
+<title>Age, Period Cohort Models in Applications - 1&nbsp; Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -96,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">_book_APC</a> 
+      <a href="./">Age, Period Cohort Models in Applications</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,7 +190,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>The introduction to Andrew Bell’s review on Age Period Cohort (APC) analysis sets the stage by addressing the fundamental ways in which individuals and societies change over time through the lens of APC effects. Despite the long-standing recognition of these effects across epidemiology and the social sciences, spanning over 150 years, there remains a significant challenge: the APC identification problem. This problem stems from the exact collinearity among age, period, and cohort variables—expressed mathematically as age = period - cohort—and presents a puzzle both mathematically and conceptually. The crux of the issue lies in disentangling these intertwined effects to analyze their unique contributions to observed changes.</p>
-<p>$ Age = Period - Cohort $</p>
+<p><span class="math display">\[ Age = Period - Cohort \]</span></p>
+<p><img src="YangandLandcover.png" class="img-fluid"></p>
 <p>Attempts to solve this puzzle have often relied on mathematical techniques that overlook the underlying conceptual framework, leading to results that may be statistically sound but lack relevance to the actual dynamics of societies and individuals they aim to represent.Bell emphasizes that the solution to this puzzle does not lie in finding a universal, mechanical method but requires strong theoretical assumptions about the nature of the APC effects being investigated. The review criticizes approaches that attempt to ‘solve’ the identification problem without such assumptions, arguing that they inadvertently make hidden assumptions that can skew results. It proposes that understanding APC effects and their interrelationships relies on considering non-linearities and making explicit, theory-based assumptions about the data. This perspective is pivotal for researchers across various disciplines, as it underscores the necessity of grounding APC analysis in strong theoretical foundations rather than seeking purely statistical solutions to the identification problem. Bell’s review not only critiques prevalent methodologies but also sets the groundwork for a more informed and theoretically robust approach to APC analysis, highlighting the importance of transparency and theory in addressing the challenges posed by the APC identification puzzle.</p>
 
 
