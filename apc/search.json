@@ -1,0 +1,22 @@
+[
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "The introduction to Andrew Bell’s review on Age Period Cohort (APC) analysis sets the stage by addressing the fundamental ways in which individuals and societies change over time through the lens of APC effects. Despite the long-standing recognition of these effects across epidemiology and the social sciences, spanning over 150 years, there remains a significant challenge: the APC identification problem. This problem stems from the exact collinearity among age, period, and cohort variables—expressed mathematically as age = period - cohort—and presents a puzzle both mathematically and conceptually. The crux of the issue lies in disentangling these intertwined effects to analyze their unique contributions to observed changes.\n$ Age = Period - Cohort $\nAttempts to solve this puzzle have often relied on mathematical techniques that overlook the underlying conceptual framework, leading to results that may be statistically sound but lack relevance to the actual dynamics of societies and individuals they aim to represent.Bell emphasizes that the solution to this puzzle does not lie in finding a universal, mechanical method but requires strong theoretical assumptions about the nature of the APC effects being investigated. The review criticizes approaches that attempt to ‘solve’ the identification problem without such assumptions, arguing that they inadvertently make hidden assumptions that can skew results. It proposes that understanding APC effects and their interrelationships relies on considering non-linearities and making explicit, theory-based assumptions about the data. This perspective is pivotal for researchers across various disciplines, as it underscores the necessity of grounding APC analysis in strong theoretical foundations rather than seeking purely statistical solutions to the identification problem. Bell’s review not only critiques prevalent methodologies but also sets the groundwork for a more informed and theoretically robust approach to APC analysis, highlighting the importance of transparency and theory in addressing the challenges posed by the APC identification puzzle.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  }
+]
