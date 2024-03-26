@@ -19,5 +19,26 @@
     "title": "About",
     "section": "",
     "text": "The EPPS Coding Camp is a project supported by the School of Economic, Political and Policy Sciences. Financial support comes from the EPPS Dean’s office."
+  },
+  {
+    "objectID": "day1.html",
+    "href": "day1.html",
+    "title": "Day 1",
+    "section": "",
+    "text": "Getting Started with R and Package Management\nMorning Session: Introduction to R\n\nOverview of R and RStudio - Installation of software\nBasic R syntax and operations\nData types and structures - Basic operations and functions-\n\nAfternoon Session: Package Management\n\nIntroduction to CRAN and GitHub packages\nInstalling and loading packages - Managing package dependencies\nOverview of essential packages for data science\n\nSuggested Reading:\n\n“R for Data Science” by Hadley Wickham & Garrett Grolemund, Chapters 1-3"
+  },
+  {
+    "objectID": "day3.html",
+    "href": "day3.html",
+    "title": "Day 3",
+    "section": "",
+    "text": "Advanced Topics in R\n\nMorning Session: Function Writing\n\nWriting custom functions\nDebugging and error handling\nFunctional programming concepts\n\nAfternoon Session: Distributed Computing\n\nIntroduction to parallel and distributed computing with R\nUsing R with big data (overview of SparkR, etc.)\nCase studies and applications\n\n\nSuggested Reading:\n\n“Advanced R” by Hadley Wickham, Chapters on Functions and Functional Programming\n“Mastering Spark with R” by Javier Luraschi, Kevin Kuo, Edgar Ruiz (for distributed computing)"
+  },
+  {
+    "objectID": "day2.html",
+    "href": "day2.html",
+    "title": "Day 2",
+    "section": "",
+    "text": "Data Management, Analysis, and Visualization\n\nMorning Session: Data Management\n\nReading and writing data\nData cleaning and transformation with dplyr\nTidying data with tidyr\n\nAfternoon Session: Data Analysis & Data Visualization\n\nExploratory data analysis (EDA) techniques\nVisualizations with ggplot2\nBest practices for presenting data\n\n\nSuggested Reading:\n- “R for Data Science” by Hadley Wickham & Garrett Grolemund, Chapters 5-7, 11-14"
   }
 ]
