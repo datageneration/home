@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Book Review: Active Statistics by Andrew Gelman and Aki Vehtari",
+    "section": "",
+    "text": "Active Statistics\n\n\nThis review introduces a new Statistical textbook for teaching research using the “active” approach. Active learning refers to how much one can “actively” engage in the learning process throughexperience. When one is ready to teach, she will learn the most.\nThe book is designed with lots of hands-on exercises - 52 of them. According to the authors, “52 stories, 52 class-participation activities, 52 hands-on computer demonstrations, and 52 discussion problems”. Basically, this book is designed for two semesters (13+13)*2!\nExamples and same codes actually come from the Gelman’s other book Regression and Other stories\n\nIn a nutshell, this book is designed to engage students with :\n\nlots of visualizations\nclass demonstrations\nhands-on exercises\n\nStatistically minded:\n\nDistributions"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]
