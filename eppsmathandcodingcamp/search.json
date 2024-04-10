@@ -18,7 +18,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "The EPPS Coding Camp is a project supported by the School of Economic, Political and Policy Sciences. Financial support comes from the EPPS Dean’s office."
+    "text": "The EPPS Math and Coding Camp is a project supported by the School of Economic, Political and Policy Sciences. Financial support comes from the EPPS Dean’s office."
   },
   {
     "objectID": "day4.html",
@@ -54,5 +54,82 @@
     "title": "Day 2",
     "section": "",
     "text": "Data Management, Analysis, and Visualization\n\nMorning Session: Data Management\n\nReading and writing data\nData cleaning and transformation with dplyr\nTidying data with tidyr\n\nAfternoon Session: Data Analysis & Data Visualization\n\nExploratory data analysis (EDA) techniques\nVisualizations with ggplot2\nBest practices for presenting data\n\n\nSuggested Reading:\n- “R for Data Science” by Hadley Wickham & Garrett Grolemund, Chapters 5-7, 11-14"
+  },
+  {
+    "objectID": "day1_s.html",
+    "href": "day1_s.html",
+    "title": "Standard: Day 1",
+    "section": "",
+    "text": "Standard Track Schedule\nDay 1: Introduction to Algebra\n\nMorning Session:\n\nTopic: Linear Modeling and Systems of Equations\nActivities: Interactive lectures, simple linear model exercises, and collaborative problem-solving for systems of equations.\n\nAfternoon Session:\n\nTopic: Nonlinear Equations and Introduction to Quadratics\nActivities: Workshops on solving nonlinear problems, graphing quadratic functions, and real-world application discussions."
+  },
+  {
+    "objectID": "day2_s.html",
+    "href": "day2_s.html",
+    "title": "Standard: Day 2",
+    "section": "",
+    "text": "Day 2: Introduction to Calculus and Preparation for Coding\n\nMorning Session:\n\nTopic: Introduction to Calculus Concepts\nActivities: Derivative rules explained through guided examples, followed by hands-on practice with rates of change problems.\n\nAfternoon Session:\n\nTopic: Basic Integration and Its Applications\nActivities: Understanding the concept of the integral, practice sessions on finding areas under curves, and exploring integration applications."
+  },
+  {
+    "objectID": "day3_s.html",
+    "href": "day3_s.html",
+    "title": "Standard: Day 3",
+    "section": "",
+    "text": "Day 3: Basics of R Programming\n\nMorning Session:\n\nTopic: Getting Started with R\nActivities: Setting up RStudio, writing basic R scripts, and understanding data types and structures.\n\nAfternoon Session:\n\nTopic: Data Management in R\nActivities: Data import/export, using packages like dplyr for data manipulation, and introduction to data cleaning."
+  },
+  {
+    "objectID": "day4_s.html",
+    "href": "day4_s.html",
+    "title": "Standard: Day 4",
+    "section": "",
+    "text": "Day 4: Data Analysis with R\n\nMorning Session:\n\nTopic: Exploratory Data Analysis\nActivities: Using R for descriptive statistics, working with different data visualizations, and learning to interpret data plots.\n\nAfternoon Session:\n\nTopic: Beginning Data Modeling\nActivities: Simple linear regression in R, interpreting model outputs, and understanding the basics of model diagnostics."
+  },
+  {
+    "objectID": "day5_s.html",
+    "href": "day5_s.html",
+    "title": "Standard: Day 5",
+    "section": "",
+    "text": "Day 5: Advancing R Skills\n\nMorning Session:\n\nTopic: Data Visualization in R\nActivities: Deep dive into ggplot2, creating various charts, and discussing principles of effective visualization.\n\nAfternoon Session:\n\nTopic: Intro to Function Writing and Distributed Computing\nActivities: Writing simple R functions, introduction to parallel processing concepts, and an overview of distributed computing."
+  },
+  {
+    "objectID": "day1_1.html",
+    "href": "day1_1.html",
+    "title": "Intermediate: Day 1",
+    "section": "",
+    "text": "Day 1: Advanced Algebra\n\nMorning Session:\n\nTopic: Advanced Linear Models and Systems of Equations\nActivities: Complex case studies, interpreting model coefficients, and systems problem-solving with matrix algebra.\n\nAfternoon Session:\n\nTopic: Nonlinear Dynamics and Advanced Quadratics\nActivities: Nonlinear regression models, solving quadratic inequalities, and optimization problems in algebraic contexts."
+  },
+  {
+    "objectID": "day2_i.html",
+    "href": "day2_i.html",
+    "title": "Intermediate: Day 2",
+    "section": "",
+    "text": "Day 2: Calculus for Optimization and Data Analysis\n\nMorning Session:\n\nTopic: Differential Calculus and Its Application in Optimization\nActivities: Advanced derivative problems, exploring local and global extrema, and using derivatives in cost-benefit analysis.\n\nAfternoon Session:\n\nTopic: Integral Calculus and Applications\nActivities: Integration techniques, applications in economics and policy modeling, and solving real-world integral problems."
+  },
+  {
+    "objectID": "day1_i.html",
+    "href": "day1_i.html",
+    "title": "Intermediate: Day 1",
+    "section": "",
+    "text": "Day 1: Advanced Algebra\n\nMorning Session:\n\nTopic: Advanced Linear Models and Systems of Equations\nActivities: Complex case studies, interpreting model coefficients, and systems problem-solving with matrix algebra.\n\nAfternoon Session:\n\nTopic: Nonlinear Dynamics and Advanced Quadratics\nActivities: Nonlinear regression models, solving quadratic inequalities, and optimization problems in algebraic contexts."
+  },
+  {
+    "objectID": "day3_i.html",
+    "href": "day3_i.html",
+    "title": "Intermediate: Day 3",
+    "section": "",
+    "text": "Day 3: Intermediate R Programming\n\nMorning Session:\n\nTopic: Efficient Data Management in R\nActivities: Advanced data manipulation with dplyr, handling large datasets, and database connections.\n\nAfternoon Session:\n\nTopic: Statistical Inference in R\nActivities: Probability distributions, hypothesis testing, and confidence intervals using R."
+  },
+  {
+    "objectID": "day4_i.html",
+    "href": "day4_i.html",
+    "title": "Intermediate: Day 4",
+    "section": "",
+    "text": "Day 4: Data Visualization and Model Building\n\nMorning Session:\n\nTopic: Advanced Data Visualization\nActivities: Interactive visualizations, custom ggplot2 functions, and dynamic reporting with R Markdown.\n\nAfternoon Session:\n\nTopic: Regression Analysis and Model Building\nActivities: Multiple regression models, diagnostics, and validation techniques."
+  },
+  {
+    "objectID": "day5_i.html",
+    "href": "day5_i.html",
+    "title": "Intermediate: Day 5",
+    "section": "",
+    "text": "Day 5: Advanced R Programming\n\nMorning Session:\n\nTopic: Writing Efficient R Functions and Packages\nActivities: Function optimization, creating R packages, and writing documentation.\n\nAfternoon Session:\n\nTopic: Distributed Computing with R\nActivities: Introduction to big data in R, utilizing R with cloud computing resources, and parallel processing."
   }
 ]
