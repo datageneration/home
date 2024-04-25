@@ -1,0 +1,19 @@
+/* styles.css */
+  body {
+    font-family: 'Palatino', 'Book Antiqua', Palatino, serif;
+  }
+.fragment {
+  color: #3478f7;/* Default fragment color */
+}
+
+.fragment:nth-of-type(2n) {
+  color: #e34a33; /* Color for alternating fragments */
+}
+
+.fragment[data-fragment-index="1"] {
+  color: #008000; /* Specific color for certain fragments */
+}
+
+.fragment[data-fragment-index="2"] {
+  color: #ffa500;
+}
