@@ -10,8 +10,8 @@
 <link href="cgots2024_slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.545">
 
-  <meta name="author" content="Karl Ho, University of Texas at Dallas">
-  <title>Random Regret Minimization Models of Electoral Choice in Taiwan</title>
+  <meta name="author" content="">
+  <title>cgots2024_slides</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,70 +325,96 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Random Regret Minimization Models of Electoral Choice in Taiwan</h1>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Karl Ho, University of Texas at Dallas 
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<div id="title-slide" class="center">
+<h2>
+Random Regret Minimization Models of Electoral Choice in Taiwan
+</h2>
+<p><br>
+<br>
+</p>
+<h3>
+Karl Ho
+</h3>
+<h4>
+University of Texas at Dallas
+</h4>
 </div>
+<div class="footer">
+<p>Prepared for presentation at the APSA Conference Group on Taiwan Studies (CGOTS) Annual Meeting, September 6, 2024.</p>
 </div>
-</div>
-
 </section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<ul>
-<li>The study analyzes Taiwan’s 2024 elections using Random Regret Minimization (RRM) models.</li>
-<li>It compares RRM with traditional Random Utility Maximization (RUM) models to assess voters’ sensitivity to regret.</li>
-<li>Data is derived from the Taiwan Election and Democratization Study (TEDS) 2024, which surveys more than 3,000 voters.</li>
-</ul>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
 <div class="fragment">
-<p>The focus is on candidate-specific attributes such as likeability, capability, and party support.</p>
-</div>
 <ul>
-<li>Findings indicate that RRM provides deeper insights into regret-sensitive voter behavior, especially with the emergence of the Taiwan People’s Party (TPP).</li>
+<li class="fragment">The study introduces a new modeling technique called the <code>Random Regret Minimization (RRM)</code> model (Chorus 2010) to analyze Taiwan’s 2024 elections.</li>
 </ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">It compares with traditional Random Utility Maximization (RUM) model to assess voters’ sensitivity to <code>regret</code>.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">The focus is on candidate-specific attributes such as likeability and capability.</li>
+</ul>
+</div>
+<div class="fragment highlight-red">
+<ul>
+<li class="fragment">In other words, the choice is modeled per alternative specific variables and how they are compared within a choice set.</li>
+</ul>
+</div>
 </section>
 <section id="motivation" class="slide level2">
 <h2>Motivation</h2>
+<div>
 <ul>
-<li>Taiwan’s political landscape has shifted with the rise of a third party, TPP.</li>
-<li>Voters, particularly younger and moderate voters, are moving away from traditional parties (KMT and DPP).</li>
-<li>RUM models, which assume voters maximize utility, might not fully capture this shift in voter behavior.</li>
+<li class="fragment">Taiwan’s political landscape has shifted with the rise of a third party, Taiwan People’s Party.</li>
+<li class="fragment">Voters, particularly younger and moderate voters, are moving away from traditional parties (KMT and DPP).</li>
+<li class="fragment">RUM models, which assume voters maximize utility, might not fully capture this shift in voter behavior.</li>
 </ul>
+</div>
 <div class="fragment highlight-red">
 <ul>
-<li>RRM models focus on minimizing regret, making them ideal for analyzing this context.</li>
+<li class="fragment">RRM models focus on minimizing regret, tapping into the choice making process accounting for choice to choice comparison.</li>
 </ul>
 </div>
 <ul>
-<li>Goal: To understand whether RRM better explains voter behavior by capturing regret sensitivity.</li>
+<li class="fragment"><code>Goal: To understand whether RRM better explains voter behavior by capturing regret sensitivity.</code></li>
 </ul>
 </section>
-<section id="what-is-rrm" class="slide level2">
-<h2>What is RRM?</h2>
+<section id="what-is-rrm-what-is-regret" class="slide level2">
+<h2>What is RRM? What is <code>regret</code>?</h2>
+<div>
 <ul>
-<li>Introduced by Chorus in 2010 as an alternative to RUM. ::: {.fragment}</li>
-<li>RRM assumes that individuals minimize anticipated regret, rather than maximize utility. :::</li>
-<li>People compare attributes of each alternative and aim to avoid regret in choosing a suboptimal option.</li>
+<li class="fragment">Introduced by Chorus in 2010 as an alternative to RUM, RRM assumes that <code>individuals minimize anticipated regret, rather than maximize utility.</code></li>
+<li class="fragment">People compare attributes of each alternative and aim to avoid regret in choosing a suboptimal option.</li>
 </ul>
+</div>
 </section>
-<section id="essential-equations" class="slide level2">
-<h2>Essential Equations</h2>
+<section id="model" class="slide level2">
+<h2>Model</h2>
 <p><span class="math display">\[
 R_{in}^{\text{RRM}} = \sum_{j \neq i}^{J} \sum_{m=1}^{M} \ln \left[ 1 + \exp \left\{ \beta_m \left( x_{jmn} - x_{imn} \right) \right\} \right]
 \]</span></p>
+<p><span class="math inline">\(R_{in}^{\text{RRM}}\)</span> represents the <code>Total Regret for Alternative</code> experienced by individual <span class="math inline">\({n}\)</span> when choosing alternative <span class="math inline">\({i}\)</span> over other alternatives <span class="math inline">\({j}\)</span> across all relevant attributes <span class="math inline">\(𝑚\)</span> of the alternatives. The goal of the RRM model is to minimize this regret across all available alternatives.</p>
+<div>
 <ul>
-<li>Key applications: Transportation (Chorus 2012), Consumer choices (Hensher et al.&nbsp;2013), and Electoral choice (Zhu et al.&nbsp;2024).</li>
+<li class="fragment">Key applications: Transportation (Chorus 2012), Consumer choices (Hensher et al.&nbsp;2013)</li>
+<li class="fragment">Innovations: Generalized RRM (Chorus 2014), Mixed RRM (Zhu et al.&nbsp;2024).</li>
 </ul>
+</div>
 </section>
 <section id="comparing-rum-and-rrm" class="slide level2">
 <h2>Comparing RUM and RRM</h2>
 <table>
 <colgroup>
-<col style="width: 24%">
+<col style="width: 25%">
 <col style="width: 37%">
 <col style="width: 37%">
 </colgroup>
@@ -417,77 +443,503 @@ R_{in}^{\text{RRM}} = \sum_{j \neq i}^{J} \sum_{m=1}^{M} \ln \left[ 1 + \exp \le
 </tr>
 </tbody>
 </table>
+<div>
 <ul>
-<li>RUM assumes voters aim for maximum utility. ::: {.fragment}</li>
-<li>RRM captures regret sensitivity and is better suited for explaining choices where voters face multiple alternatives. :::</li>
+<li class="fragment">RUM assumes voters aim for maximum utility.</li>
+<li class="fragment">RRM captures regret sensitivity and is better suited for explaining choices where voters face multiple candidates.</li>
 </ul>
+</div>
 </section>
+<section id="figure-1.-impact-of-variation-in-regret-weight-regret-sensitivity-gamma-on-attribute-at-constant" class="slide level2">
+<h2>Figure 1. Impact of variation in regret-weight (regret sensitivity) (<span class="math inline">\(\gamma\)</span>) on attribute at constant</h2>
+
+<img data-src="cgots2024_slides_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
 <section id="design-and-data" class="slide level2">
 <h2>Design and Data</h2>
+<div>
 <ul>
-<li>The data comes from the <strong>Taiwan Election and Democratization Study (TEDS) 2024</strong>.</li>
-<li>Over 3,000 cases surveyed on presidential and legislative elections. ::: {.fragment .fade-in-then-out}</li>
-<li>Variables of focus: candidate likeability, capability, and party identification (leaners and supporters). :::</li>
-<li>Two main models: one for party leaners, another for party supporters, using RRM and RUM to compare results.</li>
+<li class="fragment">The data comes from the <strong>Taiwan Election and Democratization Study (TEDS) 2024</strong>.</li>
+<li class="fragment">Over 3,000 cases surveyed on presidential and legislative elections.</li>
+<li class="fragment">Variables of focus: candidate likeability, capability, and party identification (leaners and supporters).</li>
+<li class="fragment">Two main models: one for party leaners, another for party supporters, using RRM and RUM to compare results.</li>
 </ul>
+</div>
 </section>
 <section id="findings" class="slide level2">
 <h2>Findings</h2>
-<table>
+<h3 id="table-2.-rum-and-rrm-models-of-vote-choice-in-2024-taiwan-elections-party-leaners">Table 2. RUM and RRM Models of Vote Choice in 2024 Taiwan Elections (Party Leaners)</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <thead>
 <tr class="header">
-<th><strong>Variable</strong></th>
-<th><strong>RRM</strong> (Leaners)</th>
-<th><strong>RUM</strong> (Leaners)</th>
+<th><strong>votechoice</strong></th>
+<th><strong>Coef.</strong></th>
+<th><strong>Robust s.e.</strong></th>
+<th><strong>z</strong></th>
+<th><strong>P &gt; z</strong></th>
+<th><strong>[95% CI]</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Lean (0-1)</strong></td>
-<td>0.836</td>
-<td>2.277</td>
+<td><strong>RRM</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td><strong>Like (0-10)</strong></td>
-<td>0.891</td>
-<td>0.967</td>
+<td>Lean (0-1)</td>
+<td>0.836</td>
+<td>0.096</td>
+<td>8.750</td>
+<td>0.000</td>
+<td>0.649</td>
 </tr>
 <tr class="odd">
-<td><strong>Capable (0-1)</strong></td>
+<td>Like (0-10)</td>
+<td>0.891</td>
+<td>0.080</td>
+<td>11.080</td>
+<td>0.000</td>
+<td>0.733</td>
+</tr>
+<tr class="even">
+<td>Capable (0-1)</td>
 <td>0.626</td>
+<td>0.105</td>
+<td>5.950</td>
+<td>0.000</td>
+<td>0.420</td>
+</tr>
+<tr class="odd">
+<td><strong>RUM</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Lean (0-1)</td>
+<td>2.277</td>
+<td>0.133</td>
+<td>17.090</td>
+<td>0.000</td>
+<td>2.016</td>
+</tr>
+<tr class="odd">
+<td>Like (0-10)</td>
+<td>0.967</td>
+<td>0.031</td>
+<td>31.010</td>
+<td>0.000</td>
+<td>0.906</td>
+</tr>
+<tr class="even">
+<td>Capable (0-1)</td>
 <td>1.942</td>
+<td>0.128</td>
+<td>15.210</td>
+<td>0.000</td>
+<td>1.692</td>
+</tr>
+<tr class="odd">
+<td>_cons</td>
+<td>-6.990</td>
+<td>0.200</td>
+<td>-34.910</td>
+<td>0.000</td>
+<td>-7.382</td>
 </tr>
 </tbody>
 </table>
+<table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Model</strong></th>
+<th><strong>N</strong></th>
+<th><strong>ll(null)</strong></th>
+<th><strong>ll(model)</strong></th>
+<th><strong>df</strong></th>
+<th><strong>AIC</strong></th>
+<th><strong>BIC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RUM</td>
+<td>7,152</td>
+<td>.</td>
+<td>-4251.213</td>
+<td>3</td>
+<td>8508.426</td>
+<td>8529.051</td>
+</tr>
+<tr class="even">
+<td>RRM</td>
+<td>7,152</td>
+<td>.</td>
+<td>-510.9092</td>
+<td>3</td>
+<td>1027.818</td>
+<td>1048.444</td>
+</tr>
+</tbody>
+</table>
+<p>(Data source: TEDS 2024)</p>
+</section>
+<section id="table-3.-rum-and-rrm-models-of-vote-choice-in-2024-taiwan-elections-party-supporters" class="slide level2">
+<h2>Table 3. RUM and RRM Models of Vote Choice in 2024 Taiwan Elections (Party Supporters)</h2>
+<table>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>votechoice</strong></th>
+<th><strong>Coef.</strong></th>
+<th><strong>Robust s.e.</strong></th>
+<th><strong>z</strong></th>
+<th><strong>P &gt; z</strong></th>
+<th><strong>[95% CI]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>RRM</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Party support (0-3)</td>
+<td>0.474</td>
+<td>0.044</td>
+<td>10.810</td>
+<td>0.000</td>
+<td>0.388</td>
+</tr>
+<tr class="odd">
+<td>Like (0-10)</td>
+<td>0.781</td>
+<td>0.083</td>
+<td>9.350</td>
+<td>0.000</td>
+<td>0.617</td>
+</tr>
+<tr class="even">
+<td>Capable (0-1)</td>
+<td>0.540</td>
+<td>0.110</td>
+<td>4.920</td>
+<td>0.000</td>
+<td>0.325</td>
+</tr>
+<tr class="odd">
+<td><strong>RUM</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Party support (0-3)</td>
+<td>1.386</td>
+<td>0.057</td>
+<td>24.400</td>
+<td>0.000</td>
+<td>1.275</td>
+</tr>
+<tr class="odd">
+<td>Like (0-10)</td>
+<td>0.777</td>
+<td>0.032</td>
+<td>24.500</td>
+<td>0.000</td>
+<td>0.715</td>
+</tr>
+<tr class="even">
+<td>Capable (0-1)</td>
+<td>1.612</td>
+<td>0.139</td>
+<td>11.630</td>
+<td>0.000</td>
+<td>1.340</td>
+</tr>
+<tr class="odd">
+<td>_cons</td>
+<td>-6.300</td>
+<td>0.191</td>
+<td>-32.930</td>
+<td>0.000</td>
+<td>-6.675</td>
+</tr>
+</tbody>
+</table>
+<table>
+<colgroup>
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Model</strong></th>
+<th><strong>N</strong></th>
+<th><strong>ll(null)</strong></th>
+<th><strong>ll(model)</strong></th>
+<th><strong>df</strong></th>
+<th><strong>AIC</strong></th>
+<th><strong>BIC</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RUM</td>
+<td>7,152</td>
+<td>.</td>
+<td>-3391.87</td>
+<td>3</td>
+<td>6789.739</td>
+<td>6810.365</td>
+</tr>
+<tr class="even">
+<td>RRM</td>
+<td>7,152</td>
+<td>.</td>
+<td>-470.4371</td>
+<td>3</td>
+<td>946.8743</td>
+<td>967.4997</td>
+</tr>
+</tbody>
+</table>
+<p>(Data source: TEDS 2024)</p>
+<pre><code>   |</code></pre>
+</section>
+<section id="table-4.-generalized-rmma-kmt" class="slide level2">
+<h2>Table 4. Generalized RMM(a): KMT</h2>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>KMT</strong></th>
+<th><strong>Coef.</strong></th>
+<th><strong>Robust s.e.</strong></th>
+<th><strong>z</strong></th>
+<th><strong>P &gt; z</strong></th>
+<th><strong>[95% CI]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Party support (0-3)</td>
+<td>0.2618</td>
+<td>0.0318</td>
+<td>8.24</td>
+<td>0.000</td>
+<td>0.200 - 0.324</td>
+</tr>
+<tr class="even">
+<td>Like (0-10)</td>
+<td>0.4185</td>
+<td>0.0608</td>
+<td>6.88</td>
+<td>0.000</td>
+<td>0.299 - 0.538</td>
+</tr>
+<tr class="odd">
+<td>Capable (0-1)</td>
+<td>0.1343</td>
+<td>0.0938</td>
+<td>1.43</td>
+<td>0.152</td>
+<td>-0.050 - 0.318</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gamma (<span class="math inline">\(\gamma\)</span>)</strong>: 1.07E-07 (s.e.: 1.03E-07, [1.63E-08 - 7.06E-07])</p>
+<h6>
+LR test of <span class="math inline">\(\gamma\)</span> = 0: <span class="math inline">\(\chi^2\)</span>(01) = -5.20E-06, Prob ≥<span class="math inline">\(\chi^2\)</span> = 1 | LR test of <span class="math inline">\(\gamma\)</span> = 1: <span class="math inline">\(\chi^2\)</span>(01) = 8.11, Prob ≥ <span class="math inline">\(\chi^2\)</span> = 0.002 <strong>N = 655</strong>
+</h6>
+</section>
+<section id="table-4.-generalized-rmmb-dpp" class="slide level2">
+<h2>Table 4. Generalized RMM(b): DPP</h2>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>DPP</strong></th>
+<th><strong>Coef.</strong></th>
+<th><strong>Robust s.e.</strong></th>
+<th><strong>z</strong></th>
+<th><strong>P &gt; z</strong></th>
+<th><strong>[95% CI]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Party support (0-3)</td>
+<td>0.2455</td>
+<td>0.0368</td>
+<td>6.68</td>
+<td>0.000</td>
+<td>0.173 - 0.318</td>
+</tr>
+<tr class="even">
+<td>Like (0-10)</td>
+<td>0.2976</td>
+<td>0.0691</td>
+<td>4.31</td>
+<td>0.000</td>
+<td>0.162 - 0.433</td>
+</tr>
+<tr class="odd">
+<td>Capable (0-1)</td>
+<td>0.2937</td>
+<td>0.1040</td>
+<td>2.82</td>
+<td>0.005</td>
+<td>0.090 - 0.498</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Gamma (<span class="math inline">\(\gamma\)</span>)</strong>: 0.0116 (Std. Err.: 0.0483, [3.02E-06 - 0.9785])</p>
+<h6>
+LR test of <span class="math inline">\(\gamma\)</span> = 0: <span class="math inline">\(\chi^2\)</span>(01) = 0.02, Prob ≥ <span class="math inline">\(\chi^2\)</span> = 0.441 | LR test of <span class="math inline">\(\gamma\)</span> = 1:<span class="math inline">\(\chi^2\)</span>(01) = 18.09, Prob ≥<span class="math inline">\(\chi^2\)</span> = 0.000 <strong>N = 884</strong>
+</h6>
+</section>
+<section id="table-4.-generalized-rmmc-tpp" class="slide level2">
+<h2>Table 4. Generalized RMM(c): TPP</h2>
+<table>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>TPP</strong></th>
+<th><strong>Coef.</strong></th>
+<th><strong>Robust s.e.</strong></th>
+<th><strong>z</strong></th>
+<th><strong>P &gt; z</strong></th>
+<th><strong>[95% CI]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Party support (0-3)</td>
+<td>0.1833</td>
+<td>0.0544</td>
+<td>3.37</td>
+<td>0.001</td>
+<td>0.077 - 0.290</td>
+</tr>
+<tr class="even">
+<td>Like (0-10)</td>
+<td>0.4666</td>
+<td>0.1024</td>
+<td>4.56</td>
+<td>0.000</td>
+<td>0.266 - 0.667</td>
+</tr>
+<tr class="odd">
+<td>Capable (0-1)</td>
+<td>0.3637</td>
+<td>0.1755</td>
+<td>2.07</td>
+<td>0.038</td>
+<td>0.020 - 0.708</td>
+</tr>
+</tbody>
+</table>
+<strong>Gamma (<span class="math inline">\(\gamma\)</span>)</strong>: 0.2554 (Std. Err.: 0.0973, [0.1118 - 0.4832])
+<h6>
+LR test of <span class="math inline">\(\gamma\)</span> = 0: <span class="math inline">\(\chi^2\)</span>(01) = 4.31, Prob ≥ <span class="math inline">\(\chi^2\)</span> = 0.019 | LR test of <span class="math inline">\(\gamma\)</span> = 1: <span class="math inline">\(\chi^2\)</span>(01) = 3.97, Prob ≥<span class="math inline">\(\chi^2\)</span> = 0.023 <strong>N = 537</strong>
+</h6>
+</section>
+<section id="figure-2.-impacts-of-regret-sensitivity-in-voting" class="slide level2">
+<h2>Figure 2. Impacts of Regret Sensitivity in Voting</h2>
+
+<img data-src="cgots2024_slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
 <div class="fragment fade-up">
 <ul>
-<li>RRM reveals that regret plays a significant role in voters’ choices, especially for <strong>party leaners</strong>.</li>
-<li>RUM models show stronger effects for utility maximization, especially in the <strong>party supporter</strong> group.</li>
+<li class="fragment">RRM reveals that regret plays a significant role in voters’ choices, especially for <strong>party leaners</strong>.</li>
+<li class="fragment">RUM models show stronger effects for utility maximization, especially in the <strong>party supporter</strong> group.</li>
 </ul>
 </div>
 <ul>
-<li>The RRM model provides better fit (AIC, BIC) across both groups.</li>
+<li class="fragment">The RRM model provides better fit (AIC, BIC) across both groups.</li>
 </ul>
 </section>
 <section id="discussion-and-future-research" class="slide level2">
 <h2>Discussion and Future Research</h2>
-<div class="fragment">
+<div>
 <ul>
-<li>RRM captures emotional factors like regret better than traditional RUM models.</li>
+<li class="fragment">RRM captures emotional factors like regret better than traditional RUM models.</li>
+<li class="fragment">Particularly useful for understanding the rise of third parties, such as the TPP, and how they attract voters seeking to avoid both major parties’ strong positions.</li>
+<li class="fragment">Findings suggest regret minimization could play a larger role as Taiwan’s political landscape becomes more complex as voters abstaining from Green and Blue camps.</li>
+<li class="fragment">Future research could explore further applications of GenRRM, focusing on subgroup behavior (e.g., younger voters, moderates).</li>
+<li class="fragment">More data efforts in collecting candidate specific variables (e.g.&nbsp;evaluations of candidates personality, record and leadership traits, etc.) will greatly enhance applications of RRM in electoral studies.</li>
 </ul>
 </div>
-<ul>
-<li>Particularly useful for understanding the rise of third parties, such as the TPP, and how they attract voters seeking to avoid extremes. ::: {.fragment .highlight-red}</li>
-<li>Findings suggest regret minimization could play a larger role as Taiwan’s political landscape becomes more complex. :::</li>
-<li>Future research could explore further applications of GenRRM, focusing on subgroup behavior (e.g., younger voters, moderates).</li>
-</ul>
 <div class="quarto-auto-generated-content">
 <p><img src="eppslogo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>Prepared for presentation at the APSA Conference Group on Taiwan Studies (CGOTS) Annual Meeting, September 6, 2024.</p>
+<p><h10><a href="https://datageneration.io/conference/cgots2024_slides.html">Random Regret Minimization Models in Taiwan 2024 Elections</a></h10></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -644,7 +1096,7 @@ R_{in}^{\text{RRM}} = \sum_{j \neq i}^{J} \sum_{m=1}^{M} \ln \left[ 1 + \exp \le
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -698,6 +1150,44 @@ R_{in}^{\text{RRM}} = \sum_{j \neq i}^{J} \sum_{m=1}^{M} \ln \left[ 1 + \exp \le
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
