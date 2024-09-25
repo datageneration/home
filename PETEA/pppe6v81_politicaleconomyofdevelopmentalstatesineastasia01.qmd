@@ -1,0 +1,225 @@
+---
+title: "The Political Economy of Developmental States in East Asia: Tian He"
+author: ""
+date: ""
+format: 
+  revealjs:
+    theme: [default, dg_present.scss]
+    transition: slide
+    slide-number: c/t
+    incremental: true
+    footer: "<h10>PPPE 6V81 Political Economy of Technology in East Asia</h10>"
+---
+
+## Unravelling an East Asian Puzzle
+
+::: incremental
+-   **Overlooked East Asian Puzzle**
+    -   Concept of the "developmental state"
+    -   Comparison of East Asian development to Weberian models
+-   **Revisiting the Developmental State Model and Its Transformation**
+    -   State-driven economic growth in East Asia
+    -   Variation in transformation processes
+:::
+
+------------------------------------------------------------------------
+
+## The Theory: Economic Interests, Democratic Transition, and Policy Constraints
+
+::: incremental
+-   **Formation of the Developmental State**
+    -   Internal and external pressures
+    -   Ruling elites’ strategies
+-   **Democratic Transition and Policy Constraints**
+    -   Emergence of economic and political interest groups
+    -   The role of business elites, organized labor, and the middle class
+:::
+
+------------------------------------------------------------------------
+
+## The Rapid Transformation of the Developmental State in South Korea
+
+::: incremental
+-   **Elite Survival and Industrial Structure**
+    -   High level of domestic private capital concentration (DPCC)
+    -   Chaebols as a key structural factor
+-   **Democratic Transition and Policy Constraints**
+    -   Cross-class alliances and democratic concessions in the 1980s
+    -   Constraints on the policymaking process due to societal interests
+:::
+
+------------------------------------------------------------------------
+
+## The Non-Transformation of the Developmental State in Singapore
+
+::: incremental
+-   **Elite Survival and Industrial Structure in Singapore**
+    -   State-owned enterprises (SOEs) and foreign direct investment (FDI)
+    -   Lack of strong domestic capitalist class
+-   **Non-Democratic Transition**
+    -   The People’s Action Party (PAP) and authoritarian co-optation
+    -   Lack of policy constraints from business elites and labor
+:::
+
+------------------------------------------------------------------------
+
+## The Two-Phase Transformation of the Developmental State in Taiwan
+
+::: incremental
+-   **Elite Survival and Taiwan’s Industrial Structure**
+    -   Small and medium enterprises (SMEs) driving export-led growth
+    -   Democratic transition in two phases (pre- and post-2000)
+-   **Policy Constraints**
+    -   Institutional and structural constraints from business elites and labor
+:::
+
+------------------------------------------------------------------------
+
+## Understanding the Transformation of the Developmental State
+
+::: incremental
+-   **Revisiting the Theory**
+    -   The role of industrial structure and democratic transition in shaping state transformation
+    -   Comparative analysis of South Korea, Taiwan, and Singapore
+-   **Explaining Non-Transformation in China**
+    -   China's resilience and lack of transformation
+:::
+
+------------------------------------------------------------------------
+
+## Revisiting the Developmental State Model and Its Transformation
+
+::: incremental
+-   The developmental state model is pivotal in explaining the economic growth of East Asia.
+-   **Core Thesis**: The state drives economic development with coherent, centralized decision-making and autonomy from social classes.
+-   **Notable Scholars**: Johnson (1982), Wade (1990), Amsden (1989), Gerschenkron (1962).
+:::
+
+## What is the Developmental State?
+
+::: incremental
+-   The model emphasizes the state's role in directing rapid industrialization and economic development.
+-   **Components**:
+    -   Strong bureaucratic control.
+    -   Insulated economic policymaking from societal pressure.
+    -   State autonomy from private business interests.
+:::
+
+## Existing Studies on Transformation
+
+::: incremental
+-   Literature focuses on the **transformation** or **decline** of the developmental state.
+-   Key puzzles: Why do some states decline while others adapt or even thrive?
+-   Variations: Why has South Korea transitioned, while Singapore has remained relatively unchanged?
+:::
+
+## Theoretical Contributions
+
+::: incremental
+-   This study argues that transformations are driven by:
+    -   **Policy constraints** imposed by economic interest groups.
+    -   **Democratic transitions** that influence the political context of policy-making.
+-   Three empirical cases: South Korea, Singapore, and Taiwan.
+:::
+
+## The Theory: Economic Interests, Democratic Transition, and Policy Constraints
+
+## The Rise of the Developmental State
+
+::: incremental
+-   The developmental state arose out of political necessity for elite survival in South Korea, Taiwan, and Singapore in the post-war period.
+-   **State formation** involved authoritarian rule, strong economic institutions, and export-led growth.
+-   **Industrial Structure**: Characterized by domestic private capital concentration (DPCC), foreign direct investment (FDI), and state-owned enterprises (SOEs).
+:::
+
+## The Transformation of Political Foundations
+
+::: incremental
+-   As democratic transitions took place, the political foundation of state policymaking changed.
+-   **Ruling Elites**: Their decisions regarding democratic concessions or suppression were influenced by their political survival.
+-   Democratic transitions led to different outcomes, influenced by economic interests and electoral pressures.
+:::
+
+## Economic Development and Democratic Mobilization
+
+::: incremental
+-   Economic development often leads to demands for democratic participation.
+-   **Middle Class and Working Class**: Key actors pushing for regime transitions.
+-   Outcomes depend on the ruling elite's strategic choices in handling democratization demands.
+:::
+
+## Emergence of Policy Constraints
+
+::: fragment
+### Constraints from Economic Interest Groups
+:::
+
+::: incremental
+-   As economies grew, powerful interest groups emerged, creating structural constraints on policy-making.
+-   These constraints varied by the types of interest groups (business elites, labor unions).
+-   **Hypothesis**: The industrial structure of a country determines the level of constraints generated by these interest groups.
+:::
+
+{{< pagebreak >}}
+
+::: fragment
+### International Trade and Economic Interest Groups
+:::
+
+::: incremental
+-   International trade influences the formation of societal coalitions to defend their material interests.
+-   Three types of societal actors emerge based on trade effects: business, labor, and land-owning actors.
+-   Structural constraints result from the interactions between these groups and state policies.
+:::
+
+### Different Types of Economic Interest Groups
+
+::: incremental
+-   There are six types of economic interest groups that emerge based on industrial structure:
+    -   **Business Elites**: Concentrated or dispersed business interests.
+    -   **Organized Labor**: Concentrated or dispersed labor interests.
+    -   **State-Sector Interests**: State-controlled business and labor interests.
+-   Different levels of **DPCC**, **FDI**, and **SOE** ownership determine the influence of these groups.
+:::
+
+## The Structure of the Theory
+
+::: incremental
+-   The theory integrates the economic interests of ruling elites, democratic transitions, and policy constraints.
+-   **Elite Survival**: Drives industrial structure formation and political regime strategies.
+-   **Economic Interest Groups**: Shape the policy-making environment and state transformation outcomes.
+:::
+
+## Empirical Testing and Case Selection
+
+
+## Empirical #1: Economic Interest Constraints
+
+::: incremental
+-   Tests focus on the relationship between industrial structure and the strength of economic interest groups.
+-   South Korea: Strong concentrated business interests and labor unions created significant structural constraints.
+-   Taiwan: Dispersed business interests resulted in weaker constraints, with significant changes during the 1990s.
+-   Singapore: Non-indigenous business interests and state-managed labor led to non-transforming state policy.
+:::
+
+## Empirical #2: Democratic Transition
+
+::: incremental
+-   South Korea: A rapid democratic transition occurred in 1987 after a failed 1980 attempt.
+-   Taiwan: A longer, more gradual transition, with full democracy emerging in 1996.
+-   Singapore: Maintained authoritarian control, with no significant movement towards democracy.
+:::
+
+## DAG
+
+![Causal DAG of Developmental States in East Asia](DAG_TianHe.svg)
+
+## Conclusion
+
+::: incremental
+-   The transformation of developmental states is shaped by:
+    -   The emergence of economic interests.
+    -   The political strategies of ruling elites.
+    -   Democratic transitions that reconfigure policy-making environments.
+-   Case studies illustrate how different levels of **DPCC**, **FDI**, and **SOE** ownership influence state transformation outcomes.
+:::
