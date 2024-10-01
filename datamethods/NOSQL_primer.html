@@ -404,6 +404,204 @@
 <p><strong>Reference</strong>: <a href="https://ieeexplore.ieee.org/document/6098351">Han et al., 2011</a></p>
 </div>
 </section>
+<section id="key-value-stores" class="slide level2">
+<h2>Key-Value Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Key-Value Stores</strong> are the simplest form of NoSQL databases, storing data as key-value pairs.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Each key is unique, and the corresponding value can be any type of data: strings, numbers, or even complex objects like JSON or serialized objects.</li>
+</ul>
+</div>
+</section>
+<section id="key-value-stores-1" class="slide level2">
+<h2>Key-Value Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Main Features</strong>:
+<ul>
+<li class="fragment">Fast retrieval through keys, often in constant time (<code>O(1)</code> complexity).</li>
+<li class="fragment">Simple structure: no complex querying or relationships between data.</li>
+<li class="fragment">Scalability: Designed to scale horizontally across distributed systems.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="key-value-stores-2" class="slide level2">
+<h2>Key-Value Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Use Cases</strong>:
+<ul>
+<li class="fragment"><strong>Caching</strong>: Storing frequently accessed data for quick retrieval (e.g., Redis as a caching layer).</li>
+<li class="fragment"><strong>Session Management</strong>: Storing user session data in web applications (e.g., DynamoDB for stateful sessions).</li>
+<li class="fragment"><strong>Shopping Carts</strong>: Maintaining shopping cart information in e-commerce platforms.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Example</strong>:
+<ul>
+<li class="fragment"><strong>Redis</strong>: An in-memory data structure store used for caching, real-time analytics, and message brokering.</li>
+<li class="fragment"><strong>Amazon DynamoDB</strong>: A fully managed key-value and document database by AWS.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Reference</strong>: <a href="https://ieeexplore.ieee.org/document/6098351">Han et al., 2011</a></p>
+</div>
+</section>
+<section id="document-stores" class="slide level2">
+<h2>Document Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Document Stores</strong> manage data in document formats like JSON, BSON, XML, or similar structures. Each document is self-contained and can contain nested data structures.</li>
+</ul>
+</div>
+</section>
+<section id="document-stores-1" class="slide level2">
+<h2>Document Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Main Features</strong>:
+<ul>
+<li class="fragment">Flexible schema: No need for predefined structure, and fields can vary between documents.</li>
+<li class="fragment">Rich querying capabilities: Documents can be queried based on their contents (e.g., query subfields in a JSON document).</li>
+<li class="fragment">Designed for complex, hierarchical data.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="document-stores-2" class="slide level2">
+<h2>Document Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Use Cases</strong>:
+<ul>
+<li class="fragment"><strong>Content Management Systems</strong>: Storing and retrieving unstructured and semi-structured content (e.g., articles, blogs).</li>
+<li class="fragment"><strong>E-commerce Product Catalogs</strong>: Handling varied product information where fields differ between product types (e.g., MongoDB).</li>
+<li class="fragment"><strong>Real-Time Analytics</strong>: Document stores support fast reads and writes, suitable for logging and analysis.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="document-stores-3" class="slide level2">
+<h2>Document Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Example</strong>:
+<ul>
+<li class="fragment"><strong>MongoDB</strong>: One of the most popular document databases, using a JSON-like format called BSON (Binary JSON).</li>
+<li class="fragment"><strong>CouchDB</strong>: A database that uses JSON to store data, with HTTP for API access.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Reference</strong>: <a href="https://www.mongodb.com/docs/manual/">MongoDB Documentation</a></p>
+</div>
+</section>
+<section id="column-family-stores" class="slide level2">
+<h2>Column-Family Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Column-Family Stores</strong> store data in columns rather than rows. This allows for efficient queries on large datasets, especially when not all fields are required for every row.</li>
+</ul>
+</div>
+</section>
+<section id="column-family-stores-1" class="slide level2">
+<h2>Column-Family Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Main Features</strong>:
+<ul>
+<li class="fragment">Wide-column format: Each row can have different columns.</li>
+<li class="fragment">Efficient for analytical queries: Aggregates over many records can be computed more easily.</li>
+<li class="fragment">Partitioning: Data can be split across distributed systems for high scalability.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="column-family-stores-2" class="slide level2">
+<h2>Column-Family Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Use Cases</strong>:
+<ul>
+<li class="fragment"><strong>Time-Series Data</strong>: Ideal for storing and querying data that arrives in a sequence, such as IoT sensor data.</li>
+<li class="fragment"><strong>Data Warehousing</strong>: Large-scale analytics on structured data.</li>
+<li class="fragment"><strong>Recommendation Engines</strong>: Powering recommendation systems in retail and media.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="column-family-stores-3" class="slide level2">
+<h2>Column-Family Stores</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Example</strong>:
+<ul>
+<li class="fragment"><strong>Apache Cassandra</strong>: A highly scalable and distributed wide-column store that handles large amounts of data across commodity servers.</li>
+<li class="fragment"><strong>HBase</strong>: A distributed column-oriented database that runs on top of Hadoop for handling massive amounts of sparse data.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Reference</strong>: <a href="https://arxiv.org/pdf/1307.0191.pdf">Moniruzzaman &amp; Hossain, 2013</a></p>
+</div>
+</section>
+<section id="graph-databases" class="slide level2">
+<h2>Graph Databases</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Graph Databases</strong> store data as nodes, edges, and properties. They are designed to model complex relationships between entities.</li>
+</ul>
+</div>
+</section>
+<section id="graph-databases-1" class="slide level2">
+<h2>Graph Databases</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Main Features</strong>:
+<ul>
+<li class="fragment">Highly connected data: Ideal for applications where relationships between data are key.</li>
+<li class="fragment">Fast traversal: Optimized for querying relationships, making it more efficient than relational joins.</li>
+<li class="fragment">Flexible schema: Similar to document stores, but focuses on relationships and network structures.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="graph-databases-2" class="slide level2">
+<h2>Graph Databases</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Use Cases</strong>:
+<ul>
+<li class="fragment"><strong>Social Networks</strong>: Modeling connections between users, relationships, and interactions.</li>
+<li class="fragment"><strong>Fraud Detection</strong>: Analyzing transaction networks to spot anomalous patterns.</li>
+<li class="fragment"><strong>Recommendation Systems</strong>: Using user-item relationships to power recommendations in e-commerce and media.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="graph-databases-3" class="slide level2">
+<h2>Graph Databases</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Example</strong>:
+<ul>
+<li class="fragment"><strong>Neo4j</strong>: One of the most popular graph databases, designed for efficiently storing and querying complex network structures.</li>
+<li class="fragment"><strong>Amazon Neptune</strong>: A fully managed graph database service that supports both property graphs and RDF (Resource Description Framework) graph models.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Reference</strong>: <a href="https://www.oreilly.com/library/view/graph-databases-2nd/9781491930863/">Robinson et al., 2015</a></p>
+</div>
+</section>
 <section id="key-features-of-nosql" class="slide level2">
 <h2>Key Features of NoSQL</h2>
 <div class="fragment">
