@@ -1,0 +1,772 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Data Programming with GenAI",
+    "section": "",
+    "text": "1 Preface\nWelcome to the Data Programming with GenAI Bootcamp! This book is designed to serve as a comprehensive guide for participants, capturing the essence of each session and providing detailed insights into the world of data science enhanced by Generative AI tools.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "intro.html",
+    "href": "intro.html",
+    "title": "1  Introduction",
+    "section": "",
+    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "summary.html",
+    "href": "summary.html",
+    "title": "2  Summary",
+    "section": "",
+    "text": "In summary, this book has no content whatsoever.\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Summary</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "crumbs": [
+      "References"
+    ]
+  },
+  {
+    "objectID": "Introduction.html",
+    "href": "Introduction.html",
+    "title": "2  Introduction",
+    "section": "",
+    "text": "2.1 Welcome to the Data Programming with GenAI Bootcamp\nIn today’s rapidly evolving technological landscape, the ability to harness data effectively is crucial for success in many fields. This two-day bootcamp is designed to equip participants with foundational skills in data programming, enhanced by the power of Generative AI (GenAI) tools. By integrating traditional programming techniques with cutting-edge AI technologies, participants will gain a comprehensive understanding of how to approach data science challenges efficiently and innovatively.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Introduction.html#objectives",
+    "href": "Introduction.html#objectives",
+    "title": "2  Introduction",
+    "section": "2.2 Objectives",
+    "text": "2.2 Objectives\nThe primary objectives of this bootcamp are to:\n\nIntroduce Key Data Programming Concepts: Participants will learn essential skills in data collection, management, visualization, and analysis using R.\nExplore Interactive Web Applications: Through hands-on sessions, participants will build interactive dashboards and web applications using Shiny and Quarto.\nLeverage AI Tools for Enhanced Productivity: By incorporating tools like GitHub Copilot and ChatGPT, participants will discover how AI can assist in code generation, debugging, and workflow automation.\nFoster Practical Application Skills: Each session is designed to provide real-world applications of data science concepts, ensuring that participants can apply what they learn immediately.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Introduction.html#what-you-will-achieve",
+    "href": "Introduction.html#what-you-will-achieve",
+    "title": "2  Introduction",
+    "section": "2.3 What You Will Achieve",
+    "text": "2.3 What You Will Achieve\nBy the end of this bootcamp, participants will have:\n\nDeveloped a fully deployed Quarto website featuring interactive visualizations and Shiny apps.\nGained experience in collecting and cleaning data through APIs and web scraping.\nBuilt predictive models using machine learning techniques in R.\nConducted text analysis using language models and tools in R.\nEnhanced their coding efficiency with GenAI tools, accelerating their learning and application development.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "Introduction.html#the-role-of-ai-in-data-science",
+    "href": "Introduction.html#the-role-of-ai-in-data-science",
+    "title": "2  Introduction",
+    "section": "2.4 The Role of AI in Data Science",
+    "text": "2.4 The Role of AI in Data Science\nGenerative AI has emerged as a transformative force in data science, offering new ways to automate complex tasks and enhance human creativity. Tools like GitHub Copilot provide real-time code suggestions that can significantly reduce development time, while ChatGPT offers conversational insights that can inspire innovative solutions [1][2]. By leveraging these technologies, data scientists can focus more on strategic decision-making and less on repetitive coding tasks.\nAs we embark on this bootcamp journey, we invite you to explore how these powerful tools can deepen your understanding of data programming and accelerate your progress in the field of data science.\n\nReferences\n\nOpenAI’s ChatGPT Documentation: https://beta.openai.com/docs/\nGitHub Copilot Documentation: https://docs.github.com/en/copilot ```\n\n\n2.4.1 Recap\n\nWelcome Section: Sets the tone for the bootcamp by highlighting its relevance and goals.\nObjectives: Clearly outlines what participants will learn and achieve during the sessions.\nAchievements: Specifies the skills and experiences participants will gain by the end of the bootcamp.\nRole of AI: Discusses how AI tools like GitHub Copilot and ChatGPT can enhance productivity and creativity in data science.\nReferences: Provides sources for further exploration of AI tools used in the bootcamp.\n\nThis introduction provides a concise overview of the bootcamp’s design and objectives while emphasizing the transformative potential of AI in data science.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "DataCollection.html",
+    "href": "DataCollection.html",
+    "title": "5  Chapter 4: Data Collection with APIs and Web Scraping",
+    "section": "",
+    "text": "5.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 4: Data Collection with APIs and Web Scraping</span>"
+    ]
+  },
+  {
+    "objectID": "DataCollection.html#afternoon-session-1-data-collection-with-apis-and-web-scraping",
+    "href": "DataCollection.html#afternoon-session-1-data-collection-with-apis-and-web-scraping",
+    "title": "4  Chapter 3: Data Collection with APIs and Web Scraping",
+    "section": "",
+    "text": "4.1.1 Key Topics\n\nIntroduction to data collection through APIs using packages like httr and jsonlite.\nBasics of web scraping with rvest for gathering data from websites.\nHands-on exercises to retrieve data from a public API and scrape a website to collect and prepare a dataset for analysis.\n\n\n\n4.1.2 Outcome\nParticipants will be able to collect data via APIs and web scraping to use in further analyses.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 3: Data Collection with APIs and Web Scraping</span>"
+    ]
+  },
+  {
+    "objectID": "DataCollection.html#introduction-to-apis",
+    "href": "DataCollection.html#introduction-to-apis",
+    "title": "5  Chapter 4: Data Collection with APIs and Web Scraping",
+    "section": "5.1 Introduction to APIs",
+    "text": "5.1 Introduction to APIs\nAPIs (Application Programming Interfaces) allow you to access data from web services in a structured format, typically JSON. The httr package in R is commonly used for making HTTP requests.\n\n5.1.1 Example: Fetching Data from an API\n\n\nCode\nlibrary(httr)\nlibrary(jsonlite)\n\n# Example API request\nresponse &lt;- GET(\"https://api.exchangerate-api.com/v4/latest/USD\")\n\n# Check the status of the request\nstatus_code(response)\n\n\n[1] 200\n\n\nCode\n# Parse the JSON content\ndata &lt;- content(response, as = \"text\")\n\n\nNo encoding supplied: defaulting to UTF-8.\n\n\nCode\nparsed_data &lt;- fromJSON(data)\n\n# Display some exchange rates\nhead(parsed_data$rates)\n\n\n$USD\n[1] 1\n\n$AED\n[1] 3.67\n\n$AFN\n[1] 68.12\n\n$ALL\n[1] 91.22\n\n$AMD\n[1] 387.16\n\n$ANG\n[1] 1.79",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 4: Data Collection with APIs and Web Scraping</span>"
+    ]
+  },
+  {
+    "objectID": "DataCollection.html#introduction-to-web-scraping-with-rvest",
+    "href": "DataCollection.html#introduction-to-web-scraping-with-rvest",
+    "title": "5  Chapter 4: Data Collection with APIs and Web Scraping",
+    "section": "5.2 Introduction to Web Scraping with rvest",
+    "text": "5.2 Introduction to Web Scraping with rvest\nWeb scraping involves extracting data from websites. The rvest package is designed for this purpose, allowing you to navigate HTML content and extract useful information.\n\n5.2.1 Example 1: Scraping a Table from Wikipedia\n\n\nCode\nlibrary(rvest)\n\n# URL of the page to scrape\nurl &lt;- \"https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes\"\n\n# Read the HTML content\npage &lt;- read_html(url)\n\n# Extract tables from the page\ntables &lt;- html_table(page, fill = TRUE)\n\n# Display the first table\nhead(tables[[1]])\n\n\n# A tibble: 6 × 8\n  `ISO 3166[1]name[5]` `Official state name[6][a]`        `Sovereignty[6][7][8]`\n  &lt;chr&gt;                &lt;chr&gt;                              &lt;chr&gt;                 \n1 ISO 3166[1]name[5]   Official state name[6][a]          Sovereignty[6][7][8]  \n2 Afghanistan          the Islamic Republic of Afghanist… UN member             \n3 Åland Islands        Åland[c][d]                        Finland               \n4 Albania              the Republic of Albania            UN member             \n5 Algeria              the People's Democratic Republic … UN member             \n6 American Samoa       American Samoa[c]                  United States         \n# ℹ 5 more variables: `ISO 3166-1[2]` &lt;chr&gt;, `ISO 3166-1[2]` &lt;chr&gt;,\n#   `ISO 3166-1[2]` &lt;chr&gt;, `ISO 3166-2[3]subdivision codes link` &lt;chr&gt;,\n#   `TLD[9]` &lt;chr&gt;\n\n\n\n\n5.2.2 Example 2: Scraping full Data from a Table\n\n\nCode\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter()         masks stats::filter()\n✖ purrr::flatten()        masks jsonlite::flatten()\n✖ readr::guess_encoding() masks rvest::guess_encoding()\n✖ dplyr::lag()            masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nCode\n# install.packages(\"rvest\")\nlibrary(rvest)\n\nurl &lt;- 'https://en.wikipedia.org/wiki/List_of_countries_by_foreign-exchange_reserves'\n#Reading the HTML code from the Wiki website\nwikiforreserve &lt;- read_html(url)\nclass(wikiforreserve)\n\n\n[1] \"xml_document\" \"xml_node\"    \n\n\nCode\n## Get the XPath data using Inspect element feature in Safari, Chrome or Firefox\n## At Inspect tab, look for &lt;table class=....&gt; tag. Leave the table close\n## Right click the table and Copy --&gt; XPath, paste at html_nodes(xpath =)\n\nforeignreserve &lt;- wikiforreserve %&gt;%\n  html_nodes(xpath='//*[@id=\"mw-content-text\"]/div[1]/table[1]') %&gt;%\n  html_table()\nclass(foreignreserve) # Why the first column is not scrapped?\n\n\n[1] \"list\"\n\n\nCode\nfores = foreignreserve[[1]][,c(1,4,5,6,7,8,9) ] # [[ ]] returns a single element directly, without retaining the list structure.\n\n\n# \nnames(fores) &lt;- c(\"Country\", \"Forexreswithgold\", \"Date1\", \"Change1\",\"Forexreswithoutgold\", \"Date2\",\"Change2\")\ncolnames(fores)\n\n\n[1] \"Country\"             \"Forexreswithgold\"    \"Date1\"              \n[4] \"Change1\"             \"Forexreswithoutgold\" \"Date2\"              \n[7] \"Change2\"            \n\n\nCode\nhead(fores$Country, n=10)\n\n\n [1] \"Countries\"    \"China\"        \"Japan\"        \"Switzerland\"  \"India\"       \n [6] \"Russia\"       \"Taiwan\"       \"Saudi Arabia\" \"South Korea\"  \"Hong Kong\"   \n\n\nCode\n## Clean up variables\n## What type is Date?\n\n# Convert Date1 variable\nfores$Date1 = as.Date(fores$Date1, format = \"%d %b %Y\")\nclass(fores$Date1)\n\n\n[1] \"Date\"\n\n\nCode\nhead(fores)\n\n\n# A tibble: 6 × 7\n  Country  Forexreswithgold Date1      Change1 Forexreswithoutgold Date2 Change2\n  &lt;chr&gt;    &lt;chr&gt;            &lt;date&gt;     &lt;chr&gt;   &lt;chr&gt;               &lt;chr&gt; &lt;chr&gt;  \n1 Countri… Millions americ… NA         Change  Millions american … Last… Change \n2 China    3,571,803        2024-10-31 21,957  3,380,334           31 O… 415    \n3 Japan    1,238,950        2024-11-01 15,948  1,164,583           1 No… 18,782 \n4 Switzer… 952,687          2024-09-30 1,127   864,519             30 S… 604    \n5 India    682,130          2024-11-01 2,675   612,379             1 No… 3,899  \n6 Russia   628,500          2024-11-01 3,400   596,100             1 No… 720    \n\n\nCode\n# write.csv(fores, \"fores.csv\", row.names = FALSE) # use fwrite?",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 4: Data Collection with APIs and Web Scraping</span>"
+    ]
+  },
+  {
+    "objectID": "DataCollection.html#hands-on-exercise",
+    "href": "DataCollection.html#hands-on-exercise",
+    "title": "5  Chapter 4: Data Collection with APIs and Web Scraping",
+    "section": "5.3 Hands-On Exercise",
+    "text": "5.3 Hands-On Exercise\n\n5.3.1 Exercise 1: Using the REST Countries API\nExercise Title: Exploring Country Data with REST Countries API\nObjective: Learn how to retrieve and analyze data about countries using the REST Countries API.\n\n5.3.1.1 1. Overview of the REST Countries API\nThe REST Countries API provides detailed information about countries, including names, populations, area sizes, languages, currencies, and more. It is completely free to use and does not require authentication.\n\nAPI URL: REST Countries API\nUse Cases: Analyze global metrics, visualize country statistics, or create a simple application that displays country information.\n\n\n\n5.3.1.2 2. Example Code to Fetch Country Data\nHere’s how you can use R to fetch data from the REST Countries API:\n\n\nCode\n# Load necessary libraries\nlibrary(httr)\nlibrary(jsonlite)\n\n# Define the API endpoint\nurl &lt;- \"https://restcountries.com/v3.1/all\"\n\n# Make a GET request to the API\nresponse &lt;- GET(url)\n\n# Check if the request was successful\nif (status_code(response) == 200) {\n  # Parse the JSON response\n  countries_data &lt;- fromJSON(content(response, \"text\"))\n  \n  # Display the first few rows of the data\n  head(countries_data$population)\n} else {\n  print(\"Failed to retrieve data\")\n}\n\n\nNo encoding supplied: defaulting to UTF-8.\n\n\n[1]       30   112519  8654622  7976985  9749763 23503349\n\n\n\n\n5.3.1.3 3. Analyze the Data\nOnce you have retrieved the country data, you can perform various analyses. Here are a few ideas:\n\nVisualize Population Distribution: Create a histogram or bar chart showing the population distribution of countries.\nFilter by Region: Extract countries from a specific region (e.g., Europe) and analyze their statistics.\nCompare Area Sizes: Find out which countries have the largest and smallest areas.\n\n\n\nCode\nlibrary(ggplot2)\n\n# Example: Visualize population distribution\nggplot(data = countries_data, aes(x = population)) +\n  geom_histogram(bins = 30, fill = \"steelblue\", color = \"white\") +\n  scale_x_log10() + # Log scale for better visualization\n  labs(title = \"Population Distribution of Countries\",\n       x = \"Population (log scale)\",\n       y = \"Number of Countries\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n\n5.3.2 Additional Free APIs for Practice\nIf you want more options for exercises, consider these additional free APIs:\n\nJSONPlaceholder:\n\nURL: JSONPlaceholder\nUse: A fake online REST API for testing and prototyping. You can simulate CRUD operations with posts, comments, and user data.\n\nPokeAPI:\n\nURL: PokeAPI\nUse: Access Pokémon data for projects on data relationships and stats visualization. Rate-limited to 100 requests per minute.\n\nOpen Library Books API:\n\nURL: Open Library API\nUse: Access data about millions of books, including titles, authors, and publication dates. Unlimited access without authentication.\n\nDog CEO’s Dog API:\n\nURL: Dog API\nUse: Get random dog images and breed information. Free access with no authentication required.\n\n\n\n\n5.3.3 Exercise 2: Scrape Data from a Web Page\n\nChoose a webpage that contains tabular data.\nUse rvest to scrape the table and convert it into a data frame.\n\n\n\nCode\n# install.packages(\"tidyverse\")\nlibrary(tidyverse)\n# install.packages(\"rvest\")\nlibrary(rvest)\n\nurl &lt;- 'https://en.wikipedia.org/wiki/List_of_countries_by_foreign-exchange_reserves'\n#Reading the HTML code from the Wiki website\nwikiforreserve &lt;- read_html(url)\nclass(wikiforreserve)\n\n\n[1] \"xml_document\" \"xml_node\"    \n\n\nCode\n## Get the XPath data using Inspect element feature in Safari, Chrome or Firefox\n## At Inspect tab, look for &lt;table class=....&gt; tag. Leave the table close\n## Right click the table and Copy --&gt; XPath, paste at html_nodes(xpath =)\n\nforeignreserve &lt;- wikiforreserve %&gt;%\n  html_nodes(xpath='//*[@id=\"mw-content-text\"]/div[1]/table[1]') %&gt;%\n  html_table()\nclass(foreignreserve) # Why the first column is not scrapped?\n\n\n[1] \"list\"\n\n\nCode\nfores = foreignreserve[[1]][,c(1, 2,3,4,5,6,7,8) ] # [[ ]] returns a single element directly, without retaining the list structure.\n\n\n# \nnames(fores) &lt;- c(\"Country\", \"Forexreswithgold\", \"Date1\", \"Change1\",\"Forexreswithoutgold\", \"Date2\",\"Change2\", \"Sources\")\ncolnames(fores)\n\n\n[1] \"Country\"             \"Forexreswithgold\"    \"Date1\"              \n[4] \"Change1\"             \"Forexreswithoutgold\" \"Date2\"              \n[7] \"Change2\"             \"Sources\"            \n\n\nBy following these examples and exercises, participants will gain practical experience in collecting data through APIs and web scraping using R. This session will enhance their ability to gather and prepare data for analysis in real-world scenarios.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 4: Data Collection with APIs and Web Scraping</span>"
+    ]
+  },
+  {
+    "objectID": "MachineLearningModels.html",
+    "href": "MachineLearningModels.html",
+    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "",
+    "text": "8.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+    ]
+  },
+  {
+    "objectID": "MachineLearningModels.html#afternoon-session-1-introduction-to-machine-learning-models-in-r",
+    "href": "MachineLearningModels.html#afternoon-session-1-introduction-to-machine-learning-models-in-r",
+    "title": "8  Chapter 7: Introduction to Machine Learning Models in R",
+    "section": "",
+    "text": "8.1.1 Key Topics\n\nBasics of machine learning models in R, focusing on regression and classification models.\nUsing R packages such as caret or tidymodels for training simple models.\nHands-on exercises to build a basic predictive model, evaluate its performance, and interpret the results.\n\n\n\n8.1.2 Outcome\nParticipants will understand the fundamentals of machine learning models and build their own in R.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 7: Introduction to Machine Learning Models in R</span>"
+    ]
+  },
+  {
+    "objectID": "MachineLearningModels.html#introduction-to-machine-learning-models",
+    "href": "MachineLearningModels.html#introduction-to-machine-learning-models",
+    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "8.1 Introduction to Machine Learning Models",
+    "text": "8.1 Introduction to Machine Learning Models\nMachine learning involves using algorithms to identify patterns within data. In R, packages like caret and tidymodels simplify the process of training and evaluating machine learning models.\n\n8.1.1 Example: Linear Regression with caret\n\n# install.packages(\"caret\")\nlibrary(caret)\n\n# Load dataset\ndata(mtcars)\n\n# Split data into training and testing sets\nset.seed(123)\ntrainIndex &lt;- createDataPartition(mtcars$mpg, p = .8, \n                                  list = FALSE, \n                                  times = 1)\ntrainData &lt;- mtcars[ trainIndex,]\ntestData  &lt;- mtcars[-trainIndex,]\n\n# Train a linear regression model\nmodel &lt;- train(mpg ~ ., data = trainData, method = \"lm\")\n\n# Summary of the model\nsummary(model)\n\n\n\n8.1.2 Example: Classification with tidymodels\n\nlibrary(tidymodels)\n\n# Load dataset\ndata(iris)\n\n# Split data into training and testing sets\nset.seed(123)\niris_split &lt;- initial_split(iris, prop = 0.8)\niris_train &lt;- training(iris_split)\niris_test &lt;- testing(iris_split)\n\n# Define a logistic regression model\nlog_reg_model &lt;- logistic_reg() %&gt;%\n  set_engine(\"glm\")\n\n# Fit the model\nlog_reg_fit &lt;- log_reg_model %&gt;%\n  fit(Species ~ ., data = iris_train)\n\n# Evaluate the model performance\npredictions &lt;- predict(log_reg_fit, iris_test, type = \"prob\")\nroc_auc(predictions, truth = iris_test$Species)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+    ]
+  },
+  {
+    "objectID": "MachineLearningModels.html#hands-on-exercise",
+    "href": "MachineLearningModels.html#hands-on-exercise",
+    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "8.2 Hands-On Exercise",
+    "text": "8.2 Hands-On Exercise\n\n8.2.1 Exercise 1: Build a Predictive Model\n\nUse the mtcars dataset.\nTrain a linear regression model to predict mpg using caret.\n\n\n# Example code structure for building a predictive model\nmodel_mtcars &lt;- train(mpg ~ ., data = trainData, method = \"lm\")\n\nsummary(model_mtcars)\n\n\n\n8.2.2 Exercise 2: Evaluate Model Performance\n\nEvaluate the model on test data.\nInterpret the results and discuss potential improvements.\n\n\n# Predict on test data\npredictions_mtcars &lt;- predict(model_mtcars, newdata = testData)\n\n# Calculate RMSE\nrmse(predictions_mtcars, testData$mpg)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+    ]
+  },
+  {
+    "objectID": "MachineLearningModels.html#references",
+    "href": "MachineLearningModels.html#references",
+    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "8.3 References",
+    "text": "8.3 References\n\nKuhn, M., & Johnson, K. (2013). Applied Predictive Modeling. Springer.\nWickham, H., & Grolemund, G. (2016). R for Data Science. O’Reilly Media.\nMax Kuhn’s caret package documentation.\nTidymodels website for comprehensive guides and tutorials.\n\nBy following these examples and exercises, participants will gain practical experience in building and evaluating machine learning models using R. This session will enhance their ability to apply predictive modeling techniques to real-world datasets. ```\n\n8.3.1 Recap\n\nMachine Learning Basics: Introduces regression and classification models using caret and tidymodels.\nExamples: Provides code snippets for training linear regression and logistic regression models.\nExercises: Offers hands-on practice for building and evaluating predictive models.\nReferences: Lists useful resources for further reading and exploration of machine learning concepts in R.\n\nThis chapter ensures participants understand both theoretical concepts and practical applications of machine learning in R.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+    ]
+  },
+  {
+    "objectID": "TextAnalysis.html",
+    "href": "TextAnalysis.html",
+    "title": "9  Chapter 9: Introduction to Language Models and Text Analysis in R",
+    "section": "",
+    "text": "9.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 9: Introduction to Language Models and Text Analysis in R</span>"
+    ]
+  },
+  {
+    "objectID": "TextAnalysis.html#afternoon-session-2-introduction-to-language-models-and-text-analysis-in-r",
+    "href": "TextAnalysis.html#afternoon-session-2-introduction-to-language-models-and-text-analysis-in-r",
+    "title": "9  Chapter 8: Introduction to Language Models and Text Analysis in R",
+    "section": "",
+    "text": "9.1.1 Key Topics\n\nIntroduction to language models and text analysis using R.\nOverview of packages like tidytext for tokenizing and analyzing text data.\nHands-on exercises to conduct a simple text analysis, such as sentiment analysis, on a text dataset.\n\n\n\n9.1.2 Outcome\nParticipants will gain foundational skills in text analysis and learn how to use language models in R for analyzing textual data.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 8: Introduction to Language Models and Text Analysis in R</span>"
+    ]
+  },
+  {
+    "objectID": "TextAnalysis.html#introduction-to-text-analysis-with-tidytext",
+    "href": "TextAnalysis.html#introduction-to-text-analysis-with-tidytext",
+    "title": "9  Chapter 9: Introduction to Language Models and Text Analysis in R",
+    "section": "9.1 Introduction to Text Analysis with tidytext",
+    "text": "9.1 Introduction to Text Analysis with tidytext\nThe tidytext package applies tidy data principles to text mining, making it easier to manipulate and analyze textual data using familiar tools from the tidyverse.\n\n9.1.1 Example: Tokenization and Basic Text Processing\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.1     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(tidytext)\n\n# Sample text data\ntext_data &lt;- tibble(\n  line = 1:3,\n  text = c(\"This is a simple example.\", \"Text mining with R is fun.\", \"Let's analyze some text!\")\n)\n\n# Tokenize the text into words\ntidy_text &lt;- text_data %&gt;%\n  unnest_tokens(word, text)\n\n# Display tokenized data\ntidy_text\n\n# A tibble: 15 × 2\n    line word   \n   &lt;int&gt; &lt;chr&gt;  \n 1     1 this   \n 2     1 is     \n 3     1 a      \n 4     1 simple \n 5     1 example\n 6     2 text   \n 7     2 mining \n 8     2 with   \n 9     2 r      \n10     2 is     \n11     2 fun    \n12     3 let's  \n13     3 analyze\n14     3 some   \n15     3 text   \n\n\n\n\n9.1.2 Example: Sentiment Analysis\n\n# Get sentiment lexicon\nsentiments &lt;- get_sentiments(\"bing\")\n\n# Perform sentiment analysis\nsentiment_analysis &lt;- tidy_text %&gt;%\n  inner_join(sentiments, by = \"word\") %&gt;%\n  count(sentiment)\n\n# Display sentiment counts\nsentiment_analysis\n\n# A tibble: 1 × 2\n  sentiment     n\n  &lt;chr&gt;     &lt;int&gt;\n1 positive      1",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 9: Introduction to Language Models and Text Analysis in R</span>"
+    ]
+  },
+  {
+    "objectID": "TextAnalysis.html#hands-on-exercise",
+    "href": "TextAnalysis.html#hands-on-exercise",
+    "title": "9  Chapter 9: Introduction to Language Models and Text Analysis in R",
+    "section": "9.2 Hands-On Exercise",
+    "text": "9.2 Hands-On Exercise\n\n9.2.1 Exercise 1: Analyze Text Data\n\nUse a dataset of your choice (e.g., tweets or product reviews).\nTokenize the text data using unnest_tokens().\n\n\n# Example code structure for tokenizing a dataset\ntweets &lt;- tibble(\n  line = 1:3,\n  text = c(\"R is great for data science.\", \"I love using tidyverse!\", \"Text analysis is interesting.\")\n)\n\ntokenized_tweets &lt;- tweets %&gt;%\n  unnest_tokens(word, text)\n\ntokenized_tweets\n\n# A tibble: 14 × 2\n    line word       \n   &lt;int&gt; &lt;chr&gt;      \n 1     1 r          \n 2     1 is         \n 3     1 great      \n 4     1 for        \n 5     1 data       \n 6     1 science    \n 7     2 i          \n 8     2 love       \n 9     2 using      \n10     2 tidyverse  \n11     3 text       \n12     3 analysis   \n13     3 is         \n14     3 interesting\n\n\n\n\n9.2.2 Exercise 2: Conduct Sentiment Analysis\n\nUse the bing sentiment lexicon.\nAnalyze the sentiment of the tokenized text data.\n\n\n# Example code structure for sentiment analysis\ntweet_sentiments &lt;- tokenized_tweets %&gt;%\n  inner_join(get_sentiments(\"bing\"), by = \"word\") %&gt;%\n  count(sentiment)\n\ntweet_sentiments\n\n# A tibble: 1 × 2\n  sentiment     n\n  &lt;chr&gt;     &lt;int&gt;\n1 positive      3",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 9: Introduction to Language Models and Text Analysis in R</span>"
+    ]
+  },
+  {
+    "objectID": "TextAnalysis.html#references",
+    "href": "TextAnalysis.html#references",
+    "title": "9  Chapter 9: Introduction to Language Models and Text Analysis in R",
+    "section": "9.3 References",
+    "text": "9.3 References\n\nSilge, J., & Robinson, D. (2017). Text Mining with R: A Tidy Approach. O’Reilly Media. Available at https://www.tidytextmining.com/.\nCRAN Package tidytext: https://cran.r-project.org/web/packages/tidytext/index.html.\nJulia Silge’s blog on learning tidytext: https://juliasilge.com/blog/learn-tidytext-learnr/.\n\nBy following these examples and exercises, participants will gain practical experience in conducting text analysis using R. This session will enhance their ability to extract insights from textual data through tokenization and sentiment analysis. ```\n\n9.3.1 Recap\n\nText Analysis Basics: Introduces tokenization and sentiment analysis using the tidytext package.\nExamples: Provides code snippets for processing and analyzing textual data.\nExercises: Offers hands-on practice for applying these techniques on real datasets.\nReferences: Lists useful resources for further reading on text mining with R.\n\nThis chapter ensures participants understand both theoretical concepts and practical applications of text analysis in R.\nSources [1] Learn tidytext with my new learnr course - Julia Silge https://juliasilge.com/blog/learn-tidytext-learnr/ [2] Text mining in R with tidytext https://paldhous.github.io/NICAR/2019/r-text-analysis.html [3] Sentiment analysis with tidytext (R case study, 2021) - YouTube https://www.youtube.com/watch?v=P5ihIzoZivc [4] 1 The tidy text format - Text Mining with R https://www.tidytextmining.com/tidytext [5] CRAN: Package tidytext https://cran.r-project.org/web/packages/tidytext/index.html [6] juliasilge/tidytext: Text mining using tidy tools :sparkles - GitHub https://github.com/juliasilge/tidytext [7] Introduction to tidytext https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html [8] Table of contents https://r4ds.hadley.nz/webscraping",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 9: Introduction to Language Models and Text Analysis in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html",
+    "href": "GenAIIntegration.html",
+    "title": "10  Chapter 10: Leveraging GenAI for Data Science and Programming in R",
+    "section": "",
+    "text": "10.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html#afternoon-session-3-leveraging-genai-for-data-science-and-programming-in-r",
+    "href": "GenAIIntegration.html#afternoon-session-3-leveraging-genai-for-data-science-and-programming-in-r",
+    "title": "10  Chapter 9: Leveraging GenAI for Data Science and Programming in R",
+    "section": "",
+    "text": "10.1.1 Key Topics\n\nIntroduction to GenAI Tools:\n\nOverview of Generative AI tools for data science: GitHub Copilot, ChatGPT, and R-based AI libraries.\nUsing AI for code generation, debugging, and workflow automation.\n\nUsing GenAI for Coding Efficiency:\n\nDemonstration of GitHub Copilot to assist in writing R code, generate data analysis pipelines, and suggest improvements.\nPractical example: Use Copilot to build a Shiny app, automate API calls, or visualize data more efficiently.\n\n\n\n\n10.1.2 Outcome\nParticipants will understand how to leverage GenAI tools to enhance their coding efficiency and explore new possibilities in data science.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 9: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html#comparison-of-github-copilot-and-chatgpt",
+    "href": "GenAIIntegration.html#comparison-of-github-copilot-and-chatgpt",
+    "title": "10  Chapter 10: Leveraging GenAI for Data Science and Programming in R",
+    "section": "10.1 Comparison of GitHub Copilot and ChatGPT",
+    "text": "10.1 Comparison of GitHub Copilot and ChatGPT\n\n\n\n\n\n\n\n\nFeature\nGitHub Copilot\nChatGPT\n\n\n\n\nPrimary Function\nAI-powered code completion and suggestion\nConversational AI with coding capabilities\n\n\nIntegration\nDirectly integrates with IDEs like VS Code\nAccessible via web interface and API\n\n\nStrengths\nContext-aware code suggestions in real-time\nVersatile across different domains\n\n\nBest For\nDaily coding tasks within IDEs\nExperimentation and ideation\n\n\nWeaknesses\nLimited to coding environments\nRequires more interpretation for code use\n\n\n\nGitHub Copilot excels in providing real-time, context-aware suggestions directly within an IDE, making it ideal for developers focused on software development tasks[1][2]. ChatGPT offers broader conversational capabilities, suitable for exploring new ideas or gaining detailed explanations[3][5].",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html#obtaining-free-accounts",
+    "href": "GenAIIntegration.html#obtaining-free-accounts",
+    "title": "10  Chapter 10: Leveraging GenAI for Data Science and Programming in R",
+    "section": "10.2 Obtaining Free Accounts",
+    "text": "10.2 Obtaining Free Accounts\n\n10.2.1 GitHub Copilot\n\nSign Up for GitHub:\n\nCreate a free GitHub account at github.com.\n\nAccess Copilot:\n\nVisit the GitHub Copilot page to start a free trial or use it as part of certain GitHub plans.\n\n\n\n\n10.2.2 ChatGPT\n\nOpenAI Account:\n\nCreate an OpenAI account at openai.com.\n\nAccess ChatGPT:\n\nUse ChatGPT through the OpenAI website or integrate it via the API.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html#integrating-genai-tools-into-rstudio",
+    "href": "GenAIIntegration.html#integrating-genai-tools-into-rstudio",
+    "title": "10  Chapter 10: Leveraging GenAI for Data Science and Programming in R",
+    "section": "10.3 Integrating GenAI Tools into RStudio",
+    "text": "10.3 Integrating GenAI Tools into RStudio\n\n10.3.1 GitHub Copilot Integration\n\nInstall Visual Studio Code (VS Code):\n\nDownload and install VS Code from code.visualstudio.com.\n\nInstall GitHub Copilot Extension:\n\nIn VS Code, go to Extensions and search for “GitHub Copilot” to install it.\n\nUse with R Code:\n\nOpen an R script in VS Code and start typing; Copilot will suggest code completions.\n\n\n\n\n10.3.2 Using ChatGPT with RStudio\n\nAPI Access:\n\nObtain API keys from OpenAI after setting up your account.\n\nIntegrate via R Packages:\n\nUse packages like httr or plumber to send requests to the ChatGPT API from RStudio.\n\n\nlibrary(httr)\n\n# Example request to ChatGPT API\nresponse &lt;- POST(\n  url = \"https://api.openai.com/v1/engines/davinci-codex/completions\",\n  add_headers(Authorization = paste(\"Bearer\", \"your_api_key\")),\n  body = list(prompt = \"Write an R function to calculate mean\", max_tokens = 100),\n  encode = \"json\"\n)\n\ncontent(response)",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html#using-ai-for-code-generation-debugging-and-workflow-automation",
+    "href": "GenAIIntegration.html#using-ai-for-code-generation-debugging-and-workflow-automation",
+    "title": "10  Chapter 10: Leveraging GenAI for Data Science and Programming in R",
+    "section": "10.4 Using AI for Code Generation, Debugging, and Workflow Automation",
+    "text": "10.4 Using AI for Code Generation, Debugging, and Workflow Automation\n\n10.4.1 Example: Using GitHub Copilot for Shiny App Development\n\nBuilding a Shiny App:\n\nStart by writing comments describing the app’s functionality.\nLet Copilot suggest code snippets based on these comments.\n\n\n# Create a simple Shiny app with a slider input\nlibrary(shiny)\n\n# Define UI\nui &lt;- fluidPage(\n  titlePanel(\"Simple Shiny App\"),\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"obs\", \"Number of observations:\", min = 1, max = 1000, value = 500)\n    ),\n    mainPanel(\n      plotOutput(\"distPlot\")\n    )\n  )\n)\n\n# Define server logic\nserver &lt;- function(input, output) {\n  output$distPlot &lt;- renderPlot({\n    hist(rnorm(input$obs))\n  })\n}\n\n# Run the application \nshinyApp(ui = ui, server = server)\n\nAutomating API Calls:\n\nUse comments to describe the API interaction.\nAllow Copilot to generate the necessary code structure.\n\n\n# Fetch weather data from an API\nlibrary(httr)\n\nresponse &lt;- GET(\"https://api.weatherapi.com/v1/current.json?key=your_api_key&q=London\")\nweather_data &lt;- content(response)\n\nprint(weather_data)\n\nVisualizing Data Efficiently:\n\nDescribe the desired visualization.\nUse Copilot’s suggestions to quickly generate plots.\n\n\n# Plotting using ggplot2\nlibrary(ggplot2)\n\n# Create a scatter plot\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(title = \"Scatter plot of Weight vs MPG\")",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "GenAIIntegration.html#references",
+    "href": "GenAIIntegration.html#references",
+    "title": "10  Chapter 10: Leveraging GenAI for Data Science and Programming in R",
+    "section": "10.5 References",
+    "text": "10.5 References\n\nGitHub Copilot Documentation\nOpenAI’s ChatGPT Documentation\nArticles comparing GitHub Copilot and ChatGPT[1][2][3].\n\nBy following these steps and utilizing these tools, participants will enhance their programming efficiency and explore innovative solutions using AI-assisted technologies. ```\n\n10.5.1 Recap\n\nComparison Table: Highlights key differences between GitHub Copilot and ChatGPT based on functionality, integration, strengths, and weaknesses.\nAccount Setup Instructions: Provides steps to obtain free accounts for both tools.\nIntegration Guide: Offers practical advice on integrating these AI tools into coding environments like RStudio.\nExamples: Demonstrates practical applications of AI in coding tasks such as building Shiny apps and automating workflows.\nReferences: Lists resources for further exploration of GenAI tools.\n\nThis chapter equips participants with the knowledge to effectively incorporate AI tools into their data science workflows.\nSources [1] How to Use Github Copilot in RStudio in order to write code better … https://www.youtube.com/watch?v=u3g9hNvK314 [2] GitHub Copilot in Rstudio, it’s finally here! - YouTube https://www.youtube.com/watch?v=yVq-b5xHmac [3] GitHub Copilot in RStudio and VS Code - Tilburg Science Hub https://tilburgsciencehub.com/topics/automation/ai/gpt-models/github-copilot/ [4] GitHub Copilot for R - First impressions - YouTube https://www.youtube.com/watch?v=NGM7Z1Dd9fE [5] Comparing GitHub Copilot and ChatGPT: A Developer’s Perspective · community · Discussion #64644 https://github.com/orgs/community/discussions/64644 [6] RStudio User Guide - GitHub Copilot - Posit Docs https://docs.posit.co/ide/user/ide/guide/tools/copilot.html [7] How to use GitHub Copilot in RStudio - Tilburg.ai https://tilburg.ai/2023/12/github-copilot-for-r/ [8] GitHub Copilot overview - Visual Studio Code https://code.visualstudio.com/docs/copilot/overview",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>"
+    ]
+  },
+  {
+    "objectID": "Conclusion.html",
+    "href": "Conclusion.html",
+    "title": "11  Conclusion",
+    "section": "",
+    "text": "11.1 Summary of the Bootcamp\nOver the past two days, we have embarked on an intensive journey through the landscape of data programming, enhanced by the power of Generative AI tools. Here’s a recap of what we’ve covered:",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "Conclusion.html#summary-of-the-bootcamp",
+    "href": "Conclusion.html#summary-of-the-bootcamp",
+    "title": "11  Conclusion",
+    "section": "",
+    "text": "Web Development with Quarto: Participants learned to create and deploy Quarto websites, integrating interactive elements like Shiny apps to enhance user engagement.\nData Visualization: We explored data visualization techniques using ggplot2 and Plotly, enabling participants to create both static and interactive visualizations.\nData Collection and Management: Through hands-on sessions, participants gained skills in collecting data via APIs and web scraping, followed by data cleaning and exploratory data analysis using dplyr and tidyr.\nMachine Learning Models: We introduced basic machine learning models in R, focusing on regression and classification techniques using caret and tidymodels.\nText Analysis: Participants conducted text analysis using the tidytext package, learning how to tokenize text data and perform sentiment analysis.\nLeveraging AI Tools: The bootcamp highlighted how AI tools like GitHub Copilot and ChatGPT can enhance coding efficiency, automate workflows, and inspire innovative solutions.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "Conclusion.html#next-steps",
+    "href": "Conclusion.html#next-steps",
+    "title": "11  Conclusion",
+    "section": "11.2 Next Steps",
+    "text": "11.2 Next Steps\nAs you continue your journey in data science, consider exploring the following topics to deepen your expertise:\n\nAdvanced Machine Learning Techniques: Delve into more complex models such as ensemble methods, deep learning, and unsupervised learning.\nBig Data Technologies: Learn about tools like Apache Spark or Hadoop for handling large-scale datasets.\nTime Series Analysis: Explore methods for analyzing temporal data, which is crucial in fields like finance and economics.\nNatural Language Processing (NLP): Further your understanding of NLP techniques beyond basic text analysis to include topic modeling and advanced sentiment analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "Conclusion.html#resources-for-further-learning",
+    "href": "Conclusion.html#resources-for-further-learning",
+    "title": "11  Conclusion",
+    "section": "11.3 Resources for Further Learning",
+    "text": "11.3 Resources for Further Learning\nTo support your continued growth in data science, here are some recommended resources:\n\nBooks:\n\n“R for Data Science” by Hadley Wickham & Garrett Grolemund\n“Hands-On Machine Learning with R” by Brad Boehmke & Brandon Greenwell\n\nOnline Courses:\n\nCoursera’s Data Science Specialization by Johns Hopkins University\nedX’s Professional Certificate in Data Science by Harvard University\n\nWebsites & Blogs:\n\nR-bloggers: A community blog for R users\nTowards Data Science on Medium: Articles on various data science topics\n\nCommunities & Forums:\n\nStack Overflow: For technical questions and coding help\nRStudio Community: A forum for discussing R-related topics",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "Conclusion.html#final-thoughts",
+    "href": "Conclusion.html#final-thoughts",
+    "title": "11  Conclusion",
+    "section": "11.4 Final Thoughts",
+    "text": "11.4 Final Thoughts\nThis bootcamp has equipped you with foundational skills in data programming and introduced you to the transformative potential of AI tools. As you apply these skills in real-world scenarios, remember that continuous learning is key to staying ahead in the ever-evolving field of data science. Embrace new challenges, explore innovative solutions, and keep pushing the boundaries of what’s possible with data.\nThank you for participating in the Data Programming with GenAI Bootcamp. We wish you success on your journey as a data scientist!\n\nReferences\n\nWickham, H., & Grolemund, G. (2016). R for Data Science. O’Reilly Media.\nBoehmke, B., & Greenwell, B. (2019). Hands-On Machine Learning with R. CRC Press. ```\n\n\n11.4.1 Explanation\n\nSummary Section: Recaps key topics covered during the bootcamp.\nNext Steps: Suggests future topics for participants to explore as they advance their skills.\nResources: Provides books, courses, websites, and communities for further learning.\nFinal Thoughts: Encourages continuous learning and exploration in the field of data science.\n\nThis conclusion chapter aims to inspire participants to continue their education and apply their newfound skills in meaningful ways.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Conclusion</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html",
+    "href": "Resources.html",
+    "title": "13  Appendix I: Resources",
+    "section": "",
+    "text": "13.1 Chapter 1: Creating a Quarto Website and Deploying on GitHub Pages",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-1-creating-a-quarto-website-and-deploying-on-github-pages",
+    "href": "Resources.html#chapter-1-creating-a-quarto-website-and-deploying-on-github-pages",
+    "title": "13  Appendix I: Resources",
+    "section": "",
+    "text": "Quarto Documentation: https://quarto.org/docs/websites/\nGitHub Pages Guide: https://pages.github.com/\nRStudio and Quarto Integration Video: YouTube Tutorial",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-2-interactive-data-visualization-with-ggplot2-and-plotly",
+    "href": "Resources.html#chapter-2-interactive-data-visualization-with-ggplot2-and-plotly",
+    "title": "13  Appendix I: Resources",
+    "section": "13.2 Chapter 2: Interactive Data Visualization with ggplot2 and Plotly",
+    "text": "13.2 Chapter 2: Interactive Data Visualization with ggplot2 and Plotly\n\nggplot2 Documentation: https://ggplot2.tidyverse.org/\nPlotly R Library: https://plotly.com/r/\nData Visualization with R Video Tutorials: DataCamp",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-3-data-collection-with-apis-and-web-scraping",
+    "href": "Resources.html#chapter-3-data-collection-with-apis-and-web-scraping",
+    "title": "13  Appendix I: Resources",
+    "section": "13.3 Chapter 3: Data Collection with APIs and Web Scraping",
+    "text": "13.3 Chapter 3: Data Collection with APIs and Web Scraping\n\nhttr Package Documentation: https://cran.r-project.org/web/packages/httr/index.html\nrvest Package for Web Scraping: https://rvest.tidyverse.org/\nWeb Scraping in R Video Guide: YouTube Tutorial",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-4-introduction-to-shiny-for-interactive-web-applications",
+    "href": "Resources.html#chapter-4-introduction-to-shiny-for-interactive-web-applications",
+    "title": "13  Appendix I: Resources",
+    "section": "13.4 Chapter 4: Introduction to Shiny for Interactive Web Applications",
+    "text": "13.4 Chapter 4: Introduction to Shiny for Interactive Web Applications\n\nShiny Package Documentation: https://shiny.rstudio.com/\nDeploying Shiny Apps on shinyapps.io: shinyapps.io User Guide\nBuilding Shiny Apps Video Series: RStudio Education",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-5-advanced-shiny-embedding-apps-in-quarto",
+    "href": "Resources.html#chapter-5-advanced-shiny-embedding-apps-in-quarto",
+    "title": "13  Appendix I: Resources",
+    "section": "13.5 Chapter 5: Advanced Shiny – Embedding Apps in Quarto",
+    "text": "13.5 Chapter 5: Advanced Shiny – Embedding Apps in Quarto\n\nEmbedding Shiny Apps in Quarto Documentation: Quarto Websites Guide\nGitHub Pages Deployment for Quarto Sites: GitHub Pages Guide\nAdvanced Shiny Techniques Video Tutorial: YouTube Tutorial",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-6-data-management-and-exploratory-data-analysis-eda",
+    "href": "Resources.html#chapter-6-data-management-and-exploratory-data-analysis-eda",
+    "title": "13  Appendix I: Resources",
+    "section": "13.6 Chapter 6: Data Management and Exploratory Data Analysis (EDA)",
+    "text": "13.6 Chapter 6: Data Management and Exploratory Data Analysis (EDA)\n\ndplyr Package for Data Manipulation: https://dplyr.tidyverse.org/\ntidyr Package for Data Tidying: https://tidyr.tidyverse.org/\nEDA Techniques in R Video Course: Coursera Course",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-7-introduction-to-machine-learning-models-in-r",
+    "href": "Resources.html#chapter-7-introduction-to-machine-learning-models-in-r",
+    "title": "13  Appendix I: Resources",
+    "section": "13.7 Chapter 7: Introduction to Machine Learning Models in R",
+    "text": "13.7 Chapter 7: Introduction to Machine Learning Models in R\n\ncaret Package for Machine Learning: https://topepo.github.io/caret/index.html\ntidymodels Framework Overview: https://www.tidymodels.org/\nMachine Learning with R Video Series: edX Course",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-8-introduction-to-language-models-and-text-analysis-in-r",
+    "href": "Resources.html#chapter-8-introduction-to-language-models-and-text-analysis-in-r",
+    "title": "13  Appendix I: Resources",
+    "section": "13.8 Chapter 8: Introduction to Language Models and Text Analysis in R",
+    "text": "13.8 Chapter 8: Introduction to Language Models and Text Analysis in R\n\ntidytext Package for Text Mining: https://cran.r-project.org/web/packages/tidytext/index.html\nText Mining with R Book by Julia Silge and David Robinson: Online Book\nText Analysis in R Video Tutorial: YouTube Tutorial",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#chapter-9-leveraging-genai-for-data-science-and-programming-in-r",
+    "href": "Resources.html#chapter-9-leveraging-genai-for-data-science-and-programming-in-r",
+    "title": "13  Appendix I: Resources",
+    "section": "13.9 Chapter 9: Leveraging GenAI for Data Science and Programming in R",
+    "text": "13.9 Chapter 9: Leveraging GenAI for Data Science and Programming in R\n\nGitHub Copilot Documentation: https://docs.github.com/en/copilot\nOpenAI’s ChatGPT Documentation: https://beta.openai.com/docs/\nAI Tools for Coding Efficiency Video Guide: YouTube Tutorial on GitHub Copilot and ChatGPT Integration",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "Resources.html#additional-resources",
+    "href": "Resources.html#additional-resources",
+    "title": "13  Appendix I: Resources",
+    "section": "13.10 Additional Resources",
+    "text": "13.10 Additional Resources\n\n13.10.1 Books\n\nWickham, H., & Grolemund, G. (2016). R for Data Science. O’Reilly Media.\nBoehmke, B., & Greenwell, B. (2019). Hands-On Machine Learning with R. CRC Press.\n\n\n\n13.10.2 Online Courses\n\nCoursera’s Data Science Specialization by Johns Hopkins University\nedX’s Professional Certificate in Data Science by Harvard University\n\n\n\n13.10.3 Communities & Forums\n\nStack Overflow: For technical questions and coding help.\nRStudio Community: A forum for discussing R-related topics.\n\nThis resources chapter compiles all the essential links, references, and videos from each chapter of the bootcamp, providing participants with a comprehensive guide to further their learning and exploration in data science. ```\n\n\n13.10.4 Explanation\nThis chapter provides a structured list of resources categorized by each chapter topic, including documentation links, video tutorials, books, online courses, and community forums. This ensures participants have access to all necessary materials to continue their education beyond the bootcamp.\nSources [1] 7 Steps of Writing an Excellent Academic Book Chapter - Enago https://www.enago.com/academy/7-steps-of-writing-academic-book-chapter/ [2] Chapter by Chapter: An Online Program for Chapter Book Writers https://www.highlightsfoundation.org/workshop/chapter-by-chapter-an-online-program-for-chapter-book-writers/ [3] How to write your chapter outlines - Louisa Deasey Author https://louisadeasey.com/how-to-write-chapter-outlines/ [4] Writing Chapters: Really Useful Links by Lucy O’Callaghan - https://www.writing.ie/resources/writing-chapters-really-useful-links-by-lucy-ocallaghan/ [5] How to write a book chapter - Raul Pacheco-Vega, PhD https://www.raulpacheco.org/2018/07/how-to-write-a-book-chapter/ [6] Writing Resources - Lisa Poisso https://www.lisapoisso.com/editing/writing-resources-fiction/ [7] Let’s compile a comprehensive list of resources for writers - Reddit https://www.reddit.com/r/writing/comments/25jt4p/lets_compile_a_comprehensive_list_of_resources/ [8] Writing Resources I Recommend if You Want to Be a Writer https://jchenwriter.com/writing-resources/",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Appendix I: Resources</span>"
+    ]
+  },
+  {
+    "objectID": "QuartoWebsite.html",
+    "href": "QuartoWebsite.html",
+    "title": "3  Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages",
+    "section": "",
+    "text": "3.1 Introduction to Quarto\nQuarto is an open-source scientific and technical publishing system developed by Posit (formerly RStudio). It is designed to provide a unified authoring experience for creating documents, reports, presentations, and websites using multiple programming languages, including R, Python, Julia, and more. Quarto is built on top of Pandoc, which allows it to leverage advanced features for document rendering.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span>"
+    ]
+  },
+  {
+    "objectID": "QuartoWebsite.html#github-and-github-pages",
+    "href": "QuartoWebsite.html#github-and-github-pages",
+    "title": "3  Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages",
+    "section": "3.3 2. GitHub and GitHub Pages",
+    "text": "3.3 2. GitHub and GitHub Pages\nGitHub is a platform for version control and collaboration, allowing you to host your code repositories online. GitHub Pages is a feature of GitHub that allows you to publish static websites directly from a repository. By combining Quarto with GitHub Pages, you can easily create and share interactive content online.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span>"
+    ]
+  },
+  {
+    "objectID": "QuartoWebsite.html#step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages",
+    "href": "QuartoWebsite.html#step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages",
+    "title": "3  Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages",
+    "section": "3.4 3. Step-by-Step Guide: Creating a Quarto Website and Deploying on GitHub Pages",
+    "text": "3.4 3. Step-by-Step Guide: Creating a Quarto Website and Deploying on GitHub Pages\nObjective: By the end of this session, participants will have a live Quarto website hosted on GitHub Pages.\n\n3.4.1 Step 1: Set Up Your Environment\n\nInstall R and RStudio:\n\nEnsure that R and RStudio are installed on your computer. Download them from the official websites if needed.\n\nInstall Quarto:\n\nDownload and install Quarto from its official website. Follow the installation instructions specific to your operating system.\n\nInstall Git:\n\nInstall Git https://git-scm.com/\nOpen RStudio and go to `Tools` \\&gt; `Global Options` \\&gt; `Git/SVN` to configure Git.\n\n\n\n\n3.4.2 Step 2: Create a New Quarto Website Project\n\nOpen RStudio:\n\nLaunch RStudio and click on File &gt; New Project.\n\nCreate a New Directory:\n\nSelect New Directory, then choose Quarto Website as the project type.\n\nName Your Project:\n\nEnter a directory name. If you plan to deploy using GitHub Pages, consider naming it YourGitHubUsername.github.io.\nWhen creating your GitHub account, be sure to use your real name (e.g. John Doe). Then your website url will be johndoe.githuh.io.\n\nCreate the Project:\n\nChoose the directory location and click Create Project. This sets up the basic structure for your website with default files like index.qmd, about.qmd, _quarto.yml, and styles.css.\n\n\n\n\n3.4.3 Step 3: Customize Your Website\n\nEdit Content Files:\n\nOpen index.qmd in RStudio and modify it using Markdown or HTML to customize your homepage content. You may introduce briefly who you are and the purpose of this website\nSimilarly, edit about.qmd or create new .qmd files for additional pages. Give a full description of yourself to introduce yourself to your audience.\n\nConfigure Navigation:\n\nOpen _quarto.yml to configure the website’s navigation, title, and theme. Add links to new pages you create in this file.\nExample of the YAML file (be aware that the indentation is important):\n\n\ntitle: \"My Quarto Website\"\noutput:\n  html_document:\n    theme: cosmo\n  pdf_document:\n    toc: true\nnavbar:\n  left:\n    - text: \"Home\"\n      href: index.html\n    - text: \"About\"\n      href: about.html\n    - text: \"Research\"\n      href: teaching.html\n    - text: \"CV\"\n      href: cv.pdf\n\n\n3.4.4 Step 4: Render and Preview Your Website\n\nRender the Website:\n\nClick the Render button in RStudio to generate HTML files from your .qmd documents. The rendered site will appear in the Viewer pane.\n\nPreview in Browser:\n\nClick Show in new window to view your site in a web browser.\n\n\n\n\n3.4.5 Step 5a: Deploy Your Website on GitHub\n\n** Locate the _site folder/directory:**\n\nNavigate to the _site folder in your project directory. This is the folder holding all the website content and files\n\nCreate a GitHub Repository:\n\nGo to GitHub and create a new repository with the name “username.github.io” name as your project directory”. Be sure this username is exactly the name you use for login.\nCreate a Readme.md file in the repository. This is a requirement for the repository to be created. Just enter “website”\nClick on the “Add file -&gt; Upload files\nGo to the _site folder, highlight all folders and file and drag and drop to the box “Drag files here to add them to your repository”\nWait for the upload to complete, then click Commit Changes\n\nAccess Your Live Site:\n\nAfter a few minutes, your site will be live at https://YourGitHubUsername.github.io/.\n\n\n\n\n3.4.6 Step 5b: (Advanced) Deploy Your Website on GitHub Pages using Git\n\nInitialize a Git Repository:\n\nIn RStudio, open the Terminal and run:\n\n\ncd _site\ngit init\ngit add .\ngit commit -m \"Initial commit\"\n\nCreate a GitHub Repository:\n\nGo to GitHub and create a new repository with the name “username.github.io” name as your project directory”. Be sure this username is exactly the name you use for login.\n\nPush Local Repository to GitHub:\n\nIn the Terminal, connect your local repository to GitHub:\n\n\ngit remote add origin https://github.com/YourGitHubUsername/YourRepositoryName.git\ngit branch -M main\ngit push -u origin main\n\nEnable GitHub Pages:\n\nOn GitHub, navigate to your repository settings, scroll down to “GitHub Pages,” and select the branch (usually main) for deployment.\n\nAccess Your Live Site:\n\nAfter a few minutes, your site will be live at https://YourGitHubUsername.github.io/.\n\n\n\n\n3.4.7 Exercises\n\nExercise 1: Create a new page titled “Projects” and add it to your site’s navigation.\nExercise 2: Customize the theme of your site by editing _quarto.yml.\nExercise 3: Add an image gallery to one of your pages using Markdown.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span>"
+    ]
+  },
+  {
+    "objectID": "DataVisualization.html",
+    "href": "DataVisualization.html",
+    "title": "4  Chapter 3: Interactive Data Visualization with ggplot2 and Plotly",
+    "section": "",
+    "text": "4.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 3: Interactive Data Visualization with *ggplot2* and *Plotly*</span>"
+    ]
+  },
+  {
+    "objectID": "DataVisualization.html#introduction-to-ggplot2",
+    "href": "DataVisualization.html#introduction-to-ggplot2",
+    "title": "4  Chapter 3: Interactive Data Visualization with ggplot2 and Plotly",
+    "section": "4.1 Introduction to ggplot2",
+    "text": "4.1 Introduction to ggplot2\nggplot2 is a powerful R package for creating static visualizations. It implements the Grammar of Graphics, allowing you to build complex plots from simple components.\n\n4.1.1 Basic ggplot2 Example\nHere is a simple example of creating a scatter plot using ggplot2:\n\n\nCode\nlibrary(ggplot2)\n\n# Basic scatter plot\nggplot(data = mtcars, aes(x = wt, y = mpg)) +\n  geom_point(size = .8, col=\"firebrick\") + xlab(\"Vehicle Weight\") +\n  ylab(\"Miles per Gallon (MPG)\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n4.1.2 Customizing Plots\nYou can customize the appearance of your plots by adjusting point size, shape, and color:\n\n\nCode\n# Customized scatter plot\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(size = .8, shape = 21, color = \"steelblue\", fill = \"lightblue\")  + xlab(\"Vehicle Weight\") +\n  ylab(\"Miles per Gallon (MPG)\") +\n  theme_bw()",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 3: Interactive Data Visualization with *ggplot2* and *Plotly*</span>"
+    ]
+  },
+  {
+    "objectID": "DataVisualization.html#introduction-to-plotly",
+    "href": "DataVisualization.html#introduction-to-plotly",
+    "title": "4  Chapter 3: Interactive Data Visualization with ggplot2 and Plotly",
+    "section": "4.2 Introduction to Plotly",
+    "text": "4.2 Introduction to Plotly\nPlotly is a library that allows you to create interactive charts. You can convert static ggplot2 plots into interactive plots using the ggplotly() function.\n\n4.2.1 Converting ggplot2 to Plotly\nBelow is an example of how to convert a static ggplot2 plot into an interactive Plotly plot:\n\n\nCode\nlibrary(plotly)\n\n\n\nAttaching package: 'plotly'\n\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\n\nThe following object is masked from 'package:stats':\n\n    filter\n\n\nThe following object is masked from 'package:graphics':\n\n    layout\n\n\nCode\n# Create a ggplot object\np &lt;- ggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point(size = .8, shape = 21, color = \"steelblue\", fill = \"lightblue\")  + xlab(\"Vehicle Weight\") + \n  theme_bw()\n\n# Convert the ggplot object to an interactive plot\nggplotly(p)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 3: Interactive Data Visualization with *ggplot2* and *Plotly*</span>"
+    ]
+  },
+  {
+    "objectID": "DataVisualization.html#hands-on-exercise",
+    "href": "DataVisualization.html#hands-on-exercise",
+    "title": "4  Chapter 3: Interactive Data Visualization with ggplot2 and Plotly",
+    "section": "4.3 Hands-On Exercise",
+    "text": "4.3 Hands-On Exercise\n\n4.3.1 Exercise 1: Create a Static Bar Chart with ggplot2\n\nUse the diamonds dataset from the ggplot2 package.\nCreate a bar chart showing the count of diamonds by cut.\nCan you change color to the bars?\n\n\n\nCode\n# Bar chart of diamond cuts\nggplot(diamonds, aes(x = cut)) +\n  geom_bar(fill = \"skyblue\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n4.3.2 Exercise 2: Add Interactivity with Plotly\nConvert the static bar chart into an interactive chart using Plotly:\n\n\nCode\n# Convert ggplot bar chart to interactive plot\np_bar &lt;- ggplot(diamonds, aes(x = cut)) +\n  geom_bar(fill = \"skyblue\") +\n  theme_bw()\n\nggplotly(p_bar)",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 3: Interactive Data Visualization with *ggplot2* and *Plotly*</span>"
+    ]
+  },
+  {
+    "objectID": "ShinyIntroduction.html",
+    "href": "ShinyIntroduction.html",
+    "title": "6  Chapter 5: Introduction to Shiny for Interactive Web Applications",
+    "section": "",
+    "text": "6.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 5: Introduction to Shiny for Interactive Web Applications</span>"
+    ]
+  },
+  {
+    "objectID": "ShinyIntroduction.html#creating-a-shiny-app",
+    "href": "ShinyIntroduction.html#creating-a-shiny-app",
+    "title": "6  Chapter 5: Introduction to Shiny for Interactive Web Applications",
+    "section": "6.1 Creating a Shiny App",
+    "text": "6.1 Creating a Shiny App\nShiny is an R package that makes it easy to build interactive web applications directly from R. Below are the steps to create a basic Shiny app.\n\n6.1.1 Step-by-Step Guide: Creating a Shiny App\n\n6.1.1.1 Step 1: Set Up Your Environment\n\nInstall the Shiny Package:\n\n\n\nCode\ninstall.packages(\"shiny\")\n\n\n\nCreate a New Directory for Your App:\n\nCreate a new folder for your app and name it appropriately (e.g., my_shiny_app).\n\nCreate the app.R File:\n\nInside the new directory, create a file named app.R.\n\n\n\n\n6.1.1.2 Step 2: Write the Basic Structure of the App\n\nLoad the Shiny Library and Define UI and Server Functions:\n\n\n\nCode\n    library(shiny)\n\n    # Define UI\n    ui &lt;- fluidPage(\n      titlePanel(\"Hello Shiny!\"),\n      sidebarLayout(\n        sidebarPanel(\n          sliderInput(\"bins\", \"Number of bins:\", min = 1, max = 50, value = 30)\n        ),\n        mainPanel(\n          plotOutput(\"distPlot\")\n        )\n      )\n    )\n\n    # Define server logic\n    server &lt;- function(input, output) {\n      output$distPlot &lt;- renderPlot({\n        x &lt;- faithful[, 2]\n        bins &lt;- seq(min(x), max(x), length.out = input$bins + 1)\n        hist(x, breaks = bins, col = 'darkgray', border = 'white')\n      })\n    }\n\n    # Run the application\n    shinyApp(ui = ui, server = server)\n\n\n\nRun the App Locally:\n\nOpen app.R in RStudio and click “Run App” to start your application locally.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 5: Introduction to Shiny for Interactive Web Applications</span>"
+    ]
+  },
+  {
+    "objectID": "ShinyIntroduction.html#publishing-to-shinyapps.io",
+    "href": "ShinyIntroduction.html#publishing-to-shinyapps.io",
+    "title": "6  Chapter 5: Introduction to Shiny for Interactive Web Applications",
+    "section": "6.2 Publishing to shinyapps.io",
+    "text": "6.2 Publishing to shinyapps.io\nOnce your app is working locally, you can publish it online using shinyapps.io.\n\n6.2.1 Step-by-Step Guide: Publishing to shinyapps.io\n\n6.2.1.1 Step 1: Install and Set Up rsconnect\n\nLogin to https://shinyapps.io:\n\n\nUse your GitHub account to login\nClick on the account icon on upper right corner and select “Tokens”\nClick on “Create Token” -&gt; “Show” -&gt; “Show secret” and copy to Clipboard\n\n\nInstall rsconnect Package:\n\n\n\nCode\n    install.packages(\"rsconnect\")\n\n\n\nLoad rsconnect Library and Authenticate:\n\n\n\nCode\n    library(rsconnect)\n\n    # Set account info (replace with your own account details)\n    rsconnect::setAccountInfo(name='yourname',\n                              token='yourtoken',\n                              secret='yoursecret')\n\n\n\n\n6.2.1.2 Step 2: Deploy Your App\n\nDeploy the App Using rsconnect:\n\nIn RStudio, deploy your app by running:\n\n\n\n\nCode\n    rsconnect::deployApp('path/to/your/app')\n\n\n\nAccess Your Live App:\n\nOnce deployed, you will receive a URL where your app is hosted on shinyapps.io.\n\n\n\n\n\n6.2.2 Exercises\n\nExercise 1: Modify the UI to include additional inputs like text boxes or dropdowns.\nExercise 2: Add another output element such as a table or plot.\nExercise 3: Customize the appearance of your app using CSS or themes.\n\nBy following these steps, participants will gain practical experience in creating interactive web applications using Shiny and learn how to deploy them online using shinyapps.io.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Chapter 5: Introduction to Shiny for Interactive Web Applications</span>"
+    ]
+  },
+  {
+    "objectID": "AdvancedShiny.html",
+    "href": "AdvancedShiny.html",
+    "title": "7  Chapter 6: Advanced Shiny – Embedding Apps in Quarto",
+    "section": "",
+    "text": "7.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "AdvancedShiny.html#introduction",
+    "href": "AdvancedShiny.html#introduction",
+    "title": "7  Chapter 6: Advanced Shiny – Embedding Apps in Quarto",
+    "section": "7.1 Introduction",
+    "text": "7.1 Introduction\nIntegrating Shiny apps into a Quarto website allows you to add interactivity to your static pages. This can be achieved by embedding the Shiny app as an iframe within your Quarto document.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "AdvancedShiny.html#step-by-step-guide-embedding-shiny-apps-in-quarto",
+    "href": "AdvancedShiny.html#step-by-step-guide-embedding-shiny-apps-in-quarto",
+    "title": "7  Chapter 6: Advanced Shiny – Embedding Apps in Quarto",
+    "section": "7.2 Step-by-Step Guide: Embedding Shiny Apps in Quarto",
+    "text": "7.2 Step-by-Step Guide: Embedding Shiny Apps in Quarto\n\n7.2.1 Step 1: Create and Deploy Your Shiny App\n\nDevelop Your Shiny App Locally:\n\nUse the structure from Chapter 4 to create your app.R file.\nEnsure your app runs correctly in RStudio.\n\nDeploy Your App on shinyapps.io:\n\nFollow the publishing steps from Chapter 4 to deploy your app on shinyapps.io.\nObtain the URL of your deployed app (e.g., https://yourusername.shinyapps.io/yourapp).\n\n\n\n\n7.2.2 Step 2: Embed the Shiny App in a Quarto Document\n\nCreate a New Quarto Document:\n\nIn your Quarto project, create a new .qmd file (e.g., shiny_app_embed.qmd).\n\nAdd an Iframe to Embed the App:\n\nUse HTML to embed the Shiny app within your Quarto document using an iframe:\n\n\n---\ntitle: \"Embedded Shiny App\"\nformat:\n  html:\n    page-layout: full\n---",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "DataManagement.html",
+    "href": "DataManagement.html",
+    "title": "8  Chapter 7: Data Management and Exploratory Data Analysis (EDA)",
+    "section": "",
+    "text": "8.0.1 Key Topics",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span>"
+    ]
+  },
+  {
+    "objectID": "DataManagement.html#introduction-to-data-cleaning",
+    "href": "DataManagement.html#introduction-to-data-cleaning",
+    "title": "8  Chapter 7: Data Management and Exploratory Data Analysis (EDA)",
+    "section": "8.1 Introduction to Data Cleaning",
+    "text": "8.1 Introduction to Data Cleaning\nData cleaning is an essential step in preparing your dataset for analysis. The dplyr and tidyr packages in R provide powerful tools for transforming and tidying data.\n\n8.1.1 Example: Handling Missing Values\n\n\nCode\nlibrary(dplyr)\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nCode\n# Sample dataset with missing values\ndata &lt;- tibble(\n  id = 1:5,\n  value = c(10, NA, 30, NA, 50)\n)\n\n# Remove rows with missing values\nclean_data &lt;- data %&gt;%\n  filter(!is.na(value))\n\n# Display cleaned data\nclean_data\n\n\n# A tibble: 3 × 2\n     id value\n  &lt;int&gt; &lt;dbl&gt;\n1     1    10\n2     3    30\n3     5    50\n\n\n\n\n8.1.2 Example: Reshaping Data\n\n\nCode\nlibrary(tidyr)\n\n# Sample dataset for reshaping\nwide_data &lt;- tibble(\n  id = 1:3,\n  score_1 = c(80, 85, 90),\n  score_2 = c(70, 75, 80)\n)\n\n# Convert from wide to long format\nlong_data &lt;- wide_data %&gt;%\n  pivot_longer(cols = starts_with(\"score\"), names_to = \"test\", values_to = \"score\")\n\n# Display reshaped data\nlong_data\n\n\n# A tibble: 6 × 3\n     id test    score\n  &lt;int&gt; &lt;chr&gt;   &lt;dbl&gt;\n1     1 score_1    80\n2     1 score_2    70\n3     2 score_1    85\n4     2 score_2    75\n5     3 score_1    90\n6     3 score_2    80",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span>"
+    ]
+  },
+  {
+    "objectID": "DataManagement.html#introduction-to-exploratory-data-analysis-eda",
+    "href": "DataManagement.html#introduction-to-exploratory-data-analysis-eda",
+    "title": "8  Chapter 7: Data Management and Exploratory Data Analysis (EDA)",
+    "section": "8.2 Introduction to Exploratory Data Analysis (EDA)",
+    "text": "8.2 Introduction to Exploratory Data Analysis (EDA)\nEDA involves summarizing the main characteristics of a dataset often using visual methods. It helps in understanding the patterns, anomalies, and relationships within the data.\n\n8.2.1 Example: Summary Statistics\n\n\nCode\n# Calculate summary statistics\nsummary_stats &lt;- clean_data %&gt;%\n  summarise(\n    mean_value = mean(value),\n    median_value = median(value),\n    sd_value = sd(value)\n  )\n\n# Display summary statistics\nsummary_stats\n\n\n# A tibble: 1 × 3\n  mean_value median_value sd_value\n       &lt;dbl&gt;        &lt;dbl&gt;    &lt;dbl&gt;\n1         30           30       20\n\n\n\n\n8.2.2 Example: Data Visualization with ggplot2\n\n\nCode\nlibrary(ggplot2)\n\n# Visualize the distribution of scores\nggplot(long_data, aes(x = test, y = score)) +\n  geom_boxplot(fill = \"lightblue\") +\n  labs(title = \"Score Distribution by Test\") +\n  theme_bw()",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span>"
+    ]
+  },
+  {
+    "objectID": "DataManagement.html#hands-on-exercise",
+    "href": "DataManagement.html#hands-on-exercise",
+    "title": "8  Chapter 7: Data Management and Exploratory Data Analysis (EDA)",
+    "section": "8.3 Hands-On Exercise",
+    "text": "8.3 Hands-On Exercise\n\n8.3.1 Exercise 1: Clean a Dataset\n\nUse a dataset collected during Day 1.\nIdentify and handle missing values using dplyr.\n\n\n\nCode\n# Example code structure for cleaning a dataset\ndataset &lt;- tibble(\n  id = c(1, 2, NA, 4),\n  value = c(10, NA, 30, NA)\n)\n\ncleaned_dataset &lt;- dataset %&gt;%\n  drop_na() # Remove rows with any missing values\n\ncleaned_dataset\n\n\n# A tibble: 1 × 2\n     id value\n  &lt;dbl&gt; &lt;dbl&gt;\n1     1    10\n\n\n\n\n8.3.2 Exercise 2: Perform EDA\n\nGenerate summary statistics for your cleaned dataset.\nCreate visualizations to explore relationships in the data using ggplot2.\n\n\n\nCode\n# Example code structure for EDA\neda_summary &lt;- cleaned_dataset %&gt;%\n  summarise(mean_value = mean(value))\n\nggplot(cleaned_dataset, aes(x = id, y = value)) +\n  geom_point() +\n  labs(title = \"Value by ID\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n8.3.3 Exercises with Real Datasets\n\n8.3.3.1 1. Penguins Dataset\nSource: Palmer Penguins Dataset\nDescription: This dataset contains information about three species of penguins (Adélie, Gentoo, and Chinstrap) from the Palmer Archipelago in Antarctica. It includes variables such as species, island, bill length, bill depth, flipper length, body mass, and sex.\nExercises: - Data Cleaning: Check for missing values and handle them appropriately. For example, decide whether to impute missing values or remove rows with missing data. - Exploratory Analysis: Create visualizations to compare the physical characteristics (e.g., bill length vs. body mass) among the three species of penguins. - Statistical Analysis: Perform a t-test to determine if there are significant differences in body mass between the species.\n\n\nCode\n# Load necessary libraries\nlibrary(palmerpenguins)\nlibrary(ggplot2)\nlibrary(dplyr)\n\n# View the dataset\nhead(penguins)\n\n\n# A tibble: 6 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n5 Adelie  Torgersen           36.7          19.3               193        3450\n6 Adelie  Torgersen           39.3          20.6               190        3650\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\nCode\n# Data cleaning: Remove rows with NA values\ncleaned_penguins &lt;- na.omit(penguins)\n\n# Exploratory analysis: Visualize bill length vs. body mass by species\nggplot(cleaned_penguins, aes(x = bill_length_mm, y = body_mass_g, color = species)) +\n  geom_point() +\n  labs(title = \"Bill Length vs Body Mass of Penguins\",\n       x = \"Bill Length (mm)\",\n       y = \"Body Mass (g)\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n8.3.3.2 2. Titanic Dataset\nSource: Kaggle Titanic Dataset\nDescription: This famous dataset contains information about the passengers on the Titanic, including their survival status, age, class, sex, fare paid, and more.\nExercises: - Data Cleaning: Identify and handle missing values in the dataset. For example, impute missing ages using the median or mean age based on passenger class. - Exploratory Analysis: Analyze survival rates based on different factors such as gender and passenger class. Create visualizations to illustrate your findings. - Feature Engineering: Create a new feature that categorizes passengers into age groups (e.g., child, adult) and analyze survival rates based on this new feature.\n\n\nCode\n# Load necessary libraries\nlibrary(tidyverse)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ forcats   1.0.0     ✔ readr     2.1.5\n✔ lubridate 1.9.3     ✔ stringr   1.5.1\n✔ purrr     1.0.2     ✔ tibble    3.2.1\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\nCode\n# Load Titanic dataset\ntitanic_data &lt;- read.csv(\"https://raw.githubusercontent.com/datasciencedojo/datasets/refs/heads/master/titanic.csv\")\n\n# Data cleaning: Impute missing ages with median age\ntitanic_data$Age[is.na(titanic_data$Age)] &lt;- median(titanic_data$Age, na.rm = TRUE)\n\n# Exploratory analysis: Survival rate by gender\nggplot(titanic_data, aes(x = Sex, fill = factor(Survived))) +\n  geom_bar(position = \"fill\") +\n  labs(title = \"Survival Rate by Gender\",\n       y = \"Proportion\",\n       fill = \"Survived\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\n8.3.3.3 3. World Happiness Report\nSource: World Happiness Report Dataset\nDescription: This dataset includes happiness scores for countries around the world based on various factors such as GDP per capita, social support, life expectancy, freedom to make life choices, generosity, and perceptions of corruption.\nExercises: - Data Cleaning: Check for any inconsistencies or missing values in the dataset. Clean the data as necessary. - Exploratory Analysis: Analyze the relationship between GDP per capita and happiness scores using scatter plots. Use regression analysis to model this relationship. - Comparative Analysis: Compare happiness scores across different regions or continents using boxplots.\n\n\nCode\nhappiness_data &lt;- read.csv(\"https://raw.githubusercontent.com/datageneration/nchu/refs/heads/main/datascience/data/2017.csv\")\n\n# Data cleaning: Check for NA values\nsummary(happiness_data)\n\n\n   Country          Happiness.Rank  Happiness.Score  Whisker.high  \n Length:155         Min.   :  1.0   Min.   :2.693   Min.   :2.865  \n Class :character   1st Qu.: 39.5   1st Qu.:4.505   1st Qu.:4.608  \n Mode  :character   Median : 78.0   Median :5.279   Median :5.370  \n                    Mean   : 78.0   Mean   :5.354   Mean   :5.452  \n                    3rd Qu.:116.5   3rd Qu.:6.101   3rd Qu.:6.195  \n                    Max.   :155.0   Max.   :7.537   Max.   :7.622  \n  Whisker.low    GDP.per.capita       Family      Health..Life.Expectancy.\n Min.   :2.521   Min.   :0.0000   Min.   :0.000   Min.   :0.0000          \n 1st Qu.:4.375   1st Qu.:0.6634   1st Qu.:1.043   1st Qu.:0.3699          \n Median :5.193   Median :1.0646   Median :1.254   Median :0.6060          \n Mean   :5.256   Mean   :0.9847   Mean   :1.189   Mean   :0.5513          \n 3rd Qu.:6.007   3rd Qu.:1.3180   3rd Qu.:1.414   3rd Qu.:0.7230          \n Max.   :7.480   Max.   :1.8708   Max.   :1.611   Max.   :0.9495          \n    Freedom         Generosity     Trust..Government.Corruption.\n Min.   :0.0000   Min.   :0.0000   Min.   :0.00000              \n 1st Qu.:0.3037   1st Qu.:0.1541   1st Qu.:0.05727              \n Median :0.4375   Median :0.2315   Median :0.08985              \n Mean   :0.4088   Mean   :0.2469   Mean   :0.12312              \n 3rd Qu.:0.5166   3rd Qu.:0.3238   3rd Qu.:0.15330              \n Max.   :0.6582   Max.   :0.8381   Max.   :0.46431              \n Dystopia.Residual\n Min.   :0.3779   \n 1st Qu.:1.5913   \n Median :1.8329   \n Mean   :1.8502   \n 3rd Qu.:2.1447   \n Max.   :3.1175   \n\n\nCode\n# Exploratory analysis: Scatter plot of GDP vs Happiness Score\nggplot(happiness_data, aes(x = GDP.per.capita, y = Happiness.Score)) +\n  geom_point(pch=20, color = \"orange\") +\n  labs(title = \"GDP per Capita vs Happiness Score\",\n       x = \"GDP per Capita\",\n       y = \"Happiness Score\") +\n  theme_bw()\n\n\n\n\n\n\n\n\n\nBy following these examples and exercises, participants will gain practical experience in data cleaning and exploratory data analysis using R. This session will enhance their ability to derive meaningful insights from raw datasets.\n\n\n\n8.3.4 Recap\n\nData Cleaning: Introduces techniques for handling missing values and reshaping data using dplyr and tidyr.\nExploratory Data Analysis: Demonstrates how to calculate summary statistics and visualize data patterns with ggplot2.\nExercises: Provides hands-on practice for participants to apply these techniques on real datasets.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#setup-r-and-rstudio",
+    "href": "index.html#setup-r-and-rstudio",
+    "title": "Data Programming with GenAI",
+    "section": "1.1 Setup R and RStudio",
+    "text": "1.1 Setup R and RStudio\nBefore diving into the content, it’s crucial to set up your programming environment effectively. Here are some best practices for installing and configuring R and RStudio:\n\n1.1.1 Installation Steps\n\nInstall R First:\n\nDownload and install R from the Comprehensive R Archive Network (CRAN) at cran.r-project.org.\n\nInstall RStudio:\n\nAfter installing R, download and install RStudio from posit.co (formerly known as RStudio).\n\n\n\n\n1.1.2 Initial Configuration\n\nSet Up Your Workspace:\n\nUpon first launching RStudio, navigate to Tools &gt; Global Options to configure your settings.\nDisable Workspace Restoration: Under the “General” tab, uncheck options like “Restore .RData into workspace at startup” to ensure you start with a clean slate each time. This practice promotes reproducibility in your projects.\n\nCustomize Pane Layout: Adjust the layout of the RStudio panes to suit your workflow. For example, you might prefer having the console on the top right and the script editor on the left.\n\n\n\n1.1.3 Package Management\n\nInstall Essential Packages: Use install.packages() to install necessary libraries like tidyverse, ggplot2, and others relevant to your projects. Consider using a package manager like pacman for easier installation and loading of multiple packages at once.\n\n\n\nCode\n# Example of installing multiple packages\npackages &lt;- c(\"tidyverse\", \"ggplot2\", \"dplyr\")\ninstall.packages(packages)\n\n\n\nKeep Packages Updated: Regularly check for updates to ensure you have the latest features and bug fixes. In RStudio, you can do this via Tools &gt; Check for Package Updates.\n\n\n\n1.1.4 Optimize Performance\n\nIncrease Memory Limits: If working with large datasets, consider using Garbage Collection function gc().\nUse Efficient Data Structures: Utilize data structures like data tables (data.table) for faster data manipulation compared to data frames.\nUse Parallel Processing: Leverage parallel processing capabilities in R to speed up computations, especially for tasks like bootstrapping or cross-validation.\nUse Efficient Coding Practices: Load all necessary packages at the beginning of your scripts to avoid issues with missing dependencies later on.\n\n\n\n1.1.5 Utilize Startup Files\n\nCustomize .Rprofile and .Renviron: Use these files to set environment variables or load frequently used libraries automatically when starting R. This can streamline your workflow significantly.\n\n\n\n1.1.6 Explore Resources for Further Learning\n\nOnline Documentation: Familiarize yourself with the official documentation for both R and RStudio:\n\nR Documentation\nRStudio Documentation\n\nVideo Tutorials: Consider watching setup tutorials on platforms like YouTube. For example, this video provides a straightforward guide to installing R and RStudio: Install R and RStudio on Windows.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#best-practices-in-programming",
+    "href": "index.html#best-practices-in-programming",
+    "title": "Data Programming with GenAI",
+    "section": "1.3 Best Practices in Programming",
+    "text": "1.3 Best Practices in Programming\nAs you embark on your programming journey, adhering to best practices is essential for writing clean, efficient, and maintainable code. One key resource that outlines these practices is Jenny Bryan’s guide on best practice workflows for R programming:\n\nBest Practice Workflow: Jenny Bryan’s Best Practices\n\nFollowing these guidelines will help you develop a structured approach to coding, making it easier to collaborate with others and manage your projects effectively.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction-to-r-programming",
+    "href": "index.html#introduction-to-r-programming",
+    "title": "Data Programming with GenAI",
+    "section": "1.2 Introduction to R Programming",
+    "text": "1.2 Introduction to R Programming\nThis bootcamp will cover various aspects of data programming using R. To familiarize yourself with the basic syntax and functionalities of R, we recommend reviewing the following material:\n\nBasics of R Syntax: Basic Syntax in R\n\nUnderstanding these foundational concepts will prepare you for the more advanced topics we will explore during the bootcamp.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#structure-and-organization",
+    "href": "index.html#structure-and-organization",
+    "title": "Data Programming with GenAI",
+    "section": "1.4 Structure and Organization",
+    "text": "1.4 Structure and Organization\nThe book is organized into several chapters, each corresponding to a session from the bootcamp. Here’s a brief overview of what you can expect:\n\nIntroduction: This chapter sets the stage for the bootcamp, outlining its objectives and expected outcomes for participants.\nCreating a Quarto Website and Deploying on GitHub Pages: Learn how to build and deploy interactive web content using Quarto and GitHub Pages.\nInteractive Data Visualization with ggplot2 and Plotly: Explore techniques for creating both static and interactive visualizations to effectively communicate data insights.\nData Collection with APIs and Web Scraping: Gain skills in collecting data from web sources using APIs and web scraping techniques.\nIntroduction to Shiny for Interactive Web Applications: Develop interactive web applications using Shiny, enhancing user engagement with dynamic content.\nAdvanced Shiny – Embedding Apps in Quarto: Integrate Shiny apps into Quarto websites for seamless interactive experiences.\nData Management and Exploratory Data Analysis (EDA): Master data cleaning, transformation, and exploratory analysis using R’s powerful packages.\nIntroduction to Machine Learning Models in R: Build foundational machine learning models, focusing on regression and classification techniques.\nIntroduction to Language Models and Text Analysis in R: Conduct text analysis using language models, gaining insights from textual data.\nLeveraging GenAI for Data Science and Programming in R: Discover how AI tools like GitHub Copilot and ChatGPT can enhance coding efficiency and innovation.\nConclusion: Summarizes the key learnings from the bootcamp and suggests future topics for exploration.\n\nAppendix I: Resources: Provides a comprehensive list of references, links, and additional resources to support further learning.\nAppendix II: Garbage collection gc(): Explains how to manage memory efficiently in R using the garbage collection function.\nAppendix III: How to Use Parallel Processing in R: Demonstrates how to leverage parallel processing capabilities in R for faster computations.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use-this-book",
+    "href": "index.html#how-to-use-this-book",
+    "title": "Data Programming with GenAI",
+    "section": "1.5 How to Use This Book",
+    "text": "1.5 How to Use This Book\nEach chapter is designed to be self-contained, providing detailed explanations, examples, exercises, and references. You can follow along sequentially or jump to specific chapters based on your interests or needs. The hands-on exercises are intended to reinforce learning by applying concepts in practical scenarios.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgments",
+    "href": "index.html#acknowledgments",
+    "title": "Data Programming with GenAI",
+    "section": "1.6 Acknowledgments",
+    "text": "1.6 Acknowledgments\nWe would like to thank Professor Peter Pan and his team at the National Chung Hsing University who have made this bootcamp possible, including faculty, adminstrators and participants. Your enthusiasm and dedication are what drive innovation in the field of data science.\nWe hope this book serves as a valuable resource on your journey in data programming with Generative AI tools. Happy learning!\n\n1.6.1 Recap\n\nSetup Instructions: Added detailed steps for installing and configuring R and RStudio effectively.\nBest Practices Section: Included a section emphasizing best practices in programming alongside a link to Jenny Bryan’s workflow guide.\nR Programming Basics: Maintained links that provide foundational knowledge about basic syntax in R.\n\nThis preface now provides comprehensive guidance on setting up an effective programming environment while emphasizing best practices that will benefit participants throughout their learning journey in data science.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Preface</span>"
+    ]
+  },
+  {
+    "objectID": "ParallelProcessing.html",
+    "href": "ParallelProcessing.html",
+    "title": "15  Appendix III: How to Use Parallel Processing in R",
+    "section": "",
+    "text": "Parallel processing allows you to execute multiple computations simultaneously, leveraging multiple CPU cores to improve performance and reduce execution time for data-intensive tasks. Here’s how to effectively implement parallel processing in R.\n\n15.0.0.1 1. Understanding Parallel Processing\nParallel processing involves dividing a task into smaller sub-tasks that can be executed concurrently across multiple processors or cores. This is particularly useful for operations that can be performed independently, such as applying a function to each element of a list or performing simulations.\n\n\n15.0.0.2 2. Setting Up Parallel Processing\nTo use parallel processing in R, you typically need the parallel package, which is included in base R. Here are some key functions and concepts:\n\nDetecting Cores: You can determine how many CPU cores are available on your machine using detectCores().\n\n\n\nCode\nlibrary(parallel)\nnumCores &lt;- detectCores()\nprint(numCores) # Prints the number of available cores\n\n\n[1] 8\n\n\n\nCreating a Cluster: For more complex parallel tasks, especially on multi-core machines, you can create a cluster using makeCluster(). This allows you to manage multiple R sessions running in parallel.\n\n\n\nCode\ncl &lt;- makeCluster(numCores - 1) # Leave one core free for other tasks\n\n\n\n\n15.0.0.3 3. Using Parallel Functions\nThe parallel package provides several functions for parallel processing:\n\nmclapply(): This function is similar to lapply(), but it executes the function in parallel across multiple cores.\n\n\n\nCode\nlibrary(parallel)\n\n# Example function to apply\nmy_function &lt;- function(x) {\n  Sys.sleep(1) # Simulate a time-consuming computation\n  return(x^2)\n}\n\n# Create a vector of numbers\nnumbers &lt;- 1:10\n\n# Apply the function in parallel\nresults &lt;- mclapply(numbers, my_function, mc.cores = 4)\nprint(results)\n\n\n[[1]]\n[1] 1\n\n[[2]]\n[1] 4\n\n[[3]]\n[1] 9\n\n[[4]]\n[1] 16\n\n[[5]]\n[1] 25\n\n[[6]]\n[1] 36\n\n[[7]]\n[1] 49\n\n[[8]]\n[1] 64\n\n[[9]]\n[1] 81\n\n[[10]]\n[1] 100\n\n\n\nUsing foreach with doParallel: For more complex workflows, you can use the foreach package along with doParallel to run loops in parallel.\n\n\n\nCode\n# install.packages(\"doParallel\")\nlibrary(doParallel)\n\n\nLoading required package: foreach\n\n\nLoading required package: iterators\n\n\nCode\n# Register the parallel backend\nregisterDoParallel(cl)\n\n# Use foreach to run tasks in parallel\nresults &lt;- foreach(i = 1:10, .combine = rbind) %dopar% {\n  Sys.sleep(1) # Simulate a time-consuming computation\n  i^2\n}\n\nprint(results)\n\n\n          [,1]\nresult.1     1\nresult.2     4\nresult.3     9\nresult.4    16\nresult.5    25\nresult.6    36\nresult.7    49\nresult.8    64\nresult.9    81\nresult.10  100\n\n\nCode\n# Stop the cluster after use\nstopCluster(cl)\n\n\n\n\n15.0.0.4 4. When to Use Parallel Processing\n\nData-Intensive Tasks: Parallel processing is most beneficial for tasks that involve large datasets or require significant computational resources.\nIndependent Tasks: Ensure that the tasks can run independently without needing to share data between them during execution.\n\n\n\n15.0.0.5 5. Performance Considerations\nWhile parallel processing can significantly reduce execution time, keep in mind: - Overhead Costs: There is overhead associated with creating and managing multiple processes. For small tasks, this overhead may outweigh the benefits. - Memory Usage: Each process has its own memory space; ensure your system has enough RAM to handle multiple processes running simultaneously. - Testing Performance: Always test both serial and parallel versions of your code to determine which performs better for your specific use case.\n\n\n15.0.1 Conclusion\nUtilizing functions from the parallel package can effectively implement parallel processing in R. This will help in handling large datasets and performing complex computations more efficiently.\n\n\n15.0.2 References\n\nParallel Computation Overview\nQuick Intro to Parallel Computing in R\nR doParallel Package\nParallel Processing in R\n\n.",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Appendix III: How to Use Parallel Processing in R</span>"
+    ]
+  },
+  {
+    "objectID": "gc.html",
+    "href": "gc.html",
+    "title": "14  Appendix II: Garbage collection gc()",
+    "section": "",
+    "text": "The gc() function in R is used for garbage collection, which is the process of reclaiming memory that is no longer in use by the program. This function helps manage memory efficiently, especially when working with large datasets or complex computations.\n\n14.0.0.1 Purpose of gc()\n\nMemory Management: gc() triggers R to perform garbage collection, freeing up memory that is no longer needed. This can help improve performance and prevent memory exhaustion during data-intensive operations.\nMemory Usage Reporting: When called, gc() also returns a report on current memory usage, providing insights into how much memory is being utilized.\n\n\n\n14.0.1 Output of gc()\nWhen you run gc(), you receive a matrix output with the following structure:\n          used (Mb) gc trigger (Mb) limit (Mb) max used (Mb)\nNcells  652520 34.9    1438668 76.9         NA   818710 43.8\nVcells 1789652 13.7    8388608 64.0      16384  1963270 15.0\n\n14.0.1.1 Explanation of the Output Columns\n\nNcells: Represents the number of cons cells currently in use. Used for fixed-size objects such as lists and environments.\n\nused: The number of cons cells currently allocated.\n(Mb): The equivalent memory usage in megabytes.\ngc trigger: The threshold at which garbage collection will be triggered for cons cells.\nlimit: The maximum number of cons cells allowed (if set).\nmax used: The maximum number of cons cells used since the last reset.\n\nVcells: Represents the number of vector cells currently in use. Used for variable-sized objects such as vectors, matrices, and data frames.\n\nSimilar columns as Ncells, indicating usage statistics for vector allocations.\n\n\n\n\n14.0.1.2 Interpretation of Values\n\nUsed Memory: Indicates how much memory is currently being utilized by your R session (both Ncells and Vcells).\nGC Trigger: Shows the threshold for triggering garbage collection; if memory usage exceeds this limit, R will automatically perform garbage collection.\nLimit: Displays any set limits on memory usage; NA indicates no limit is enforced.\nMax Used: Reflects the peak memory usage since the last reset or since the start of the R session.\n\n\n\n\n14.0.2 Best Practices for Using gc()\n\nCall After Large Object Removal: It can be useful to call gc() after removing large objects from your workspace using rm() to ensure that R reclaims that memory immediately.\n\n\n\nCode\nrm(large_object)\ngc() # Free up memory after removing large objects\n\n\n\nUse in Long Loops: If you are performing heavy computations inside loops, consider calling gc() periodically to free up memory and maintain performance.\n\n\n\nCode\nfor (i in 1:10000) {\n    # Heavy computations\n    if (i %% 100 == 0) { # Call gc every 100 iterations\n        gc()\n    }\n}\n\n\n\nMonitor Memory Usage: Use gc() to monitor memory usage during long-running processes or when working with large datasets to avoid running out of memory.\nCombine with gcinfo(): Use gcinfo(TRUE) to enable verbose output about automatic garbage collections, helping you understand when and how often garbage collection occurs.\n\n\n\n14.0.3 Conclusion\nThe gc() function is an essential tool for managing memory in R, especially when dealing with large datasets or complex analyses. By understanding its output and implementing best practices for calling it, you can optimize your R environment for better performance and efficiency.\n\n\n14.0.4 References\n\nR Documentation on gc()\nR Documentation on Memory Management\nBest Coding Practices for R\nYouTube Tutorial on Garbage Collection\n\nThis explanation provides a comprehensive overview of the gc() function in R, including its purpose, output interpretation, and best practices for effective memory management.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Appendix II: Garbage collection gc()</span>"
+    ]
+  },
+  {
+    "objectID": "QuartoWebsite.html#introduction-to-quarto",
+    "href": "QuartoWebsite.html#introduction-to-quarto",
+    "title": "3  Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages",
+    "section": "",
+    "text": "3.1.1 Key Characteristics of Quarto\n\nMulti-Language Support: Quarto supports not only R but also Python, Julia, and other languages. This flexibility allows users to write documents that incorporate code from different programming environments seamlessly.\nUnified Authoring System: Quarto combines the functionalities of various R packages like RMarkdown, Bookdown, and Distill into a single system. This integration simplifies the process of creating complex documents without needing to switch between different tools.\nEnhanced Document Features: Quarto offers advanced features such as:\n\nCross-References: Easily reference figures, tables, and sections across documents.\nCollapsible Sections: Create collapsible content blocks for better organization and readability.\nCustomizable Formats: Output documents in multiple formats (HTML, PDF, Word) with consistent styling.\n\nImproved YAML Syntax: Quarto uses a more intuitive YAML syntax for document configuration compared to RMarkdown, making it easier to specify options and settings.\nCommand-Line Interface (CLI): Quarto can be used from the command line, allowing for automation in document generation and integration into workflows outside of RStudio.\nVersion Control Friendly: Quarto documents are plain text files that work well with version control systems like Git, facilitating collaboration among teams.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span>"
+    ]
+  },
+  {
+    "objectID": "QuartoWebsite.html#comparison-of-quarto-and-rmarkdown",
+    "href": "QuartoWebsite.html#comparison-of-quarto-and-rmarkdown",
+    "title": "3  Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages",
+    "section": "3.2 Comparison of Quarto and RMarkdown",
+    "text": "3.2 Comparison of Quarto and RMarkdown\nWhile both Quarto and RMarkdown serve similar purposes in creating dynamic documents, there are significant differences between them:\n\n\n\n\n\n\n\n\nFeature\nQuarto\nRMarkdown\n\n\n\n\nLanguage Support\nMulti-language (R, Python, Julia)\nPrimarily R; supports Python with limitations\n\n\nDocument Structure\nUnified structure across formats\nDifferent structures depending on the output format\n\n\nYAML Syntax\nMore intuitive and flexible\nTraditional YAML syntax\n\n\nOutput Formats\nSupports HTML, PDF, Word; highly customizable\nSupports HTML, PDF; customization requires additional packages\n\n\nCross-Referencing\nBuilt-in support with Lua filters\nRequires additional packages (e.g., Bookdown)\n\n\nCLI Integration\nFully functional command-line interface\nLimited CLI capabilities\n\n\nEase of Transition\nDesigned to be compatible with existing RMarkdown files\nExisting RMarkdown files can be used but may require adjustments\n\n\n\n\n3.2.1 Benefits of Using Quarto Over RMarkdown\n\nFlexibility: With its multi-language support, Quarto allows users to integrate code from various programming languages within the same document.\nSimplified Workflow: By combining features from multiple tools into one system, Quarto streamlines the authoring process.\nAdvanced Features: The inclusion of modern features like collapsible sections and enhanced cross-referencing improves document usability.\nFuture-Proofing: As a next-generation tool built on Pandoc’s capabilities, Quarto is designed to evolve with the needs of users in scientific publishing.\n\n\n\n3.2.2 In a nutshell\nQuarto represents a significant advancement over RMarkdown by providing a more versatile and powerful framework for creating dynamic documents. Whether you are an experienced R user or new to programming languages like Python or Julia, Quarto offers an accessible way to produce high-quality reports and publications that meet modern standards for reproducibility and collaboration.\nIn the following sections, we will guide you through the process of creating a Quarto website and deploying it on GitHub Pages, showcasing the capabilities of this innovative tool in web development.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span>"
+    ]
+  },
+  {
+    "objectID": "DataVisualization.html#dashboard",
+    "href": "DataVisualization.html#dashboard",
+    "title": "4  Chapter 3: Interactive Data Visualization with ggplot2 and Plotly",
+    "section": "4.4 Dashboard",
+    "text": "4.4 Dashboard\nTry creating a dashboard using the Plotly package, with example data from Plotly and Gapminder data to illustrate interactive charts. Note the use of external fonts from Google Fonts, color choices and animation button and slider control.\n\n\nCode\n# install.packages(c(\"plotly\",\"tidyverse\",\"RColrBrewer\"))\nlibrary(plotly)\nlibrary(tidyverse)\n# Reading in example dataset\ndf &lt;- read.csv(\"https://plotly.com/~public.health/17.csv\", skipNul = TRUE, encoding = \"UTF-8\")\n\n# Font management\nlibrary(showtext)\nfont_add_google(\"EB Garamond\",\"ebgaramond\")\nt &lt;- list(\n  family = \"ebgaramond\",\n  size = 12)\n\n# Create label function for animation button\nlabels &lt;- function(size, label) {\n  list(\n    args = c(\"xbins.size\", size), \n    label = label, \n    method = \"restyle\"\n  )\n}\n\n# Create Figure object\nfig &lt;- df %&gt;%\n  plot_ly(\n    x = ~date,\n    autobinx = FALSE, \n    autobiny = TRUE, \n    marker = list(color = \"steelblue\"), \n    name = \"date\", \n    type = \"histogram\", \n    xbins = list(\n      end = \"2016-12-31 12:00\", \n      size = \"M1\", \n      start = \"1983-12-31 12:00\"\n    )\n  )\n\n# Configure dropdown menu\nfig &lt;- fig %&gt;% layout(\n  paper_bgcolor = \"white\", \n  plot_bgcolor = \"white\", \n  title = \"&lt;b&gt;Shooting Incidents&lt;/b&gt;&lt;br&gt;use dropdown to change bin size\", # HTML to separate line\n  xaxis = list(\n    type = 'date'\n  ),\n  yaxis = list(\n    title = \"Incidents\"\n  ),\n  updatemenus = list(\n    list(\n      x = 0.1, \n      y = 1.15,\n      active = 1, \n      showactive = TRUE,\n      buttons = list(\n        labels(\"D1\", \"Day\"),\n        labels(\"M1\", \"Month\"),\n        labels(\"M6\", \"Half Year\"),\n        labels(\"M12\", \"Year\")\n      )\n    )\n  )\n)\n\nfig &lt;- fig %&gt;% layout(font = t) # Add font to text\n\nfig\n\n\n\n\n\n\n\n\nCode\n#install.packages(\"gapminder\")\nlibrary(gapminder)\nlibrary(RColorBrewer)\nlibrary(plotly)\n\n# Read in Gapminder data\ndf &lt;- gapminder \n\n# Font management\n\nt &lt;- list(\n  family = \"corgaramond\",\n  size = 12)\n\n# Create figure object\nfig &lt;- df %&gt;%\n  plot_ly(\n    x = ~gdpPercap, \n    y = ~lifeExp,\n    size = ~pop, \n    color = ~continent, \n    colors = c(\"slateblue3\", \"steelblue\", \"firebrick\", \"forestgreen\", \"turquoise1\"), \n        # manually select colar \n    alpha=.5, # translucent glyth\n    frame = ~year, \n    text = ~country, \n    hoverinfo = \"text\",\n    type = 'scatter',\n    mode = 'markers',\n    fill = ~''\n  )\n\n# Add font to text\nfig &lt;- fig %&gt;% layout(\n  xaxis = list(\n    type = \"log\"\n  ), font = t\n)\n\n\nfig &lt;- fig %&gt;% layout(legend = list(orientation = \"h\",   # show entries horizontally\n                     xanchor = \"center\",  # use center of legend as anchor\n                     x = 0.5, y = 100))             # put legend in center of x-axis\n\nfig &lt;- fig %&gt;% animation_button(\n  x = 1, xanchor = \"right\", y = 0, yanchor = \"bottom\"\n)\nfig &lt;- fig %&gt;% animation_slider(\n  currentvalue = list(prefix = \"YEAR \", font = list(color=\"red\"))\n)\nfig\n\n\n\n\n\n\nBy following these examples and exercises, participants will gain practical experience in creating both static and interactive visualizations using R. This session will enhance their ability to communicate data insights effectively through engaging graphics.\n\n4.4.1 Recap\n\nStatic Visualizations: Introduces basic plotting with ggplot2, demonstrating how to create and customize scatter plots.\nInteractive Visualizations: Shows how to use Plotly to add interactivity to existing ggplot2 plots.\nDashboard: Demonstrates how to create a dashboard with interactive charts using Plotly and external fonts.\nExercises: Provides hands-on practice for participants to reinforce learning by creating both static and interactive visualizations.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Chapter 3: Interactive Data Visualization with *ggplot2* and *Plotly*</span>"
+    ]
+  },
+  {
+    "objectID": "DataCollection.html#summary",
+    "href": "DataCollection.html#summary",
+    "title": "5  Chapter 4: Data Collection with APIs and Web Scraping",
+    "section": "5.4 Summary",
+    "text": "5.4 Summary\nIn this chapter, we introduced the concepts of data collection through APIs and web scraping. Participants learned how to fetch data from APIs using the httr and jsonlite packages and scrape websites with rvest. By working through hands-on exercises, they practiced retrieving data from a public API and scraping a webpage to prepare a dataset for further analysis. These skills are essential for data scientists and analysts who need to collect and process data from various sources for their projects.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Chapter 4: Data Collection with APIs and Web Scraping</span>"
+    ]
+  },
+  {
+    "objectID": "AdvancedShiny.html#interactive-shiny-app",
+    "href": "AdvancedShiny.html#interactive-shiny-app",
+    "title": "7  Chapter 6: Advanced Shiny – Embedding Apps in Quarto",
+    "section": "7.3 Interactive Shiny App",
+    "text": "7.3 Interactive Shiny App\n\n\nCustomize the Appearance:\n\nAdjust the width and height attributes of the iframe to fit your design preferences.\n\n\n\n7.3.1 Step 3: Deploy Your Quarto Website with Embedded App\n\nRender Your Quarto Site Locally:\n\nUse RStudio to render your site and ensure that the embedded iframe displays the Shiny app correctly.\n\nDeploy Your Site on GitHub Pages:\n\nPush your updated site to GitHub and enable GitHub Pages as described in previous chapters.\nAccess your live site to verify that the embedded Shiny app functions as expected.\n\n\n\n\n7.3.2 Exercises\n\nExercise 1: Modify the iframe dimensions and observe how it affects the display of your Shiny app.\nExercise 2: Add additional interactive components to your Shiny app and update the embedded version.\nExercise 3: Experiment with different page layouts in Quarto to enhance user experience.\n\nBy following these steps, participants will successfully integrate and deploy interactive Shiny applications within their Quarto websites, enhancing their web development skills with R.\n\n\n7.3.3 Recap\n\nEmbedding via Iframe: Provides instructions on embedding a deployed Shiny app using an iframe in a Quarto document.\nCustomization: Offers guidance on adjusting iframe properties for better integration into the website.\nDeployment: Details how to render and deploy the updated site with embedded content using GitHub Pages.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "AdvancedShiny.html#interactive-shiny-app-1",
+    "href": "AdvancedShiny.html#interactive-shiny-app-1",
+    "title": "7  Chapter 6: Advanced Shiny – Embedding Apps in Quarto",
+    "section": "7.4 Interactive Shiny App",
+    "text": "7.4 Interactive Shiny App\n\n\nCustomize the Appearance:\n\nAdjust the width and height attributes of the iframe to fit your design preferences.\n\n\n\n7.4.1 Step 3: Deploy Your Quarto Website with Embedded App\n\nRender Your Quarto Site Locally:\n\nUse RStudio to render your site and ensure that the embedded iframe displays the Shiny app correctly.\n\nDeploy Your Site on GitHub Pages:\n\nPush your updated site to GitHub and enable GitHub Pages as described in previous chapters.\nAccess your live site to verify that the embedded Shiny app functions as expected.\n\n\n\n\n7.4.2 Exercises\n\nExercise 1: Modify the iframe dimensions and observe how it affects the display of your Shiny app.\nExercise 2: Add additional interactive components to your Shiny app and update the embedded version.\nExercise 3: Experiment with different page layouts in Quarto to enhance user experience.\n\nBy following these steps, participants will successfully integrate and deploy interactive Shiny applications within their Quarto websites, enhancing their web development skills with R.\n\n### Recap\n\n-   **Embedding via Iframe:** Provides instructions on embedding a deployed Shiny app using an iframe in a Quarto document.\n-   **Customization:** Offers guidance on adjusting iframe properties for better integration into the website.\n-   **Deployment:** Details how to render and deploy the updated site with embedded content using GitHub Pages.\n\n:::",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span>"
+    ]
+  }
+]

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.545">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Data Programming with GenAI - 3&nbsp; Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./DataVisualization.html" rel="next">
+<link href="./Introduction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./QuartoWebsite.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Programming with GenAI</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./QuartoWebsite.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DataVisualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 3: Interactive Data Visualization with <em>ggplot2</em> and <em>Plotly</em></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DataCollection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 4: Data Collection with APIs and Web Scraping</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ShinyIntroduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 5: Introduction to Shiny for Interactive Web Applications</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./AdvancedShiny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DataManagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MachineLearningModels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TextAnalysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./GenAIIntegration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix I: Resources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix II: Garbage collection gc()</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ParallelProcessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Appendix III: How to Use Parallel Processing in R</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-quarto" id="toc-introduction-to-quarto" class="nav-link active" data-scroll-target="#introduction-to-quarto"><span class="header-section-number">3.1</span> Introduction to Quarto</a>
+  <ul class="collapse">
+  <li><a href="#key-characteristics-of-quarto" id="toc-key-characteristics-of-quarto" class="nav-link" data-scroll-target="#key-characteristics-of-quarto"><span class="header-section-number">3.1.1</span> Key Characteristics of Quarto</a></li>
+  </ul></li>
+  <li><a href="#comparison-of-quarto-and-rmarkdown" id="toc-comparison-of-quarto-and-rmarkdown" class="nav-link" data-scroll-target="#comparison-of-quarto-and-rmarkdown"><span class="header-section-number">3.2</span> Comparison of Quarto and RMarkdown</a>
+  <ul class="collapse">
+  <li><a href="#benefits-of-using-quarto-over-rmarkdown" id="toc-benefits-of-using-quarto-over-rmarkdown" class="nav-link" data-scroll-target="#benefits-of-using-quarto-over-rmarkdown"><span class="header-section-number">3.2.1</span> Benefits of Using Quarto Over RMarkdown</a></li>
+  <li><a href="#in-a-nutshell" id="toc-in-a-nutshell" class="nav-link" data-scroll-target="#in-a-nutshell"><span class="header-section-number">3.2.2</span> In a nutshell</a></li>
+  </ul></li>
+  <li><a href="#github-and-github-pages" id="toc-github-and-github-pages" class="nav-link" data-scroll-target="#github-and-github-pages"><span class="header-section-number">3.3</span> 2. GitHub and GitHub Pages</a></li>
+  <li><a href="#step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages" id="toc-step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages" class="nav-link" data-scroll-target="#step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages"><span class="header-section-number">3.4</span> 3. Step-by-Step Guide: Creating a Quarto Website and Deploying on GitHub Pages</a>
+  <ul class="collapse">
+  <li><a href="#step-1-set-up-your-environment" id="toc-step-1-set-up-your-environment" class="nav-link" data-scroll-target="#step-1-set-up-your-environment"><span class="header-section-number">3.4.1</span> Step 1: Set Up Your Environment</a></li>
+  <li><a href="#step-2-create-a-new-quarto-website-project" id="toc-step-2-create-a-new-quarto-website-project" class="nav-link" data-scroll-target="#step-2-create-a-new-quarto-website-project"><span class="header-section-number">3.4.2</span> Step 2: Create a New Quarto Website Project</a></li>
+  <li><a href="#step-3-customize-your-website" id="toc-step-3-customize-your-website" class="nav-link" data-scroll-target="#step-3-customize-your-website"><span class="header-section-number">3.4.3</span> Step 3: Customize Your Website</a></li>
+  <li><a href="#step-4-render-and-preview-your-website" id="toc-step-4-render-and-preview-your-website" class="nav-link" data-scroll-target="#step-4-render-and-preview-your-website"><span class="header-section-number">3.4.4</span> Step 4: Render and Preview Your Website</a></li>
+  <li><a href="#step-5a-deploy-your-website-on-github" id="toc-step-5a-deploy-your-website-on-github" class="nav-link" data-scroll-target="#step-5a-deploy-your-website-on-github"><span class="header-section-number">3.4.5</span> Step 5a: Deploy Your Website on GitHub</a></li>
+  <li><a href="#step-5b-advanced-deploy-your-website-on-github-pages-using-git" id="toc-step-5b-advanced-deploy-your-website-on-github-pages-using-git" class="nav-link" data-scroll-target="#step-5b-advanced-deploy-your-website-on-github-pages-using-git"><span class="header-section-number">3.4.6</span> Step 5b: (Advanced) Deploy Your Website on GitHub Pages using Git</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">3.4.7</span> Exercises</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction-to-quarto" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction-to-quarto"><span class="header-section-number">3.1</span> Introduction to Quarto</h2>
+<p>Quarto is an open-source scientific and technical publishing system developed by Posit (formerly RStudio). It is designed to provide a unified authoring experience for creating documents, reports, presentations, and websites using multiple programming languages, including R, Python, Julia, and more. Quarto is built on top of Pandoc, which allows it to leverage advanced features for document rendering.</p>
+<section id="key-characteristics-of-quarto" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="key-characteristics-of-quarto"><span class="header-section-number">3.1.1</span> Key Characteristics of Quarto</h3>
+<ol type="1">
+<li><p><strong>Multi-Language Support</strong>: Quarto supports not only R but also Python, Julia, and other languages. This flexibility allows users to write documents that incorporate code from different programming environments seamlessly.</p></li>
+<li><p><strong>Unified Authoring System</strong>: Quarto combines the functionalities of various R packages like RMarkdown, Bookdown, and Distill into a single system. This integration simplifies the process of creating complex documents without needing to switch between different tools.</p></li>
+<li><p><strong>Enhanced Document Features</strong>: Quarto offers advanced features such as:</p>
+<ul>
+<li><strong>Cross-References</strong>: Easily reference figures, tables, and sections across documents.</li>
+<li><strong>Collapsible Sections</strong>: Create collapsible content blocks for better organization and readability.</li>
+<li><strong>Customizable Formats</strong>: Output documents in multiple formats (HTML, PDF, Word) with consistent styling.</li>
+</ul></li>
+<li><p><strong>Improved YAML Syntax</strong>: Quarto uses a more intuitive YAML syntax for document configuration compared to RMarkdown, making it easier to specify options and settings.</p></li>
+<li><p><strong>Command-Line Interface (CLI)</strong>: Quarto can be used from the command line, allowing for automation in document generation and integration into workflows outside of RStudio.</p></li>
+<li><p><strong>Version Control Friendly</strong>: Quarto documents are plain text files that work well with version control systems like Git, facilitating collaboration among teams.</p></li>
+</ol>
+</section>
+</section>
+<section id="comparison-of-quarto-and-rmarkdown" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="comparison-of-quarto-and-rmarkdown"><span class="header-section-number">3.2</span> Comparison of Quarto and RMarkdown</h2>
+<p>While both Quarto and RMarkdown serve similar purposes in creating dynamic documents, there are significant differences between them:</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Quarto</th>
+<th>RMarkdown</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Language Support</strong></td>
+<td>Multi-language (R, Python, Julia)</td>
+<td>Primarily R; supports Python with limitations</td>
+</tr>
+<tr class="even">
+<td><strong>Document Structure</strong></td>
+<td>Unified structure across formats</td>
+<td>Different structures depending on the output format</td>
+</tr>
+<tr class="odd">
+<td><strong>YAML Syntax</strong></td>
+<td>More intuitive and flexible</td>
+<td>Traditional YAML syntax</td>
+</tr>
+<tr class="even">
+<td><strong>Output Formats</strong></td>
+<td>Supports HTML, PDF, Word; highly customizable</td>
+<td>Supports HTML, PDF; customization requires additional packages</td>
+</tr>
+<tr class="odd">
+<td><strong>Cross-Referencing</strong></td>
+<td>Built-in support with Lua filters</td>
+<td>Requires additional packages (e.g., Bookdown)</td>
+</tr>
+<tr class="even">
+<td><strong>CLI Integration</strong></td>
+<td>Fully functional command-line interface</td>
+<td>Limited CLI capabilities</td>
+</tr>
+<tr class="odd">
+<td><strong>Ease of Transition</strong></td>
+<td>Designed to be compatible with existing RMarkdown files</td>
+<td>Existing RMarkdown files can be used but may require adjustments</td>
+</tr>
+</tbody>
+</table>
+<section id="benefits-of-using-quarto-over-rmarkdown" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="benefits-of-using-quarto-over-rmarkdown"><span class="header-section-number">3.2.1</span> Benefits of Using Quarto Over RMarkdown</h3>
+<ol type="1">
+<li><strong>Flexibility</strong>: With its multi-language support, Quarto allows users to integrate code from various programming languages within the same document.</li>
+<li><strong>Simplified Workflow</strong>: By combining features from multiple tools into one system, Quarto streamlines the authoring process.</li>
+<li><strong>Advanced Features</strong>: The inclusion of modern features like collapsible sections and enhanced cross-referencing improves document usability.</li>
+<li><strong>Future-Proofing</strong>: As a next-generation tool built on Pandoc’s capabilities, Quarto is designed to evolve with the needs of users in scientific publishing.</li>
+</ol>
+</section>
+<section id="in-a-nutshell" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="in-a-nutshell"><span class="header-section-number">3.2.2</span> In a nutshell</h3>
+<p>Quarto represents a significant advancement over RMarkdown by providing a more versatile and powerful framework for creating dynamic documents. Whether you are an experienced R user or new to programming languages like Python or Julia, Quarto offers an accessible way to produce high-quality reports and publications that meet modern standards for reproducibility and collaboration.</p>
+<p>In the following sections, we will guide you through the process of creating a Quarto website and deploying it on GitHub Pages, showcasing the capabilities of this innovative tool in web development.</p>
+</section>
+</section>
+<section id="github-and-github-pages" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="github-and-github-pages"><span class="header-section-number">3.3</span> 2. GitHub and GitHub Pages</h2>
+<p>GitHub is a platform for version control and collaboration, allowing you to host your code repositories online. GitHub Pages is a feature of GitHub that allows you to publish static websites directly from a repository. By combining Quarto with GitHub Pages, you can easily create and share interactive content online.</p>
+</section>
+<section id="step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="step-by-step-guide-creating-a-quarto-website-and-deploying-on-github-pages"><span class="header-section-number">3.4</span> 3. Step-by-Step Guide: Creating a Quarto Website and Deploying on GitHub Pages</h2>
+<p><strong>Objective:</strong> By the end of this session, participants will have a live Quarto website hosted on GitHub Pages.</p>
+<section id="step-1-set-up-your-environment" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="step-1-set-up-your-environment"><span class="header-section-number">3.4.1</span> Step 1: Set Up Your Environment</h3>
+<ol type="1">
+<li><strong>Install R and RStudio:</strong>
+<ul>
+<li>Ensure that R and RStudio are installed on your computer. Download them from the official websites if needed.</li>
+</ul></li>
+<li><strong>Install Quarto:</strong>
+<ul>
+<li>Download and install Quarto from its official website. Follow the installation instructions specific to your operating system.</li>
+</ul></li>
+<li><strong>Install Git:</strong>
+<ul>
+<li><p>Install Git <a href="https://git-scm.com/" class="uri">https://git-scm.com/</a></p></li>
+<li><pre><code>Open RStudio and go to `Tools` \&gt; `Global Options` \&gt; `Git/SVN` to configure Git.</code></pre></li>
+</ul></li>
+</ol>
+</section>
+<section id="step-2-create-a-new-quarto-website-project" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="step-2-create-a-new-quarto-website-project"><span class="header-section-number">3.4.2</span> Step 2: Create a New Quarto Website Project</h3>
+<ol type="1">
+<li><strong>Open RStudio:</strong>
+<ul>
+<li>Launch RStudio and click on <code>File</code> &gt; <code>New Project</code>.</li>
+</ul></li>
+<li><strong>Create a New Directory:</strong>
+<ul>
+<li>Select <code>New Directory</code>, then choose <code>Quarto Website</code> as the project type.</li>
+</ul></li>
+<li><strong>Name Your Project:</strong>
+<ul>
+<li>Enter a directory name. If you plan to deploy using GitHub Pages, consider naming it <code>YourGitHubUsername.github.io</code>.</li>
+<li>When creating your GitHub account, be sure to use your real name (e.g.&nbsp;John Doe). Then your website url will be johndoe.githuh.io.</li>
+</ul></li>
+<li><strong>Create the Project:</strong>
+<ul>
+<li>Choose the directory location and click <code>Create Project</code>. This sets up the basic structure for your website with default files like <code>index.qmd</code>, <code>about.qmd</code>, <code>_quarto.yml</code>, and <code>styles.css</code>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="step-3-customize-your-website" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="step-3-customize-your-website"><span class="header-section-number">3.4.3</span> Step 3: Customize Your Website</h3>
+<ol type="1">
+<li><strong>Edit Content Files:</strong>
+<ul>
+<li>Open <code>index.qmd</code> in RStudio and modify it using Markdown or HTML to customize your homepage content. You may introduce briefly who you are and the purpose of this website</li>
+<li>Similarly, edit <code>about.qmd</code> or create new <code>.qmd</code> files for additional pages. Give a full description of yourself to introduce yourself to your audience.</li>
+</ul></li>
+<li><strong>Configure Navigation:</strong>
+<ul>
+<li>Open <code>_quarto.yml</code> to configure the website’s navigation, title, and theme. Add links to new pages you create in this file.</li>
+<li>Example of the YAML file (be aware that the indentation is important):</li>
+</ul></li>
+</ol>
+<pre class="{yaml}"><code>title: "My Quarto Website"
+output:
+  html_document:
+    theme: cosmo
+  pdf_document:
+    toc: true
+navbar:
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+    - text: "Research"
+      href: teaching.html
+    - text: "CV"
+      href: cv.pdf</code></pre>
+</section>
+<section id="step-4-render-and-preview-your-website" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="step-4-render-and-preview-your-website"><span class="header-section-number">3.4.4</span> Step 4: Render and Preview Your Website</h3>
+<ol type="1">
+<li><strong>Render the Website:</strong>
+<ul>
+<li>Click the <code>Render</code> button in RStudio to generate HTML files from your <code>.qmd</code> documents. The rendered site will appear in the Viewer pane.</li>
+</ul></li>
+<li><strong>Preview in Browser:</strong>
+<ul>
+<li>Click <code>Show in new window</code> to view your site in a web browser.</li>
+</ul></li>
+</ol>
+</section>
+<section id="step-5a-deploy-your-website-on-github" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="step-5a-deploy-your-website-on-github"><span class="header-section-number">3.4.5</span> Step 5a: Deploy Your Website on GitHub</h3>
+<ol type="1">
+<li><p>** Locate the _site folder/directory:**</p>
+<ul>
+<li>Navigate to the _site folder in your project directory. This is the folder holding all the website content and files</li>
+</ul></li>
+<li><p><strong>Create a GitHub Repository:</strong></p>
+<ul>
+<li>Go to GitHub and create a new repository with the name “username.github.io” name as your project directory”. Be sure this username is exactly the name you use for login.</li>
+<li>Create a Readme.md file in the repository. This is a requirement for the repository to be created. Just enter “website”</li>
+<li>Click on the “Add file -&gt; Upload files</li>
+<li>Go to the _site folder, highlight all folders and file and drag and drop to the box “Drag files here to add them to your repository”</li>
+<li>Wait for the upload to complete, then click Commit Changes</li>
+</ul></li>
+<li><p><strong>Access Your Live Site:</strong></p>
+<ul>
+<li>After a few minutes, your site will be live at <code>https://YourGitHubUsername.github.io/</code>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="step-5b-advanced-deploy-your-website-on-github-pages-using-git" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="step-5b-advanced-deploy-your-website-on-github-pages-using-git"><span class="header-section-number">3.4.6</span> Step 5b: (Advanced) Deploy Your Website on GitHub Pages using Git</h3>
+<ol type="1">
+<li><strong>Initialize a Git Repository:</strong>
+<ul>
+<li>In RStudio, open the Terminal and run:</li>
+</ul></li>
+</ol>
+<pre class="{bash}"><code>cd _site
+git init
+git add .
+git commit -m "Initial commit"</code></pre>
+<ol start="2" type="1">
+<li><strong>Create a GitHub Repository:</strong>
+<ul>
+<li>Go to GitHub and create a new repository with the name “username.github.io” name as your project directory”. Be sure this username is exactly the name you use for login.</li>
+</ul></li>
+<li><strong>Push Local Repository to GitHub:</strong>
+<ul>
+<li>In the Terminal, connect your local repository to GitHub:</li>
+</ul></li>
+</ol>
+<pre class="{bash}"><code>git remote add origin https://github.com/YourGitHubUsername/YourRepositoryName.git
+git branch -M main
+git push -u origin main</code></pre>
+<ol start="4" type="1">
+<li><strong>Enable GitHub Pages:</strong>
+<ul>
+<li>On GitHub, navigate to your repository settings, scroll down to “GitHub Pages,” and select the branch (usually <code>main</code>) for deployment.</li>
+</ul></li>
+<li><strong>Access Your Live Site:</strong>
+<ul>
+<li>After a few minutes, your site will be live at <code>https://YourGitHubUsername.github.io/</code>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="exercises" class="level3" data-number="3.4.7">
+<h3 data-number="3.4.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">3.4.7</span> Exercises</h3>
+<ul>
+<li><strong>Exercise 1:</strong> Create a new page titled “Projects” and add it to your site’s navigation.</li>
+<li><strong>Exercise 2:</strong> Customize the theme of your site by editing <code>_quarto.yml</code>.</li>
+<li><strong>Exercise 3:</strong> Add an image gallery to one of your pages using Markdown.</li>
+</ul>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./Introduction.html" class="pagination-link  aria-label=" &lt;span="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./DataVisualization.html" class="pagination-link" aria-label="<span class='chapter-number'>4</span>&nbsp; <span class='chapter-title'>Chapter 3: Interactive Data Visualization with *ggplot2* and *Plotly*</span>">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 3: Interactive Data Visualization with <em>ggplot2</em> and <em>Plotly</em></span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Quarto</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Quarto is an open-source scientific and technical publishing system developed by Posit (formerly RStudio). It is designed to provide a unified authoring experience for creating documents, reports, presentations, and websites using multiple programming languages, including R, Python, Julia, and more. Quarto is built on top of Pandoc, which allows it to leverage advanced features for document rendering.</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Characteristics of Quarto</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Multi-Language Support**: Quarto supports not only R but also Python, Julia, and other languages. This flexibility allows users to write documents that incorporate code from different programming environments seamlessly.</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Unified Authoring System**: Quarto combines the functionalities of various R packages like RMarkdown, Bookdown, and Distill into a single system. This integration simplifies the process of creating complex documents without needing to switch between different tools.</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Enhanced Document Features**: Quarto offers advanced features such as:</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Cross-References**: Easily reference figures, tables, and sections across documents.</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Collapsible Sections**: Create collapsible content blocks for better organization and readability.</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>**Customizable Formats**: Output documents in multiple formats (HTML, PDF, Word) with consistent styling.</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Improved YAML Syntax**: Quarto uses a more intuitive YAML syntax for document configuration compared to RMarkdown, making it easier to specify options and settings.</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Command-Line Interface (CLI)**: Quarto can be used from the command line, allowing for automation in document generation and integration into workflows outside of RStudio.</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Version Control Friendly**: Quarto documents are plain text files that work well with version control systems like Git, facilitating collaboration among teams.</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparison of Quarto and RMarkdown</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>While both Quarto and RMarkdown serve similar purposes in creating dynamic documents, there are significant differences between them:</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>| Feature | Quarto | RMarkdown |</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>|------------------------|------------------------|------------------------|</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>| **Language Support** | Multi-language (R, Python, Julia) | Primarily R; supports Python with limitations |</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>| **Document Structure** | Unified structure across formats | Different structures depending on the output format |</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>| **YAML Syntax** | More intuitive and flexible | Traditional YAML syntax |</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>| **Output Formats** | Supports HTML, PDF, Word; highly customizable | Supports HTML, PDF; customization requires additional packages |</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>| **Cross-Referencing** | Built-in support with Lua filters | Requires additional packages (e.g., Bookdown) |</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>| **CLI Integration** | Fully functional command-line interface | Limited CLI capabilities |</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>| **Ease of Transition** | Designed to be compatible with existing RMarkdown files | Existing RMarkdown files can be used but may require adjustments |</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Benefits of Using Quarto Over RMarkdown</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Flexibility**: With its multi-language support, Quarto allows users to integrate code from various programming languages within the same document.</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Simplified Workflow**: By combining features from multiple tools into one system, Quarto streamlines the authoring process.</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Advanced Features**: The inclusion of modern features like collapsible sections and enhanced cross-referencing improves document usability.</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Future-Proofing**: As a next-generation tool built on Pandoc's capabilities, Quarto is designed to evolve with the needs of users in scientific publishing.</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="fu">### In a nutshell</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>Quarto represents a significant advancement over RMarkdown by providing a more versatile and powerful framework for creating dynamic documents. Whether you are an experienced R user or new to programming languages like Python or Julia, Quarto offers an accessible way to produce high-quality reports and publications that meet modern standards for reproducibility and collaboration.</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>In the following sections, we will guide you through the process of creating a Quarto website and deploying it on GitHub Pages, showcasing the capabilities of this innovative tool in web development.</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## 2. GitHub and GitHub Pages</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>GitHub is a platform for version control and collaboration, allowing you to host your code repositories online. GitHub Pages is a feature of GitHub that allows you to publish static websites directly from a repository. By combining Quarto with GitHub Pages, you can easily create and share interactive content online.</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## 3. Step-by-Step Guide: Creating a Quarto Website and Deploying on GitHub Pages</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>**Objective:** By the end of this session, participants will have a live Quarto website hosted on GitHub Pages.</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 1: Set Up Your Environment</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Install R and RStudio:**</span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Ensure that R and RStudio are installed on your computer. Download them from the official websites if needed.</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Install Quarto:**</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Download and install Quarto from its official website. Follow the installation instructions specific to your operating system.</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Install Git:**</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Install Git <span class="ot">&lt;https://git-scm.com/&gt;</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>        <span class="in">```         </span></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="in">        Open RStudio and go to `Tools` \&gt; `Global Options` \&gt; `Git/SVN` to configure Git.</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="in">        ```</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 2: Create a New Quarto Website Project</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Open RStudio:**</span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Launch RStudio and click on <span class="in">`File`</span> <span class="sc">\&gt;</span> <span class="in">`New Project`</span>.</span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Create a New Directory:**</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Select <span class="in">`New Directory`</span>, then choose <span class="in">`Quarto Website`</span> as the project type.</span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Name Your Project:**</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Enter a directory name. If you plan to deploy using GitHub Pages, consider naming it <span class="in">`YourGitHubUsername.github.io`</span>.</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>When creating your GitHub account, be sure to use your real name (e.g. John Doe). Then your website url will be johndoe.githuh.io.</span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Create the Project:**</span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Choose the directory location and click <span class="in">`Create Project`</span>. This sets up the basic structure for your website with default files like <span class="in">`index.qmd`</span>, <span class="in">`about.qmd`</span>, <span class="in">`_quarto.yml`</span>, and <span class="in">`styles.css`</span>.</span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 3: Customize Your Website</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Edit Content Files:**</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open <span class="in">`index.qmd`</span> in RStudio and modify it using Markdown or HTML to customize your homepage content. You may introduce briefly who you are and the purpose of this website</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Similarly, edit <span class="in">`about.qmd`</span> or create new <span class="in">`.qmd`</span> files for additional pages. Give a full description of yourself to introduce yourself to your audience.</span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Configure Navigation:**</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Open <span class="in">`_quarto.yml`</span> to configure the website’s navigation, title, and theme. Add links to new pages you create in this file.</span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Example of the YAML file (be aware that the indentation is important):</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a><span class="in">```{yaml}</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Quarto Website"</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">left</span><span class="kw">:</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Home"</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> index.html</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"About"</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> about.html</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"Research"</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> teaching.html</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">text</span><span class="kw">:</span><span class="at"> </span><span class="st">"CV"</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">href</span><span class="kw">:</span><span class="at"> cv.pdf</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 4: Render and Preview Your Website</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Render the Website:**</span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click the <span class="in">`Render`</span> button in RStudio to generate HTML files from your <span class="in">`.qmd`</span> documents. The rendered site will appear in the Viewer pane.</span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Preview in Browser:**</span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Click <span class="in">`Show in new window`</span> to view your site in a web browser.</span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5a: Deploy Your Website on GitHub</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>** Locate the _site folder/directory:**</span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Navigate to the _site folder in your project directory. This is the folder holding all the website content and files</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Create a GitHub Repository:**</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Go to GitHub and create a new repository with the name "username.github.io" name as your project directory".  Be sure this username is exactly the name you use for login. </span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a><span class="ss">    -  </span>Create a Readme.md file in the repository. This is a requirement for the repository to be created. Just enter "website"</span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a><span class="ss">    -  </span>Click on the "Add file -&gt; Upload files</span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a><span class="ss">    -  </span>Go to the _site folder, highlight all folders and file and drag and drop to the box "Drag files here to add them to your repository"</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a><span class="ss">    -  </span>Wait for the upload to complete, then click Commit Changes</span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Access Your Live Site:**</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>After a few minutes, your site will be live at <span class="in">`https://YourGitHubUsername.github.io/`</span>.</span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a><span class="fu">### Step 5b: (Advanced) Deploy Your Website on GitHub Pages using Git</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Initialize a Git Repository:**</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>In RStudio, open the Terminal and run:</span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> _site</span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit"</span></span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Create a GitHub Repository:**</span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>Go to GitHub and create a new repository with the name "username.github.io" name as your project directory".  Be sure this username is exactly the name you use for login. </span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Push Local Repository to GitHub:**</span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>In the Terminal, connect your local repository to GitHub:</span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/YourGitHubUsername/YourRepositoryName.git</span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-M</span> main</span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Enable GitHub Pages:**</span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>On GitHub, navigate to your repository settings, scroll down to "GitHub Pages," and select the branch (usually <span class="in">`main`</span>) for deployment.</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Access Your Live Site:**</span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span>After a few minutes, your site will be live at <span class="in">`https://YourGitHubUsername.github.io/`</span>.</span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercises</span></span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercise 1:** Create a new page titled "Projects" and add it to your site’s navigation.</span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercise 2:** Customize the theme of your site by editing <span class="in">`_quarto.yml`</span>.</span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercise 3:** Add an image gallery to one of your pages using Markdown.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
