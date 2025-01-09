@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="spsa_gllm_2025a_slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="spsa_gllm_2025a_slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="spsa_gllm_2025a_slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="spsa_gllm_2025a_slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="spsa_gllm_2025a_slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="spsa_gllm_2025a_slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="spsa_gllm_2025a_slides_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="">
+  <title>spsa_gllm_2025a_slides</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="spsa_gllm_2025a_slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="spsa_gllm_2025a_slides_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="spsa_gllm_2025a_slides_files/libs/revealjs/dist/theme/quarto-b7d039bd9f5537e51d3d9466f4856305.css">
+  <link href="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="section" class="title-slide slide level1 center">
+<h1></h1>
+<div id="title-slide" class="center">
+<h2>
+Modeling Political Support Dynamics Using Wasserstein Generative Adversarial Networks: A Synthetic Data Approach
+</h2>
+<p><br>
+<br>
+</p>
+<h3>
+Karl Ho
+</h3>
+<h4>
+University of Texas at Dallas
+</h4>
+</div>
+<div class="footer">
+<p>Prepared for presentation at the SPSA 2025 CWC: Generative Language Models in Political Science Research, January 8-9, 2025.</p>
+</div>
+</section>
+<section id="motivation" class="slide level2">
+<h2>Motivation</h2>
+<div class="fragment">
+<ul>
+<li class="fragment">Real-world datasets are often incomplete, biased, or sensitive to privacy concerns.</li>
+<li class="fragment">Synthetic data generation offers a promising solution for creating privacy-preserving and robust datasets.</li>
+<li class="fragment">Wasserstein GANs (WGAN) are particularly effective in generating high-quality synthetic data by minimizing mode collapse.</li>
+<li class="fragment"><strong>Key Question:</strong> How can WGANs be utilized to generate realistic and useful synthetic data?</li>
+</ul>
+</div>
+</section>
+<section id="research-design" class="slide level2">
+<h2>Research Design</h2>
+<div class="fragment">
+<h3 id="objectives">Objectives</h3>
+<ul>
+<li class="fragment">Develop a WGAN-based pipeline for synthetic data generation.</li>
+<li class="fragment">Evaluate the quality of the generated data against real datasets using statistical and domain-specific metrics.</li>
+</ul>
+</div>
+<div class="fragment">
+<h3 id="methodology">Methodology</h3>
+<ol type="1">
+<li class="fragment">Identify a target dataset for synthetic generation</li>
+<li class="fragment">Train a WGAN on the dataset to produce synthetic samples.</li>
+<li class="fragment">Compare synthetic data with real data in terms of:
+<ul>
+<li class="fragment">Statistical similarity</li>
+<li class="fragment">Utility for downstream tasks (e.g., machine learning models)</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<h3 id="application">Application</h3>
+<ul>
+<li class="fragment">Data: 2024 US Presidential Elections and Polls</li>
+<li class="fragment">Tools: Python, TensorFlow/PyTorch, and synthetic data evaluation libraries.</li>
+</ul>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<h3 id="key-components">Key Components</h3>
+<div class="fragment">
+<ol type="1">
+<li class="fragment"><strong>Generator:</strong> Learns to map random noise to synthetic data.</li>
+<li class="fragment"><strong>Critic:</strong> Evaluates the quality of generated data by estimating Wasserstein distance.</li>
+<li class="fragment"><strong>Loss Function:</strong> <span class="math display">\[ \mathcal{L}\_{WGAN} = \mathbb{E}D(x) - \mathbb{E}D(G(z)) \]</span></li>
+<li class="fragment"><strong>Gradient Penalty:</strong> Regularizes the critic to enforce the Lipschitz constraint.</li>
+</ol>
+</div>
+</section>
+<section id="application-us-presidential-elections-2024" class="slide level2">
+<h2>Application: US Presidential Elections 2024</h2>
+<p>The puzzle: according to the polls</p>
+<div class="fragment">
+<p><img data-src="charts/pollwins2024.png"></p>
+</div>
+</section>
+<section id="reality" class="slide level2">
+<h2>Reality</h2>
+
+<img data-src="charts/whowins2024.png" class="r-stretch"><div class="fragment">
+<ul>
+<li class="fragment">What went wrong?</li>
+</ul>
+</div>
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<div class="fragment">
+<ul>
+<li class="fragment">Collected
+<ul>
+<li class="fragment">election data by states</li>
+<li class="fragment">poll data by polls and states</li>
+<li class="fragment">demographic data by states</li>
+<li class="fragment">media attention by Google Trends</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="snapshot" class="slide level2">
+<h2>Snapshot</h2>
+
+<img data-src="charts/png/distribution_scaledfeatures1.png" class="r-stretch"></section>
+<section id="training" class="slide level2">
+<h2>Training</h2>
+
+<img data-src="charts/png/wassersteinloss05_300epochs1.png" class="r-stretch"></section>
+<section id="training-hyperparameter-tuning" class="slide level2">
+<h2>Training + Hyperparameter Tuning</h2>
+<p><img data-src="charts/png/wassersteinloss05_100epochs1.png"> ## Reduced Epochs</p>
+<p><img data-src="charts/png/wassersteinloss05_60epochs1.png"></p>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+
+<img data-src="charts/png/wassersteinloss05_15epochs1.png" class="r-stretch"></section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+
+<img data-src="charts/png/animated_wasserstein.gif" class="r-stretch"></section>
+<section id="introduce-pca-for-dimensionality-reduction" class="slide level2">
+<h2>Introduce PCA for Dimensionality Reduction</h2>
+
+<img data-src="charts/png/wassersteinloss05_pca_100epochs_lambda101.png" class="r-stretch"></section>
+<section id="preliminary-distribution" class="slide level2">
+<h2>Preliminary distribution</h2>
+
+<img data-src="charts/png/distribution_original_synth011.png" class="r-stretch"></section>
+<section id="technical-difficulties" class="slide level2">
+<h2>Technical difficulties</h2>
+<div class="fragment">
+<ul>
+<li class="fragment">Regularization with complex model</li>
+<li class="fragment">GPU power with NVIDIA</li>
+<li class="fragment">tensorflow issues</li>
+</ul>
+</div>
+</section>
+<section id="discussion-and-future-research" class="slide level2">
+<h2><strong>Discussion and Future Research</strong></h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Performance of WGANs:</strong>
+<ul>
+<li class="fragment">WGAN can be used for generating synthetic data that approximated the original data distribution and improved statistical metrics.</li>
+<li class="fragment">Gradient penalties provides stability during training, though hyperparameter tuning (e.g., learning rates, critic iterations) was critical to convergence.</li>
+<li class="fragment">Computationally dependent</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Challenges</strong>
+<ul>
+<li class="fragment"><strong>Training Instability:</strong>
+<ul>
+<li class="fragment">Even with WGAN’s improvements over traditional GANs, ensuring stability across complex datasets remains challenging.</li>
+<li class="fragment">Gradient vanishing and exploding issues emerged during long training epochs or with complex model architectures.</li>
+</ul></li>
+<li class="fragment"><strong>Resource Constraints:</strong>
+<ul>
+<li class="fragment">Training WGANs on high-dimensional data proved computationally expensive, requiring advanced GPU capabilities and careful memory management.</li>
+<li class="fragment">MacOS and M3 do not support cuda</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Challenges (continued)</strong>
+<ul>
+<li class="fragment"><strong>Synthetic Data Utility:</strong>
+<ul>
+<li class="fragment">While synthetic data closely resembled real data, further testing is needed to validate its utility in predictive tasks, particularly in political science applications with complex data.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="future-research-directions" class="slide level2">
+<h2><strong>Future Research Directions</strong></h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Model Enhancements:</strong>
+<ul>
+<li class="fragment">Explore advanced WGAN variants, such as Wasserstein GAN with Gradient Penalty (WGAN-GP) or Conditional WGANs, to further enhance the quality and diversity of synthetic data.</li>
+<li class="fragment">Incorporate attention mechanisms or Transformer-based architectures for better performance with sequential or temporal data.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Dimensionality Reduction and Feature Engineering:</strong>
+<ul>
+<li class="fragment">Investigate more robust dimensionality reduction techniques, such as t-SNE or UMAP, alongside PCA, to capture non-linear dependencies in the data.</li>
+<li class="fragment">Introduce domain-specific feature engineering for political datasets to improve model interpretability.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Synthetic Data Evaluation Metrics:</strong>
+<ul>
+<li class="fragment">Develop domain-specific metrics for assessing synthetic data quality in political science contexts, beyond statistical similarity (e.g., predictive accuracy for elections or voter turnout models).</li>
+<li class="fragment">Investigate privacy-preserving metrics to ensure synthetic data generation aligns with privacy standards (e.g., differential privacy).</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Applications in Political Science:</strong>
+<ul>
+<li class="fragment">Extend the WGAN framework to other political science domains, such as modeling policy preferences, voter turnout, or campaign dynamics.</li>
+<li class="fragment">Assess how synthetic data can be used in conjunction with real data to improve machine learning model generalizability.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Scalability and Efficiency:</strong>
+<ul>
+<li class="fragment">Research methods to reduce the computational cost of WGAN training, such as low-rank approximations or model distillation.</li>
+<li class="fragment">Experiment with federated learning to train WGANs on distributed datasets while maintaining privacy.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<div class="center">
+<h1>
+Thank you!
+</h1>
+</div>
+</section>
+<section id="technical-details-of-wgan" class="slide level2">
+<h2>Technical Details of WGAN</h2>
+<h3 id="what-is-wgan">What is WGAN?</h3>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Wasserstein GAN (WGAN):</strong> A variant of GANs designed to improve training stability and data quality by:
+<ul>
+<li class="fragment">Replacing the Jensen-Shannon Divergence with the Wasserstein distance.</li>
+<li class="fragment">Using a critic function (instead of a discriminator) to compute the Wasserstein distance.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="wasserstein-gan-wgan" class="slide level2">
+<h2>Wasserstein GAN (WGAN)</h2>
+<div class="fragment">
+<p><strong>Wasserstein GANs (WGANs)</strong> are an improvement over traditional Generative Adversarial Networks (GANs) aimed at enhancing training stability and the quality of generated data. The primary distinctions include:</p>
+<ul>
+<li class="fragment"><p><strong>Divergence Measure:</strong> Traditional GANs utilize the Jensen-Shannon (JS) Divergence to measure the difference between real and generated data distributions. WGANs replace this with the Wasserstein distance (also known as Earth Mover’s Distance), which provides more meaningful gradients during training, especially when the generator’s distribution differs significantly from the real data distribution.</p></li>
+<li class="fragment"><p><strong>Critic Function vs.&nbsp;Discriminator:</strong> In traditional GANs, the discriminator classifies inputs as real or fake, outputting a probability. In WGANs, this is replaced by a critic function that assigns a real-valued score to inputs, indicating their “realness.” This approach avoids issues like vanishing gradients associated with the sigmoid activation in discriminators, leading to more stable training.</p></li>
+</ul>
+</div>
+</section>
+<section id="why-is-the-critic-function-better-than-the-discriminator" class="slide level2">
+<h2>Why is the Critic Function Better than the Discriminator?</h2>
+<div class="fragment">
+<p>The critic function in WGANs offers several advantages over the traditional discriminator:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Unbounded Output:</strong> Unlike the discriminator’s output, which is constrained between 0 and 1 due to the sigmoid function, the critic provides unbounded real-valued scores. This unbounded output allows for more nuanced feedback during training.</p></li>
+<li class="fragment"><p><strong>Improved Gradients:</strong> The use of Wasserstein distance ensures that gradients behave more predictably, even when real and generated distributions have minimal overlap. This leads to more reliable updates during training.</p></li>
+<li class="fragment"><p><strong>Enhanced Training Stability:</strong> By eliminating the sigmoid activation and adopting the Wasserstein loss, WGANs mitigate issues like mode collapse and provide more stable convergence during training.</p></li>
+</ol>
+</div>
+</section>
+<section id="key-equations" class="slide level2">
+<h2>Key Equations</h2>
+<h3 id="wasserstein-distance">1. Wasserstein Distance</h3>
+<div class="fragment">
+<p>The Wasserstein distance <span class="math inline">\(W(P_r, P_g)\)</span> between the real data distribution <span class="math inline">\(P_r\)</span> and the generated data distribution <span class="math inline">\(P_g\)</span> is defined as:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+W(P_r, P_g) = \inf_{\gamma \in \Pi(P_r, P_g)} \mathbb{E}_{(x, y) \sim \gamma} [\|x - y\|]
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Here, <span class="math inline">\(\Pi(P_r, P_g)\)</span> denotes the set of all joint distributions <span class="math inline">\(\gamma(x, y)\)</span> with marginals <span class="math inline">\(P_r\)</span> and <span class="math inline">\(P_g\)</span>, and <span class="math inline">\(\|x - y\|\)</span> represents the distance between points <span class="math inline">\(x\)</span>and <span class="math inline">\(y\)</span>.</p>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<h3 id="critics-objective-function">2. Critic’s Objective Function</h3>
+<div class="fragment">
+<p>The critic (denoted as <span class="math inline">\(f\)</span>) aims to maximize the difference between the expected values of real and generated data:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\max_{f \in \mathcal{F}} \mathbb{E}_{x \sim P_r} [f(x)] - \mathbb{E}_{z \sim P_z} [f(G(z))]
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Here, <span class="math inline">\(\mathcal{F}\)</span> represents the set of 1-Lipschitz functions, <span class="math inline">\(P_z\)</span> is the prior distribution, and <span class="math inline">\(G(z)\)</span> is the generator’s output given input <span class="math inline">\(z\)</span>.</p>
+</div>
+</section>
+<section id="section-9" class="slide level2">
+<h2></h2>
+<h4 id="generators-objective-function">3. Generator’s Objective Function</h4>
+<div class="fragment">
+<p>The generator <span class="math inline">\(G\)</span> seeks to minimize the critic’s assessment of the generated data:</p>
+<p><span class="math display">\[
+\min_G \mathbb{E}_{z \sim P_z} [f(G(z))]
+\]</span></p>
+<p>In practice, the training involves iteratively updating the critic to approximate the Wasserstein distance and then updating the generator to produce data that minimizes this distance.</p>
+<p>These modifications enable WGANs to achieve more stable training and generate higher-quality synthetic data compared to traditional GANs.</p>
+</div>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="eppslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><h10><a href="https://datageneration.io/conference/spsa_gllm_2025_slides.html">Modeling Political Support Dynamics Using Wasserstein Generative Adversarial Networks: A Synthetic Data Approach</a></h10></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="spsa_gllm_2025a_slides_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
