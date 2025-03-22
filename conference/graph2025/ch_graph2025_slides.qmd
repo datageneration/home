@@ -1,0 +1,170 @@
+---
+title: ""
+author: ""
+format: 
+  revealjs:
+    theme: [serif, custom.scss]
+    transition: slide
+    slide-number: c/t
+    logo: "eppslogo.png"
+    incremental: true
+    footer: "<h10>A Comparative study of Democratic Decline in Hong Kong and Nicaragua</h10>"
+editor: visual
+---
+
+# 
+
+::::::: {#title-slide .center}
+<h2>A Comparative Study of Democratic Decline in Hong Kong and Nicaragua</h2>
+
+\
+\
+\
+
+::: {.column width="33%"}
+<h3>Kelvin Chun-Man Chan</h3>
+
+<h4>University of Texas at Dallas</h4>
+:::
+
+::: {.column width="33%"}
+<h3>Kelsey Martin-Morales</h3>
+
+<h4>University of South Carolina</h4>
+:::
+
+::: {.column width="33%"}
+<h3>Karl Ho</h3>
+
+<h4>University of Texas at Dallas</h4>
+:::
+
+::: footer
+<h4>Prepared for presentation at the GRAPH Conference, the University of St. Thomas, Houston, TX March 21 - 23, 2025</h4>
+:::
+:::::::
+
+## Motivation
+
+-   What characterizes the process of democratic backsliding in Hong Kong and Nicaragua?
+
+-   How do state-led actions undermine democratic institutions in these contexts?
+
+-   What can differences in democratic decline (speed) reveal about potential regime trajectories?
+
+-   Which and why did Civil Society and its constituent organizations get caught up in both of these cases?
+
+-   How about economic and social consequences?
+
+## Introduction: Comparing Hong Kong and Nicaragua in perspective
+
+| Category | Hong Kong | Nicaragua |
+|------------------|---------------------------|---------------------------|
+| **Regime Type Before Decline** | Semi-autonomous under PRC ("Birdcage Democracy") | Hybrid regime transitioning from democracy |
+| **Protest Trigger Events** | 2019 Anti-Extradition Bill | 2018 INSS pension reform decree |
+| **Main Civil Society Targets** | Pro-democracy NGOs, student groups, media | NGOs, universities, Catholic Church |
+| **Legal Instruments Used** | National Security Law (2020) | Foreign Agents Law (2020), Cybercrime Law |
+| **Repression Style** | Legalistic + selective arrests | Violent crackdowns + judicial persecution |
+| **International Response** | Sanctions, condemnations, limited action | OAS & human rights outcry, sanctions |
+
+## Hong Kong’s “birdcage democracy”
+
+![](images/clipboard-1014975724.png)
+
+## Anti-extradition protests
+
+![](images/clipboard-288677874.png)
+
+## NSL --\> Electoral System Change
+
+![](images/clipboard-2898831120.png)
+
+## Targeted organizations: Hong Kong
+
+-   Potential to mobilize public support (just like to the Great Firewall of China, see King, Pan & Roberts, 2017)
+    -   Organizations focused on preserving public memory of anti-government protests
+    -   Pro-democracy media outlets and newspapers
+    -   Activists involved in pro-democracy organizations overseas
+        -   foreign provisions
+        -   Hong Kong intelligence officers’ attempted break-in in the United Kingdom
+
+## Impact on Civil Society: Hong Kong
+
+![](images/clipboard-867594681.png)
+
+## The case of Nicaragua’s Democratic Backsliding
+
+-   Democratization after the Somoza Regime
+-   Daniel Ortega first democratically elected president
+-   Return to power in 2006
+-   Steady undermining of domestic institutions
+
+## Nicaragua’s democratic decline under Ortega
+
+![](images/clipboard-2484123308.png)
+
+## 2018 Protests
+
+-   April 2018 protests in response to unpopular social security reforms
+-   Government responded with lethal force
+-   Protests evolve into broader movement against regime
+-   Government attributes protests to foreign interference, particularly NGOs
+
+## Impact on Civil Society: Nicaragua
+::::{.fragment}
+::: {.column width="50%"}
+Targeted Organizations:
+
+-   Stage 1
+    -   Pro-Democracy, Student-led, Women’s rights
+-   Stage 2
+    -   Environmental Organizations, Catholic Church
+-   Stage 3
+    -   Agricultural, Clubs, Evangelical
+:::
+
+::: {.column width="50%"}
+::::{.fragment}
+
+![](images/clipboard-3411669766.png)
+<span style="color: blue;">Blue</span> = granted (otorg* ) legal recognition
+
+<span style="color: red;">Red</span>= lost (cancela* ) legal recognition
+:::
+::::
+::::
+
+## Different Paths to Democratic Decline
+
+| Dimension | Hong Kong | Nicaragua |
+|------------------|---------------------------|---------------------------|
+| **Speed of Decline** | Gradual (1997–2020, rapid post-2020) | Abrupt (sharp turn after 2018) |
+| **External vs. Internal** | Externally imposed from PRC | Internally driven by Ortega's consolidation |
+| **Use of Electoral Reform** | Beijing-controlled system overhaul including disqualfiying candidates | Rigged elections; opposition disqualified |
+| **NGO Treatment** | Disbandment & asset freezing | Mass revocations & raids |
+| **Media Suppression** | Closure of pro-democracy outlets (e.g. Apple Daily)| State media monopoly & journalist exile |
+| **Extraterritorial Reach** | Yes (global warrants, diaspora targeting) | No (repression mostly domestic) |
+
+## Takeaways: Key features of democratic decline
+
+1.	Incremental nature: Unlike traditional coups, democratic backsliding occurs slowly through a series of seemingly legal actions.
+2.	Internal subversion: Elected officials, often from the executive branch, dismantle democratic institutions from within.
+3.	Maintenance of democratic façade: While eroding democratic substance, leaders often maintain a veneer of democracy, including holding elections
+
+## Mechanims of Democratic Decline (Diamond 2022)
+
+- De-institionalization
+  - Judicial independence weakened
+  - Suppression of opposition 
+    - parties
+    - civil society
+    - media
+
+- Rule of law erosioN
+  - Legal system used to target opposition
+  - Selective enforcement of laws
+  
+- Slide into Authoritarianism
+  - Gradual erosion of democratic norms
+  - Consolidation of power in the executive
+  - Curtailment of civil liberties
