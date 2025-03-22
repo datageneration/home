@@ -1,0 +1,196 @@
+---
+title: ""
+author: ""
+format: 
+  revealjs:
+    theme: [serif, custom.scss]
+    transition: slide
+    slide-number: c/t
+    logo: "eppslogo.png"
+    incremental: true
+    footer: "<h10>Prepared for presentation at the GRAPH Conference, the University of St. Thomas, Houston, TX March 21 - 23, 2025</h10>"
+editor: visual
+---
+
+# 
+
+::: {#title-slide .center}
+<h2>Panel 1: Hong Kong Politics at Home and Abroad</h2>
+
+\
+\
+
+<h2>Discussant:</h2>
+<h3>Karl Ho</h3>
+<h4>University of Texas at Dallas</h4>
+:::
+
+
+::: footer
+Prepared for presentation at the GRAPH Conference, the University of St. Thomas, Houston, TX March 21 - 23, 2025
+:::
+
+
+# National Security Deference or National Security Domination? The “Glory to Hong Kong” Injunction Saga and Hong Kong’s Compromised Judiciary
+
+
+## Key Points & Findings
+
+::: {.incremental}
+- Hong Kong government's unprecedented injunction attempt against "Glory to Hong Kong."
+- Court of First Instance initially rejects injunction—rare judicial resistance under NSL.
+- Court of Appeal reverses decision, emphasizing national security over free expression.
+- Judiciary shows alignment with executive, raising concerns over judicial independence.
+- Potential precedent set for broader internet censorship in Hong Kong.
+:::
+
+## Judicial Independence under NSL: What is Jurisprudence?
+
+::: {.incremental}
+- Judges operate under heavy political pressure and oversight from Beijing.
+- Judiciary adopts cautious, often deferential stance to avoid conflict with authorities.
+- National security cases rarely challenge executive assertions, limiting independent judgment.
+- Government uses legal actions as performative gestures to demonstrate loyalty to Beijing.
+- Occasional judicial resistance quickly neutralized by appellate courts.
+:::
+
+## Comparative Law & Human Rights Implications: HK vs. China vs. the West
+
+::: {.incremental}
+- Court of Appeal misuses comparative jurisprudence to justify censorship.
+- Selective and inappropriate invocation of UK national security precedents.
+- Judiciary largely sidesteps rigorous analysis of free speech protections.
+- Human rights subordinated to broadly defined and unchecked security claims.
+- Erosion of Hong Kong’s constitutional autonomy under "One Country, Two Systems."
+:::
+
+## Recommendations for Reform
+
+::: {.incremental}
+- Reaffirm judicial independence through strengthened constitutional rights analysis.
+- Introduce legislative checks limiting broad injunctions and censorship actions.
+- Encourage international oversight from UN and global legal communities.
+- Mobilize private sector (e.g., global tech firms) to legally contest censorship demands.
+- Foster civil society resistance through international advocacy and legal support.
+:::
+
+## Future Research Directions
+
+::: {.incremental}
+- Conduct empirical studies of NSL's judicial application and censorship effects.
+- Engage in comparative research examining national security laws across jurisdictions.
+- Collaborate with diasporic and exiled Hong Kong scholars to ensure independent scholarship.
+- Preserve documentation and critical analysis of ongoing changes in Hong Kong’s legal system.
+- Build international research networks focused on human rights and rule of law challenges.
+:::
+
+## References {.smaller}
+
+- Lai, Eric Yan-ho, Lok-man Tsui, and Thomas E. Kellogg. 2024. *National Security Deference or National Security Domination? The “Glory to Hong Kong” Injunction Saga and Hong Kong’s Compromised Judiciary.* Georgetown Center for Asian Law Report.
+
+- Kellogg, Thomas E., and Lydia Wong. 2021. *Hong Kong’s National Security Law: A Human Rights and Rule of Law Analysis.* Georgetown Center for Asian Law.
+
+- Wong, Lydia, Thomas Kellogg, and Eric Yan-ho Lai. 2021. *Hong Kong’s National Security Law and the Right to a Fair Trial.* GCAL Briefing Paper.
+
+- Yam, Julius. 2021. "Approaching the Legitimacy Paradox in Hong Kong: Lessons for Hybrid Regime Courts." *Law and Social Inquiry* 46(1): 162-190.
+
+- Yap, Po Jen. 2019. "Twenty Years of the Basic Law: Continuity and Changes in the Geoffrey Ma Court." *Hong Kong Law Journal* 29: 209-238.
+
+
+## "Voice After Exit: Diaspora, Transnational Linked Fate, and Homeland-Related Policy"
+ 
+
+## Key Points & Findings
+
+::: {.incremental}
+- Examines how diasporas form political preferences through **transnational linked fate**.
+- Argues that pre-migration experiences and longstanding homeland ties shape group identity.
+- Employs candidate-choice conjoint experiments among Hong Kong diasporas in the US, UK, Canada, and Australia.
+- Finds that homeland-related issues—especially hawkish stances toward China—dominate political decision making over domestic issues.
+- Contributes novel empirical insights into how diasporas navigate trade-offs between foreign and domestic policy preferences.
+:::
+
+## Analysis & Discussion (1)
+
+::: {.incremental}
+- **Conceptual Extension:** Extends Hirschman’s *Exit, Voice, and Loyalty* framework by introducing transnational linked fate to explain diasporic identity formation.
+- **Identity and Politics:** Demonstrates that diasporas maintain strong bonds with their homeland despite varying levels of host country integration.
+- **Methodological Innovation:** Uses a rigorous conjoint experimental design to capture multidimensional policy preferences.
+- **Foreign vs. Domestic:** Reveals that even when confronted with salient domestic issues (e.g., healthcare, economy), diasporas prioritize homeland-related policies.
+:::
+
+## Analysis & Discussion (2)
+
+::: {.incremental}
+- **Pre-migration Influence:** Emphasizes the lasting impact of pre-migration political socialization on post-migration policy preferences.
+- **Comparative Strength:** Cross-national data show consistent prioritization of foreign policy preferences across diverse host countries.
+- **Theoretical Contribution:** Challenges traditional minority politics by highlighting the transnational dimension that goes beyond racial or ethnic categorizations.
+- **Electoral Implications:** Suggests that diasporic voting behavior in host country elections may be strongly driven by geopolitical concerns tied to their homeland.
+:::
+
+## Recommendations & Future Research
+
+::: {.incremental}
+- **Longitudinal Studies:** Adopt panel designs to track how diasporic political attitudes evolve over time.
+- **Expanded Comparative Scope:** Include additional diaspora groups (e.g., Syrian, Venezuelan) to test the robustness of the transnational linked fate concept.
+- **Qualitative Approaches:** Complement survey experiments with in-depth interviews to uncover the mechanisms behind diaspora prioritization.
+- **Policy Analysis:** Further explore how diasporic preferences influence host country electoral outcomes and foreign policy decisions.
+- **Interdisciplinary Collaboration:** Foster research partnerships among political scientists, sociologists, and migration scholars to deepen theoretical and empirical insights.
+:::
+
+## References {.smaller}
+
+- Shum, Maggie. 2023. *Transnational Activism During Movement Abeyance: Examining the International Frontline of Hong Kong’s 2019 Anti-Extradition Bill Movement*. Journal of Asian and African Studies.
+- Moss, Dana M. 2021. *The Arab Spring Abroad: Diaspora Activism Against Authoritarian Regimes*. Cambridge University Press.
+- Newland, Kathleen. 2010. *Voice After Exit: Diaspora Advocacy*. [Publisher].
+- Hirschman, Albert O. 1970. *Exit, Voice, and Loyalty*. Harvard University Press.
+- Esberg, Jane, and Alexandra Siegel. 2023. *How Exile Shapes Online Opposition: Evidence from Venezuela*. American Political Science Review.
+- Waldinger, Roger. 2015. *The Cross-Border Connection: Immigrants, Emigrants, and Their Homelands*. Harvard University Press.
+
+
+
+# "Mobilizing Support for Protests: Non-violent Framing Sites in the 2019 Hong Kong Local Elections" 
+
+## Key Points & Findings
+
+::: {.incremental}
+- Non-violent protest framing via “Lennon Walls” (public protest posters) influences voter behavior?
+- Hypothesis: occupying public space with these posters mobilizes support for pro-democracy candidates.
+- Data and methods: electoral data from 452 constituencies to compare vote shares in areas with and without Lennon Walls |OLS and 2SLS regression models, controlling for demographics, past electoral performance, and spatial factors.
+- Findings: constituencies with Lennon Walls exhibit a significantly higher pro-democracy vote share.
+- Takeaway: non-violent framing coexists with radical protest tactics to sustain public support despite repression.
+:::
+
+## Analysis & Discussion (1)
+
+::: {.incremental}
+- **Framing Effect:** Visible presence of Lennon Walls creates a favorable political narrative, enhancing the viability of pro-democracy candidates.
+- **Methodological Rigor:** Robust statistical analyses (OLS, 2SLS) control for confounding factors and use innovative geospatial measures (e.g., travel time polygons, distance metrics).
+- **Key theory proposition** The study challenges the notion that violent and non-violent tactics are mutually exclusive; non-violent framing can complement more radical protest actions.
+- **Contamination Issue:** Vicinity and spatial correlations: voters may be inadvertently exposed to protest messaging outside fixed boundaries, potentially diluting the treatment effect | How to single out?
+:::
+
+## Analysis & Discussion (2)
+
+::: {.incremental}
+- **Electoral Mobilization:** The strategic placement of Lennon Walls appears to shift political opportunity structures, making pro-democracy candidates seem more competitive.
+- **Visual Politics:** The study underscores the power of visual protest cues in shaping public opinion and mobilizing voter turnout.
+- **Theoretical Contribution:** Contributes to debates on radical flank effects and protest framing by showing that non-violent public displays can positively impact electoral outcomes | Unique in Hong Kong context?  Protest/civil movement literature in other contexts?
+- **Limitations:** The spatial diffusion of protest messages and potential non-compliance in control areas complicate the isolation of the pure treatment effect.
+:::
+
+## Recommendations & Future Research
+
+::: {.incremental}
+- **Granular Spatial Analysis:** Use high-resolution geospatial data to more precisely gauge voter exposure to Lennon Walls.
+- **Mixed Methods:** Complement quantitative findings with case studies (e.g. interviews) to better understand voter perceptions of non-violent protest framing.
+- **Comparative Research:** Extend the analysis to other protest contexts (e.g., Gezi Park (Turkey)) to assess the generalizability of the non-violent framing effect.
+:::
+
+## References {.smaller}
+
+- Chan, S. K. L., & Wong, N. C. (2024). *Blossom Everywhere: The Territoriality of Hong Kong’s Neighbourhood Lennon Walls*. Space and Polity.
+- Chenoweth, E., & Stephan, M. J. (2011). *Why Civil Resistance Works: The Strategic Logic of Nonviolent Conflict*. Columbia University Press.
+- McCammon, H. J., Bergner, E. M., & Arch, S. C. (2015). “Within-movement conflict, radical flank effects, and social movement political outcomes.” *Mobilization: An International Quarterly*, 20(2), 157–178.
+- Taş, T., & Taş, O. (2014). “Resistance on the walls: Street art in times of political turmoil in Turkey.” *Interactions: Studies in Communication & Culture*, 5(3), 327–349.
+- Veg, S. (2016). “Creating a textual public space: Slogans and texts from Hong Kong's Umbrella Movement.” *The Journal of Asian Studies*, 75(3), 673–702.
