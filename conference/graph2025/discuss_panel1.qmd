@@ -27,7 +27,7 @@ editor: visual
 
 
 ::: footer
-Prepared for presentation at the GRAPH Conference, the University of St. Thomas, Houston, TX March 21 - 23, 2025
+<h3>Prepared for presentation at the GRAPH Conference, the University of St. Thomas, Houston, TX March 21 - 23, 2025</h3>
 :::
 
 
@@ -41,46 +41,42 @@ Prepared for presentation at the GRAPH Conference, the University of St. Thomas,
 - Court of First Instance initially rejects injunction—rare judicial resistance under NSL.
 - Court of Appeal reverses decision, emphasizing national security over free expression.
 - Judiciary shows alignment with executive, raising concerns over judicial independence.
-- Potential precedent set for broader internet censorship in Hong Kong.
+- Precedent: 
+  - Judicial activism
+  - Legal transplantation
+  - Broader internet censorship in Hong Kong.
 :::
 
-## Judicial Independence under NSL: What is Jurisprudence?
+## Judicial Independence under NSL: What is Jurisprudence in brackish water?
 
 ::: {.incremental}
-- Judges operate under heavy political pressure and oversight from Beijing.
-- Judiciary adopts cautious, often deferential stance to avoid conflict with authorities.
+- British trained judges operate under heavy political pressure and oversight from Beijing.
+- Judiciary adopts cautious, often *deferential* stance to avoid conflict with authorities.
 - National security cases rarely challenge executive assertions, limiting independent judgment.
 - Government uses legal actions as performative gestures to demonstrate loyalty to Beijing.
 - Occasional judicial resistance quickly neutralized by appellate courts.
+- Noteworthy case: Chow Hang-tung
 :::
 
-## Comparative Law & Human Rights Implications: HK vs. China vs. the West
+## Comparativist: HK vs. China vs. the West
 
 ::: {.incremental}
 - Court of Appeal misuses comparative jurisprudence to justify censorship.
 - Selective and inappropriate invocation of UK national security precedents.
 - Judiciary largely sidesteps rigorous analysis of free speech protections.
 - Human rights subordinated to broadly defined and unchecked security claims.
-- Erosion of Hong Kong’s constitutional autonomy under "One Country, Two Systems."
+- Erosion of Hong Kong’s constitutional autonomy under "One Country, Two Systems.": greatly challenged.
 :::
 
-## Recommendations for Reform
+
+
+## Future Research Suggestions
 
 ::: {.incremental}
-- Reaffirm judicial independence through strengthened constitutional rights analysis.
-- Introduce legislative checks limiting broad injunctions and censorship actions.
-- Encourage international oversight from UN and global legal communities.
-- Mobilize private sector (e.g., global tech firms) to legally contest censorship demands.
-- Foster civil society resistance through international advocacy and legal support.
-:::
-
-## Future Research Directions
-
-::: {.incremental}
-- Conduct empirical studies of NSL's judicial application and censorship effects.
-- Engage in comparative research examining national security laws across jurisdictions.
+- How to conduct empirical studies of NSL's judicial application and censorship effects?
+- Cross-subfield Comparative research: Jurisprudence discourse for legal scholars and comparativists
 - Collaborate with diasporic and exiled Hong Kong scholars to ensure independent scholarship.
-- Preserve documentation and critical analysis of ongoing changes in Hong Kong’s legal system.
+- Data: documentation and critical analysis of ongoing changes in Hong Kong’s legal system.
 - Build international research networks focused on human rights and rule of law challenges.
 :::
 
@@ -97,45 +93,49 @@ Prepared for presentation at the GRAPH Conference, the University of St. Thomas,
 - Yap, Po Jen. 2019. "Twenty Years of the Basic Law: Continuity and Changes in the Geoffrey Ma Court." *Hong Kong Law Journal* 29: 209-238.
 
 
-## "Voice After Exit: Diaspora, Transnational Linked Fate, and Homeland-Related Policy"
+# "Voice After Exit: Diaspora, Transnational Linked Fate, and Homeland-Related Policy"
  
 
 ## Key Points & Findings
 
 ::: {.incremental}
-- Examines how diasporas form political preferences through **transnational linked fate**.
-- Argues that pre-migration experiences and longstanding homeland ties shape group identity.
-- Employs candidate-choice conjoint experiments among Hong Kong diasporas in the US, UK, Canada, and Australia.
-- Finds that homeland-related issues—especially hawkish stances toward China—dominate political decision making over domestic issues.
-- Contributes novel empirical insights into how diasporas navigate trade-offs between foreign and domestic policy preferences.
+- How diasporas form political preferences through **transnational linked fate**.
+- Key concepts: 
+  - Pre-migration experiences 
+  - Longstanding homeland ties
+  - Special group identity
+- Data and methods: conjoint experiments among Hong Kong diasporas in the US, UK, Canada, and Australia.
+- Homeland-related issues—especially hawkish stances toward China—dominate political decision making over domestic issues.
+- Contributions: 
+  - Novel empirical insights with new data and design
+  - Theory contribution:Diasporas navigate trade-offs between foreign and domestic policy preferences.
 :::
 
 ## Analysis & Discussion (1)
 
 ::: {.incremental}
-- **Conceptual Extension:** Extends Hirschman’s *Exit, Voice, and Loyalty* framework by introducing transnational linked fate to explain diasporic identity formation.
-- **Identity and Politics:** Demonstrates that diasporas maintain strong bonds with their homeland despite varying levels of host country integration.
-- **Methodological Innovation:** Uses a rigorous conjoint experimental design to capture multidimensional policy preferences.
-- **Foreign vs. Domestic:** Reveals that even when confronted with salient domestic issues (e.g., healthcare, economy), diasporas prioritize homeland-related policies.
+- **Conceptual Extension:** Extends Hirschman’s *Exit, Voice, and Loyalty* framework by introducing *transnational linked fate* to explain diasporic identity formation.
+- **Identity and Politics:** Demonstrates that diasporas maintain strong bonds with their homeland despite varying levels of host country integration (most simiar system design?).
+- **Foreign vs. Domestic:** When confronted with salient domestic issues (e.g., healthcare, economy), diasporas prioritize homeland-related policies?
 :::
 
 ## Analysis & Discussion (2)
 
 ::: {.incremental}
-- **Pre-migration Influence:** Emphasizes the lasting impact of pre-migration political socialization on post-migration policy preferences.
+- **Pre-migration Influence:** Lasting impact of pre-migration political socialization on post-migration policy preferences.
 - **Comparative Strength:** Cross-national data show consistent prioritization of foreign policy preferences across diverse host countries.
-- **Theoretical Contribution:** Challenges traditional minority politics by highlighting the transnational dimension that goes beyond racial or ethnic categorizations.
+- **Theoretical Contribution:** Challenges traditional minority politics by highlighting the transnational dimension that goes beyond racial or ethnic categorizations: unique for Hongkongers?.
 - **Electoral Implications:** Suggests that diasporic voting behavior in host country elections may be strongly driven by geopolitical concerns tied to their homeland.
 :::
 
 ## Recommendations & Future Research
 
 ::: {.incremental}
-- **Longitudinal Studies:** Adopt panel designs to track how diasporic political attitudes evolve over time.
-- **Expanded Comparative Scope:** Include additional diaspora groups (e.g., Syrian, Venezuelan) to test the robustness of the transnational linked fate concept.
+- **Innovations:** New data and design: great design for Hirschman’s thesis with Hong Kong data .
+- **Comparative and beyond** How *transnational linked fate* concept compares across different diasporas groups such as Mexicans (Medina Vindal 2017)
 - **Qualitative Approaches:** Complement survey experiments with in-depth interviews to uncover the mechanisms behind diaspora prioritization.
-- **Policy Analysis:** Further explore how diasporic preferences influence host country electoral outcomes and foreign policy decisions.
-- **Interdisciplinary Collaboration:** Foster research partnerships among political scientists, sociologists, and migration scholars to deepen theoretical and empirical insights.
+- **Policy Implications:** Further explore how diasporic preferences influence host country electoral outcomes and foreign policy decisions.
+- **Interdisciplinary Collaboration:** Research partnerships among political scientists, sociologists, and migration scholars to deepen theoretical and empirical insights.
 :::
 
 ## References {.smaller}
@@ -146,8 +146,7 @@ Prepared for presentation at the GRAPH Conference, the University of St. Thomas,
 - Hirschman, Albert O. 1970. *Exit, Voice, and Loyalty*. Harvard University Press.
 - Esberg, Jane, and Alexandra Siegel. 2023. *How Exile Shapes Online Opposition: Evidence from Venezuela*. American Political Science Review.
 - Waldinger, Roger. 2015. *The Cross-Border Connection: Immigrants, Emigrants, and Their Homelands*. Harvard University Press.
-
-
+- Medina Vidal, Xavier. 2017. "Transnational Linked Fate and Identity in Support for a Mexico-US Political Union." *Norteamérica* 12, no. 2: 7-27.
 
 # "Mobilizing Support for Protests: Non-violent Framing Sites in the 2019 Hong Kong Local Elections" 
 
