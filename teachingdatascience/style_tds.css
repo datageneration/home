@@ -1,0 +1,29 @@
+/* Palatino as main font for body text and headings */
+body, body p, h1, h2, h3, h4, h5, h6 {
+  font-family: "Palatino Linotype", Palatino, serif;
+}
+body {
+  font-size: 1.5em; /* Base font size */
+}
+toc {
+  font-family: "arial narrow", Palatino, serif;
+  font-size: 1.5em; /* Font size for table of contents */
+}
+/* Adjust paragraph spacing and line-height for readability */
+p {
+  line-height: 1.6;
+  margin: 1em 0;
+}
+
+/* Code blocks styling to match GitHub highlight */
+pre code {
+  font-family: Consolas, Monospace;
+  font-size: 0.95em;
+}
+
+/* Ensure code folding toggle is visible */
+.quarto-code-collapse-btn {
+  font-size: 0.9em;
+}
+
+/* Any additional custom styles can go here */
