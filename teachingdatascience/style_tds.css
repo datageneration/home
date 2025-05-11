@@ -3,11 +3,11 @@ body, body p, h1, h2, h3, h4, h5, h6 {
   font-family: "Palatino Linotype", Palatino, serif;
 }
 body {
-  font-size: 1.5em; /* Base font size */
+  font-size: 1.2em; /* Base font size */
 }
 toc {
   font-family: "arial narrow", Palatino, serif;
-  font-size: 1.5em; /* Font size for table of contents */
+  font-size: 1.2em; /* Font size for table of contents */
 }
 /* Adjust paragraph spacing and line-height for readability */
 p {
