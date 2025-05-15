@@ -132,11 +132,11 @@
   {
     "objectID": "MachineLearningModels.html",
     "href": "MachineLearningModels.html",
-    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
+    "title": "9  Chapter 8: Introduction to Machine Learning Models in R",
     "section": "",
-    "text": "8.0.1 Key Topics",
+    "text": "9.0.1 Key Topics",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
     ]
   },
   {
@@ -152,31 +152,31 @@
   {
     "objectID": "MachineLearningModels.html#introduction-to-machine-learning-models",
     "href": "MachineLearningModels.html#introduction-to-machine-learning-models",
-    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
-    "section": "8.1 Introduction to Machine Learning Models",
-    "text": "8.1 Introduction to Machine Learning Models\nMachine learning involves using algorithms to identify patterns within data. In R, packages like caret and tidymodels simplify the process of training and evaluating machine learning models.\n\n8.1.1 Example: Linear Regression with caret\n\n# install.packages(\"caret\")\nlibrary(caret)\n\n# Load dataset\ndata(mtcars)\n\n# Split data into training and testing sets\nset.seed(123)\ntrainIndex &lt;- createDataPartition(mtcars$mpg, p = .8, \n                                  list = FALSE, \n                                  times = 1)\ntrainData &lt;- mtcars[ trainIndex,]\ntestData  &lt;- mtcars[-trainIndex,]\n\n# Train a linear regression model\nmodel &lt;- train(mpg ~ ., data = trainData, method = \"lm\")\n\n# Summary of the model\nsummary(model)\n\n\n\n8.1.2 Example: Classification with tidymodels\n\nlibrary(tidymodels)\n\n# Load dataset\ndata(iris)\n\n# Split data into training and testing sets\nset.seed(123)\niris_split &lt;- initial_split(iris, prop = 0.8)\niris_train &lt;- training(iris_split)\niris_test &lt;- testing(iris_split)\n\n# Define a logistic regression model\nlog_reg_model &lt;- logistic_reg() %&gt;%\n  set_engine(\"glm\")\n\n# Fit the model\nlog_reg_fit &lt;- log_reg_model %&gt;%\n  fit(Species ~ ., data = iris_train)\n\n# Evaluate the model performance\npredictions &lt;- predict(log_reg_fit, iris_test, type = \"prob\")\nroc_auc(predictions, truth = iris_test$Species)",
+    "title": "9  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "9.1 Introduction to Machine Learning Models",
+    "text": "9.1 Introduction to Machine Learning Models\nMachine learning involves using algorithms to identify patterns within data. In R, packages like caret and tidymodels simplify the process of training and evaluating machine learning models.\n\n9.1.1 Example: Linear Regression with caret\n\n\nShow the code\n# install.packages(\"caret\")\nlibrary(caret)\n\n# Load dataset\ndata(mtcars)\n\n# Split data into training and testing sets\nset.seed(123)\ntrainIndex &lt;- createDataPartition(mtcars$mpg, p = .8, \n                                  list = FALSE, \n                                  times = 1)\ntrainData &lt;- mtcars[ trainIndex,]\ntestData  &lt;- mtcars[-trainIndex,]\n\n# Train a linear regression model\nmodel &lt;- train(mpg ~ ., data = trainData, method = \"lm\")\n\n# Summary of the model\nsummary(model)\n\n\n\nCall:\nlm(formula = .outcome ~ ., data = dat)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.2742 -1.3609 -0.2707  1.1921  4.9877 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)\n(Intercept) -2.81069   22.93545  -0.123    0.904\ncyl          0.75593    1.21576   0.622    0.542\ndisp         0.01172    0.01674   0.700    0.494\nhp          -0.01386    0.02197  -0.631    0.536\ndrat         2.24007    1.77251   1.264    0.223\nwt          -2.73273    1.87954  -1.454    0.164\nqsec         0.53957    0.71812   0.751    0.463\nvs           1.21640    2.02623   0.600    0.556\nam           1.73662    2.08358   0.833    0.416\ngear         2.95127    1.88459   1.566    0.136\ncarb        -1.19910    0.98232  -1.221    0.239\n\nResidual standard error: 2.431 on 17 degrees of freedom\nMultiple R-squared:  0.8861,    Adjusted R-squared:  0.8191 \nF-statistic: 13.23 on 10 and 17 DF,  p-value: 3.719e-06\n\n\n\n\n9.1.2 Example: Classification with tidymodels\n\n\nShow the code\nlibrary(tidymodels)\nlibrary(ggplot2)\n\n# Split the data\nset.seed(123)\niris_split &lt;- initial_split(iris, prop = 0.8)\niris_train &lt;- training(iris_split)\niris_test &lt;- testing(iris_split)\n\n\n# Fit model\nmulti_log_reg_model &lt;- multinom_reg() %&gt;% \n  set_engine(\"nnet\") %&gt;% \n  fit(Species ~ ., data = iris_train)\n\n\n# Generate predictions with proper format\npredictions &lt;- predict(multi_log_reg_model, iris_test, type = \"prob\") %&gt;%\n  bind_cols(iris_test %&gt;% select(Species))\n\n# Calculate ROC curve data\nroc_data &lt;- roc_curve(\n  predictions,\n  truth = Species,\n  .pred_setosa, .pred_versicolor, .pred_virginica\n)\n\n# Plot the ROC curves\nroc_plot &lt;- ggplot(roc_data, aes(x = 1 - specificity, y = sensitivity, color = .level)) +\n  geom_path(linewidth = 1) +\n  geom_abline(lty = 2, alpha = 0.5, color = \"gray50\", slope = 1, intercept = 0) +\n  coord_equal() +\n  labs(\n    title = \"ROC Curves for Iris Species Classification\",\n    subtitle = paste(\"Multinomial Logistic Regression Model\"),\n    x = \"False Positive Rate (1 - Specificity)\",\n    y = \"True Positive Rate (Sensitivity)\",\n    color = \"Species\"\n  ) +\n  scale_color_brewer(palette = \"Set1\") +\n  theme_bw() +\n  theme(\n    text = element_text(family = \"Palatino\"),\n    legend.position = \"bottom\",\n    panel.grid.minor = element_blank(),\n    plot.title = element_text(face = \"bold\"),\n    legend.title = element_text(face = \"bold\")\n  )\n\n# Calculate and add the AUC values to the plot\nauc_values &lt;- roc_auc(\n  predictions,\n  truth = Species,\n  .pred_setosa, .pred_versicolor, .pred_virginica\n)\n\n# Print AUC values and display the plot\nprint(auc_values)\n\n\n# A tibble: 1 × 3\n  .metric .estimator .estimate\n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;\n1 roc_auc hand_till          1\n\n\nShow the code\nprint(roc_plot)",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
     ]
   },
   {
     "objectID": "MachineLearningModels.html#hands-on-exercise",
     "href": "MachineLearningModels.html#hands-on-exercise",
-    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
-    "section": "8.2 Hands-On Exercise",
-    "text": "8.2 Hands-On Exercise\n\n8.2.1 Exercise 1: Build a Predictive Model\n\nUse the mtcars dataset.\nTrain a linear regression model to predict mpg using caret.\n\n\n# Example code structure for building a predictive model\nmodel_mtcars &lt;- train(mpg ~ ., data = trainData, method = \"lm\")\n\nsummary(model_mtcars)\n\n\n\n8.2.2 Exercise 2: Evaluate Model Performance\n\nEvaluate the model on test data.\nInterpret the results and discuss potential improvements.\n\n\n# Predict on test data\npredictions_mtcars &lt;- predict(model_mtcars, newdata = testData)\n\n# Calculate RMSE\nrmse(predictions_mtcars, testData$mpg)",
+    "title": "9  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "9.2 Hands-On Exercise",
+    "text": "9.2 Hands-On Exercise\n\n9.2.1 Exercise 1: Build a Predictive Model\n\nUse the mtcars dataset.\nTrain a linear regression model to predict mpg using caret.\n\n\n\nShow the code\n# Example code structure for building a predictive model\nmodel_mtcars &lt;- train(mpg ~ ., data = trainData, method = \"lm\")\n\nsummary(model_mtcars)\n\n\n\n\n9.2.2 Exercise 2: Evaluate Model Performance\n\nEvaluate the model on test data.\nInterpret the results and discuss potential improvements.\n\n\n\nShow the code\n# Predict on test data\npredictions_mtcars &lt;- predict(model_mtcars, newdata = testData)\n\n# Calculate RMSE\nrmse(predictions_mtcars, testData$mpg)",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
     ]
   },
   {
     "objectID": "MachineLearningModels.html#references",
     "href": "MachineLearningModels.html#references",
-    "title": "8  Chapter 8: Introduction to Machine Learning Models in R",
-    "section": "8.3 References",
-    "text": "8.3 References\n\nKuhn, M., & Johnson, K. (2013). Applied Predictive Modeling. Springer.\nWickham, H., & Grolemund, G. (2016). R for Data Science. O’Reilly Media.\nMax Kuhn’s caret package documentation.\nTidymodels website for comprehensive guides and tutorials.\n\nBy following these examples and exercises, participants will gain practical experience in building and evaluating machine learning models using R. This session will enhance their ability to apply predictive modeling techniques to real-world datasets. ```\n\n8.3.1 Recap\n\nMachine Learning Basics: Introduces regression and classification models using caret and tidymodels.\nExamples: Provides code snippets for training linear regression and logistic regression models.\nExercises: Offers hands-on practice for building and evaluating predictive models.\nReferences: Lists useful resources for further reading and exploration of machine learning concepts in R.\n\nThis chapter ensures participants understand both theoretical concepts and practical applications of machine learning in R.",
+    "title": "9  Chapter 8: Introduction to Machine Learning Models in R",
+    "section": "9.3 References",
+    "text": "9.3 References\n\nKuhn, M., & Johnson, K. (2013). Applied Predictive Modeling. Springer.\nWickham, H., & Grolemund, G. (2016). R for Data Science. O’Reilly Media.\nMax Kuhn’s caret package documentation.\nTidymodels website for comprehensive guides and tutorials.\n\nBy following these examples and exercises, participants will gain practical experience in building and evaluating machine learning models using R. This session will enhance their ability to apply predictive modeling techniques to real-world datasets. ```\n\n9.3.1 Recap\n\nMachine Learning Basics: Introduces regression and classification models using caret and tidymodels.\nExamples: Provides code snippets for training linear regression and logistic regression models.\nExercises: Offers hands-on practice for building and evaluating predictive models.\nReferences: Lists useful resources for further reading and exploration of machine learning concepts in R.\n\nThis chapter ensures participants understand both theoretical concepts and practical applications of machine learning in R.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Chapter 8: Introduction to Machine Learning Models in R</span>"
     ]
   },
   {

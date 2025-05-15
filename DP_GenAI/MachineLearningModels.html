@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Programming with GenAI - 8&nbsp; Chapter 8: Introduction to Machine Learning Models in R</title>
+<title>9&nbsp; Chapter 8: Introduction to Machine Learning Models in R – Data Programming with GenAI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-03fd3c7aec630eb0a1b51344ae4f88ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,13 +113,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MachineLearningModels.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MachineLearningModels.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -144,79 +144,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QuartoWebsite.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataVisualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 3: Interactive Data Visualization with <em>ggplot2</em> and <em>Plotly</em></span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 3: Interactive Data Visualization with <em>ggplot2</em> and <em>Plotly</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataCollection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4: Data Collection with APIs and Web Scraping</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 4: Data Collection with APIs and Web Scraping</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ShinyIntroduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 5: Introduction to Shiny for Interactive Web Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 5: Introduction to Shiny for Interactive Web Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AdvancedShiny.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataManagement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./MachineLearningModels.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextAnalysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./GenAIIntegration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix I: Resources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix II: Garbage collection gc()</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ParallelProcessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Appendix III: How to Use Parallel Processing in R</span></span></a>
   </div>
 </li>
     </ul>
@@ -229,21 +241,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#key-topics" id="toc-key-topics" class="nav-link active" data-scroll-target="#key-topics"><span class="header-section-number">8.0.1</span> Key Topics</a></li>
-  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome"><span class="header-section-number">8.0.2</span> Outcome</a></li>
-  <li><a href="#introduction-to-machine-learning-models" id="toc-introduction-to-machine-learning-models" class="nav-link" data-scroll-target="#introduction-to-machine-learning-models"><span class="header-section-number">8.1</span> Introduction to Machine Learning Models</a>
+  <li><a href="#key-topics" id="toc-key-topics" class="nav-link active" data-scroll-target="#key-topics"><span class="header-section-number">9.0.1</span> Key Topics</a></li>
+  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome"><span class="header-section-number">9.0.2</span> Outcome</a></li>
+  <li><a href="#introduction-to-machine-learning-models" id="toc-introduction-to-machine-learning-models" class="nav-link" data-scroll-target="#introduction-to-machine-learning-models"><span class="header-section-number">9.1</span> Introduction to Machine Learning Models</a>
   <ul class="collapse">
-  <li><a href="#example-linear-regression-with-caret" id="toc-example-linear-regression-with-caret" class="nav-link" data-scroll-target="#example-linear-regression-with-caret"><span class="header-section-number">8.1.1</span> Example: Linear Regression with caret</a></li>
-  <li><a href="#example-classification-with-tidymodels" id="toc-example-classification-with-tidymodels" class="nav-link" data-scroll-target="#example-classification-with-tidymodels"><span class="header-section-number">8.1.2</span> Example: Classification with tidymodels</a></li>
+  <li><a href="#example-linear-regression-with-caret" id="toc-example-linear-regression-with-caret" class="nav-link" data-scroll-target="#example-linear-regression-with-caret"><span class="header-section-number">9.1.1</span> Example: Linear Regression with caret</a></li>
+  <li><a href="#example-classification-with-tidymodels" id="toc-example-classification-with-tidymodels" class="nav-link" data-scroll-target="#example-classification-with-tidymodels"><span class="header-section-number">9.1.2</span> Example: Classification with tidymodels</a></li>
   </ul></li>
-  <li><a href="#hands-on-exercise" id="toc-hands-on-exercise" class="nav-link" data-scroll-target="#hands-on-exercise"><span class="header-section-number">8.2</span> Hands-On Exercise</a>
+  <li><a href="#hands-on-exercise" id="toc-hands-on-exercise" class="nav-link" data-scroll-target="#hands-on-exercise"><span class="header-section-number">9.2</span> Hands-On Exercise</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-build-a-predictive-model" id="toc-exercise-1-build-a-predictive-model" class="nav-link" data-scroll-target="#exercise-1-build-a-predictive-model"><span class="header-section-number">8.2.1</span> Exercise 1: Build a Predictive Model</a></li>
-  <li><a href="#exercise-2-evaluate-model-performance" id="toc-exercise-2-evaluate-model-performance" class="nav-link" data-scroll-target="#exercise-2-evaluate-model-performance"><span class="header-section-number">8.2.2</span> Exercise 2: Evaluate Model Performance</a></li>
+  <li><a href="#exercise-1-build-a-predictive-model" id="toc-exercise-1-build-a-predictive-model" class="nav-link" data-scroll-target="#exercise-1-build-a-predictive-model"><span class="header-section-number">9.2.1</span> Exercise 1: Build a Predictive Model</a></li>
+  <li><a href="#exercise-2-evaluate-model-performance" id="toc-exercise-2-evaluate-model-performance" class="nav-link" data-scroll-target="#exercise-2-evaluate-model-performance"><span class="header-section-number">9.2.2</span> Exercise 2: Evaluate Model Performance</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">8.3</span> References</a>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.3</span> References</a>
   <ul class="collapse">
-  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">8.3.1</span> Recap</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">9.3.1</span> Recap</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -253,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -270,24 +282,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="key-topics" class="level3" data-number="8.0.1">
-<h3 data-number="8.0.1" class="anchored" data-anchor-id="key-topics"><span class="header-section-number">8.0.1</span> Key Topics</h3>
+<section id="key-topics" class="level3" data-number="9.0.1">
+<h3 data-number="9.0.1" class="anchored" data-anchor-id="key-topics"><span class="header-section-number">9.0.1</span> Key Topics</h3>
 <ul>
 <li>Basics of machine learning models in R, focusing on regression and classification models.</li>
 <li>Using R packages such as <code>caret</code> or <code>tidymodels</code> for training simple models.</li>
 <li>Hands-on exercises to build a basic predictive model, evaluate its performance, and interpret the results.</li>
 </ul>
 </section>
-<section id="outcome" class="level3" data-number="8.0.2">
-<h3 data-number="8.0.2" class="anchored" data-anchor-id="outcome"><span class="header-section-number">8.0.2</span> Outcome</h3>
+<section id="outcome" class="level3" data-number="9.0.2">
+<h3 data-number="9.0.2" class="anchored" data-anchor-id="outcome"><span class="header-section-number">9.0.2</span> Outcome</h3>
 <p>Participants will understand the fundamentals of machine learning models and build their own in R.</p>
 </section>
-<section id="introduction-to-machine-learning-models" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="introduction-to-machine-learning-models"><span class="header-section-number">8.1</span> Introduction to Machine Learning Models</h2>
+<section id="introduction-to-machine-learning-models" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="introduction-to-machine-learning-models"><span class="header-section-number">9.1</span> Introduction to Machine Learning Models</h2>
 <p>Machine learning involves using algorithms to identify patterns within data. In R, packages like <code>caret</code> and <code>tidymodels</code> simplify the process of training and evaluating machine learning models.</p>
-<section id="example-linear-regression-with-caret" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="example-linear-regression-with-caret"><span class="header-section-number">8.1.1</span> Example: Linear Regression with caret</h3>
+<section id="example-linear-regression-with-caret" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="example-linear-regression-with-caret"><span class="header-section-number">9.1.1</span> Example: Linear Regression with caret</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("caret")</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -307,68 +321,158 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the model</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = .outcome ~ ., data = dat)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.2742 -1.3609 -0.2707  1.1921  4.9877 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept) -2.81069   22.93545  -0.123    0.904
+cyl          0.75593    1.21576   0.622    0.542
+disp         0.01172    0.01674   0.700    0.494
+hp          -0.01386    0.02197  -0.631    0.536
+drat         2.24007    1.77251   1.264    0.223
+wt          -2.73273    1.87954  -1.454    0.164
+qsec         0.53957    0.71812   0.751    0.463
+vs           1.21640    2.02623   0.600    0.556
+am           1.73662    2.08358   0.833    0.416
+gear         2.95127    1.88459   1.566    0.136
+carb        -1.19910    0.98232  -1.221    0.239
+
+Residual standard error: 2.431 on 17 degrees of freedom
+Multiple R-squared:  0.8861,    Adjusted R-squared:  0.8191 
+F-statistic: 13.23 on 10 and 17 DF,  p-value: 3.719e-06</code></pre>
+</div>
 </div>
 </section>
-<section id="example-classification-with-tidymodels" class="level3" data-number="8.1.2">
-<h3 data-number="8.1.2" class="anchored" data-anchor-id="example-classification-with-tidymodels"><span class="header-section-number">8.1.2</span> Example: Classification with tidymodels</h3>
+<section id="example-classification-with-tidymodels" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="example-classification-with-tidymodels"><span class="header-section-number">9.1.2</span> Example: Classification with tidymodels</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dataset</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Split data into training and testing sets</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>iris_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(iris, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>iris_train <span class="ot">&lt;-</span> <span class="fu">training</span>(iris_split)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>iris_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(iris_split)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a logistic regression model</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>log_reg_model <span class="ot">&lt;-</span> <span class="fu">logistic_reg</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"glm"</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>log_reg_fit <span class="ot">&lt;-</span> log_reg_model <span class="sc">%&gt;%</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris_train)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Evaluate the model performance</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(log_reg_fit, iris_test, <span class="at">type =</span> <span class="st">"prob"</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">roc_auc</span>(predictions, <span class="at">truth =</span> iris_test<span class="sc">$</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>iris_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(iris, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>iris_train <span class="ot">&lt;-</span> <span class="fu">training</span>(iris_split)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>iris_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(iris_split)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>multi_log_reg_model <span class="ot">&lt;-</span> <span class="fu">multinom_reg</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"nnet"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris_train)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions with proper format</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(multi_log_reg_model, iris_test, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(iris_test <span class="sc">%&gt;%</span> <span class="fu">select</span>(Species))</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate ROC curve data</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>roc_data <span class="ot">&lt;-</span> <span class="fu">roc_curve</span>(</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  predictions,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">truth =</span> Species,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  .pred_setosa, .pred_versicolor, .pred_virginica</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the ROC curves</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>roc_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(roc_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificity, <span class="at">y =</span> sensitivity, <span class="at">color =</span> .level)) <span class="sc">+</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">lty =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray50"</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"ROC Curves for Iris Species Classification"</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Multinomial Logistic Regression Model"</span>),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"False Positive Rate (1 - Specificity)"</span>,</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"True Positive Rate (Sensitivity)"</span>,</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Palatino"</span>),</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and add the AUC values to the plot</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>auc_values <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(</span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  predictions,</span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">truth =</span> Species,</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  .pred_setosa, .pred_versicolor, .pred_virginica</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Print AUC values and display the plot</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(auc_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 roc_auc hand_till          1</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(roc_plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="MachineLearningModels_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 </section>
-<section id="hands-on-exercise" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="hands-on-exercise"><span class="header-section-number">8.2</span> Hands-On Exercise</h2>
-<section id="exercise-1-build-a-predictive-model" class="level3" data-number="8.2.1">
-<h3 data-number="8.2.1" class="anchored" data-anchor-id="exercise-1-build-a-predictive-model"><span class="header-section-number">8.2.1</span> Exercise 1: Build a Predictive Model</h3>
+<section id="hands-on-exercise" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="hands-on-exercise"><span class="header-section-number">9.2</span> Hands-On Exercise</h2>
+<section id="exercise-1-build-a-predictive-model" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="exercise-1-build-a-predictive-model"><span class="header-section-number">9.2.1</span> Exercise 1: Build a Predictive Model</h3>
 <ol type="1">
 <li>Use the <code>mtcars</code> dataset.</li>
 <li>Train a linear regression model to predict <code>mpg</code> using <code>caret</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code structure for building a predictive model</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model_mtcars <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> trainData, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code structure for building a predictive model</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model_mtcars <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> trainData, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="exercise-2-evaluate-model-performance" class="level3" data-number="8.2.2">
-<h3 data-number="8.2.2" class="anchored" data-anchor-id="exercise-2-evaluate-model-performance"><span class="header-section-number">8.2.2</span> Exercise 2: Evaluate Model Performance</h3>
+<section id="exercise-2-evaluate-model-performance" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="exercise-2-evaluate-model-performance"><span class="header-section-number">9.2.2</span> Exercise 2: Evaluate Model Performance</h3>
 <ol type="1">
 <li>Evaluate the model on test data.</li>
 <li>Interpret the results and discuss potential improvements.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>predictions_mtcars <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_mtcars, <span class="at">newdata =</span> testData)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate RMSE</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rmse</span>(predictions_mtcars, testData<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Predict on test data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>predictions_mtcars <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_mtcars, <span class="at">newdata =</span> testData)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate RMSE</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rmse</span>(predictions_mtcars, testData<span class="sc">$</span>mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 </section>
-<section id="references" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="references"><span class="header-section-number">8.3</span> References</h2>
+<section id="references" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="references"><span class="header-section-number">9.3</span> References</h2>
 <ul>
 <li>Kuhn, M., &amp; Johnson, K. (2013). <em>Applied Predictive Modeling</em>. Springer.</li>
 <li>Wickham, H., &amp; Grolemund, G. (2016). <em>R for Data Science</em>. O’Reilly Media.</li>
@@ -376,8 +480,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><a href="https://www.tidymodels.org/">Tidymodels website</a> for comprehensive guides and tutorials.</li>
 </ul>
 <p>By following these examples and exercises, participants will gain practical experience in building and evaluating machine learning models using R. This session will enhance their ability to apply predictive modeling techniques to real-world datasets. ```</p>
-<section id="recap" class="level3" data-number="8.3.1">
-<h3 data-number="8.3.1" class="anchored" data-anchor-id="recap"><span class="header-section-number">8.3.1</span> Recap</h3>
+<section id="recap" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="recap"><span class="header-section-number">9.3.1</span> Recap</h3>
 <ul>
 <li><strong>Machine Learning Basics:</strong> Introduces regression and classification models using <code>caret</code> and <code>tidymodels</code>.</li>
 <li><strong>Examples:</strong> Provides code snippets for training linear regression and logistic regression models.</li>
@@ -386,6 +490,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>This chapter ensures participants understand both theoretical concepts and practical applications of machine learning in R.</p>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -426,18 +532,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -469,7 +564,96 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -504,7 +688,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -552,7 +740,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -780,16 +967,171 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./DataManagement.html" class="pagination-link  aria-label=" &lt;span="" 7:="" data="" management="" and="" exploratory="" analysis="" (eda)&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span>
+      <a href="./DataManagement.html" class="pagination-link" aria-label="Chapter 7: Data Management and Exploratory Data Analysis (EDA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./TextAnalysis.html" class="pagination-link" aria-label="<span class='chapter-number'>9</span>&nbsp; <span class='chapter-title'>Chapter 9: Introduction to Language Models and Text Analysis in R</span>">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./TextAnalysis.html" class="pagination-link" aria-label="Chapter 9: Introduction to Language Models and Text Analysis in R">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Chapter 8: Introduction to Machine Learning Models in R</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Topics</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Basics of machine learning models in R, focusing on regression and classification models.</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Using R packages such as <span class="in">`caret`</span> or <span class="in">`tidymodels`</span> for training simple models.</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Hands-on exercises to build a basic predictive model, evaluate its performance, and interpret the results.</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### Outcome</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>Participants will understand the fundamentals of machine learning models and build their own in R.</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Machine Learning Models</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>Machine learning involves using algorithms to identify patterns within data. In R, packages like <span class="in">`caret`</span> and <span class="in">`tidymodels`</span> simplify the process of training and evaluating machine learning models.</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: Linear Regression with caret</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("caret")</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Load dataset</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Split data into training and testing sets</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>trainIndex <span class="ot">&lt;-</span> <span class="fu">createDataPartition</span>(mtcars<span class="sc">$</span>mpg, <span class="at">p =</span> .<span class="dv">8</span>, </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">list =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">times =</span> <span class="dv">1</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>trainData <span class="ot">&lt;-</span> mtcars[ trainIndex,]</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>testData  <span class="ot">&lt;-</span> mtcars[<span class="sc">-</span>trainIndex,]</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Train a linear regression model</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(mpg <span class="sc">~</span> ., <span class="at">data =</span> trainData, <span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the model</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: Classification with tidymodels</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>iris_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(iris, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>iris_train <span class="ot">&lt;-</span> <span class="fu">training</span>(iris_split)</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>iris_test <span class="ot">&lt;-</span> <span class="fu">testing</span>(iris_split)</span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model</span></span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>multi_log_reg_model <span class="ot">&lt;-</span> <span class="fu">multinom_reg</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"nnet"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(Species <span class="sc">~</span> ., <span class="at">data =</span> iris_train)</span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate predictions with proper format</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(multi_log_reg_model, iris_test, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(iris_test <span class="sc">%&gt;%</span> <span class="fu">select</span>(Species))</span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate ROC curve data</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>roc_data <span class="ot">&lt;-</span> <span class="fu">roc_curve</span>(</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>  predictions,</span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">truth =</span> Species,</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>  .pred_setosa, .pred_versicolor, .pred_virginica</span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the ROC curves</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a>roc_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(roc_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span> <span class="sc">-</span> specificity, <span class="at">y =</span> sensitivity, <span class="at">color =</span> .level)) <span class="sc">+</span></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">lty =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"gray50"</span>, <span class="at">slope =</span> <span class="dv">1</span>, <span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"ROC Curves for Iris Species Classification"</span>,</span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">paste</span>(<span class="st">"Multinomial Logistic Regression Model"</span>),</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"False Positive Rate (1 - Specificity)"</span>,</span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"True Positive Rate (Sensitivity)"</span>,</span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Species"</span></span>
+<span id="cb8-90"><a href="#cb8-90" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-91"><a href="#cb8-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span></span>
+<span id="cb8-92"><a href="#cb8-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb8-93"><a href="#cb8-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-94"><a href="#cb8-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Palatino"</span>),</span>
+<span id="cb8-95"><a href="#cb8-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb8-96"><a href="#cb8-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-97"><a href="#cb8-97" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb8-98"><a href="#cb8-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
+<span id="cb8-99"><a href="#cb8-99" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-100"><a href="#cb8-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-101"><a href="#cb8-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate and add the AUC values to the plot</span></span>
+<span id="cb8-102"><a href="#cb8-102" aria-hidden="true" tabindex="-1"></a>auc_values <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(</span>
+<span id="cb8-103"><a href="#cb8-103" aria-hidden="true" tabindex="-1"></a>  predictions,</span>
+<span id="cb8-104"><a href="#cb8-104" aria-hidden="true" tabindex="-1"></a>  <span class="at">truth =</span> Species,</span>
+<span id="cb8-105"><a href="#cb8-105" aria-hidden="true" tabindex="-1"></a>  .pred_setosa, .pred_versicolor, .pred_virginica</span>
+<span id="cb8-106"><a href="#cb8-106" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-107"><a href="#cb8-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-108"><a href="#cb8-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Print AUC values and display the plot</span></span>
+<span id="cb8-109"><a href="#cb8-109" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(auc_values)</span>
+<span id="cb8-110"><a href="#cb8-110" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(roc_plot)</span>
+<span id="cb8-111"><a href="#cb8-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-112"><a href="#cb8-112" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-113"><a href="#cb8-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-114"><a href="#cb8-114" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hands-On Exercise</span></span>
+<span id="cb8-115"><a href="#cb8-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-116"><a href="#cb8-116" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1: Build a Predictive Model</span></span>
+<span id="cb8-117"><a href="#cb8-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-118"><a href="#cb8-118" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Use the <span class="in">`mtcars`</span> dataset.</span>
+<span id="cb8-119"><a href="#cb8-119" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Train a linear regression model to predict <span class="in">`mpg`</span> using <span class="in">`caret`</span>.</span>
+<span id="cb8-120"><a href="#cb8-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-121"><a href="#cb8-121" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=F}</span></span>
+<span id="cb8-122"><a href="#cb8-122" aria-hidden="true" tabindex="-1"></a><span class="in"># Example code structure for building a predictive model</span></span>
+<span id="cb8-123"><a href="#cb8-123" aria-hidden="true" tabindex="-1"></a><span class="in">model_mtcars &lt;- train(mpg ~ ., data = trainData, method = "lm")</span></span>
+<span id="cb8-124"><a href="#cb8-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-125"><a href="#cb8-125" aria-hidden="true" tabindex="-1"></a><span class="in">summary(model_mtcars)</span></span>
+<span id="cb8-126"><a href="#cb8-126" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-127"><a href="#cb8-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-128"><a href="#cb8-128" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 2: Evaluate Model Performance</span></span>
+<span id="cb8-129"><a href="#cb8-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-130"><a href="#cb8-130" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Evaluate the model on test data.</span>
+<span id="cb8-131"><a href="#cb8-131" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Interpret the results and discuss potential improvements.</span>
+<span id="cb8-132"><a href="#cb8-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-133"><a href="#cb8-133" aria-hidden="true" tabindex="-1"></a><span class="in">```{r eval=F}</span></span>
+<span id="cb8-134"><a href="#cb8-134" aria-hidden="true" tabindex="-1"></a><span class="in"># Predict on test data</span></span>
+<span id="cb8-135"><a href="#cb8-135" aria-hidden="true" tabindex="-1"></a><span class="in">predictions_mtcars &lt;- predict(model_mtcars, newdata = testData)</span></span>
+<span id="cb8-136"><a href="#cb8-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-137"><a href="#cb8-137" aria-hidden="true" tabindex="-1"></a><span class="in"># Calculate RMSE</span></span>
+<span id="cb8-138"><a href="#cb8-138" aria-hidden="true" tabindex="-1"></a><span class="in">rmse(predictions_mtcars, testData$mpg)</span></span>
+<span id="cb8-139"><a href="#cb8-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-140"><a href="#cb8-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-141"><a href="#cb8-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb8-142"><a href="#cb8-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-143"><a href="#cb8-143" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Kuhn, M., &amp; Johnson, K. (2013). *Applied Predictive Modeling*. Springer.</span>
+<span id="cb8-144"><a href="#cb8-144" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Wickham, H., &amp; Grolemund, G. (2016). *R for Data Science*. O'Reilly Media.</span>
+<span id="cb8-145"><a href="#cb8-145" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Max Kuhn's <span class="co">[</span><span class="ot">caret package documentation</span><span class="co">](https://topepo.github.io/caret/index.html)</span>.</span>
+<span id="cb8-146"><a href="#cb8-146" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span><span class="co">[</span><span class="ot">Tidymodels website</span><span class="co">](https://www.tidymodels.org/)</span> for comprehensive guides and tutorials.</span>
+<span id="cb8-147"><a href="#cb8-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-148"><a href="#cb8-148" aria-hidden="true" tabindex="-1"></a>By following these examples and exercises, participants will gain practical experience in building and evaluating machine learning models using R. This session will enhance their ability to apply predictive modeling techniques to real-world datasets. <span class="sc">\`\`\`</span></span>
+<span id="cb8-149"><a href="#cb8-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-150"><a href="#cb8-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recap</span></span>
+<span id="cb8-151"><a href="#cb8-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-152"><a href="#cb8-152" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Machine Learning Basics:** Introduces regression and classification models using <span class="in">`caret`</span> and <span class="in">`tidymodels`</span>.</span>
+<span id="cb8-153"><a href="#cb8-153" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Examples:** Provides code snippets for training linear regression and logistic regression models.</span>
+<span id="cb8-154"><a href="#cb8-154" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercises:** Offers hands-on practice for building and evaluating predictive models.</span>
+<span id="cb8-155"><a href="#cb8-155" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**References:** Lists useful resources for further reading and exploration of machine learning concepts in R.</span>
+<span id="cb8-156"><a href="#cb8-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-157"><a href="#cb8-157" aria-hidden="true" tabindex="-1"></a>This chapter ensures participants understand both theoretical concepts and practical applications of machine learning in R.</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 

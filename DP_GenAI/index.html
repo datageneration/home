@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,7 +35,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -72,10 +72,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-03fd3c7aec630eb0a1b51344ae4f88ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -114,13 +114,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -476,18 +476,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -519,7 +508,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
   const viewSource = window.document.getElementById('quarto-view-source') ||
                      window.document.getElementById('quarto-code-tools-source');
   if (viewSource) {
@@ -571,6 +580,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   if (showAllCode) {
     showAllCode.addEventListener("click", toggleCodeHandler(true));
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -605,7 +632,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -653,7 +684,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -883,7 +913,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Introduction.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Introduction</span>">
+      <a href="./Introduction.html" class="pagination-link" aria-label="Introduction">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -927,76 +957,77 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Increase Memory Limits:** If working with large datasets, consider using Garbage Collection function <span class="co">[</span><span class="ot">gc()</span><span class="co">](gc.html)</span>.</span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Use Efficient Data Structures:** Utilize data structures like data tables (<span class="in">`data.table`</span>) for faster data manipulation compared to data frames.</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Use Parallel Processing:** Leverage <span class="co">[</span><span class="ot">parallel processing capabilities</span><span class="co">](ParallelProcessing.html)</span> in R to speed up computations, especially for tasks like bootstrapping or cross-validation.</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Use Efficient Coding Practices:** Load all necessary packages at the beginning of your scripts to avoid issues with missing dependencies later on.</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="fu">### Utilize Startup Files</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Customize `.Rprofile` and `.Renviron`:** Use these files to set environment variables or load frequently used libraries automatically when starting R. This can streamline your workflow significantly.</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Explore Resources for Further Learning</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Online Documentation:** Familiarize yourself with the official documentation for both R and RStudio:</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">R Documentation</span><span class="co">](https://www.r-project.org/documentation.html)</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">RStudio Documentation</span><span class="co">](https://docs.rstudio.com/)</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Video Tutorials:** Consider watching setup tutorials on platforms like YouTube. For example, this video provides a straightforward guide to installing R and RStudio: <span class="co">[</span><span class="ot">Install R and RStudio on Windows</span><span class="co">](https://www.youtube.com/watch?v=HzGVz8ju3W8)</span>.</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to R Programming</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>This bootcamp will cover various aspects of data programming using R. To familiarize yourself with the basic syntax and functionalities of R, we recommend reviewing the following material:</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Basics of R Syntax:** <span class="co">[</span><span class="ot">Basic Syntax in R</span><span class="co">](https://eppsmathcodingcamp.github.io/modules/basic-syntax.html)</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>Understanding these foundational concepts will prepare you for the more advanced topics we will explore during the bootcamp.</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices in Programming</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>As you embark on your programming journey, adhering to best practices is essential for writing clean, efficient, and maintainable code. One key resource that outlines these practices is Jenny Bryan's guide on best practice workflows for R programming:</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Best Practice Workflow:** <span class="co">[</span><span class="ot">Jenny Bryan's Best Practices</span><span class="co">](https://rstats.wtf)</span></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>Following these guidelines will help you develop a structured approach to coding, making it easier to collaborate with others and manage your projects effectively.</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structure and Organization</span></span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>The book is organized into several chapters, each corresponding to a session from the bootcamp. Here’s a brief overview of what you can expect:</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Introduction**: This chapter sets the stage for the bootcamp, outlining its objectives and expected outcomes for participants.</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Creating a Quarto Website and Deploying on GitHub Pages**: Learn how to build and deploy interactive web content using Quarto and GitHub Pages.</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Interactive Data Visualization with ggplot2 and Plotly**: Explore techniques for creating both static and interactive visualizations to effectively communicate data insights.</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Data Collection with APIs and Web Scraping**: Gain skills in collecting data from web sources using APIs and web scraping techniques.</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Introduction to Shiny for Interactive Web Applications**: Develop interactive web applications using Shiny, enhancing user engagement with dynamic content.</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Advanced Shiny – Embedding Apps in Quarto**: Integrate Shiny apps into Quarto websites for seamless interactive experiences.</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Data Management and Exploratory Data Analysis (EDA)**: Master data cleaning, transformation, and exploratory analysis using R's powerful packages.</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>**Introduction to Machine Learning Models in R**: Build foundational machine learning models, focusing on regression and classification techniques.</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">9.  </span>**Introduction to Language Models and Text Analysis in R**: Conduct text analysis using language models, gaining insights from textual data.</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>**Leveraging GenAI for Data Science and Programming in R**: Discover how AI tools like GitHub Copilot and ChatGPT can enhance coding efficiency and innovation.</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>**Conclusion**: Summarizes the key learnings from the bootcamp and suggests future topics for exploration.</span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>**Appendix I**: **Resources**: Provides a comprehensive list of references, links, and additional resources to support further learning.</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>**Appendix II**: Garbage collection gc(): Explains how to manage memory efficiently in R using the garbage collection function.</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>**Appendix III**: How to Use Parallel Processing in R: Demonstrates how to leverage parallel processing capabilities in R for faster computations.</span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to Use This Book</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>Each chapter is designed to be self-contained, providing detailed explanations, examples, exercises, and references. You can follow along sequentially or jump to specific chapters based on your interests or needs. The hands-on exercises are intended to reinforce learning by applying concepts in practical scenarios.</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Acknowledgments</span></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>We would like to thank Professor Peter Pan and his team at the National Chung Hsing University who have made this bootcamp possible, including faculty, adminstrators and participants. Your enthusiasm and dedication are what drive innovation in the field of data science.</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>We hope this book serves as a valuable resource on your journey in data programming with Generative AI tools. Happy learning!</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recap</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Setup Instructions:** Added detailed steps for installing and configuring R and RStudio effectively.</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Best Practices Section:** Included a section emphasizing best practices in programming alongside a link to Jenny Bryan's workflow guide.</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**R Programming Basics:** Maintained links that provide foundational knowledge about basic syntax in R.</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>This preface now provides comprehensive guidance on setting up an effective programming environment while emphasizing best practices that will benefit participants throughout their learning journey in data science.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Use Parallel Processing:** Leverage <span class="co">[</span><span class="ot">parallel processing capabilities</span><span class="co">](ParallelProcessing.html)</span> in R to speed up computations, especially for tasks like bootstrapping or cross-validation.</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Use Efficient Coding Practices:** Load all necessary packages at the beginning of your scripts to avoid issues with missing dependencies later on.</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="fu">### Utilize Startup Files</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Customize `.Rprofile` and `.Renviron`:** Use these files to set environment variables or load frequently used libraries automatically when starting R. This can streamline your workflow significantly.</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="fu">### Explore Resources for Further Learning</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Online Documentation:** Familiarize yourself with the official documentation for both R and RStudio:</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">R Documentation</span><span class="co">](https://www.r-project.org/documentation.html)</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="ss">    -   </span><span class="co">[</span><span class="ot">RStudio Documentation</span><span class="co">](https://docs.rstudio.com/)</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Video Tutorials:** Consider watching setup tutorials on platforms like YouTube. For example, this video provides a straightforward guide to installing R and RStudio: <span class="co">[</span><span class="ot">Install R and RStudio on Windows</span><span class="co">](https://www.youtube.com/watch?v=HzGVz8ju3W8)</span>.</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to R Programming</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>This bootcamp will cover various aspects of data programming using R. To familiarize yourself with the basic syntax and functionalities of R, we recommend reviewing the following material:</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Basics of R Syntax:** <span class="co">[</span><span class="ot">Basic Syntax in R</span><span class="co">](https://eppsmathcodingcamp.github.io/modules/basic-syntax.html)</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>Understanding these foundational concepts will prepare you for the more advanced topics we will explore during the bootcamp.</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Best Practices in Programming</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>As you embark on your programming journey, adhering to best practices is essential for writing clean, efficient, and maintainable code. One key resource that outlines these practices is Jenny Bryan's guide on best practice workflows for R programming:</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Best Practice Workflow:** <span class="co">[</span><span class="ot">Jenny Bryan's Best Practices</span><span class="co">](https://rstats.wtf)</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>Following these guidelines will help you develop a structured approach to coding, making it easier to collaborate with others and manage your projects effectively.</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Structure and Organization</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>The book is organized into several chapters, each corresponding to a session from the bootcamp. Here’s a brief overview of what you can expect:</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>**Introduction**: This chapter sets the stage for the bootcamp, outlining its objectives and expected outcomes for participants.</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>**Creating a Quarto Website and Deploying on GitHub Pages**: Learn how to build and deploy interactive web content using Quarto and GitHub Pages.</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>**Interactive Data Visualization with ggplot2 and Plotly**: Explore techniques for creating both static and interactive visualizations to effectively communicate data insights.</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>**Data Collection with APIs and Web Scraping**: Gain skills in collecting data from web sources using APIs and web scraping techniques.</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>**Introduction to Shiny for Interactive Web Applications**: Develop interactive web applications using Shiny, enhancing user engagement with dynamic content.</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>**Advanced Shiny – Embedding Apps in Quarto**: Integrate Shiny apps into Quarto websites for seamless interactive experiences.</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="ss">7.  </span>**Data Management and Exploratory Data Analysis (EDA)**: Master data cleaning, transformation, and exploratory analysis using R's powerful packages.</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="ss">8.  </span>**Introduction to Machine Learning Models in R**: Build foundational machine learning models, focusing on regression and classification techniques.</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="ss">9.  </span>**Introduction to Language Models and Text Analysis in R**: Conduct text analysis using language models, gaining insights from textual data.</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="ss">10. </span>**Leveraging GenAI for Data Science and Programming in R**: Discover how AI tools like GitHub Copilot and ChatGPT can enhance coding efficiency and innovation.</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="ss">11. </span>**Conclusion**: Summarizes the key learnings from the bootcamp and suggests future topics for exploration.</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>**Appendix I**: **Resources**: Provides a comprehensive list of references, links, and additional resources to support further learning.</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>**Appendix II**: Garbage collection gc(): Explains how to manage memory efficiently in R using the garbage collection function.</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>**Appendix III**: How to Use Parallel Processing in R: Demonstrates how to leverage parallel processing capabilities in R for faster computations.</span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to Use This Book</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>Each chapter is designed to be self-contained, providing detailed explanations, examples, exercises, and references. You can follow along sequentially or jump to specific chapters based on your interests or needs. The hands-on exercises are intended to reinforce learning by applying concepts in practical scenarios.</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="fu">## Acknowledgments</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>We would like to thank Professor Peter Pan and his team at the National Chung Hsing University who have made this bootcamp possible, including faculty, adminstrators and participants. Your enthusiasm and dedication are what drive innovation in the field of data science.</span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>We hope this book serves as a valuable resource on your journey in data programming with Generative AI tools. Happy learning!</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recap</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Setup Instructions:** Added detailed steps for installing and configuring R and RStudio effectively.</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Best Practices Section:** Included a section emphasizing best practices in programming alongside a link to Jenny Bryan's workflow guide.</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**R Programming Basics:** Maintained links that provide foundational knowledge about basic syntax in R.</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>This preface now provides comprehensive guidance on setting up an effective programming environment while emphasizing best practices that will benefit participants throughout their learning journey in data science.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
