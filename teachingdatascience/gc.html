@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style_tds.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -116,43 +116,43 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Module 1: AI in Research Workflows – Comparing Models and Tools</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Module 1: AI in Research Workflows – Comparing Models and Tools</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">module2.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Module 2: AI-Assisted Data Collection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Module 3: AI for Analysis &amp; Visualization – From Regression to Machine Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module 3: AI for Analysis &amp; Visualization – From Regression to Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><code>Module4.qmd</code> (Teaching with AI – Classroom Policies and Ethics)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Module 4: Teaching with AI – Classroom Policies and Academic Integrity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Module 5: Faculty AI Literacy and Curriculum Redesign</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Module 5: Faculty AI Literacy and Curriculum Redesign</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -183,8 +183,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#a1.-generative-ai-in-coding-additional-examples" id="toc-a1.-generative-ai-in-coding-additional-examples" class="nav-link active" data-scroll-target="#a1.-generative-ai-in-coding-additional-examples"><span class="header-section-number">A.0.1</span> A1. Generative AI in Coding (Additional Examples):</a></li>
+  <li><a href="#a2.-memory-management-and-garbage-collection-for-r-users" id="toc-a2.-memory-management-and-garbage-collection-for-r-users" class="nav-link" data-scroll-target="#a2.-memory-management-and-garbage-collection-for-r-users"><span class="header-section-number">A.0.2</span> A2. Memory Management and Garbage Collection (for R users):</a></li>
+  <li><a href="#a3.-dealing-with-rate-limits-api-efficiency" id="toc-a3.-dealing-with-rate-limits-api-efficiency" class="nav-link" data-scroll-target="#a3.-dealing-with-rate-limits-api-efficiency"><span class="header-section-number">A.0.3</span> A3. Dealing with Rate Limits (API efficiency):</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -209,12 +217,47 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This technical appendix provides additional notes on generative computing (using generative AI in coding) and some efficiency tips (like memory management) that supplement our workshop content.</p>
-<p><strong>A1. Generative AI in Coding (Additional Examples):</strong> In Module 1 and Module 3, we saw how AI can generate code or assist in coding tasks. Here are a few more pointers: - <strong>Code Completion Tools:</strong> Apart from ChatGPT, tools like GitHub Copilot (powered by OpenAI Codex) can be integrated into IDEs. They work by predicting your next lines of code. Many faculty have found Copilot helpful for writing repetitive code or exploring unfamiliar libraries, effectively acting as a “pair programmer.” - <strong>Prompt Engineering for Coding:</strong> When using generative AI for coding, how you ask matters. For example, <em>“Write an R function to calculate the Gini coefficient from a numeric vector”</em> will yield a more targeted result than <em>“Give me code for Gini”</em>. Be specific about language (R/Python), input/output, and even style. - <strong>Verification:</strong> Always test and verify AI-generated code. Treat it like code from a student – likely correct on straightforward tasks, but possibly flawed on complex ones. AI might use outdated functions or assume things. For instance, if ChatGPT suggests using <code>spread()</code> from tidyr (which is deprecated in favor of <code>pivot_wider()</code>), you’ll need to catch that.</p>
-<p><strong>A2. Memory Management and Garbage Collection (for R users):</strong> When working with large data or running many AI model calls, you might encounter performance issues. R has a garbage collector (<code>gc()</code> function) that frees up memory. While our one-day workshop exercises are small-scale, if you continue experimenting with AI (say calling an API thousands of times, or fine-tuning models), remember: - Use <code>gc()</code> to explicitly prompt R to clear unused memory if you notice memory bloat. - Monitor memory usage with tools like <code>pryr</code> or base R’s <code>memory.size()</code> (on Windows). - Python users: similarly, be aware of memory when loading big models (use <code>del</code> and <code>gc.collect()</code> from the <code>gc</code> module if needed).</p>
-<p><strong>A3. Dealing with Rate Limits (API efficiency):</strong> If you write a script to collect data via an API or to use an AI service repeatedly, you might hit rate limits: - Check if the API allows batch requests. For example, the OpenAI API lets you send multiple prompts in one request (as an array) in some endpoints. - Introduce pauses between requests using <code>Sys.sleep()</code> in R or <code>time.sleep()</code> in Python to avoid triggering caps. - If doing a large scraping job, consider parallel processing (see Appendix B) to speed up while still being polite (distributing load, not exceeding per-IP limits).</p>
-<p>These generative computing tips and efficiency notes can help when scaling up projects beyond the small examples in the workshop. They weren’t central to our discussions but are here for your reference as you experiment further.</p>
+<section id="a1.-generative-ai-in-coding-additional-examples" class="level3" data-number="A.0.1">
+<h3 data-number="A.0.1" class="anchored" data-anchor-id="a1.-generative-ai-in-coding-additional-examples"><span class="header-section-number">A.0.1</span> A1. Generative AI in Coding (Additional Examples):</h3>
+<p>In Module 1 and Module 3, we saw how AI can generate code or assist in coding tasks. Here are a few more pointers:</p>
+<ul>
+<li><p><strong>Code Completion Tools:</strong></p>
+<ul>
+<li><p>Apart from ChatGPT, tools like GitHub Copilot (powered by OpenAI Codex) can be integrated into IDEs. They work by predicting your next lines of code. Many faculty have found Copilot helpful for writing repetitive code or exploring unfamiliar libraries, effectively acting as a “pair programmer” with auto-completion.</p></li>
+<li><p>With education ID, apply in GitHub. It takes same day to approve.</p></li>
+</ul></li>
+<li><p><strong>Prompt Engineering for Coding:</strong></p>
+<ul>
+<li>When using generative AI for coding, how you ask matters. For example, <em>“Write an R function to calculate the Gini coefficient from a numeric vector”</em> will yield a more targeted result than <em>“Give me code for Gini”</em>. Be specific about language (R/Python), input/output, and even style.</li>
+</ul></li>
+<li><p><strong>Verification:</strong> Always test and verify AI-generated code. Treat it like code from a student – likely correct on straightforward tasks, but possibly flawed on complex ones. AI might use outdated functions or assume things. For instance, if ChatGPT suggests using <code>spread()</code> from tidyr (which is deprecated in favor of <code>pivot_wider()</code>), you’ll need to catch that.</p></li>
+</ul>
+</section>
+<section id="a2.-memory-management-and-garbage-collection-for-r-users" class="level3" data-number="A.0.2">
+<h3 data-number="A.0.2" class="anchored" data-anchor-id="a2.-memory-management-and-garbage-collection-for-r-users"><span class="header-section-number">A.0.2</span> A2. Memory Management and Garbage Collection (for R users):</h3>
+<ul>
+<li><p>When working with large data or running many AI model calls, you might encounter performance issues. R has a garbage collector (<code>gc()</code> function) that frees up memory. While our one-day workshop exercises are small-scale, if you continue experimenting with AI (say calling an API thousands of times, or fine-tuning models), remember:</p>
+<ul>
+<li>Use <code>gc()</code> to explicitly prompt R to clear unused memory if you notice memory bloat.</li>
+</ul></li>
+<li><p>Monitor memory usage with tools like <code>pryr</code> or base R’s <code>memory.size()</code> (on Windows).</p></li>
+<li><p>Python users: similarly, be aware of memory when loading big models (use <code>del</code> and <code>gc.collect()</code> from the <code>gc</code> module if needed).</p></li>
+<li><p>See also <a href="https://datageneration.io/dp_genai/gc">Data Programming with GenAI Appendix II</a></p></li>
+</ul>
+</section>
+<section id="a3.-dealing-with-rate-limits-api-efficiency" class="level3" data-number="A.0.3">
+<h3 data-number="A.0.3" class="anchored" data-anchor-id="a3.-dealing-with-rate-limits-api-efficiency"><span class="header-section-number">A.0.3</span> A3. Dealing with Rate Limits (API efficiency):</h3>
+<ul>
+<li>If writing a script to collect data via an API or to use an AI service repeatedly, you might hit rate limits:
+<ul>
+<li>Check if the API allows batch requests. For example, the OpenAI API lets you send multiple prompts in one request (as an array) in some endpoints.</li>
+<li>Introduce pauses between requests using <code>Sys.sleep()</code> in R or <code>time.sleep()</code> in Python to avoid triggering caps.</li>
+<li>If doing a large scraping job, consider parallel processing (see Appendix B) to speed up while still being polite (distributing load, not exceeding per-IP limits).</li>
+</ul></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -637,7 +680,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./conclusion.html" class="pagination-link" aria-label="Conclusion">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusion</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

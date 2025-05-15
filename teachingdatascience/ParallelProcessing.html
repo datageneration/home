@@ -103,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style_tds.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -149,43 +149,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Module 1: AI in Research Workflows – Comparing Models and Tools</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Module 1: AI in Research Workflows – Comparing Models and Tools</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">module2.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Module 2: AI-Assisted Data Collection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Module 3: AI for Analysis &amp; Visualization – From Regression to Machine Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module 3: AI for Analysis &amp; Visualization – From Regression to Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><code>Module4.qmd</code> (Teaching with AI – Classroom Policies and Ethics)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Module 4: Teaching with AI – Classroom Policies and Academic Integrity</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Module 5: Faculty AI Literacy and Curriculum Redesign</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Module 5: Faculty AI Literacy and Curriculum Redesign</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -243,22 +243,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>Some tasks in data science (and AI experiments) can benefit from parallel processing – using multiple CPU cores or machines to run computations simultaneously. While not a focus of our workshop, we include a brief overview for those interested in speeding up heavy workloads (such as scraping many pages or running many simulations).</p>
 <p><strong>B1. Why Parallelize?</strong> If a job takes 10 hours on one core, in theory splitting it across 10 cores could finish it in ~1 hour. In practice, parallelization has overhead, but it’s invaluable for tasks like: - Web scraping a large number of pages (to stay polite, you might still throttle per site, but you can scrape multiple sites in parallel). - Running cross-validation or hyperparameter tuning for machine learning models. - Simulations or bootstrapping in statistics.</p>
-<p><strong>B2. Parallel Tools in R:</strong> - Base R includes the <code>parallel</code> package. For example, <code>mclapply()</code> on Linux/macOS can apply a function in parallel. On Windows, one can use <code>parLapply()</code> with a cluster. - The <strong>future</strong> package along with <strong>furrr</strong> (for parallel map with purrr syntax) provides a more user-friendly approach. For instance:</p>
+<p><strong>B2. Parallel Tools in R:</strong></p>
+<ul>
+<li>Base R includes the <code>parallel</code> package. For example, <code>mclapply()</code> on Linux/macOS can apply a function in parallel. On Windows, one can use <code>parLapply()</code> with a cluster.</li>
+<li>The <strong>future</strong> package along with <strong>furrr</strong> (for parallel map with purrr syntax) provides a more user-friendly approach. For instance:</li>
+</ul>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Registered S3 method overwritten by 'future':
-  method               from      
-  all.equal.connection parallelly</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession, <span class="at">workers =</span> <span class="dv">4</span>)  <span class="co"># use 4 cores</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">future_map</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="sc">~</span> { <span class="fu">Sys.sleep</span>(<span class="dv">1</span>); .x<span class="sc">^</span><span class="dv">2</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(future)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plan</span>(multisession, <span class="at">workers =</span> <span class="dv">4</span>)  <span class="co"># use 4 cores</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(furrr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">future_map</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="sc">~</span> { <span class="fu">Sys.sleep</span>(<span class="dv">1</span>); .x<span class="sc">^</span><span class="dv">2</span> })</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -70,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style_tds.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -128,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">module2.html</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module 2: AI-Assisted Data Collection</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -140,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./module4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><code>Module4.qmd</code> (Teaching with AI – Classroom Policies and Ethics)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teaching with AI – Classroom Policies and Ethics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -183,8 +217,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references"><span class="header-section-number">5.0.1</span> References:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -209,10 +249,179 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>In this module, we examine how AI can support data analysis and visualization. We’ll demonstrate how GPT (or similar AI) can assist in creating visuals and insights, and then dive into a comparison between a traditional statistical approach (linear regression) and a machine learning approach on a research problem. The goal is to illustrate benefits and limitations of each, helping us decide when to use which in our own research.</p>
-<p><strong>1. GPT-Enhanced Data Visualization:</strong> Imagine having a data visualization assistant who can generate charts on the fly from your data. Recent integrations (like GPT-4’s code interpreter or tools in BI software) do just that – you describe what you want, and the AI produces a chart. <em>“ChatGPT excels at generating a range of well-understood exploratory charts… in only a few seconds”</em>, allowing rapid iteration in the early data exploration stage <a href="https://www.datylon.com/blog/data-visualization-revolution-chatgpt-as-a-collaborative-tool#:~:text=in%20the%20initial%20stages%20of,data%20exploration">oai_citation:29‡datylon.com</a>. For example, you could prompt an AI: <em>“Here is my dataset of survey responses, please plot a bar chart of age distribution.”</em> The AI might return a code (and even an image) of the requested chart. This lowers the barrier for non-programmers to create visuals and lets analysts quickly try many ideas. However, AI-generated visuals still require human oversight: the AI might pick an inappropriate chart type or scale, and complex customizations (titles, annotations) often need manual refinement <a href="https://www.datylon.com/blog/data-visualization-revolution-chatgpt-as-a-collaborative-tool#:~:text=ChatGPT%20excels%20at%20generating%20a,delve%20deeper%20into%20your%20exploration">oai_citation:30‡datylon.com</a>.</p>
+<p><strong>1. GPT-Enhanced Data Visualization:</strong> Imagine having a data visualization assistant who can generate charts on the fly from your data. Recent integrations (like GPT-4’s code interpreter or tools in BI software) do just that – you describe what you want, and the AI produces a chart. <em>“ChatGPT excels at generating a range of well-understood exploratory charts… in only a few seconds”</em>, allowing rapid iteration in the early data exploration stage (<a href="https://www.datylon.com/blog/data-visualization-revolution-chatgpt-as-a-collaborative-tool#:~:text=in%20the%20initial%20stages%20of,data%20exploration">van Dijk 2024</a>). For example, you could prompt an AI: <em>“Here is my dataset of survey responses, please plot a bar chart of age distribution.”</em> The AI might return a code (and even an image) of the requested chart. This lowers the barrier for non-programmers to create visuals and lets analysts quickly try many ideas. However, AI-generated visuals still require human oversight: the AI might pick an inappropriate chart type or scale, and complex customizations (titles, annotations) often need manual refinement (<a href="https://www.datylon.com/blog/data-visualization-revolution-chatgpt-as-a-collaborative-tool#:~:text=ChatGPT%20excels%20at%20generating%20a,delve%20deeper%20into%20your%20exploration">van Dijk 2024: Data exploration</a>).</p>
 <p><em>Visual Example:</em> Below is a comparison of a simple linear model vs.&nbsp;a machine learning model fit (details in section 2). The blue line is a linear regression’s fit to data, while the red line is a more flexible model’s fit (random forest).</p>
+<p><img src="images/clipboard-3727366695.png" class="img-fluid"></p>
+<p>Example: A linear regression (blue) versus a random forest model (red) fitting a nonlinear dataset. The machine learning model captures complex patterns that the straight-line regression misses, but at the cost of interpretability.</p>
+<ol start="2" type="1">
+<li>Regression vs.&nbsp;Machine Learning – A Comparative Demo: Social scientists often default to regression models (like OLS) for their analysis, valuing the clear interpretation of coefficients. Machine learning models (like random forests, neural nets) can model complex relationships but are sometimes seen as “black boxes.” Leo Breiman’s famous essay described this as the “two cultures” of modeling: one focused on inference, the other on prediction. Let’s demonstrate the difference:</li>
+</ol>
+<ul>
+<li>Scenario: We have data on some phenomenon (say, an index of political stability as a function of several indicators). We’ll fit a linear regression and a random forest regression to the data.</li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate a nonlinear dataset</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">23</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(N, <span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sin</span>(x1) <span class="sc">+</span> <span class="fu">rnorm</span>(N, <span class="dv">0</span>, <span class="fl">0.3</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x1, y)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Linear model</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>lin_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1, <span class="at">data=</span>data)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Random forest model</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>rf_mod <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(y <span class="sc">~</span> x1, <span class="at">data=</span>data, <span class="at">ntree=</span><span class="dv">100</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions for plotting</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>newx <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="fl">0.1</span>))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>lin_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lin_mod, newx)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>rf_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_mod, newx)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>linear<span class="ot">=</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1, <span class="at">data=</span>data)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(linear)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = y ~ x1, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.52878 -0.53151  0.07751  0.63452  1.37925 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  0.322407   0.154712   2.084   0.0398 *
+x1          -0.008447   0.025375  -0.333   0.7399  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7422 on 98 degrees of freedom
+Multiple R-squared:  0.001129,  Adjusted R-squared:  -0.009063 
+F-statistic: 0.1108 on 1 and 98 DF,  p-value: 0.7399</code></pre>
+</div>
+</div>
+<p>We would then plot these as shown in the figure above.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the actual data points</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family=</span><span class="st">"Palatino"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data<span class="sc">$</span>x1, data<span class="sc">$</span>y, <span class="at">pch =</span> <span class="dv">20</span>, <span class="at">col =</span> <span class="st">"gray40"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Linear vs Random Forest Regression"</span>,</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"x1"</span>, <span class="at">ylab =</span> <span class="st">"y"</span>, <span class="at">cex=</span>.<span class="dv">8</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the linear model predictions</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(newx<span class="sc">$</span>x1, lin_pred, <span class="at">col =</span> <span class="st">"steelblue"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the random forest predictions</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(newx<span class="sc">$</span>x1, rf_pred, <span class="at">col =</span> <span class="st">"forestgreen"</span>, <span class="at">lwd =</span> <span class="fl">1.5</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"top"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Linear Model"</span>, <span class="st">"Random Forest"</span>),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"steelblue"</span>, <span class="st">"forestgreen"</span>), <span class="at">lwd =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: true</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load ggplot2</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ggplot2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:randomForest':
+
+    margin</code></pre>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a data frame with predictions</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x1 =</span> newx<span class="sc">$</span>x1,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Linear =</span> lin_pred,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">RandomForest =</span> rf_pred</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long format for ggplot2</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plot_df_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(plot_df, <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"Linear"</span>, <span class="st">"RandomForest"</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                             <span class="at">names_to =</span> <span class="st">"Model"</span>, <span class="at">values_to =</span> <span class="st">"Prediction"</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the plot</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">size =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> plot_df_long, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> Prediction, <span class="at">color =</span> Model), <span class="at">linewidth =</span> .<span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Linear vs Random Forest Regression"</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"x1"</span>, <span class="at">y =</span> <span class="st">"y"</span>) <span class="sc">+</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Linear"</span> <span class="ot">=</span> <span class="st">"steelblue"</span>, <span class="st">"RandomForest"</span> <span class="ot">=</span> <span class="st">"forestgreen"</span>)) <span class="sc">+</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>, <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family=</span> <span class="st">"Palatino"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="module3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The linear model gives a straight-line fit (easy to explain: “y decreases slightly with x1”), but clearly misses the sine-wave pattern in the data. The random forest captures the pattern (red curve) much better – if our goal was prediction, the ML model wins. But the random forest doesn’t provide a simple equation or coefficient; it’s harder to interpret why it predicts the values it does at each point.</p>
+<ul>
+<li>Discussion: In research, the choice depends on the goal. If we need to explain a relationship or test a hypothesis (“does x1 have a negative effect on y?”), a regression with its coefficient and p-value is useful. If we need to predict accurately (say, forecasting an outcome or imputing missing data) and the relationship is complex, ML may perform better. Notably, hybrid approaches are emerging – e.g., using AI to suggest additional features or transformations to improve a regression, or using simpler post-hoc explanation tools for ML models (like SHAP values).</li>
+</ul>
+<ol start="3" type="1">
+<li>AI in Analysis: Beyond generating code for plots, AI can assist in analysis by:</li>
+</ol>
+<ul>
+<li>Suggesting which variables to include or potential interactions (based on literature it has seen).</li>
+<li>Checking assumptions (you could ask, “I fit a regression and got residuals like X, what might be wrong?”).</li>
+<li>Writing out interpretation of results (turning regression output into a narrative paragraph).</li>
+<li>However, caution: AI might not understand context or the theory behind your analysis – its suggestions should not override domain expertise. Think of it as an eager but inexperienced research assistant.</li>
+</ul>
+<ol start="4" type="1">
+<li>Hands-On Exercise 3: Exploring Regression vs ML with AI Hints. Using a provided dataset (we’ll supply a small dataset in class, e.g., a synthetic one with a nonlinear pattern like above):</li>
+</ol>
+<ul>
+<li>Fit a linear model and a random forest model (or another ML model such as a boosted tree) to the data.</li>
+<li>Compare their performance (e.g., residual sum of squares or an R² on a test set).</li>
+<li>Now, try using an AI assistant to interpret the models. For instance, if using R, you might use an R plugin that connects to GPT, or simply copy your model summary into ChatGPT and ask “Explain these results.” See how the AI’s interpretation compares to yours.</li>
+<li>For example, after fitting models to our data, we ask ChatGPT: “The linear model’s R² = 0.2, the random forest’s R² = 0.8 on test data. What does this imply?” The AI might respond with an explanation that the relationship is nonlinear and the flexible model captured it better, whereas the linear model left much variance unexplained – essentially articulating what we see in the plot.</li>
+</ul>
+<p><em>Discuss</em>: Did the AI correctly identify the key insight? How might you phrase the findings in an academic paper?</p>
+<ol start="5" type="1">
+<li>Conclusion: AI can accelerate and enhance the analysis phase – from creating visuals to interpreting results – but it doesn’t replace the need for us to understand our models. As one study noted, “human expertise remains crucial as you delve deeper” into analysis and visualization. The partnership of human and AI can lead to both efficient and insightful research, combining computational power with domain knowledge.</li>
+</ol>
+<section id="references" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="references"><span class="header-section-number">5.0.1</span> References:</h3>
+<ul>
+<li>van Dijk, Dieuwertje. 2024. “ChatGPT as a collaborative tool for data visualization.” – Found that ChatGPT can quickly generate exploratory charts (bar, line, heatmap) for data, expediting initial analysis (Datylon Blog)..</li>
+<li>Breiman, Leo. 2001. “Statistical Modeling: The Two Cultures.” <em>Statistical Science</em> 16(3): 199–215. – Classic discussion on the divergence between inference-focused modeling vs.&nbsp;prediction-focused modeling in data analysis.</li>
+<li>Stack Exchange (Cross Validated). 2014. Discussion on statistics vs ML. – Emphasizes the focus on inference in statistics vs prediction in ML</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -634,13 +843,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./module2.html" class="pagination-link" aria-label="module2.html">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">module2.html</span></span>
+      <a href="./module2.html" class="pagination-link" aria-label="Module 2: AI-Assisted Data Collection">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Module 2: AI-Assisted Data Collection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./module4.html" class="pagination-link" aria-label="`Module4.qmd` (Teaching with AI – Classroom Policies and Ethics)">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><code>Module4.qmd</code> (Teaching with AI – Classroom Policies and Ethics)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./module4.html" class="pagination-link" aria-label="Teaching with AI – Classroom Policies and Ethics">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Teaching with AI – Classroom Policies and Ethics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

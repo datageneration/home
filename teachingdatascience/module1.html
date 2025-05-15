@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,35 +103,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="style_tds.css">
 </head>
@@ -212,8 +217,14 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -238,15 +249,132 @@ window.Quarto = {
 
 
 <p><em>How do different AI models fit into our research workflows?</em> In this module, we compare various AI approaches and tools, examining their roles in tasks like data analysis, text generation, and coding assistance. We’ll contrast traditional machine learning models (e.g., BERT-based classifiers) with generative AI (e.g., GPT-4) and discuss how each can be used by social scientists.</p>
-<p><strong>1. AI Model Landscape:</strong> Modern AI for research largely revolves around <em>foundation models</em> – very large models trained on broad data. For language tasks, two dominant paradigms are <strong>Generative models</strong> (like GPT series) and <strong>Transformers for understanding</strong> (like BERT). In essence, <em>“GPT’s strength lies in generating text, whereas BERT excels in tasks that require a deep understanding of language context”</em> <a href="https://www.geeksforgeeks.org/differences-between-gpt-and-bert/#:~:text=Conclusion">oai_citation:10‡geeksforgeeks.org</a>. Generative models (GPT-3.5, GPT-4, etc.) can produce fluent text or code, making them ideal for drafting reports, summarizing articles, or writing code snippets. BERT-like models, on the other hand, are better at classification or extracting information (e.g., sentiment analysis, named-entity recognition) since they encode meaning bidirectionally rather than generate new text <a href="https://www.geeksforgeeks.org/differences-between-gpt-and-bert/#:~:text=,tuned">oai_citation:11‡geeksforgeeks.org</a> <a href="https://www.geeksforgeeks.org/differences-between-gpt-and-bert/#:~:text=Conclusion">oai_citation:12‡geeksforgeeks.org</a>.</p>
-<p><strong>2. Research Workflow Integration:</strong> Consider a typical research workflow in political science: - <strong>Literature Review</strong> – AI tools like Elicit or Bing Chat can summarize papers or suggest relevant literature. - <strong>Data Collection &amp; Cleaning</strong> – We’ll see in Module 2 how AI can help fetch or parse data. - <strong>Analysis</strong> – AI can assist in coding (through code completion tools or generating analysis scripts) and even in choosing methods (e.g., suggesting whether to use a regression or a classification model for a given problem). - <strong>Writing &amp; Dissemination</strong> – Generative models can draft portions of manuscripts or create engaging summaries for presentations.</p>
-<p>Throughout these stages, choosing the right AI model is key. Simpler models or scripted rules might suffice for well-defined tasks (and be easier to interpret), whereas an LLM can be powerful for open-ended tasks like interpreting qualitative data. A notable example: Kovács et al.&nbsp;(2024) spent <strong>three years</strong> training a BERT-based model to measure a concept (“typicality”), only to find that ChatGPT could <em>“duplicate their results at a fraction of the cost”</em> in time and resources <a href="https://insights.som.yale.edu/insights/can-chatgpt-accelerate-social-science-research#:~:text=Yale%20SOM%E2%80%99s%20Bal%C3%A1zs%20Kov%C3%A1cs%2C%20with,a%20fraction%20of%20the%20cost">oai_citation:13‡insights.som.yale.edu</a>. This doesn’t mean BERT is obsolete – but it highlights how general-purpose GPT models can accelerate certain research tasks dramatically with minimal setup.</p>
-<p><strong>3. Hands-On Exercise 1:</strong> <em>Comparing AI Tools on a Task.</em> In this exercise, we will compare outputs from two AI systems on a common task: - <strong>Task:</strong> Summarize a political news article in one paragraph. - <strong>Tool A:</strong> A pre-trained BERT-based summarizer (for instance, using an extractive summarization library). - <strong>Tool B:</strong> GPT-3.5 via an API call. - <strong>Procedure:</strong> We provide both tools the same article text and examine the summaries produced. Below is pseudo-code in R to illustrate how one might invoke these: ```r # Pseudo-code: comparing a BERT summarizer vs.&nbsp;GPT-3.5 article_text &lt;- “Your article text goes here…” # Using a hypothetical BERT-based model via Python (reticulate or other package) library(reticulate) transformers &lt;- import(“transformers”) summarizer &lt;- transformers<span class="math inline">\(pipeline("summarization", model="bert-base-uncased")
-   bert_summary &lt;- summarizer(article_text)[[1]]\)</span>summary_text</p>
-<p># Using GPT-3.5 via OpenAI API (assuming API key is set as environment variable) library(openai) # OpenAI API R wrapper gpt_summary &lt;- create_chat_completion( model = “gpt-3.5-turbo”, messages = list(list(role=“user”, content=paste(“Summarize this article:”, article_text))) )<span class="math inline">\(choices[[1]]\)</span>message$content</p>
-<p># Print and compare summaries cat(“BERT-based Summary:”, bert_summary, “ Summary:”, gpt_summary)</p>
+<p><strong>1. AI Model Landscape:</strong> Modern AI for research largely revolves around <em>foundation models</em> – very large models trained on broad data.</p>
+<p>These models are pre-trained on vast datasets and can be fine-tuned for specific tasks. They include:</p>
+<ul>
+<li><p><strong>Generative AI</strong> (e.g., GPT-4, Claude): These models generate text, images, or other content based on prompts. They are often used for creative tasks, such as writing, summarizing, or generating code.</p></li>
+<li><p><strong>Transformers for Understanding</strong> (e.g., BERT, RoBERTa): These models are designed to understand and analyze text. They excel in tasks like sentiment analysis, named entity recognition, and other classification tasks.</p></li>
+<li><p><strong>Vision Models</strong> (e.g., CLIP, DALL-E): These models are trained on images and can generate or analyze visual content. They are used in tasks like image classification, object detection, and generating images from text prompts.</p></li>
+<li><p><strong>Reinforcement Learning Models</strong> (e.g., AlphaGo, OpenAI Five): These models learn to make decisions by interacting with an environment. They are used in tasks like game playing and robotics.</p></li>
+<li><p><strong>Multimodal Models</strong> (e.g., GPT-4, CLIP): These models can process and generate content across multiple modalities (text, images, audio). They are used in tasks that require understanding and generating content in different formats.</p></li>
+<li><p><strong>Audio Models</strong> (e.g., Whisper): These models are designed to process and generate audio content. They are used in tasks like speech recognition, text-to-speech synthesis, and music generation.</p></li>
+<li><p><strong>Reinforcement Learning from Human Feedback (RLHF)</strong>: This approach combines reinforcement learning with human feedback to improve model performance. It is used in tasks where human judgment is crucial, such as dialogue systems and content generation.</p></li>
+<li><p><strong>Diffusion Models</strong> (e.g., Stable Diffusion): These models generate images by iteratively refining random noise into coherent images. They are used in tasks like image synthesis and style transfer.</p></li>
+<li><p><strong>Graph Neural Networks (GNNs)</strong>: These models are designed to work with graph-structured data. They are used in tasks like social network analysis, recommendation systems, and molecular property prediction.</p></li>
+<li><p><strong>Neural Architecture Search (NAS)</strong>: This approach automates the design of neural networks, optimizing their architecture for specific tasks. It is used in tasks where model performance is critical, such as image classification and natural language processing.</p></li>
+<li><p><strong>Federated Learning</strong>: This approach allows models to be trained across multiple devices without sharing raw data. It is used in tasks where data privacy is a concern, such as healthcare and finance.</p></li>
+<li><p><strong>Self-supervised Learning</strong>: This approach uses unlabeled data to pre-train models, allowing them to learn useful representations without extensive labeled datasets. It is used in tasks where labeled data is scarce, such as natural language processing and computer vision.</p></li>
+<li><p><strong>Transfer Learning</strong>: This approach leverages knowledge from one domain to improve performance in another. It is used in tasks where data is limited, such as medical image analysis and low-resource languages.</p></li>
+<li><p><strong>Zero-shot and Few-shot Learning</strong>: These approaches allow models to generalize to new tasks with little or no training data. They are used in tasks where labeled data is scarce, such as natural language processing and computer vision.</p></li>
+<li><p><strong>Prompt Engineering</strong>: This approach involves designing effective prompts to elicit desired responses from models. It is used in tasks where model behavior needs to be controlled, such as dialogue systems and content generation.</p></li>
+<li><p><strong>Explainable AI (XAI)</strong>: This approach focuses on making AI models interpretable and understandable. It is used in tasks where model transparency is crucial, such as healthcare and finance.</p></li>
+</ul>
+<p>For language tasks, two dominant paradigms are <strong>Generative models</strong> (like GPT series) and <strong>Transformers for understanding</strong> (like BERT).</p>
+<ul>
+<li><p>Generative models are trained to predict the next word in a sequence, allowing them to generate coherent text. They are often used for tasks like text generation, summarization, and translation.</p></li>
+<li><p>Conversely, BERT and its variants are trained to understand the context of words in a sentence, making them suitable for tasks like sentiment analysis, named entity recognition, and question answering.</p></li>
+<li><p>For example, BERT is trained to predict masked words in a sentence, allowing it to learn the relationships between words and their context. This makes BERT particularly effective for tasks that require understanding the meaning of text, such as sentiment analysis and named entity recognition.</p></li>
+<li><p><strong>Generative AI</strong> (e.g., GPT-4, Claude): These models generate text, images, or other content based on prompts. They are often used for creative tasks, such as writing, summarizing, or generating code.</p></li>
+<li><p><strong>Transformers for Understanding</strong> (e.g., BERT, RoBERTa): These models are designed to understand and analyze text. They excel in tasks like sentiment analysis, named entity recognition, and other classification tasks.</p></li>
+</ul>
+<p>In essence, <em>“GPT’s strength lies in generating text, whereas BERT excels in tasks that require a deep understanding of language context”</em> <a href="https://www.geeksforgeeks.org/differences-between-gpt-and-bert/#:~:text=Conclusion">Geeks for Geeks: Differences Between GPT and BERT</a>. Generative models (GPT-3.5, GPT-4, etc.) can produce fluent text or code, making them ideal for drafting reports, summarizing articles, or writing code snippets. BERT-like models, on the other hand, are better at classification or extracting information (e.g., sentiment analysis, named-entity recognition) since they encode meaning bidirectionally rather than generate new text <a href="https://www.geeksforgeeks.org/differences-between-gpt-and-bert/#:~:text=,tuned">Geeks for Geeks: Differences Between GPT and BERT</a> <a href="https://www.geeksforgeeks.org/differences-between-gpt-and-bert/#:~:text=Conclusion">Geeks for Geeks: Differences Between GPT and BERT</a>.</p>
+<p><strong>2. Research Workflow Integration:</strong> Consider a typical research workflow in political science:</p>
+<ul>
+<li><p><strong>Literature Review</strong> – AI tools like Elicit or Bing Chat can summarize papers or suggest relevant literature.</p></li>
+<li><p><strong>Data Collection &amp; Cleaning</strong> – We’ll see in Module 2 how AI can help fetch or parse data.</p></li>
+<li><p><strong>Analysis</strong> – AI can assist in coding (through code completion tools or generating analysis scripts) and even in choosing methods (e.g., suggesting whether to use a regression or a classification model for a given problem).</p></li>
+<li><p><strong>Writing &amp; Dissemination</strong> – Generative models can draft portions of manuscripts or create engaging summaries for presentations.</p></li>
+</ul>
+<p>Throughout these stages, choosing the right AI model is key. Simpler models or scripted rules might suffice for well-defined tasks (and be easier to interpret), whereas an LLM can be powerful for open-ended tasks like interpreting qualitative data. A notable example: Kovács et al.&nbsp;(2024) spent <strong>three years</strong> training a BERT-based model to measure a concept (“typicality”), only to find that ChatGPT could <em>“duplicate their results at a fraction of the cost”</em> in time and resources <a href="https://insights.som.yale.edu/insights/can-chatgpt-accelerate-social-science-research#:~:text=Yale%20SOM%E2%80%99s%20Bal%C3%A1zs%20Kov%C3%A1cs%2C%20with,a%20fraction%20of%20the%20cost">Kovács et al.&nbsp;(2024)</a>. This doesn’t mean BERT is obsolete – but it highlights how general-purpose GPT models can accelerate certain research tasks dramatically with minimal setup.</p>
+<p><strong>3. Hands-On Exercise</strong></p>
+<p>1: <em>Comparing AI Tools on a Task.</em> In this exercise, we will compare outputs from two AI systems on a common task:</p>
+<ul>
+<li><p><strong>Task:</strong> Summarize a political news article in one paragraph.</p>
+<ul>
+<li><p><strong>Tool A:</strong> A pre-trained BERT-based summarizer (for instance, using an extractive summarization library).</p></li>
+<li><p><strong>Tool B:</strong> GPT-4 via an API call.</p></li>
+</ul></li>
+<li><p><strong>Procedure:</strong> We provide both tools the same article text and examine the summaries produced. Below is pseudo-code in R to illustrate how one might invoke these:</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pseudo-code: comparing a BERT summarizer vs. GPT-3.5</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>article_text <span class="ot">&lt;-</span> <span class="st">"Trump said they've agreed to open China, fully open China, and I think it's going to be fantastic for China, I think it's going to be fantastic for us, and I think it's going to be great for unification and peace, he said, without mentioning Taiwan."</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a hypothetical BERT-based model via Python (reticulate or other package)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Recommended Python Interpreter: Anaconda</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Conda Python 3.10.x</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages("reticulate") # Install reticulate if not already installed</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>transformers <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"transformers"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>summarizer <span class="ot">&lt;-</span> transformers<span class="sc">$</span><span class="fu">pipeline</span>(<span class="st">"summarization"</span>, <span class="at">model =</span> <span class="st">"facebook/bart-large-cnn"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate summary</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>bert_summary <span class="ot">&lt;-</span> <span class="fu">summarizer</span>(</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  article_text,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_length =</span> <span class="fu">as.integer</span>(<span class="dv">50</span>),</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">min_length =</span> <span class="fu">as.integer</span>(<span class="dv">15</span>),</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">do_sample =</span> <span class="cn">FALSE</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)[[<span class="dv">1</span>]]<span class="sc">$</span>summary_text</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(bert_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p># Using GPT-4.0 via ellmer and OpenAI API (assuming API key is set as environment variable)</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openai)  <span class="co"># OpenAI API R wrapper</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">### Set your OpenAI API key once</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Sys.setenv(</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">##    OPENAI_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">## )</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## install.packages("tidyverse/ellmer") # Install ellmer if not already installed</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the Chat object</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>twchat_obj <span class="ot">&lt;-</span> <span class="fu">chat_openai</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"gpt-4o"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">system_prompt =</span> <span class="st">"You are a Taiwan expert."</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>twchat_obj<span class="sc">$</span><span class="fu">chat</span>(<span class="fu">paste0</span>(<span class="st">"Summarize this article in one sentence:"</span>, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, article_text))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>response <span class="ot">&lt;-</span> twchat_obj<span class="sc">$</span><span class="fu">last_turn</span>(<span class="at">role =</span> <span class="st">"assistant"</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print and compare summaries</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"BERT-based Summary:</span><span class="sc">\n</span><span class="st">"</span>, bert_summary, <span class="st">"</span><span class="sc">\n\n</span><span class="st">GPT-4 Summary:</span><span class="sc">\n</span><span class="st">"</span>, response<span class="sc">@</span>text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="references" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> References</h1>
+<p>Alayrac, Jean-Baptiste, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, et al.&nbsp;2022. “Flamingo: A Visual Language Model for Few-Shot Learning.” <em>Advances in Neural Information Processing Systems</em> 35: 23716-23736.</p>
+<p>Anthropic. 2023. “Claude: A Next-Generation AI Assistant Based on Constitutional AI.” https://www.anthropic.com/claude (May 15, 2025).</p>
+<p>Arrieta, Alejandro Barredo, Natalia Díaz-Rodríguez, Javier Del Ser, Adrien Bennetot, Siham Tabik, Alberto Barbado, Salvador García, et al.&nbsp;2020. “Explainable Artificial Intelligence (XAI): Concepts, Taxonomies, Opportunities and Challenges toward Responsible AI.” <em>Information Fusion</em> 58: 82-115.</p>
+<p>Berner, Christopher, Greg Brockman, Brooke Chan, Vicki Cheung, Przemysław Dębiak, Christy Dennison, David Farhi, et al.&nbsp;2019. “Dota 2 with Large Scale Deep Reinforcement Learning.” arXiv preprint arXiv:1912.06680.</p>
+<p>Bommasani, Rishi, Drew A. Hudson, Ehsan Adeli, Russ Altman, Simran Arora, Sydney von Arx, Michael S. Bernstein, et al.&nbsp;2021. “On the Opportunities and Risks of Foundation Models.” arXiv preprint arXiv:2108.07258.</p>
+<p>Brown, Tom B., Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D. Kaplan, Prafulla Dhariwal, Arvind Neelakantan, et al.&nbsp;2020. “Language Models Are Few-Shot Learners.” <em>Advances in Neural Information Processing Systems</em> 33: 1877-1901.</p>
+<p>Chen, Ting, Simon Kornblith, Mohammad Norouzi, and Geoffrey Hinton. 2020. “A Simple Framework for Contrastive Learning of Visual Representations.” In <em>Proceedings of the 37th International Conference on Machine Learning</em>, 1597-1607.</p>
+<p>Christiano, Paul F., Jan Leike, Tom Brown, Miljan Martic, Shane Legg, and Dario Amodei. 2017. “Deep Reinforcement Learning from Human Preferences.” <em>Advances in Neural Information Processing Systems</em> 30: 4299-4307.</p>
+<p>Devlin, Jacob, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018. “BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.” arXiv preprint arXiv:1810.04805.</p>
+<p>Dhariwal, Prafulla, Heewoo Jun, Christine Payne, Jong Wook Kim, Alec Radford, and Ilya Sutskever. 2020. “Jukebox: A Generative Model for Music.” arXiv preprint arXiv:2005.00341.</p>
+<p>Elsken, Thomas, Jan Hendrik Metzen, and Frank Hutter. 2019. “Neural Architecture Search: A Survey.” <em>Journal of Machine Learning Research</em> 20(55): 1-21.</p>
+<p>Ho, Jonathan, Ajay Jain, and Pieter Abbeel. 2020. “Denoising Diffusion Probabilistic Models.” <em>Advances in Neural Information Processing Systems</em> 33: 6840-6851.</p>
+<p>Liu, Pengfei, Weizhe Yuan, Jinlan Fu, Zhengbao Jiang, Hiroaki Hayashi, and Graham Neubig. 2023. “Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing.” <em>ACM Computing Surveys</em> 55(9): 1-35.</p>
+<p>Liu, Yinhan, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019. “RoBERTa: A Robustly Optimized BERT Pretraining Approach.” arXiv preprint arXiv:1907.11692.</p>
+<p>McMahan, Brendan, Eider Moore, Daniel Ramage, Seth Hampson, and Blaise Aguera y Arcas. 2017. “Communication-Efficient Learning of Deep Networks from Decentralized Data.” In <em>Proceedings of the 20th International Conference on Artificial Intelligence and Statistics</em>, 1273-1282.</p>
+<p>OpenAI. 2023. “GPT-4 Technical Report.” arXiv preprint arXiv:2303.08774.</p>
+<p>Pan, Sinno Jialin, and Qiang Yang. 2009. “A Survey on Transfer Learning.” <em>IEEE Transactions on Knowledge and Data Engineering</em> 22(10): 1345-1359.</p>
+<p>Radford, Alec, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, et al.&nbsp;2021. “Learning Transferable Visual Models from Natural Language Supervision.” In <em>Proceedings of the 38th International Conference on Machine Learning</em>, 8748-8763.</p>
+<p>Radford, Alec, Jong Wook Kim, Tao Xu, Greg Brockman, Christine McLeavey, and Ilya Sutskever. 2023. “Robust Speech Recognition via Large-Scale Weak Supervision.” arXiv preprint arXiv:2212.04356.</p>
+<p>Ramesh, Aditya, Prafulla Dhariwal, Alex Nichol, Casey Chu, and Mark Chen. 2022. “Hierarchical Text-Conditional Image Generation with CLIP Latents.” arXiv preprint arXiv:2204.06125.</p>
+<p>Reynolds, Laria, and Kyle McDonell. 2021. “Prompt Programming for Large Language Models: Beyond the Few-Shot Paradigm.” In <em>CHI Conference on Human Factors in Computing Systems Extended Abstracts</em>, 1-7.</p>
+<p>Rombach, Robin, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn Ommer. 2022. “High-Resolution Image Synthesis with Latent Diffusion Models.” In <em>Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, 10684-10695.</p>
+<p>Silver, David, Aja Huang, Chris J. Maddison, Arthur Guez, Laurent Sifre, George Van Den Driessche, Julian Schrittwieser, et al.&nbsp;2016. “Mastering the Game of Go with Deep Neural Networks and Tree Search.” <em>Nature</em> 529(7587): 484-489.</p>
+<p>Zhou, Jie, Ganqu Cui, Shengding Hu, Zhengyan Zhang, Cheng Yang, Zhiyuan Liu, Lifeng Wang, Changcheng Li, and Maosong Sun. 2020. “Graph Neural Networks: A Review of Methods and Applications.” <em>AI Open</em> 1: 57-81.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
