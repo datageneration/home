@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Programming with GenAI - 9&nbsp; Chapter 9: Introduction to Language Models and Text Analysis in R</title>
+<title>10&nbsp; Chapter 9: Introduction to Language Models and Text Analysis in R – Data Programming with GenAI</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-86daaaaad7353f9cc0c554efc1dd6d94.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-03fd3c7aec630eb0a1b51344ae4f88ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -113,13 +113,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./TextAnalysis.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./TextAnalysis.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -144,79 +144,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Introduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./QuartoWebsite.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2: Creating a Quarto Website and Deploying on GitHub Pages</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataVisualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 3: Interactive Data Visualization with <em>ggplot2</em> and <em>Plotly</em></span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 3: Interactive Data Visualization with <em>ggplot2</em> and <em>Plotly</em></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataCollection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 4: Data Collection with APIs and Web Scraping</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 4: Data Collection with APIs and Web Scraping</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ShinyIntroduction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 5: Introduction to Shiny for Interactive Web Applications</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 5: Introduction to Shiny for Interactive Web Applications</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./AdvancedShiny.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 6: Advanced Shiny – Embedding Apps in Quarto</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./DataManagement.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 7: Data Management and Exploratory Data Analysis (EDA)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./MachineLearningModels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./TextAnalysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./GenAIIntegration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Conclusion.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Conclusion</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Appendix I: Resources</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Appendix II: Garbage collection gc()</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ParallelProcessing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Appendix III: How to Use Parallel Processing in R</span></span></a>
   </div>
 </li>
     </ul>
@@ -229,21 +241,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#key-topics" id="toc-key-topics" class="nav-link active" data-scroll-target="#key-topics"><span class="header-section-number">9.0.1</span> Key Topics</a></li>
-  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome"><span class="header-section-number">9.0.2</span> Outcome</a></li>
-  <li><a href="#introduction-to-text-analysis-with-tidytext" id="toc-introduction-to-text-analysis-with-tidytext" class="nav-link" data-scroll-target="#introduction-to-text-analysis-with-tidytext"><span class="header-section-number">9.1</span> Introduction to Text Analysis with tidytext</a>
+  <li><a href="#key-topics" id="toc-key-topics" class="nav-link active" data-scroll-target="#key-topics"><span class="header-section-number">10.0.1</span> Key Topics</a></li>
+  <li><a href="#outcome" id="toc-outcome" class="nav-link" data-scroll-target="#outcome"><span class="header-section-number">10.0.2</span> Outcome</a></li>
+  <li><a href="#introduction-to-text-analysis-with-tidytext" id="toc-introduction-to-text-analysis-with-tidytext" class="nav-link" data-scroll-target="#introduction-to-text-analysis-with-tidytext"><span class="header-section-number">10.1</span> Introduction to Text Analysis with tidytext</a>
   <ul class="collapse">
-  <li><a href="#example-tokenization-and-basic-text-processing" id="toc-example-tokenization-and-basic-text-processing" class="nav-link" data-scroll-target="#example-tokenization-and-basic-text-processing"><span class="header-section-number">9.1.1</span> Example: Tokenization and Basic Text Processing</a></li>
-  <li><a href="#example-sentiment-analysis" id="toc-example-sentiment-analysis" class="nav-link" data-scroll-target="#example-sentiment-analysis"><span class="header-section-number">9.1.2</span> Example: Sentiment Analysis</a></li>
+  <li><a href="#example-tokenization-and-basic-text-processing" id="toc-example-tokenization-and-basic-text-processing" class="nav-link" data-scroll-target="#example-tokenization-and-basic-text-processing"><span class="header-section-number">10.1.1</span> Example: Tokenization and Basic Text Processing</a></li>
+  <li><a href="#example-sentiment-analysis" id="toc-example-sentiment-analysis" class="nav-link" data-scroll-target="#example-sentiment-analysis"><span class="header-section-number">10.1.2</span> Example: Sentiment Analysis</a></li>
   </ul></li>
-  <li><a href="#hands-on-exercise" id="toc-hands-on-exercise" class="nav-link" data-scroll-target="#hands-on-exercise"><span class="header-section-number">9.2</span> Hands-On Exercise</a>
+  <li><a href="#hands-on-exercise" id="toc-hands-on-exercise" class="nav-link" data-scroll-target="#hands-on-exercise"><span class="header-section-number">10.2</span> Hands-On Exercise</a>
   <ul class="collapse">
-  <li><a href="#exercise-1-analyze-text-data" id="toc-exercise-1-analyze-text-data" class="nav-link" data-scroll-target="#exercise-1-analyze-text-data"><span class="header-section-number">9.2.1</span> Exercise 1: Analyze Text Data</a></li>
-  <li><a href="#exercise-2-conduct-sentiment-analysis" id="toc-exercise-2-conduct-sentiment-analysis" class="nav-link" data-scroll-target="#exercise-2-conduct-sentiment-analysis"><span class="header-section-number">9.2.2</span> Exercise 2: Conduct Sentiment Analysis</a></li>
+  <li><a href="#exercise-1-analyze-text-data" id="toc-exercise-1-analyze-text-data" class="nav-link" data-scroll-target="#exercise-1-analyze-text-data"><span class="header-section-number">10.2.1</span> Exercise 1: Analyze Text Data</a></li>
+  <li><a href="#exercise-2-conduct-sentiment-analysis" id="toc-exercise-2-conduct-sentiment-analysis" class="nav-link" data-scroll-target="#exercise-2-conduct-sentiment-analysis"><span class="header-section-number">10.2.2</span> Exercise 2: Conduct Sentiment Analysis</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.3</span> References</a>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10.3</span> References</a>
   <ul class="collapse">
-  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">9.3.1</span> Recap</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap"><span class="header-section-number">10.3.1</span> Recap</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -253,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 9: Introduction to Language Models and Text Analysis in R</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -270,25 +282,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="key-topics" class="level3" data-number="9.0.1">
-<h3 data-number="9.0.1" class="anchored" data-anchor-id="key-topics"><span class="header-section-number">9.0.1</span> Key Topics</h3>
+<section id="key-topics" class="level3" data-number="10.0.1">
+<h3 data-number="10.0.1" class="anchored" data-anchor-id="key-topics"><span class="header-section-number">10.0.1</span> Key Topics</h3>
 <ul>
 <li>Introduction to language models and text analysis using R.</li>
 <li>Overview of packages like <code>tidytext</code> for tokenizing and analyzing text data.</li>
 <li>Hands-on exercises to conduct a simple text analysis, such as sentiment analysis, on a text dataset.</li>
 </ul>
 </section>
-<section id="outcome" class="level3" data-number="9.0.2">
-<h3 data-number="9.0.2" class="anchored" data-anchor-id="outcome"><span class="header-section-number">9.0.2</span> Outcome</h3>
+<section id="outcome" class="level3" data-number="10.0.2">
+<h3 data-number="10.0.2" class="anchored" data-anchor-id="outcome"><span class="header-section-number">10.0.2</span> Outcome</h3>
 <p>Participants will gain foundational skills in text analysis and learn how to use language models in R for analyzing textual data.</p>
 </section>
-<section id="introduction-to-text-analysis-with-tidytext" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="introduction-to-text-analysis-with-tidytext"><span class="header-section-number">9.1</span> Introduction to Text Analysis with tidytext</h2>
+<section id="introduction-to-text-analysis-with-tidytext" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="introduction-to-text-analysis-with-tidytext"><span class="header-section-number">10.1</span> Introduction to Text Analysis with tidytext</h2>
 <p>The <code>tidytext</code> package applies tidy data principles to text mining, making it easier to manipulate and analyze textual data using familiar tools from the <code>tidyverse</code>.</p>
-<section id="example-tokenization-and-basic-text-processing" class="level3" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="example-tokenization-and-basic-text-processing"><span class="header-section-number">9.1.1</span> Example: Tokenization and Basic Text Processing</h3>
+<section id="example-tokenization-and-basic-text-processing" class="level3" data-number="10.1.1">
+<h3 data-number="10.1.1" class="anchored" data-anchor-id="example-tokenization-and-basic-text-processing"><span class="header-section-number">10.1.1</span> Example: Tokenization and Basic Text Processing</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -301,6 +316,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample text data</span></span>
@@ -315,6 +332,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display tokenized data</span></span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>tidy_text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 15 × 2
     line word   
@@ -337,9 +355,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="example-sentiment-analysis" class="level3" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="example-sentiment-analysis"><span class="header-section-number">9.1.2</span> Example: Sentiment Analysis</h3>
+<section id="example-sentiment-analysis" class="level3" data-number="10.1.2">
+<h3 data-number="10.1.2" class="anchored" data-anchor-id="example-sentiment-analysis"><span class="header-section-number">10.1.2</span> Example: Sentiment Analysis</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get sentiment lexicon</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>sentiments <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">"bing"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -350,6 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display sentiment counts</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>sentiment_analysis</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   sentiment     n
@@ -359,15 +380,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="hands-on-exercise" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="hands-on-exercise"><span class="header-section-number">9.2</span> Hands-On Exercise</h2>
-<section id="exercise-1-analyze-text-data" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="exercise-1-analyze-text-data"><span class="header-section-number">9.2.1</span> Exercise 1: Analyze Text Data</h3>
+<section id="hands-on-exercise" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="hands-on-exercise"><span class="header-section-number">10.2</span> Hands-On Exercise</h2>
+<section id="exercise-1-analyze-text-data" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="exercise-1-analyze-text-data"><span class="header-section-number">10.2.1</span> Exercise 1: Analyze Text Data</h3>
 <ol type="1">
 <li>Use a dataset of your choice (e.g., tweets or product reviews).</li>
 <li>Tokenize the text data using <code>unnest_tokens()</code>.</li>
 </ol>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code structure for tokenizing a dataset</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tweets <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
@@ -378,6 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>tokenized_tweets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 14 × 2
     line word       
@@ -399,19 +423,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="exercise-2-conduct-sentiment-analysis" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="exercise-2-conduct-sentiment-analysis"><span class="header-section-number">9.2.2</span> Exercise 2: Conduct Sentiment Analysis</h3>
+<section id="exercise-2-conduct-sentiment-analysis" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="exercise-2-conduct-sentiment-analysis"><span class="header-section-number">10.2.2</span> Exercise 2: Conduct Sentiment Analysis</h3>
 <ol type="1">
 <li>Use the <code>bing</code> sentiment lexicon.</li>
 <li>Analyze the sentiment of the tokenized text data.</li>
 </ol>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code structure for sentiment analysis</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>tweet_sentiments <span class="ot">&lt;-</span> tokenized_tweets <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">get_sentiments</span>(<span class="st">"bing"</span>), <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sentiment)</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>tweet_sentiments</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   sentiment     n
@@ -421,16 +448,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="references" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="references"><span class="header-section-number">9.3</span> References</h2>
+<section id="references" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="references"><span class="header-section-number">10.3</span> References</h2>
 <ul>
 <li>Silge, J., &amp; Robinson, D. (2017). <em>Text Mining with R: A Tidy Approach</em>. O’Reilly Media. Available at <a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a>.</li>
 <li>CRAN Package <code>tidytext</code>: <a href="https://cran.r-project.org/web/packages/tidytext/index.html" class="uri">https://cran.r-project.org/web/packages/tidytext/index.html</a>.</li>
 <li>Julia Silge’s blog on learning <code>tidytext</code>: <a href="https://juliasilge.com/blog/learn-tidytext-learnr/" class="uri">https://juliasilge.com/blog/learn-tidytext-learnr/</a>.</li>
 </ul>
 <p>By following these examples and exercises, participants will gain practical experience in conducting text analysis using R. This session will enhance their ability to extract insights from textual data through tokenization and sentiment analysis. ```</p>
-<section id="recap" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="recap"><span class="header-section-number">9.3.1</span> Recap</h3>
+<section id="recap" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="recap"><span class="header-section-number">10.3.1</span> Recap</h3>
 <ul>
 <li><strong>Text Analysis Basics:</strong> Introduces tokenization and sentiment analysis using the <code>tidytext</code> package.</li>
 <li><strong>Examples:</strong> Provides code snippets for processing and analyzing textual data.</li>
@@ -440,6 +467,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This chapter ensures participants understand both theoretical concepts and practical applications of text analysis in R.</p>
 <p>Sources [1] Learn tidytext with my new learnr course - Julia Silge https://juliasilge.com/blog/learn-tidytext-learnr/ [2] Text mining in R with tidytext https://paldhous.github.io/NICAR/2019/r-text-analysis.html [3] Sentiment analysis with tidytext (R case study, 2021) - YouTube https://www.youtube.com/watch?v=P5ihIzoZivc [4] 1 The tidy text format - Text Mining with R https://www.tidytextmining.com/tidytext [5] CRAN: Package tidytext https://cran.r-project.org/web/packages/tidytext/index.html [6] juliasilge/tidytext: Text mining using tidy tools :sparkles - GitHub https://github.com/juliasilge/tidytext [7] Introduction to tidytext https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html [8] Table of contents https://r4ds.hadley.nz/webscraping</p>
 
+
+<!-- -->
 
 </section>
 </section>
@@ -480,18 +509,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -523,7 +541,96 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -558,7 +665,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -606,7 +717,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -834,16 +944,121 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./MachineLearningModels.html" class="pagination-link  aria-label=" &lt;span="" 8:="" introduction="" to="" machine="" learning="" models="" in="" r&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span>
+      <a href="./MachineLearningModels.html" class="pagination-link" aria-label="Chapter 8: Introduction to Machine Learning Models in R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Chapter 8: Introduction to Machine Learning Models in R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./GenAIIntegration.html" class="pagination-link" aria-label="<span class='chapter-number'>10</span>&nbsp; <span class='chapter-title'>Chapter 10: Leveraging GenAI for Data Science and Programming in R</span>">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./GenAIIntegration.html" class="pagination-link" aria-label="Chapter 10: Leveraging GenAI for Data Science and Programming in R">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Chapter 10: Leveraging GenAI for Data Science and Programming in R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Chapter 9: Introduction to Language Models and Text Analysis in R</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Key Topics</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Introduction to language models and text analysis using R.</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Overview of packages like <span class="in">`tidytext`</span> for tokenizing and analyzing text data.</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Hands-on exercises to conduct a simple text analysis, such as sentiment analysis, on a text dataset.</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">### Outcome</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>Participants will gain foundational skills in text analysis and learn how to use language models in R for analyzing textual data.</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction to Text Analysis with tidytext</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>The <span class="in">`tidytext`</span> package applies tidy data principles to text mining, making it easier to manipulate and analyze textual data using familiar tools from the <span class="in">`tidyverse`</span>.</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: Tokenization and Basic Text Processing</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample text data</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>text_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">c</span>(<span class="st">"This is a simple example."</span>, <span class="st">"Text mining with R is fun."</span>, <span class="st">"Let's analyze some text!"</span>)</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Tokenize the text into words</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>tidy_text <span class="ot">&lt;-</span> text_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Display tokenized data</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>tidy_text</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: Sentiment Analysis</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Get sentiment lexicon</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>sentiments <span class="ot">&lt;-</span> <span class="fu">get_sentiments</span>(<span class="st">"bing"</span>)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform sentiment analysis</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>sentiment_analysis <span class="ot">&lt;-</span> tidy_text <span class="sc">%&gt;%</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(sentiments, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sentiment)</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Display sentiment counts</span></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>sentiment_analysis</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hands-On Exercise</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 1: Analyze Text Data</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Use a dataset of your choice (e.g., tweets or product reviews).</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Tokenize the text data using <span class="in">`unnest_tokens()`</span>.</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code structure for tokenizing a dataset</span></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>tweets <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a>  <span class="at">line =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">c</span>(<span class="st">"R is great for data science."</span>, <span class="st">"I love using tidyverse!"</span>, <span class="st">"Text analysis is interesting."</span>)</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>tokenized_tweets <span class="ot">&lt;-</span> tweets <span class="sc">%&gt;%</span></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text)</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>tokenized_tweets</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exercise 2: Conduct Sentiment Analysis</span></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Use the <span class="in">`bing`</span> sentiment lexicon.</span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Analyze the sentiment of the tokenized text data.</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Example code structure for sentiment analysis</span></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a>tweet_sentiments <span class="ot">&lt;-</span> tokenized_tweets <span class="sc">%&gt;%</span></span>
+<span id="cb11-88"><a href="#cb11-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(<span class="fu">get_sentiments</span>(<span class="st">"bing"</span>), <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-89"><a href="#cb11-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sentiment)</span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a>tweet_sentiments</span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Silge, J., &amp; Robinson, D. (2017). *Text Mining with R: A Tidy Approach*. O'Reilly Media. Available at <span class="ot">&lt;https://www.tidytextmining.com/&gt;</span>.</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>CRAN Package <span class="in">`tidytext`</span>: <span class="ot">&lt;https://cran.r-project.org/web/packages/tidytext/index.html&gt;</span>.</span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Julia Silge's blog on learning <span class="in">`tidytext`</span>: <span class="ot">&lt;https://juliasilge.com/blog/learn-tidytext-learnr/&gt;</span>.</span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>By following these examples and exercises, participants will gain practical experience in conducting text analysis using R. This session will enhance their ability to extract insights from textual data through tokenization and sentiment analysis. <span class="sc">\`\`\`</span></span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### Recap</span></span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Text Analysis Basics:** Introduces tokenization and sentiment analysis using the <span class="in">`tidytext`</span> package.</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Examples:** Provides code snippets for processing and analyzing textual data.</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**Exercises:** Offers hands-on practice for applying these techniques on real datasets.</span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>**References:** Lists useful resources for further reading on text mining with R.</span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>This chapter ensures participants understand both theoretical concepts and practical applications of text analysis in R.</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>Sources <span class="sc">\[</span>1<span class="sc">\]</span> Learn tidytext with my new learnr course - Julia Silge https://juliasilge.com/blog/learn-tidytext-learnr/ <span class="sc">\[</span>2<span class="sc">\]</span> Text mining in R with tidytext https://paldhous.github.io/NICAR/2019/r-text-analysis.html <span class="sc">\[</span>3<span class="sc">\]</span> Sentiment analysis with tidytext (R case study, 2021) - YouTube https://www.youtube.com/watch?v=P5ihIzoZivc <span class="sc">\[</span>4<span class="sc">\]</span> 1 The tidy text format - Text Mining with R https://www.tidytextmining.com/tidytext <span class="sc">\[</span>5<span class="sc">\]</span> CRAN: Package tidytext https://cran.r-project.org/web/packages/tidytext/index.html <span class="sc">\[</span>6<span class="sc">\]</span> juliasilge/tidytext: Text mining using tidy tools :sparkles - GitHub https://github.com/juliasilge/tidytext <span class="sc">\[</span>7<span class="sc">\]</span> Introduction to tidytext https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html <span class="sc">\[</span>8<span class="sc">\]</span> Table of contents https://r4ds.hadley.nz/webscraping</span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 
 
