@@ -32,12 +32,12 @@
   {
     "objectID": "ParallelProcessing.html",
     "href": "ParallelProcessing.html",
-    "title": "Appendix B — Appendix B: Parallel Processing Techniques",
+    "title": "Appendix B — Parallel Processing Techniques",
     "section": "",
     "text": "Some tasks in data science (and AI experiments) can benefit from parallel processing – using multiple CPU cores or machines to run computations simultaneously. While not a focus of our workshop, we include a brief overview for those interested in speeding up heavy workloads (such as scraping many pages or running many simulations).\nB1. Why Parallelize? If a job takes 10 hours on one core, in theory splitting it across 10 cores could finish it in ~1 hour. In practice, parallelization has overhead, but it’s invaluable for tasks like: - Web scraping a large number of pages (to stay polite, you might still throttle per site, but you can scrape multiple sites in parallel). - Running cross-validation or hyperparameter tuning for machine learning models. - Simulations or bootstrapping in statistics.\nB2. Parallel Tools in R:\n\nBase R includes the parallel package. For example, mclapply() on Linux/macOS can apply a function in parallel. On Windows, one can use parLapply() with a cluster.\nThe future package along with furrr (for parallel map with purrr syntax) provides a more user-friendly approach. For instance:\n\n\n\nCode\nlibrary(future)\nplan(multisession, workers = 4)  # use 4 cores\nlibrary(furrr)\nresults &lt;- future_map(1:100, ~ { Sys.sleep(1); .x^2 })",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Appendix B: Parallel Processing Techniques</span>"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Parallel Processing Techniques</span>"
     ]
   },
   {
@@ -93,12 +93,12 @@
   {
     "objectID": "gc.html",
     "href": "gc.html",
-    "title": "Appendix A — Appendix A: Generative Computing & Efficiency Tips",
+    "title": "Appendix A — Generative Computing & Efficiency Tips",
     "section": "",
     "text": "This technical appendix provides additional notes on generative computing (using generative AI in coding) and some efficiency tips (like memory management) that supplement our workshop content.\n\nA.0.1 A1. Generative AI in Coding (Additional Examples):\nIn Module 1 and Module 3, we saw how AI can generate code or assist in coding tasks. Here are a few more pointers:\n\nCode Completion Tools:\n\nApart from ChatGPT, tools like GitHub Copilot (powered by OpenAI Codex) can be integrated into IDEs. They work by predicting your next lines of code. Many faculty have found Copilot helpful for writing repetitive code or exploring unfamiliar libraries, effectively acting as a “pair programmer” with auto-completion.\nWith education ID, apply in GitHub. It takes same day to approve.\n\nPrompt Engineering for Coding:\n\nWhen using generative AI for coding, how you ask matters. For example, “Write an R function to calculate the Gini coefficient from a numeric vector” will yield a more targeted result than “Give me code for Gini”. Be specific about language (R/Python), input/output, and even style.\n\nVerification: Always test and verify AI-generated code. Treat it like code from a student – likely correct on straightforward tasks, but possibly flawed on complex ones. AI might use outdated functions or assume things. For instance, if ChatGPT suggests using spread() from tidyr (which is deprecated in favor of pivot_wider()), you’ll need to catch that.\n\n\n\nA.0.2 A2. Memory Management and Garbage Collection (for R users):\n\nWhen working with large data or running many AI model calls, you might encounter performance issues. R has a garbage collector (gc() function) that frees up memory. While our one-day workshop exercises are small-scale, if you continue experimenting with AI (say calling an API thousands of times, or fine-tuning models), remember:\n\nUse gc() to explicitly prompt R to clear unused memory if you notice memory bloat.\n\nMonitor memory usage with tools like pryr or base R’s memory.size() (on Windows).\nPython users: similarly, be aware of memory when loading big models (use del and gc.collect() from the gc module if needed).\nSee also Data Programming with GenAI Appendix II\n\n\n\nA.0.3 A3. Dealing with Rate Limits (API efficiency):\n\nIf writing a script to collect data via an API or to use an AI service repeatedly, you might hit rate limits:\n\nCheck if the API allows batch requests. For example, the OpenAI API lets you send multiple prompts in one request (as an array) in some endpoints.\nIntroduce pauses between requests using Sys.sleep() in R or time.sleep() in Python to avoid triggering caps.\nIf doing a large scraping job, consider parallel processing (see Appendix B) to speed up while still being polite (distributing load, not exceeding per-IP limits).",
     "crumbs": [
       "Appendices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Appendix A: Generative Computing & Efficiency Tips</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Generative Computing & Efficiency Tips</span>"
     ]
   },
   {
