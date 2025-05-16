@@ -1,0 +1,39 @@
+---
+title: "Introduction"
+format: 
+  revealjs:
+    theme: simple 
+    slide-number: true
+    width: 1600
+    height: 900
+    vertical-align: top
+    css: theme_tds.css
+    incremental: true
+    footer: "Teaching Data Science with AI"
+---
+
+## 
+
+
+  - Artificial Intelligence (AI) is rapidly becoming ubiquitous in research and education. The advent of accessible large language models (LLMs) like OpenAI’s ChatGPT has opened new possibilities for data science research and pedagogy. 
+
+## The Gap
+
+:::: columns
+::: {.column width="50%"}
+[Digital Education Council Global AI Student Survey 2024: AI or Not AI: What Students Want](https://26556596.fs1.hubspotusercontent-eu1.net/hubfs/26556596/Digital%20Education%20Council%20Global%20AI%20Student%20Survey%202024.pdf?utm_medium=email&_hsenc=p2ANqtz-8KApDYqT8iWtdqAD3FDmd8jnVzebZtABaBwLPwQ7XT_vQzsuS9HdpIB-LKTA_xt_qWjSJxyzV4sIEfUbmeA7btoyS7dg&_hsmi=92199303&utm_content=92199303&utm_source=hs_automation)
+:::
+::: {.column width="50%"}
+[Digital Education Council's 2025 Global AI Faculty Survey:AI Meets Academia: What Faculty Think ](https://26556596.fs1.hubspotusercontent-eu1.net/hubfs/26556596/DEC/Digital%20Education%20Council%20Global%20AI%20Faculty%20Survey%202025.pdf?utm_medium=email&_hsenc=p2ANqtz-828t-2I8qLY96Wzql115zPAVc9AMd3yRpcOmgfU3davS87Bl3G-HXBE-Gq8CgVeWPZ1zAfHaXcfD41ZADEF7yYKRxYZg&_hsmi=102804064&utm_content=102804064&utm_source=hs_automation)
+:::
+::::
+  - The gap is:
+    - between student and faculty in using and understanding AI
+    - between the hype and reality of AI
+    - between the promise and peril of AI
+    - between the potential and the pitfalls of AI
+    
+## The Goal of the Workshop
+
+  - Social and political scientists are beginning to ask how these AI models can enhance (or disrupt) traditional research workflows and teaching designs. 
+  - This introduction provides context for the workshop and previews the modules ahead.
