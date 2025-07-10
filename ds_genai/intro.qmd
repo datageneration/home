@@ -1,0 +1,22 @@
+---
+title: "Introduction"
+---
+
+# Introduction
+
+Welcome to the Data Science and GenAI Workshop!
+
+## Objectives
+
+- Understand foundational theories of data science
+- Apply data visualization and machine learning techniques
+- Integrate Generative AI into data science workflows
+- Explore advanced GenAI systems and future trends
+
+## Audience
+
+This book is designed for students with basic programming knowledge.
+
+## Structure
+
+The workshop is divided into four modules, each with a dedicated chapter and slide deck.

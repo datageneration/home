@@ -1,0 +1,1665 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Chapter 4: Advanced Applications – RAG, MCP, and Future Trends – Data Science and GenAI: Theory and Applications</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter3.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-11d96894dd7817e82423dfd1eea0dc7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/viz-1.8.2/viz.js"></script>
+<link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="site_libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+<link rel="stylesheet" href="style_dsgenai.css">
+</head>
+
+<body class="nav-sidebar floating fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter4.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 4: Advanced Applications – RAG, MCP, and Future Trends</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Data Science and GenAI: Theory and Applications</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Science and GenAI: Theory and Applications</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Chapter 1: Data Science Theory and Fundamentals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Chapter 2: Fundamentals - Data Visualization, Machine Learning, and GenAI Integration</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 3: GenAI Applications - LLMs, Vibe Coding, and Collaborative Intelligence</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 4: Advanced Applications – RAG, MCP, and Future Trends</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chapter 4: Advanced Applications – RAG, MCP, and Future Trends</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="learning-objectives" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">5.1</span> Learning Objectives</h2>
+<ul>
+<li>Implement Retrieval-Augmented Generation (RAG) systems</li>
+<li>Understand Model Context Protocol (MCP) applications</li>
+<li>Design synthetic data generation workflows</li>
+<li>Explore the future of context engineering vs.&nbsp;prompt engineering</li>
+<li>Anticipate future developments in GenAI for data science</li>
+</ul>
+</section>
+<section id="retrieval-augmented-generation-rag-concept-history-and-advantages" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="retrieval-augmented-generation-rag-concept-history-and-advantages"><span class="header-section-number">5.2</span> 4.1 Retrieval-Augmented Generation (RAG): Concept, History, and Advantages</h2>
+<section id="what-is-rag" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="what-is-rag"><span class="header-section-number">5.2.1</span> What is RAG?</h3>
+<p>Retrieval-Augmented Generation (RAG) is an architecture that combines large language models (LLMs) with external information retrieval systems. Instead of relying solely on a model’s static internal knowledge, RAG dynamically retrieves relevant documents or facts from external sources and feeds them into the LLM as context for response generation.</p>
+</section>
+<section id="why-was-rag-developed" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="why-was-rag-developed"><span class="header-section-number">5.2.2</span> Why Was RAG Developed?</h3>
+<ul>
+<li><strong>Static Training Data Limitation:</strong> Traditional LLMs are trained on a fixed dataset and cannot access new information after training. Their knowledge is “frozen” at the time of their last update.</li>
+<li><strong>Hallucination and Factuality:</strong> LLMs often generate plausible-sounding but incorrect or outdated information, especially for recent events or niche topics.</li>
+<li><strong>RAG’s Solution:</strong> By retrieving up-to-date and domain-specific information at inference time, RAG systems can ground their responses in real evidence, improve factual accuracy, and reduce hallucinations.</li>
+</ul>
+</section>
+<section id="how-rag-works-flowchart" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="how-rag-works-flowchart"><span class="header-section-number">5.2.3</span> How RAG Works: Flowchart</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">digraph LLM_Pipeline {</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [rankdir = TB, layout = dot]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">  node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">  A [label = 'User Query']</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">  B [label = 'Query Processing']</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="st">  C [label = 'Information Retrieval</span><span class="sc">\\</span><span class="st">n(search external sources)']</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="st">  D [label = 'Select Top-K Relevant Documents']</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="st">  E [label = 'Context Augmentation</span><span class="sc">\\</span><span class="st">n(add retrieved docs to prompt)']</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">  F [label = 'LLM Generation</span><span class="sc">\\</span><span class="st">n(generate answer using context)']</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">  G [label = 'Response to User']</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">  A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; F -&gt; G</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-75331065807bdce91aa9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-75331065807bdce91aa9">{"x":{"diagram":"\ndigraph LLM_Pipeline {\n  graph [rankdir = TB, layout = dot]\n\n  node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica]\n\n  A [label = \"User Query\"]\n  B [label = \"Query Processing\"]\n  C [label = \"Information Retrieval\\n(search external sources)\"]\n  D [label = \"Select Top-K Relevant Documents\"]\n  E [label = \"Context Augmentation\\n(add retrieved docs to prompt)\"]\n  F [label = \"LLM Generation\\n(generate answer using context)\"]\n  G [label = \"Response to User\"]\n\n  A -> B -> C -> D -> E -> F -> G\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><strong>Explanation of Steps:</strong></p>
+<ol type="1">
+<li><strong>User Query:</strong> The user asks a question or makes a request.</li>
+<li><strong>Query Processing:</strong> The system reformulates the query for retrieval.</li>
+<li><strong>Information Retrieval:</strong> The system searches external sources.</li>
+<li><strong>Select Top-K Documents:</strong> The most relevant documents are selected.</li>
+<li><strong>Context Augmentation:</strong> These documents are added to the LLM’s input prompt.</li>
+<li><strong>LLM Generation:</strong> The LLM generates a response, using both its internal knowledge and the retrieved context.</li>
+<li><strong>Response to User:</strong> The grounded, evidence-based answer is returned.</li>
+</ol>
+</section>
+<section id="why-is-rag-better-than-static-llms" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="why-is-rag-better-than-static-llms"><span class="header-section-number">5.2.4</span> Why is RAG Better Than Static LLMs?</h3>
+<ul>
+<li><strong>Dynamic Knowledge:</strong> RAG can access the latest information, overcoming the “knowledge cut-off” of static LLMs.</li>
+<li><strong>Reduced Hallucination:</strong> By grounding answers in retrieved evidence, RAG mitigates the risk of making up facts.</li>
+<li><strong>Domain Adaptability:</strong> RAG can specialize in any domain by connecting to relevant databases or corpora, without retraining the LLM.</li>
+<li><strong>Transparency:</strong> RAG can cite sources, increasing trust and interpretability.</li>
+</ul>
+</section>
+<section id="example-rag-in-practice" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="example-rag-in-practice"><span class="header-section-number">5.2.5</span> Example: RAG in Practice</h3>
+<p>Suppose a user asks:<br>
+<em>“What are the latest COVID-19 statistics in Taiwan?”</em></p>
+<ul>
+<li>A static LLM (trained in 2023) cannot answer accurately.</li>
+<li>A RAG system retrieves the latest statistics from a government database or news API, includes them in the prompt, and the LLM summarizes and communicates the answer.</li>
+</ul>
+<p><strong>Benefits of RAG</strong> (Lewis et al.&nbsp;2020; Pinecone 2024):</p>
+<ul>
+<li>Enhanced accuracy: Up-to-date, factual information from external sources</li>
+<li>Reduced hallucinations: Grounding responses in verified information</li>
+<li>Domain customization: Integration with specialized knowledge bases</li>
+<li>Transparency: Ability to cite sources and provide evidence</li>
+</ul>
+<section id="sample-rag-implementation" class="level4" data-number="5.2.5.1">
+<h4 data-number="5.2.5.1" class="anchored" data-anchor-id="sample-rag-implementation"><span class="header-section-number">5.2.5.1</span> Sample RAG Implementation</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating RAG System for Data Science Knowledge</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple knowledge base</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>data_science_kb <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">document_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="fu">c</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cross-validation is essential for model evaluation to prevent overfitting"</span>,</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Feature engineering involves creating new variables from existing data"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The bias-variance tradeoff is fundamental to machine learning model performance"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Exploratory data analysis should always precede model building"</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data cleaning typically consumes 80% of a data scientist's time"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Correlation does not imply causation in statistical analysis"</span>,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ensemble methods often outperform single models in predictive accuracy"</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data visualization is crucial for communicating insights effectively"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Missing data imputation requires careful consideration of the missingness mechanism"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Statistical significance does not always indicate practical significance"</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">keywords =</span> <span class="fu">c</span>(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cross-validation, model evaluation, overfitting"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"feature engineering, variables, data transformation"</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bias-variance tradeoff, machine learning, model performance"</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"exploratory data analysis, EDA, model building"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data cleaning, preprocessing, time management"</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"correlation, causation, statistical analysis"</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ensemble methods, model performance, accuracy"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data visualization, communication, insights"</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"missing data, imputation, missingness"</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"statistical significance, practical significance, interpretation"</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">relevance_score =</span> <span class="fu">runif</span>(<span class="dv">10</span>, <span class="fl">0.7</span>, <span class="fl">1.0</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># RAG retrieval function</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>rag_retrieval <span class="ot">&lt;-</span> <span class="cf">function</span>(query, knowledge_base, <span class="at">top_k =</span> <span class="dv">3</span>) {</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  query_words <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(query, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>)))</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  kb_with_scores <span class="ot">&lt;-</span> knowledge_base <span class="sc">%&gt;%</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      <span class="at">query_relevance =</span> <span class="fu">sum</span>(<span class="fu">sapply</span>(query_words, <span class="cf">function</span>(word) {</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grepl</span>(word, <span class="fu">tolower</span>(content)) <span class="sc">+</span> <span class="fu">grepl</span>(word, <span class="fu">tolower</span>(keywords))</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      }))</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(query_relevance)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> top_k)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kb_with_scores)</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># RAG generation function</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>rag_generate_response <span class="ot">&lt;-</span> <span class="cf">function</span>(query, retrieved_docs) {</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  context <span class="ot">&lt;-</span> <span class="fu">paste</span>(retrieved_docs<span class="sc">$</span>content, <span class="at">collapse =</span> <span class="st">" "</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  response <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Based on the retrieved knowledge: "</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n\n</span><span class="st">Query: "</span>, query,</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n\n</span><span class="st">Relevant Information:</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(retrieved_docs<span class="sc">$</span>content, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n\n</span><span class="st">Synthesized Response: "</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The retrieved documents indicate that "</span>, </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tolower</span>(<span class="fu">substr</span>(query, <span class="dv">1</span>, <span class="fu">nchar</span>(query)<span class="sc">-</span><span class="dv">1</span>)),</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>    <span class="st">" involves multiple considerations from the data science literature."</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> response,</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">sources =</span> retrieved_docs<span class="sc">$</span>document_id,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">context_used =</span> context</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate RAG system</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>user_query <span class="ot">&lt;-</span> <span class="st">"How should I evaluate my machine learning model?"</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>retrieved <span class="ot">&lt;-</span> <span class="fu">rag_retrieval</span>(user_query, data_science_kb)</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>rag_response <span class="ot">&lt;-</span> <span class="fu">rag_generate_response</span>(user_query, retrieved)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"RAG System Response:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>RAG System Response:</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(rag_response<span class="sc">$</span>response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Based on the retrieved knowledge: 
+
+Query: How should I evaluate my machine learning model?
+
+Relevant Information:
+The bias-variance tradeoff is fundamental to machine learning model performance
+Exploratory data analysis should always precede model building
+Cross-validation is essential for model evaluation to prevent overfitting
+Ensemble methods often outperform single models in predictive accuracy
+Feature engineering involves creating new variables from existing data
+Data cleaning typically consumes 80% of a data scientist's time
+Correlation does not imply causation in statistical analysis
+Data visualization is crucial for communicating insights effectively
+Missing data imputation requires careful consideration of the missingness mechanism
+Statistical significance does not always indicate practical significance
+
+Synthesized Response: The retrieved documents indicate that how should i evaluate my machine learning model involves multiple considerations from the data science literature.</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="sample-rag-implementation-interpretation" class="level3" data-number="5.2.6">
+<h3 data-number="5.2.6" class="anchored" data-anchor-id="sample-rag-implementation-interpretation"><span class="header-section-number">5.2.6</span> Sample RAG Implementation: Interpretation</h3>
+<p>The sample RAG code demonstrates:</p>
+<ul>
+<li>Creating a mini knowledge base (data frame of facts and keywords).</li>
+<li>Retrieving the top relevant documents using keyword matching.</li>
+<li>Synthesizing a response by combining the user query and retrieved facts.</li>
+<li>The output is a context-aware answer, referencing the specific documents used.</li>
+</ul>
+<p><strong>Interpretation:</strong><br>
+This approach shows how RAG systems can “look up” supporting information at runtime, ensuring answers are up-to-date and verifiable—something static LLMs cannot do.</p>
+</section>
+</section>
+<section id="model-context-protocol-mcp-impact-and-innovation" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="model-context-protocol-mcp-impact-and-innovation"><span class="header-section-number">5.3</span> 4.2 Model Context Protocol (MCP): Impact and Innovation</h2>
+<section id="what-is-mcp" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="what-is-mcp"><span class="header-section-number">5.3.1</span> What is MCP?</h3>
+<p>Model Context Protocol (MCP) is a standard that enables LLMs to interact with external tools, APIs, and data sources in a structured, programmatic way. MCP defines how an LLM can call functions, query databases, or use plugins during a conversation.</p>
+</section>
+<section id="what-impact-does-mcp-have" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="what-impact-does-mcp-have"><span class="header-section-number">5.3.2</span> What Impact Does MCP Have?</h3>
+<ul>
+<li><strong>Tool Use:</strong> LLMs can perform actions (e.g., run code, fetch live data, manipulate files) rather than just generate text.</li>
+<li><strong>Workflow Automation:</strong> Enables AI agents to orchestrate complex tasks, integrating multiple tools and data sources.</li>
+<li><strong>Interactivity:</strong> Users can have more dynamic, actionable conversations (e.g., “Plot this data and email me the chart”).</li>
+<li><strong>Ecosystem Expansion:</strong> MCP allows developers to build new tools and services that plug directly into LLM workflows.</li>
+</ul>
+</section>
+<section id="what-new-capabilities-does-mcp-bring" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="what-new-capabilities-does-mcp-bring"><span class="header-section-number">5.3.3</span> What New Capabilities Does MCP Bring?</h3>
+<ul>
+<li><strong>Beyond Text Generation:</strong> LLMs become “doers” as well as “talkers”—they can execute, retrieve, and process information in real time.</li>
+<li><strong>Personalization:</strong> AI can access user files, calendars, or preferences to tailor responses and actions.</li>
+<li><strong>Reliability:</strong> By delegating specialized tasks to external tools (e.g., a calculator for math), LLMs can provide more accurate and robust outputs.</li>
+</ul>
+</section>
+</section>
+<section id="synthetic-data-silicon-sampling-and-beyond" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="synthetic-data-silicon-sampling-and-beyond"><span class="header-section-number">5.4</span> 4.3 Synthetic Data: Silicon Sampling and Beyond</h2>
+<section id="what-is-synthetic-data" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="what-is-synthetic-data"><span class="header-section-number">5.4.1</span> What is Synthetic Data?</h3>
+<p>Synthetic data refers to artificially generated data that mimics the statistical properties of real datasets. It is used for privacy protection, testing, simulation, and augmenting training data.</p>
+</section>
+<section id="silicon-sampling-argyle-et-al.-2023" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="silicon-sampling-argyle-et-al.-2023"><span class="header-section-number">5.4.2</span> Silicon Sampling (Argyle et al.&nbsp;2023)</h3>
+<p><strong>Silicon sampling</strong> is a method for generating synthetic survey data using LLMs or similar generative models. The process involves:</p>
+<ul>
+<li>Training a model on real survey data.</li>
+<li>Generating new, realistic individual-level responses that preserve the joint distribution of variables.</li>
+<li>Validating the synthetic data to ensure it matches key properties of the original.</li>
+</ul>
+<p><strong>Advantages:</strong> - Enables sharing and analysis of sensitive data without privacy risks. - Supports simulation studies for policy analysis or experimental design.</p>
+<p><strong>Reference:</strong><br>
+Argyle, Lisa P., Ethan C. Busby, Nancy Fulda, Joshua R. Gubler, Christopher Rytting, and David Wingate. “Out of one, many: Using language models to simulate human samples.” <em>Political Analysis</em> 31, no. 3 (2023): 337-351.</p>
+</section>
+<section id="agent-based-modeling-ai-agents-and-agentic-ai-whats-the-difference" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="agent-based-modeling-ai-agents-and-agentic-ai-whats-the-difference"><span class="header-section-number">5.4.3</span> Agent-Based Modeling, AI Agents, and Agentic AI: What’s the Difference?</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 57%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Description</th>
+<th>Example Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agent-Based Modeling</td>
+<td>Simulation approach where many autonomous “agents” interact based on simple rules.</td>
+<td>Modeling voter behavior in elections</td>
+</tr>
+<tr class="even">
+<td>AI Agent</td>
+<td>A software entity that can perceive, reason, and act autonomously in a digital environment.</td>
+<td>Chatbot that schedules meetings</td>
+</tr>
+<tr class="odd">
+<td>Agentic AI</td>
+<td>Advanced AI systems capable of pursuing goals, adapting, and collaborating with humans</td>
+<td>Autonomous research assistant that plans, learns, and executes tasks</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key Differences:</strong></p>
+<ul>
+<li><strong>Agent-Based Modeling</strong> is a simulation technique in social science and complex systems.</li>
+<li><strong>AI Agents</strong> are practical software tools that perform tasks (can be simple or complex).</li>
+<li><strong>Agentic AI</strong> refers to emerging, more autonomous and adaptive AI systems that can set and pursue their own objectives, often with multi-step reasoning and collaboration.</li>
+</ul>
+<section id="sample-synthetic-data-generation" class="level4" data-number="5.4.3.1">
+<h4 data-number="5.4.3.1" class="anchored" data-anchor-id="sample-synthetic-data-generation"><span class="header-section-number">5.4.3.1</span> Sample Synthetic Data Generation</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Synthetic Data Generation for Data Science Training</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>generate_synthetic_customers <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">seed =</span> <span class="dv">123</span>) {</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(seed)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  correlation_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="fl">1.0</span>, <span class="fl">0.6</span>, <span class="sc">-</span><span class="fl">0.4</span>, <span class="fl">0.3</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.6</span>, <span class="fl">1.0</span>, <span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">0.5</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span><span class="fl">0.4</span>, <span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">1.0</span>, <span class="sc">-</span><span class="fl">0.1</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.0</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  base_vars <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">50000</span>, <span class="dv">25</span>, <span class="dv">3</span>), <span class="at">Sigma =</span> correlation_matrix <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  synthetic_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">customer_id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">pmax</span>(<span class="dv">18</span>, <span class="fu">pmin</span>(<span class="dv">80</span>, <span class="fu">round</span>(base_vars[,<span class="dv">1</span>]))),</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">pmax</span>(<span class="dv">20000</span>, <span class="fu">round</span>(base_vars[,<span class="dv">2</span>])),</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">experience_years =</span> <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">pmin</span>(<span class="dv">40</span>, <span class="fu">round</span>(base_vars[,<span class="dv">3</span>]))),</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">satisfaction_score =</span> <span class="fu">pmax</span>(<span class="dv">1</span>, <span class="fu">pmin</span>(<span class="dv">5</span>, <span class="fu">round</span>(base_vars[,<span class="dv">4</span>])))</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">churn_probability =</span> <span class="fu">plogis</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.02</span><span class="sc">*</span>age <span class="sc">-</span> <span class="fl">0.00003</span><span class="sc">*</span>income <span class="sc">+</span> </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>                                 <span class="fl">0.05</span><span class="sc">*</span>experience_years <span class="sc">-</span> <span class="fl">0.8</span><span class="sc">*</span>satisfaction_score <span class="sc">+</span> </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="fl">0.5</span>)),</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">churn =</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, churn_probability),</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">segment =</span> <span class="fu">case_when</span>(</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        income <span class="sc">&gt;</span> <span class="dv">70000</span> <span class="sc">&amp;</span> satisfaction_score <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Premium"</span>,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        income <span class="sc">&gt;</span> <span class="dv">45000</span> <span class="sc">&amp;</span> satisfaction_score <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Standard"</span>,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Basic"</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(synthetic_data)</span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>synthetic_customers <span class="ot">&lt;-</span> <span class="fu">generate_synthetic_customers</span>(<span class="dv">1000</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Synthetic Data Summary:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Synthetic Data Summary:</code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(synthetic_customers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  customer_id          age            income      experience_years
+ Min.   :   1.0   Min.   :18.00   Min.   :49975   Min.   : 0.00   
+ 1st Qu.: 250.8   1st Qu.:29.00   1st Qu.:49994   1st Qu.:18.00   
+ Median : 500.5   Median :35.00   Median :50000   Median :25.00   
+ Mean   : 500.5   Mean   :35.42   Mean   :50000   Mean   :24.43   
+ 3rd Qu.: 750.2   3rd Qu.:42.00   3rd Qu.:50007   3rd Qu.:32.00   
+ Max.   :1000.0   Max.   :67.00   Max.   :50032   Max.   :40.00   
+ satisfaction_score churn_probability       churn         segment         
+ Min.   :1.000      Min.   :0.0006705   Min.   :0.000   Length:1000       
+ 1st Qu.:1.000      1st Qu.:0.0041187   1st Qu.:0.000   Class :character  
+ Median :3.000      Median :0.0194273   Median :0.000   Mode  :character  
+ Mean   :2.996      Mean   :0.0482846   Mean   :0.049                     
+ 3rd Qu.:5.000      3rd Qu.:0.0817124   3rd Qu.:0.000                     
+ Max.   :5.000      Max.   :0.2999137   Max.   :1.000                     </code></pre>
+</div>
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(synthetic_customers, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">y =</span> satisfaction_score, <span class="at">color =</span> <span class="fu">factor</span>(churn))) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>segment) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Synthetic Customer Data Validation"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Checking realistic relationships between variables"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Churn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="chapter4_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="context-engineering-vs.-prompt-engineering" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="context-engineering-vs.-prompt-engineering"><span class="header-section-number">5.4.4</span> 4.4 Context Engineering vs.&nbsp;Prompt Engineering</h3>
+<p>The evolution from prompt engineering to context engineering represents a fundamental shift in AI interaction paradigms (Lakera AI 2025; Contextual AI 2024; Prompting Guide 2025).</p>
+<section id="context-engineering-definition-lakera-ai-2025-contextual-ai-2024" class="level4" data-number="5.4.4.1">
+<h4 data-number="5.4.4.1" class="anchored" data-anchor-id="context-engineering-definition-lakera-ai-2025-contextual-ai-2024"><span class="header-section-number">5.4.4.1</span> Context Engineering Definition (Lakera AI 2025; Contextual AI 2024)</h4>
+<p>Context engineering is the discipline of designing and building dynamic systems that provide the right information and tools, in the right format, at the right time, to give an LLM everything it needs to accomplish a task (Lakera AI 2025).</p>
+</section>
+<section id="key-differences-lakera-ai-2025-contextual-ai-2024-prompting-guide-2025" class="level4" data-number="5.4.4.2">
+<h4 data-number="5.4.4.2" class="anchored" data-anchor-id="key-differences-lakera-ai-2025-contextual-ai-2024-prompting-guide-2025"><span class="header-section-number">5.4.4.2</span> Key Differences (Lakera AI 2025; Contextual AI 2024; Prompting Guide 2025)</h4>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 36%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Aspect</th>
+<th>Prompt Engineering</th>
+<th>Context Engineering</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Scope</strong></td>
+<td>Single prompt optimization</td>
+<td>System-level design</td>
+</tr>
+<tr class="even">
+<td><strong>Focus</strong></td>
+<td>How to ask</td>
+<td>What information to provide</td>
+</tr>
+<tr class="odd">
+<td><strong>Approach</strong></td>
+<td>String crafting</td>
+<td>Information architecture</td>
+</tr>
+<tr class="even">
+<td><strong>Context Window</strong></td>
+<td>Limited consideration</td>
+<td>Central design consideration</td>
+</tr>
+<tr class="odd">
+<td><strong>Persistence</strong></td>
+<td>Stateless interactions</td>
+<td>Stateful system design</td>
+</tr>
+<tr class="even">
+<td><strong>Complexity</strong></td>
+<td>Simple to moderate</td>
+<td>System-level complexity</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="context-engineering-components-lakera-ai-2025-prompting-guide-2025" class="level4" data-number="5.4.4.3">
+<h4 data-number="5.4.4.3" class="anchored" data-anchor-id="context-engineering-components-lakera-ai-2025-prompting-guide-2025"><span class="header-section-number">5.4.4.3</span> Context Engineering Components (Lakera AI 2025; Prompting Guide 2025)</h4>
+<ol type="1">
+<li><p><strong>Information Architecture:</strong></p>
+<ul>
+<li>Instructions/System prompts</li>
+<li>User input and queries</li>
+<li>Short-term memory (conversation history)</li>
+<li>Long-term memory (persistent knowledge)</li>
+<li>Retrieved information (RAG systems)</li>
+<li>Available tools and their definitions</li>
+<li>Structured output specifications</li>
+</ul></li>
+<li><p><strong>Dynamic Context Management:</strong></p>
+<ul>
+<li>Real-time context optimization</li>
+<li>Token limit management</li>
+<li>Information prioritization</li>
+<li>Context compression techniques</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="future-trends-in-genai-for-data-science" class="level3" data-number="5.4.5">
+<h3 data-number="5.4.5" class="anchored" data-anchor-id="future-trends-in-genai-for-data-science"><span class="header-section-number">5.4.5</span> 4.5 Future Trends in GenAI for Data Science</h3>
+<section id="emerging-paradigms-anthropic-2024-bito-2025-dallas-data-science-academy-2025" class="level4" data-number="5.4.5.1">
+<h4 data-number="5.4.5.1" class="anchored" data-anchor-id="emerging-paradigms-anthropic-2024-bito-2025-dallas-data-science-academy-2025"><span class="header-section-number">5.4.5.1</span> Emerging Paradigms (Anthropic 2024; Bito 2025; Dallas Data Science Academy 2025)</h4>
+<p><strong>1. Agentic AI Systems</strong> (Anthropic 2024)</p>
+<ul>
+<li>Autonomous AI agents for complex data science workflows</li>
+<li>Multi-agent collaboration for large-scale analysis projects</li>
+<li>Adaptive learning and improvement capabilities</li>
+</ul>
+<p><strong>2. Multimodal Integration</strong> (Monterail 2023)</p>
+<ul>
+<li>Integration of text, images, audio, and structured data analysis</li>
+<li>Cross-modal insight generation and validation</li>
+<li>Unified analytical frameworks for diverse data types</li>
+</ul>
+<p><strong>3. Democratization Acceleration</strong> (Bito 2025; Aisera 2025)</p>
+<ul>
+<li>Natural language programming interfaces becoming mainstream</li>
+<li>Reduced technical barriers for non-expert users</li>
+<li>Automated ML pipeline generation and optimization</li>
+</ul>
+<p><strong>4. Ethical AI and Responsible Development</strong> (Bito 2025)</p>
+<ul>
+<li>Enhanced bias detection and mitigation systems</li>
+<li>Transparent AI decision-making processes</li>
+<li>Responsible AI frameworks for data science applications</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="summary-table-key-innovations" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="summary-table-key-innovations"><span class="header-section-number">5.5</span> Summary Table: Key Innovations</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 44%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Technology</th>
+<th>What It Does</th>
+<th>Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RAG</td>
+<td>Brings live, retrieved info to LLMs</td>
+<td>Up-to-date, grounded, transparent</td>
+</tr>
+<tr class="even">
+<td>MCP</td>
+<td>Lets LLMs use external tools &amp; APIs</td>
+<td>Actionable, interactive, extensible</td>
+</tr>
+<tr class="odd">
+<td>Silicon Sampling</td>
+<td>Generates privacy-preserving synthetic data</td>
+<td>Enables open research, simulation</td>
+</tr>
+<tr class="even">
+<td>Agentic AI</td>
+<td>Autonomous, goal-driven AI agents</td>
+<td>Next-gen AI with planning/adaptation</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hands-on-exercise-4-advanced-genai-applications" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="hands-on-exercise-4-advanced-genai-applications"><span class="header-section-number">5.6</span> Hands-on Exercise 4: Advanced GenAI Applications</h2>
+<p><strong>Capstone Project:</strong> Students implement an integrated GenAI data science system:</p>
+<ol type="1">
+<li><strong>RAG Implementation:</strong> Build a knowledge retrieval system for domain-specific queries</li>
+<li><strong>Synthetic Data Pipeline:</strong> Create realistic synthetic datasets for analysis</li>
+<li><strong>Context Engineering:</strong> Design dynamic context management for sustained AI interaction</li>
+<li><strong>Collaborative Workflow:</strong> Demonstrate human-AI collaboration throughout the process</li>
+<li><strong>Future Visioning:</strong> Propose innovative applications of emerging GenAI technologies</li>
+</ol>
+</section>
+<section id="references" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="references"><span class="header-section-number">5.7</span> References</h2>
+<ul>
+<li>Argyle, Lisa P., Ethan C. Busby, Nancy Fulda, Joshua R. Gubler, Christopher Rytting, and David Wingate. “Out of one, many: Using language models to simulate human samples.” <em>Political Analysis</em> 31, no. 3 (2023): 337-351. Aisera. 2025. “What is Human AI Collaboration?” <em>Aisera Blog</em>, May 29. https://aisera.com/blog/human-ai-collaboration/.</li>
+</ul>
+<p>Anthropic. 2024. “Agentic AI: The Next Frontier.” <em>Anthropic Blog</em>, April 17. https://www.anthropic.com/blog/agentic-ai.</p>
+<p>Bito. 2025. “AI Documentation Generator.” <em>Bito AI</em>. https://bito.ai/blog/ai-documentation-generator/.</p>
+<p>Contextual AI. 2024. “What is Context Engineering?” <em>Contextual AI Blog</em>, February 12. https://contextual.ai/blog/context-engineering.</p>
+<p>Dallas Data Science Academy. 2025. “Integrating Generative AI in Data Science Projects.” <em>Dallas Data Science Academy Blog</em>, January 6. https://dallasdatascienceacademy.org/blog/integrating-generative-ai-in-data-science-projects.</p>
+<p>Decodo. 2025. “How to Use LLM for Data Analysis: A Comprehensive Guide.” <em>Decodo Blog</em>, April 15. https://decodo.com/blog/llm-for-data-analysis.</p>
+<p>Graphite. 2025. “Understanding ‘Vibe Coding,’ the Future of AI-Driven Development.” <em>Graphite Blog</em>, July 8. https://graphite.dev/guides/understanding-vibe-coding.</p>
+<p>Kaur, Harleen, et al.&nbsp;2022. “A Comprehensive Review on Synthetic Data Generation for Machine Learning.” <em>ACM Computing Surveys</em> 55(9): 1-38.</p>
+<p>Lakera AI. 2025. “The Ultimate Guide to Prompt Engineering in 2025.” <em>Lakera AI Blog</em>, May 21. https://www.lakera.ai/blog/prompt-engineering-guide.</p>
+<p>LangChain. 2024. “Model Context Protocol (MCP): A New Standard for AI Tooling.” <em>LangChain Docs</em>. https://docs.langchain.com/docs/mcp.</p>
+<p>Lewis, Patrick, et al.&nbsp;2020. “Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.” <em>Advances in Neural Information Processing Systems</em> 33: 9459–9474.</p>
+<p>Monterail. 2023. “AI-Powered Coding Assistants: Best Practices to Boost Software Development.” <em>Monterail Blog</em>, September 11. https://www.monterail.com/blog/ai-powered-coding-assistants-best-practices.</p>
+<p>OpenAI. 2024. “Retrieval-Augmented Generation (RAG) and Model Context Protocol (MCP): Technical Overview.” <em>OpenAI Technical Reports</em>. https://openai.com/research/rag-mcp.</p>
+<p>Pinecone. 2024. “What is Retrieval-Augmented Generation (RAG)?” <em>Pinecone Blog</em>, March 12. https://www.pinecone.io/learn/retrieval-augmented-generation/.</p>
+<p>Prompting Guide. 2025. “General Tips for Designing Prompts.” <em>Prompt Engineering Guide</em>, June 7. https://www.promptingguide.ai/introduction/tips.</p>
+
+
+<!-- -->
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter3.html" class="pagination-link" aria-label="Chapter 3: GenAI Applications - LLMs, Vibe Coding, and Collaborative Intelligence">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Chapter 3: GenAI Applications - LLMs, Vibe Coding, and Collaborative Intelligence</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Chapter 4: Advanced Applications – RAG, MCP, and Future Trends"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Learning Objectives</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Implement Retrieval-Augmented Generation (RAG) systems</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Understand Model Context Protocol (MCP) applications</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Design synthetic data generation workflows</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Explore the future of context engineering vs. prompt engineering</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anticipate future developments in GenAI for data science</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.1 Retrieval-Augmented Generation (RAG): Concept, History, and Advantages</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">### What is RAG?</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>Retrieval-Augmented Generation (RAG) is an architecture that combines large language models (LLMs) with external information retrieval systems. Instead of relying solely on a model’s static internal knowledge, RAG dynamically retrieves relevant documents or facts from external sources and feeds them into the LLM as context for response generation.</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why Was RAG Developed?</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Static Training Data Limitation:** Traditional LLMs are trained on a fixed dataset and cannot access new information after training. Their knowledge is “frozen” at the time of their last update.</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Hallucination and Factuality:** LLMs often generate plausible-sounding but incorrect or outdated information, especially for recent events or niche topics.</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**RAG’s Solution:** By retrieving up-to-date and domain-specific information at inference time, RAG systems can ground their responses in real evidence, improve factual accuracy, and reduce hallucinations.</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### How RAG Works: Flowchart</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DiagrammeR)</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="fu">grViz</span>(<span class="st">"</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a><span class="st">digraph LLM_Pipeline {</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="st">  graph [rankdir = TB, layout = dot]</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a><span class="st">  node [shape = box, style = filled, fillcolor = lightblue, fontname = Helvetica]</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="st">  A [label = 'User Query']</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a><span class="st">  B [label = 'Query Processing']</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a><span class="st">  C [label = 'Information Retrieval</span><span class="sc">\\</span><span class="st">n(search external sources)']</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="st">  D [label = 'Select Top-K Relevant Documents']</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a><span class="st">  E [label = 'Context Augmentation</span><span class="sc">\\</span><span class="st">n(add retrieved docs to prompt)']</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a><span class="st">  F [label = 'LLM Generation</span><span class="sc">\\</span><span class="st">n(generate answer using context)']</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="st">  G [label = 'Response to User']</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="st">  A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; F -&gt; G</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>**Explanation of Steps:**</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**User Query:** The user asks a question or makes a request.</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Query Processing:** The system reformulates the query for retrieval.</span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Information Retrieval:** The system searches external sources.</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Select Top-K Documents:** The most relevant documents are selected.</span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Context Augmentation:** These documents are added to the LLM’s input prompt.</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a><span class="ss">6. </span>**LLM Generation:** The LLM generates a response, using both its internal knowledge and the retrieved context.</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a><span class="ss">7. </span>**Response to User:** The grounded, evidence-based answer is returned.</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why is RAG Better Than Static LLMs?</span></span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Dynamic Knowledge:** RAG can access the latest information, overcoming the “knowledge cut-off” of static LLMs.</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reduced Hallucination:** By grounding answers in retrieved evidence, RAG mitigates the risk of making up facts.</span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Domain Adaptability:** RAG can specialize in any domain by connecting to relevant databases or corpora, without retraining the LLM.</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Transparency:** RAG can cite sources, increasing trust and interpretability.</span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a><span class="fu">### Example: RAG in Practice</span></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a>Suppose a user asks:  </span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>*"What are the latest COVID-19 statistics in Taiwan?"*</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A static LLM (trained in 2023) cannot answer accurately.</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A RAG system retrieves the latest statistics from a government database or news API, includes them in the prompt, and the LLM summarizes and communicates the answer.</span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>**Benefits of RAG** (Lewis et al. 2020; Pinecone 2024):</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-81"><a href="#cb11-81" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enhanced accuracy: Up-to-date, factual information from external sources</span>
+<span id="cb11-82"><a href="#cb11-82" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reduced hallucinations: Grounding responses in verified information</span>
+<span id="cb11-83"><a href="#cb11-83" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Domain customization: Integration with specialized knowledge bases</span>
+<span id="cb11-84"><a href="#cb11-84" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transparency: Ability to cite sources and provide evidence</span>
+<span id="cb11-85"><a href="#cb11-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-86"><a href="#cb11-86" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sample RAG Implementation</span></span>
+<span id="cb11-87"><a href="#cb11-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-90"><a href="#cb11-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-91"><a href="#cb11-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb11-92"><a href="#cb11-92" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb11-93"><a href="#cb11-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating RAG System for Data Science Knowledge</span></span>
+<span id="cb11-94"><a href="#cb11-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-95"><a href="#cb11-95" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-96"><a href="#cb11-96" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb11-97"><a href="#cb11-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-98"><a href="#cb11-98" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a simple knowledge base</span></span>
+<span id="cb11-99"><a href="#cb11-99" aria-hidden="true" tabindex="-1"></a>data_science_kb <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-100"><a href="#cb11-100" aria-hidden="true" tabindex="-1"></a>  <span class="at">document_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb11-101"><a href="#cb11-101" aria-hidden="true" tabindex="-1"></a>  <span class="at">content =</span> <span class="fu">c</span>(</span>
+<span id="cb11-102"><a href="#cb11-102" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cross-validation is essential for model evaluation to prevent overfitting"</span>,</span>
+<span id="cb11-103"><a href="#cb11-103" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Feature engineering involves creating new variables from existing data"</span>,</span>
+<span id="cb11-104"><a href="#cb11-104" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The bias-variance tradeoff is fundamental to machine learning model performance"</span>,</span>
+<span id="cb11-105"><a href="#cb11-105" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Exploratory data analysis should always precede model building"</span>,</span>
+<span id="cb11-106"><a href="#cb11-106" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data cleaning typically consumes 80% of a data scientist's time"</span>,</span>
+<span id="cb11-107"><a href="#cb11-107" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Correlation does not imply causation in statistical analysis"</span>,</span>
+<span id="cb11-108"><a href="#cb11-108" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ensemble methods often outperform single models in predictive accuracy"</span>,</span>
+<span id="cb11-109"><a href="#cb11-109" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data visualization is crucial for communicating insights effectively"</span>,</span>
+<span id="cb11-110"><a href="#cb11-110" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Missing data imputation requires careful consideration of the missingness mechanism"</span>,</span>
+<span id="cb11-111"><a href="#cb11-111" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Statistical significance does not always indicate practical significance"</span></span>
+<span id="cb11-112"><a href="#cb11-112" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb11-113"><a href="#cb11-113" aria-hidden="true" tabindex="-1"></a>  <span class="at">keywords =</span> <span class="fu">c</span>(</span>
+<span id="cb11-114"><a href="#cb11-114" aria-hidden="true" tabindex="-1"></a>    <span class="st">"cross-validation, model evaluation, overfitting"</span>,</span>
+<span id="cb11-115"><a href="#cb11-115" aria-hidden="true" tabindex="-1"></a>    <span class="st">"feature engineering, variables, data transformation"</span>,</span>
+<span id="cb11-116"><a href="#cb11-116" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bias-variance tradeoff, machine learning, model performance"</span>,</span>
+<span id="cb11-117"><a href="#cb11-117" aria-hidden="true" tabindex="-1"></a>    <span class="st">"exploratory data analysis, EDA, model building"</span>,</span>
+<span id="cb11-118"><a href="#cb11-118" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data cleaning, preprocessing, time management"</span>,</span>
+<span id="cb11-119"><a href="#cb11-119" aria-hidden="true" tabindex="-1"></a>    <span class="st">"correlation, causation, statistical analysis"</span>,</span>
+<span id="cb11-120"><a href="#cb11-120" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ensemble methods, model performance, accuracy"</span>,</span>
+<span id="cb11-121"><a href="#cb11-121" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data visualization, communication, insights"</span>,</span>
+<span id="cb11-122"><a href="#cb11-122" aria-hidden="true" tabindex="-1"></a>    <span class="st">"missing data, imputation, missingness"</span>,</span>
+<span id="cb11-123"><a href="#cb11-123" aria-hidden="true" tabindex="-1"></a>    <span class="st">"statistical significance, practical significance, interpretation"</span></span>
+<span id="cb11-124"><a href="#cb11-124" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb11-125"><a href="#cb11-125" aria-hidden="true" tabindex="-1"></a>  <span class="at">relevance_score =</span> <span class="fu">runif</span>(<span class="dv">10</span>, <span class="fl">0.7</span>, <span class="fl">1.0</span>)</span>
+<span id="cb11-126"><a href="#cb11-126" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-127"><a href="#cb11-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-128"><a href="#cb11-128" aria-hidden="true" tabindex="-1"></a><span class="co"># RAG retrieval function</span></span>
+<span id="cb11-129"><a href="#cb11-129" aria-hidden="true" tabindex="-1"></a>rag_retrieval <span class="ot">&lt;-</span> <span class="cf">function</span>(query, knowledge_base, <span class="at">top_k =</span> <span class="dv">3</span>) {</span>
+<span id="cb11-130"><a href="#cb11-130" aria-hidden="true" tabindex="-1"></a>  query_words <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">unlist</span>(<span class="fu">strsplit</span>(query, <span class="st">"</span><span class="sc">\\</span><span class="st">s+"</span>)))</span>
+<span id="cb11-131"><a href="#cb11-131" aria-hidden="true" tabindex="-1"></a>  kb_with_scores <span class="ot">&lt;-</span> knowledge_base <span class="sc">%&gt;%</span></span>
+<span id="cb11-132"><a href="#cb11-132" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb11-133"><a href="#cb11-133" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb11-134"><a href="#cb11-134" aria-hidden="true" tabindex="-1"></a>      <span class="at">query_relevance =</span> <span class="fu">sum</span>(<span class="fu">sapply</span>(query_words, <span class="cf">function</span>(word) {</span>
+<span id="cb11-135"><a href="#cb11-135" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grepl</span>(word, <span class="fu">tolower</span>(content)) <span class="sc">+</span> <span class="fu">grepl</span>(word, <span class="fu">tolower</span>(keywords))</span>
+<span id="cb11-136"><a href="#cb11-136" aria-hidden="true" tabindex="-1"></a>      }))</span>
+<span id="cb11-137"><a href="#cb11-137" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-138"><a href="#cb11-138" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(query_relevance)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-139"><a href="#cb11-139" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice_head</span>(<span class="at">n =</span> top_k)</span>
+<span id="cb11-140"><a href="#cb11-140" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kb_with_scores)</span>
+<span id="cb11-141"><a href="#cb11-141" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-142"><a href="#cb11-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-143"><a href="#cb11-143" aria-hidden="true" tabindex="-1"></a><span class="co"># RAG generation function</span></span>
+<span id="cb11-144"><a href="#cb11-144" aria-hidden="true" tabindex="-1"></a>rag_generate_response <span class="ot">&lt;-</span> <span class="cf">function</span>(query, retrieved_docs) {</span>
+<span id="cb11-145"><a href="#cb11-145" aria-hidden="true" tabindex="-1"></a>  context <span class="ot">&lt;-</span> <span class="fu">paste</span>(retrieved_docs<span class="sc">$</span>content, <span class="at">collapse =</span> <span class="st">" "</span>)</span>
+<span id="cb11-146"><a href="#cb11-146" aria-hidden="true" tabindex="-1"></a>  response <span class="ot">&lt;-</span> <span class="fu">paste0</span>(</span>
+<span id="cb11-147"><a href="#cb11-147" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Based on the retrieved knowledge: "</span>,</span>
+<span id="cb11-148"><a href="#cb11-148" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n\n</span><span class="st">Query: "</span>, query,</span>
+<span id="cb11-149"><a href="#cb11-149" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n\n</span><span class="st">Relevant Information:</span><span class="sc">\n</span><span class="st">"</span>,</span>
+<span id="cb11-150"><a href="#cb11-150" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste</span>(retrieved_docs<span class="sc">$</span>content, <span class="at">collapse =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>),</span>
+<span id="cb11-151"><a href="#cb11-151" aria-hidden="true" tabindex="-1"></a>    <span class="st">"</span><span class="sc">\n\n</span><span class="st">Synthesized Response: "</span>,</span>
+<span id="cb11-152"><a href="#cb11-152" aria-hidden="true" tabindex="-1"></a>    <span class="st">"The retrieved documents indicate that "</span>, </span>
+<span id="cb11-153"><a href="#cb11-153" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tolower</span>(<span class="fu">substr</span>(query, <span class="dv">1</span>, <span class="fu">nchar</span>(query)<span class="sc">-</span><span class="dv">1</span>)),</span>
+<span id="cb11-154"><a href="#cb11-154" aria-hidden="true" tabindex="-1"></a>    <span class="st">" involves multiple considerations from the data science literature."</span></span>
+<span id="cb11-155"><a href="#cb11-155" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb11-156"><a href="#cb11-156" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb11-157"><a href="#cb11-157" aria-hidden="true" tabindex="-1"></a>    <span class="at">response =</span> response,</span>
+<span id="cb11-158"><a href="#cb11-158" aria-hidden="true" tabindex="-1"></a>    <span class="at">sources =</span> retrieved_docs<span class="sc">$</span>document_id,</span>
+<span id="cb11-159"><a href="#cb11-159" aria-hidden="true" tabindex="-1"></a>    <span class="at">context_used =</span> context</span>
+<span id="cb11-160"><a href="#cb11-160" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb11-161"><a href="#cb11-161" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-162"><a href="#cb11-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-163"><a href="#cb11-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Demonstrate RAG system</span></span>
+<span id="cb11-164"><a href="#cb11-164" aria-hidden="true" tabindex="-1"></a>user_query <span class="ot">&lt;-</span> <span class="st">"How should I evaluate my machine learning model?"</span></span>
+<span id="cb11-165"><a href="#cb11-165" aria-hidden="true" tabindex="-1"></a>retrieved <span class="ot">&lt;-</span> <span class="fu">rag_retrieval</span>(user_query, data_science_kb)</span>
+<span id="cb11-166"><a href="#cb11-166" aria-hidden="true" tabindex="-1"></a>rag_response <span class="ot">&lt;-</span> <span class="fu">rag_generate_response</span>(user_query, retrieved)</span>
+<span id="cb11-167"><a href="#cb11-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-168"><a href="#cb11-168" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"RAG System Response:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-169"><a href="#cb11-169" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(rag_response<span class="sc">$</span>response)</span>
+<span id="cb11-170"><a href="#cb11-170" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-171"><a href="#cb11-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-172"><a href="#cb11-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Sample RAG Implementation: Interpretation</span></span>
+<span id="cb11-173"><a href="#cb11-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-174"><a href="#cb11-174" aria-hidden="true" tabindex="-1"></a>The sample RAG code demonstrates:</span>
+<span id="cb11-175"><a href="#cb11-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-176"><a href="#cb11-176" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Creating a mini knowledge base (data frame of facts and keywords).</span>
+<span id="cb11-177"><a href="#cb11-177" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Retrieving the top relevant documents using keyword matching.</span>
+<span id="cb11-178"><a href="#cb11-178" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Synthesizing a response by combining the user query and retrieved facts.</span>
+<span id="cb11-179"><a href="#cb11-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The output is a context-aware answer, referencing the specific documents used.</span>
+<span id="cb11-180"><a href="#cb11-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-181"><a href="#cb11-181" aria-hidden="true" tabindex="-1"></a>**Interpretation:**  </span>
+<span id="cb11-182"><a href="#cb11-182" aria-hidden="true" tabindex="-1"></a>This approach shows how RAG systems can “look up” supporting information at runtime, ensuring answers are up-to-date and verifiable—something static LLMs cannot do.</span>
+<span id="cb11-183"><a href="#cb11-183" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-184"><a href="#cb11-184" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.2 Model Context Protocol (MCP): Impact and Innovation</span></span>
+<span id="cb11-185"><a href="#cb11-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-186"><a href="#cb11-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### What is MCP?</span></span>
+<span id="cb11-187"><a href="#cb11-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-188"><a href="#cb11-188" aria-hidden="true" tabindex="-1"></a>Model Context Protocol (MCP) is a standard that enables LLMs to interact with external tools, APIs, and data sources in a structured, programmatic way. MCP defines how an LLM can call functions, query databases, or use plugins during a conversation.</span>
+<span id="cb11-189"><a href="#cb11-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-190"><a href="#cb11-190" aria-hidden="true" tabindex="-1"></a><span class="fu">### What Impact Does MCP Have?</span></span>
+<span id="cb11-191"><a href="#cb11-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-192"><a href="#cb11-192" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Tool Use:** LLMs can perform actions (e.g., run code, fetch live data, manipulate files) rather than just generate text.</span>
+<span id="cb11-193"><a href="#cb11-193" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Workflow Automation:** Enables AI agents to orchestrate complex tasks, integrating multiple tools and data sources.</span>
+<span id="cb11-194"><a href="#cb11-194" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Interactivity:** Users can have more dynamic, actionable conversations (e.g., “Plot this data and email me the chart”).</span>
+<span id="cb11-195"><a href="#cb11-195" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Ecosystem Expansion:** MCP allows developers to build new tools and services that plug directly into LLM workflows.</span>
+<span id="cb11-196"><a href="#cb11-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-197"><a href="#cb11-197" aria-hidden="true" tabindex="-1"></a><span class="fu">### What New Capabilities Does MCP Bring?</span></span>
+<span id="cb11-198"><a href="#cb11-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-199"><a href="#cb11-199" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Beyond Text Generation:** LLMs become “doers” as well as “talkers”—they can execute, retrieve, and process information in real time.</span>
+<span id="cb11-200"><a href="#cb11-200" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Personalization:** AI can access user files, calendars, or preferences to tailor responses and actions.</span>
+<span id="cb11-201"><a href="#cb11-201" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Reliability:** By delegating specialized tasks to external tools (e.g., a calculator for math), LLMs can provide more accurate and robust outputs.</span>
+<span id="cb11-202"><a href="#cb11-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-203"><a href="#cb11-203" aria-hidden="true" tabindex="-1"></a><span class="fu">## 4.3 Synthetic Data: Silicon Sampling and Beyond</span></span>
+<span id="cb11-204"><a href="#cb11-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-205"><a href="#cb11-205" aria-hidden="true" tabindex="-1"></a><span class="fu">### What is Synthetic Data?</span></span>
+<span id="cb11-206"><a href="#cb11-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-207"><a href="#cb11-207" aria-hidden="true" tabindex="-1"></a>Synthetic data refers to artificially generated data that mimics the statistical properties of real datasets. It is used for privacy protection, testing, simulation, and augmenting training data.</span>
+<span id="cb11-208"><a href="#cb11-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-209"><a href="#cb11-209" aria-hidden="true" tabindex="-1"></a><span class="fu">### Silicon Sampling (Argyle et al. 2023)</span></span>
+<span id="cb11-210"><a href="#cb11-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-211"><a href="#cb11-211" aria-hidden="true" tabindex="-1"></a>**Silicon sampling** is a method for generating synthetic survey data using LLMs or similar generative models. The process involves:</span>
+<span id="cb11-212"><a href="#cb11-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-213"><a href="#cb11-213" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Training a model on real survey data.</span>
+<span id="cb11-214"><a href="#cb11-214" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Generating new, realistic individual-level responses that preserve the joint distribution of variables.</span>
+<span id="cb11-215"><a href="#cb11-215" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Validating the synthetic data to ensure it matches key properties of the original.</span>
+<span id="cb11-216"><a href="#cb11-216" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-217"><a href="#cb11-217" aria-hidden="true" tabindex="-1"></a>**Advantages:**</span>
+<span id="cb11-218"><a href="#cb11-218" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enables sharing and analysis of sensitive data without privacy risks.</span>
+<span id="cb11-219"><a href="#cb11-219" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Supports simulation studies for policy analysis or experimental design.</span>
+<span id="cb11-220"><a href="#cb11-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-221"><a href="#cb11-221" aria-hidden="true" tabindex="-1"></a>**Reference:**  </span>
+<span id="cb11-222"><a href="#cb11-222" aria-hidden="true" tabindex="-1"></a>Argyle, Lisa P., Ethan C. Busby, Nancy Fulda, Joshua R. Gubler, Christopher Rytting, and David Wingate. "Out of one, many: Using language models to simulate human samples." *Political Analysis* 31, no. 3 (2023): 337-351.</span>
+<span id="cb11-223"><a href="#cb11-223" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-224"><a href="#cb11-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### Agent-Based Modeling, AI Agents, and Agentic AI: What’s the Difference?</span></span>
+<span id="cb11-225"><a href="#cb11-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-226"><a href="#cb11-226" aria-hidden="true" tabindex="-1"></a>| Concept                | Description                                                                                 | Example Use Case                           |</span>
+<span id="cb11-227"><a href="#cb11-227" aria-hidden="true" tabindex="-1"></a>|------------------------|---------------------------------------------------------------------------------------------|--------------------------------------------|</span>
+<span id="cb11-228"><a href="#cb11-228" aria-hidden="true" tabindex="-1"></a>| Agent-Based Modeling   | Simulation approach where many autonomous “agents” interact based on simple rules.          | Modeling voter behavior in elections       |</span>
+<span id="cb11-229"><a href="#cb11-229" aria-hidden="true" tabindex="-1"></a>| AI Agent               | A software entity that can perceive, reason, and act autonomously in a digital environment. | Chatbot that schedules meetings            |</span>
+<span id="cb11-230"><a href="#cb11-230" aria-hidden="true" tabindex="-1"></a>| Agentic AI             | Advanced AI systems capable of pursuing goals, adapting, and collaborating with humans      | Autonomous research assistant that plans, learns, and executes tasks |</span>
+<span id="cb11-231"><a href="#cb11-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-232"><a href="#cb11-232" aria-hidden="true" tabindex="-1"></a>**Key Differences:**</span>
+<span id="cb11-233"><a href="#cb11-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-234"><a href="#cb11-234" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Agent-Based Modeling** is a simulation technique in social science and complex systems.</span>
+<span id="cb11-235"><a href="#cb11-235" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**AI Agents** are practical software tools that perform tasks (can be simple or complex).</span>
+<span id="cb11-236"><a href="#cb11-236" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Agentic AI** refers to emerging, more autonomous and adaptive AI systems that can set and pursue their own objectives, often with multi-step reasoning and collaboration.</span>
+<span id="cb11-237"><a href="#cb11-237" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-238"><a href="#cb11-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-239"><a href="#cb11-239" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Sample Synthetic Data Generation</span></span>
+<span id="cb11-240"><a href="#cb11-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-243"><a href="#cb11-243" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-244"><a href="#cb11-244" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb11-245"><a href="#cb11-245" aria-hidden="true" tabindex="-1"></a><span class="co"># Synthetic Data Generation for Data Science Training</span></span>
+<span id="cb11-246"><a href="#cb11-246" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb11-247"><a href="#cb11-247" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb11-248"><a href="#cb11-248" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb11-249"><a href="#cb11-249" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-250"><a href="#cb11-250" aria-hidden="true" tabindex="-1"></a>generate_synthetic_customers <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">seed =</span> <span class="dv">123</span>) {</span>
+<span id="cb11-251"><a href="#cb11-251" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(seed)</span>
+<span id="cb11-252"><a href="#cb11-252" aria-hidden="true" tabindex="-1"></a>  correlation_matrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(</span>
+<span id="cb11-253"><a href="#cb11-253" aria-hidden="true" tabindex="-1"></a>    <span class="fl">1.0</span>, <span class="fl">0.6</span>, <span class="sc">-</span><span class="fl">0.4</span>, <span class="fl">0.3</span>,</span>
+<span id="cb11-254"><a href="#cb11-254" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.6</span>, <span class="fl">1.0</span>, <span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">0.5</span>,</span>
+<span id="cb11-255"><a href="#cb11-255" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span><span class="fl">0.4</span>, <span class="sc">-</span><span class="fl">0.2</span>, <span class="fl">1.0</span>, <span class="sc">-</span><span class="fl">0.1</span>,</span>
+<span id="cb11-256"><a href="#cb11-256" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.3</span>, <span class="fl">0.5</span>, <span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">1.0</span></span>
+<span id="cb11-257"><a href="#cb11-257" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb11-258"><a href="#cb11-258" aria-hidden="true" tabindex="-1"></a>  base_vars <span class="ot">&lt;-</span> <span class="fu">mvrnorm</span>(n, <span class="at">mu =</span> <span class="fu">c</span>(<span class="dv">35</span>, <span class="dv">50000</span>, <span class="dv">25</span>, <span class="dv">3</span>), <span class="at">Sigma =</span> correlation_matrix <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb11-259"><a href="#cb11-259" aria-hidden="true" tabindex="-1"></a>  synthetic_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-260"><a href="#cb11-260" aria-hidden="true" tabindex="-1"></a>    <span class="at">customer_id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb11-261"><a href="#cb11-261" aria-hidden="true" tabindex="-1"></a>    <span class="at">age =</span> <span class="fu">pmax</span>(<span class="dv">18</span>, <span class="fu">pmin</span>(<span class="dv">80</span>, <span class="fu">round</span>(base_vars[,<span class="dv">1</span>]))),</span>
+<span id="cb11-262"><a href="#cb11-262" aria-hidden="true" tabindex="-1"></a>    <span class="at">income =</span> <span class="fu">pmax</span>(<span class="dv">20000</span>, <span class="fu">round</span>(base_vars[,<span class="dv">2</span>])),</span>
+<span id="cb11-263"><a href="#cb11-263" aria-hidden="true" tabindex="-1"></a>    <span class="at">experience_years =</span> <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="fu">pmin</span>(<span class="dv">40</span>, <span class="fu">round</span>(base_vars[,<span class="dv">3</span>]))),</span>
+<span id="cb11-264"><a href="#cb11-264" aria-hidden="true" tabindex="-1"></a>    <span class="at">satisfaction_score =</span> <span class="fu">pmax</span>(<span class="dv">1</span>, <span class="fu">pmin</span>(<span class="dv">5</span>, <span class="fu">round</span>(base_vars[,<span class="dv">4</span>])))</span>
+<span id="cb11-265"><a href="#cb11-265" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb11-266"><a href="#cb11-266" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb11-267"><a href="#cb11-267" aria-hidden="true" tabindex="-1"></a>      <span class="at">churn_probability =</span> <span class="fu">plogis</span>(<span class="sc">-</span><span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.02</span><span class="sc">*</span>age <span class="sc">-</span> <span class="fl">0.00003</span><span class="sc">*</span>income <span class="sc">+</span> </span>
+<span id="cb11-268"><a href="#cb11-268" aria-hidden="true" tabindex="-1"></a>                                 <span class="fl">0.05</span><span class="sc">*</span>experience_years <span class="sc">-</span> <span class="fl">0.8</span><span class="sc">*</span>satisfaction_score <span class="sc">+</span> </span>
+<span id="cb11-269"><a href="#cb11-269" aria-hidden="true" tabindex="-1"></a>                                 <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="fl">0.5</span>)),</span>
+<span id="cb11-270"><a href="#cb11-270" aria-hidden="true" tabindex="-1"></a>      <span class="at">churn =</span> <span class="fu">rbinom</span>(n, <span class="dv">1</span>, churn_probability),</span>
+<span id="cb11-271"><a href="#cb11-271" aria-hidden="true" tabindex="-1"></a>      <span class="at">segment =</span> <span class="fu">case_when</span>(</span>
+<span id="cb11-272"><a href="#cb11-272" aria-hidden="true" tabindex="-1"></a>        income <span class="sc">&gt;</span> <span class="dv">70000</span> <span class="sc">&amp;</span> satisfaction_score <span class="sc">&gt;=</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Premium"</span>,</span>
+<span id="cb11-273"><a href="#cb11-273" aria-hidden="true" tabindex="-1"></a>        income <span class="sc">&gt;</span> <span class="dv">45000</span> <span class="sc">&amp;</span> satisfaction_score <span class="sc">&gt;=</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"Standard"</span>,</span>
+<span id="cb11-274"><a href="#cb11-274" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Basic"</span></span>
+<span id="cb11-275"><a href="#cb11-275" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb11-276"><a href="#cb11-276" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb11-277"><a href="#cb11-277" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(synthetic_data)</span>
+<span id="cb11-278"><a href="#cb11-278" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-279"><a href="#cb11-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-280"><a href="#cb11-280" aria-hidden="true" tabindex="-1"></a>synthetic_customers <span class="ot">&lt;-</span> <span class="fu">generate_synthetic_customers</span>(<span class="dv">1000</span>)</span>
+<span id="cb11-281"><a href="#cb11-281" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Synthetic Data Summary:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb11-282"><a href="#cb11-282" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(synthetic_customers)</span>
+<span id="cb11-283"><a href="#cb11-283" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(synthetic_customers, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">y =</span> satisfaction_score, <span class="at">color =</span> <span class="fu">factor</span>(churn))) <span class="sc">+</span></span>
+<span id="cb11-284"><a href="#cb11-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb11-285"><a href="#cb11-285" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>segment) <span class="sc">+</span></span>
+<span id="cb11-286"><a href="#cb11-286" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-287"><a href="#cb11-287" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Synthetic Customer Data Validation"</span>,</span>
+<span id="cb11-288"><a href="#cb11-288" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Checking realistic relationships between variables"</span>,</span>
+<span id="cb11-289"><a href="#cb11-289" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Churn"</span>)</span>
+<span id="cb11-290"><a href="#cb11-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-291"><a href="#cb11-291" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.4 Context Engineering vs. Prompt Engineering</span></span>
+<span id="cb11-292"><a href="#cb11-292" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-293"><a href="#cb11-293" aria-hidden="true" tabindex="-1"></a>The evolution from prompt engineering to context engineering represents a fundamental shift in AI interaction paradigms (Lakera AI 2025; Contextual AI 2024; Prompting Guide 2025).</span>
+<span id="cb11-294"><a href="#cb11-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-295"><a href="#cb11-295" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Context Engineering Definition (Lakera AI 2025; Contextual AI 2024)</span></span>
+<span id="cb11-296"><a href="#cb11-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-297"><a href="#cb11-297" aria-hidden="true" tabindex="-1"></a>Context engineering is the discipline of designing and building dynamic systems that provide the right information and tools, in the right format, at the right time, to give an LLM everything it needs to accomplish a task (Lakera AI 2025).</span>
+<span id="cb11-298"><a href="#cb11-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-299"><a href="#cb11-299" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Key Differences (Lakera AI 2025; Contextual AI 2024; Prompting Guide 2025)</span></span>
+<span id="cb11-300"><a href="#cb11-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-301"><a href="#cb11-301" aria-hidden="true" tabindex="-1"></a>| Aspect            | Prompt Engineering           | Context Engineering            |</span>
+<span id="cb11-302"><a href="#cb11-302" aria-hidden="true" tabindex="-1"></a>|-------------------|-----------------------------|-------------------------------|</span>
+<span id="cb11-303"><a href="#cb11-303" aria-hidden="true" tabindex="-1"></a>| **Scope**         | Single prompt optimization  | System-level design           |</span>
+<span id="cb11-304"><a href="#cb11-304" aria-hidden="true" tabindex="-1"></a>| **Focus**         | How to ask                  | What information to provide   |</span>
+<span id="cb11-305"><a href="#cb11-305" aria-hidden="true" tabindex="-1"></a>| **Approach**      | String crafting             | Information architecture      |</span>
+<span id="cb11-306"><a href="#cb11-306" aria-hidden="true" tabindex="-1"></a>| **Context Window**| Limited consideration       | Central design consideration  |</span>
+<span id="cb11-307"><a href="#cb11-307" aria-hidden="true" tabindex="-1"></a>| **Persistence**   | Stateless interactions      | Stateful system design        |</span>
+<span id="cb11-308"><a href="#cb11-308" aria-hidden="true" tabindex="-1"></a>| **Complexity**    | Simple to moderate          | System-level complexity       |</span>
+<span id="cb11-309"><a href="#cb11-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-310"><a href="#cb11-310" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Context Engineering Components (Lakera AI 2025; Prompting Guide 2025)</span></span>
+<span id="cb11-311"><a href="#cb11-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-312"><a href="#cb11-312" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**Information Architecture:**</span>
+<span id="cb11-313"><a href="#cb11-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-314"><a href="#cb11-314" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Instructions/System prompts</span>
+<span id="cb11-315"><a href="#cb11-315" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>User input and queries</span>
+<span id="cb11-316"><a href="#cb11-316" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Short-term memory (conversation history)</span>
+<span id="cb11-317"><a href="#cb11-317" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Long-term memory (persistent knowledge)</span>
+<span id="cb11-318"><a href="#cb11-318" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Retrieved information (RAG systems)</span>
+<span id="cb11-319"><a href="#cb11-319" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Available tools and their definitions</span>
+<span id="cb11-320"><a href="#cb11-320" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Structured output specifications</span>
+<span id="cb11-321"><a href="#cb11-321" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-322"><a href="#cb11-322" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Dynamic Context Management:**</span>
+<span id="cb11-323"><a href="#cb11-323" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-324"><a href="#cb11-324" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Real-time context optimization</span>
+<span id="cb11-325"><a href="#cb11-325" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Token limit management</span>
+<span id="cb11-326"><a href="#cb11-326" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Information prioritization</span>
+<span id="cb11-327"><a href="#cb11-327" aria-hidden="true" tabindex="-1"></a><span class="ss">   - </span>Context compression techniques</span>
+<span id="cb11-328"><a href="#cb11-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-329"><a href="#cb11-329" aria-hidden="true" tabindex="-1"></a><span class="fu">### 4.5 Future Trends in GenAI for Data Science</span></span>
+<span id="cb11-330"><a href="#cb11-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-331"><a href="#cb11-331" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Emerging Paradigms (Anthropic 2024; Bito 2025; Dallas Data Science Academy 2025)</span></span>
+<span id="cb11-332"><a href="#cb11-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-333"><a href="#cb11-333" aria-hidden="true" tabindex="-1"></a>**1. Agentic AI Systems** (Anthropic 2024)</span>
+<span id="cb11-334"><a href="#cb11-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-335"><a href="#cb11-335" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Autonomous AI agents for complex data science workflows</span>
+<span id="cb11-336"><a href="#cb11-336" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Multi-agent collaboration for large-scale analysis projects</span>
+<span id="cb11-337"><a href="#cb11-337" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Adaptive learning and improvement capabilities</span>
+<span id="cb11-338"><a href="#cb11-338" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-339"><a href="#cb11-339" aria-hidden="true" tabindex="-1"></a>**2. Multimodal Integration** (Monterail 2023)</span>
+<span id="cb11-340"><a href="#cb11-340" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-341"><a href="#cb11-341" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Integration of text, images, audio, and structured data analysis</span>
+<span id="cb11-342"><a href="#cb11-342" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Cross-modal insight generation and validation</span>
+<span id="cb11-343"><a href="#cb11-343" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Unified analytical frameworks for diverse data types</span>
+<span id="cb11-344"><a href="#cb11-344" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-345"><a href="#cb11-345" aria-hidden="true" tabindex="-1"></a>**3. Democratization Acceleration** (Bito 2025; Aisera 2025)</span>
+<span id="cb11-346"><a href="#cb11-346" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-347"><a href="#cb11-347" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Natural language programming interfaces becoming mainstream</span>
+<span id="cb11-348"><a href="#cb11-348" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Reduced technical barriers for non-expert users</span>
+<span id="cb11-349"><a href="#cb11-349" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Automated ML pipeline generation and optimization</span>
+<span id="cb11-350"><a href="#cb11-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-351"><a href="#cb11-351" aria-hidden="true" tabindex="-1"></a>**4. Ethical AI and Responsible Development** (Bito 2025)</span>
+<span id="cb11-352"><a href="#cb11-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-353"><a href="#cb11-353" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Enhanced bias detection and mitigation systems</span>
+<span id="cb11-354"><a href="#cb11-354" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Transparent AI decision-making processes</span>
+<span id="cb11-355"><a href="#cb11-355" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Responsible AI frameworks for data science applications</span>
+<span id="cb11-356"><a href="#cb11-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-357"><a href="#cb11-357" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-358"><a href="#cb11-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-359"><a href="#cb11-359" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-360"><a href="#cb11-360" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary Table: Key Innovations</span></span>
+<span id="cb11-361"><a href="#cb11-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-362"><a href="#cb11-362" aria-hidden="true" tabindex="-1"></a>| Technology    | What It Does                              | Why It Matters                        |</span>
+<span id="cb11-363"><a href="#cb11-363" aria-hidden="true" tabindex="-1"></a>|---------------|-------------------------------------------|---------------------------------------|</span>
+<span id="cb11-364"><a href="#cb11-364" aria-hidden="true" tabindex="-1"></a>| RAG           | Brings live, retrieved info to LLMs       | Up-to-date, grounded, transparent     |</span>
+<span id="cb11-365"><a href="#cb11-365" aria-hidden="true" tabindex="-1"></a>| MCP           | Lets LLMs use external tools &amp; APIs       | Actionable, interactive, extensible   |</span>
+<span id="cb11-366"><a href="#cb11-366" aria-hidden="true" tabindex="-1"></a>| Silicon Sampling | Generates privacy-preserving synthetic data | Enables open research, simulation     |</span>
+<span id="cb11-367"><a href="#cb11-367" aria-hidden="true" tabindex="-1"></a>| Agentic AI    | Autonomous, goal-driven AI agents         | Next-gen AI with planning/adaptation  |</span>
+<span id="cb11-368"><a href="#cb11-368" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-369"><a href="#cb11-369" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-370"><a href="#cb11-370" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-371"><a href="#cb11-371" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hands-on Exercise 4: Advanced GenAI Applications</span></span>
+<span id="cb11-372"><a href="#cb11-372" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-373"><a href="#cb11-373" aria-hidden="true" tabindex="-1"></a>**Capstone Project:** Students implement an integrated GenAI data science system:</span>
+<span id="cb11-374"><a href="#cb11-374" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-375"><a href="#cb11-375" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**RAG Implementation:** Build a knowledge retrieval system for domain-specific queries</span>
+<span id="cb11-376"><a href="#cb11-376" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**Synthetic Data Pipeline:** Create realistic synthetic datasets for analysis</span>
+<span id="cb11-377"><a href="#cb11-377" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**Context Engineering:** Design dynamic context management for sustained AI interaction</span>
+<span id="cb11-378"><a href="#cb11-378" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**Collaborative Workflow:** Demonstrate human-AI collaboration throughout the process</span>
+<span id="cb11-379"><a href="#cb11-379" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**Future Visioning:** Propose innovative applications of emerging GenAI technologies</span>
+<span id="cb11-380"><a href="#cb11-380" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-381"><a href="#cb11-381" aria-hidden="true" tabindex="-1"></a><span class="fu">## References</span></span>
+<span id="cb11-382"><a href="#cb11-382" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-383"><a href="#cb11-383" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Argyle, Lisa P., Ethan C. Busby, Nancy Fulda, Joshua R. Gubler, Christopher Rytting, and David Wingate. "Out of one, many: Using language models to simulate human samples." *Political Analysis* 31, no. 3 (2023): 337-351.</span>
+<span id="cb11-384"><a href="#cb11-384" aria-hidden="true" tabindex="-1"></a>Aisera. 2025. "What is Human AI Collaboration?" *Aisera Blog*, May 29. https://aisera.com/blog/human-ai-collaboration/.</span>
+<span id="cb11-385"><a href="#cb11-385" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-386"><a href="#cb11-386" aria-hidden="true" tabindex="-1"></a>Anthropic. 2024. "Agentic AI: The Next Frontier." *Anthropic Blog*, April 17. https://www.anthropic.com/blog/agentic-ai.</span>
+<span id="cb11-387"><a href="#cb11-387" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-388"><a href="#cb11-388" aria-hidden="true" tabindex="-1"></a>Bito. 2025. "AI Documentation Generator." *Bito AI*. https://bito.ai/blog/ai-documentation-generator/.</span>
+<span id="cb11-389"><a href="#cb11-389" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-390"><a href="#cb11-390" aria-hidden="true" tabindex="-1"></a>Contextual AI. 2024. "What is Context Engineering?" *Contextual AI Blog*, February 12. https://contextual.ai/blog/context-engineering.</span>
+<span id="cb11-391"><a href="#cb11-391" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-392"><a href="#cb11-392" aria-hidden="true" tabindex="-1"></a>Dallas Data Science Academy. 2025. "Integrating Generative AI in Data Science Projects." *Dallas Data Science Academy Blog*, January 6. https://dallasdatascienceacademy.org/blog/integrating-generative-ai-in-data-science-projects.</span>
+<span id="cb11-393"><a href="#cb11-393" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-394"><a href="#cb11-394" aria-hidden="true" tabindex="-1"></a>Decodo. 2025. "How to Use LLM for Data Analysis: A Comprehensive Guide." *Decodo Blog*, April 15. https://decodo.com/blog/llm-for-data-analysis.</span>
+<span id="cb11-395"><a href="#cb11-395" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-396"><a href="#cb11-396" aria-hidden="true" tabindex="-1"></a>Graphite. 2025. "Understanding 'Vibe Coding,' the Future of AI-Driven Development." *Graphite Blog*, July 8. https://graphite.dev/guides/understanding-vibe-coding.</span>
+<span id="cb11-397"><a href="#cb11-397" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-398"><a href="#cb11-398" aria-hidden="true" tabindex="-1"></a>Kaur, Harleen, et al. 2022. "A Comprehensive Review on Synthetic Data Generation for Machine Learning." *ACM Computing Surveys* 55(9): 1-38.</span>
+<span id="cb11-399"><a href="#cb11-399" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-400"><a href="#cb11-400" aria-hidden="true" tabindex="-1"></a>Lakera AI. 2025. "The Ultimate Guide to Prompt Engineering in 2025." *Lakera AI Blog*, May 21. https://www.lakera.ai/blog/prompt-engineering-guide.</span>
+<span id="cb11-401"><a href="#cb11-401" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-402"><a href="#cb11-402" aria-hidden="true" tabindex="-1"></a>LangChain. 2024. "Model Context Protocol (MCP): A New Standard for AI Tooling." *LangChain Docs*. https://docs.langchain.com/docs/mcp.</span>
+<span id="cb11-403"><a href="#cb11-403" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-404"><a href="#cb11-404" aria-hidden="true" tabindex="-1"></a>Lewis, Patrick, et al. 2020. "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." *Advances in Neural Information Processing Systems* 33: 9459–9474.</span>
+<span id="cb11-405"><a href="#cb11-405" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-406"><a href="#cb11-406" aria-hidden="true" tabindex="-1"></a>Monterail. 2023. "AI-Powered Coding Assistants: Best Practices to Boost Software Development." *Monterail Blog*, September 11. https://www.monterail.com/blog/ai-powered-coding-assistants-best-practices.</span>
+<span id="cb11-407"><a href="#cb11-407" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-408"><a href="#cb11-408" aria-hidden="true" tabindex="-1"></a>OpenAI. 2024. "Retrieval-Augmented Generation (RAG) and Model Context Protocol (MCP): Technical Overview." *OpenAI Technical Reports*. https://openai.com/research/rag-mcp.</span>
+<span id="cb11-409"><a href="#cb11-409" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-410"><a href="#cb11-410" aria-hidden="true" tabindex="-1"></a>Pinecone. 2024. "What is Retrieval-Augmented Generation (RAG)?" *Pinecone Blog*, March 12. https://www.pinecone.io/learn/retrieval-augmented-generation/.</span>
+<span id="cb11-411"><a href="#cb11-411" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-412"><a href="#cb11-412" aria-hidden="true" tabindex="-1"></a>Prompting Guide. 2025. "General Tips for Designing Prompts." *Prompt Engineering Guide*, June 7. https://www.promptingguide.ai/introduction/tips.</span>
+<span id="cb11-413"><a href="#cb11-413" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-414"><a href="#cb11-414" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-415"><a href="#cb11-415" aria-hidden="true" tabindex="-1"></a></span>
+</code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
