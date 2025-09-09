@@ -1,0 +1,60 @@
+/*-- scss:defaults --*/
+  
+  // Define the font family as Palatino or Garamond with serif fallback
+$font-family-sans-serif: "Palatino Linotype", "Garamond", "Book Antiqua", Palatino, FreeSerif, serif !default;
+
+// Background and Text Colors
+$body-bg: #ffffff !default;  // White background
+  $body-color: #000000 !default;  // Black text for contrast
+  
+  // Links
+$link-color: #2a76dd !default;
+  $link-color-hover: lighten($link-color, 15%) !default;
+$selection-bg: lighten($link-color, 25%) !default;
+
+// Headings
+$presentation-heading-font: $font-family-sans-serif !default;
+$presentation-heading-color: #383d3d !default;
+  $presentation-heading-line-height: 1.2 !default;
+
+// Font Sizes
+$presentation-font-size-root: 32px !default;  // Adjust base font size
+$presentation-h1-font-size: 2.0em !default;
+$presentation-h2-font-size: 1.8em !default;
+$presentation-h3-font-size: 1.4em !default;
+$presentation-h4-font-size: 1.1em !default;
+
+// Footer customization
+$footer-font-size: 14px;
+$footer-color: #383d3d; // Dark grey for footer text
+  $footer-bg-color: #f0f1eb; // Light grey for footer background
+  $footer-padding: 10px;
+
+// Customizing the footer area
+.reveal footer {
+  font-size: $footer-font-size;
+  color: $footer-color;
+  background-color: $footer-bg-color;
+  padding: $footer-padding;
+  text-align: center;
+  border-top: 2px solid lighten($body-color, 20%);
+}
+
+// Slide Block Styling
+.reveal .slide {
+  font-family: $font-family-sans-serif;
+  color: $body-color;
+  background-color: $body-bg;
+}
+
+.reveal a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  color: $link-color-hover;
+}
+
+
+

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="ethics01_files/libs/clipboard/clipboard.min.js"></script>
+<script src="ethics01_files/libs/quarto-html/tabby.min.js"></script>
+<script src="ethics01_files/libs/quarto-html/popper.min.js"></script>
+<script src="ethics01_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="ethics01_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="ethics01_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="ethics01_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.33">
+
+  <meta name="author" content="Karl Ho">
+  <title>Data Science Ethics: Quality, Bias, and Privacy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ethics01_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="ethics01_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="ethics01_files/libs/revealjs/dist/theme/quarto-bbdadb7e4edbcc8f57eb8ce14d1e839f.css">
+  <link href="ethics01_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="ethics01_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="ethics01_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="ethics01_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="ethics01_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="ethics01_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Data Science Ethics: Quality, Bias, and Privacy</h1>
+  <p class="subtitle">Chapters 10-12 from Foster et al.&nbsp;Big Data and Social Science</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Karl Ho 
+</div>
+</div>
+</div>
+
+</section>
+<section id="ethics-law-and-platform-governance" class="slide level2 smaller">
+<h2>Ethics, Law and Platform Governance</h2>
+<div class="fragment">
+<p><strong>Chapter 10: Data Quality and Inference Errors</strong></p>
+<ul>
+<li class="fragment">Understanding error frameworks in big data</li>
+<li class="fragment">Types of errors and their impacts on analysis</li>
+<li class="fragment">Mitigation strategies</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Chapter 11: Bias and Fairness</strong></p>
+<ul>
+<li class="fragment">Sources of algorithmic bias</li>
+<li class="fragment">Metrics for measuring fairness</li>
+<li class="fragment">Trade-offs in bias mitigation</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Chapter 12: Privacy and Confidentiality</strong></p>
+<ul>
+<li class="fragment">Protecting human subjects in research</li>
+<li class="fragment">Balancing utility and privacy</li>
+<li class="fragment">Modern challenges with big data</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section>
+<section>
+<section id="chapter-10-data-quality-and-inference-errors" class="title-slide slide level1 center">
+<h1>Chapter 10: Data Quality and Inference Errors</h1>
+
+</section>
+<section id="the-challenge-of-big-data-errors" class="slide level2 smaller">
+<h2>The Challenge of Big Data Errors</h2>
+<div class="fragment">
+<p><strong>The Problem:</strong></p>
+<ul>
+<li class="fragment">Big data brings new opportunities but also new error risks</li>
+<li class="fragment">Data often “repurposed” from original collection intent</li>
+<li class="fragment">Errors can be <strong>variable</strong> (random) or <strong>systematic</strong> (directional)</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Key Examples:</strong></p>
+<ul>
+<li class="fragment"><strong>Literary Digest</strong> (1936): Bad sampling led to wrong election prediction</li>
+<li class="fragment"><strong>Google Flu Trends</strong> (2012-2013): Overestimated flu incidence by nearly double</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Why This Matters:</strong></p>
+<ul>
+<li class="fragment">Without proper “data hygiene,” errors compound quickly</li>
+<li class="fragment">New data types are so large/complex that traditional error detection fails</li>
+<li class="fragment">Need systematic frameworks to understand and mitigate errors</li>
+</ul>
+</div>
+</section>
+<section id="the-total-error-framework" class="slide level2 smaller">
+<h2>The Total Error Framework</h2>
+<p><strong>Traditional Survey Error Model Extended to Big Data:</strong></p>
+<div class="fragment">
+<p><span class="math display">\[ \text{Total Error} = \text{Row Error} + \text{Column Error} + \text{Cell Error} \]</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="fragment">
+<p><strong>Row Errors:</strong></p>
+<ul>
+<li class="fragment"><strong>Omissions</strong>: Missing population elements</li>
+<li class="fragment"><strong>Duplications</strong>: Same entity multiple rows<br>
+</li>
+<li class="fragment"><strong>Erroneous inclusions</strong>: Out-of-scope elements</li>
+</ul>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p><strong>Column Errors:</strong></p>
+<ul>
+<li class="fragment"><strong>Specification errors</strong>: Mislabeled variables</li>
+<li class="fragment"><strong>Metadata errors</strong>: Incorrect column definitions</li>
+</ul>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="fragment">
+<p><strong>Cell Errors:</strong></p>
+<ul>
+<li class="fragment"><strong>Content errors</strong>: Wrong values</li>
+<li class="fragment"><strong>Specification errors</strong>: Definition mismatches</li>
+<li class="fragment"><strong>Missing data</strong>: Empty cells</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="row-errors-coverage-and-selection-issues" class="slide level2 smaller">
+<h2>Row Errors: Coverage and Selection Issues</h2>
+<div class="fragment">
+<p><strong>Omissions (Coverage Bias):</strong></p>
+<ul>
+<li class="fragment">Formula: <span class="math inline">\(B_{NC} = (1 - N/N_T)(\bar{V}_C - \bar{V}_{NC})\)</span></li>
+<li class="fragment">Where <span class="math inline">\(N\)</span> = observed, <span class="math inline">\(N_T\)</span> = target population, <span class="math inline">\(\bar{V}_C\)</span> = mean value in covered, <span class="math inline">\(\bar{V}_{NC}\)</span> = mean in non-covered</li>
+<li class="fragment"><strong>Example</strong>: Google searches exclude non-Internet users</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Duplications:</strong></p>
+<ul>
+<li class="fragment">Same person multiple tweets/searches</li>
+<li class="fragment">Can bias individual-level vs.&nbsp;activity-level inferences</li>
+<li class="fragment"><strong>Mitigation</strong>: Deduplication or weighting by <span class="math inline">\(1/d\)</span></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Erroneous Inclusions:</strong></p>
+<ul>
+<li class="fragment">Bots, automated systems, out-of-scope records</li>
+<li class="fragment"><strong>Example</strong>: Computer-generated tweets vs.&nbsp;human tweets</li>
+</ul>
+</div>
+</section>
+<section id="google-flu-trends-a-case-study" class="slide level2 smaller">
+<h2>Google Flu Trends: A Case Study</h2>
+<div class="fragment">
+<p><strong>What Happened:</strong></p>
+<ul>
+<li class="fragment">2009-2011: Remarkably accurate flu tracking</li>
+<li class="fragment">2012-2013: Overestimated CDC rates by nearly 100%</li>
+<li class="fragment">Failed for 100 out of 108 weeks starting July 2012</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Root Causes (Lazer et al.):</strong></p>
+<ul>
+<li class="fragment"><strong>Big Data Hubris</strong>: Volume doesn’t compensate for methodological flaws</li>
+<li class="fragment"><strong>Algorithm Dynamics</strong>: Google’s search suggestions created feedback loops</li>
+<li class="fragment"><strong>Blue Team Dynamics</strong>: Platform changes broke predictive relationships</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Key Lesson:</strong></p>
+<p>Successful big data analyses today may fail tomorrow without robust methodological foundations</p>
+</div>
+</section>
+<section id="analysis-errors-even-with-perfect-data" class="slide level2 smaller">
+<h2>Analysis Errors: Even with Perfect Data</h2>
+<div class="fragment">
+<p><strong>Three Major Issues (Fan et al.):</strong></p>
+<ol type="1">
+<li class="fragment"><p><strong>Noise Accumulation</strong>: Adding uninformative variables overwhelms signal</p>
+<ul>
+<li class="fragment">With 1,000 variables, only first 10 informative</li>
+<li class="fragment">Classification degrades when <span class="math inline">\(m &gt; 200\)</span> variables included</li>
+</ul></li>
+<li class="fragment"><p><strong>Spurious Correlations</strong>: High dimensionality creates false discoveries</p>
+<ul>
+<li class="fragment">With 800 independent variables: 50% chance of |correlation| &gt; 0.4 <img data-src="https://textbook.coleridgeinitiative.org/ChapterError/figures/fig10-3.png" style="width:50.0%" alt="Figure 10.2: An illustration of coincidental correlation between two variables: stork die-off linked to human birth decline (Sies 1988)"></li>
+</ul></li>
+<li class="fragment"><p><strong>Incidental Endogeneity</strong>: Covariates correlated with residuals by chance</p>
+<ul>
+<li class="fragment">Leads to biased model selection and predictions</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="error-models-for-continuous-variables" class="slide level2 smaller">
+<h2>Error Models for Continuous Variables</h2>
+<div class="fragment">
+<p><strong>Basic Error Model:</strong> <span class="math display">\[y_{rc} = \mu_{rc} + \varepsilon_{rc}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Two Types of Errors:</strong></p>
+<p><strong>Variable (Random) Errors:</strong></p>
+<ul>
+<li class="fragment"><span class="math inline">\(\text{Cov}(y_r, y_s) = 0\)</span> for <span class="math inline">\(r \neq s\)</span></li>
+<li class="fragment">Examples: Keying errors, measurement noise</li>
+</ul>
+<p><strong>Correlated (Systematic) Errors:</strong></p>
+<ul>
+<li class="fragment"><span class="math inline">\(\varepsilon_{rj} = b_j + e_{rj}\)</span> where <span class="math inline">\(b_j\)</span> is source-specific bias</li>
+<li class="fragment">Examples: Calibration differences across sensors</li>
+</ul>
+</div>
+</section>
+<section id="impact-on-correlation-analysis" class="slide level2 smaller">
+<h2>Impact on Correlation Analysis</h2>
+<div class="fragment">
+<p><strong>Key Formula:</strong> <span class="math display">\[\rho_{y|cd} = \sqrt{R_c R_d} \rho_{\mu|cd} + \sqrt{\rho_c \rho_d}\]</span></p>
+<p>Where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(R_c\)</span> = reliability ratio (signal vs.&nbsp;total variance)</li>
+<li class="fragment"><span class="math inline">\(\rho_c\)</span> = intra-source correlation (systematic error effect)</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Variable Errors Only:</strong> Attenuate correlations by <span class="math inline">\(\sqrt{R_c R_d}\)</span></p>
+<p><strong>Systematic Errors:</strong> Can both inflate and attenuate unpredictably</p>
+</div>
+<div class="fragment">
+<p><strong>Aggregation Helps:</strong> Combining <span class="math inline">\(n\)</span> observations reduces variable error impact - Variable error variance: <span class="math inline">\(O(n^{-1})\)</span> - But systematic errors persist regardless of <span class="math inline">\(n\)</span></p>
+</div>
+</section>
+<section id="rare-population-analysis-challenges" class="slide level2 smaller">
+<h2>Rare Population Analysis Challenges</h2>
+<div class="fragment">
+<p><strong>The Terrorist Detector Example:</strong> - 99.9% accurate classifier - 1 in 1,000,000 true terrorists - Person classified as terrorist: Only 0.1% chance of being correct!</p>
+</div>
+<div class="fragment">
+<p><strong>Why So Wrong?</strong> <span class="math display">\[\text{PPV} = \frac{(1-\theta)\pi}{\pi(1-\theta) + (1-\pi)\phi} = \frac{0.999 \times 10^{-6}}{0.999 \times 10^{-6} + 0.999999 \times 0.001} \approx 0.001\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>General Principle:</strong> For very rare events, even highly accurate classifiers yield mostly false positives</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="chapter-11-bias-and-fairness" class="title-slide slide level1 center">
+<h1>Chapter 11: Bias and Fairness</h1>
+
+</section>
+<section id="the-challenge-of-algorithmic-fairness" class="slide level2 smaller">
+<h2>The Challenge of Algorithmic Fairness</h2>
+<div class="fragment">
+<p><strong>Core Problem:</strong> - No universal definition of “fair” - Multiple competing metrics that cannot all be optimized simultaneously - Must start with <strong>social and policy goals</strong>, then map to statistical properties</p>
+</div>
+<div class="fragment">
+<p><strong>Key Insight:</strong> Machine learning models cannot be separated from social and ethical context - accuracy and fairness must both be considered</p>
+</div>
+</section>
+<section id="sources-of-bias-in-ml-pipeline" class="slide level2 smaller">
+<h2>Sources of Bias in ML Pipeline</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>1. Sample Bias</strong> - Training data â‰ application population - Systematic exclusions (e.g., bail data only from released individuals) - Over-policing effects in criminal justice data</p>
+</div>
+<div class="fragment">
+<p><strong>2. Label (Outcome) Bias</strong><br>
+- Using arrests vs.&nbsp;crimes committed - Measurement error varies across groups - Differential accuracy in data collection</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>3. Pipeline Bias</strong> - <strong>Data ingestion</strong>: Record matching accuracy varies by group - <strong>Feature engineering</strong>: Geocoding misses homeless populations<br>
+- <strong>Modeling</strong>: Performance varies across groups</p>
+</div>
+<div class="fragment">
+<p><strong>4. Application Bias</strong> - Intervention effectiveness varies by group - Discriminatory application of “fair” models</p>
+</div>
+</div></div>
+</section>
+<section id="fairness-metrics-confusion-matrix-foundation" class="slide level2 smaller">
+<h2>Fairness Metrics: Confusion Matrix Foundation</h2>
+<div class="fragment">
+<p><strong>Key Ratios from Confusion Matrix:</strong></p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>False Positive Rate (FPR)</strong>: <span class="math inline">\(\frac{FP}{FP + TN}\)</span></li>
+<li class="fragment"><strong>False Negative Rate (FNR)</strong>: <span class="math inline">\(\frac{FN}{FN + TP}\)</span></li>
+<li class="fragment"><strong>Precision (PPV)</strong>: <span class="math inline">\(\frac{TP}{TP + FP}\)</span></li>
+<li class="fragment"><strong>Recall (Sensitivity)</strong>: <span class="math inline">\(\frac{TP}{TP + FN}\)</span></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>False Discovery Rate (FDR)</strong>: <span class="math inline">\(\frac{FP}{FP + TP}\)</span></li>
+<li class="fragment"><strong>False Omission Rate (FOR)</strong>: <span class="math inline">\(\frac{FN}{FN + TN}\)</span></li>
+<li class="fragment"><strong>Specificity</strong>: <span class="math inline">\(\frac{TN}{TN + FP}\)</span></li>
+</ul>
+</div>
+</div></div>
+<div class="fragment">
+<p><strong>Critical Point:</strong> These metrics focus on different populations (actual positives vs.&nbsp;predicted positives vs.&nbsp;total population)</p>
+</div>
+</section>
+<section id="punitive-vs.-assistive-applications" class="slide level2 smaller">
+<h2>Punitive vs.&nbsp;Assistive Applications</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Punitive (e.g., Bail Denial)</strong> <em>Focus on False Positives</em></p>
+<ul>
+<li class="fragment"><strong>Count of FP</strong>: Equal numbers wrongly detained</li>
+<li class="fragment"><strong>Group-adjusted FP</strong>: Equal rates by group size<br>
+</li>
+<li class="fragment"><strong>FDR</strong>: Among detained, equal error rates</li>
+<li class="fragment"><strong>FPR</strong>: Among innocent, equal error rates</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Assistive (e.g., Food Benefits)</strong> <em>Focus on False Negatives</em></p>
+<ul>
+<li class="fragment"><strong>Count of FN</strong>: Equal numbers missed</li>
+<li class="fragment"><strong>Group-adjusted FN</strong>: Equal miss rates by group size</li>
+<li class="fragment"><strong>FOR</strong>: Among not served, equal need rates</li>
+<li class="fragment"><strong>FNR</strong>: Among needy, equal miss rates</li>
+</ul>
+</div>
+</div></div>
+<div class="fragment">
+<p><strong>Trade-off Reality:</strong> When prevalence differs across groups, you <strong>cannot</strong> eliminate disparities in both group-adjusted errors and condition-specific rates simultaneously</p>
+</div>
+</section>
+<section id="the-fairness-tree-decision-framework" class="slide level2">
+<h2>The Fairness Tree Decision Framework</h2>
+<div class="fragment">
+<p><strong>Key Decision Points:</strong></p>
+<ol type="1">
+<li class="fragment"><strong>Is your intervention punitive or assistive?</strong>
+<ul>
+<li class="fragment">Punitive â†’ Focus on false positives</li>
+<li class="fragment">Assistive â†’ Focus on false negatives</li>
+</ul></li>
+<li class="fragment"><strong>What type of harm matters most?</strong>
+<ul>
+<li class="fragment">Individual harm from inclusion/exclusion errors</li>
+<li class="fragment">Societal harm from disparate treatment</li>
+</ul></li>
+<li class="fragment"><strong>Are resources constrained?</strong>
+<ul>
+<li class="fragment">Constrained â†’ Consider recall-based metrics</li>
+<li class="fragment">Unconstrained â†’ Traditional error rates applicable</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="resource-constrained-programs" class="slide level2 smaller">
+<h2>Resource-Constrained Programs</h2>
+<div class="fragment">
+<p><strong>Special Case:</strong> When program serves small fraction of those with need</p>
+<p><strong>Problem:</strong> Traditional metrics become uninformative - FOR approaches overall prevalence - FNR approaches 1.0</p>
+</div>
+<div class="fragment">
+<p><strong>Solution:</strong> Focus on <strong>Recall</strong> (sensitivity) <span class="math display">\[P(\text{received benefit} | \text{need}, \text{group}_i) = C\]</span></p>
+<p><strong>Alternative Approaches:</strong> - <strong>Equal recall across groups</strong>: <span class="math inline">\(\frac{\text{recall}_i}{\text{recall}_j} = 1\)</span> - <strong>Recall proportional to need</strong>: <span class="math inline">\(\frac{\text{recall}_i}{\text{recall}_j} = \frac{p_i}{p_j}\)</span></p>
+</div>
+</section>
+<section id="mitigating-bias-practical-approaches" class="slide level2 smaller">
+<h2>Mitigating Bias: Practical Approaches</h2>
+<div class="fragment">
+<p><strong>1. Auditing Existing Systems</strong></p>
+<ul>
+<li class="fragment">Measure bias in current (non-ML) processes</li>
+<li class="fragment">Compare ML improvements to status quo</li>
+<li class="fragment">Tools like Aequitas for systematic assessment</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>2. Model Selection Integration</strong></p>
+<ul>
+<li class="fragment">Consider equity alongside performance metrics</li>
+<li class="fragment">Create “menu” of options showing trade-offs</li>
+<li class="fragment">Example: Precision 0.75 + FDR ratio 1.3 vs.&nbsp;Precision 0.64 + FDR parity</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>3. Deployment Strategies</strong></p>
+<ul>
+<li class="fragment"><strong>Different thresholds by group</strong> to achieve equity</li>
+<li class="fragment"><strong>Expand program size</strong> to avoid denying interventions</li>
+<li class="fragment"><strong>Random selection from expanded pool</strong> (e.g., top 1000 for 150 slots)</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="chapter-12-privacy-and-confidentiality" class="title-slide slide level1 center">
+<h1>Chapter 12: Privacy and Confidentiality</h1>
+
+</section>
+<section id="the-fundamental-challenge" class="slide level2 smaller">
+<h2>The Fundamental Challenge</h2>
+<div class="fragment">
+<p><strong>Core Tension:</strong></p>
+<p>Research value requires data access for replication, validation, and extension BUT more access increases confidentiality risk</p>
+</div>
+<div class="fragment">
+<p><strong>Traditional Safeguards Now Obsolete:</strong></p>
+<ul>
+<li class="fragment"><strong>Anonymization</strong>: Nearly impossible with rich big data</li>
+<li class="fragment"><strong>Informed consent</strong>: Too complex for comprehensible consent</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>New Reality:</strong></p>
+<p>Multiple datasets linked by various actors beyond traditional researchers, with no clear data stewards</p>
+</div>
+</section>
+<section id="key-definitions" class="slide level2 smaller">
+<h2>Key Definitions</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Utility</strong>: Value from data use</p>
+<ul>
+<li class="fragment">Private sector: Amazon, Google profit model</li>
+<li class="fragment">Research: Answering policy questions</li>
+</ul>
+<p><strong>Privacy</strong>: Appropriate flow of information</p>
+<ul>
+<li class="fragment">Context-dependent sharing decisions<br>
+</li>
+<li class="fragment">Not absolute secrecy</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><strong>Confidentiality</strong>: Preserving authorized access restrictions</p>
+<ul>
+<li class="fragment">Technical/legal protection measures</li>
+</ul>
+<p><strong>Risk</strong>: Probability of reidentification</p>
+<ul>
+<li class="fragment">Increases with data richness and external linking</li>
+</ul>
+<p><strong>Harm</strong>: Negative consequences from disclosure</p>
+<ul>
+<li class="fragment">Type of information matters more than fact of disclosure</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="the-utility-privacy-trade-off" class="slide level2 smaller">
+<h2>The Utility-Privacy Trade-off</h2>
+<div class="fragment">
+<p><strong>Fundamental Relationship:</strong></p>
+<ul>
+<li class="fragment">More data access â†’ Higher utility â†’ Higher risk</li>
+<li class="fragment">External data growth shifts frontier inward</li>
+<li class="fragment">Organizations must balance competing demands</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="utility-privacy-curve.png"></p>
+<figcaption>Utility-Privacy Frontier</figcaption>
+</figure>
+</div>
+<p><em>As external data increases, achieving same utility U</em> requires reducing privacy from Pâ‚ to Pâ‚‚*</p>
+</div>
+<div class="fragment">
+<p><strong>Historical Solution:</strong> Statistical agencies managed this trade-off with:</p>
+<ul>
+<li class="fragment">Legal mandate and capacity</li>
+<li class="fragment">Understanding of user community</li>
+<li class="fragment">Technical expertise</li>
+</ul>
+</div>
+</section>
+<section id="why-big-data-breaks-traditional-models" class="slide level2 smaller">
+<h2>Why Big Data Breaks Traditional Models</h2>
+<div class="fragment">
+<p><strong>Reidentification Examples:</strong></p>
+<ul>
+<li class="fragment"><strong>Governor Weld (1990s)</strong>: Medical records + voter files<br>
+</li>
+<li class="fragment"><strong>AOL searches (2006)</strong>: Browsing patterns revealed identity</li>
+<li class="fragment"><strong>Target teenager (2012)</strong>: Shopping patterns revealed pregnancy</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Fundamental Problems:</strong></p>
+<ol type="1">
+<li class="fragment"><strong>Legal ownership unclear</strong>: Who controls cell phone data?</li>
+<li class="fragment"><strong>Informed consent impossible</strong>: Comprehensive â‰ comprehensible<br>
+</li>
+<li class="fragment"><strong>True anonymization impossible</strong>: Everyone unique in high-dimensional data</li>
+<li class="fragment"><strong>No data stewards</strong>: Interconnected data (social networks) affects non-participants</li>
+<li class="fragment"><strong>“Tyranny of minority”</strong>: Few volunteers expose information about many</li>
+</ol>
+</div>
+</section>
+<section id="access-provision-methods" class="slide level2 smaller">
+<h2>Access Provision Methods</h2>
+<div class="fragment">
+<p><strong>Statistical Disclosure Control (SDC):</strong></p>
+<ul>
+<li class="fragment"><strong>Tabular data</strong>: Safe but limited analytical value</li>
+<li class="fragment"><strong>Public use files</strong>: Strip PII, top-code, swap records (vulnerable to mosaic effect)</li>
+<li class="fragment"><strong>Licensing</strong>: Contractual agreements with monitoring</li>
+<li class="fragment"><strong>Differential privacy</strong>: Add calibrated noise (Îµ parameter controls privacy/utility)</li>
+<li class="fragment"><strong>Synthetic data</strong>: Generate fake data preserving statistical properties</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Research Data Centers (RDC):</strong> Based on <strong>“Five Safes”</strong> framework:</p>
+<ol type="1">
+<li class="fragment"><strong>Safe projects</strong>: Legitimate research purposes</li>
+<li class="fragment"><strong>Safe people</strong>: Qualified, trained researchers<br>
+</li>
+<li class="fragment"><strong>Safe data</strong>: Assessed reidentification risk</li>
+<li class="fragment"><strong>Safe settings</strong>: Physical/technical access controls</li>
+<li class="fragment"><strong>Safe outputs</strong>: Reviewed results before publication</li>
+</ol>
+</div>
+</section>
+<section id="federal-statistical-research-data-centers" class="slide level2 smaller">
+<h2>Federal Statistical Research Data Centers</h2>
+<div class="fragment">
+<p><strong>Extremely Restrictive Process:</strong></p>
+<ul>
+<li class="fragment">6+ months approval time</li>
+<li class="fragment">Special Sworn Status (security clearance + fingerprinting)</li>
+<li class="fragment">US citizens/3-year residents only</li>
+<li class="fragment">Detailed proposals with specific models pre-specified</li>
+<li class="fragment">No “browsing” or exploratory analysis allowed</li>
+<li class="fragment">All outputs must be pre-approved</li>
+<li class="fragment">High fees for non-affiliated researchers</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Alternative: Administrative Data Research Facility (ADRF)</strong></p>
+<ul>
+<li class="fragment">Cloud-based, virtual data facility</li>
+<li class="fragment">Implements “Five Safes” with modern technology</li>
+<li class="fragment">450+ researchers served in 3 years</li>
+<li class="fragment">Government Innovation Award winner</li>
+</ul>
+</div>
+</section>
+<section id="non-tabular-data-privacy" class="slide level2 smaller">
+<h2>Non-Tabular Data Privacy</h2>
+<div class="fragment">
+<p><strong>Text Anonymization:</strong></p>
+<ul>
+<li class="fragment">Simple: Remove PII via regex/dictionaries</li>
+<li class="fragment">Advanced: ML approaches balancing confidentiality and utility</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Image/Video Anonymization:</strong></p>
+<ul>
+<li class="fragment">Face detection and blurring/removal</li>
+<li class="fragment">Extending to clothing, body parts</li>
+<li class="fragment">Automatic anonymization while preserving data distribution</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Examples:</strong> Medical records, crime notes, body camera footage, security cameras</p>
+</div>
+</section>
+<section id="modern-legal-and-ethical-framework" class="slide level2 smaller">
+<h2>Modern Legal and Ethical Framework</h2>
+<div class="fragment">
+<p><strong>Regulatory Responses:</strong></p>
+<ul>
+<li class="fragment"><strong>GDPR (Europe, 2018)</strong>: Purpose limitation, data minimization</li>
+<li class="fragment"><strong>CCPA (California, 2020)</strong>: Consumer data rights, processing time limits</li>
+<li class="fragment">Still rely on traditional notice/consent (which has failed)</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Ohm’s Five Principles for Reform:</strong></p>
+<ol type="1">
+<li class="fragment">Rules reflect varying risk levels across datasets</li>
+<li class="fragment">Rethink traditional PII definitions<br>
+</li>
+<li class="fragment">Regulate “walls” between datasets</li>
+<li class="fragment">Remind analysts they work with people</li>
+<li class="fragment">Keep ethics discussion open and evolving</li>
+</ol>
+</div>
+<div class="fragment">
+<p><strong>Key Insight:</strong> Move from individual consent to contextual integrity and harm assessment</p>
+</div>
+</section>
+<section id="future-directions" class="slide level2 smaller">
+<h2>Future Directions</h2>
+<div class="fragment">
+<p><strong>Toward New Models:</strong> - <strong>Professionalized data curation</strong>: From artisan activity to research infrastructure - <strong>“Analysis to data”</strong>: Bring tools to secure environments vs.&nbsp;moving data to analysts<br>
+- <strong>Verification servers</strong>: Assess quality of inferences without exposing raw data</p>
+</div>
+<div class="fragment">
+<p><strong>Integrated Approach Needed:</strong></p>
+<p>Combine insights from statistics, cybersecurity, cryptography, and practical applications to develop robust frameworks for human data protection</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="integration-ethical-data-science-framework" class="title-slide slide level1 center">
+<h1>Integration: Ethical Data Science Framework</h1>
+
+</section>
+<section id="the-interconnected-challenges" class="slide level2 smaller">
+<h2>The Interconnected Challenges</h2>
+<div class="fragment">
+<p><strong>How The Three Areas Connect:</strong></p>
+<p><strong>Data Quality â†’ Bias:</strong> Poor data quality amplifies bias</p>
+<ul>
+<li class="fragment">Systematic errors create unfair outcomes across groups</li>
+<li class="fragment">Missing data mechanisms may be non-ignorable and group-specific</li>
+</ul>
+<p><strong>Bias â†’ Privacy:</strong> Bias mitigation requires detailed demographic analysis</p>
+<ul>
+<li class="fragment">Need protected characteristics to measure fairness</li>
+<li class="fragment">Granular analysis increases reidentification risk</li>
+</ul>
+<p><strong>Privacy â†’ Quality:</strong> Privacy protection can degrade data quality</p>
+<ul>
+<li class="fragment">Anonymization techniques reduce analytical utility</li>
+<li class="fragment">Restricted access limits quality validation</li>
+</ul>
+</div>
+</section>
+<section id="best-practices-for-ethical-data-science" class="slide level2 smaller">
+<h2>Best Practices for Ethical Data Science</h2>
+<div class="fragment">
+<p><strong>1. Systematic Error Assessment</strong></p>
+<ul>
+<li class="fragment">Map data generating processes and potential error sources</li>
+<li class="fragment">Distinguish variable vs.&nbsp;systematic errors</li>
+<li class="fragment">Consider aggregation strategies to mitigate variable errors</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>2. Comprehensive Bias Auditing</strong> - Start with social goals, then select appropriate metrics</p>
+<ul>
+<li class="fragment">Compare ML systems to existing (non-ML) baselines</li>
+<li class="fragment">Create explicit performance-equity trade-off menus</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>3. Privacy-Preserving Analysis</strong></p>
+<ul>
+<li class="fragment">Apply “Five Safes” framework systematically</li>
+<li class="fragment">Consider differential privacy for aggregate outputs</li>
+<li class="fragment">Use secure research environments for sensitive analysis</li>
+</ul>
+</div>
+</section>
+<section id="risk-assessment-matrix" class="slide level2 smaller">
+<h2>Risk Assessment Matrix</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Risk Level</th>
+<th>Data Quality</th>
+<th>Bias Risk</th>
+<th>Privacy Risk</th>
+<th>Recommended Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Low</strong></td>
+<td>Simple tabular, known provenance</td>
+<td>Homogeneous population</td>
+<td>Aggregate statistics only</td>
+<td>Standard statistical methods</td>
+</tr>
+<tr class="even">
+<td><strong>Medium</strong></td>
+<td>Multiple sources, some linkage</td>
+<td>Protected groups present</td>
+<td>Individual records, some PII</td>
+<td>RDC access + bias auditing</td>
+</tr>
+<tr class="odd">
+<td><strong>High</strong></td>
+<td>Complex linkage, unknown quality</td>
+<td>High-stakes decisions</td>
+<td>Rich individual data</td>
+<td>Full ethical framework + ongoing monitoring</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="case-study-integration-criminal-justice" class="slide level2 smaller">
+<h2>Case Study Integration: Criminal Justice</h2>
+<div class="fragment">
+<p><strong>Data Quality Issues:</strong></p>
+<ul>
+<li class="fragment"><strong>Row errors</strong>: Over-policing creates biased samples</li>
+<li class="fragment"><strong>Label bias</strong>: Arrests â‰ crimes committed<br>
+</li>
+<li class="fragment"><strong>Systematic errors</strong>: Vary by jurisdiction, time period</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Bias and Fairness:</strong></p>
+<ul>
+<li class="fragment"><strong>Punitive application</strong>: Focus on false positive rates</li>
+<li class="fragment"><strong>Historical bias</strong>: Training data reflects past discrimination</li>
+<li class="fragment"><strong>Competing metrics</strong>: Cannot optimize all fairness measures simultaneously</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Privacy Concerns:</strong></p>
+<ul>
+<li class="fragment"><strong>High harm potential</strong>: Criminal records are sensitive</li>
+<li class="fragment"><strong>Network effects</strong>: Social connections create indirect exposure</li>
+<li class="fragment"><strong>Long-term consequences</strong>: Digital records persist indefinitely</li>
+</ul>
+</div>
+</section>
+<section id="recommended-workflow" class="slide level2 smaller">
+<h2>Recommended Workflow</h2>
+<div class="fragment">
+<p><strong>1. Pre-Analysis Phase</strong></p>
+<ul>
+<li class="fragment">Document data provenance and known quality issues</li>
+<li class="fragment">Identify protected groups and potential bias sources<br>
+</li>
+<li class="fragment">Assess privacy risks and harm potential</li>
+<li class="fragment">Select appropriate access and analysis environment</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>2. Analysis Phase</strong></p>
+<ul>
+<li class="fragment">Implement systematic error detection and mitigation</li>
+<li class="fragment">Measure bias across multiple fairness metrics</li>
+<li class="fragment">Use privacy-preserving techniques for sensitive analyses</li>
+<li class="fragment">Maintain detailed documentation of all decisions</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>3. Post-Analysis Phase</strong></p>
+<ul>
+<li class="fragment">Validate results through replication where possible</li>
+<li class="fragment">Assess real-world impact through controlled deployment</li>
+<li class="fragment">Monitor for degradation in performance or fairness over time</li>
+<li class="fragment">Update methods as new challenges emerge</li>
+</ul>
+</div>
+</section>
+<section id="key-takeaways" class="slide level2 smaller">
+<h2>Key Takeaways</h2>
+<div class="fragment">
+<p><strong>1. No Perfect Solutions</strong></p>
+<ul>
+<li class="fragment">All three areas involve fundamental trade-offs</li>
+<li class="fragment">Perfect accuracy, complete fairness, and absolute privacy are mutually incompatible</li>
+<li class="fragment">Strive for transparency about limitations and trade-offs</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>2. Context Matters</strong></p>
+<ul>
+<li class="fragment">Appropriate approaches depend on stakes, population, and intended use</li>
+<li class="fragment">Social and policy goals must drive technical choices</li>
+<li class="fragment">Ongoing stakeholder engagement is essential</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>3. Evolving Field</strong></p>
+<ul>
+<li class="fragment">New data types and methods create new challenges</li>
+<li class="fragment">Regulatory landscape is rapidly changing</li>
+<li class="fragment">Continuous learning and adaptation required</li>
+</ul>
+</div>
+</section>
+<section id="discussion-questions" class="slide level2 smaller">
+<h2>Discussion Questions</h2>
+<div class="fragment">
+<p><strong>For Class Discussion:</strong></p>
+<ol type="1">
+<li class="fragment"><p><strong>Google Flu Trends failed spectacularly.</strong> What does this teach us about the relationship between data quality and algorithmic bias?</p></li>
+<li class="fragment"><p><strong>You’re building a model for college admissions.</strong> How do you balance fairness across different demographic groups while maintaining privacy of applicants?</p></li>
+<li class="fragment"><p><strong>A city wants to use ML for restaurant health inspections.</strong> What are the key quality, bias, and privacy considerations? How might they conflict?</p></li>
+<li class="fragment"><p><strong>Consider the “terrorist detector” example.</strong> If we can’t achieve acceptable positive predictive value for rare events, how should this influence policy decisions about surveillance systems?</p></li>
+<li class="fragment"><p><strong>The GDPR requires “right to explanation” for automated decisions.</strong> How does this interact with privacy protection in ML systems?</p></li>
+</ol>
+</div>
+</section>
+<section id="references-and-further-reading" class="slide level2 smaller">
+<h2>References and Further Reading</h2>
+<div class="fragment">
+<p><strong>Primary Text:</strong> Foster, Ian, Rayid Ghani, Ron S. Jarmin, Frauke Kreuter, and Julia Lane, eds.&nbsp;2020. <em>Big Data and Social Science: Data Science Methods and Tools for Research and Practice</em>, 2nd edition. CRC Press.</p>
+<p><strong>Key Tools:</strong></p>
+<ul>
+<li class="fragment"><strong>Aequitas</strong>: Bias audit toolkit</li>
+<li class="fragment"><strong>Administrative Data Research Facility (ADRF)</strong>: Modern secure data access</li>
+<li class="fragment"><strong>Differential Privacy</strong>: Google, Apple implementations</li>
+</ul>
+<p><strong>Additional Resources:</strong></p>
+<ul>
+<li class="fragment">Barocas &amp; Selbst (2016): “Big Data’s Disparate Impact”<br>
+</li>
+<li class="fragment">Dwork et al.&nbsp;(2014): “Differential Privacy” foundations</li>
+<li class="fragment">Nissenbaum (2009): “Privacy in Context”</li>
+</ul>
+</div>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank You</h2>
+<p><strong>Questions and Discussion</strong></p>
+<p><em>Remember: Ethical data science is not about finding perfect solutions, but about making thoughtful trade-offs with full awareness of the implications for all stakeholders.</em></p>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p><h10>EPPS 6302 Methods of Data Collection and Production</h10></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="ethics01_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="ethics01_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="ethics01_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="ethics01_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
