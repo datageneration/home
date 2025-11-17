@@ -1,0 +1,407 @@
+---
+title: "Building and Publishing Quarto Websites"
+subtitle: ""
+format:
+  revealjs:
+    theme: default
+    slide-number: true
+    toc: false
+    incremental: true
+    chalkboard: true
+footer: "© 2025 Karl Ho: Quarto Website Workshop"
+---
+
+# Workshop Overview
+
+- Quarto for scholarly communication  
+- Creating academic websites  
+- Git version control  
+- Publishing via GitHub Pages  
+- Design customization  
+- Hands-on exercises  
+
+---
+
+# Why Quarto?
+
+- Supports transparent, reproducible workflows  
+- Integrates R, Python, Julia, and Observable  
+- Single source → website, PDF, slides, articles  
+- Used in computational social science research  
+- Enhances teaching materials and public-facing scholarship  
+
+---
+
+# Website Structure in Quarto
+
+A Quarto website is a **project**:
+
+```
+my-website/
+  index.qmd
+  about.qmd
+  research.qmd
+  cv.pdf
+  styles.css
+  _quarto.yml
+```
+
+---
+
+# Role of `_quarto.yml`
+
+- Defines the project type  
+- Controls navigation and page layout  
+- Sets website options  
+- Defines HTML/PDF outputs  
+- Custom themes and assets  
+
+---
+
+# Basic Website Configuration
+
+```yaml
+project:
+  type: website
+
+website:
+  title: "My Quarto Website"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Research"
+        href: research.qmd
+      - text: "CV"
+        href: cv.pdf
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    toc: true
+```
+
+---
+
+# Pages as `.qmd` Files
+
+Each page begins with YAML:
+
+```markdown
+---
+title: "About Me"
+---
+
+# About
+
+I am a researcher working in...
+```
+
+Quarto automatically converts them to HTML.
+
+---
+
+# Adding Navigation Dropdowns
+
+```yaml
+navbar:
+  left:
+    - text: "Research"
+      menu:
+        - text: "Publications"
+          href: pubs.qmd
+        - text: "Projects"
+          href: projects.qmd
+        - text: "Datasets"
+          href: data.qmd
+```
+
+Dropdown menus support hierarchical organization.
+
+---
+
+# Sidebar Navigation (Alternative)
+
+```yaml
+sidebar:
+  style: docked
+  search: true
+  contents:
+    - index.qmd
+    - about.qmd
+    - teaching.qmd
+    - pubs.qmd
+```
+
+Ideal for course or documentation websites.
+
+---
+
+# Themes
+
+- Bootswatch themes  
+- Example: `cosmo`, `flatly`, `minty`, `darkly`, `journal`, `litera`  
+- Custom CSS/SCSS allowed  
+
+```yaml
+format:
+  html:
+    theme: flatly
+```
+
+---
+
+# Custom CSS Example
+
+```yaml
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+```
+
+**styles.css**
+
+```css
+.navbar-brand {
+  font-weight: 700;
+  color: #003366 !important;
+}
+```
+
+---
+
+# Custom SCSS Theme
+
+```
+/*-- scss:defaults --*/
+$body-bg: #ffffff;
+$navbar-bg: #003366;
+$navbar-fg: #ffffff;
+```
+
+Place in `theme.scss`.
+
+---
+
+# Using Custom SCSS
+
+```yaml
+format:
+  html:
+    theme: theme.scss
+```
+
+---
+
+# Multi-Format Publishing
+
+Quarto supports:
+
+- HTML websites  
+- PDF documents (via LaTeX)  
+- Word documents  
+- Reveal.js slides  
+- Manuscripts (APA/Chicago/APSA)  
+
+---
+
+# Live Preview Mode
+
+Used during development:
+
+```
+quarto preview
+```
+
+Automatically reloads on save.
+
+---
+
+# Rendering the Website
+
+```
+quarto render
+```
+
+Creates a `_site` folder with HTML files.
+
+---
+
+# Introduction to Git
+
+Version control maintains:
+
+- Transparent history  
+- Reversibility  
+- Collaborative editing  
+- Integrity and reproducibility  
+
+---
+
+# Initialize a Git Repository
+
+```
+git init
+git add .
+git commit -m "Initial website"
+```
+
+---
+
+# Connect to GitHub
+
+```
+git remote add origin https://github.com/YOURNAME/my-website.git
+git branch -M main
+git push -u origin main
+```
+
+---
+
+# Git Workflow Diagram
+
+1. Modify  
+2. `git add`  
+3. `git commit`  
+4. `git push`  
+5. GitHub Actions build  
+6. Published website  
+
+---
+
+# GitHub Pages Deployment
+
+Recommended method: **GitHub Actions**
+
+Steps:
+1. Repository → Settings → Pages  
+2. Select **GitHub Actions**  
+3. Actions auto-detects Quarto  
+
+---
+
+# GitHub Actions Workflow
+
+```
+name: Quarto Publish
+on: [push]
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+```
+
+---
+
+# Verify Deployment
+
+Check under:
+
+1. GitHub → Actions → "build-deploy"  
+2. GitHub → Settings → Pages (green checkmark)  
+
+---
+
+# Website URL
+
+Most common URL:
+
+```
+https://USERNAME.github.io/REPO-NAME/
+```
+
+Ensure repository is public unless using paid GitHub features.
+
+---
+
+# Updating the Website
+
+```
+git add .
+git commit -m "Update content"
+git push
+```
+
+GitHub Actions automatically redeploys.
+
+---
+
+# Exercise 1: Build Website Structure
+
+Create:
+
+- index.qmd  
+- about.qmd  
+- research.qmd  
+- _quarto.yml  
+
+Render the site.
+
+---
+
+# Exercise 2: Add Dropdown Menus
+
+Add:
+
+- Publications page  
+- Projects page  
+- Datasets page  
+
+Add dropdown under “Research.”
+
+---
+
+# Exercise 3: Add Theme + CSS
+
+Change themes and add a custom CSS file.
+
+---
+
+# Exercise 4: Publish on GitHub Pages
+
+Follow steps to push and publish.
+
+---
+
+# Exercise 5: PDF Output
+
+Enable PDF output via:
+
+```yaml
+format:
+  pdf:
+    toc: true
+```
+
+---
+
+# Scholarly Perspective
+
+Reproducibility foundations:
+
+- Transparency  
+- Documentation  
+- Traceability  
+- Archiving  
+
+These principles support academic integrity and methodological rigor.
+
+---
+
+# Key References (APSA Style)
+
+Gentleman, Robert, and Duncan Temple Lang. 2007. “Statistical Analyses and Reproducible Research.” *Journal of Computational and Graphical Statistics* 16(1): 1–23.
+
+Knuth, Donald E. 1984. “Literate Programming.” *The Computer Journal* 27(2): 97–111.
+
+Peng, Roger D. 2011. “Reproducible Research in Computational Science.” *Science* 334(6060): 1226–1227.
+
+Quarto. 2024. “Quarto Guide.” https://quarto.org/docs/.

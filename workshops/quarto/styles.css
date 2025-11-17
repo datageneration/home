@@ -1,0 +1,173 @@
+body {
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+/* ============================================================================
+   QUARTO REVEALJS PRESENTATION STYLES
+   Font: Palatino, Small header sizes
+   ============================================================================ */
+
+/* Main font styling */
+.reveal {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 32px;
+}
+
+/* Heading styles - small sizes */
+.reveal h1 {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.reveal h2 {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 0.4em;
+}
+
+.reveal h3 {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+.reveal h4 {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+.reveal h5 {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 1.0em;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.reveal h6 {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+/* Code blocks - monospace font */
+.reveal pre, .reveal code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+}
+
+.reveal pre {
+  width: 100%;
+  background: #3f3f3f;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+/* List styling */
+.reveal ul, .reveal ol {
+  margin-left: 1.5em;
+  line-height: 1.8;
+}
+
+.reveal li {
+  margin-bottom: 0.3em;
+}
+
+/* Link styling */
+.reveal a {
+  color: #42affa;
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  color: #a0d0ff;
+  text-decoration: underline;
+}
+
+/* Emphasized text */
+.reveal em, .reveal i {
+  font-style: italic;
+}
+
+.reveal strong, .reveal b {
+  font-weight: bold;
+}
+
+/* Block quotes */
+.reveal blockquote {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-style: italic;
+  padding: 0.5em 1.5em;
+  border-left: 4px solid #42affa;
+  background: rgba(66, 175, 250, 0.1);
+  margin: 1em 0;
+}
+
+/* Table styling */
+.reveal table {
+  font-family: "Palatino Linotype", Palatino, "URW Palladio L", serif;
+  font-size: 0.9em;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em auto;
+}
+
+.reveal table th,
+.reveal table td {
+  padding: 0.5em;
+  border: 1px solid #555;
+  text-align: left;
+}
+
+.reveal table th {
+  background: #333;
+  font-weight: bold;
+}
+
+/* Slide background */
+.reveal {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* Line height for better readability */
+.reveal p {
+  line-height: 1.6;
+  margin-bottom: 0.8em;
+}
+
+/* Smaller font for subtle text */
+.reveal .subtitle,
+.reveal .date,
+.reveal .author {
+  font-size: 0.8em;
+  color: #999;
+}
+
+/* Emphasis on slide titles */
+.reveal .title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+/* Better spacing for content */
+.reveal .slide-content {
+  padding: 2em;
+}
+
+/* Navigation links */
+.reveal .slide-number {
+  font-size: 0.8em;
+  color: #999;
+}
+
+/* Transition smooth */
+.reveal {
+  transition: all 0.3s ease;
+}

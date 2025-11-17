@@ -1,0 +1,627 @@
+---
+title: "Creating and Publishing Quarto Websites with GitHub"
+subtitle: ""
+author: ""
+date: today
+format:
+  revealjs:
+    theme: black
+    mainfont: "Palatino"
+    transition: fade
+    slide-number: true
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    logo: eppslogo.png
+    css: styles.css
+---
+
+# Welcome to the Quarto Workshop
+
+## What You'll Learn Today
+
+- Create a professional Quarto website
+- Customize designs with YAML configuration
+- Organize your project structure
+- Use Git to version control
+- Deploy to GitHub Pages
+
+---
+
+# Part 1: Getting Started with Quarto
+
+## Installation & Setup
+
+Install Quarto from [quarto.org](https://quarto.org/docs/get-started/)
+
+```bash
+# Verify installation
+quarto --version
+
+# Create a new project
+quarto create-project my-website --type website
+```
+
+## Project Structure
+
+```
+my-website/
+├── _quarto.yml          # Main configuration
+├── index.qmd            # Home page
+├── about.qmd            # About page
+├── research.qmd         # Research page
+├── cv.pdf               # CV document
+├── styles.css           # Custom styles
+└── _site/               # Generated output (don't commit)
+```
+
+---
+
+# Part 2: Core YAML Configuration
+
+## Basic Website YAML
+
+```yaml
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "My Quarto Website"
+  site-url: https://yourusername.github.io/my-website/
+  
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Research"
+        href: research.qmd
+      - text: "CV"
+        href: cv.pdf
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+```
+
+---
+
+## YAML Design 1: Professional Blue Theme
+
+```yaml
+website:
+  title: "Professional Portfolio"
+  site-url: https://yourusername.github.io/portfolio/
+  
+  navbar:
+    logo: "logo.png"
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "About"
+        href: about.qmd
+      - text: "Publications"
+        href: publications.qmd
+      - text: "Teaching"
+        href: teaching.qmd
+      - text: "CV"
+        href: cv.pdf
+
+format:
+  html:
+    theme: 
+      light: cosmo
+      dark: darkly
+    css: styles.css
+```
+
+---
+
+## YAML Design 2: With Dropdown Menus
+
+```yaml
+website:
+  title: "Research Lab Website"
+  
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Research"
+        menu:
+          - text: "Projects"
+            href: research/projects.qmd
+          - text: "Publications"
+            href: research/publications.qmd
+          - text: "Lab Members"
+            href: research/members.qmd
+      - text: "Teaching"
+        menu:
+          - text: "Spring 2025"
+            href: teaching/spring2025.qmd
+          - text: "Fall 2024"
+            href: teaching/fall2024.qmd
+      - text: "About"
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/yourusername
+      - icon: twitter
+        href: https://twitter.com/yourhandle
+
+format:
+  html:
+    theme: flatly
+```
+
+---
+
+## YAML Design 3: Minimal Clean Theme
+
+```yaml
+website:
+  title: "My Digital Garden"
+  description: "Thoughts on research and code"
+  favicon: "favicon.ico"
+  
+  navbar:
+    search: false
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Projects"
+        href: projects.qmd
+      - text: "Contact"
+        href: contact.qmd
+    right:
+      - icon: rss
+        href: feed.xml
+
+format:
+  html:
+    theme: journal
+    mainfont: "Georgia"
+    code-block-bg: true
+    code-block-border-left: true
+```
+
+---
+
+## YAML Design 4: Modern Gradient Theme
+
+```yaml
+website:
+  title: "Tech Lab"
+  image: "banner.jpg"
+  
+  navbar:
+    background: "#1a1a2e"
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Work"
+        menu:
+          - text: "Featured Projects"
+            href: work/featured.qmd
+          - text: "All Projects"
+            href: work/all.qmd
+      - text: "Blog"
+        href: blog.qmd
+      - text: "Resources"
+        href: resources.qmd
+    right:
+      - icon: github
+        href: https://github.com
+      - icon: linkedin
+        href: https://linkedin.com
+
+format:
+  html:
+    theme: 
+      light: lumen
+      dark: solar
+    code-line-numbers: true
+```
+
+---
+
+# Part 3: Creating Content Pages
+
+## Home Page (index.qmd)
+
+```markdown
+---
+title: "Welcome"
+---
+
+# Hello, I'm Jane Doe
+
+I'm a researcher interested in data science and 
+machine learning applications in healthcare.
+
+## Recent Projects
+
+- **AI Ethics Framework** - Developing guidelines
+- **Healthcare Analytics** - Predictive modeling
+- **Open Science Initiative** - Community building
+
+[Learn More →](about.qmd)
+```
+
+---
+
+## About Page (about.qmd)
+
+```markdown
+---
+title: "About Me"
+---
+
+## Background
+
+I hold a Ph.D. in Computer Science from MIT.
+
+## Current Position
+
+Senior Researcher at DataLab Institute
+
+## Research Interests
+
+- Machine Learning
+- Data Visualization
+- Reproducible Research
+
+## Publications
+
+See my [CV](cv.pdf) for a complete list.
+```
+
+---
+
+# Part 4: Git & GitHub Setup
+
+## Initialize Git Repository
+
+```bash
+# Navigate to your project
+cd my-website
+
+# Initialize git
+git init
+
+# Add all files
+git add .
+
+# Create initial commit
+git commit -m "Initial commit: Quarto website setup"
+```
+
+---
+
+## GitHub Configuration
+
+```bash
+# Create repository on GitHub first
+# (https://github.com/new)
+
+# Add remote origin
+git remote add origin https://github.com/yourusername/my-website.git
+
+# Rename branch to main
+git branch -M main
+
+# Push to GitHub
+git push -u origin main
+```
+
+## .gitignore File
+
+```
+# Ignore site output
+_site/
+.quarto/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE
+.vscode/
+.idea/
+
+# Ignore dependencies
+renv/
+```
+
+---
+
+# Part 5: Publishing to GitHub Pages
+
+## Enable GitHub Pages
+
+1. Go to Repository Settings
+2. Navigate to "Pages" section
+3. Select "Deploy from a branch"
+4. Choose branch: `main`
+5. Select folder: `/ (root)` or `/docs`
+
+## Automated Publishing with Quarto
+
+Add to `_quarto.yml`:
+
+```yaml
+project:
+  type: website
+  output-dir: docs  # For GitHub Pages root
+
+publish:
+  - source: .
+    netlify:
+      - id: mysite
+        url: https://mysite.netlify.app
+```
+
+---
+
+## Deploy Workflow
+
+```bash
+# Make changes locally
+nano about.qmd
+
+# Render the site
+quarto render
+
+# Stage changes
+git add .
+
+# Commit
+git commit -m "Update about page"
+
+# Push to GitHub
+git push origin main
+
+# Site automatically updates!
+```
+
+---
+
+# Part 6: Advanced Customization
+
+## Custom CSS Styling
+
+Create `styles.css`:
+
+```css
+/* Navigation bar */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem 2rem;
+}
+
+/* Main content */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* Headers */
+h1, h2, h3 {
+  color: #333;
+  margin-top: 1.5rem;
+}
+
+/* Sidebar */
+.quarto-sidebar {
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+```
+
+---
+
+## Including Code Blocks with Execution
+
+```markdown
+---
+title: "Data Analysis"
+---
+
+# R Example
+
+\`\`\`{r}
+#| label: plot-example
+#| fig-cap: "Iris dataset visualization"
+
+library(ggplot2)
+ggplot(iris, aes(Sepal.Length, Petal.Length, color = Species)) +
+  geom_point() +
+  theme_minimal()
+\`\`\`
+```
+
+---
+
+## Create a Blog Section
+
+Add to `_quarto.yml`:
+
+```yaml
+website:
+  navbar:
+    left:
+      - text: "Blog"
+        href: blog/index.qmd
+
+  listing:
+    - id: blog-listing
+      contents: "blog/*.qmd"
+      sort: "date desc"
+      type: default
+      fields: [date, title, reading-time]
+```
+
+---
+
+# Part 7: Troubleshooting & Best Practices
+
+## Common Issues
+
+**Issue:** _site folder not rendering
+
+```bash
+# Clean and rebuild
+quarto clean
+quarto render
+```
+
+**Issue:** Changes not pushing to GitHub
+
+```bash
+# Check git status
+git status
+
+# Verify remote
+git remote -v
+```
+
+---
+
+## Best Practices
+
+✅ Commit frequently with clear messages
+
+✅ Keep local `_site/` folder in `.gitignore`
+
+✅ Use descriptive YAML configurations
+
+✅ Test locally before pushing:
+```bash
+quarto preview
+```
+
+✅ Keep content organized in folders
+
+✅ Use relative paths for links
+
+❌ Don't commit generated files
+
+---
+
+# Hands-On Exercise
+
+## Workshop Activity
+
+1. **Create** a new Quarto project
+2. **Configure** `_quarto.yml` with navbar and dropdown
+3. **Create** 3-4 content pages
+4. **Add** custom CSS styling
+5. **Initialize** Git repository
+6. **Push** to GitHub
+7. **Enable** GitHub Pages
+
+**Time: 60 minutes**
+
+---
+
+# Resources & Documentation
+
+## Official Documentation
+
+- [Quarto Website Guide](https://quarto.org/docs/websites/)
+- [Quarto YAML Reference](https://quarto.org/docs/reference/)
+- [GitHub Pages Documentation](https://pages.github.com/)
+
+## Helpful Commands
+
+```bash
+quarto create-project my-site --type website
+quarto render
+quarto preview
+quarto publish github-pages
+```
+
+---
+
+# Q&A Session
+
+## Let's Discuss!
+
+- Questions about Quarto?
+- Git workflow questions?
+- Design customization?
+- Deployment issues?
+
+**Share your experiences!**
+
+---
+
+# Thank You!
+
+## Next Steps
+
+1. Set up your Quarto website
+2. Customize with your own content
+3. Deploy to GitHub Pages
+4. Share your site!
+
+**Happy publishing! 🚀**
+
+---
+
+# Appendix: Full _quarto.yml Template
+
+```yaml
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "My Professional Website"
+  description: ""
+  site-url: https://yourusername.github.io/my-website/
+  favicon: "favicon.ico"
+  
+  navbar:
+    logo: "logo.png"
+    search: true
+    background: light
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Research"
+        menu:
+          - text: "Projects"
+            href: research/projects.qmd
+          - text: "Publications"
+            href: research/publications.qmd
+      - text: "Teaching"
+        menu:
+          - text: "Current Courses"
+            href: teaching/current.qmd
+          - text: "Past Courses"
+            href: teaching/past.qmd
+      - text: "About"
+        href: about.qmd
+    right:
+      - icon: github
+        href: https://github.com/yourusername
+      - icon: twitter
+        href: https://twitter.com/yourhandle
+      - icon: linkedin
+        href: https://linkedin.com/in/yourprofile
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    code-line-numbers: true
+    highlight-style: github
+```
