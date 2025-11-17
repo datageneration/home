@@ -274,6 +274,11 @@ fosterkids &lt;-<span class="st"> </span><span class="kw">read_excel</span>(tf2)
 </ul>
 <p>Disability and Health Data System (DHDS) is an online source of state-level data on adults with disabilities. Users can access information on six functional disability types: cognitive (serious difficulty concentrating, remembering or making decisions), hearing (serious difficulty hearing or deaf), mobility (serious difficulty walking or climbing stairs), vision (serious difficulty seeing), self-care (difficulty dressing or bathing) and independent living (difficulty doing errands alone).
 Using this dataset to find the number of disabled people in every State.</p>
+<p>Sample R codes (note the data frame name):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;httr&quot;</span>)
+<span class="kw">library</span>(<span class="st">&quot;readxl&quot;</span>)
+<span class="kw">GET</span>(<span class="st">&quot;https://data.cdc.gov/api/views/k62p-6esq/rows.csv?accessType=DOWNLOAD&amp;bom=true&amp;format=true&quot;</span>, <span class="kw">write_disk</span>(tf4 &lt;-<span class="st"> </span><span class="kw">tempfile</span>(<span class="dt">fileext =</span> <span class="st">&quot;.csv&quot;</span>)))
+disabled &lt;-<span class="st"> </span><span class="kw">read.csv</span>(tf4)</code></pre>
 </div>
 <div id="project-5-the-elderly" class="section level2">
 <h2><span class="header-section-number">9.5</span> Project 5: The Elderly</h2>
