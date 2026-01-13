@@ -1,0 +1,1755 @@
+---
+title: "The U.S., Taiwan, and China"
+subtitle: "Risks and Rewards"
+author: "Karl Ho"
+date: today
+format:
+  revealjs:
+    theme: simple
+    transition: slide
+    slide-number: true
+    chalkboard: true
+    incremental: true   
+    preview-links: auto
+    logo: ""
+    css: talkslides2.css
+    footer: "U.S., Taiwan and China: Risks and Rewards"
+bibliography: references.bib
+link-citations: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+#| include: false
+library(tidyverse)
+library(maps)
+library(sf)
+library(plotly)
+library(leaflet)
+library(scales)
+library(knitr)
+library(kableExtra)
+
+# Set theme with Palatino font for all text elements
+theme_set(theme_minimal(base_size = 14, base_family = "Palatino") +
+  theme(
+    text = element_text(family = "Palatino"),
+    plot.title = element_text(family = "Palatino"),
+    plot.subtitle = element_text(family = "Palatino"),
+    axis.title = element_text(family = "Palatino"),
+    axis.text = element_text(family = "Palatino"),
+    legend.text = element_text(family = "Palatino"),
+    legend.title = element_text(family = "Palatino")
+  )
+)
+```
+
+## {.scrollable}
+
+:::: {.columns}
+
+::: {.column width="40%"}
+### The U.S., Taiwan, and China
+#### Risks and Rewards
+
+<br>
+
+**A Critical Relationship**
+
+**Shaping the 21st Century**
+:::
+
+::: {.column width="60%"}
+```{r title-map}
+#| fig-height: 6
+#| fig-width: 6
+
+# Create a simple map showing the three regions
+world <- map_data("world")
+
+# Define the regions
+regions_data <- data.frame(
+  country = c("USA", "China", "Taiwan"),
+  lon = c(-95, 105, 121),
+  lat = c(37, 35, 24),
+  size = c(15, 15, 10)
+)
+
+ggplot() +
+  geom_polygon(data = world, 
+               aes(x = long, y = lat, group = group),
+               fill = "lightgray", color = "white", size = 0.1) +
+  geom_point(data = regions_data,
+             aes(x = lon, y = lat, size = size, color = country),
+             alpha = 0.7) +
+  scale_color_manual(values = c("USA" = "#1f77b4", 
+                                "China" = "#d62728", 
+                                "Taiwan" = "#2ca02c")) +
+  scale_size_continuous(range = c(8, 15)) +
+  coord_fixed(1.3, xlim = c(-180, 180), ylim = c(-60, 80)) +
+  theme_void() +
+  theme(legend.position = "none")
+```
+:::
+
+::::
+
+## Taiwan at a Glance {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column width="30%"}
+
+
+### Key Facts
+
+::: {.smaller}
+Taiwan is a **prosperous democracy** of 23.5 million people - comparable to Florida in population.
+
+**Economic Powerhouse:**
+
+- GDP: $790B (Switzerland-sized economy)
+- GDP per capita: $33,775
+- Major trading partner
+
+**Democratic Leader:**
+
+- Ranked #8 globally in democracy
+- Free and fair elections
+- Strong civil liberties
+
+Despite its small size (Maryland-sized), Taiwan has achieved remarkable development.
+
+:::
+
+:::
+
+::: {.column width="70%"}
+```{r taiwan-stats}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Data sources: 
+# - Population: Taiwan National Statistics (2024)
+# - GDP: World Bank (2024), IMF World Economic Outlook
+# - Democracy Index: Economist Intelligence Unit (2024)
+# - Area: CIA World Factbook
+
+# Create infographic data
+taiwan_stats <- data.frame(
+  Metric = c("Population", "GDP", "GDP per Capita", "Democracy Index", "Area"),
+  Value = c("23.5M", "$790B", "$33,775", "8.94/10", "36,193 km²"),
+  Comparison = c("= Florida", "= Switzerland", "= Spain", "#8 globally", "= Maryland")
+)
+
+# Create a visual dashboard
+library(gridExtra)
+library(grid)
+
+# Population comparison
+p1 <- ggplot(data.frame(region = c("Taiwan", "China", "USA"),
+                        pop = c(23.5, 1412, 335)),
+             aes(x = reorder(region, pop), y = pop, fill = region)) +
+  geom_col() +
+  scale_fill_manual(values = c("Taiwan" = "#2ca02c", 
+                               "China" = "#d62728", 
+                               "USA" = "#1f77b4")) +
+  coord_flip() +
+  labs(title = "Population (millions)", x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none",
+        text = element_text(family = "Palatino"))
+
+# GDP comparison
+p2 <- ggplot(data.frame(region = c("Taiwan", "China", "USA"),
+                        gdp = c(790, 17963, 27360)),
+             aes(x = reorder(region, gdp), y = gdp, fill = region)) +
+  geom_col() +
+  scale_fill_manual(values = c("Taiwan" = "#2ca02c", 
+                               "China" = "#d62728", 
+                               "USA" = "#1f77b4")) +
+  coord_flip() +
+  labs(title = "GDP (billions USD)", x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none",
+        text = element_text(family = "Palatino"))
+
+# Democracy score
+p3 <- ggplot(data.frame(region = c("Taiwan", "China", "USA"),
+                        score = c(8.94, 2.12, 7.85)),
+             aes(x = reorder(region, -score), y = score, fill = region)) +
+  geom_col() +
+  scale_fill_manual(values = c("Taiwan" = "#2ca02c", 
+                               "China" = "#d62728", 
+                               "USA" = "#1f77b4")) +
+  ylim(0, 10) +
+  labs(title = "Democracy Index (0-10)", x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none",
+        text = element_text(family = "Palatino"))
+
+# GDP per capita
+p4 <- ggplot(data.frame(region = c("Taiwan", "China", "USA"),
+                        gdp_pc = c(33775, 12720, 81695)),
+             aes(x = reorder(region, gdp_pc), y = gdp_pc, fill = region)) +
+  geom_col() +
+  scale_fill_manual(values = c("Taiwan" = "#2ca02c", 
+                               "China" = "#d62728", 
+                               "USA" = "#1f77b4")) +
+  coord_flip() +
+  labs(title = "GDP per Capita (USD)", x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none",
+        text = element_text(family = "Palatino"))
+
+grid.arrange(p1, p2, p3, p4, ncol = 2)
+```
+
+::: {.caption}
+*Sources: World Bank (2024), Taiwan National Statistics, EIU Democracy Index 2024, CIA World Factbook*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+Taiwan is a prosperous democracy with 23.5 million people, comparable to Florida. Despite its small size, it has achieved remarkable economic development. Taiwan ranks 8th globally in the Democracy Index [@eiu2024democracy].
+:::
+## Historical Context: End of WWII {.scrollable}
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Movement_KMTretreat.svg/960px-Movement_KMTretreat.svg.png){height=500}
+
+## Historical Context: The Chinese Civil War (1945-1949) {.scrollable}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### The Retreat to Taiwan
+
+
+:::{.incremental}
+
+- **1945**: End of WWII, Japanese surrender
+- **1946-1949**: Civil War resumes
+- **1949**: Communist victory
+  - Mao establishes PRC (Oct 1)
+  - Chiang retreats to Taiwan
+- **1950s**: Two governments claim legitimacy
+:::
+
+:::
+
+::: {.column width="50%"}
+```{r civil-war-timeline}
+#| fig-height: 6
+#| fig-width: 6
+
+# Create timeline visualization
+timeline_data <- data.frame(
+  year = c(1945, 1946, 1949, 1949, 1950),
+  event = c("WWII Ends", "Civil War Resumes", "PRC\nEstablished\n", "ROC to Taiwan", "Korean War"),
+  position = c(1, 2, 3, 3, 4),
+  side = c("neutral", "war", "prc", "roc", "cold_war")
+)
+
+ggplot(timeline_data, aes(x = year, y = position)) +
+  geom_line(size = 2, color = "gray70") +
+  geom_point(aes(color = side), size = 8) +
+  geom_text(aes(label = event), vjust = -1, size = 4, fontface = "bold", family = "Palatino") +
+  scale_color_manual(values = c("neutral" = "gray50",
+                                "war" = "orange",
+                                "prc" = "#d62728",
+                                "roc" = "#2ca02c",
+                                "cold_war" = "purple")) +
+  scale_x_continuous(breaks = c(1945, 1946, 1947, 1948, 1949, 1950)) +
+  labs(title = "From Civil War to Division",
+       subtitle = "1945-1950",
+       x = NULL, y = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor = element_blank())
+```
+
+:::
+
+::::
+
+## The "Two Chinas" Question {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 40%; font-size: 80%;"}
+
+
+### The Dual Claim 
+
+Both Beijing and Taipei claim to be the **legitimate government of all China**.
+
+**PRC (People's Republic):**
+
+- Controls mainland China
+- Holds UN seat (since 1971)
+- 180+ countries recognize
+- "One China" policy enforced
+
+**ROC (Republic of China):**
+
+- Governs Taiwan
+- Lost UN seat in 1971
+- Only 12 diplomatic allies
+- De facto independent
+
+Both claim the same territory, but only one has international recognition. This creates unique diplomatic complexity.
+
+
+:::
+
+::: {.column width="60%"}
+```{r two-chinas}
+#| fig-height: 5.5
+#| fig-width: 8
+
+# Create comparison visualization
+comparison <- data.frame(
+  Category = rep(c("UN Seat", "Recognition", "Territory", "Population", "Claim"), 2),
+  Entity = rep(c("PRC (Beijing)", "ROC (Taipei)"), each = 5),
+  Value = c(100, 180, 100, 100, 100,  # PRC
+            0, 12, 0.3, 1.7, 100)      # ROC
+)
+
+comparison$Category <- factor(comparison$Category, 
+                              levels = c("UN Seat", "Recognition", "Territory", 
+                                       "Population", "Claim"))
+
+ggplot(comparison, aes(x = Category, y = Value, fill = Entity)) +
+  geom_col(position = "dodge", width = 0.7) +
+  scale_fill_manual(values = c("PRC (Beijing)" = "#d62728",
+                              "ROC (Taipei)" = "#2ca02c")) +
+  labs(title = "Two Governments, One China Claim",
+       subtitle = "Comparative Legitimacy Metrics (indexed)",
+       x = NULL, y = "Relative Scale",
+       fill = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top",
+        axis.text.x = element_text(angle = 0, hjust = 0.5),
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Analysis based on official recognition, UN membership, territorial control*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+Both Beijing and Taipei claim to be the legitimate government of all China. The PRC controls the mainland and has international recognition; the ROC governs Taiwan but lacks formal diplomatic ties with most nations.
+:::
+
+## Taiwan's Diplomatic Isolation {.scrollable}
+ 
+:::: {.columns .column-align-top}
+
+::: {.column width="70%"}
+```{r diplomatic-recognition}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Data source: Taiwan Ministry of Foreign Affairs, CFR Taiwan Tracker
+# Historical data compiled from State Department records
+
+# Create timeline of recognition
+recognition_timeline <- data.frame(
+  year = seq(1970, 2025, 5),
+  countries = c(68, 51, 29, 23, 23, 21, 21, 21, 15, 14, 13, 12)
+)
+
+ggplot(recognition_timeline, aes(x = year, y = countries)) +
+  geom_line(color = "#2ca02c", size = 2) +
+  geom_point(color = "#2ca02c", size = 4) +
+  geom_area(fill = "#2ca02c", alpha = 0.3) +
+  geom_hline(yintercept = 12, linetype = "dashed", color = "red", size = 1) +
+  annotate("text", x = 2010, y = 15, 
+           label = "Current: 12 countries", 
+           color = "red", fontface = "bold", size = 5) +
+  annotate("text", x = 1985, y = 55,
+           label = "UN seat lost (1971)",
+           color = "darkred", fontface = "italic", size = 4) +
+  scale_y_continuous(breaks = seq(0, 70, 10), limits = c(0, 75)) +
+  scale_x_continuous(breaks = seq(1970, 2025, 10)) +
+  labs(title = "Taiwan's Declining Diplomatic Recognition",
+       subtitle = "Number of countries with formal diplomatic relations",
+       x = NULL, y = "Number of Countries") +
+  theme_minimal(base_size = 14) +
+  theme(text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Source: Taiwan Ministry of Foreign Affairs; Council on Foreign Relations [@cfr2024taiwan]*
+:::
+
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+### Steady Decline 
+
+From **68 countries** in 1970 to just **12 today**.
+
+**Key Turning Point:**
+
+- Lost UN seat (1971)
+- PRC recognition surge
+
+**Recent Losses:**
+
+- Honduras (2023)
+- Nicaragua (2021)  
+- Panama, El Salvador (2018)
+
+**Beijing's Pressure:**
+
+- Economic incentives
+- Political coercion
+- "One China" enforcement
+
+Despite isolation, Taiwan maintains **robust informal ties** with major economies including the U.S., Japan, and EU.
+
+
+:::
+
+::::
+
+::: {.notes}
+Taiwan's formal diplomatic recognition has declined dramatically since losing its UN seat in 1971. Today only 12 nations maintain official relations, mostly small states in Latin America and the Pacific. Recent analyses show this isolation is increasingly weaponized by Beijing [@glaser2024diplomatic].
+:::
+
+## Evolution of U.S. Policy: Three Pillars {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Policy Foundation
+
+**Three Documents:**
+
+**1972 Shanghai Communiqué**
+
+- Acknowledges "One China"
+- Does not endorse PRC claim
+
+**1979 Taiwan Relations Act**
+
+- Legal basis for unofficial ties
+- Security commitments
+- Most important pillar
+
+**1982 Six Assurances**
+
+- No arms sales termination
+- No PRC consultation on Taiwan
+- Sovereign decisions respected
+
+**Strategic Ambiguity:** Deliberate vagueness on defense commitment keeps all sides cautious.
+
+Recent shifts toward greater **clarity** on U.S. support.
+
+
+:::
+
+::: {.column width="70%"}
+```{r us-policy-timeline}
+#| fig-height: 6.5
+#| fig-width: 9
+
+# Create policy timeline
+policy_events <- data.frame(
+  year = c(1972, 1979, 1979, 1982, 1995, 2018, 2022),
+  event = c("Shanghai\nCommuniqué", "Normalization\nwith PRC\n\n", 
+            "Taiwan Relations\nAct", "Six\nAssurances",
+            "Lee Visit\nCrisis", "Taiwan\nTravel\nAct", 
+            "Pelosi\nVisit"),
+  importance = c(5, 5, 5, 4, 3, 3, 3),
+  type = c("agreement", "shift", "law", "assurance", 
+           "tension", "engagement", "tension")
+)
+
+ggplot(policy_events, aes(x = year, y = importance)) +
+  geom_segment(aes(xend = year, yend = 0, color = type), size = 2) +
+  geom_point(aes(color = type), size = 8) +
+  geom_text(aes(label = event), vjust = -0.8, size = 3.5, 
+            fontface = "bold", lineheight = 0.9) +
+  scale_color_manual(values = c("agreement" = "#1f77b4",
+                                "shift" = "#ff7f0e",
+                                "law" = "#2ca02c",
+                                "assurance" = "#9467bd",
+                                "tension" = "#d62728",
+                                "engagement" = "#8c564b")) +
+  scale_y_continuous(limits = c(0, 6)) +
+  scale_x_continuous(breaks = seq(1970, 2025, 10),
+                    limits = c(1970, 2025)) +
+  labs(title = "U.S.-Taiwan Relations: Key Milestones",
+       subtitle = "From strategic ambiguity to strategic clarity?",
+       x = NULL, y = "Significance") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none",
+        axis.text.y = element_blank(),
+        panel.grid.major.y = element_blank(),
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Key policy milestones shaping U.S.-Taiwan relations*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+U.S. policy rests on three documents that create framework for unofficial but robust ties. Taiwan Relations Act remains most significant, providing legal basis for arms sales and security cooperation.
+:::
+
+## Cross-Strait Relations: The Status Quo {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column width="70%"}
+```{r cross-strait-balance}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Create a balance visualization
+balance_factors <- data.frame(
+  factor = c("Economic Integration", "Political Separation", 
+             "Military Imbalance", "Democratic Divergence",
+             "Cultural Ties", "International Space"),
+  integration = c(85, 10, 20, 5, 70, 15),
+  separation = c(15, 90, 80, 95, 30, 85)
+)
+
+balance_long <- balance_factors %>%
+  pivot_longer(cols = c(integration, separation),
+               names_to = "direction",
+               values_to = "value")
+
+balance_long$direction <- factor(balance_long$direction,
+                                levels = c("integration", "separation"),
+                                labels = c("Integration/Ties", "Separation/Tension"))
+
+ggplot(balance_long, aes(x = factor, y = value, fill = direction)) +
+  geom_col(position = "stack") +
+  coord_flip() +
+  scale_fill_manual(values = c("Integration/Ties" = "#4CAF50",
+                              "Separation/Tension" = "#F44336")) +
+  geom_hline(yintercept = 50, linetype = "dashed", color = "black", size = 0.5) +
+  labs(title = "Cross-Strait Dynamics: A Delicate Balance",
+       subtitle = "Forces of integration vs. separation",
+       x = NULL, y = "Relative Strength (%)",
+       fill = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Assessment of competing forces in cross-Strait relationship*
+:::
+
+
+### Public Opinion 
+
+![](http://esc.nccu.edu.tw/upload/44/doc/6962/Tondu202512.png)
+
+
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+### The Paradox 
+
+**Deep economic integration** alongside **growing political divergence**.
+
+**Integration Forces:**
+
+- $190B+ annual trade
+- Supply chain interdependence
+- Cultural/linguistic ties
+- Tourism, family connections
+
+**Separation Forces:**
+
+- Distinct political systems
+- Taiwan identity strengthening
+- Military imbalance widening
+- Diplomatic competition
+
+This creates **complex interdependence** that both stabilizes and complicates the relationship.
+
+Status quo: **stable but fragile**.
+
+
+:::
+
+::::
+
+::: {.notes}
+The status quo is characterized by deep economic integration alongside growing political and identity divergence. This creates a complex interdependence that both stabilizes and complicates the relationship.
+:::
+
+## Taiwan's Semiconductor Dominance {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Critical Dependency
+
+Taiwan controls **over 65%** of global chip manufacturing.
+
+**TSMC Dominance:**
+
+- 58.9% global market share
+- World's most advanced foundry
+- No close competitors
+
+**Why It Matters:**
+
+- Every smartphone depends on Taiwan chips
+- All major tech firms are customers
+- Apple, NVIDIA, AMD, Qualcomm
+- Cannot be quickly replicated
+
+**Strategic Implications:**
+
+- Single point of failure
+- 2-3 year lead in technology
+- Geopolitical chokepoint
+- National security concern
+
+As Chris Miller notes in *Chip War*, this dominance resulted from **decades of strategic investment**.
+
+
+:::
+
+::: {.column width="70%"}
+```{r semiconductor-market}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Data source: TrendForce (Q3 2024), Gartner Semiconductor Market Analysis
+# Market share data as of 2024
+
+# Create market share visualization
+market_data <- data.frame(
+  company = c("TSMC\n(Taiwan)", "Samsung\n(S. Korea)", "Intel\n(USA)", 
+              "UMC\n(Taiwan)", "SMIC\n(China)", "Others"),
+  share = c(58.9, 13.3, 7.2, 6.5, 5.3, 8.8),
+  country = c("Taiwan", "S. Korea", "USA", "Taiwan", "China", "Mixed")
+)
+
+market_data$company <- factor(market_data$company, 
+                             levels = market_data$company)
+
+ggplot(market_data, aes(x = "", y = share, fill = company)) +
+  geom_col(width = 1, color = "white", size = 1.5) +
+  coord_polar(theta = "y") +
+  scale_fill_manual(values = c("TSMC\n(Taiwan)" = "#2ca02c",
+                              "Samsung\n(S. Korea)" = "#9467bd",
+                              "Intel\n(USA)" = "#1f77b4",
+                              "UMC\n(Taiwan)" = "#8dd3c7",
+                              "SMIC\n(China)" = "#d62728",
+                              "Others" = "#cccccc")) +
+  geom_text(aes(label = paste0(round(share, 1), "%")),
+            position = position_stack(vjust = 0.5),
+            size = 4.5, fontface = "bold") +
+  labs(title = "Global Semiconductor Foundry Market Share (2024)",
+       subtitle = "Taiwan controls over 65% of global chip manufacturing",
+       fill = NULL) +
+  theme_void(base_size = 14) +
+  theme(legend.position = "right",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Source: TrendForce Q3 2024 Foundry Market Analysis [@trendforce2024]; Miller (2022) [@miller2022chip]*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+TSMC alone controls nearly 60% of the global foundry market. Taiwan's combined market share exceeds 65%, making it indispensable to the global technology supply chain. As Chris Miller documents in *Chip War*, this dominance emerged from decades of strategic investment and specialization [@miller2022chip]. Recent CSIS analysis notes this creates unprecedented strategic vulnerability [@kennedy2024chips].
+:::
+
+## Advanced Chip Manufacturing: Taiwan's Near-Monopoly {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column width="70%"}
+```{r advanced-chips}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Data source: BCG-SIA Report (2024), TSMC Annual Report 2024
+# Technology node capacity data
+
+# Create stacked bar for different technology nodes
+chip_tech <- data.frame(
+  node = rep(c("7nm & below", "10-14nm", "16-28nm", "40nm+"), each = 3),
+  manufacturer = rep(c("TSMC", "Samsung", "Others"), 4),
+  capacity = c(92, 8, 0,    # 7nm and below
+               68, 25, 7,    # 10-14nm
+               45, 18, 37,   # 16-28nm
+               25, 10, 65)   # 40nm+
+)
+
+chip_tech$node <- factor(chip_tech$node, 
+                        levels = c("7nm & below", "10-14nm", "16-28nm", "40nm+"))
+
+ggplot(chip_tech, aes(x = node, y = capacity, fill = manufacturer)) +
+  geom_col(position = "stack", width = 0.7) +
+  scale_fill_manual(values = c("TSMC" = "#2ca02c",
+                              "Samsung" = "#9467bd",
+                              "Others" = "#cccccc")) +
+  geom_text(aes(label = ifelse(capacity > 5, paste0(capacity, "%"), "")),
+            position = position_stack(vjust = 0.5),
+            color = "white", fontface = "bold", size = 4) +
+  labs(title = "Manufacturing Capacity by Technology Node",
+       subtitle = "TSMC dominates cutting-edge chip production (3nm, 5nm, 7nm)",
+       x = "Technology Node (smaller = more advanced)",
+       y = "Global Capacity (%)",
+       fill = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Source: BCG-SIA Report 2024 [@bcg2024semiconductors]; TSMC Annual Report 2024*
+:::
+
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Near-Monopoly on Advanced Tech
+
+**TSMC controls 92%** of cutting-edge chip production (7nm and below).
+
+**Why This Matters:**
+
+- 7nm and below = AI chips
+- Powers all major AI models
+- Required for high-performance computing
+- Smartphones, data centers
+
+**The Technology Gap:**
+
+- TSMC: 2nm production (present 2025)
+- Samsung: 3nm (struggling)
+- Intel: 7nm (delayed multiple times)
+- China (SMIC): Stuck at 14nm+
+
+**Lead Time:**
+
+- Minimum 2-3 years to replicate
+- Requires $20B+ investment
+- ASML equipment export restricted
+- Know-how not easily transferred
+
+Cannot be quickly replaced.
+
+
+:::
+
+::::
+
+::: {.notes}
+TSMC's dominance in advanced nodes is even more pronounced. The company controls 92% of cutting-edge production capacity - the chips that power AI, smartphones, and advanced computing. This technological lead of 2-3 years cannot be quickly overcome.
+:::
+
+## The AI Revolution: Taiwan's Strategic Value {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### The AI Chokepoint
+
+**Every AI model** depends on Taiwan-manufactured chips.
+
+**Supply Chain Reality:**
+
+- AI chip design: NVIDIA, AMD, Apple
+- Manufacturing: **TSMC 90%+**
+- Equipment: ASML (Netherlands)
+- Applications: ChatGPT, Claude, etc.
+
+**Critical Dependency:**
+
+- No Taiwan chips = No AI advancement
+- Training large models requires cutting-edge chips
+- Only TSMC can make them at scale
+
+As Gregory Allen notes: *"AI runs on specialized semiconductors, and those semiconductors are made in Taiwan."*
+
+This creates both **economic opportunity** and **strategic vulnerability**.
+
+
+:::
+
+::: {.column width="70%"}
+```{r ai-supply-chain}
+#| fig-height: 5.5
+#| fig-width: 10
+
+# Create supply chain pyramid
+supply_chain <- data.frame(
+  layer = factor(c("AI Applications", "AI Chip Design", "Manufacturing", 
+                  "Equipment & Materials"),
+                levels = c("Equipment & Materials", "Manufacturing", 
+                         "AI Chip Design", "AI Applications")),
+  taiwan_role = c("Minimal", "Critical\n(TSMC 90%+)", 
+                 "Significant\n(MediaTek, etc.)", "Growing"),
+  importance = c(100, 80, 60, 40),
+  taiwan_share = c(10, 90, 35, 5),
+  examples = c("ASML, Tokyo Electron, Applied Materials",
+              "TSMC: AI chip manufacturing",
+              "NVIDIA, AMD, Apple designs → TSMC production",
+              "ChatGPT, Claude, autonomous vehicles")
+)
+
+ggplot(supply_chain, aes(x = layer, y = importance, fill = taiwan_share)) +
+  geom_col(width = 0.8) +
+  geom_text(aes(label = taiwan_role), 
+            position = position_stack(vjust = 0.5),
+            size = 4.5, fontface = "bold", color = "firebrick") +
+  scale_fill_gradient(low = "#e0e0e0", high = "#2ca02c",
+                     name = "Taiwan's\nMarket Share",
+                     labels = function(x) paste0(x, "%")) +
+  coord_flip() +
+  labs(title = "AI Supply Chain: Taiwan's Chokepoint Position",
+       subtitle = "Every AI model depends on Taiwan-manufactured chips",
+       x = NULL, y = "Supply Chain Layer") +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
+        panel.grid = element_blank(),
+        text = element_text(family = "Palatino"), legend.position = "top")
+```
+
+::: {.caption}
+*Analysis based on: Georgetown CSET Reports [@cset2024ai]; Brookings Tech Policy [@allen2024semiconductor]*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+AI requires cutting-edge chips that almost exclusively come from Taiwan. This creates a critical dependency: no Taiwan chips = no AI advancement. As Gregory Allen notes, "AI runs on specialized semiconductors, and those semiconductors are made in Taiwan" [@allen2024semiconductor]. Recent Georgetown CSET analysis emphasizes this chokepoint represents both economic opportunity and strategic vulnerability [@cset2024ai].
+:::
+
+## U.S.-China Tech Competition {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column width="70%"}
+```{r tech-competition}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Create comparison of tech strategies
+tech_comparison <- data.frame(
+  dimension = c("Export Controls", "Domestic Investment", "Talent Attraction",
+               "Supply Chain", "Taiwan Stance"),
+  us_score = c(90, 70, 85, 65, 80),
+  china_score = c(30, 95, 70, 85, 95),
+  tension = c(95, 60, 50, 80, 100)
+)
+
+tech_long <- tech_comparison %>%
+  pivot_longer(cols = c(us_score, china_score),
+               names_to = "country",
+               values_to = "score") %>%
+  mutate(country = recode(country,
+                         "us_score" = "United States",
+                         "china_score" = "China"))
+
+ggplot(tech_long, aes(x = dimension, y = score, fill = country)) +
+  geom_col(position = "dodge", width = 0.7) +
+  geom_point(data = tech_comparison,
+            aes(x = dimension, y = tension, group = 1),
+            color = "red", size = 4, inherit.aes = FALSE) +
+  geom_line(data = tech_comparison,
+           aes(x = dimension, y = tension, group = 1),
+           color = "red", size = 1.5, inherit.aes = FALSE) +
+  scale_fill_manual(values = c("United States" = "#1f77b4",
+                              "China" = "#d62728")) +
+  labs(title = "U.S.-China Technology Competition",
+       subtitle = "Policy intensity (bars) and rivalry level (red line)",
+       x = NULL, y = "Policy Intensity / Competition Level",
+       fill = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top",
+        axis.text.x = element_text(angle = 15, hjust = 1),
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Sources: White House CHIPS Act (2022); China State Council "Made in China 2025"; CSIS China Power [@kennedy2024techcompetition]*
+:::
+
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Taiwan Caught in Middle 
+
+Both superpowers compete for **technology supremacy**.
+
+**U.S. Strategy:**
+
+- Export controls on China
+- CHIPS Act ($52B investment)
+- Restrict advanced chip sales
+- Ally coordination
+
+**China Strategy:**
+
+- "Made in China 2025"
+- Massive domestic subsidies
+- Self-sufficiency push
+- Taiwan reunification goal
+
+**Taiwan's Position:**
+
+- Critical to both sides
+- Pressure from Beijing
+- Security from Washington
+- Economic ties with all
+
+**Highest Tension:** Taiwan stance—both see it as winner-take-all issue.
+
+
+:::
+
+::::
+
+::: {.notes}
+The U.S.-China tech competition centers on semiconductors, with Taiwan as the critical variable. U.S. export controls aim to maintain lead; China invests heavily in self-sufficiency. Taiwan's stance generates maximum tension as both see control of Taiwan as decisive.
+:::
+
+## U.S. Western Hemisphere Refocus {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Competing Priorities
+
+While **Indo-Pacific remains high priority**, Western Hemisphere attention is growing.
+
+**Key Trends:**
+
+- Venuezuelan crisis
+- Cuban normalization talks
+- Iran 
+- China: "Thucydides Trap"?
+- Critical minerals sourcing
+
+**Tensions:**
+
+- Limited resources
+- Multiple crises demand attention
+- China expanding in Americas
+- Ukraine support ongoing
+
+**Implications for Taiwan:**
+
+- Competition for policy bandwidth
+- Need to maintain salience
+- Economic security arguments
+- Values-based case stronger
+
+Indo-Pacific **still *Most Important* in the long term**, but not sole focus.
+
+
+:::
+
+::: {.column width="70%"}
+```{r hemisphere-priorities}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Create allocation visualization
+allocation_data <- data.frame(
+  year = rep(c(2020, 2022, 2024), each = 4),
+  region = rep(c("Indo-Pacific", "Western Hemisphere", "Europe", "Middle East"), 3),
+  allocation = c(35, 20, 30, 15,    # 2020
+                40, 22, 25, 13,    # 2022
+                38, 28, 23, 11)    # 2024
+)
+
+allocation_data$region <- factor(allocation_data$region,
+                                levels = c("Indo-Pacific", "Western Hemisphere", 
+                                         "Europe", "Middle East"))
+
+ggplot(allocation_data, aes(x = year, y = allocation, fill = region)) +
+  geom_area(alpha = 0.7) +
+  scale_fill_manual(values = c("Indo-Pacific" = "#2ca02c",
+                              "Western Hemisphere" = "#ff7f0e",
+                              "Europe" = "#1f77b4",
+                              "Middle East" = "#9467bd")) +
+  labs(title = "Shifting U.S. Foreign Policy Priorities",
+       subtitle = "Resource allocation trends (illustrative)",
+       x = NULL, y = "Relative Priority (%)",
+       fill = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Illustrative trends based on budget allocations, diplomatic visits, and policy statements*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+Recent analysis shows growing attention to Western Hemisphere, particularly on nearshoring and critical minerals. While Indo-Pacific remains top priority, Taiwan must compete for policy bandwidth with multiple global challenges.
+:::
+
+## Why Taiwan Matters to the United States {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column width="70%"}
+```{r taiwan-importance}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Create a multi-dimensional importance chart
+importance <- data.frame(
+  dimension = c("Economic", "Economic", "Economic",
+               "Strategic", "Strategic", "Strategic",
+               "Values", "Values", "Values",
+               "Credibility", "Credibility", "Credibility"),
+  factor = c("Chip Supply", "Trade ($100B)", "Tech Innovation",
+            "First Island Chain", "Sea Lanes", "Regional Balance",
+            "Democracy", "Human Rights", "Self-Determination",
+            "Alliance Trust", "Deterrence", "Global Order"),
+  score = c(95, 70, 85,
+           90, 80, 85,
+           75, 70, 80,
+           85, 90, 80)
+)
+
+importance$dimension <- factor(importance$dimension,
+                              levels = c("Economic", "Strategic", "Values", "Credibility"))
+
+ggplot(importance, aes(x = reorder(factor, score), y = score, fill = dimension)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~dimension, scales = "free_y", ncol = 2) +
+  scale_fill_manual(values = c("Economic" = "#2ca02c",
+                              "Strategic" = "#1f77b4",
+                              "Values" = "#ff7f0e",
+                              "Credibility" = "#9467bd")) +
+  labs(title = "Why Taiwan Matters: A Multi-Dimensional Assessment",
+       x = NULL, y = "Importance to U.S. Interests (0-100)",
+       fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none",
+        strip.text = element_text(face = "bold", size = 14),
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Analysis framework adapted from: Bush (2021) [@bush2021difficult]; Hass & Glaser (2024) [@hass2024taiwan]*
+:::
+
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Four Dimensions
+
+U.S. interests in Taiwan are **interconnected and compelling**.
+
+**Economic (95):**
+
+- Semiconductor dependency
+- $100B+ bilateral trade
+- Technology innovation hub
+
+**Strategic (90):**
+
+- First Island Chain keystone
+- Pacific sea lanes
+- Regional power balance
+
+**Values (75):**
+
+- Vibrant democracy
+- Human rights model
+- Self-determination
+
+**Credibility (90):**
+
+- Allied confidence
+- Deterrence effectiveness
+- Rules-based order
+
+Not just **one** reason—Taiwan matters across **all dimensions** simultaneously.
+
+
+:::
+
+::::
+
+::: {.notes}
+Taiwan's importance to the United States spans multiple dimensions. Economic interests are highest due to semiconductors, but strategic location and credibility concerns are nearly as significant. The values dimension adds moral weight. These interests reinforce each other.
+:::
+
+## Risk Assessment: Potential Scenarios {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Scenario Analysis
+
+**High Risk Quadrant:**
+
+- Military conflict (25% prob, 100 impact)
+- Blockade (35% prob, 90 impact)
+- Accidental escalation (40% prob, 85 impact)
+
+**Most Likely:**
+
+- Gray zone ops (85% ongoing)
+- Economic coercion (60%)
+- Cyber warfare (70%)
+
+**Critical Window:**
+
+- 2027-2035 particularly concerning
+- PLA modernization timeline
+- Xi's political imperatives
+- U.S. force posture gaps
+
+**Key Insight:**
+Status quo appears stable but is **actually fragile**. Low-probability/high-impact events require serious preparation.
+
+
+:::
+
+::: {.column width="70%"}
+```{r risk-scenarios}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Risk assessment based on:
+# - RAND Corp "War with China" scenarios (2024)
+# - CSIS Taiwan Wargames (2023-2024)
+# - DOD Indo-Pacific Strategy (2024)
+# - Expert surveys compiled by CFR
+
+# Create risk matrix
+risk_data <- data.frame(
+  scenario = c("Military Conflict", "Economic Coercion", "Cyber Warfare",
+              "Gray Zone Operations", "Accidental Escalation", "Blockade",
+              "Status Quo Erosion", "Diplomatic Isolation"),
+  probability = c(25, 60, 70, 85, 40, 35, 65, 55),
+  impact = c(100, 70, 60, 50, 85, 90, 55, 45),
+  timeframe = c("2027-2035", "Ongoing", "Ongoing", "Ongoing", 
+               "Anytime", "2027-2035", "Ongoing", "Ongoing")
+)
+
+ggplot(risk_data, aes(x = probability, y = impact, label = scenario)) +
+  geom_point(aes(size = impact, color = probability), alpha = 0.7) +
+  geom_text(hjust = 0, nudge_x = 2, size = 3.5, fontface = "bold", family="Palatino") +
+  scale_size_continuous(range = c(5, 15)) +
+  scale_color_gradient(low = "yellow", high = "red") +
+  geom_vline(xintercept = 50, linetype = "dashed", alpha = 0.3) +
+  geom_hline(yintercept = 70, linetype = "dashed", alpha = 0.3) +
+  annotate("rect", xmin = 50, xmax = 100, ymin = 70, ymax = 100,
+          alpha = 0.1, fill = "red") +
+  annotate("text", x = 75, y = 95, label = "HIGH RISK", family="Palatino",
+          color = "darkred", fontface = "bold", size = 6) +
+  labs(title = "Risk Matrix: Cross-Strait Scenarios",
+       subtitle = "Probability vs. Impact assessment",
+       x = "Probability (%)", y = "Impact (0-100)") +
+  xlim(0, 100) +
+  ylim(0, 105) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Sources: CSIS Taiwan Wargames [@cancian2023first]; RAND China Scorecard [@heginbotham2024china]; Expert assessments [@mastro2024timeline]*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+Risk assessment based on CSIS wargames and RAND analysis. Military conflict remains low probability but catastrophic impact. Gray zone operations and cyber warfare are ongoing. The 2027-2035 window is particularly concerning per Oriana Mastro's analysis of PLA capabilities and Xi's political timeline [@mastro2024timeline].
+:::
+
+::: {.caption}
+*Risk assessments synthesized from: CSIS Taiwan Wargames [@cancian2023first]; RAND "War with China" [@heginbotham2024china]; DOD Indo-Pacific Strategy 2024; Expert surveys [@mastro2024timeline]*
+:::
+
+::: {.notes}
+Expert analysis suggests gray zone operations are most probable but lower impact, while military conflict has lower probability but catastrophic consequences. CSIS wargaming exercises indicate the 2027-2035 window as particularly concerning [@cancian2023first]. Oriana Skylar Mastro notes that "Beijing's timeline appears to be accelerating" based on PLA modernization [@mastro2024timeline].
+:::
+
+## Rewards of Engagement with Taiwan {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column width="70%"}
+```{r engagement-benefits}
+#| fig-height: 5.5
+#| fig-width: 9
+
+# Create benefits visualization
+benefits <- data.frame(
+  category = c("Trade & Investment", "Technology Partnership", "Regional Stability",
+              "Democratic Alliance", "Supply Chain Security", "Intelligence Sharing"),
+  current = c(110, 85, 70, 75, 90, 65),
+  potential = c(150, 95, 85, 90, 95, 80),
+  type = c("Economic", "Tech", "Strategic", "Values", "Tech", "Strategic")
+)
+
+benefits_long <- benefits %>%
+  pivot_longer(cols = c(current, potential),
+               names_to = "status",
+               values_to = "value") %>%
+  mutate(status = recode(status,
+                        "current" = "Current Benefits",
+                        "potential" = "Potential Benefits"))
+
+ggplot(benefits_long, aes(x = reorder(category, value), y = value, fill = status)) +
+  geom_col(position = "dodge", width = 0.7) +
+  coord_flip() +
+  scale_fill_manual(values = c("Current Benefits" = "#4CAF50",
+                              "Potential Benefits" = "#81C784")) +
+  labs(title = "Rewards of U.S.-Taiwan Partnership",
+       subtitle = "Current vs. potential benefits (indexed to 100)",
+       x = NULL, y = "Benefit Level",
+       fill = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "top",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Data: U.S. Trade Representative (2024); Benefits framework from Hass & Glaser [@hass2024taiwan]*
+:::
+
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+
+### Strategic Rationale
+
+Engagement with Taiwan **advances multiple U.S. interests** simultaneously.
+
+**Current Benefits:**
+
+- $110B bilateral trade
+- Critical semiconductor access
+- Democratic partnership
+- Regional stability anchor
+- Intelligence cooperation
+
+**Untapped Potential:**
+
+- Deeper technology collaboration
+- Expanded trade ($150B possible)
+- Enhanced supply chain resilience
+- Stronger democratic network
+- Greater intelligence integration
+
+**Why Deepen Ties:**
+
+- Mutual economic gains
+- Shared security interests
+- Values alignment
+- Counter-PRC coercion
+- Support self-determination
+
+Partnership not just defensive—also **proactive and beneficial**.
+
+
+:::
+
+::::
+
+::: {.notes}
+Engagement with Taiwan yields substantial benefits across economic, technological, and strategic dimensions. Stronger partnership could amplify these advantages while supporting democratic values. Ryan Hass argues that "deeper U.S.-Taiwan ties advance American interests across multiple domains" [@hass2024taiwan].
+:::
+
+## The Economic Interdependence Paradox {.scrollable}
+
+:::: {.columns .column-align-top}
+
+::: {.column style="width: 30%; font-size: 75%"}
+
+
+### The Paradox
+
+**Deep economic integration** makes conflict **less likely** yet **more costly**.
+
+**Trade Reality:**
+
+- Taiwan→China: $190B (highest)
+- USA→China: $575B
+- Taiwan→USA: $110B
+- All three deeply connected
+
+**The Contradiction:**
+
+- Economic ties create **peace incentives**
+- But also create **vulnerability**
+- Conflict would devastate all three economies
+- Yet tensions persist
+
+**Stability Through Interdependence?**
+
+- Historical precedent mixed
+- WWI despite trade links
+- But also: EU integration worked
+
+**Key Question:**
+Does interdependence **prevent** conflict or just make it **more catastrophic**?
+
+Current answer: **Both**.
+
+
+:::
+
+::: {.column width="70%"}
+```{r economic-interdependence}
+#| fig-height: 7.5
+#| fig-width: 5
+
+# Data source: U.S. Trade Representative, Taiwan Bureau of Foreign Trade,
+# China Customs Statistics (2023 data)
+
+# Create network of trade relationships
+trade_flow <- data.frame(
+  from = c("Taiwan", "Taiwan", "China", "China", "USA", "USA"),
+  to = c("China", "USA", "Taiwan", "USA", "Taiwan", "China"),
+  value = c(190, 110, 100, 575, 110, 575),
+  dependency = c("High", "Medium", "Medium", "High", "Critical", "High")
+)
+
+# Simple flow visualization
+ggplot(trade_flow, aes(x = from, xend = to, y = value, yend = value)) +
+  geom_segment(aes(color = dependency), size = 2, 
+              arrow = arrow(length = unit(0.4, "cm"))) +
+  geom_point(size = 5, color = "steelblue") +
+  geom_text(aes(label = paste0("$", value, "B")), 
+           vjust = -1.5, fontface = "bold", size = 4, family = "Palatino") +
+  scale_color_manual(values = c("Critical" = "#d62728",
+                               "High" = "#ff7f0e",
+                               "Medium" = "#2ca02c")) +
+  labs(title = "Trilateral Trade Dependencies",
+       subtitle = "Annual bilateral trade flows (billions USD, 2023)",
+       x = NULL, y = "Trade Volume",
+       color = "Dependency Level") +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        panel.grid.major.y = element_blank(), legend.position = "top",
+        text = element_text(family = "Palatino"))
+```
+
+::: {.caption}
+*Sources: U.S. Trade Representative (2023); Taiwan Bureau of Foreign Trade; China Customs [@ustr2023taiwan]*
+:::
+
+:::
+
+::::
+
+::: {.notes}
+The trilateral economic relationship creates complex interdependence. Taiwan's $190B trade with China is its largest, creating both stability incentives and vulnerability. Economic ties make conflict costly for all parties, yet political tensions persist.
+:::
+
+
+::: {.caption}
+*Trade data: U.S. Trade Representative 2023; Taiwan Bureau of Foreign Trade; China Customs Statistics*
+:::
+
+## Navigating Uncertainty: The Path Forward  {.scrollable}
+
+:::: {.columns}
+
+::: {.column style="width: 40%; font-size: 80%;"}
+### Key Strategic Imperatives
+
+::: {.fragment}
+**1. Strengthen Deterrence** [@green2024deterrence]
+:::
+
+::: {.fragment}
+
+- Military capability
+- Alliance coordination
+- Clear communication
+:::
+
+::: {.fragment}
+
+**2. Maintain Dialogue** [@bush2021difficult]
+:::
+
+::: {.fragment}
+
+- Crisis management
+- Cultural/economic exchange
+- Track II diplomacy
+:::
+
+::: {.fragment}
+
+**3. Diversify Supply Chains** [@kennedy2024chips]
+:::
+
+::: {.fragment}
+
+- CHIPS Act implementation
+- Friendshoring initiatives
+- Resilience over efficiency
+:::
+
+::: {.fragment}
+
+**4. Support Democratic Taiwan** [@diamond2024democracy]
+:::
+
+::: {.fragment}
+
+- International space
+- Institutional ties
+- People-to-people exchange
+:::
+:::
+
+::: {.column width="60%"}
+```{r path-forward}
+#| fig-height: 7
+#| fig-width: 5
+
+# Create a balancing act visualization
+balance_elements <- data.frame(
+  element = c("Deterrence", "Dialogue", "Economic Ties", "Ambiguity"),
+  ideal = c(75, 60, 70, 55),
+  current = c(70, 45, 65, 40)
+)
+
+balance_long <- balance_elements %>%
+  pivot_longer(cols = c(ideal, current),
+               names_to = "status",
+               values_to = "value") %>%
+  mutate(status = recode(status,
+                        "ideal" = "Desired State",
+                        "current" = "Current State"))
+
+ggplot(balance_long, aes(x = element, y = value, fill = status)) +
+  geom_col(position = "dodge", width = 0.7) +
+  coord_flip() +
+  scale_fill_manual(values = c("Current State" = "#ff7f0e",
+                              "Desired State" = "#2ca02c")) +
+  labs(title = "Policy Balance",
+       x = NULL, y = "Level",
+       fill = NULL) +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "top")
+```
+:::
+
+::::
+
+## Critical Questions for the Future {.scrollable}
+
+:::: {.columns}
+
+::: {.column style="width: 50%; font-size: 80%;"}
+### Near-term (2025-2027)
+
+::: {.fragment}
+- Can deterrence prevent conflict?
+:::
+
+::: {.fragment}
+- How will U.S. elections affect policy?
+:::
+
+::: {.fragment}
+- Will chip diversification succeed?
+:::
+
+::: {.fragment}
+- Can cross-strait dialogue resume?
+:::
+
+### Medium-term (2027-2035)
+
+::: {.fragment}
+- Will strategic ambiguity hold?
+:::
+
+::: {.fragment}
+- Can Taiwan maintain its tech edge?
+:::
+
+::: {.fragment}
+- How will demographics shift in Taiwan?
+:::
+
+::: {.fragment}
+- What role for multilateral frameworks?
+:::
+:::
+
+::: {.column width="50%"}
+```{r critical-factors}
+#| fig-height: 6
+#| fig-width: 5
+
+# Create uncertainty visualization
+factors <- data.frame(
+  factor = c("PRC Timeline", "U.S. Commitment", "Taiwan Resilience",
+            "Tech Leadership", "Regional Support", "Economic Leverage"),
+  uncertainty = c(85, 60, 70, 55, 75, 65),
+  importance = c(95, 100, 90, 85, 70, 75)
+)
+
+ggplot(factors, aes(x = uncertainty, y = importance, 
+                   size = importance, label = factor)) +
+  geom_point(alpha = 0.6, color = "#1f77b4") +
+  geom_text(size = 3, fontface = "bold", nudge_y = 3) +
+  scale_size_continuous(range = c(5, 15)) +
+  labs(title = "Critical Factors",
+       subtitle = "Uncertainty vs. Importance",
+       x = "Uncertainty Level",
+       y = "Importance to Outcome") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "none")
+```
+:::
+
+::::
+
+::: {.notes}
+The future depends on multiple interacting variables. High uncertainty around PRC intentions combines with high stakes for U.S. credibility and regional stability.
+:::
+
+## Conclusion: Stakes and Choices {.scrollable} 
+
+:::: {.columns}
+
+::: {.column style="width: 50%; font-size: 80%;"}
+
+### The Stakes
+
+::: {.fragment}
+- **Global economy** depends on Taiwan chips
+:::
+
+::: {.fragment}
+- **Democratic values** tested by authoritarian pressure
+:::
+
+::: {.fragment}
+- **U.S. credibility** tied to Taiwan's security
+:::
+
+::: {.fragment}
+- **Regional order** hangs in the balance
+:::
+
+### The Choice
+
+::: {.fragment}
+Not whether to engage, but **how**:
+:::
+
+::: {.fragment}
+- Deterrence + dialogue
+:::
+
+::: {.fragment}
+- Clarity + flexibility  
+:::
+
+::: {.fragment}
+- Partnership + prudence
+:::
+:::
+
+::: {.column width="50%"}
+```{r conclusion-visual}
+#| fig-height: 6
+#| fig-width: 5
+
+# Create stakes visualization
+stakes <- data.frame(
+  dimension = c("Economic", "Security", "Values", "Order"),
+  magnitude = c(95, 100, 80, 90),
+  color_val = c("#2ca02c", "#d62728", "#ff7f0e", "#1f77b4")
+)
+
+ggplot(stakes, aes(x = reorder(dimension, magnitude), y = magnitude, fill = dimension)) +
+  geom_col(width = 0.6) +
+  scale_fill_manual(values = stakes$color_val) +
+  coord_flip() +
+  ylim(0, 105) +
+  geom_text(aes(label = paste0(magnitude, "%")), 
+           hjust = -0.2, fontface = "bold", size = 6) +
+  labs(title = "What's at Stake",
+       subtitle = "Importance to U.S. interests",
+       x = NULL, y = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        panel.grid = element_blank())
+```
+
+**Taiwan is not just a policy challenge—it's a test of whether democracies can sustain partnerships, maintain technological leadership, and uphold international norms in an era of great power competition.**
+:::
+
+::::
+
+## References {.smaller} {.scrollable}
+
+::: {#refs}
+:::
+
+::: {.notes}
+Complete bibliography available. Key sources include recent reports from CSIS, RAND, Brookings, CFR, and Georgetown CSET, along with trade and economic data from official government sources.
+:::
+
+## Questions & Discussion {.smaller}
+
+:::: {.columns}
+
+::: {.column style="width: 50%; font-size: 80%;"}
+
+### Key Takeaways
+
+::: {.fragment}
+1. Taiwan's semiconductor dominance makes it strategically indispensable
+:::
+
+::: {.fragment}
+2. The status quo is stable but fragile
+:::
+
+::: {.fragment}
+3. U.S. has compelling interests across multiple dimensions
+:::
+
+::: {.fragment}
+4. Risk management requires nuanced policy
+:::
+
+::: {.fragment}
+5. No perfect solutions, only better or worse choices
+:::
+
+### For Further Reading
+
+**Recent Reports (2024):**
+
+- CSIS: "First Battle of the Next War" [@cancian2023first]
+- RAND: "War with China Scorecard" [@heginbotham2024china]
+- Brookings: Hass & Glaser on Taiwan Policy [@hass2024taiwan]
+- Georgetown CSET: AI Supply Chain Analysis [@cset2024ai]
+
+**Books:**
+
+- Chris Miller, *Chip War* [@miller2022chip]
+- Richard Bush, *Difficult Choices* [@bush2021difficult]
+
+**Journals:**
+
+- Foreign Affairs, *The Taiwan Temptation* [@mastro2024timeline]
+- International Security (2024 issues)
+
+*See References slide for complete bibliography*
+:::
+
+::: {.column style="width: 30%; font-size: 80%;"}
+
+### Contact
+
+**Karl Ho karlho@utdallas.edu**
+
+<br>
+
+### Discussion Questions
+
+::: {.fragment}
+
+- How should the U.S. balance deterrence with dialogue?
+- Is strategic ambiguity still viable?
+- What role should allies play?
+- How can chip supply chains be diversified?
+- What lessons from Ukraine apply to Taiwan?
+:::
+
+:::
+
+::::
+
+##
+
+```{r thank-you-visual}
+#| fig-height: 3
+#| fig-width: 8
+
+# Create a simple closing graphic
+closing_map <- map_data("world")
+
+ggplot() +
+  geom_polygon(data = closing_map, 
+               aes(x = long, y = lat, group = group),
+               fill = "lightgray", color = "white", size = 0.1) +
+  geom_point(data = data.frame(lon = c(-95, 105, 121),
+                               lat = c(37, 35, 24),
+                               label = c("USA", "China", "Taiwan")),
+             aes(x = lon, y = lat), color = c("#1f77b4", "#d62728", "#2ca02c"),
+             size = 8, alpha = 0.6) +
+  coord_fixed(1.3, xlim = c(-180, 180), ylim = c(-60, 80)) +
+  theme_void()
+```
