@@ -1650,7 +1650,7 @@ ggplot(stakes, aes(x = reorder(dimension, magnitude), y = magnitude, fill = dime
 
 ::::
 
-## References {.smaller} {.scrollable}
+## References {.scrollable}
 
 ::: {#refs}
 :::
@@ -1659,7 +1659,7 @@ ggplot(stakes, aes(x = reorder(dimension, magnitude), y = magnitude, fill = dime
 Complete bibliography available. Key sources include recent reports from CSIS, RAND, Brookings, CFR, and Georgetown CSET, along with trade and economic data from official government sources.
 :::
 
-## Questions & Discussion {.smaller}
+## Questions & Discussion {.scrollable}
 
 :::: {.columns}
 
