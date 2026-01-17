@@ -1,0 +1,302 @@
+/* Custom CSS for Taiwan-US-China Presentation */
+/* Serif Typography for Academic Presentation */
+
+/* Font Stack: Palatino and Garamond with fallbacks */
+.reveal {
+  font-family: "Palatino Linotype", Palatino, "Palatino LT STD", "Book Antiqua", 
+               Georgia, "Garamond", "EB Garamond", "Hoefler Text", 
+               "Times New Roman", serif;
+  font-size: 28px; /* Reduced from 34px for better fit */
+  background-color: #ffffff;
+}
+
+/* Title slide styling */
+.reveal h1 {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: black;
+  font-weight: bold;
+  font-size: 2.2em;
+  letter-spacing: 0.02em;
+}
+
+.reveal h2 {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: #2c3e50;
+  border-bottom: 3px solid steelblue;
+  padding-bottom: 10px;
+  font-weight: 600;
+  font-size: 1.8em;
+  letter-spacing: 0.01em;
+}
+
+.reveal h3 {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 1.3em;
+}
+
+.reveal h4 {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 1.0em;
+}
+
+.reveal h5 {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: #34495e;
+  font-weight: 600;
+  font-size: .8em;
+}
+
+.reveal h6 {
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: #34495e;
+  font-weight: 600;
+  font-size: .6em;
+}
+
+/* Center the footer */
+.reveal .footer {
+  text-align: center;
+  width: 100%;
+}
+
+
+
+/* Lists */
+.reveal ul, .reveal ol {
+  line-height: 1.6;
+  margin-left: 1em;
+}
+
+.reveal li {
+  margin-bottom: 0.4em;
+  font-size: 0.85em; /* Reduced from 0.95em */
+}
+
+.reveal ul ul li, .reveal ol ol li {
+  font-size: 0.9em; /* Nested lists slightly smaller */
+}
+
+/* Emphasis */
+.reveal strong {
+  color: firebrick;
+  font-weight: bold;
+}
+
+.reveal em {
+  color: #1f77b4;
+  font-style: italic;
+}
+
+/* Notes styling */
+.notes {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  font-style: italic;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Caption styling for source citations */
+.caption {
+  font-size: 0.75em;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5em;
+  text-align: center;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Columns layouts */
+.columns {
+  display: flex;
+  gap: 2em;
+}
+
+.column {
+  flex: 1;
+}
+
+/* Custom color classes */
+.taiwan-color {
+  color: #2ca02c;
+}
+
+.china-color {
+  color: #d62728;
+}
+
+.usa-color {
+  color: #1f77b4;
+}
+
+/* Highlight boxes */
+.highlight-box {
+  background-color: #f9f9f9;
+  border-left: 5px solid steelblue;
+  padding: 15px;
+  margin: 15px 0;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Footer styling */
+.reveal .footer {
+  color: #95a5a6;
+  font-size: 0.7em;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  text-align: center;
+}
+
+/* Title slide footer - left aligned and smaller */
+.reveal section:first-of-type .footer,
+.reveal .slides > section:first-child .footer {
+  text-align: center !important;
+  font-size: 0.6em;
+  padding-left: 1em;
+}
+
+/* Slide numbers */
+.reveal .slide-number {
+  color: #2c3e50;
+  background-color: rgba(44, 160, 44, 0.1);
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Code blocks - use monospace but keep consistent styling */
+.reveal pre {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-family: "Monaco", "Courier New", monospace;
+}
+
+.reveal code {
+  font-family: "Monaco", "Courier New", monospace;
+}
+
+/* Tables */
+.reveal table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+.reveal th {
+  background-color: steelblue;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+.reveal td {
+  padding: 10px;
+  border: 1px solid #ecf0f1;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Smaller text class */
+.smaller {
+  font-size: 0.75em; /* Reduced from 0.8em */
+}
+
+.smaller p, .smaller li {
+  font-size: 0.85em; /* Reduced from 0.9em */
+  line-height: 1.5;
+}
+
+/* Quote styling */
+.reveal blockquote {
+  border-left: 5px solid #2ca02c;
+  padding-left: 20px;
+  font-style: italic;
+  color: #555;
+  background-color: #f8f9fa;
+  padding: 15px;
+  margin: 20px 0;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 0.95em;
+}
+
+/* References slide specific styling */
+#refs {
+  font-size: 0.65em;
+  line-height: 1.4;
+  text-align: left;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+#refs .csl-entry {
+  margin-bottom: 0.8em;
+  text-indent: -1.5em;
+  padding-left: 1.5em;
+}
+
+/* Enhanced readability for senior audience */
+.reveal .slides section {
+  text-align: left;
+}
+
+.reveal .slides section > * {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Improve contrast for better readability */
+.reveal {
+  color: #2c2c2c;
+}
+
+/* Links styling */
+.reveal a {
+  color: #1f77b4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.reveal a:hover {
+  color: #2ca02c;
+  text-decoration: underline;
+}
+
+/* Figure captions */
+.reveal figcaption {
+  font-size: 0.75em;
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5em;
+  font-family: "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Scrollable slides support */
+.reveal .scrollable {
+  overflow-y: auto;
+  max-height: 600px;
+}
+
+.reveal .scrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reveal .scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.reveal .scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.reveal .scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Center the footer */
+.reveal .footer {
+  text-align: center;
+  width: 100%;
+}
+
+
