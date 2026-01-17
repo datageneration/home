@@ -279,7 +279,7 @@ karlho@gmail.com
 **John Marion Glendenning**
 John.Glendenning@UTDallas.edu
 
-Paper & materials: [datageneration.io/conference/spsa](https://datageneration.io/conference/spsa)
+[Paper](https://datageneration.io/conference/spsa2026/spsa2026.pdf) & materials: [datageneration.io/conference/spsa2026](https://datageneration.io/conference/spsa2026)
 
 ## References {.smaller}
 
