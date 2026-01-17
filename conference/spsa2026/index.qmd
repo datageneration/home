@@ -14,6 +14,7 @@ format:
     transition: slide
     slide-number: c/t
     incremental: true
+    chalkboard: true
     footer: "SPSA 2026 | Media Effects and Party Support Volatility"
 date: "January 17, 2026"
 ---
