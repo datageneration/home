@@ -1,0 +1,432 @@
+---
+title: ""
+format: 
+  revealjs:
+    theme: [serif, custom.scss]
+    transition: slide
+    slide-number: c/t
+    logo: "eppslogo.png"
+    incremental: true
+    footer: "<h4>CGOTS 2025 Panel 2</h4>"
+editor: visual
+---
+
+# 
+
+::: {#title-slide .center}
+<h2>Paper Review: National Security and Taiwanese Attitudes toward Transitional Justice</h2>
+
+\
+\
+\
+:::
+
+## Summary
+
+## Framing
+
+The paper investigates how national security concerns influence Taiwanese public attitudes toward transitional justice. The theoretical framework draws from several key concepts:
+
+**Authoritarian Nostalgia Theory**:
+
+The study adopts the theory that when citizens become disillusioned with democratic institutions, they may long for the stability and prosperity experienced under authoritarian rule. This creates a potential resistance to transitional justice measures that challenge past authoritarian practices.
+
+**National Security Framework**:
+
+The author conceptualizes national security as "the protection of national territory, sovereignty, and citizens through military strength," following Naidu's (1991) definition. The authors argue that during Taiwan's martial law period (1949-1987), the KMT government justified authoritarian measures as necessary for national security against Communist threats.
+
+**Cross-cutting Identity Theory**:
+
+The study explores how individuals with multiple, overlapping identities (e.g., DPP supporters who identify as both Taiwanese and Chinese) may respond differently to national security narratives.
+
+## Data and Methods
+
+**Survey Experiment Design**:
+
+The study employed a randomized controlled experiment conducted through National Taiwan University's web survey platform in February 2025.
+
+**Sample**:
+
+-   1,111 valid responses from participants aged 18 and older, divided into three groups:
+    -   Control group: 369 respondents
+    -   Treatment Group 1 (past national security): 371 respondents\
+    -   Treatment Group 2 (current national security): 371 respondents
+
+**Dependent Variable**:
+
+-   Attitudes toward transitional justice measured through 10 questions covering truth disclosure, addressing authoritarian legacies, institutional reform, and perpetrator accountability. Questions addressed topics such as:
+
+    -   Overturning political judgments from the martial law period
+    -   Providing compensation to political victims
+    -   Dismissing civil servants who violated human rights
+    -   Removing Chiang Kai-shek statues
+
+**Independent Variables**:
+
+-   Two experimental treatments:
+    -   **Treatment 1**: Text about Communist infiltration during the martial law period
+    -   **Treatment 2**: Text about current cross-strait relations and Chinese threats
+
+**Control Variables**:
+
+-   Gender, party identification, age, independence-unification stance, educational level, national identity, ethnicity, family victimization experience, economic status, and political knowledge.
+
+## Findings
+
+**Main Results**:
+
+The study found no significant direct treatment effects on overall transitional justice attitudes across the experimental groups. However, several important patterns emerged:
+
+**Party Identification Effects**:
+
+Supporters of the Taiwan People's Party (TPP) showed increased support for transitional justice after exposure to national security stimuli, while supporters of the Democratic Progressive Party (DPP) and Kuomintang (KMT) showed stable attitudes.
+
+**Cross-cutting Identity Effects**:
+
+The most significant finding was that individuals with cross-cutting identities were more responsive to national security narratives: - DPP supporters who identify as both Taiwanese and Chinese showed reduced support for transitional justice after treatment - Mainland Chinese citizens who support the DPP exhibited lower transitional justice support in the historical security treatment
+
+**Identity Interactions**:
+
+The study revealed complex interactions between party identification, national identity, and ethnicity in shaping responses to security-related stimuli.
+
+## Suggestions for Building the Paper
+
+## Framing Improvements
+
+**Theoretical Development**:
+
+-   Strengthen the connection between authoritarian nostalgia theory and transitional justice outcomes by incorporating insights from comparative cases
+-   Develop a more nuanced theoretical framework that explains why cross-cutting identities specifically moderate security threat responses
+-   Consider integrating theories of threat perception and in-group/out-group dynamics from social psychology
+
+**Conceptual Clarity**:
+
+-   Provide clearer operational definitions of "cross-cutting identities" and their theoretical mechanisms
+-   Distinguish more clearly between different types of national security threats (historical vs. contemporary)
+-   Better contextualize Taiwan's unique position in broader transitional justice literature
+
+## Data and Methods Enhancements
+
+**Experimental Design**:
+
+-   **Treatment Validation**: Include manipulation checks to ensure participants actually processed the security-related content as intended
+-   **Treatment Intensity**: Consider varying the intensity or specificity of security threats to test dose-response relationships
+-   **Placebo Treatments**: Add neutral political information treatments to better isolate security-specific effects
+
+**Sample Improvements**:
+
+-   **Stratified Sampling**: Ensure adequate representation across key demographic groups, particularly those with cross-cutting identities
+-   **Larger Sample Size**: Increase sample size to detect smaller effect sizes, especially for subgroup analyses
+-   **Panel Design**: Consider a panel study to track attitude changes over time and assess durability of treatment effects
+
+**Measurement Refinements**:
+
+-   **Scale Validation**: Conduct factor analysis and reliability testing for the 10-item transitional justice scale
+-   **Individual Item Analysis**: Present results for individual transitional justice measures alongside the composite scale
+-   **Mediating Variables**: Measure potential mediators like threat perception, in-group identification, and democratic values
+
+## Analysis Enhancements
+
+**Statistical Approaches**:
+
+-   **Heterogeneous Treatment Effects**: Use machine learning methods to identify subgroups where treatments are most effective
+-   **Causal Mediation Analysis**: Examine pathways through which cross-cutting identities moderate treatment effects\
+-   **Robustness Checks**: Test alternative specifications and conduct sensitivity analyses
+
+**Qualitative Integration**:
+
+-   Add focus groups or in-depth interviews with individuals having cross-cutting identities to understand mechanisms
+-   Conduct content analysis of treatment texts to ensure theoretical alignment
+-   Include historical case studies to contextualize findings
+
+## Broader Contextual Integration
+
+**Comparative Perspective**:
+
+-   Compare findings with other post-authoritarian societies in East Asia (South Korea, post-Marcos Philippines)
+-   Examine how Taiwan's contested international status affects transitional justice attitudes
+-   Consider how democratic consolidation level influences security-democracy trade-offs
+
+**Policy Implications**:
+
+-   Discuss implications for transitional justice implementation in Taiwan
+-   Address how findings relate to ongoing political debates about national security legislation
+-   Consider recommendations for policymakers navigating security-democracy tensions
+
+**Longitudinal Context**:
+
+-   Situate findings within Taiwan's evolving democratization process
+
+-   Connect to broader trends in democratic backsliding and authoritarian nostalgia globally
+
+-   Examine how generational change affects the security-transitional justice relationship
+
+-   These improvements would strengthen the paper's theoretical contributions, methodological rigor, and policy relevance while better positioning it within the broader transitional justice and democratization literature.
+
+## 
+
+```{mermaid}
+graph LR
+  DS[Support for Democracy] -->|+ significant| TJ1[Ill-gotten Assets]
+  DS -->|"+ significant"| TJ2[Statues Removal]
+  DS -->|+ significant| TJ3[Currency Symbols]
+  DS -->|weak +| TJ4[Truth Investigation]
+  DS -->|weak +| TJ5[Prosecution]
+  DS -.->|no effect| TJ6[Compensation]
+```
+
+## Review of "The Media-Accountability Gap: How Partisan Media and Voter Confusion Obscure Taiwan's Energy Debate"
+
+## Paper Summary: Framing
+
+The study by Osbern Huang and Kai-Ping Huang addresses a **democratic accountability puzzle**: why Taiwan's energy policy remains unresolved despite clear partisan differences on nuclear power\[1\]. While the DPP advocates a "nuclear-free homeland," the KMT and TPP support nuclear power, yet the issue has not been settled electorally, leading to repeated referendums.
+
+The theoretical framework positions **media as a critical intermediary** between candidates and voters, proposing that partisan media contribute to voter confusion through strategic framing\[2\]\[3\]\[4\]. The study tests four key hypotheses:
+
+## 
+
+**H1 (Media Framing)**: Partisan media emphasize electorally advantageous positions while downplaying detrimental ones\[5\]\[6\].
+
+**H2 (Partisan Alignment)**: Voters with aligned partisan media diets show greater accuracy in recognizing their preferred candidate's stance\[7\]\[8\].
+
+**H3 (Proactive Engagement)**: Active media consumption leads to better policy knowledge than passive exposure\[9\]\[10\].
+
+**H4 (Proactive Amplification)**: Proactive media use enhances accuracy for preferred candidate recognition\[11\].
+
+The framework builds on partisan media effects literature while contributing novel insights about how strategic downplaying can harm aligned supporters\[4\]\[9\].
+
+## Data and Methods
+
+The study employs a **dual-method approach** combining content analysis and survey research for the 2024 Taiwanese presidential election\[12\]\[6\].
+
+**Content Analysis** (May-December 2023):
+
+-   148,793 total articles collected using candidate/party keywords
+-   9,858 energy-related articles (7% of coverage) filtered by "energy" keyword
+-   21 outlets categorized: 8 pro-DPP, 4 pro-KMT, 9 middle (based on cross-strait sentiment analysis)
+-   Focus on ten major energy controversies during campaign
+
+**Survey Data** (December 2023):
+
+-   Web survey with 974 respondents using quota sampling
+-   Measured voter knowledge of candidates' nuclear positions with comprehensive options
+-   Included media consumption patterns, partisan identification, demographic controls
+-   Timing captured perceptions after full policy position revelation
+
+**Methodological Innovation**: Nuanced measurement of policy knowledge with options for uncertainty and non-positioning to distinguish misinformation from disengagement\[13\]\[14\].
+
+## Findings
+
+The study reveals significant **media-voter knowledge gaps** undermining democratic accountability\[15\]\[9\].
+
+**Content Analysis Results**:
+
+-   Minimal energy coverage (7% of campaign news)
+-   **Partisan volume differences**: Pro-KMT outlets produced \~40% of energy reports, focusing on DPP-damaging issues
+-   **Strategic framing**: Pro-KMT amplified corruption allegations (44% coverage), pro-DPP downplayed unfavorable topics (26% coverage)
+-   Statistically significant differences confirmed (p=0.019)
+
+**Survey Results**:
+
+-   **Low accuracy**: 40%+ correctly identified Lai's stance, 28% for Hou, 20% for Ko
+-   **Counter-intuitive effects**: Partisan alignment didn't consistently improve accuracy (contrary to H2)
+-   **DPP supporter confusion**: Lai supporters more likely to misidentify his position, especially with cross-cutting exposure
+-   **Proactive benefits**: Online news helped Ko supporters; proactive use aided Hou/Ko supporters but not Lai supporters
+
+**Democratic Implications**: Clear policy positions insufficient without accurate media transmission - strategic downplaying inadvertently reduced pro-DPP supporters' knowledge\[3\]\[4\].
+
+## Suggestions for Building the Paper
+
+## Theoretical Enhancement
+
+**Mechanism Specification**: The "downplaying" concept needs clearer theoretical development\[2\]\[6\]:
+
+-   When do parties/media choose downplaying versus emphasis strategies?
+-   How do different bias types (selection, framing, omission) create differential effects?
+-   Why does cross-cutting exposure specifically harm DPP supporters?
+-   Integration with motivated reasoning and selective exposure theories\[4\]\[9\]
+
+**Comparative Framework**: Position findings within broader comparative context\[3\]\[8\]:
+
+-   How do results compare to other polarized media systems?
+-   What conditions determine when partisan media helps versus hurts aligned voters?
+-   How does Taiwan's China-focused cleavage differ from left-right polarization effects?
+
+## 
+
+**Strategic Communication Theory**: Develop theory of political communication strategies\[16\]\[11\]:
+
+-   When is "strategic silence" electorally beneficial?
+-   How do media balance partisan service versus credibility?
+-   What role do issue salience and public opinion play in framing decisions?
+
+## Methodological Improvements
+
+**Content Analysis Enhancement**\[12\]\[6\]:
+
+-   **Frame analysis beyond volume**: Systematic analysis of specific frames, metaphors, narrative structures
+-   **Automated approaches**: Sophisticated NLP beyond sentiment analysis
+-   **Reliability validation**: Inter-coder reliability scores for categorization
+-   **Temporal dynamics**: Track framing changes over campaign period
+
+**Survey Design**\[7\]\[13\]:
+
+-   **Representative sampling**: Address web survey limitations through probability sampling
+-   **Panel design**: Track individual attitude change over time for causal inference
+-   **Behavioral validation**: Digital data to verify self-reported media consumption
+-   **Knowledge validation**: Stronger justification for "correct" answer criteria
+
+## 
+
+**Statistical Sophistication**\[9\]\[10\]:
+
+-   **Mediation analysis**: Test proposed causal pathways
+-   **Multilevel modeling**: Account for geographic/market clustering
+-   **Interaction effects**: More nuanced partisan alignment analysis
+-   **Causal identification**: Instrumental variables or natural experiments
+
+## Contextual Development
+
+**Issue Generalizability**: Expand beyond energy policy\[3\]\[4\]:
+
+-   How do findings apply to other policy domains?
+-   What issue characteristics make policies susceptible to media distortion?
+-   How do issue complexity, salience, and partisan ownership interact?
+
+**Institutional Integration**: Better incorporate Taiwan's specific context\[8\]\[14\]:
+
+-   How do referendums interact with media coverage patterns?
+-   Role of campaign finance laws and media ownership regulations
+-   How does semi-presidential system affect media-politician relationships?
+
+## 
+
+**Cross-National Validation**: Systematic comparison strengthens generalizability\[3\]\[9\]:
+
+-   Similar energy policy debates in other countries
+-   Different media system structures (public/private, concentrated/fragmented)
+-   How electoral systems mediate media effects
+
+## Data and Measurement
+
+**Additional Variables**\[16\]\[17\]:
+
+-   **Media trust**: How outlet trust affects information processing
+-   **Social networks**: Peer influence moderating media effects
+-   **Political sophistication**: Comprehensive knowledge and engagement measures
+-   **Behavioral data**: Eye-tracking, click-through patterns
+
+**Qualitative Integration**\[13\]\[14\]:
+
+-   **Elite interviews**: Strategic decision-making by media professionals and politicians
+-   **Focus groups**: How voters process partisan media messages
+-   **Ethnographic observation**: Energy policy in everyday social settings
+
+**Digital Trace Data**\[8\]\[9\]:
+
+-   **Social media analysis**: Online energy policy discourse patterns
+-   **Search behavior**: What information voters actively seek
+-   **News consumption**: Digital behavioral data from cooperating organizations
+
+### Policy Applications
+
+**Democratic Reform**: Develop implications for institutional design\[15\]\[4\]:
+
+-   **Media literacy**: Navigate partisan information environments
+-   **Regulatory approaches**: Ownership diversity, transparency requirements
+-   **Campaign reform**: Position disclosure, structured debate requirements
+-   **Public media**: Non-partisan information source roles
+
+**Information Environment**: Solutions to accountability gaps\[7\]\[9\]:
+
+-   **Platform design**: Social media algorithms for democratic discourse
+-   **Fact-checking**: Effective misinformation correction approaches
+-   **Civic education**: Prepare citizens for complex information environments
+
+The paper makes important contributions to understanding how partisan media can systematically distort democratic accountability, particularly the counter-intuitive finding that aligned media can harm their own supporters through strategic downplaying\[3\]\[5\]. However, strengthening theoretical mechanisms, enhancing methodological rigor, and expanding comparative context would significantly improve its contribution to media effects literature and democratic theory\[4\]\[9\].
+
+# Review of "Democratic Support and Public Attitudes Toward Transitional Justice Policies in Taiwan"
+
+## Paper Summary
+
+## Framing
+
+The study by Su and Tsai investigates how democratic support influences Taiwanese public attitudes toward transitional justice policies\[1\]. The theoretical framework proposes that **citizens with stronger support for democracy are more likely to endorse transitional justice policies**\[2\]\[3\].
+
+The authors identify four mechanisms connecting democratic support to transitional justice preferences\[1\]:
+
+**Credible Accountability**: Prosecutions and other accountability measures raise the costs of repression and socialize officials into law-bound behavior, supporting the rule of law that democratic supporters value.
+
+**Information and Recognition**: Truth investigation establishes authoritative records of abuses and affirms victim dignity, contributing to democratic socialization and human rights norms.
+
+## 
+
+**Fair Political Competition**: Settling ill-gotten party assets removes structural distortions that give authoritarian successor parties unfair electoral advantages, leveling the playing field.
+
+**Public Memory and Non-repetition**: Removal of authoritarian symbols influences collective memory and teaches civic norms, signaling a clear break from authoritarianism.
+
+Taiwan provides unique analytical value as a **late adopter** of comprehensive transitional justice measures (2016-2018), unlike most democracies that implemented such policies immediately after transition\[1\]. This timing allows examination of attitudes when democratic institutions are consolidated and authoritarian memories are more distant.
+
+## Data and Methods
+
+The study uses the **2022 Taiwan Democratic Value and Governance Survey** (N=1,264) conducted via dual-frame random-digit dialing from May 18-23, 2022\[1\]. The data are weighted for national representativeness across demographic characteristics.
+
+**Dependent Variables**: Six transitional justice policies measured on 4-point ordinal scales, showing substantial variation in support: ill-gotten party assets (73.9%), victim compensation (66.8%), prosecutions (49.1%), truth investigation (48.3%), statue removal (24.6%), and currency symbol removal (15.9%)\[1\].
+
+**Key Independent Variable**: Democratic support measured with a single item about democracy being "the best system," coded dichotomously (80.4% supporters)\[1\].
+
+## 
+
+**Methodological Innovation**: The study addresses high non-response rates (11.6%-18.6%) on transitional justice questions through a **Heckman two-step selection model**\[4\]\[5\]\[6\]. This approach models both the probability of responding to TJ questions (selection equation) and the level of support (outcome equation), using education as an exclusion restriction\[1\].
+
+## Findings
+
+The study provides **strong empirical support** for the hypothesis that democratic support increases transitional justice support\[1\].
+
+**Significant positive effects** (p\<0.05) of democratic support on: - Ill-gotten party assets settlement (+15 percentage points probability of strong support) - Removal of authoritarian statues (+4 percentage points) - Removal of symbols from currency (+3.5 percentage points)\[1\]
+
+**Marginal effects** (p\<0.10) on truth investigation and prosecutions of perpetrators\[1\].
+
+**No significant effect** on victim compensation, attributed to this policy being institutionalized much earlier (1995) and having broad acceptance regardless of democratic support levels\[1\].
+
+## 
+
+The selection model analysis reveals systematic patterns in non-response, with partisan attachment and national identity significantly predicting willingness to answer transitional justice questions\[1\].
+
+## Suggestions for Building the Paper
+
+## Theoretical Enhancement
+
+**Mechanism Testing**: The paper proposes four mechanisms but doesn't empirically test these pathways\[7\]\[8\]. Key improvements include: - **Mediation analysis** to examine whether proposed mechanisms (rule of law commitment, human rights values, fair competition preferences) actually mediate the relationship - **Policy-specific theories** explaining differential effects across TJ measures - **Alternative explanations** testing competing theories like political knowledge effects or elite cue-taking
+
+**Causal Inference**: The cross-sectional design limits causal claims\[2\]\[9\]. The authors should: - Acknowledge potential endogeneity between democratic support and TJ attitudes - Consider instrumental variable approaches or panel designs - Discuss omitted variable bias concerns more explicitly
+
+## 
+
+**Comparative Framework**: Better situate Taiwan within broader patterns of late transitional justice adoption, comparing with other cases like Spain or Chile\[7\]\[8\].
+
+## Methodological Improvements
+
+**Measurement Enhancement**\[10\]: - **Multi-dimensional democratic support scale**: The single-item dichotomous measure limits analytical sophistication. Recent work demonstrates comprehensive approaches to measuring support for specific democratic institutions\[10\] - **Scale validation**: Conduct factor analysis to confirm coherent dimensions in TJ measures - **Policy-specific measurement**: Different TJ policies may require distinct theoretical and measurement approaches
+
+**Statistical Robustness**: - **Alternative missing data approaches**: Compare Heckman results with multiple imputation methods\[5\] - **Sensitivity analysis**: Test robustness to different model specifications and exclusion restrictions - **Multilevel modeling**: Account for potential geographic clustering - **Bootstrap standard errors**: Address efficiency issues in two-step estimation
+
+## 
+
+**Sample and Design**: - **Power analysis**: Larger samples for reliable subgroup analysis - **Panel component**: Track individual attitude change over time - **Qualitative integration**: Focus groups to understand reasoning behind survey responses
+
+## Contextual Development
+
+**Taiwan-Specific Analysis**: - **Implementation effects**: How public opinion changes as TJ policies are actually implemented - **Elite discourse**: Role of political framing in shaping public attitudes - **Regional variation**: Sub-national differences within Taiwan - **Historical memory**: How people interpret Taiwan's authoritarian past
+
+**Comparative Perspective**\[7\]\[8\]: - **Cross-national comparison**: Systematic comparison with other late TJ adopters - **Sequencing analysis**: How order of policy adoption affects public support - **Democratic consolidation effects**: Attitude differences across democratic maturity levels
+
+## 
+
+**Policy Applications**: - **Coalition building**: How findings inform efforts to build broader TJ support - **Implementation guidance**: Which policies to prioritize given public opinion patterns - **Communication strategies**: How TJ advocates should frame arguments
+
+## Data and Variables
+
+**Additional Measures**: - **Political knowledge scales**: Control for information effects - **Personal victimization experiences**: Direct/indirect exposure to authoritarian violence - **Social network measures**: Peer influence patterns - **Media consumption**: Information source effects on attitudes - **Democratic values battery**: More nuanced measurement of democratic commitments
+
+The paper makes significant empirical and methodological contributions to transitional justice scholarship, particularly in demonstrating rigorous approaches to missing data and the role of democratic values in policy preferences\[7\]\[8\]. However, strengthening theoretical mechanisms, enhancing measurement approaches, and expanding comparative context would substantially improve its scholarly and policy contributions.

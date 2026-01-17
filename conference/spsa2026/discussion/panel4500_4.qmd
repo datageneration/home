@@ -1,0 +1,282 @@
+---
+title: ""
+format: 
+  revealjs:
+    theme: [serif, /Users/karlho/Dropbox/__research/__conference/custom.scss]
+    transition: slide
+    slide-number: c/t
+    logo: "https://datageneration.io/conference/eppslogo.png"
+    incremental: true
+    footer: "<h4>SPSA 2026 Panel 4500_4: Political engagement across the globe</h4>"
+editor: visual
+---
+
+# 
+
+::: {#title-slide .center}
+<h2>Paper Review: Sub-Saharan African Immigrant Civic Engagement in Morocco</h2>
+
+\
+\
+
+**Ochuwa Garuba, Vanderbilt University**
+
+\
+
+SPSA 2026, New Orleans
+:::
+
+## Summary
+
+This paper examines the civic and political participation of sub-Saharan African immigrants in Morocco, focusing on Tangier and Rabat. The study investigates how NGOs and community leaders help address barriers to social and political integration for migrants who have become "stuck in limbo" in what was once primarily a transit country to Europe.
+
+Using mixed ethnographic methods, the author conducted in-depth interviews with NGO staff from three organizations (OJA, Association 100% Mamans, and DDM), two Nigerian immigrant women, and a Cameroonian community leader. The research reveals that migrants face substantial obstacles including legal limitations, language barriers, and racial discrimination, but that NGOs provide vital support through informal channels of civic participation.
+
+## Framing
+
+The paper situates its analysis within Morocco's authoritarian political context, drawing on several key theoretical frameworks:
+
+**The Makhzen and Managed Liberalization**:
+
+The study adopts a framework centered on the Moroccan Makhzen (elite governing institution) and its relationship to democratization efforts. Drawing on Maghraoui (2001) and Kadaoui (2023), the author argues that constitutional inconsistencies and monarchial control create a "façade democracy" where immigration policy reforms serve crisis management rather than genuine democratization.
+
+**Transit Migration and Permanent Limbo**:
+
+The research engages with scholarship on migrants caught between their homeland and preferred destination—a growing global phenomenon also seen in Mexico with Central American migrants.
+
+## 
+
+**Institutionalized Precarity**:
+
+Building on Bachelet (2018) and Kynsilehto (2023), the paper conceptualizes migrants as living in a "space of nonexistence"—physically present but without substantive legal rights. This precarity is not accidental but a byproduct of European migration management partnerships and colonial legacies.
+
+**Community Leadership and Brokerage**:
+
+Drawing on Magallanes-Gonzalez (2021), the study theorizes sub-Saharan community leaders as critical intermediaries who bridge gaps between migrant communities and institutions, though they themselves remain in precarious positions.
+
+## Data and Methods
+
+**Research Design**:
+
+Mixed ethnographic methods combining in-depth interviews, site visits, and informal conversations. The study uses Tangier as a primary case with planned follow-up research in Rabat.
+
+**Sample**:
+
+-   Six individuals interviewed across five sessions
+-   Three NGO staff members (from OJA, Association 100% Mamans, DDM)
+-   Two Nigerian immigrant women (Abigail and Faith)
+-   One Cameroonian community leader (Jacques)
+-   Participants identified through snowball sampling
+
+## 
+
+**Organizations Studied**:
+
+-   **OJA (Organisation des Jeunes Africains)**: Founded 2008, focuses on youth leadership and socioeconomic integration; supported 250+ self-entrepreneurs
+-   **Association 100% Mamans**: Founded 2006, supports single mothers with vocational training, childcare, and legal assistance; served 1,500+ mothers
+-   **DDM (Délégation Diocésaine des Migrations)**: Founded 2011, provides medical, legal, psychosocial, and educational support to vulnerable migrants
+
+**Data Collection**:
+
+-   Semi-structured interviews using two question sets (16 questions for migrants; 9 for NGO staff/leaders)
+-   Interviews conducted in English except DDM (French with translator)
+-   Audio-recorded with verbal consent; pseudonyms used for migrants
+
+## Findings
+
+**Key Theme 1: Socioeconomic Stability as Precondition**
+
+Across all interviews, immediate needs (housing, employment, healthcare) eclipse formal civic or political participation. NGO staff consistently emphasized that migrants' priorities center on survival, not political engagement.
+
+**Key Theme 2: Barriers to Participation**
+
+-   **Legal precarity**: Fear of deportation discourages civic engagement; undocumented status creates structural barriers
+-   **Language barriers**: English-speaking migrants face significant obstacles in Arabic/French-dominant environments
+-   **Racial discrimination**: Jacques described Moroccans covering their noses when passing him on the street
+-   **Forced relocations**: Repeated arrests and relocations to southern Morocco as routine, dehumanizing experiences
+
+## 
+
+**Key Theme 3: Informal Networks and NGO Support**
+
+Despite formal exclusion, migrants exercise agency through:
+
+-   Word-of-mouth networks and WhatsApp communications
+-   Community relays programs (DDM's nationality-based representatives)
+-   Peer-led alumni networks (100% Mamans)
+-   NGO-led sensitization campaigns about legal rights
+
+**Key Theme 4: Community Leadership**
+
+-   Jacques serves as informal intermediary, helping migrants with residency paperwork
+-   Community leaders leverage lived experience to help others navigate irregular life
+-   Leaders express skepticism about NGO capacity due to European donor influence on priorities
+
+## 
+
+**Key Theme 5: Gendered Dimensions**
+
+Abigail and Faith's experiences highlight:
+
+-   Reliance on street begging to support families
+-   Children's difficulty integrating into Arabic-language schools
+-   Economic pressures precluding civic engagement
+-   Limited organizational support despite some contact with OJA and Caritas
+
+## Suggestions for Building the Paper
+
+## Framing Improvements
+
+**Theoretical Development**:
+
+-   Strengthen the causal logic connecting Makhzen legitimation strategies to specific NGO constraints and migrant outcomes
+-   Develop explicit hypotheses or propositions that the ethnographic evidence can speak to
+-   More clearly distinguish between different levels of analysis: state policy, NGO strategies, individual migrant experiences
+
+**Conceptual Clarity**:
+
+-   Define "civic and political participation" more precisely—what counts as participation in this context?
+-   Clarify the relationship between "informal" civic participation and formal political exclusion
+-   Better operationalize the "in-between" or "limbo" status theoretically
+
+## 
+
+**Comparative Framing**:
+
+-   The Mexico/Central American comparison is mentioned but not developed—either expand this comparative frame or focus exclusively on Morocco
+-   Consider how Morocco's case differs from or resembles other transit-turned-destination countries (Libya, Turkey, Greece)
+-   Engage more systematically with the broader literature on immigrant political incorporation and civic engagement
+
+**Literature Integration**:
+
+-   The literature review currently reads as sequential summaries—synthesize across sources to build a cumulative argument
+-   Identify gaps in existing scholarship that this study specifically addresses
+-   Consider literatures on: contentious politics under authoritarianism, NGO-state relations, immigrant social movements
+
+## Data and Methods Enhancements
+
+**Sample Expansion**:
+
+-   **Diversify participants**: Currently limited to Anglophone/Francophone migrants; include migrants from other linguistic backgrounds
+-   **Increase N**: Six interviews limits analytical claims; aim for saturation in key categories
+-   **Compare across NGO types**: Include more organizations with different funding models, religious affiliations, and service approaches
+-   **Government perspectives**: Interviews with local officials would provide crucial counterpoint
+
+**Site Selection**:
+
+-   **Complete Rabat research**: The planned follow-up with GADEM, ADFM, and MZC is essential for comparative analysis
+-   **Include border areas**: Nador, Oujda near the Spanish enclaves might reveal different dynamics
+-   **Within-city variation**: How do experiences differ across neighborhoods (Iberia, Charf, etc.)?
+
+## 
+
+**Methodological Rigor**:
+
+-   **Systematic coding**: Develop a codebook for analyzing interview transcripts
+-   **Triangulation**: Corroborate findings across multiple data sources (documents, observation, interviews)
+-   **Researcher positionality**: Reflect on how your status as a foreign researcher affected access and responses
+-   **Audit trail**: Document analytical decisions for transparency
+
+**Ethical Considerations**:
+
+-   Discuss strategies for protecting particularly vulnerable participants
+-   Address implications of using real organization names alongside pseudonymous individuals
+-   Consider how findings might be used by state actors
+
+## Analysis Enhancements
+
+**Deepen Case Analysis**:
+
+-   **Thick description**: Provide more contextual detail about specific interactions, spaces, and moments
+-   **Follow the money**: Trace funding flows from European donors through NGOs to migrant services
+-   **Process tracing**: Document specific instances of how migrants access services or exercise voice
+
+**Develop Analytical Categories**:
+
+-   Create a typology of civic participation forms (formal/informal, individual/collective, contentious/cooperative)
+-   Distinguish between different types of NGO support (direct services, advocacy, capacity building)
+-   Categorize barriers by level (structural, institutional, interpersonal)
+
+## 
+
+**Comparative Analysis**:
+
+-   **Across NGOs**: What explains variation in approaches among OJA, 100% Mamans, and DDM?
+-   **Across migrant profiles**: How do gender, nationality, legal status, and time in Morocco shape participation?
+-   **Across time**: How have NGO strategies and migrant experiences evolved since 2011 reforms?
+
+**Address Contradictions**:
+
+-   Explore the tension between NGOs as intermediaries and European donor influence on their priorities
+-   Examine how community leaders navigate their precarious position
+-   Analyze why regularization campaigns have not translated into substantive integration
+
+## How to Make This Paper Publication Ready
+
+**Immediate Priorities**:
+
+1.  **Complete the Rabat fieldwork** to enable systematic comparison between cities
+2.  **Expand the interview sample** to at least 20-25 participants across categories
+3.  **Develop explicit research questions** that the evidence can answer
+
+**Structural Revisions**:
+
+-   **Abstract**: Sharpen the contribution claim—what is the specific theoretical or empirical advance?
+-   **Introduction**: Lead with a compelling vignette that illustrates the core puzzle
+-   **Literature review**: Reorganize thematically rather than source-by-source; end with clear gaps/contributions
+-   **Methods**: Add details on interview duration, transcription, coding approach, and limitations
+
+## 
+
+**Analytical Deepening**:
+
+-   **Theoretical argument**: Develop a clear causal or interpretive argument that explains observed patterns
+-   **Alternative explanations**: Consider and address competing interpretations of findings
+-   **Scope conditions**: Under what conditions do NGOs succeed or fail in enabling migrant voice?
+
+**Writing and Presentation**:
+
+-   **Quotation integration**: Use participant quotes more strategically to illustrate analytical points
+-   **Tables/figures**: Consider visual presentation of NGO comparison, barrier typology, or participation forms
+-   **Conclusion**: Extend implications beyond Morocco—what does this case teach about transit migration, authoritarian governance, or NGO roles more broadly?
+
+## 
+
+**Target Venues**:
+
+-   **Migration journals**: *Journal of Ethnic and Migration Studies*, *International Migration Review*, *Journal of Refugee Studies*
+-   **Area studies**: *Journal of North African Studies*, *Middle East Journal*, *African Affairs*
+-   **Political science**: *Comparative Politics*, *Politics & Society* (if theoretical argument is strengthened)
+
+**Strengths to Emphasize**:
+
+-   Access to a hard-to-reach, understudied population
+-   Rich ethnographic detail on lived experiences
+-   Timely contribution on transit-turned-destination migration
+-   Multi-level analysis connecting state policy to individual experiences
+
+## Summary of Recommendations
+
+| Area     | Priority | Recommendation                                |
+|----------|----------|-----------------------------------------------|
+| Data     | High     | Complete Rabat research; expand sample size   |
+| Theory   | High     | Develop explicit causal/interpretive argument |
+| Methods  | Medium   | Add systematic coding; address positionality  |
+| Analysis | High     | Deepen comparative analysis across cases      |
+| Writing  | Medium   | Restructure lit review; sharpen contribution  |
+
+## 
+
+**Final Thoughts**:
+
+This paper addresses an important and understudied topic with promising fieldwork in a challenging research environment. The combination of NGO-level and individual migrant perspectives is valuable. With expanded data collection, sharpened theoretical framing, and more systematic analysis, this research can make a significant contribution to literatures on migration governance, civic participation under authoritarianism, and NGO-migrant relations.
+
+The author's access to vulnerable populations and willingness to engage with lived experiences is commendable. The next steps should focus on building analytical depth while maintaining the ethnographic richness that makes this study distinctive.
+
+## References
+
+Bachelet, Sébastien. 2018. "'Fighting against Clandestine Migration': Sub‐saharan Migrants' Political Agency and Uncertainty in Morocco." *PoLAR: Political and Legal Anthropology Review* 41(2): 201–15.
+Kadaoui, Aisha. 2023. "A Resurgence of Authoritarianism in Morocco, or Preservation of the Status Quo." *Journal of North African Studies* 28(6): 1402–1424.
+Kynsilehto, Anitta. 2023. "Making Do as a Migrant in Morocco: Between Formal Recognition and True Integration." *Journal of Immigrant & Refugee Studies* 21(2): 158–170.
+Magallanes-Gonzalez, Cristina. 2021. "Sub-Saharan Leaders in Morocco's Migration Industry: Activism, Integration, and Smuggling." *Journal of North African Studies* 26(5): 993–1012.
+Maghraoui, Abdeslam M. 2001. "Monarchy and Political Reform in Morocco." *Journal of Democracy* 12(1): 73–86.

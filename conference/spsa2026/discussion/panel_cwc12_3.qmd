@@ -1,0 +1,49 @@
+---
+title: ""
+format: 
+  revealjs:
+    theme: [serif, /Users/karlho/Dropbox/__research/__conference/custom.scss]
+    transition: slide
+    slide-number: c/t
+    logo: "https://datageneration.io/conference/eppslogo.png"
+    incremental: true
+    footer: "<h4>SPSA 2026 CwC #12: AI across countries and governments</h4>"
+editor: visual
+---
+
+# 
+
+::: {#title-slide .center}
+<h2>Review: Alt-Right Artificial Intelligence in the USA and Europe: Migration and the Great Replacement on Mobile applications</h2>
+
+\
+\
+
+**Joseph Downing, Senior Lecturer Aston University**
+\
+\
+**Wasim Ahmed, Senior Lecturer (Associate Professor) in Marketing**
+
+\
+
+SPSA 2026, New Orleans
+:::
+
+## Summary
+## Framing
+## Data and Methods
+## Findings
+## Suggestions for Building the Paper
+## Framing Improvements
+## Data and Methods Enhancements
+## Analysis Enhancements
+## How to Make This Paper Publication Ready
+## Summary of Recommendations
+
+| Area     | Priority | Recommendation                                |
+|----------|----------|-----------------------------------------------|
+| Data     | High     | Complete Rabat research; expand sample size   |
+| Theory   | High     | Develop explicit causal/interpretive argument |
+| Methods  | Medium   | Add systematic coding; address positionality  |
+| Analysis | High     | Deepen comparative analysis across cases      |
+| Writing  | Medium   | Restructure lit review; sharpen contribution  |
