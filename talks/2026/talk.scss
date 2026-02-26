@@ -1,0 +1,133 @@
+/*-- scss:defaults --*/
+
+// Fonts
+$font-family-sans-serif: "Palatino Linotype", "Garamond", "Book Antiqua", Palatino, FreeSerif, serif !default;
+$font-family-monospace: "Source Code Pro", monospace;
+
+// Colors
+$body-bg: #fff;
+$body-color: #2c3e50;
+$link-color: #3498db;
+$selection-bg: #3498db;
+
+// Headings — Revealjs SCSS variables (h1–h4)
+$presentation-heading-color: #2c3e50;
+$presentation-h1-font-size: 1.6em;
+$presentation-h2-font-size: 1.35em;
+$presentation-h3-font-size: 1.15em;
+$presentation-h4-font-size: 1.0em;
+
+/*-- scss:rules --*/
+
+// Heading scale h1–h10
+// h1–h6 are native HTML; h7–h10 are custom elements
+// Scale ratio ≈ minor third stepping down from 1.6em
+.reveal h1 { font-size: 1.60em; font-weight: 700; color: $presentation-heading-color; }
+.reveal h2 { font-size: 1.35em; font-weight: 700; color: $presentation-heading-color; }
+.reveal h3 { font-size: 1.15em; font-weight: 600; color: $presentation-heading-color; }
+.reveal h4 { font-size: 1.00em; font-weight: 600; color: $presentation-heading-color; }
+.reveal h5 { font-size: 0.90em; font-weight: 600; color: lighten($presentation-heading-color, 10%); }
+.reveal h6 { font-size: 0.80em; font-weight: 600; color: lighten($presentation-heading-color, 15%); }
+
+// Custom heading elements h7–h10 (use as <h7>, <h8>, etc. or class .h7, .h8, etc.)
+.reveal h7,
+.reveal .h7 {
+  font-size: 0.72em;
+  font-weight: 500;
+  color: lighten($presentation-heading-color, 60%);
+  display: block;
+  margin: 0.4em 0;
+}
+
+.reveal h8,
+.reveal .h8 {
+  font-size: 0.64em;
+  font-weight: 500;
+  color: lighten($presentation-heading-color, 25%);
+  display: block;
+  margin: 0.3em 0;
+}
+
+.reveal h9,
+.reveal .h9 {
+  font-size: 0.56em;
+  font-weight: 400;
+  color: lighten($presentation-heading-color, 30%);
+  display: block;
+  margin: 0.3em 0;
+}
+
+.reveal h10,
+.reveal .h10 {
+  font-size: 0.50em;
+  font-weight: 400;
+  color: lighten($presentation-heading-color, 35%);
+  display: block;
+  margin: 0.2em 0;
+}
+
+.reveal ol { margin: 0 0 0 1.5em; }
+
+// Callout boxes
+.callout-note {
+  border-left: 4px solid #3498db;
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.callout-tip {
+  border-left: 4px solid #27ae60;
+  background-color: rgba(39, 174, 96, 0.1);
+}
+
+.callout-warning {
+  border-left: 4px solid #f39c12;
+  background-color: rgba(243, 156, 18, 0.1);
+}
+
+.callout-important {
+  border-left: 4px solid #e74c3c;
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.callout-danger {
+  border-left: 4px solid #c0392b;
+  background-color: rgba(192, 57, 43, 0.1);
+}
+
+// Code blocks
+pre code {
+  font-size: 0.85em;
+}
+
+// Tables
+table {
+  font-size: 0.85em;
+}
+
+// Slide-specific
+.reveal .slide-background-content {
+  background-size: cover;
+}
+
+// Two-column layout improvements
+.columns {
+  display: flex;
+  gap: 2em;
+}
+
+// Fragment animations
+.fragment.fade-in-then-semi-out.visible {
+  opacity: 0.5;
+}
+
+.fragment.fade-in-then-semi-out.current-fragment {
+  opacity: 1;
+}
+
+.mermaid svg {
+  font-size: 18px;
+  display: block;
+  height: auto; /* Ensures aspect ratio is maintained */
+  margin: 0;
+  padding: 0;
+}
