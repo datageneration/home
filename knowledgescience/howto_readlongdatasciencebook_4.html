@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="howto_readlongdatasciencebook_4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="howto_readlongdatasciencebook_4_files/libs/quarto-html/tabby.min.js"></script>
+<script src="howto_readlongdatasciencebook_4_files/libs/quarto-html/popper.min.js"></script>
+<script src="howto_readlongdatasciencebook_4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="howto_readlongdatasciencebook_4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="howto_readlongdatasciencebook_4_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="howto_readlongdatasciencebook_4_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Karl Ho">
+  <meta name="dcterms.date" content="2026-02-18">
+  <title>How to read long data science books</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="howto_readlongdatasciencebook_4_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="howto_readlongdatasciencebook_4_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="howto_readlongdatasciencebook_4_files/libs/revealjs/dist/theme/quarto-ea73965a522ec701fa550d5bc5e092ba.css">
+  <link href="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="howto_readlongdatasciencebook_4_files/libs/quarto-diagram/mermaid.min.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/quarto-diagram/mermaid-init.js"></script>
+  <link href="howto_readlongdatasciencebook_4_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">How to read long data science books</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Karl Ho 
+</div>
+</div>
+</div>
+
+  <p class="date">February 18, 2026</p>
+</section>
+<section>
+<section id="overview" class="title-slide slide level1 smaller center">
+<h1>Overview</h1>
+
+</section>
+<section id="the-challenge" class="slide level2">
+<h2>The challenge</h2>
+<p>Data science and AI books are long, technical, and <strong>rapidly evolving</strong>.</p>
+<p>A 600-page book takes roughly <strong>17 hours</strong> to read at 300 words per minute.</p>
+<div class="fragment">
+<p>But the real challenge for graduate students: <strong>you lose ~70% of what you read within days</strong> without active strategies (Roediger &amp; Karpicke, 2006).</p>
+</div>
+<div class="fragment">
+<p><strong>You need a strategy — not just willpower.</strong></p>
+</div>
+</section>
+<section id="seven-strategies" class="slide level2">
+<h2>Seven strategies</h2>
+<div class="cell" data-reveal="true" data-fig-width="14" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '20px'}}}%%
+flowchart LR
+    A["&lt;b&gt;1. Plan&lt;/b&gt;"] --&gt; B["&lt;b&gt;2. Prepare&lt;/b&gt;"]
+    B --&gt; C["&lt;b&gt;3. Stop Linear&lt;/b&gt;&lt;br/&gt;Reading"]
+    C --&gt; D["&lt;b&gt;4. Hyper&lt;/b&gt;&lt;br/&gt;Reading"]
+    D --&gt; E["&lt;b&gt;5. Social&lt;/b&gt;&lt;br/&gt;Reading"]
+    E --&gt; F["&lt;b&gt;6. AI-Augmented&lt;/b&gt;&lt;br/&gt;Reading"]
+    F --&gt; G["&lt;b&gt;7. Retain &amp;&lt;/b&gt;&lt;br/&gt;Retrieve"]
+    style A fill:#85c1e9,color:#1a1a2e,stroke:#5dade2,padding:15px
+    style B fill:#a9cce3,color:#1a1a2e,stroke:#7fb3d8,padding:15px
+    style C fill:#aed6f1,color:#1a1a2e,stroke:#85c1e9,padding:15px
+    style D fill:#b2bec3,color:#1a1a2e,stroke:#95a5a6,padding:15px
+    style E fill:#d5dbdb,color:#1a1a2e,stroke:#b2bec3,padding:15px
+    style F fill:#7ec8e3,color:#1a1a2e,stroke:#5dade2,padding:15px
+    style G fill:#d2b4de,color:#1a1a2e,stroke:#bb8fce,padding:15px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="plan" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>1. Plan</h1>
+
+</section>
+<section id="set-up-the-environment" class="slide level2">
+<h2>Set up the environment</h2>
+<p>Get into <strong><a href="https://www.medicalnewstoday.com/articles/flow-state">flow</a></strong> state:</p>
+<ul>
+<li class="fragment">Make a music playlist for focus (lo-fi, classical, ambient)</li>
+<li class="fragment">Eliminate distractions:
+<ul>
+<li class="fragment">Loud noises</li>
+<li class="fragment">Cluttered work areas</li>
+</ul></li>
+<li class="fragment">Set focus mode on your phone</li>
+<li class="fragment">Close the room door</li>
+<li class="fragment">Dedicate a consistent reading space</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>Use <strong>Pomodoro sessions</strong> (25 min reading + 5 min break) to maintain focus over long sessions.</p>
+</blockquote>
+</div>
+</section>
+<section id="budget-and-find-time" class="slide level2">
+<h2>Budget and find time</h2>
+<p>The average reader reads <strong>100 pages in ~2.8 hours</strong> at 300 wpm.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Book length</th>
+<th style="text-align: center;">Total time</th>
+<th style="text-align: center;">Per day (1 week)</th>
+<th style="text-align: center;">Per day (2 weeks)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">300 pages</td>
+<td style="text-align: center;">~8.5 hrs</td>
+<td style="text-align: center;">~1.2 hrs</td>
+<td style="text-align: center;">~0.6 hrs</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">600 pages</td>
+<td style="text-align: center;">~17 hrs</td>
+<td style="text-align: center;">~2.5 hrs</td>
+<td style="text-align: center;">~1.2 hrs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">900 pages</td>
+<td style="text-align: center;">~25 hrs</td>
+<td style="text-align: center;">~3.6 hrs</td>
+<td style="text-align: center;">~1.8 hrs</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>But with <strong>strategic reading</strong>, you rarely need to read every page cover to cover.</p>
+</div>
+</section>
+<section id="find-the-best-time-of-the-day" class="slide level2">
+<h2>Find the best time of the day</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Better times</strong></p>
+<ul>
+<li class="fragment">Right after class (momentum)</li>
+<li class="fragment">Early in the morning (fresh mind)</li>
+<li class="fragment">Late at night (quiet environment)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Worst times</strong></p>
+<ul>
+<li class="fragment">After a heavy meal</li>
+<li class="fragment">Right before class (anxiety)</li>
+<li class="fragment">During peak social media hours</li>
+</ul>
+</div></div>
+<div class="fragment">
+<blockquote>
+<p><strong>Tip:</strong> Compartmentalize your schedule — block dedicated reading slots the way you would block class time.</p>
+</blockquote>
+</div>
+</section></section>
+<section>
+<section id="prepare" class="title-slide slide level1 center" data-background-color="#34495e">
+<h1>2. Prepare</h1>
+
+</section>
+<section id="capitalize-your-computer" class="slide level2">
+<h2>Capitalize your computer</h2>
+<p>Your computer is your <strong>reading companion</strong>, not just a display.</p>
+<ul>
+<li class="fragment">Use a full-sized screen (not tablet or phone)</li>
+<li class="fragment">Set up dual monitors if possible: one for reading, one for notes</li>
+<li class="fragment">Keep a code editor (RStudio, VS Code) open alongside the book</li>
+<li class="fragment">Have a browser ready for looking up references and documentation</li>
+</ul>
+</section>
+<section id="build-your-annotation-system" class="slide level2">
+<h2>Build your annotation system</h2>
+<p>Do <strong>not</strong> count on your short-term memory.</p>
+<ul>
+<li class="fragment"><strong>Notion</strong> / <strong>Obsidian</strong> / <strong>OneNote</strong> / <strong>Zotero</strong>: Jot notes, copy notable paragraphs</li>
+<li class="fragment">Build a <strong>reading knowledge base</strong> by creating structured notes</li>
+<li class="fragment">Test out sample codes <strong>immediately</strong>
+<ul>
+<li class="fragment">Copy sample programs and save in an R project or Quarto document</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>The goal is to turn <strong>passive reading</strong> into <strong>active learning</strong>.</p>
+</blockquote>
+</div>
+</section>
+<section id="the-aic-method-for-first-contact" class="slide level2 smaller">
+<h2>The AIC method for first contact</h2>
+<p>Raul Pacheco-Vega’s <strong>AIC method</strong> — a rapid triage technique for any text:</p>
+<div class="cell" data-reveal="true" data-fig-width="12" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '20px'}}}%%
+flowchart LR
+    A["&lt;b&gt;Abstract&lt;/b&gt;&lt;br/&gt;(or Preface)"] --&gt; I["&lt;b&gt;Introduction&lt;/b&gt;"]
+    I --&gt; C["&lt;b&gt;Conclusion&lt;/b&gt;"]
+    C --&gt; D{"Worth a&lt;br/&gt;&lt;b&gt;deep read?&lt;/b&gt;"}
+    D --&gt;|Yes| E["Prioritize&lt;br/&gt;&amp; schedule"]
+    D --&gt;|No| F["File notes&lt;br/&gt;&amp; move on"]
+    style A fill:#85c1e9,color:#1a1a2e,stroke:#5dade2
+    style I fill:#a9cce3,color:#1a1a2e,stroke:#7fb3d8
+    style C fill:#aed6f1,color:#1a1a2e,stroke:#85c1e9
+    style D fill:#fad7a0,color:#1a1a2e,stroke:#f0b27a
+    style E fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+    style F fill:#d5dbdb,color:#1a1a2e,stroke:#b2bec3
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>For a book: read the <strong>Preface/Introduction</strong>, <strong>Conclusion</strong>, and scan the <strong>Table of Contents</strong> before committing to a deep read of any chapter.</p>
+<p>This gives you the budgeting information: what the book is about, what to focus on, which is most interesting.</p>
+</div>
+</section></section>
+<section>
+<section id="stop-linear-reading" class="title-slide slide level1 center" data-background-color="#5d6d7e">
+<h1>3. Stop Linear Reading</h1>
+
+</section>
+<section id="divide-and-conquer" class="slide level2">
+<h2>Divide and conquer</h2>
+<p><strong>You don’t read a data science book front to back.</strong></p>
+<div class="fragment">
+<p>Start with:</p>
+<ol type="1">
+<li class="fragment"><strong>Table of Contents</strong> — mark must-read chapters</li>
+<li class="fragment"><strong>Introduction</strong> (~2 hours) — understand scope, focus, and structure</li>
+<li class="fragment"><strong>Conclusion</strong> (~1 hour) — know the takeaways first, then find the <em>why</em> and <em>how</em></li>
+</ol>
+</div>
+<div class="fragment">
+<p>Then: <strong>Pick and prioritize</strong> technical chapters most useful and applicable to your work.</p>
+</div>
+</section>
+<section id="reading-order-strategy" class="slide level2">
+<h2>Reading order strategy</h2>
+<div class="cell" data-reveal="true" data-fig-width="13" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '18px'}}}%%
+flowchart TD
+    A["&lt;b&gt;Table of&lt;/b&gt;&lt;br/&gt;&lt;b&gt;Contents&lt;/b&gt;"] --&gt; B["&lt;b&gt;Introduction&lt;/b&gt;"]
+    A --&gt; C["&lt;b&gt;Conclusion&lt;/b&gt;"]
+    B --&gt; D["Identify&lt;br/&gt;&lt;b&gt;key chapters&lt;/b&gt;"]
+    C --&gt; D
+    D --&gt; E["&lt;b&gt;Priority 1&lt;/b&gt;&lt;br/&gt;Most relevant&lt;br/&gt;chapters"]
+    D --&gt; F["&lt;b&gt;Priority 2&lt;/b&gt;&lt;br/&gt;Supporting&lt;br/&gt;chapters"]
+    D --&gt; G["&lt;b&gt;Priority 3&lt;/b&gt;&lt;br/&gt;Reference&lt;br/&gt;chapters"]
+    E --&gt; H["Deep read&lt;br/&gt;+ code"]
+    F --&gt; I["Skim&lt;br/&gt;+ notes"]
+    G --&gt; J["Bookmark&lt;br/&gt;for later"]
+    style E fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+    style F fill:#fad7a0,color:#1a1a2e,stroke:#f0b27a
+    style G fill:#d5dbdb,color:#1a1a2e,stroke:#b2bec3
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="read-strategically-not-linearly" class="slide level2">
+<h2>Read strategically, not linearly</h2>
+<p>Graduate-level reading is <strong>purpose-driven</strong> (Purdue OWL; Sweeney, 2012):</p>
+<ul>
+<li class="fragment">Ask before reading: <em>What do I need to learn from this chapter?</em></li>
+<li class="fragment">Read the <strong>first sentence of each paragraph</strong> (topic sentence) — if clear, move on; if vague, read the supporting sentences</li>
+<li class="fragment">Skim code blocks for structure first, then study the ones relevant to your work</li>
+<li class="fragment">Track which authors and references appear repeatedly — these are <strong>foundational texts</strong> in the field</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p><strong>Key insight:</strong> Most professors read articles by reading the abstract, introduction, and conclusion first, then selectively engaging with the body.</p>
+</blockquote>
+</div>
+</section></section>
+<section>
+<section id="hyper-reading" class="title-slide slide level1 center" data-background-color="#7f8c8d">
+<h1>4. Hyper Reading</h1>
+
+</section>
+<section id="what-is-hyper-reading" class="slide level2">
+<h2>What is hyper reading?</h2>
+<p><strong>Hyper reading</strong> = “reader-directed, screen-based, computer-assisted reading” (Sosnoski, 1999, p.&nbsp;167)</p>
+<div class="fragment">
+<p>A set of <strong>digital-age reading strategies</strong> that go beyond traditional close reading. Katherine Hayles (2012) describes it as a “strategic response to an information-intensive environment.”</p>
+</div>
+<div class="fragment">
+<p>Use your computer to read (not tablet or iPad) so you can <strong>read and type simultaneously</strong>.</p>
+</div>
+</section>
+<section id="sosnoskis-eight-strategies" class="slide level2 smaller">
+<h2>Sosnoski’s eight strategies</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 24%">
+<col style="width: 55%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Strategy</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Data Science Application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Filtering</strong></td>
+<td style="text-align: left;">Higher selectivity — read only what matters</td>
+<td style="text-align: left;">Search for your specific method or algorithm</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Skimming</strong></td>
+<td style="text-align: left;">Less text actually read — scan for key ideas</td>
+<td style="text-align: left;">Scan chapter summaries, code output first</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Pecking</strong></td>
+<td style="text-align: left;">Less linear sequencing — jump between passages</td>
+<td style="text-align: left;">Jump to the code example, then read the explanation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Imposing</strong></td>
+<td style="text-align: left;">Less context from text, more from reader intention</td>
+<td style="text-align: left;">Read with <em>your</em> research question in mind</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Filming</strong></td>
+<td style="text-align: left;">More graphical elements than verbal elements</td>
+<td style="text-align: left;">Read charts, figures, diagrams before text</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Trespassing</strong></td>
+<td style="text-align: left;">Loosening textual boundaries — follow links, references</td>
+<td style="text-align: left;">Follow footnotes, GitHub repos, cited papers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>De-authorizing</strong></td>
+<td style="text-align: left;">Lessen sense of authorship — focus on ideas</td>
+<td style="text-align: left;">Evaluate the <em>method</em>, not the authority</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Fragmenting</strong></td>
+<td style="text-align: left;">Break texts into notes rather than treating as whole</td>
+<td style="text-align: left;">Create note cards per concept, not per chapter</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hayless-extensions" class="slide level2 smaller">
+<h2>Hayles’s extensions</h2>
+<p>N. Katherine Hayles (2012) added two more strategies to Sosnoski’s framework:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 34%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Strategy</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Application</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Juxtaposing</strong></td>
+<td style="text-align: left;">Reading across several open windows simultaneously</td>
+<td style="text-align: left;">Compare two implementations side by side</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Scanning</strong></td>
+<td style="text-align: left;">Machine-assisted rapid search through large text</td>
+<td style="text-align: left;">Use Ctrl+F, AI search, or grep to locate terms</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Together, these <strong>ten strategies</strong> describe how skilled digital readers actually navigate complex texts — not as a deficit compared to close reading, but as an <strong>adapted competence</strong> for information-rich environments.</p>
+</div>
+</section>
+<section id="digital-reading-as-visual-thinking" class="slide level2">
+<h2>Digital reading as visual thinking</h2>
+<p><strong>Read visually</strong> — graphics convey information faster than text.</p>
+<ul>
+<li class="fragment">Read <strong>charts and figures first</strong> before surrounding text</li>
+<li class="fragment">Note graphical elements: axes, legends, color encodings</li>
+<li class="fragment">OOD creates lobsters: Objected Oriented Design</li>
+</ul>
+<div class="fragment">
+<p>Take advantage of digital affordances:</p>
+<ul>
+<li class="fragment"><strong>Search function</strong> — find terms instantly</li>
+<li class="fragment"><strong>Table of Contents</strong> and <strong>Reference lists</strong> — navigate non-linearly</li>
+<li class="fragment"><strong>Audio functions</strong> — text-to-speech for passive review</li>
+<li class="fragment">What you cite is what you get</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="social-reading" class="title-slide slide level1 center" data-background-color="#95a5a6">
+<h1>5. Social Reading</h1>
+
+</section>
+<section id="collaborative-reading" class="slide level2">
+<h2>Collaborative reading</h2>
+<p><strong>Social reading</strong> is a collaborative form of online reading that turns the reading process into a communal experience (Bob Stein, Institute for the Future of the Book).</p>
+<ul>
+<li class="fragment">Use platforms like <strong>Perusall</strong>, <strong>Hypothes.is</strong>, or <strong>Piazza</strong></li>
+<li class="fragment">Set up a reading group and discuss with members</li>
+<li class="fragment">Annotate together — see what others highlight and question</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>Reading becomes richer when it is <strong>shared and discussed</strong>.</p>
+</blockquote>
+</div>
+</section>
+<section id="benefits-of-social-reading" class="slide level2">
+<h2>Benefits of social reading</h2>
+<ul>
+<li class="fragment">Discover perspectives you missed</li>
+<li class="fragment">Stay accountable with reading goals</li>
+<li class="fragment">Clarify confusing passages through discussion</li>
+<li class="fragment">Build a shared knowledge base for the course</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-reveal="true" data-fig-width="12" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '20px'}}}%%
+flowchart LR
+    A["&lt;b&gt;Individual&lt;/b&gt;&lt;br/&gt;Reading"] --&gt; B["&lt;b&gt;Annotation&lt;/b&gt;&lt;br/&gt;&amp; Questions"]
+    B --&gt; C["&lt;b&gt;Group&lt;/b&gt;&lt;br/&gt;Discussion"]
+    C --&gt; D["&lt;b&gt;Deeper&lt;/b&gt;&lt;br/&gt;Understanding"]
+    D --&gt; A
+    style A fill:#85c1e9,color:#1a1a2e,stroke:#5dade2
+    style C fill:#fad7a0,color:#1a1a2e,stroke:#f0b27a
+    style D fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="ai-augmented-reading" class="title-slide slide level1 center" data-background-color="#2980b9">
+<h1>6. AI-Augmented Reading</h1>
+
+</section>
+<section id="ai-as-your-reading-companion" class="slide level2">
+<h2>AI as your reading companion</h2>
+<p>AI tools can <strong>enhance</strong> — not replace — your reading process:</p>
+<div class="cell" data-reveal="true" data-fig-width="13" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '20px'}}}%%
+flowchart LR
+    A["&lt;b&gt;Read&lt;/b&gt;&lt;br/&gt;passage"] --&gt; B{"&lt;b&gt;Unclear?&lt;/b&gt;"}
+    B --&gt;|Yes| C["&lt;b&gt;Ask AI&lt;/b&gt;&lt;br/&gt;to explain"]
+    B --&gt;|No| D["&lt;b&gt;Take&lt;/b&gt;&lt;br/&gt;notes"]
+    C --&gt; D
+    D --&gt; E["&lt;b&gt;Test code&lt;/b&gt;&lt;br/&gt;examples"]
+    E --&gt; F["&lt;b&gt;Ask AI&lt;/b&gt; to&lt;br/&gt;generate quiz"]
+    F --&gt; A
+    style B fill:#f5b7b1,color:#1a1a2e,stroke:#f1948a
+    style C fill:#aed6f1,color:#1a1a2e,stroke:#85c1e9
+    style D fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+    style F fill:#d2b4de,color:#1a1a2e,stroke:#bb8fce
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Key principle:</strong> AI should support your learning, not replace it. The student who engages deeply with material retains knowledge; the student who outsources thinking does not.</p>
+</div>
+</section>
+<section id="ai-reading-tools-for-graduate-students" class="slide level2 smaller">
+<h2>AI reading tools for graduate students</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Comprehension and Explanation</strong></p>
+<ul>
+<li class="fragment"><strong>Claude</strong> / <strong>ChatGPT</strong>: Explain difficult concepts, compare methods, connect ideas across chapters</li>
+<li class="fragment"><strong>Google NotebookLM</strong>: Upload chapters, ask questions grounded in your sources, generate flashcards and audio summaries</li>
+<li class="fragment"><strong>SciSpace / Elicit</strong>: Academic paper-specific AI for reading research literature</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Annotation and Synthesis</strong></p>
+<ul>
+<li class="fragment"><strong>Readwise</strong>: Aggregate highlights from Kindle, PDFs, web — resurface with spaced repetition</li>
+<li class="fragment"><strong>Obsidian + AI plugins</strong>: Build a personal knowledge graph from reading notes</li>
+<li class="fragment"><strong>Zotero + LLM integrations</strong>: Organize references and extract key findings</li>
+</ul>
+</div></div>
+<div class="fragment">
+<blockquote>
+<p>NotebookLM trains on <strong>your uploaded sources only</strong> — answers are grounded and citable, unlike generic chatbot responses.</p>
+</blockquote>
+</div>
+</section>
+<section id="practical-ai-reading-workflow" class="slide level2 smaller">
+<h2>Practical AI reading workflow</h2>
+<p>For a dense chapter on, say, <em>regularization in machine learning</em>:</p>
+<ol type="1">
+<li class="fragment"><strong>Before reading</strong>: Ask AI to give a 3-sentence preview of the chapter’s main argument</li>
+<li class="fragment"><strong>During reading</strong>: When stuck on a formula or concept, ask AI to explain it with a simple analogy</li>
+<li class="fragment"><strong>After reading</strong>: Upload your notes to NotebookLM and have it generate quiz questions</li>
+<li class="fragment"><strong>For code</strong>: Ask AI to annotate the sample code line-by-line, then <strong>run it yourself</strong></li>
+</ol>
+<div class="fragment">
+<p><strong>Caveats:</strong></p>
+<ul>
+<li class="fragment">AI can hallucinate — always verify against the source text</li>
+<li class="fragment">AI summaries can oversimplify — use them as scaffolding, not as the final word</li>
+<li class="fragment">Never submit AI-generated content as your own work</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="retain-and-retrieve" class="title-slide slide level1 center" data-background-color="#8e44ad">
+<h1>7. Retain and Retrieve</h1>
+
+</section>
+<section id="the-forgetting-curve-problem" class="slide level2">
+<h2>The forgetting curve problem</h2>
+<p>Cognitive science is clear: <strong>passive re-reading does not work</strong>.</p>
+<ul>
+<li class="fragment">Ebbinghaus (1885): without intervention, we forget ~70% within days</li>
+<li class="fragment">Dunlosky et al.&nbsp;(2013): highlighting and re-reading are rated <strong>low utility</strong> as learning strategies</li>
+<li class="fragment">Karpicke &amp; Roediger (2006): students who <strong>tested themselves</strong> dramatically outperformed those who <strong>re-studied</strong></li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>The discomfort of retrieval is exactly what strengthens memory.</p>
+</blockquote>
+</div>
+</section>
+<section id="active-recall-spaced-repetition" class="slide level2 smaller">
+<h2>Active recall + spaced repetition</h2>
+<p>The two most evidence-based learning strategies in cognitive science:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Active Recall</strong></p>
+<ul>
+<li class="fragment">Close the book and write down everything you remember</li>
+<li class="fragment">Use flashcards (Anki, Quizlet, NotebookLM)</li>
+<li class="fragment">Explain concepts out loud (the <strong>Feynman technique</strong>)</li>
+<li class="fragment">Generate your own practice questions</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Spaced Repetition</strong></p>
+<ul>
+<li class="fragment">Review after 1 day, 3 days, 1 week, 2 weeks</li>
+<li class="fragment">Use apps that automate the schedule (Anki, Readwise)</li>
+<li class="fragment">Each successful recall strengthens the memory and lengthens the interval</li>
+<li class="fragment">Students who combine both learn in <strong>~40% less time</strong></li>
+</ul>
+</div></div>
+</section>
+<section id="the-read-recall-review-cycle" class="slide level2">
+<h2>The read-recall-review cycle</h2>
+<div class="cell" data-reveal="true" data-fig-width="20" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '18px'}}}%%
+flowchart TD
+    A["&lt;b&gt;Read a section&lt;/b&gt;&lt;br/&gt;(25 min)"] --&gt; B["&lt;b&gt;Close book&lt;/b&gt;&lt;br/&gt;recall key ideas"]
+    B --&gt; C["&lt;b&gt;Write summary&lt;/b&gt;&lt;br/&gt;in own words"]
+    C --&gt; D["&lt;b&gt;Compare&lt;/b&gt; with&lt;br/&gt;source text"]
+    D --&gt; E{"&lt;b&gt;Gaps?&lt;/b&gt;"}
+    E --&gt;|Yes| F["Re-read&lt;br/&gt;targeted passages"]
+    E --&gt;|No| G["Create &lt;b&gt;flashcards&lt;/b&gt;&lt;br/&gt;or quiz questions"]
+    F --&gt; G
+    G --&gt; H["Schedule&lt;br/&gt;&lt;b&gt;spaced review&lt;/b&gt;"]
+    H --&gt;|"Day 1, 3, 7, 14"| I["&lt;b&gt;Retrieve&lt;/b&gt;&lt;br/&gt;&amp; test again"]
+    I --&gt; A
+    style A fill:#85c1e9,color:#1a1a2e,stroke:#5dade2
+    style B fill:#f5b7b1,color:#1a1a2e,stroke:#f1948a
+    style G fill:#d2b4de,color:#1a1a2e,stroke:#bb8fce
+    style H fill:#aed6f1,color:#1a1a2e,stroke:#85c1e9
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="elaborative-interrogation" class="slide level2">
+<h2>Elaborative interrogation</h2>
+<p>Go beyond <em>what</em> — ask <strong>why</strong> and <strong>how</strong>:</p>
+<ul>
+<li class="fragment"><em>Why</em> does regularization prevent overfitting?</li>
+<li class="fragment"><em>How</em> does this method differ from the one in Chapter 3?</li>
+<li class="fragment"><em>What would happen if</em> we changed this parameter?</li>
+</ul>
+<div class="fragment">
+<p><strong>Interleaving</strong>: mix topics during study sessions. Instead of reading all of Topic A, then all of Topic B, alternate between them. This forces your brain to discriminate between concepts and strengthens retrieval.</p>
+</div>
+<div class="fragment">
+<blockquote>
+<p>These strategies feel harder — that is the signal that real learning is happening.</p>
+</blockquote>
+</div>
+</section></section>
+<section>
+<section id="putting-it-all-together" class="title-slide slide level1 center" data-background-color="#1a1a2e">
+<h1>Putting it all together</h1>
+
+</section>
+<section id="the-complete-reading-workflow" class="slide level2 scrollable">
+<h2>The complete reading workflow</h2>
+<div class="cell" data-reveal="true" data-fig-width="60" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<pre class="mermaid mermaid-js">%%{init: {'theme': 'neutral', 'themeVariables': {'fontSize': '25px'}, 'flowchart': {'nodeSpacing': 30, 'subGraphTitleMargin': {'top': 0, 'bottom': 0, 'right': 0, 'left': 0}, 'padding': 20}}}%%
+flowchart LR
+    subgraph Plan ["&amp;nbsp;&amp;nbsp;&amp;nbsp; **Plan** &amp;nbsp;&amp;nbsp;&amp;nbsp;"]
+        A1["&amp;nbsp; &lt;b&gt;Set&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; &lt;b&gt;environment&lt;/b&gt; &amp;nbsp;"] --&gt; A2["&amp;nbsp; &lt;b&gt;Budget&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; &lt;b&gt;time&lt;/b&gt; &amp;nbsp;"]
+    end
+    subgraph Prepare ["&amp;nbsp;&amp;nbsp; Prepare &amp;nbsp;&amp;nbsp;"]
+        B1["&amp;nbsp; &lt;b&gt;Set up tools&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; (editor + notes + AI) &amp;nbsp;"] --&gt; B2["&amp;nbsp; &lt;b&gt;AIC:&lt;/b&gt; Preface → &amp;nbsp;&lt;br/&gt;&amp;nbsp; Intro → Conclusion &amp;nbsp;"]
+    end
+    subgraph Read ["&amp;nbsp;&amp;nbsp;&amp;nbsp; Read &amp;nbsp;&amp;nbsp;&amp;nbsp;"]
+        C1["&amp;nbsp; &lt;b&gt;Prioritize&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; &lt;b&gt;chapters&lt;/b&gt; &amp;nbsp;"] --&gt; C2["&amp;nbsp; &lt;b&gt;Hyper read&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; + annotate &amp;nbsp;"]
+        C2 --&gt; C3["&amp;nbsp; &lt;b&gt;Test code&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; examples &amp;nbsp;"]
+    end
+    subgraph Collaborate ["&amp;nbsp;&amp;nbsp; Collaborate &amp;nbsp;&amp;nbsp;"]
+        D1["&amp;nbsp; &lt;b&gt;Share&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; &lt;b&gt;annotations&lt;/b&gt; &amp;nbsp;"] --&gt; D2["&amp;nbsp; &lt;b&gt;Discuss&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; in group &amp;nbsp;"]
+    end
+    subgraph Retain ["&amp;nbsp;&amp;nbsp;&amp;nbsp; Retain &amp;nbsp;&amp;nbsp;&amp;nbsp;"]
+        E1["&amp;nbsp; &lt;b&gt;Active recall&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; + flashcards &amp;nbsp;"] --&gt; E2["&amp;nbsp; &lt;b&gt;Spaced review&lt;/b&gt; &amp;nbsp;&lt;br/&gt;&amp;nbsp; (Day 1,3,7,14) &amp;nbsp;"]
+    end
+    Plan --&gt; Prepare --&gt; Read --&gt; Collaborate --&gt; Retain
+    Retain --&gt;|"Next session"| Read
+    style A1 fill:#85c1e9,color:#1a1a2e,stroke:#5dade2
+    style A2 fill:#a9cce3,color:#1a1a2e,stroke:#7fb3d8
+    style B1 fill:#aed6f1,color:#1a1a2e,stroke:#85c1e9
+    style B2 fill:#a9cce3,color:#1a1a2e,stroke:#7fb3d8
+    style C1 fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+    style C2 fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+    style C3 fill:#a9dfbf,color:#1a1a2e,stroke:#82e0aa
+    style D1 fill:#fad7a0,color:#1a1a2e,stroke:#f0b27a
+    style D2 fill:#fad7a0,color:#1a1a2e,stroke:#f0b27a
+    style E1 fill:#d2b4de,color:#1a1a2e,stroke:#bb8fce
+    style E2 fill:#d2b4de,color:#1a1a2e,stroke:#bb8fce
+    style Plan fill:none,stroke:#85c1e9,stroke-width:1px
+    style Prepare fill:none,stroke:#85c1e9,stroke-width:1px
+    style Read fill:none,stroke:#82e0aa,stroke-width:1px
+    style Collaborate fill:none,stroke:#f0b27a,stroke-width:1px
+    style Retain fill:none,stroke:#bb8fce,stroke-width:1px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="reward-after-reading-session" class="slide level2">
+<h2>Reward after reading session</h2>
+<p>Tune your brain into <strong>anticipating reward</strong>:</p>
+<ul>
+<li class="fragment">Ice cream, snacks, favorite drink</li>
+<li class="fragment">Sports, hiking, exercise</li>
+<li class="fragment">Play time with family, friends, and pets</li>
+<li class="fragment">A favorite show or game</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p><strong>The brain learns better when it associates effort with reward</strong> — this is not a luxury, it is a strategy.</p>
+</blockquote>
+</div>
+</section></section>
+<section>
+<section id="summary" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Summary</h1>
+
+</section>
+<section id="seven-keys-to-reading-long-data-science-books" class="slide level2">
+<h2>Seven keys to reading long data science books</h2>
+<ol type="1">
+<li class="fragment"><strong>Plan</strong> — Environment, time budget, Pomodoro sessions</li>
+<li class="fragment"><strong>Prepare</strong> — Annotation tools, code editor, AIC triage method</li>
+<li class="fragment"><strong>Stop linear reading</strong> — TOC, Intro, Conclusion, then prioritize</li>
+<li class="fragment"><strong>Hyper read</strong> — Filter, skim, peck, impose, film, trespass, juxtapose, scan</li>
+<li class="fragment"><strong>Social reading</strong> — Collaborate, discuss, annotate together</li>
+<li class="fragment"><strong>AI-augmented reading</strong> — Claude, NotebookLM, but always verify</li>
+<li class="fragment"><strong>Retain and retrieve</strong> — Active recall, spaced repetition, elaborative interrogation</li>
+</ol>
+<div class="fragment">
+<p><strong>Happy reading!</strong></p>
+</div>
+</section>
+<section id="references" class="slide level2 smaller">
+<h2>References</h2>
+<ul>
+<li class="fragment">Dunlosky, J. et al.&nbsp;(2013). Improving students’ learning with effective learning techniques. <em>Psychological Science in the Public Interest</em>, 14(1), 4-58.</li>
+<li class="fragment">Hayles, N. K. (2012). <em>How We Think: Digital Media and Contemporary Technogenesis</em>. University of Chicago Press.</li>
+<li class="fragment">Karpicke, J. D. and Roediger, H. L. (2008). The critical importance of retrieval for learning. <em>Science</em>, 319(5865), 966-968.</li>
+<li class="fragment">Pacheco-Vega, R. (n.d.). Reading strategies. <a href="https://www.raulpacheco.org/resources/reading-strategies/">raulpacheco.org/resources/reading-strategies/</a></li>
+<li class="fragment">Sosnoski, J. J. (1999). Hyper-readers and their reading engines. In Hawisher and Selfe (Eds.), <em>Passions, Pedagogies, and 21st Century Technologies</em>, 161-177.</li>
+<li class="fragment">Stein, B. (n.d.). A taxonomy of social reading. Institute for the Future of the Book.</li>
+<li class="fragment">Sweeney, M. (2012). How to read for grad school. <a href="https://miriamsweeney.net/2012/06/20/readforgradschool/">miriamsweeney.net</a></li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="eppslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><h10>EPPS 6323 Knowledge Mining</h10></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="howto_readlongdatasciencebook_4_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
