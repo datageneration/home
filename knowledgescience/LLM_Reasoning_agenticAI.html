@@ -1,0 +1,2618 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="LLM_Reasoning_agenticAI_files/libs/clipboard/clipboard.min.js"></script>
+<script src="LLM_Reasoning_agenticAI_files/libs/quarto-html/tabby.min.js"></script>
+<script src="LLM_Reasoning_agenticAI_files/libs/quarto-html/popper.min.js"></script>
+<script src="LLM_Reasoning_agenticAI_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="LLM_Reasoning_agenticAI_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="LLM_Reasoning_agenticAI_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="LLM_Reasoning_agenticAI_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Karl Ho">
+  <title>LLMs, Reasoning Models, and Agentic AI Systems</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="LLM_Reasoning_agenticAI_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="LLM_Reasoning_agenticAI_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="LLM_Reasoning_agenticAI_files/libs/revealjs/dist/theme/quarto-ed71c0bbd1b1bcfdee8a19950f2015f2.css">
+  <link href="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">LLMs, Reasoning Models, and Agentic AI Systems</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Karl Ho 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="overview" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Overview</h1>
+
+</section>
+<section id="todays-agenda" class="slide level2 scrollable">
+<h2>Today’s Agenda</h2>
+<p>This lecture covers three interconnected developments that define the AI landscape in 2025–2026:</p>
+<ol type="1">
+<li class="fragment"><strong>Large Language Models (LLMs)</strong>: Architecture, training, and the current model landscape</li>
+<li class="fragment"><strong>Reasoning Models</strong>: From chain-of-thought to test-time compute scaling</li>
+<li class="fragment"><strong>Agentic AI Systems</strong>: From chatbots to autonomous agents that plan, act, and learn</li>
+</ol>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Connection to Knowledge Mining</strong></p>
+</div>
+<div class="callout-content">
+<p>These technologies are transforming how we extract knowledge from text data. Understanding the underlying mechanisms helps us critically evaluate and deploy these tools in research.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-big-picture" class="slide level2 scrollable">
+<h2>The Big Picture</h2>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 1484.00 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1480,-90 1480,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#95a5a6" stroke="black" points="216,-86 0,-86 0,0 216,0 216,-86"></polygon>
+<text text-anchor="middle" x="108" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Statistical NLP</text>
+<text text-anchor="middle" x="108" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(TF-IDF, n-grams)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#7f8c8d" stroke="black" points="468,-86 252,-86 252,0 468,0 468,-86"></polygon>
+<text text-anchor="middle" x="360" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Neural NLP</text>
+<text text-anchor="middle" x="360" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Word2Vec, RNN)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M216.11,-43C224.5,-43 232.99,-43 241.44,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="241.71,-46.5 251.71,-43 241.71,-39.5 241.71,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#3498db" stroke="black" points="720,-86 504,-86 504,0 720,0 720,-86"></polygon>
+<text text-anchor="middle" x="612" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Transformers</text>
+<text text-anchor="middle" x="612" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Attention, BERT)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M468.11,-43C476.5,-43 484.99,-43 493.44,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="493.71,-46.5 503.71,-43 493.71,-39.5 493.71,-46.5"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#2980b9" stroke="black" points="972,-86 756,-86 756,0 972,0 972,-86"></polygon>
+<text text-anchor="middle" x="864" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">LLMs</text>
+<text text-anchor="middle" x="864" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(GPT, Claude, Gemini)</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M720.11,-43C728.5,-43 736.99,-43 745.44,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="745.71,-46.5 755.71,-43 745.71,-39.5 745.71,-46.5"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="#27ae60" stroke="black" points="1224,-86 1008,-86 1008,0 1224,0 1224,-86"></polygon>
+<text text-anchor="middle" x="1116" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Reasoning Models</text>
+<text text-anchor="middle" x="1116" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(o3, DeepSeek-R1)</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M972.11,-43C980.5,-43 988.99,-43 997.44,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="997.71,-46.5 1007.71,-43 997.71,-39.5 997.71,-46.5"></polygon>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="#e74c3c" stroke="black" points="1476,-86 1260,-86 1260,0 1476,0 1476,-86"></polygon>
+<text text-anchor="middle" x="1368" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Agentic AI</text>
+<text text-anchor="middle" x="1368" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Plan → Act → Learn)</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1224.11,-43C1232.5,-43 1240.99,-43 1249.44,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1249.71,-46.5 1259.71,-43 1249.71,-39.5 1249.71,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>We are moving from models that <strong>predict text</strong> to models that <strong>think</strong> to systems that <strong>act</strong>.</p>
+</div>
+</section></section>
+<section>
+<section id="part-i-large-language-models" class="title-slide slide level1 center" data-background-color="#2980b9">
+<h1>Part I: Large Language Models</h1>
+
+</section>
+<section id="what-is-a-large-language-model" class="slide level2 scrollable">
+<h2>What is a Large Language Model?</h2>
+<p>An LLM is a neural network trained on massive text corpora to predict the next token in a sequence.</p>
+<div class="fragment">
+<p>Core components:</p>
+<ul>
+<li class="fragment"><strong>Transformer architecture</strong> (<a href="https://arxiv.org/abs/1706.03762">Vaswani et al., 2017</a>): Self-attention mechanism allows the model to weigh relationships between all tokens in a sequence</li>
+<li class="fragment"><strong>Pre-training</strong>: Unsupervised learning on trillions of tokens from the web, books, and code</li>
+<li class="fragment"><strong>Fine-tuning</strong>: Supervised instruction tuning + RLHF (Reinforcement Learning from Human Feedback) to align with human preferences</li>
+<li class="fragment"><strong>Scaling laws</strong>: Performance improves predictably with more parameters, data, and compute (Kaplan et al., 2020)</li>
+</ul>
+</div>
+</section>
+<section id="the-transformer-architecture" class="slide level2 scrollable">
+<h2>The Transformer Architecture</h2>
+<div class="cell" data-fig-width="16" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="288" viewbox="0.00 0.00 1400.00 198.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 194)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-194 1396,-194 1396,4 -4,4"></polygon>
+<!-- I1 -->
+<g id="node1" class="node">
+<title>I1</title>
+<polygon fill="#3498db" stroke="black" points="202,-190 0,-190 0,-104 202,-104 202,-190"></polygon>
+<text text-anchor="middle" x="101" y="-152.4" font-family="Palatino" font-size="18.00" fill="white">Token</text>
+<text text-anchor="middle" x="101" y="-130.8" font-family="Palatino" font-size="18.00" fill="white">Embeddings</text>
+</g>
+<!-- A -->
+<g id="node3" class="node">
+<title>A</title>
+<polygon fill="#27ae60" stroke="black" points="440,-138 238,-138 238,-52 440,-52 440,-138"></polygon>
+<text text-anchor="middle" x="339" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Multi-Head</text>
+<text text-anchor="middle" x="339" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Self-Attention</text>
+</g>
+<!-- I1&#45;&gt;A -->
+<g id="edge1" class="edge">
+<title>I1-&gt;A</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M202.09,-124.95C210.57,-123.08 219.19,-121.18 227.75,-119.29"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="228.75,-122.66 237.76,-117.09 227.24,-115.82 228.75,-122.66"></polygon>
+</g>
+<!-- I2 -->
+<g id="node2" class="node">
+<title>I2</title>
+<polygon fill="#2980b9" stroke="black" points="202,-86 0,-86 0,0 202,0 202,-86"></polygon>
+<text text-anchor="middle" x="101" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Positional</text>
+<text text-anchor="middle" x="101" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">Encoding</text>
+</g>
+<!-- I2&#45;&gt;A -->
+<g id="edge2" class="edge">
+<title>I2-&gt;A</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M202.09,-65.05C210.57,-66.92 219.19,-68.82 227.75,-70.71"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="227.24,-74.18 237.76,-72.91 228.75,-67.34 227.24,-74.18"></polygon>
+</g>
+<!-- N1 -->
+<g id="node4" class="node">
+<title>N1</title>
+<polygon fill="#2ecc71" stroke="black" points="678,-138 476,-138 476,-52 678,-52 678,-138"></polygon>
+<text text-anchor="middle" x="577" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Layer Norm</text>
+<text text-anchor="middle" x="577" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">+ Residual</text>
+</g>
+<!-- A&#45;&gt;N1 -->
+<g id="edge3" class="edge">
+<title>A-&gt;N1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M440.09,-95C448.57,-95 457.19,-95 465.75,-95"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="465.76,-98.5 475.76,-95 465.76,-91.5 465.76,-98.5"></polygon>
+</g>
+<!-- F -->
+<g id="node5" class="node">
+<title>F</title>
+<polygon fill="#f39c12" stroke="black" points="916,-138 714,-138 714,-52 916,-52 916,-138"></polygon>
+<text text-anchor="middle" x="815" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Feed-Forward</text>
+<text text-anchor="middle" x="815" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Network</text>
+</g>
+<!-- N1&#45;&gt;F -->
+<g id="edge4" class="edge">
+<title>N1-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M678.09,-95C686.57,-95 695.19,-95 703.75,-95"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="703.76,-98.5 713.76,-95 703.76,-91.5 703.76,-98.5"></polygon>
+</g>
+<!-- N2 -->
+<g id="node6" class="node">
+<title>N2</title>
+<polygon fill="#e67e22" stroke="black" points="1154,-138 952,-138 952,-52 1154,-52 1154,-138"></polygon>
+<text text-anchor="middle" x="1053" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Layer Norm</text>
+<text text-anchor="middle" x="1053" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">+ Residual</text>
+</g>
+<!-- F&#45;&gt;N2 -->
+<g id="edge5" class="edge">
+<title>F-&gt;N2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M916.09,-95C924.57,-95 933.19,-95 941.75,-95"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="941.76,-98.5 951.76,-95 941.76,-91.5 941.76,-98.5"></polygon>
+</g>
+<!-- O -->
+<g id="node7" class="node">
+<title>O</title>
+<polygon fill="#c0392b" stroke="black" points="1392,-138 1190,-138 1190,-52 1392,-52 1392,-138"></polygon>
+<text text-anchor="middle" x="1291" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Output</text>
+<text text-anchor="middle" x="1291" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Probabilities</text>
+</g>
+<!-- N2&#45;&gt;O -->
+<g id="edge6" class="edge">
+<title>N2-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1154.09,-95C1162.57,-95 1171.19,-95 1179.75,-95"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1179.76,-98.5 1189.76,-95 1179.76,-91.5 1179.76,-98.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Key insight: <strong>Self-attention</strong> allows every token to attend to every other token, capturing long-range dependencies that RNNs and LSTMs struggled with.</p>
+</div>
+</section>
+<section id="the-self-attention-mechanism" class="slide level2 scrollable">
+<h2>The Self-Attention Mechanism</h2>
+<p>The core mathematical operation in transformers — <strong>Scaled Dot-Product Attention</strong>:</p>
+<div class="fragment">
+<p><span class="math display">\[\text{Attention}(Q, K, V) = \underbrace{\text{softmax}}_{\text{normalize to probabilities}}\left(\frac{QK^T}{\underbrace{\sqrt{d_k}}_{\text{scaling factor}}}\right)V\]</span></p>
+</div>
+<div class="fragment">
+<p>Where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(Q\)</span> = <strong>Query</strong> matrix — “what am I looking for?” Each token generates a query vector representing its information need</li>
+<li class="fragment"><span class="math inline">\(K\)</span> = <strong>Key</strong> matrix — “what do I contain?” Each token generates a key vector advertising its content</li>
+<li class="fragment"><span class="math inline">\(V\)</span> = <strong>Value</strong> matrix — “what information do I carry?” The actual content to be retrieved</li>
+<li class="fragment"><span class="math inline">\(d_k\)</span> = Dimension of key vectors; dividing by <span class="math inline">\(\sqrt{d_k}\)</span> prevents dot products from growing too large, which would push softmax into regions of vanishing gradients</li>
+<li class="fragment"><span class="math inline">\(\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}\)</span> — converts raw attention scores into a probability distribution that sums to 1, so each token attends to a weighted mixture of all other tokens</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Multi-head attention runs this operation in parallel across <span class="math inline">\(h\)</span> heads, each learning different relationship patterns (syntax, semantics, coreference, etc.).</p>
+</div>
+</section>
+<section id="training-pipeline" class="slide level2 scrollable">
+<h2>Training Pipeline</h2>
+<div class="cell" data-fig-width="15" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="192" viewbox="0.00 0.00 1124.00 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1120,-90 1120,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#3498db" stroke="black" points="252,-86 0,-86 0,0 252,0 252,-86"></polygon>
+<text text-anchor="middle" x="126" y="-59.2" font-family="Palatino" font-size="18.00" fill="white">Pre-training</text>
+<text text-anchor="middle" x="126" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">Next-token prediction</text>
+<text text-anchor="middle" x="126" y="-16" font-family="Palatino" font-size="18.00" fill="white">on trillions of tokens</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#27ae60" stroke="black" points="540,-86 288,-86 288,0 540,0 540,-86"></polygon>
+<text text-anchor="middle" x="414" y="-59.2" font-family="Palatino" font-size="18.00" fill="white">Supervised</text>
+<text text-anchor="middle" x="414" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">Fine-Tuning (SFT)</text>
+<text text-anchor="middle" x="414" y="-16" font-family="Palatino" font-size="18.00" fill="white">Instruction-response pairs</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.03,-43C260.56,-43 269.18,-43 277.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="277.82,-46.5 287.82,-43 277.82,-39.5 277.82,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#f39c12" stroke="black" points="828,-86 576,-86 576,0 828,0 828,-86"></polygon>
+<text text-anchor="middle" x="702" y="-59.2" font-family="Palatino" font-size="18.00" fill="white">RLHF</text>
+<text text-anchor="middle" x="702" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">Human preference</text>
+<text text-anchor="middle" x="702" y="-16" font-family="Palatino" font-size="18.00" fill="white">alignment</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-43C548.56,-43 557.18,-43 565.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="565.82,-46.5 575.82,-43 565.82,-39.5 565.82,-46.5"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#c0392b" stroke="black" points="1116,-86 864,-86 864,0 1116,0 1116,-86"></polygon>
+<text text-anchor="middle" x="990" y="-59.2" font-family="Palatino" font-size="18.00" fill="white">Deployment</text>
+<text text-anchor="middle" x="990" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">API / Chat</text>
+<text text-anchor="middle" x="990" y="-16" font-family="Palatino" font-size="18.00" fill="white">Interface</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M828.03,-43C836.56,-43 845.18,-43 853.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="853.82,-46.5 863.82,-43 853.82,-39.5 853.82,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The pre-training objective — <strong>Cross-Entropy Loss</strong> over next-token prediction:</p>
+<p><span class="math display">\[\mathcal{L}_{\text{pretrain}} = -\sum_{t=1}^{T} \underbrace{\log P(x_t | x_{&lt;t}; \theta)}_{\text{log-likelihood of token } x_t \text{ given all preceding tokens}}\]</span></p>
+<p>where <span class="math inline">\(T\)</span> is sequence length, <span class="math inline">\(x_t\)</span> is the token at position <span class="math inline">\(t\)</span>, and <span class="math inline">\(\theta\)</span> are the model parameters. This simple objective, at scale, produces emergent capabilities in reasoning, translation, coding, and more.</p>
+</div>
+</section>
+<section id="the-20252026-model-landscape" class="slide level2 scrollable">
+<h2>The 2025–2026 Model Landscape</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 23%">
+<col style="width: 27%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Provider</th>
+<th>Parameters</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GPT-5 / GPT-5.2</td>
+<td>OpenAI</td>
+<td>Undisclosed</td>
+<td>Unified router, 400K context, thinking mode</td>
+</tr>
+<tr class="even">
+<td>Claude 4 / 4.5</td>
+<td>Anthropic</td>
+<td>Undisclosed</td>
+<td>Extended thinking, agentic coding, computer use</td>
+</tr>
+<tr class="odd">
+<td>Gemini 2.5 / 3</td>
+<td>Google</td>
+<td>Undisclosed</td>
+<td>Multimodal native, 1M+ context, Deep Think</td>
+</tr>
+<tr class="even">
+<td>Llama 4</td>
+<td>Meta</td>
+<td>Various</td>
+<td>Open-weight, Scout/Maverick variants</td>
+</tr>
+<tr class="odd">
+<td>DeepSeek V3</td>
+<td>DeepSeek</td>
+<td>671B (MoE)</td>
+<td>Open-source, 37B active params, cost-efficient</td>
+</tr>
+<tr class="even">
+<td>Qwen 3</td>
+<td>Alibaba</td>
+<td>Various</td>
+<td>Open-licensed, multimodal, thinking modes</td>
+</tr>
+<tr class="odd">
+<td>Mistral Large 2</td>
+<td>Mistral</td>
+<td>Various</td>
+<td>European, efficient, open-weight options</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Key trend: Models are no longer just “bigger” — they are <strong>architecturally specialized</strong> (MoE, routing, reasoning modes).</p>
+</div>
+</section>
+<section id="mixture-of-experts-moe" class="slide level2 scrollable">
+<h2>Mixture-of-Experts (MoE)</h2>
+<p>A major architectural innovation enabling scale without proportional compute cost:</p>
+<div class="cell" data-fig-width="15" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="384" viewbox="0.00 0.00 918.08 350.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 346)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-346 914.08,-346 914.08,4 -4,4"></polygon>
+<!-- I -->
+<g id="node1" class="node">
+<title>I</title>
+<polygon fill="#3498db" stroke="black" points="158,-243.5 0,-243.5 0,-142.5 158,-142.5 158,-243.5"></polygon>
+<text text-anchor="middle" x="79" y="-198.4" font-family="Palatino" font-size="18.00" fill="white">Input</text>
+<text text-anchor="middle" x="79" y="-176.8" font-family="Palatino" font-size="18.00" fill="white">Token</text>
+</g>
+<!-- R -->
+<g id="node2" class="node">
+<title>R</title>
+<polygon fill="#f39c12" stroke="black" points="411,-243.5 195,-243.5 195,-142.5 411,-142.5 411,-243.5"></polygon>
+<text text-anchor="middle" x="303" y="-198.4" font-family="Palatino" font-size="18.00" fill="white">Router</text>
+<text text-anchor="middle" x="303" y="-176.8" font-family="Palatino" font-size="18.00" fill="white">(Gating Network)</text>
+</g>
+<!-- I&#45;&gt;R -->
+<g id="edge1" class="edge">
+<title>I-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M158.27,-193C166.89,-193 175.79,-193 184.75,-193"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="184.88,-196.5 194.88,-193 184.88,-189.5 184.88,-196.5"></polygon>
+</g>
+<!-- E1 -->
+<g id="node3" class="node">
+<title>E1</title>
+<polygon fill="#27ae60" stroke="black" points="715.08,-342 499.08,-342 499.08,-270 715.08,-270 715.08,-342"></polygon>
+<text text-anchor="middle" x="607.08" y="-300.6" font-family="Palatino" font-size="18.00" fill="white">Expert 1 (Math)</text>
+</g>
+<!-- R&#45;&gt;E1 -->
+<g id="edge2" class="edge">
+<title>R-&gt;E1</title>
+<path fill="none" stroke="#27ae60" stroke-width="3" d="M411.35,-233.16C440.15,-243.93 471.26,-255.57 499.99,-266.31"></path>
+<polygon fill="#27ae60" stroke="#27ae60" stroke-width="3" points="499.04,-269.7 509.64,-269.92 501.5,-263.14 499.04,-269.7"></polygon>
+<text text-anchor="middle" x="455.04" y="-260.2" font-family="Palatino" font-size="14.00"> selected </text>
+</g>
+<!-- E2 -->
+<g id="node4" class="node">
+<title>E2</title>
+<polygon fill="#2ecc71" stroke="black" points="715.08,-252 499.08,-252 499.08,-180 715.08,-180 715.08,-252"></polygon>
+<text text-anchor="middle" x="607.08" y="-210.6" font-family="Palatino" font-size="18.00" fill="white">Expert 2 (Code)</text>
+</g>
+<!-- R&#45;&gt;E2 -->
+<g id="edge3" class="edge">
+<title>R-&gt;E2</title>
+<path fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,2" d="M411.35,-201.17C436.51,-203.09 463.43,-205.14 488.98,-207.08"></path>
+<polygon fill="#bdc3c7" stroke="#bdc3c7" stroke-width="2" points="488.84,-210.58 499.07,-207.85 489.37,-203.6 488.84,-210.58"></polygon>
+</g>
+<!-- E3 -->
+<g id="node5" class="node">
+<title>E3</title>
+<polygon fill="#1abc9c" stroke="black" points="715.08,-162 499.08,-162 499.08,-90 715.08,-90 715.08,-162"></polygon>
+<text text-anchor="middle" x="607.08" y="-120.6" font-family="Palatino" font-size="18.00" fill="white">Expert 3 (Language)</text>
+</g>
+<!-- R&#45;&gt;E3 -->
+<g id="edge4" class="edge">
+<title>R-&gt;E3</title>
+<path fill="none" stroke="#1abc9c" stroke-width="3" d="M411.35,-169.19C436.51,-163.61 463.43,-157.64 488.98,-151.97"></path>
+<polygon fill="#1abc9c" stroke="#1abc9c" stroke-width="3" points="490.07,-155.32 499.07,-149.73 488.55,-148.48 490.07,-155.32"></polygon>
+<text text-anchor="middle" x="455.04" y="-167.2" font-family="Palatino" font-size="14.00"> selected </text>
+</g>
+<!-- E4 -->
+<g id="node6" class="node">
+<title>E4</title>
+<polygon fill="#16a085" stroke="black" stroke-dasharray="5,2" points="715.08,-72 499.08,-72 499.08,0 715.08,0 715.08,-72"></polygon>
+<text text-anchor="middle" x="607.08" y="-30.6" font-family="Palatino" font-size="18.00" fill="white">Expert N (...)</text>
+</g>
+<!-- R&#45;&gt;E4 -->
+<g id="edge5" class="edge">
+<title>R-&gt;E4</title>
+<path fill="none" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,2" d="M386.79,-142.46C421.03,-122.36 461.46,-99.62 499.08,-81 502.2,-79.46 505.39,-77.92 508.62,-76.38"></path>
+<polygon fill="#bdc3c7" stroke="#bdc3c7" stroke-width="2" points="510.22,-79.5 517.81,-72.1 507.27,-73.15 510.22,-79.5"></polygon>
+</g>
+<!-- O -->
+<g id="node7" class="node">
+<title>O</title>
+<polygon fill="#c0392b" stroke="black" points="910.08,-265.5 752.08,-265.5 752.08,-164.5 910.08,-164.5 910.08,-265.5"></polygon>
+<text text-anchor="middle" x="831.08" y="-220.4" font-family="Palatino" font-size="18.00" fill="white">Weighted</text>
+<text text-anchor="middle" x="831.08" y="-198.8" font-family="Palatino" font-size="18.00" fill="white">Output</text>
+</g>
+<!-- E1&#45;&gt;O -->
+<g id="edge6" class="edge">
+<title>E1-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M696.14,-269.9C711.38,-263.66 727.22,-257.16 742.45,-250.92"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="743.91,-254.1 751.84,-247.07 741.26,-247.63 743.91,-254.1"></polygon>
+</g>
+<!-- E3&#45;&gt;O -->
+<g id="edge7" class="edge">
+<title>E3-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M698.06,-162.07C712.65,-167.92 727.75,-173.97 742.29,-179.8"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="741.16,-183.12 751.75,-183.6 743.77,-176.63 741.16,-183.12"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>DeepSeek V3/R1: 671B total parameters, but only <strong>37B activated per token</strong>. This sparse activation enables frontier-level performance at a fraction of the inference cost.</p>
+</div>
+</section>
+<section id="context-windows-and-memory" class="slide level2 scrollable">
+<h2>Context Windows and Memory</h2>
+<p>The context window defines how much text a model can process at once:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Context Window</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GPT-4 (2023)</td>
+<td>128K tokens</td>
+</tr>
+<tr class="even">
+<td>Claude 3 (2024)</td>
+<td>200K tokens</td>
+</tr>
+<tr class="odd">
+<td>Gemini 1.5 Pro (2024)</td>
+<td>1M tokens</td>
+</tr>
+<tr class="even">
+<td>GPT-5.2 (2025)</td>
+<td>400K tokens</td>
+</tr>
+<tr class="odd">
+<td>Llama 4 Scout (2025)</td>
+<td>10M tokens</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Longer context enables:</p>
+<ul>
+<li class="fragment">Processing entire codebases or books</li>
+<li class="fragment">Multi-document analysis without chunking</li>
+<li class="fragment">Richer in-context learning with more examples</li>
+</ul>
+</div>
+<div class="fragment">
+<p>But context length alone is not memory — models still lack persistent learning across sessions (motivating RAG and agentic memory systems).</p>
+</div>
+</section></section>
+<section>
+<section id="part-ii-reasoning-models" class="title-slide slide level1 center" data-background-color="#27ae60">
+<h1>Part II: Reasoning Models</h1>
+
+</section>
+<section id="from-pattern-matching-to-deliberate-thinking" class="slide level2 scrollable">
+<h2>From Pattern Matching to Deliberate Thinking</h2>
+<p>Standard LLMs use <strong>System 1</strong> thinking (<a href="https://dn790002.ca.archive.org/0/items/DanielKahnemanThinkingFastAndSlow/Daniel%20Kahneman-Thinking%2C%20Fast%20and%20Slow%20%20.pdf">Kahneman 2011</a>): fast, intuitive, pattern-based.</p>
+<p>Reasoning models introduce <strong>System 2</strong> thinking: slow, deliberate, step-by-step.</p>
+<div class="fragment">
+<div class="cell" data-fig-width="16" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="384" viewbox="0.00 0.00 1342.43 300.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 296)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-296 1338.43,-296 1338.43,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_s1</title>
+<polygon fill="none" stroke="#e74c3c" stroke-dasharray="5,2" points="8,-8 8,-142 637,-142 637,-8 8,-8"></polygon>
+<text text-anchor="middle" x="322.5" y="-120" font-family="Palatino" font-size="20.00">System 1: Standard LLM</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_s2</title>
+<polygon fill="none" stroke="#27ae60" stroke-dasharray="5,2" points="8,-150 8,-284 1326.43,-284 1326.43,-150 8,-150"></polygon>
+<text text-anchor="middle" x="667.21" y="-262" font-family="Palatino" font-size="20.00">System 2: Reasoning Model</text>
+</g>
+<!-- A1 -->
+<g id="node1" class="node">
+<title>A1</title>
+<polygon fill="#e74c3c" stroke="black" points="304,-102 16,-102 16,-16 304,-16 304,-102"></polygon>
+<text text-anchor="middle" x="160" y="-53" font-family="Palatino" font-size="20.00" fill="white">Input Prompt</text>
+</g>
+<!-- A2 -->
+<g id="node2" class="node">
+<title>A2</title>
+<polygon fill="#c0392b" stroke="black" points="629,-102 341,-102 341,-16 629,-16 629,-102"></polygon>
+<text text-anchor="middle" x="485" y="-65" font-family="Palatino" font-size="20.00" fill="white">Immediate</text>
+<text text-anchor="middle" x="485" y="-41" font-family="Palatino" font-size="20.00" fill="white">Token Generation</text>
+</g>
+<!-- A1&#45;&gt;A2 -->
+<g id="edge1" class="edge">
+<title>A1-&gt;A2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M304.08,-59C312.97,-59 321.94,-59 330.87,-59"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="330.93,-62.5 340.93,-59 330.93,-55.5 330.93,-62.5"></polygon>
+</g>
+<!-- B1 -->
+<g id="node3" class="node">
+<title>B1</title>
+<polygon fill="#27ae60" stroke="black" points="304,-244 16,-244 16,-158 304,-158 304,-244"></polygon>
+<text text-anchor="middle" x="160" y="-195" font-family="Palatino" font-size="20.00" fill="white">Input Prompt</text>
+</g>
+<!-- B2 -->
+<g id="node4" class="node">
+<title>B2</title>
+<polygon fill="#2ecc71" stroke="black" points="629,-244 341,-244 341,-158 629,-158 629,-244"></polygon>
+<text text-anchor="middle" x="485" y="-207" font-family="Palatino" font-size="20.00" fill="white">Internal Chain</text>
+<text text-anchor="middle" x="485" y="-183" font-family="Palatino" font-size="20.00" fill="white">of Thought</text>
+</g>
+<!-- B1&#45;&gt;B2 -->
+<g id="edge2" class="edge">
+<title>B1-&gt;B2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M304.08,-201C312.97,-201 321.94,-201 330.87,-201"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="330.93,-204.5 340.93,-201 330.93,-197.5 330.93,-204.5"></polygon>
+</g>
+<!-- B3 -->
+<g id="node5" class="node">
+<title>B3</title>
+<polygon fill="#1abc9c" stroke="black" points="993.43,-244 705.43,-244 705.43,-158 993.43,-158 993.43,-244"></polygon>
+<text text-anchor="middle" x="849.43" y="-207" font-family="Palatino" font-size="20.00" fill="white">Self-Verification</text>
+<text text-anchor="middle" x="849.43" y="-183" font-family="Palatino" font-size="20.00" fill="white">&amp; Backtracking</text>
+</g>
+<!-- B2&#45;&gt;B3 -->
+<g id="edge3" class="edge">
+<title>B2-&gt;B3</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M629.04,-194.04C648.65,-193.66 668.54,-193.59 687.43,-194 690,-194.06 692.59,-194.12 695.2,-194.18"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="695.26,-197.68 705.35,-194.46 695.45,-190.69 695.26,-197.68"></polygon>
+</g>
+<!-- B3&#45;&gt;B2 -->
+<g id="edge5" class="edge">
+<title>B3-&gt;B2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,2" d="M705.34,-201C683.64,-201 661.17,-201 639.26,-201"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="639.24,-197.5 629.24,-201 639.24,-204.5 639.24,-197.5"></polygon>
+<text text-anchor="middle" x="667.21" y="-205.2" font-family="Palatino" font-size="14.00"> &nbsp;revise</text>
+</g>
+<!-- B4 -->
+<g id="node6" class="node">
+<title>B4</title>
+<polygon fill="#16a085" stroke="black" points="1318.43,-244 1030.43,-244 1030.43,-158 1318.43,-158 1318.43,-244"></polygon>
+<text text-anchor="middle" x="1174.43" y="-195" font-family="Palatino" font-size="20.00" fill="white">Final Answer</text>
+</g>
+<!-- B3&#45;&gt;B4 -->
+<g id="edge4" class="edge">
+<title>B3-&gt;B4</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M993.51,-201C1002.4,-201 1011.36,-201 1020.29,-201"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1020.36,-204.5 1030.36,-201 1020.36,-197.5 1020.36,-204.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chain-of-thought-cot-reasoning" class="slide level2 scrollable">
+<h2>Chain-of-Thought (CoT) Reasoning</h2>
+<p>The foundational technique for eliciting reasoning in LLMs:</p>
+<div class="fragment">
+<p><strong>Zero-shot CoT</strong> (Kojima et al., 2022): Simply appending “Let’s think step by step” to a prompt improved accuracy on <a href="https://github.com/openai/grade-school-math">GSM8K math problems</a> from ~18% to ~79%.</p>
+</div>
+<div class="fragment">
+<p><strong>Few-shot CoT</strong> (Wei et al., 2022): Providing worked examples with intermediate steps further improved performance.</p>
+</div>
+<div class="fragment">
+<p>Evolution of prompting strategies:</p>
+<div class="cell" data-fig-width="15" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="192" viewbox="0.00 0.00 1217.33 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1213.33,-90 1213.33,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#95a5a6" stroke="black" points="252,-86 0,-86 0,0 252,0 252,-86"></polygon>
+<text text-anchor="middle" x="126" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Input → Output</text>
+<text text-anchor="middle" x="126" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Standard)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#3498db" stroke="black" points="571.89,-86 319.89,-86 319.89,0 571.89,0 571.89,-86"></polygon>
+<text text-anchor="middle" x="445.89" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Input → Steps → Output</text>
+<text text-anchor="middle" x="445.89" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Chain-of-Thought)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.18,-43C271.03,-43 290.55,-43 309.6,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="309.82,-46.5 319.82,-43 309.82,-39.5 309.82,-46.5"></polygon>
+<text text-anchor="middle" x="285.94" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;CoT</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#27ae60" stroke="black" points="890.99,-86 638.99,-86 638.99,0 890.99,0 890.99,-86"></polygon>
+<text text-anchor="middle" x="764.99" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Input → Tree of Steps</text>
+<text text-anchor="middle" x="764.99" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Tree-of-Thought)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M572.22,-43C590.78,-43 609.98,-43 628.73,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="628.8,-46.5 638.8,-43 628.8,-39.5 628.8,-46.5"></polygon>
+<text text-anchor="middle" x="605.44" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;ToT</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#2c3e50" stroke="black" points="1209.33,-86 957.33,-86 957.33,0 1209.33,0 1209.33,-86"></polygon>
+<text text-anchor="middle" x="1083.33" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Input → Forest of Trees</text>
+<text text-anchor="middle" x="1083.33" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Forest-of-Thought)</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M891.02,-43C909.46,-43 928.54,-43 947.18,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="947.18,-46.5 957.18,-43 947.18,-39.5 947.18,-46.5"></polygon>
+<text text-anchor="middle" x="924.16" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;FoT</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="test-time-compute-scaling" class="slide level2 scrollable">
+<h2>Test-Time Compute Scaling</h2>
+<p>The key insight of reasoning models: <strong>spend more compute at inference time</strong> rather than only at training time.</p>
+<div class="fragment">
+<p><span class="math display">\[\text{Performance} \propto \underbrace{f(\text{Training Compute})}_{\text{pre-training: more params, data}} + \underbrace{g(\text{Inference Compute})}_{\text{test-time: longer "thinking"}}\]</span></p>
+</div>
+<div class="fragment">
+<p>Traditional scaling focused on <span class="math inline">\(f\)</span>: more parameters, more data, more training compute.</p>
+<p>Reasoning models exploit <span class="math inline">\(g\)</span>: the model “thinks longer” on harder problems, generating internal reasoning tokens before producing a final answer.</p>
+</div>
+<div class="fragment">
+<p><strong>Controllable reasoning depth</strong> (GPT-5.2 thinking mode):</p>
+<ul>
+<li class="fragment"><code>effort: low</code> — fast responses, minimal deliberation</li>
+<li class="fragment"><code>effort: medium</code> — balanced reasoning</li>
+<li class="fragment"><code>effort: high</code> — extended deliberation for complex problems</li>
+<li class="fragment"><code>effort: xhigh</code> — 3–5× more internal reasoning tokens</li>
+</ul>
+</div>
+</section>
+<section id="openai-o-series-the-reasoning-pioneers" class="slide level2 scrollable">
+<h2>OpenAI o-Series: The Reasoning Pioneers</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Release</th>
+<th>Key Innovation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>o1</td>
+<td>Sep 2024</td>
+<td>First commercial reasoning model; private CoT</td>
+</tr>
+<tr class="even">
+<td>o1-mini</td>
+<td>Sep 2024</td>
+<td>Efficient reasoning for STEM tasks</td>
+</tr>
+<tr class="odd">
+<td>o3-mini</td>
+<td>Feb 2025</td>
+<td>Affordable reasoning at scale</td>
+</tr>
+<tr class="even">
+<td>o3</td>
+<td>Apr 2025</td>
+<td>Full reasoning with tool use</td>
+</tr>
+<tr class="odd">
+<td>o4-mini</td>
+<td>Late 2025</td>
+<td>Multimodal reasoning</td>
+</tr>
+<tr class="even">
+<td>o3-pro</td>
+<td>Jun 2025</td>
+<td>Highest reasoning performance ($200/mo)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Key design: <strong>Private chain of thought</strong> — the model generates extensive internal reasoning traces that the user sees only as a summary. This enables self-verification and backtracking without exposing the full deliberation.</p>
+</div>
+</section>
+<section id="deepseek-r1-open-source-reasoning" class="slide level2 scrollable">
+<h2>DeepSeek R1: Open-Source Reasoning</h2>
+<p>DeepSeek R1 demonstrated a groundbreaking result: <strong>reasoning can emerge from pure reinforcement learning</strong> without human-annotated reasoning traces.</p>
+<div class="fragment">
+<p>Training pipeline:</p>
+<div class="cell" data-fig-width="15" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="192" viewbox="0.00 0.00 1412.00 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1408,-90 1408,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#3498db" stroke="black" points="252,-86 0,-86 0,0 252,0 252,-86"></polygon>
+<text text-anchor="middle" x="126" y="-49" font-family="Palatino" font-size="20.00" fill="white">DeepSeek-V3 Base</text>
+<text text-anchor="middle" x="126" y="-25" font-family="Palatino" font-size="20.00" fill="white">671B MoE</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#27ae60" stroke="black" points="540,-86 288,-86 288,0 540,0 540,-86"></polygon>
+<text text-anchor="middle" x="414" y="-49" font-family="Palatino" font-size="20.00" fill="white">Cold-Start SFT</text>
+<text text-anchor="middle" x="414" y="-25" font-family="Palatino" font-size="20.00" fill="white">~1,000 samples</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.03,-43C260.56,-43 269.18,-43 277.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="277.82,-46.5 287.82,-43 277.82,-39.5 277.82,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#f39c12" stroke="black" points="828,-86 576,-86 576,0 828,0 828,-86"></polygon>
+<text text-anchor="middle" x="702" y="-49" font-family="Palatino" font-size="20.00" fill="white">Reasoning RL</text>
+<text text-anchor="middle" x="702" y="-25" font-family="Palatino" font-size="20.00" fill="white">(GRPO)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-43C548.56,-43 557.18,-43 565.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="565.82,-46.5 575.82,-43 565.82,-39.5 565.82,-46.5"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#e67e22" stroke="black" points="1116,-86 864,-86 864,0 1116,0 1116,-86"></polygon>
+<text text-anchor="middle" x="990" y="-49" font-family="Palatino" font-size="20.00" fill="white">Rejection Sampling</text>
+<text text-anchor="middle" x="990" y="-25" font-family="Palatino" font-size="20.00" fill="white">+ General SFT</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M828.03,-43C836.56,-43 845.18,-43 853.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="853.82,-46.5 863.82,-43 853.82,-39.5 853.82,-46.5"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="#c0392b" stroke="black" points="1404,-86 1152,-86 1152,0 1404,0 1404,-86"></polygon>
+<text text-anchor="middle" x="1278" y="-49" font-family="Palatino" font-size="20.00" fill="white">Diverse RL</text>
+<text text-anchor="middle" x="1278" y="-25" font-family="Palatino" font-size="20.00" fill="white">(Final Alignment)</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1116.03,-43C1124.56,-43 1133.18,-43 1141.77,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1141.82,-46.5 1151.82,-43 1141.82,-39.5 1141.82,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>GRPO</strong> (Group Relative Policy Optimization): Samples multiple responses per input, rewards based on correctness alone. No need for human demonstrations of reasoning.</p>
+</div>
+<div class="fragment">
+<p>Published in <strong>Nature</strong> (<a href="https://www.nature.com/articles/s41586-025-09422-z">Guo et al.&nbsp;2025</a>) — validating that reasoning capabilities can be <strong>incentivized</strong> purely through RL.</p>
+</div>
+</section>
+<section id="the-grpo-objective" class="slide level2 scrollable">
+<h2>The GRPO Objective</h2>
+<p>DeepSeek R1’s training relies on <strong>Group Relative Policy Optimization</strong>, a variant of policy gradient methods:</p>
+<div class="fragment">
+<p><span class="math display">\[\mathcal{L}_{\text{GRPO}} = -\mathbb{E}_{x \sim D}\left[\frac{1}{G}\sum_{i=1}^{G} \underbrace{A_i}_{\text{advantage}} \cdot \underbrace{\log \pi_\theta(y_i | x)}_{\text{log-prob of response } y_i}\right]\]</span></p>
+</div>
+<div class="fragment">
+<p>Where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(x\)</span> = input problem sampled from dataset <span class="math inline">\(D\)</span></li>
+<li class="fragment"><span class="math inline">\(G\)</span> = group size (number of sampled responses per input)</li>
+<li class="fragment"><span class="math inline">\(y_i\)</span> = the <span class="math inline">\(i\)</span>-th sampled response</li>
+<li class="fragment"><span class="math inline">\(\pi_\theta(y_i | x)\)</span> = probability of generating response <span class="math inline">\(y_i\)</span> under current policy <span class="math inline">\(\theta\)</span></li>
+<li class="fragment"><span class="math inline">\(A_i\)</span> = <strong>advantage</strong> — how much better response <span class="math inline">\(y_i\)</span> is relative to the group average:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[A_i = \frac{r_i - \text{mean}(r_1, \dots, r_G)}{\text{std}(r_1, \dots, r_G)}\]</span></p>
+<p>The reward <span class="math inline">\(r_i\)</span> is rule-based: correct final answer <span class="math inline">\(\rightarrow\)</span> high reward; incorrect <span class="math inline">\(\rightarrow\)</span> low reward. No human demonstrations needed — the model discovers reasoning strategies by exploring which response patterns lead to correct answers.</p>
+</div>
+</div>
+</section>
+<section id="the-aha-moment" class="slide level2 scrollable">
+<h2>The “Aha Moment”</h2>
+<p>During RL training, DeepSeek R1-Zero spontaneously developed:</p>
+<ul>
+<li class="fragment"><strong>Self-verification</strong>: Checking its own work mid-chain</li>
+<li class="fragment"><strong>Reflection</strong>: Recognizing when an approach is failing</li>
+<li class="fragment"><strong>Backtracking</strong>: Abandoning incorrect paths and trying alternatives</li>
+<li class="fragment"><strong>Dynamic strategy</strong>: Switching between reasoning approaches based on problem type</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key Insight</strong></p>
+</div>
+<div class="callout-content">
+<p>These behaviors were <strong>not programmed</strong> — they emerged as the model discovered that careful reasoning led to higher rewards. This suggests reasoning may be a natural consequence of optimizing for correctness on hard problems.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="reasoning-distillation" class="slide level2 scrollable">
+<h2>Reasoning Distillation</h2>
+<p>A critical finding: reasoning capabilities can be <strong>distilled</strong> from large models into smaller ones.</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 45%">
+<col style="width: 17%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Distilled Model</th>
+<th>Base</th>
+<th>Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>R1-Distill-Qwen-32B</td>
+<td>Qwen 32B</td>
+<td>Outperforms o1-mini</td>
+</tr>
+<tr class="even">
+<td>R1-Distill-Qwen-8B</td>
+<td>Qwen 8B</td>
+<td>Matches Qwen3-235B-Thinking on some tasks</td>
+</tr>
+<tr class="odd">
+<td>R1-Distill-Llama-70B</td>
+<td>Llama 70B</td>
+<td>Competitive with full R1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p>Implication: Frontier-level reasoning on a <strong>single GPU</strong>. The 8B distilled model runs on 40–80GB VRAM, making reasoning research accessible to individual researchers and small labs.</p>
+</div>
+</section>
+<section id="taxonomy-of-reasoning-approaches" class="slide level2 scrollable">
+<h2>Taxonomy of Reasoning Approaches</h2>
+<div class="cell" data-fig-width="16" data-fig-height="8" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="768" viewbox="0.00 0.00 836.00 620.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 616)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-616 832,-616 832,4 -4,4"></polygon>
+<!-- R -->
+<g id="node1" class="node">
+<title>R</title>
+<polygon fill="#2c3e50" stroke="black" points="252,-311.5 0,-311.5 0,-210.5 252,-210.5 252,-311.5"></polygon>
+<text text-anchor="middle" x="126" y="-268.2" font-family="Palatino" font-size="24.00" fill="white">LLM Reasoning</text>
+<text text-anchor="middle" x="126" y="-239.4" font-family="Palatino" font-size="24.00" fill="white">Approaches</text>
+</g>
+<!-- P -->
+<g id="node2" class="node">
+<title>P</title>
+<polygon fill="#3498db" stroke="black" points="540,-484 288,-484 288,-398 540,-398 540,-484"></polygon>
+<text text-anchor="middle" x="414" y="-448.2" font-family="Palatino" font-size="24.00" fill="white">Prompt-Based</text>
+<text text-anchor="middle" x="414" y="-419.4" font-family="Palatino" font-size="24.00" fill="white">(No training change)</text>
+</g>
+<!-- R&#45;&gt;P -->
+<g id="edge1" class="edge">
+<title>R-&gt;P</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M207.43,-311.62C247.52,-336.85 295.78,-367.23 335.47,-392.2"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="333.99,-395.41 344.32,-397.77 337.72,-389.48 333.99,-395.41"></polygon>
+</g>
+<!-- T -->
+<g id="node3" class="node">
+<title>T</title>
+<polygon fill="#27ae60" stroke="black" points="540,-304 288,-304 288,-218 540,-218 540,-304"></polygon>
+<text text-anchor="middle" x="414" y="-268.2" font-family="Palatino" font-size="24.00" fill="white">Training-Based</text>
+<text text-anchor="middle" x="414" y="-239.4" font-family="Palatino" font-size="24.00" fill="white">(RL on reasoning)</text>
+</g>
+<!-- R&#45;&gt;T -->
+<g id="edge2" class="edge">
+<title>R-&gt;T</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.03,-261C260.56,-261 269.18,-261 277.77,-261"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="277.82,-264.5 287.82,-261 277.82,-257.5 277.82,-264.5"></polygon>
+</g>
+<!-- H -->
+<g id="node4" class="node">
+<title>H</title>
+<polygon fill="#f39c12" stroke="black" points="540,-169 288,-169 288,-83 540,-83 540,-169"></polygon>
+<text text-anchor="middle" x="414" y="-133.2" font-family="Palatino" font-size="24.00" fill="white">Hybrid</text>
+<text text-anchor="middle" x="414" y="-104.4" font-family="Palatino" font-size="24.00" fill="white">(Both)</text>
+</g>
+<!-- R&#45;&gt;H -->
+<g id="edge3" class="edge">
+<title>R-&gt;H</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M234.31,-210.35C259.86,-198.29 287.04,-185.46 312.28,-173.54"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="313.94,-176.63 321.49,-169.2 310.95,-170.3 313.94,-176.63"></polygon>
+</g>
+<!-- P1 -->
+<g id="node5" class="node">
+<title>P1</title>
+<polygon fill="#85c1e9" stroke="black" points="828,-612 576,-612 576,-540 828,-540 828,-612"></polygon>
+<text text-anchor="middle" x="702" y="-583.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">Zero-shot CoT</text>
+<text text-anchor="middle" x="702" y="-554.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">'Think step by step'</text>
+</g>
+<!-- P&#45;&gt;P1 -->
+<g id="edge4" class="edge">
+<title>P-&gt;P1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M486.22,-484.13C513.75,-499.91 545.84,-517.25 576,-531 579.78,-532.72 583.64,-534.42 587.56,-536.1"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="586.22,-539.33 596.8,-539.96 588.92,-532.88 586.22,-539.33"></polygon>
+</g>
+<!-- P2 -->
+<g id="node6" class="node">
+<title>P2</title>
+<polygon fill="#85c1e9" stroke="black" points="828,-522 576,-522 576,-450 828,-450 828,-522"></polygon>
+<text text-anchor="middle" x="702" y="-493.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">Few-shot CoT</text>
+<text text-anchor="middle" x="702" y="-464.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">Worked examples</text>
+</g>
+<!-- P&#45;&gt;P2 -->
+<g id="edge5" class="edge">
+<title>P-&gt;P2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-460.67C548.56,-462.02 557.18,-463.37 565.77,-464.72"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="565.4,-468.21 575.82,-466.3 566.49,-461.29 565.4,-468.21"></polygon>
+</g>
+<!-- P3 -->
+<g id="node7" class="node">
+<title>P3</title>
+<polygon fill="#85c1e9" stroke="black" points="828,-432 576,-432 576,-360 828,-360 828,-432"></polygon>
+<text text-anchor="middle" x="702" y="-403.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">Tree / Forest</text>
+<text text-anchor="middle" x="702" y="-374.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">of Thought</text>
+</g>
+<!-- P&#45;&gt;P3 -->
+<g id="edge6" class="edge">
+<title>P-&gt;P3</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-421.33C548.56,-419.98 557.18,-418.63 565.77,-417.28"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="566.49,-420.71 575.82,-415.7 565.4,-413.79 566.49,-420.71"></polygon>
+</g>
+<!-- T1 -->
+<g id="node8" class="node">
+<title>T1</title>
+<polygon fill="#82e0aa" stroke="black" points="828,-342 576,-342 576,-270 828,-270 828,-342"></polygon>
+<text text-anchor="middle" x="702" y="-313.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">DeepSeek R1</text>
+<text text-anchor="middle" x="702" y="-284.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">Pure RL</text>
+</g>
+<!-- T&#45;&gt;T1 -->
+<g id="edge7" class="edge">
+<title>T-&gt;T1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-280.67C548.56,-282.02 557.18,-283.37 565.77,-284.72"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="565.4,-288.21 575.82,-286.3 566.49,-281.29 565.4,-288.21"></polygon>
+</g>
+<!-- T2 -->
+<g id="node9" class="node">
+<title>T2</title>
+<polygon fill="#82e0aa" stroke="black" points="828,-252 576,-252 576,-180 828,-180 828,-252"></polygon>
+<text text-anchor="middle" x="702" y="-223.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">OpenAI o-series</text>
+<text text-anchor="middle" x="702" y="-194.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">RL + private CoT</text>
+</g>
+<!-- T&#45;&gt;T2 -->
+<g id="edge8" class="edge">
+<title>T-&gt;T2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-241.33C548.56,-239.98 557.18,-238.63 565.77,-237.28"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="566.49,-240.71 575.82,-235.7 565.4,-233.79 566.49,-240.71"></polygon>
+</g>
+<!-- H1 -->
+<g id="node10" class="node">
+<title>H1</title>
+<polygon fill="#f9e79f" stroke="black" points="828,-162 576,-162 576,-90 828,-90 828,-162"></polygon>
+<text text-anchor="middle" x="702" y="-133.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">Claude Extended</text>
+<text text-anchor="middle" x="702" y="-104.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">Thinking</text>
+</g>
+<!-- H&#45;&gt;H1 -->
+<g id="edge9" class="edge">
+<title>H-&gt;H1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-126C548.56,-126 557.18,-126 565.77,-126"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="565.82,-129.5 575.82,-126 565.82,-122.5 565.82,-129.5"></polygon>
+</g>
+<!-- H2 -->
+<g id="node11" class="node">
+<title>H2</title>
+<polygon fill="#f9e79f" stroke="black" points="828,-72 576,-72 576,0 828,0 828,-72"></polygon>
+<text text-anchor="middle" x="702" y="-43.2" font-family="Palatino" font-size="24.00" fill="#2c3e50">Gemini Deep</text>
+<text text-anchor="middle" x="702" y="-14.4" font-family="Palatino" font-size="24.00" fill="#2c3e50">Think</text>
+</g>
+<!-- H&#45;&gt;H2 -->
+<g id="edge10" class="edge">
+<title>H-&gt;H2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M540.03,-86.66C552.24,-82.81 564.64,-78.91 576.85,-75.07"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="578.1,-78.34 586.59,-72 576,-71.67 578.1,-78.34"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="limitations-of-reasoning-models" class="slide level2 scrollable">
+<h2>Limitations of Reasoning Models</h2>
+<p>Reasoning models are powerful but not infallible:</p>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Overthinking</strong>: May spend excessive compute on simple problems</li>
+<li class="fragment"><strong>Confident but wrong</strong>: Structured reasoning traces can make errors appear convincing</li>
+<li class="fragment"><strong>Compute cost</strong>: Reasoning tokens are expensive — a single o3-pro query can cost 10–100× more than a standard query</li>
+<li class="fragment"><strong>The “Illusion of Thinking”</strong> (<a href="https://arxiv.org/abs/2506.06941">Apple ML Research, 2025</a>): Reasoning traces may not always reflect genuine logical inference</li>
+<li class="fragment"><strong>Repetition loops</strong>: DeepSeek R1-Zero initially suffered from endless repetition and language mixing</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Critical Evaluation</strong></p>
+</div>
+<div class="callout-content">
+<p>A well-structured reasoning trace does not guarantee a correct answer. Always validate model outputs against ground truth, especially in research and policy contexts.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="part-iii-agentic-ai-systems" class="title-slide slide level1 center" data-background-color="#c0392b">
+<h1>Part III: Agentic AI Systems</h1>
+
+</section>
+<section id="from-chatbots-to-agents" class="slide level2 scrollable">
+<h2>From Chatbots to Agents</h2>
+<p>The fundamental shift:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Chatbot (LLM)</th>
+<th>Agent (Agentic AI)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interaction</td>
+<td>Responds to prompts</td>
+<td>Pursues goals</td>
+</tr>
+<tr class="even">
+<td>Planning</td>
+<td>None</td>
+<td>Multi-step plans</td>
+</tr>
+<tr class="odd">
+<td>Tool use</td>
+<td>Limited</td>
+<td>Native tool calling</td>
+</tr>
+<tr class="even">
+<td>Memory</td>
+<td>Context window only</td>
+<td>Short + long-term memory</td>
+</tr>
+<tr class="odd">
+<td>Error recovery</td>
+<td>Manual re-prompting</td>
+<td>Self-correction</td>
+</tr>
+<tr class="even">
+<td>Autonomy</td>
+<td>None</td>
+<td>Operates for hours/days</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<blockquote>
+<p>Traditional LLMs are systems of <strong>language</strong>. Agentic AI systems are systems of <strong>behavior</strong>.</p>
+</blockquote>
+</div>
+</section>
+<section id="the-three-pillars-of-agency" class="slide level2 scrollable">
+<h2>The Three Pillars of Agency</h2>
+<div class="cell" data-fig-width="15" data-fig-height="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="576" viewbox="0.00 0.00 692.00 347.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 343)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-343 688,-343 688,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#2c3e50" stroke="black" points="180,-220 0,-220 0,-119 180,-119 180,-220"></polygon>
+<text text-anchor="middle" x="90" y="-162.3" font-family="Palatino" font-size="24.00" fill="white">Agentic AI</text>
+</g>
+<!-- P -->
+<g id="node2" class="node">
+<title>P</title>
+<polygon fill="#3498db" stroke="black" points="432,-339 216,-339 216,-238 432,-238 432,-339"></polygon>
+<text text-anchor="middle" x="324" y="-295.7" font-family="Palatino" font-size="24.00" fill="white">1. Planning &amp;</text>
+<text text-anchor="middle" x="324" y="-266.9" font-family="Palatino" font-size="24.00" fill="white">Reasoning</text>
+</g>
+<!-- A&#45;&gt;P -->
+<g id="edge1" class="edge">
+<title>A-&gt;P</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180.03,-215.17C191.54,-221.07 203.42,-227.16 215.19,-233.2"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="213.66,-236.35 224.16,-237.8 216.86,-230.12 213.66,-236.35"></polygon>
+</g>
+<!-- E -->
+<g id="node3" class="node">
+<title>E</title>
+<polygon fill="#27ae60" stroke="black" points="432,-220 216,-220 216,-119 432,-119 432,-220"></polygon>
+<text text-anchor="middle" x="324" y="-176.7" font-family="Palatino" font-size="24.00" fill="white">2. Execution &amp;</text>
+<text text-anchor="middle" x="324" y="-147.9" font-family="Palatino" font-size="24.00" fill="white">Tool Use</text>
+</g>
+<!-- A&#45;&gt;E -->
+<g id="edge3" class="edge">
+<title>A-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180.03,-169.5C188.48,-169.5 197.14,-169.5 205.8,-169.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="205.96,-173 215.96,-169.5 205.96,-166 205.96,-173"></polygon>
+</g>
+<!-- L -->
+<g id="node4" class="node">
+<title>L</title>
+<polygon fill="#f39c12" stroke="black" points="432,-101 216,-101 216,0 432,0 432,-101"></polygon>
+<text text-anchor="middle" x="324" y="-57.7" font-family="Palatino" font-size="24.00" fill="white">3. Learning &amp;</text>
+<text text-anchor="middle" x="324" y="-28.9" font-family="Palatino" font-size="24.00" fill="white">Adaptation</text>
+</g>
+<!-- A&#45;&gt;L -->
+<g id="edge5" class="edge">
+<title>A-&gt;L</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180.03,-123.83C191.54,-117.93 203.42,-111.84 215.19,-105.8"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="216.86,-108.88 224.16,-101.2 213.66,-102.65 216.86,-108.88"></polygon>
+</g>
+<!-- P1 -->
+<g id="node5" class="node">
+<title>P1</title>
+<polygon fill="#85c1e9" stroke="black" points="684,-335.9 468,-335.9 468,-241.1 684,-241.1 684,-335.9"></polygon>
+<text text-anchor="middle" x="576" y="-310.1" font-family="Palatino" font-size="24.00" fill="#2c3e50">Decompose goals</text>
+<text text-anchor="middle" x="576" y="-281.3" font-family="Palatino" font-size="24.00" fill="#2c3e50">Evaluate options</text>
+<text text-anchor="middle" x="576" y="-252.5" font-family="Palatino" font-size="24.00" fill="#2c3e50">Anticipate failures</text>
+</g>
+<!-- P&#45;&gt;P1 -->
+<g id="edge2" class="edge">
+<title>P-&gt;P1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M432.11,-288.5C440.5,-288.5 448.99,-288.5 457.44,-288.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="457.71,-292 467.71,-288.5 457.71,-285 457.71,-292"></polygon>
+</g>
+<!-- E1 -->
+<g id="node6" class="node">
+<title>E1</title>
+<polygon fill="#82e0aa" stroke="black" points="684,-216.9 468,-216.9 468,-122.1 684,-122.1 684,-216.9"></polygon>
+<text text-anchor="middle" x="576" y="-191.1" font-family="Palatino" font-size="24.00" fill="#2c3e50">Call APIs</text>
+<text text-anchor="middle" x="576" y="-162.3" font-family="Palatino" font-size="24.00" fill="#2c3e50">Execute code</text>
+<text text-anchor="middle" x="576" y="-133.5" font-family="Palatino" font-size="24.00" fill="#2c3e50">Navigate browsers</text>
+</g>
+<!-- E&#45;&gt;E1 -->
+<g id="edge4" class="edge">
+<title>E-&gt;E1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M432.11,-169.5C440.5,-169.5 448.99,-169.5 457.44,-169.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="457.71,-173 467.71,-169.5 457.71,-166 457.71,-173"></polygon>
+</g>
+<!-- L1 -->
+<g id="node7" class="node">
+<title>L1</title>
+<polygon fill="#f9e79f" stroke="black" points="684,-97.9 468,-97.9 468,-3.1 684,-3.1 684,-97.9"></polygon>
+<text text-anchor="middle" x="576" y="-72.1" font-family="Palatino" font-size="24.00" fill="#2c3e50">Process feedback</text>
+<text text-anchor="middle" x="576" y="-43.3" font-family="Palatino" font-size="24.00" fill="#2c3e50">Update memory</text>
+<text text-anchor="middle" x="576" y="-14.5" font-family="Palatino" font-size="24.00" fill="#2c3e50">Refine strategies</text>
+</g>
+<!-- L&#45;&gt;L1 -->
+<g id="edge6" class="edge">
+<title>L-&gt;L1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M432.11,-50.5C440.5,-50.5 448.99,-50.5 457.44,-50.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="457.71,-54 467.71,-50.5 457.71,-47 457.71,-54"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="agentic-design-patterns" class="slide level2 scrollable">
+<h2>Agentic Design Patterns</h2>
+<p>Seven core patterns that form the architectural vocabulary for agent development:</p>
+<div class="fragment">
+<ol type="1">
+<li class="fragment"><strong>ReAct</strong> (Reasoning + Acting): Interleave reasoning traces with tool calls</li>
+<li class="fragment"><strong>Reflection</strong>: Agent critiques its own outputs and iterates</li>
+<li class="fragment"><strong>Tool Use</strong>: Native function calling to external APIs, databases, code executors</li>
+<li class="fragment"><strong>Planning</strong>: Decompose complex goals into sub-tasks with dependency ordering</li>
+<li class="fragment"><strong>Multi-Agent Collaboration</strong>: Specialized agents with distinct roles communicate via structured protocols</li>
+<li class="fragment"><strong>Sequential Workflows</strong>: Pipeline of agent steps with conditional branching</li>
+<li class="fragment"><strong>Human-in-the-Loop</strong>: Agent operates autonomously but escalates decisions to humans at defined checkpoints</li>
+</ol>
+</div>
+</section>
+<section id="the-react-pattern" class="slide level2 scrollable">
+<h2>The ReAct Pattern</h2>
+<p>The most widely adopted agentic pattern, combining <strong>Re</strong>asoning and <strong>Act</strong>ion:</p>
+<div class="cell" data-fig-width="16" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="384" viewbox="0.00 0.00 2100.00 123.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 119)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-119 2096,-119 2096,4 -4,4"></polygon>
+<!-- Q -->
+<g id="node1" class="node">
+<title>Q</title>
+<polygon fill="#2c3e50" stroke="black" points="230,-115 0,-115 0,0 230,0 230,-115"></polygon>
+<text text-anchor="middle" x="115" y="-49.1" font-family="Palatino" font-size="28.00" fill="white">User Query</text>
+</g>
+<!-- T -->
+<g id="node2" class="node">
+<title>T</title>
+<polygon fill="#3498db" stroke="black" points="496,-115 266,-115 266,0 496,0 496,-115"></polygon>
+<text text-anchor="middle" x="381" y="-82.7" font-family="Palatino" font-size="28.00" fill="white">Thought:</text>
+<text text-anchor="middle" x="381" y="-49.1" font-family="Palatino" font-size="28.00" fill="white">'I need to</text>
+<text text-anchor="middle" x="381" y="-15.5" font-family="Palatino" font-size="28.00" fill="white">search for...'</text>
+</g>
+<!-- Q&#45;&gt;T -->
+<g id="edge1" class="edge">
+<title>Q-&gt;T</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M230.26,-57.5C238.77,-57.5 247.39,-57.5 255.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="255.99,-61 265.99,-57.5 255.99,-54 255.99,-61"></polygon>
+</g>
+<!-- A -->
+<g id="node3" class="node">
+<title>A</title>
+<polygon fill="#27ae60" stroke="black" points="762,-115 532,-115 532,0 762,0 762,-115"></polygon>
+<text text-anchor="middle" x="647" y="-82.7" font-family="Palatino" font-size="28.00" fill="white">Action:</text>
+<text text-anchor="middle" x="647" y="-49.1" font-family="Palatino" font-size="28.00" fill="white">web_search</text>
+<text text-anchor="middle" x="647" y="-15.5" font-family="Palatino" font-size="28.00" fill="white">('query')</text>
+</g>
+<!-- T&#45;&gt;A -->
+<g id="edge2" class="edge">
+<title>T-&gt;A</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M496.26,-57.5C504.77,-57.5 513.39,-57.5 521.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="521.99,-61 531.99,-57.5 521.99,-54 521.99,-61"></polygon>
+</g>
+<!-- O -->
+<g id="node4" class="node">
+<title>O</title>
+<polygon fill="#f39c12" stroke="black" points="1028,-115 798,-115 798,0 1028,0 1028,-115"></polygon>
+<text text-anchor="middle" x="913" y="-82.7" font-family="Palatino" font-size="28.00" fill="white">Observation:</text>
+<text text-anchor="middle" x="913" y="-49.1" font-family="Palatino" font-size="28.00" fill="white">[search</text>
+<text text-anchor="middle" x="913" y="-15.5" font-family="Palatino" font-size="28.00" fill="white">results]</text>
+</g>
+<!-- A&#45;&gt;O -->
+<g id="edge3" class="edge">
+<title>A-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M762.26,-57.5C770.77,-57.5 779.39,-57.5 787.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="787.99,-61 797.99,-57.5 787.99,-54 787.99,-61"></polygon>
+</g>
+<!-- T2 -->
+<g id="node5" class="node">
+<title>T2</title>
+<polygon fill="#3498db" stroke="black" points="1294,-115 1064,-115 1064,0 1294,0 1294,-115"></polygon>
+<text text-anchor="middle" x="1179" y="-82.7" font-family="Palatino" font-size="28.00" fill="white">Thought:</text>
+<text text-anchor="middle" x="1179" y="-49.1" font-family="Palatino" font-size="28.00" fill="white">'Now I</text>
+<text text-anchor="middle" x="1179" y="-15.5" font-family="Palatino" font-size="28.00" fill="white">should...'</text>
+</g>
+<!-- O&#45;&gt;T2 -->
+<g id="edge4" class="edge">
+<title>O-&gt;T2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1028.26,-57.5C1036.77,-57.5 1045.39,-57.5 1053.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1053.99,-61 1063.99,-57.5 1053.99,-54 1053.99,-61"></polygon>
+</g>
+<!-- A2 -->
+<g id="node6" class="node">
+<title>A2</title>
+<polygon fill="#27ae60" stroke="black" points="1560,-115 1330,-115 1330,0 1560,0 1560,-115"></polygon>
+<text text-anchor="middle" x="1445" y="-82.7" font-family="Palatino" font-size="28.00" fill="white">Action:</text>
+<text text-anchor="middle" x="1445" y="-49.1" font-family="Palatino" font-size="28.00" fill="white">calculate</text>
+<text text-anchor="middle" x="1445" y="-15.5" font-family="Palatino" font-size="28.00" fill="white">(data)</text>
+</g>
+<!-- T2&#45;&gt;A2 -->
+<g id="edge5" class="edge">
+<title>T2-&gt;A2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1294.26,-57.5C1302.77,-57.5 1311.39,-57.5 1319.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1319.99,-61 1329.99,-57.5 1319.99,-54 1319.99,-61"></polygon>
+</g>
+<!-- O2 -->
+<g id="node7" class="node">
+<title>O2</title>
+<polygon fill="#f39c12" stroke="black" points="1826,-115 1596,-115 1596,0 1826,0 1826,-115"></polygon>
+<text text-anchor="middle" x="1711" y="-65.9" font-family="Palatino" font-size="28.00" fill="white">Observation:</text>
+<text text-anchor="middle" x="1711" y="-32.3" font-family="Palatino" font-size="28.00" fill="white">[result]</text>
+</g>
+<!-- A2&#45;&gt;O2 -->
+<g id="edge6" class="edge">
+<title>A2-&gt;O2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1560.26,-57.5C1568.77,-57.5 1577.39,-57.5 1585.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1585.99,-61 1595.99,-57.5 1585.99,-54 1585.99,-61"></polygon>
+</g>
+<!-- F -->
+<g id="node8" class="node">
+<title>F</title>
+<polygon fill="#c0392b" stroke="black" points="2092,-115 1862,-115 1862,0 2092,0 2092,-115"></polygon>
+<text text-anchor="middle" x="1977" y="-65.9" font-family="Palatino" font-size="28.00" fill="white">Final</text>
+<text text-anchor="middle" x="1977" y="-32.3" font-family="Palatino" font-size="28.00" fill="white">Answer</text>
+</g>
+<!-- O2&#45;&gt;F -->
+<g id="edge7" class="edge">
+<title>O2-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1826.26,-57.5C1834.77,-57.5 1843.39,-57.5 1851.96,-57.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1851.99,-61 1861.99,-57.5 1851.99,-54 1851.99,-61"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Each <strong>Thought → Action → Observation</strong> cycle allows the agent to ground its reasoning in real-world data and self-correct.</p>
+</div>
+</section>
+<section id="multi-agent-systems" class="slide level2 scrollable">
+<h2>Multi-Agent Systems</h2>
+<p>Complex tasks can be decomposed across <strong>specialized agents</strong> that collaborate:</p>
+<div class="cell" data-fig-width="18" data-fig-height="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1728" height="576" viewbox="0.00 0.00 766.44 355.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 351)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-351 762.44,-351 762.44,4 -4,4"></polygon>
+<!-- O -->
+<g id="node1" class="node">
+<title>O</title>
+<polygon fill="#2c3e50" stroke="black" points="216,-179.5 0,-179.5 0,-64.5 216,-64.5 216,-179.5"></polygon>
+<text text-anchor="middle" x="108" y="-130.4" font-family="Palatino" font-size="28.00" fill="white">Orchestrator</text>
+<text text-anchor="middle" x="108" y="-96.8" font-family="Palatino" font-size="28.00" fill="white">Agent</text>
+</g>
+<!-- P -->
+<g id="node2" class="node">
+<title>P</title>
+<polygon fill="#3498db" stroke="black" points="502,-347 322,-347 322,-261 502,-261 502,-347"></polygon>
+<text text-anchor="middle" x="412" y="-312.4" font-family="Palatino" font-size="28.00" fill="white">Planner</text>
+<text text-anchor="middle" x="412" y="-278.8" font-family="Palatino" font-size="28.00" fill="white">Agent</text>
+</g>
+<!-- O&#45;&gt;P -->
+<g id="edge1" class="edge">
+<title>O-&gt;P</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M202.33,-179.5C239.47,-202.25 282.65,-228.51 321.98,-252 323.98,-253.19 326,-254.4 328.04,-255.61"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="326.71,-258.89 337.1,-260.98 330.28,-252.87 326.71,-258.89"></polygon>
+<text text-anchor="middle" x="268.99" y="-242.2" font-family="Times,serif" font-size="14.00"> &nbsp;decompose</text>
+</g>
+<!-- R -->
+<g id="node3" class="node">
+<title>R</title>
+<polygon fill="#27ae60" stroke="black" points="502,-243 322,-243 322,-157 502,-157 502,-243"></polygon>
+<text text-anchor="middle" x="412" y="-208.4" font-family="Palatino" font-size="28.00" fill="white">Researcher</text>
+<text text-anchor="middle" x="412" y="-174.8" font-family="Palatino" font-size="28.00" fill="white">Agent</text>
+</g>
+<!-- O&#45;&gt;R -->
+<g id="edge2" class="edge">
+<title>O-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M216.32,-149.72C247.53,-157.78 281.46,-166.54 312.12,-174.46"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="311.4,-177.89 321.96,-177 313.15,-171.11 311.4,-177.89"></polygon>
+<text text-anchor="middle" x="268.99" y="-174.2" font-family="Times,serif" font-size="14.00"> &nbsp;gather info</text>
+</g>
+<!-- C -->
+<g id="node4" class="node">
+<title>C</title>
+<polygon fill="#f39c12" stroke="black" points="758.44,-126 578.44,-126 578.44,-40 758.44,-40 758.44,-126"></polygon>
+<text text-anchor="middle" x="668.44" y="-91.4" font-family="Palatino" font-size="28.00" fill="white">Coder</text>
+<text text-anchor="middle" x="668.44" y="-57.8" font-family="Palatino" font-size="28.00" fill="white">Agent</text>
+</g>
+<!-- O&#45;&gt;C -->
+<g id="edge3" class="edge">
+<title>O-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M216.18,-114.75C295.2,-109.37 405.31,-101.83 502.01,-95 523.34,-93.49 546.21,-91.85 567.93,-90.28"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="568.44,-93.75 578.16,-89.54 567.93,-86.77 568.44,-93.75"></polygon>
+<text text-anchor="middle" x="412" y="-111.2" font-family="Times,serif" font-size="14.00"> &nbsp;write code</text>
+</g>
+<!-- V -->
+<g id="node5" class="node">
+<title>V</title>
+<polygon fill="#c0392b" stroke="black" points="502.03,-86 321.96,-86 321.96,0 502.03,0 502.03,-86"></polygon>
+<text text-anchor="middle" x="412" y="-51.4" font-family="Palatino" font-size="28.00" fill="white">Critic /</text>
+<text text-anchor="middle" x="412" y="-17.8" font-family="Palatino" font-size="28.00" fill="white">Verifier Agent</text>
+</g>
+<!-- O&#45;&gt;V -->
+<g id="edge4" class="edge">
+<title>O-&gt;V</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M216.32,-93.93C247.53,-85.76 281.46,-76.89 312.12,-68.86"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="313.17,-72.21 321.96,-66.29 311.4,-65.44 313.17,-72.21"></polygon>
+<text text-anchor="middle" x="268.99" y="-91.2" font-family="Times,serif" font-size="14.00"> &nbsp;verify</text>
+</g>
+<!-- V&#45;&gt;O -->
+<g id="edge5" class="edge">
+<title>V-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,2" d="M321.92,-40.45C293.38,-41.66 261.95,-45.15 234,-53.2 226.96,-55.23 219.88,-57.7 212.87,-60.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="211.21,-57.39 203.35,-64.49 213.92,-63.85 211.21,-57.39"></polygon>
+<text text-anchor="middle" x="268.99" y="-58.2" font-family="Times,serif" font-size="14.00"> &nbsp;feedback</text>
+</g>
+<!-- V&#45;&gt;C -->
+<g id="edge6" class="edge">
+<title>V-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,2" d="M502.35,-57.05C523.71,-60.4 546.63,-64.01 568.4,-67.43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="567.89,-70.89 578.31,-68.99 568.97,-63.98 567.89,-70.89"></polygon>
+<text text-anchor="middle" x="540.23" y="-70.2" font-family="Times,serif" font-size="14.00"> &nbsp;revise</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Examples: <strong>MetaGPT</strong> and <strong>ChatDev</strong> assign Software PM, Architect, Developer, and Tester roles to separate agents communicating via structured documents.</p>
+</div>
+</section>
+<section id="real-world-agentic-systems-20252026" class="slide level2 scrollable">
+<h2>Real-World Agentic Systems (2025–2026)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 34%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Provider</th>
+<th>Capability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Claude Code</td>
+<td>Anthropic</td>
+<td>Autonomous terminal-based development</td>
+</tr>
+<tr class="even">
+<td>Operator</td>
+<td>OpenAI</td>
+<td>Multi-step web task execution</td>
+</tr>
+<tr class="odd">
+<td>Deep Research</td>
+<td>Google</td>
+<td>Multi-source research synthesis</td>
+</tr>
+<tr class="even">
+<td>Codex</td>
+<td>OpenAI</td>
+<td>Agentic coding (plan → code → test → fix)</td>
+</tr>
+<tr class="odd">
+<td>Project Mariner</td>
+<td>Google</td>
+<td>Autonomous web navigation</td>
+</tr>
+<tr class="even">
+<td>AlphaEvolve</td>
+<td>Google</td>
+<td>Generate, evaluate, and improve algorithms</td>
+</tr>
+<tr class="odd">
+<td>AI Co-Scientist</td>
+<td>Google</td>
+<td>Scientific hypothesis generation and refinement</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>2026 Trend</strong></p>
+</div>
+<div class="callout-content">
+<p>Long-horizon agents that operate for hours or days on complex projects (scientific experiments, software engineering, policy analysis) are becoming production-ready.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="agentic-memory-types" class="slide level2 scrollable">
+<h2>Agentic Memory Types</h2>
+<p>Persistent memory is what separates a stateless chatbot from a true agent:</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 37%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Memory Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Episodic</strong></td>
+<td>Records of past interactions and events</td>
+<td>“Last time I searched this database, I found…”</td>
+</tr>
+<tr class="even">
+<td><strong>Semantic</strong></td>
+<td>Learned facts and domain knowledge</td>
+<td>“This API requires OAuth2 authentication”</td>
+</tr>
+<tr class="odd">
+<td><strong>Procedural</strong></td>
+<td>Learned strategies and procedures</td>
+<td>“For data cleaning, first check for nulls, then outliers”</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<p>These correspond to human memory systems and enable agents to <strong>improve over time</strong> rather than starting from scratch each session.</p>
+</div>
+</section>
+<section id="the-cost-performance-frontier" class="slide level2 scrollable">
+<h2>The Cost-Performance Frontier</h2>
+<p>Production agentic systems require careful model selection:</p>
+<div class="cell" data-fig-width="15" data-fig-height="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="576" viewbox="0.00 0.00 725.66 347.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 343)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-343 721.66,-343 721.66,4 -4,4"></polygon>
+<!-- T -->
+<g id="node1" class="node">
+<title>T</title>
+<polygon fill="#2c3e50" stroke="black" points="180,-220 0,-220 0,-119 180,-119 180,-220"></polygon>
+<text text-anchor="middle" x="90" y="-176.7" font-family="Palatino" font-size="24.00" fill="white">Incoming</text>
+<text text-anchor="middle" x="90" y="-147.9" font-family="Palatino" font-size="24.00" fill="white">Task</text>
+</g>
+<!-- R -->
+<g id="node2" class="node">
+<title>R</title>
+<polygon fill="#8e44ad" stroke="black" points="397,-220 217,-220 217,-119 397,-119 397,-220"></polygon>
+<text text-anchor="middle" x="307" y="-176.7" font-family="Palatino" font-size="24.00" fill="white">Router /</text>
+<text text-anchor="middle" x="307" y="-147.9" font-family="Palatino" font-size="24.00" fill="white">Classifier</text>
+</g>
+<!-- T&#45;&gt;R -->
+<g id="edge1" class="edge">
+<title>T-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180,-169.5C188.81,-169.5 197.8,-169.5 206.71,-169.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="206.72,-173 216.72,-169.5 206.72,-166 206.72,-173"></polygon>
+</g>
+<!-- S -->
+<g id="node3" class="node">
+<title>S</title>
+<polygon fill="#27ae60" stroke="black" points="717.66,-339 465.66,-339 465.66,-238 717.66,-238 717.66,-339"></polygon>
+<text text-anchor="middle" x="591.66" y="-310.1" font-family="Palatino" font-size="24.00" fill="white">Simple Tasks</text>
+<text text-anchor="middle" x="591.66" y="-281.3" font-family="Palatino" font-size="24.00" fill="white">Small Model (8B)</text>
+<text text-anchor="middle" x="591.66" y="-252.5" font-family="Palatino" font-size="24.00" fill="white">~$0.10/M tokens</text>
+</g>
+<!-- R&#45;&gt;S -->
+<g id="edge2" class="edge">
+<title>R-&gt;S</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M397.05,-206.99C417.44,-215.57 439.52,-224.87 461.22,-234.01"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="459.92,-237.25 470.49,-237.91 462.63,-230.8 459.92,-237.25"></polygon>
+<text text-anchor="middle" x="431.33" y="-228.7" font-family="Times,serif" font-size="14.00"> &nbsp;70%</text>
+</g>
+<!-- M -->
+<g id="node4" class="node">
+<title>M</title>
+<polygon fill="#3498db" stroke="black" points="717.66,-220 465.66,-220 465.66,-119 717.66,-119 717.66,-220"></polygon>
+<text text-anchor="middle" x="591.66" y="-191.1" font-family="Palatino" font-size="24.00" fill="white">Standard Tasks</text>
+<text text-anchor="middle" x="591.66" y="-162.3" font-family="Palatino" font-size="24.00" fill="white">Mid-tier Model</text>
+<text text-anchor="middle" x="591.66" y="-133.5" font-family="Palatino" font-size="24.00" fill="white">~$1–3/M tokens</text>
+</g>
+<!-- R&#45;&gt;M -->
+<g id="edge3" class="edge">
+<title>R-&gt;M</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M397.05,-169.5C415.67,-169.5 435.7,-169.5 455.56,-169.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="455.61,-173 465.61,-169.5 455.61,-166 455.61,-173"></polygon>
+<text text-anchor="middle" x="431.33" y="-173.7" font-family="Times,serif" font-size="14.00"> &nbsp;25%</text>
+</g>
+<!-- H -->
+<g id="node5" class="node">
+<title>H</title>
+<polygon fill="#c0392b" stroke="black" points="717.66,-101 465.66,-101 465.66,0 717.66,0 717.66,-101"></polygon>
+<text text-anchor="middle" x="591.66" y="-72.1" font-family="Palatino" font-size="24.00" fill="white">Complex Reasoning</text>
+<text text-anchor="middle" x="591.66" y="-43.3" font-family="Palatino" font-size="24.00" fill="white">Frontier Model</text>
+<text text-anchor="middle" x="591.66" y="-14.5" font-family="Palatino" font-size="24.00" fill="white">~$15–60/M tokens</text>
+</g>
+<!-- R&#45;&gt;H -->
+<g id="edge4" class="edge">
+<title>R-&gt;H</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M397.05,-132.01C417.44,-123.43 439.52,-114.13 461.22,-104.99"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="462.63,-108.2 470.49,-101.09 459.92,-101.75 462.63,-108.2"></polygon>
+<text text-anchor="middle" x="431.33" y="-127.7" font-family="Times,serif" font-size="14.00"> &nbsp;5%</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>The <strong>Plan-and-Execute</strong> pattern — a frontier model plans while cheaper models execute — can reduce costs by up to 90% compared to using frontier models for everything.</p>
+</div>
+</section>
+<section id="frameworks-for-building-agents" class="slide level2 scrollable">
+<h2>Frameworks for Building Agents</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 35%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Framework</th>
+<th>Strengths</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Native SDKs</strong> (Anthropic, OpenAI)</td>
+<td>Direct, minimal overhead</td>
+<td>Standard agent patterns</td>
+</tr>
+<tr class="even">
+<td><strong>LangGraph</strong></td>
+<td>State management, cyclical workflows</td>
+<td>Complex graph-based pipelines</td>
+</tr>
+<tr class="odd">
+<td><strong>CrewAI</strong></td>
+<td>Role-based multi-agent orchestration</td>
+<td>Team-of-agents workflows</td>
+</tr>
+<tr class="even">
+<td><strong>AutoGen</strong> (Microsoft)</td>
+<td>Multi-agent conversation</td>
+<td>Research prototyping</td>
+</tr>
+<tr class="odd">
+<td><strong>Akka</strong></td>
+<td>Enterprise-grade, production tooling</td>
+<td>Scalable production agents</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>2026 trend: Native SDKs are increasingly preferred over abstraction frameworks. Frontier models now handle function calling, memory, and multi-step reasoning <strong>natively</strong>, reducing the need for middleware.</p>
+</div>
+</section></section>
+<section>
+<section id="part-iv-connecting-the-dots" class="title-slide slide level1 center" data-background-color="#8e44ad">
+<h1>Part IV: Connecting the Dots</h1>
+
+</section>
+<section id="llms-reasoning-agency" class="slide level2 scrollable">
+<h2>LLMs → Reasoning → Agency</h2>
+<div class="cell" data-fig-width="15" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="384" viewbox="0.00 0.00 1359.03 156.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 152)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-152 1355.03,-152 1355.03,4 -4,4"></polygon>
+<!-- L -->
+<g id="node1" class="node">
+<title>L</title>
+<polygon fill="#3498db" stroke="black" points="324,-123.3 0,-123.3 0,0.1 324,0.1 324,-123.3"></polygon>
+<text text-anchor="middle" x="162" y="-97.6" font-family="Palatino" font-size="24.00" fill="white">LLMs</text>
+<text text-anchor="middle" x="162" y="-68.8" font-family="Palatino" font-size="24.00" fill="white">Language understanding</text>
+<text text-anchor="middle" x="162" y="-40" font-family="Palatino" font-size="24.00" fill="white">Pattern recognition</text>
+<text text-anchor="middle" x="162" y="-11.2" font-family="Palatino" font-size="24.00" fill="white">Knowledge retrieval</text>
+</g>
+<!-- R -->
+<g id="node2" class="node">
+<title>R</title>
+<polygon fill="#27ae60" stroke="black" points="875.51,-123.3 551.51,-123.3 551.51,0.1 875.51,0.1 875.51,-123.3"></polygon>
+<text text-anchor="middle" x="713.51" y="-97.6" font-family="Palatino" font-size="24.00" fill="white">Reasoning Models</text>
+<text text-anchor="middle" x="713.51" y="-68.8" font-family="Palatino" font-size="24.00" fill="white">Deliberate thinking</text>
+<text text-anchor="middle" x="713.51" y="-40" font-family="Palatino" font-size="24.00" fill="white">Self-verification</text>
+<text text-anchor="middle" x="713.51" y="-11.2" font-family="Palatino" font-size="24.00" fill="white">Test-time compute</text>
+</g>
+<!-- L&#45;&gt;R -->
+<g id="edge1" class="edge">
+<title>L-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M324.16,-61.6C392.37,-61.6 471.93,-61.6 541.21,-61.6"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="541.35,-65.1 551.35,-61.6 541.35,-58.1 541.35,-65.1"></polygon>
+<text text-anchor="middle" x="437.75" y="-97.6" font-family="Palatino" font-size="24.00"> &nbsp;+ RL on reasoning</text>
+<text text-anchor="middle" x="437.75" y="-68.8" font-family="Palatino" font-size="24.00"> &nbsp;+ CoT training</text>
+</g>
+<!-- A -->
+<g id="node3" class="node">
+<title>A</title>
+<polygon fill="#c0392b" stroke="black" points="1351.03,-123.3 1027.03,-123.3 1027.03,0.1 1351.03,0.1 1351.03,-123.3"></polygon>
+<text text-anchor="middle" x="1189.03" y="-97.6" font-family="Palatino" font-size="24.00" fill="white">Agentic AI</text>
+<text text-anchor="middle" x="1189.03" y="-68.8" font-family="Palatino" font-size="24.00" fill="white">Planning &amp; execution</text>
+<text text-anchor="middle" x="1189.03" y="-40" font-family="Palatino" font-size="24.00" fill="white">Tool use &amp; memory</text>
+<text text-anchor="middle" x="1189.03" y="-11.2" font-family="Palatino" font-size="24.00" fill="white">Autonomous operation</text>
+</g>
+<!-- R&#45;&gt;A -->
+<g id="edge2" class="edge">
+<title>R-&gt;A</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M875.81,-61.6C921.26,-61.6 970.84,-61.6 1016.85,-61.6"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1016.91,-65.1 1026.91,-61.6 1016.91,-58.1 1016.91,-65.1"></polygon>
+<text text-anchor="middle" x="951.27" y="-126.4" font-family="Palatino" font-size="24.00"> &nbsp;+ tool use</text>
+<text text-anchor="middle" x="951.27" y="-97.6" font-family="Palatino" font-size="24.00"> &nbsp;+ memory</text>
+<text text-anchor="middle" x="951.27" y="-68.8" font-family="Palatino" font-size="24.00"> &nbsp;+ planning</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Each layer builds on the previous:</p>
+<ul>
+<li class="fragment">LLMs provide the <strong>language understanding</strong> foundation</li>
+<li class="fragment">Reasoning models add <strong>deliberate cognition</strong></li>
+<li class="fragment">Agentic systems add <strong>action and persistence</strong></li>
+</ul>
+</div>
+</section>
+<section id="implications-for-knowledge-mining" class="slide level2 scrollable">
+<h2>Implications for Knowledge Mining</h2>
+<p>These technologies are reshaping how we approach text-as-data research:</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 39%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Traditional NLP</th>
+<th>LLM-Enhanced NLP</th>
+<th>Agentic NLP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bag-of-words, TF-IDF</td>
+<td>Embeddings, zero-shot classification</td>
+<td>Autonomous research pipelines</td>
+</tr>
+<tr class="even">
+<td>Manual feature engineering</td>
+<td>Prompt-based feature extraction</td>
+<td>Agent-designed feature spaces</td>
+</tr>
+<tr class="odd">
+<td>Single-model pipelines</td>
+<td>LLM + retrieval (RAG)</td>
+<td>Multi-agent analysis teams</td>
+</tr>
+<tr class="even">
+<td>Static analysis</td>
+<td>Interactive analysis with CoT</td>
+<td>Self-improving analysis loops</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>For Your Research</strong></p>
+</div>
+<div class="callout-content">
+<p>Consider: Where in your research workflow could reasoning models improve accuracy? Where could agentic systems automate multi-step processes?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ethical-and-governance-considerations" class="slide level2 scrollable">
+<h2>Ethical and Governance Considerations</h2>
+<p>As AI systems gain autonomy, critical questions arise:</p>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Accountability</strong>: When an agent makes a consequential decision, who is responsible?</li>
+<li class="fragment"><strong>Transparency</strong>: Private reasoning traces (o3) vs.&nbsp;open traces (DeepSeek R1) — should we see how AI thinks?</li>
+<li class="fragment"><strong>Alignment</strong>: How do we ensure long-horizon agents pursue intended goals over days of autonomous operation?</li>
+<li class="fragment"><strong>Access and equity</strong>: Frontier reasoning costs $15–60/M tokens — who can afford to think deeply?</li>
+<li class="fragment"><strong>Geopolitical</strong>: Open-source (DeepSeek, Llama) vs.&nbsp;closed (GPT, Claude) — implications for global AI development</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Critical Question</strong></p>
+</div>
+<div class="callout-content">
+<p>As AI systems move from “systems you talk to” to “systems you give goals to,” how should research ethics frameworks adapt?</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="slide level2 scrollable">
+<h2>Summary</h2>
+<div class="cell" data-fig-width="16" data-fig-height="4" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="384" viewbox="0.00 0.00 1268.00 287.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 283)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-283 1264,-283 1264,4 -4,4"></polygon>
+<!-- A1 -->
+<g id="node1" class="node">
+<title>A1</title>
+<polygon fill="#85c1e9" stroke="black" points="288,-279 0,-279 0,-178 288,-178 288,-279"></polygon>
+<text text-anchor="middle" x="144" y="-250.1" font-family="Palatino" font-size="24.00" fill="#2c3e50">Transformers</text>
+<text text-anchor="middle" x="144" y="-221.3" font-family="Palatino" font-size="24.00" fill="#2c3e50">Attention</text>
+<text text-anchor="middle" x="144" y="-192.5" font-family="Palatino" font-size="24.00" fill="#2c3e50">Scaling laws</text>
+</g>
+<!-- A -->
+<g id="node2" class="node">
+<title>A</title>
+<polygon fill="#3498db" stroke="black" points="612,-279 324,-279 324,-178 612,-178 612,-279"></polygon>
+<text text-anchor="middle" x="468" y="-235.7" font-family="Palatino" font-size="24.00" fill="white">LLMs</text>
+<text text-anchor="middle" x="468" y="-206.9" font-family="Palatino" font-size="24.00" fill="white">(Foundation)</text>
+</g>
+<!-- A1&#45;&gt;A -->
+<g id="edge1" class="edge">
+<title>A1-&gt;A</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M288.11,-228.5C296.62,-228.5 305.2,-228.5 313.75,-228.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="313.77,-232 323.77,-228.5 313.77,-225 313.77,-232"></polygon>
+</g>
+<!-- B -->
+<g id="node4" class="node">
+<title>B</title>
+<polygon fill="#27ae60" stroke="black" points="936,-220 648,-220 648,-119 936,-119 936,-220"></polygon>
+<text text-anchor="middle" x="792" y="-176.7" font-family="Palatino" font-size="24.00" fill="white">Reasoning</text>
+<text text-anchor="middle" x="792" y="-147.9" font-family="Palatino" font-size="24.00" fill="white">(Cognition)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge2" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M612.11,-202.28C620.62,-200.72 629.2,-199.15 637.75,-197.58"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="638.56,-200.99 647.77,-195.74 637.3,-194.1 638.56,-200.99"></polygon>
+</g>
+<!-- B1 -->
+<g id="node3" class="node">
+<title>B1</title>
+<polygon fill="#82e0aa" stroke="black" points="612,-160 324,-160 324,-59 612,-59 612,-160"></polygon>
+<text text-anchor="middle" x="468" y="-131.1" font-family="Palatino" font-size="24.00" fill="#2c3e50">CoT, RL</text>
+<text text-anchor="middle" x="468" y="-102.3" font-family="Palatino" font-size="24.00" fill="#2c3e50">Test-time compute</text>
+<text text-anchor="middle" x="468" y="-73.5" font-family="Palatino" font-size="24.00" fill="#2c3e50">Distillation</text>
+</g>
+<!-- B1&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>B1-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M612.11,-136.17C620.62,-137.75 629.2,-139.35 637.75,-140.94"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="637.29,-144.42 647.77,-142.81 638.58,-137.54 637.29,-144.42"></polygon>
+</g>
+<!-- C -->
+<g id="node6" class="node">
+<title>C</title>
+<polygon fill="#c0392b" stroke="black" points="1260,-160 972,-160 972,-59 1260,-59 1260,-160"></polygon>
+<text text-anchor="middle" x="1116" y="-116.7" font-family="Palatino" font-size="24.00" fill="white">Agentic AI</text>
+<text text-anchor="middle" x="1116" y="-87.9" font-family="Palatino" font-size="24.00" fill="white">(Action)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge4" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M936.11,-142.83C944.62,-141.25 953.2,-139.65 961.75,-138.06"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="962.58,-141.46 971.77,-136.19 961.29,-134.58 962.58,-141.46"></polygon>
+</g>
+<!-- C1 -->
+<g id="node5" class="node">
+<title>C1</title>
+<polygon fill="#f5b7b1" stroke="black" points="936,-101 648,-101 648,0 936,0 936,-101"></polygon>
+<text text-anchor="middle" x="792" y="-57.7" font-family="Palatino" font-size="24.00" fill="#2c3e50">ReAct, Planning</text>
+<text text-anchor="middle" x="792" y="-28.9" font-family="Palatino" font-size="24.00" fill="#2c3e50">Multi-agent, Memory</text>
+</g>
+<!-- C1&#45;&gt;C -->
+<g id="edge5" class="edge">
+<title>C1-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M936.11,-76.72C944.62,-78.28 953.2,-79.85 961.75,-81.42"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="961.3,-84.9 971.77,-83.26 962.56,-78.01 961.3,-84.9"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment"><strong>LLMs</strong> are the foundation — transformer-based models trained on massive text to understand and generate language</li>
+<li class="fragment"><strong>Reasoning models</strong> add deliberate, verifiable thinking via RL and test-time compute scaling</li>
+<li class="fragment"><strong>Agentic AI</strong> combines reasoning with tool use, memory, and planning for autonomous operation</li>
+<li class="fragment">The field is moving from models you <strong>talk to</strong> → models you <strong>give goals to</strong></li>
+</ol>
+</div>
+</section>
+<section id="key-references" class="slide level2 scrollable">
+<h2>Key References</h2>
+<ul>
+<li class="fragment">Vaswani et al.&nbsp;(2017). <a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>. <em>NeurIPS</em>.</li>
+<li class="fragment">Wei et al.&nbsp;(2022). <a href="https://arxiv.org/abs/2201.11903">Chain-of-Thought Prompting Elicits Reasoning in Large Language Models.</a> <em>NeurIPS</em>.</li>
+<li class="fragment">Kojima et al.&nbsp;(2022). <a href="https://arxiv.org/abs/2205.11916">Large Language Models Are Zero-Shot Reasoners</a>. <em>NeurIPS</em>.</li>
+<li class="fragment">DeepSeek AI (2025). <a href="https://www.nature.com/articles/s41586-025-09422-z">DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning</a>. <em>Nature</em>.</li>
+<li class="fragment">Yao et al.&nbsp;(2023). <a href="https://arxiv.org/pdf/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a>. <em>ICLR</em>.</li>
+<li class="fragment">Wei et al.&nbsp;(2026). <a href="https://arxiv.org/abs/2601.12538">Agentic Reasoning for Large Language Models</a>. <em>arXiv:2601.12538</em>.</li>
+<li class="fragment">Apple ML Research (2025). <a href="https://arxiv.org/abs/2506.06941">The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models</a>.</li>
+</ul>
+</section>
+<section id="qa" class="slide level2 center scrollable">
+<h2>Q&amp;A</h2>
+<p>Questions?</p>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="images/eppslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><h10>EPPS 6323 Knowledge Mining</h10></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="LLM_Reasoning_agenticAI_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

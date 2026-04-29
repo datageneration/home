@@ -7,10 +7,10 @@
     "text": "Knowledge Science is a course website for lectures, workshops, assignments, and applied projects in Knowledge Mining.\nThe course introduces students to the theory and practice of extracting, organizing, evaluating, and applying knowledge from structured and unstructured data. Topics include statistical learning, text mining, natural language processing, large language models, retrieval-augmented generation, hallucination detection, and agentic AI systems."
   },
   {
-    "objectID": "index.html#topics",
-    "href": "index.html#topics",
+    "objectID": "index.html#topics-in-slides",
+    "href": "index.html#topics-in-slides",
     "title": "Knowledge Science",
-    "section": "Topics:",
-    "text": "Topics:\nIntroduction\nHow to Read Data Science Books\nUse of AI\nMachine Learning Recap\nTen Simple Rules in AI coding\nLLM, Reasoning and Agentic AI\nRAG Pipeline\nEvaluating AI Systems"
+    "section": "Topics (in slides):",
+    "text": "Topics (in slides):\nIntroduction\nHow to Read Data Science Books\nUse of AI\nMachine Learning Recap\nTen Simple Rules in AI coding\nLLM, Reasoning and Agentic AI\nRAG Pipeline\nEvaluating AI Systems"
   }
 ]

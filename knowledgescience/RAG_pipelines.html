@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="RAG_pipelines_files/libs/clipboard/clipboard.min.js"></script>
+<script src="RAG_pipelines_files/libs/quarto-html/tabby.min.js"></script>
+<script src="RAG_pipelines_files/libs/quarto-html/popper.min.js"></script>
+<script src="RAG_pipelines_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="RAG_pipelines_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="RAG_pipelines_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="RAG_pipelines_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Karl Ho">
+  <title>AI for Research and Knowledge Discovery: RAG Pipelines</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="RAG_pipelines_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="RAG_pipelines_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="RAG_pipelines_files/libs/revealjs/dist/theme/quarto-ed71c0bbd1b1bcfdee8a19950f2015f2.css">
+  <link href="RAG_pipelines_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="RAG_pipelines_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="RAG_pipelines_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="RAG_pipelines_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="RAG_pipelines_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="RAG_pipelines_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">AI for Research and Knowledge Discovery: RAG Pipelines</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Karl Ho 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="overview" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Overview</h1>
+
+</section>
+<section id="todays-agenda" class="slide level2 scrollable">
+<h2>Today’s Agenda</h2>
+<p>This lecture covers how <strong>Retrieval-Augmented Generation (RAG)</strong> transforms research workflows by grounding LLMs in external knowledge:</p>
+<ol type="1">
+<li class="fragment"><strong>The Problem</strong>: Why LLMs alone are insufficient for research</li>
+<li class="fragment"><strong>Traditional RAG</strong>: Architecture, embeddings, vector databases, and retrieval</li>
+<li class="fragment"><strong>Advanced RAG</strong>: Chunking strategies, hybrid search, and re-ranking</li>
+<li class="fragment"><strong>Agentic RAG</strong>: From static retrieval to dynamic, agent-driven knowledge discovery</li>
+<li class="fragment"><strong>RAG for Research</strong>: Applications in political science and social science</li>
+</ol>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Connection to Knowledge Mining</strong></p>
+</div>
+<div class="callout-content">
+<p>RAG is the bridge between the text mining methods we have studied (quanteda, Wordfish, STM) and the LLM/agentic systems covered in the previous lecture. It enables LLMs to work with <strong>your</strong> data.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-rag-matters-for-research" class="slide level2 scrollable">
+<h2>Why RAG Matters for Research</h2>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 955.19 109.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 105)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-105 951.19,-105 951.19,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#c0392b" stroke="black" points="252,-101 0,-101 0,0 252,0 252,-101"></polygon>
+<text text-anchor="middle" x="126" y="-77.5" font-family="Palatino" font-size="18.00" fill="white">LLM Alone</text>
+<text text-anchor="middle" x="126" y="-55.9" font-family="Palatino" font-size="18.00" fill="white">Knowledge cutoff</text>
+<text text-anchor="middle" x="126" y="-34.3" font-family="Palatino" font-size="18.00" fill="white">No proprietary data</text>
+<text text-anchor="middle" x="126" y="-12.7" font-family="Palatino" font-size="18.00" fill="white">Hallucination risk</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#27ae60" stroke="black" points="605.03,-101 353.03,-101 353.03,0 605.03,0 605.03,-101"></polygon>
+<text text-anchor="middle" x="479.03" y="-77.5" font-family="Palatino" font-size="18.00" fill="white">LLM + RAG</text>
+<text text-anchor="middle" x="479.03" y="-55.9" font-family="Palatino" font-size="18.00" fill="white">Current data access</text>
+<text text-anchor="middle" x="479.03" y="-34.3" font-family="Palatino" font-size="18.00" fill="white">Domain-specific grounding</text>
+<text text-anchor="middle" x="479.03" y="-12.7" font-family="Palatino" font-size="18.00" fill="white">Source attribution</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.24,-50.5C281.61,-50.5 313.02,-50.5 342.8,-50.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="342.84,-54 352.84,-50.5 342.84,-47 342.84,-54"></polygon>
+<text text-anchor="middle" x="302.52" y="-54.7" font-family="Times,serif" font-size="14.00"> &nbsp;+ retrieval</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#2980b9" stroke="black" points="947.19,-101 695.19,-101 695.19,0 947.19,0 947.19,-101"></polygon>
+<text text-anchor="middle" x="821.19" y="-77.5" font-family="Palatino" font-size="18.00" fill="white">LLM + Agentic RAG</text>
+<text text-anchor="middle" x="821.19" y="-55.9" font-family="Palatino" font-size="18.00" fill="white">Multi-source reasoning</text>
+<text text-anchor="middle" x="821.19" y="-34.3" font-family="Palatino" font-size="18.00" fill="white">Iterative refinement</text>
+<text text-anchor="middle" x="821.19" y="-12.7" font-family="Palatino" font-size="18.00" fill="white">Autonomous research</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M605.24,-50.5C631.2,-50.5 658.65,-50.5 684.94,-50.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="684.96,-54 694.96,-50.5 684.96,-47 684.96,-54"></polygon>
+<text text-anchor="middle" x="650.11" y="-54.7" font-family="Times,serif" font-size="14.00"> &nbsp;+ agents</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Core insight: RAG does not replace the LLM — it <strong>augments</strong> it with relevant, verifiable external knowledge at query time, without retraining.</p>
+</div>
+</section></section>
+<section>
+<section id="part-i-the-retrieval-problem" class="title-slide slide level1 center" data-background-color="#8e44ad">
+<h1>Part I: The Retrieval Problem</h1>
+
+</section>
+<section id="why-llms-need-external-knowledge" class="slide level2 scrollable">
+<h2>Why LLMs Need External Knowledge</h2>
+<p>LLMs face fundamental limitations for research applications:</p>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Knowledge cutoff</strong>: Training data has a fixed end date — the model cannot know about events, publications, or data collected after training</li>
+<li class="fragment"><strong>No access to proprietary data</strong>: Your survey data, interview transcripts, government reports, and institutional documents are not in the training corpus</li>
+<li class="fragment"><strong>Hallucination</strong>: LLMs generate plausible but fabricated citations, statistics, and claims — dangerous for research</li>
+<li class="fragment"><strong>No source attribution</strong>: Standard LLMs cannot point to specific passages or documents that support their claims</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>For Researchers</strong></p>
+</div>
+<div class="callout-content">
+<p>If you ask an LLM to summarize the latest DOD China Military Power Report or analyze your TEDS 2016 survey data, it cannot do so accurately without RAG — it will either refuse or hallucinate.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="three-approaches-to-grounding-llms" class="slide level2 scrollable">
+<h2>Three Approaches to Grounding LLMs</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 21%">
+<col style="width: 16%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Method</th>
+<th>Cost</th>
+<th>Flexibility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fine-tuning</strong></td>
+<td>Retrain model on domain data</td>
+<td>Very high</td>
+<td>Low (static)</td>
+</tr>
+<tr class="even">
+<td><strong>In-context learning</strong></td>
+<td>Paste documents into prompt</td>
+<td>Low</td>
+<td>Limited by context window</td>
+</tr>
+<tr class="odd">
+<td><strong>RAG</strong></td>
+<td>Retrieve relevant chunks at query time</td>
+<td>Moderate</td>
+<td>High (dynamic)</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>RAG combines the best of both worlds: it is <strong>cheaper than fine-tuning</strong> and <strong>more scalable than in-context learning</strong>, while providing source attribution and access to continuously updated knowledge.</p>
+</div>
+</section>
+<section id="the-rag-intuition" class="slide level2 scrollable">
+<h2>The RAG Intuition</h2>
+<p>Think of RAG as giving the LLM access to a <strong>research library</strong> at the moment it needs to answer a question:</p>
+<div class="fragment">
+<ol type="1">
+<li class="fragment"><strong>Student asks a question</strong> → the user submits a query</li>
+<li class="fragment"><strong>Librarian finds relevant books</strong> → the retriever searches the knowledge base</li>
+<li class="fragment"><strong>Student reads the relevant passages</strong> → retrieved chunks are injected into the prompt</li>
+<li class="fragment"><strong>Student writes an informed answer</strong> → the LLM generates a response grounded in the retrieved context</li>
+</ol>
+</div>
+<div class="fragment">
+<p>The key difference from a web search: RAG operates over <strong>your curated knowledge base</strong> — your PDFs, your datasets, your institutional documents — not the open web.</p>
+</div>
+</section></section>
+<section>
+<section id="part-ii-traditional-rag-architecture" class="title-slide slide level1 center" data-background-color="#3498db">
+<h1>Part II: Traditional RAG Architecture</h1>
+
+</section>
+<section id="the-rag-pipeline" class="slide level2 scrollable">
+<h2>The RAG Pipeline</h2>
+<div class="cell" data-fig-width="16" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="480" viewbox="0.00 0.00 1508.66 326.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 322)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-322 1504.66,-322 1504.66,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_index</title>
+<polygon fill="none" stroke="#3498db" stroke-dasharray="5,2" points="8,-163 8,-310 999,-310 999,-163 8,-163"></polygon>
+<text text-anchor="middle" x="503.5" y="-289.8" font-family="Palatino" font-size="18.00">Indexing Pipeline (offline)</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_query</title>
+<polygon fill="none" stroke="#27ae60" stroke-dasharray="5,2" points="532,-8 532,-155 1492.66,-155 1492.66,-8 532,-8"></polygon>
+<text text-anchor="middle" x="1012.33" y="-134.8" font-family="Palatino" font-size="18.00">Query Pipeline (online)</text>
+</g>
+<!-- D -->
+<g id="node1" class="node">
+<title>D</title>
+<polygon fill="#3498db" stroke="black" points="232,-272.5 16,-272.5 16,-171.5 232,-171.5 232,-272.5"></polygon>
+<text text-anchor="middle" x="124" y="-227.4" font-family="Palatino" font-size="18.00" fill="white">Documents</text>
+<text text-anchor="middle" x="124" y="-205.8" font-family="Palatino" font-size="18.00" fill="white">(PDF, HTML, CSV)</text>
+</g>
+<!-- C -->
+<g id="node2" class="node">
+<title>C</title>
+<polygon fill="#2980b9" stroke="black" points="485,-272.5 269,-272.5 269,-171.5 485,-171.5 485,-272.5"></polygon>
+<text text-anchor="middle" x="377" y="-238.2" font-family="Palatino" font-size="18.00" fill="white">Chunking</text>
+<text text-anchor="middle" x="377" y="-216.6" font-family="Palatino" font-size="18.00" fill="white">(Split into</text>
+<text text-anchor="middle" x="377" y="-195" font-family="Palatino" font-size="18.00" fill="white">passages)</text>
+</g>
+<!-- D&#45;&gt;C -->
+<g id="edge1" class="edge">
+<title>D-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M232.17,-222C240.89,-222 249.73,-222 258.51,-222"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="258.78,-225.5 268.78,-222 258.78,-218.5 258.78,-225.5"></polygon>
+</g>
+<!-- E -->
+<g id="node3" class="node">
+<title>E</title>
+<polygon fill="#2471a3" stroke="black" points="738,-272.5 522,-272.5 522,-171.5 738,-171.5 738,-272.5"></polygon>
+<text text-anchor="middle" x="630" y="-227.4" font-family="Palatino" font-size="18.00" fill="white">Embedding</text>
+<text text-anchor="middle" x="630" y="-205.8" font-family="Palatino" font-size="18.00" fill="white">(Text → Vectors)</text>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge2" class="edge">
+<title>C-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M485.17,-222C493.89,-222 502.73,-222 511.51,-222"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="511.78,-225.5 521.78,-222 511.78,-218.5 511.78,-225.5"></polygon>
+</g>
+<!-- V -->
+<g id="node4" class="node">
+<title>V</title>
+<polygon fill="#1a5276" stroke="black" points="991,-272.5 775,-272.5 775,-171.5 991,-171.5 991,-272.5"></polygon>
+<text text-anchor="middle" x="883" y="-227.4" font-family="Palatino" font-size="18.00" fill="white">Vector</text>
+<text text-anchor="middle" x="883" y="-205.8" font-family="Palatino" font-size="18.00" fill="white">Database</text>
+</g>
+<!-- E&#45;&gt;V -->
+<g id="edge3" class="edge">
+<title>E-&gt;V</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M738.17,-222C746.89,-222 755.73,-222 764.51,-222"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="764.78,-225.5 774.78,-222 764.78,-218.5 764.78,-225.5"></polygon>
+</g>
+<!-- R -->
+<g id="node7" class="node">
+<title>R</title>
+<polygon fill="#1e8449" stroke="black" points="1267.66,-117.5 1087.66,-117.5 1087.66,-16.5 1267.66,-16.5 1267.66,-117.5"></polygon>
+<text text-anchor="middle" x="1177.66" y="-72.4" font-family="Palatino" font-size="18.00" fill="white">Retrieve</text>
+<text text-anchor="middle" x="1177.66" y="-50.8" font-family="Palatino" font-size="18.00" fill="white">Top-k Chunks</text>
+</g>
+<!-- V&#45;&gt;R -->
+<g id="edge6" class="edge">
+<title>V-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,2" d="M979.42,-171.46C1011.14,-154.67 1046.5,-135.94 1078.42,-119.03"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1080.13,-122.09 1087.33,-114.31 1076.85,-115.9 1080.13,-122.09"></polygon>
+<text text-anchor="middle" x="1039.33" y="-174" font-family="Times,serif" font-size="14.00"> &nbsp;similarity</text>
+<text text-anchor="middle" x="1039.33" y="-157.2" font-family="Times,serif" font-size="14.00"> &nbsp;search</text>
+</g>
+<!-- Q -->
+<g id="node5" class="node">
+<title>Q</title>
+<polygon fill="#27ae60" stroke="black" points="720,-117.5 540,-117.5 540,-16.5 720,-16.5 720,-117.5"></polygon>
+<text text-anchor="middle" x="630" y="-72.4" font-family="Palatino" font-size="18.00" fill="white">User</text>
+<text text-anchor="middle" x="630" y="-50.8" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+</g>
+<!-- QE -->
+<g id="node6" class="node">
+<title>QE</title>
+<polygon fill="#229954" stroke="black" points="973,-117.5 793,-117.5 793,-16.5 973,-16.5 973,-117.5"></polygon>
+<text text-anchor="middle" x="883" y="-72.4" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+<text text-anchor="middle" x="883" y="-50.8" font-family="Palatino" font-size="18.00" fill="white">Embedding</text>
+</g>
+<!-- Q&#45;&gt;QE -->
+<g id="edge4" class="edge">
+<title>Q-&gt;QE</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M720.2,-67C740.42,-67 762.02,-67 782.63,-67"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="782.66,-70.5 792.66,-67 782.66,-63.5 782.66,-70.5"></polygon>
+</g>
+<!-- QE&#45;&gt;R -->
+<g id="edge5" class="edge">
+<title>QE-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M973,-67C1005.92,-67 1043.44,-67 1077.22,-67"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1077.58,-70.5 1087.58,-67 1077.58,-63.5 1077.58,-70.5"></polygon>
+</g>
+<!-- G -->
+<g id="node8" class="node">
+<title>G</title>
+<polygon fill="#c0392b" stroke="black" points="1484.66,-117.5 1304.66,-117.5 1304.66,-16.5 1484.66,-16.5 1484.66,-117.5"></polygon>
+<text text-anchor="middle" x="1394.66" y="-72.4" font-family="Palatino" font-size="18.00" fill="white">LLM</text>
+<text text-anchor="middle" x="1394.66" y="-50.8" font-family="Palatino" font-size="18.00" fill="white">Generation</text>
+</g>
+<!-- R&#45;&gt;G -->
+<g id="edge7" class="edge">
+<title>R-&gt;G</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1267.66,-67C1276.48,-67 1285.46,-67 1294.37,-67"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1294.38,-70.5 1304.38,-67 1294.38,-63.5 1294.38,-70.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="step-1-document-ingestion-and-chunking" class="slide level2 scrollable">
+<h2>Step 1: Document Ingestion and Chunking</h2>
+<p>Raw documents must be split into manageable passages before embedding:</p>
+<div class="fragment">
+<p><strong>Chunking strategies</strong>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 35%">
+<col style="width: 28%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Strategy</th>
+<th>Method</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Fixed-size</strong></td>
+<td>Split every N tokens with overlap</td>
+<td>Simple, predictable</td>
+</tr>
+<tr class="even">
+<td><strong>Sentence-based</strong></td>
+<td>Split on sentence boundaries</td>
+<td>Preserving grammatical units</td>
+</tr>
+<tr class="odd">
+<td><strong>Paragraph-based</strong></td>
+<td>Split on paragraph breaks</td>
+<td>Structured documents</td>
+</tr>
+<tr class="even">
+<td><strong>Semantic</strong></td>
+<td>Split where topic shifts (using embeddings)</td>
+<td>Research papers, reports</td>
+</tr>
+<tr class="odd">
+<td><strong>Recursive</strong></td>
+<td>Try large chunks first, subdivide if too long</td>
+<td>General-purpose</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Critical Design Decision</strong></p>
+</div>
+<div class="callout-content">
+<p>Chunk size directly affects retrieval quality. Too small → fragments lose context. Too large → dilutes relevance and wastes context window. Typical range: <strong>256–1024 tokens</strong> with <strong>50–100 token overlap</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-embeddings" class="slide level2 scrollable">
+<h2>Step 2: Embeddings</h2>
+<p>Text chunks are converted to dense numerical vectors that capture <strong>semantic meaning</strong>:</p>
+<div class="fragment">
+<p><span class="math display">\[\text{embed}: \text{text} \rightarrow \mathbb{R}^d\]</span></p>
+<p>where <span class="math inline">\(d\)</span> is the embedding dimension (typically 768–3072) and semantically similar texts are mapped to nearby points in vector space.</p>
+</div>
+<div class="fragment">
+<p><strong>Similarity</strong> between two texts is measured by <strong>cosine similarity</strong>:</p>
+<div class="fragment">
+<p><span class="math display">\[\text{sim}(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{||\mathbf{a}|| \cdot ||\mathbf{b}||} = \frac{\sum_{i=1}^{d} a_i b_i}{\sqrt{\sum_{i=1}^{d} a_i^2} \cdot \sqrt{\sum_{i=1}^{d} b_i^2}}\]</span></p>
+<p>This measures the <strong>angle</strong> between two vectors, ranging from -1 (opposite) to 1 (identical), regardless of vector magnitude. Texts about similar topics cluster together even when they use different words.</p>
+</div>
+</div>
+</section>
+<section id="embedding-models-20252026" class="slide level2 scrollable">
+<h2>Embedding Models (2025–2026)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 25%">
+<col style="width: 30%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Provider</th>
+<th>Dimensions</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>text-embedding-3-small</td>
+<td>OpenAI</td>
+<td>1536</td>
+<td>Cost-effective, general purpose</td>
+</tr>
+<tr class="even">
+<td>text-embedding-3-large</td>
+<td>OpenAI</td>
+<td>3072</td>
+<td>Highest accuracy</td>
+</tr>
+<tr class="odd">
+<td>BGE-M3</td>
+<td>BAAI</td>
+<td>1024</td>
+<td>Open-source, multilingual</td>
+</tr>
+<tr class="even">
+<td>GTE-Qwen2</td>
+<td>Alibaba</td>
+<td>768–1792</td>
+<td>Open-source, strong on benchmarks</td>
+</tr>
+<tr class="odd">
+<td>embeddingGemma</td>
+<td>Google</td>
+<td>768</td>
+<td>Open-weight, efficient</td>
+</tr>
+<tr class="even">
+<td>Voyage-3</td>
+<td>Voyage AI</td>
+<td>1024</td>
+<td>Optimized for code and legal</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>Key insight: <strong>Domain-specific embeddings</strong> can outperform general-purpose models by 12–30% on retrieval tasks. For political science research, consider fine-tuning or choosing models evaluated on social science text.</p>
+</div>
+</section>
+<section id="step-3-vector-databases" class="slide level2 scrollable">
+<h2>Step 3: Vector Databases</h2>
+<p>Vector databases store embeddings and enable fast <strong>approximate nearest-neighbor (ANN)</strong> search:</p>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 1021.07 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1017.07,-90 1017.07,4 -4,4"></polygon>
+<!-- Q -->
+<g id="node1" class="node">
+<title>Q</title>
+<polygon fill="#27ae60" stroke="black" points="252,-86 0,-86 0,0 252,0 252,-86"></polygon>
+<text text-anchor="middle" x="126" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Query Vector</text>
+<text text-anchor="middle" x="126" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">[0.12, -0.34, ...]</text>
+</g>
+<!-- I -->
+<g id="node2" class="node">
+<title>I</title>
+<polygon fill="#f39c12" stroke="black" points="639.93,-86 387.93,-86 387.93,0 639.93,0 639.93,-86"></polygon>
+<text text-anchor="middle" x="513.93" y="-59.2" font-family="Palatino" font-size="18.00" fill="white">HNSW Index</text>
+<text text-anchor="middle" x="513.93" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">(Graph-based</text>
+<text text-anchor="middle" x="513.93" y="-16" font-family="Palatino" font-size="18.00" fill="white">ANN search)</text>
+</g>
+<!-- Q&#45;&gt;I -->
+<g id="edge1" class="edge">
+<title>Q-&gt;I</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.03,-43C292.2,-43 336.87,-43 377.74,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="377.76,-46.5 387.76,-43 377.76,-39.5 377.76,-46.5"></polygon>
+<text text-anchor="middle" x="319.96" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;cosine similarity</text>
+</g>
+<!-- R -->
+<g id="node3" class="node">
+<title>R</title>
+<polygon fill="#3498db" stroke="black" points="1013.07,-86 761.07,-86 761.07,0 1013.07,0 1013.07,-86"></polygon>
+<text text-anchor="middle" x="887.07" y="-59.2" font-family="Palatino" font-size="18.00" fill="white">Top-k Results</text>
+<text text-anchor="middle" x="887.07" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">with metadata</text>
+<text text-anchor="middle" x="887.07" y="-16" font-family="Palatino" font-size="18.00" fill="white">and scores</text>
+</g>
+<!-- I&#45;&gt;R -->
+<g id="edge2" class="edge">
+<title>I-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M640.06,-43C675.65,-43 714.56,-43 750.73,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="750.85,-46.5 760.85,-43 750.85,-39.5 750.85,-46.5"></polygon>
+<text text-anchor="middle" x="700.5" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;ranked results</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 22%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Database</th>
+<th>Type</th>
+<th>Strengths</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Chroma</strong></td>
+<td>Open-source, in-process</td>
+<td>Easy prototyping, Python-native</td>
+</tr>
+<tr class="even">
+<td><strong>Qdrant</strong></td>
+<td>Open-source, Rust</td>
+<td>Fast, hybrid search, self-hostable</td>
+</tr>
+<tr class="odd">
+<td><strong>Pinecone</strong></td>
+<td>Managed cloud</td>
+<td>Zero-ops, serverless scaling</td>
+</tr>
+<tr class="even">
+<td><strong>pgvector</strong></td>
+<td>PostgreSQL extension</td>
+<td>Combines with relational queries</td>
+</tr>
+<tr class="odd">
+<td><strong>FAISS</strong></td>
+<td>Facebook library</td>
+<td>Research-grade, GPU-accelerated</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="step-4-retrieval-and-generation" class="slide level2 scrollable">
+<h2>Step 4: Retrieval and Generation</h2>
+<p>At query time, the system retrieves relevant chunks and injects them into the LLM prompt:</p>
+<div class="fragment">
+<pre><code>System: You are a research assistant. Answer the user's question 
+based ONLY on the following context. If the context does not contain
+the answer, say "I don't have enough information."
+
+Context:
+[Chunk 1]: "The 2024 DOD report states that China's nuclear 
+warhead stockpile exceeded 600 operational warheads..."
+[Chunk 2]: "Beijing continues to modernize its ICBM force with 
+silo-based and road-mobile DF-41 deployments..."
+[Chunk 3]: "The PLA Navy commissioned its third aircraft carrier,
+the Fujian, for operational deployment in 2024..."
+
+User: What is the current state of China's nuclear modernization?</code></pre>
+</div>
+<div class="fragment">
+<p>The LLM generates a response <strong>grounded in the retrieved context</strong>, with the ability to cite specific chunks as sources.</p>
+</div>
+</section>
+<section id="hybrid-search-best-of-both-worlds" class="slide level2 scrollable">
+<h2>Hybrid Search: Best of Both Worlds</h2>
+<p>Production RAG systems increasingly combine <strong>dense</strong> (semantic) and <strong>sparse</strong> (keyword) retrieval:</p>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 1016.00 198.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 194)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-194 1012,-194 1012,4 -4,4"></polygon>
+<!-- Q -->
+<g id="node1" class="node">
+<title>Q</title>
+<polygon fill="#2c3e50" stroke="black" points="180,-138 0,-138 0,-52 180,-52 180,-138"></polygon>
+<text text-anchor="middle" x="90" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">User</text>
+<text text-anchor="middle" x="90" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+</g>
+<!-- D -->
+<g id="node2" class="node">
+<title>D</title>
+<polygon fill="#3498db" stroke="black" points="468,-190 216,-190 216,-104 468,-104 468,-190"></polygon>
+<text text-anchor="middle" x="342" y="-152.4" font-family="Palatino" font-size="18.00" fill="white">Dense Retrieval</text>
+<text text-anchor="middle" x="342" y="-130.8" font-family="Palatino" font-size="18.00" fill="white">(Embedding similarity)</text>
+</g>
+<!-- Q&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>Q-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180.2,-113.55C188.46,-115.27 196.95,-117.04 205.51,-118.82"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="205.08,-122.3 215.58,-120.91 206.5,-115.45 205.08,-122.3"></polygon>
+</g>
+<!-- S -->
+<g id="node3" class="node">
+<title>S</title>
+<polygon fill="#27ae60" stroke="black" points="468,-86 216,-86 216,0 468,0 468,-86"></polygon>
+<text text-anchor="middle" x="342" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Sparse Retrieval</text>
+<text text-anchor="middle" x="342" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(BM25 keywords)</text>
+</g>
+<!-- Q&#45;&gt;S -->
+<g id="edge2" class="edge">
+<title>Q-&gt;S</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180.2,-76.45C188.46,-74.73 196.95,-72.96 205.51,-71.18"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="206.5,-74.55 215.58,-69.09 205.08,-67.7 206.5,-74.55"></polygon>
+</g>
+<!-- F -->
+<g id="node4" class="node">
+<title>F</title>
+<polygon fill="#f39c12" stroke="black" points="756,-138 504,-138 504,-52 756,-52 756,-138"></polygon>
+<text text-anchor="middle" x="630" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Reciprocal Rank</text>
+<text text-anchor="middle" x="630" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Fusion (RRF)</text>
+</g>
+<!-- D&#45;&gt;F -->
+<g id="edge3" class="edge">
+<title>D-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M468.03,-124.27C476.56,-122.72 485.18,-121.15 493.77,-119.59"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="494.61,-122.99 503.82,-117.76 493.36,-116.11 494.61,-122.99"></polygon>
+</g>
+<!-- S&#45;&gt;F -->
+<g id="edge4" class="edge">
+<title>S-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M468.03,-65.73C476.56,-67.28 485.18,-68.85 493.77,-70.41"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="493.36,-73.89 503.82,-72.24 494.61,-67.01 493.36,-73.89"></polygon>
+</g>
+<!-- R -->
+<g id="node5" class="node">
+<title>R</title>
+<polygon fill="#c0392b" stroke="black" points="1008,-138 792,-138 792,-52 1008,-52 1008,-138"></polygon>
+<text text-anchor="middle" x="900" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Final</text>
+<text text-anchor="middle" x="900" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Ranked Results</text>
+</g>
+<!-- F&#45;&gt;R -->
+<g id="edge5" class="edge">
+<title>F-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M756.37,-95C764.79,-95 773.27,-95 781.65,-95"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="781.82,-98.5 791.82,-95 781.82,-91.5 781.82,-98.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Hybrid search achieves <strong>91% recall@10</strong> vs.&nbsp;78% for dense-only and 65% for sparse-only. The latency cost is minimal (~6ms additional). This is the <strong>production baseline for 2026</strong>.</p>
+</div>
+</section>
+<section id="re-ranking-for-precision" class="slide level2 scrollable">
+<h2>Re-Ranking for Precision</h2>
+<p>A <strong>re-ranker</strong> is a cross-encoder model that scores each (query, document) pair for fine-grained relevance:</p>
+<div class="cell" data-fig-width="15" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="192" viewbox="0.00 0.00 1005.48 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1001.48,-90 1001.48,4 -4,4"></polygon>
+<!-- R -->
+<g id="node1" class="node">
+<title>R</title>
+<polygon fill="#3498db" stroke="black" points="252,-86 0,-86 0,0 252,0 252,-86"></polygon>
+<text text-anchor="middle" x="126" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Initial Retrieval</text>
+<text text-anchor="middle" x="126" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Top-50 candidates)</text>
+</g>
+<!-- RR -->
+<g id="node2" class="node">
+<title>RR</title>
+<polygon fill="#f39c12" stroke="black" points="630.95,-86 378.95,-86 378.95,0 630.95,0 630.95,-86"></polygon>
+<text text-anchor="middle" x="504.95" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Cross-Encoder</text>
+<text text-anchor="middle" x="504.95" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">Re-Ranker</text>
+</g>
+<!-- R&#45;&gt;RR -->
+<g id="edge1" class="edge">
+<title>R-&gt;RR</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.26,-43C289.62,-43 330.74,-43 368.71,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="368.81,-46.5 378.81,-43 368.81,-39.5 368.81,-46.5"></polygon>
+<text text-anchor="middle" x="315.47" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;score each pair</text>
+</g>
+<!-- F -->
+<g id="node3" class="node">
+<title>F</title>
+<polygon fill="#27ae60" stroke="black" points="997.48,-86 745.48,-86 745.48,0 997.48,0 997.48,-86"></polygon>
+<text text-anchor="middle" x="871.48" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Final Top-5</text>
+<text text-anchor="middle" x="871.48" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">(Highest relevance)</text>
+</g>
+<!-- RR&#45;&gt;F -->
+<g id="edge2" class="edge">
+<title>RR-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M631.14,-43C664.71,-43 701.15,-43 735.23,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="735.25,-46.5 745.25,-43 735.25,-39.5 735.25,-46.5"></polygon>
+<text text-anchor="middle" x="688.21" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;sort by score</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Why two stages? The initial retrieval (bi-encoder) is fast but approximate. The re-ranker (cross-encoder) is slow but accurate. Combining them gives speed <strong>and</strong> precision — retrieve broadly, then rank precisely.</p>
+</div>
+</section></section>
+<section>
+<section id="part-iii-from-traditional-to-agentic-rag" class="title-slide slide level1 center" data-background-color="#c0392b">
+<h1>Part III: From Traditional to Agentic RAG</h1>
+
+</section>
+<section id="limitations-of-traditional-rag" class="slide level2 scrollable">
+<h2>Limitations of Traditional RAG</h2>
+<p>Traditional RAG follows a <strong>fixed pipeline</strong>: retrieve once, generate once, stop.</p>
+<div class="fragment">
+<p>This fails when:</p>
+<ul>
+<li class="fragment">The <strong>query is ambiguous</strong> — the system cannot ask clarifying questions</li>
+<li class="fragment">The answer requires <strong>multiple sources</strong> — a single retrieval pass may miss relevant documents across databases</li>
+<li class="fragment">The query requires <strong>multi-step reasoning</strong> — “compare X across Y reports” needs iterative retrieval</li>
+<li class="fragment">Retrieved context is <strong>insufficient or conflicting</strong> — the system has no mechanism to detect and recover</li>
+<li class="fragment">The knowledge base is <strong>heterogeneous</strong> — mixing PDFs, databases, APIs, and web sources</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Research Example</strong></p>
+</div>
+<div class="callout-content">
+<p>“How has the framing of ‘technology transfer’ evolved across DOD China reports from 2005–2025?” requires searching across 20+ documents, identifying relevant passages in each, tracking semantic shifts over time, and synthesizing findings — far beyond a single retrieve-and-generate cycle.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="traditional-rag-vs.-agentic-rag" class="slide level2 scrollable">
+<h2>Traditional RAG vs.&nbsp;Agentic RAG</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 40%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>Traditional RAG</th>
+<th>Agentic RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Retrieval</strong></td>
+<td>Single query, single source</td>
+<td>Iterative, multi-source</td>
+</tr>
+<tr class="even">
+<td><strong>Query handling</strong></td>
+<td>Fixed pipeline</td>
+<td>Agent decomposes and refines</td>
+</tr>
+<tr class="odd">
+<td><strong>Decision-making</strong></td>
+<td>None</td>
+<td>Agent selects tools and sources</td>
+</tr>
+<tr class="even">
+<td><strong>Error recovery</strong></td>
+<td>None</td>
+<td>Agent detects failures, retries</td>
+</tr>
+<tr class="odd">
+<td><strong>Memory</strong></td>
+<td>Stateless</td>
+<td>Maintains session context</td>
+</tr>
+<tr class="even">
+<td><strong>Tool use</strong></td>
+<td>Retrieval only</td>
+<td>Search + SQL + APIs + code execution</td>
+</tr>
+<tr class="odd">
+<td><strong>Output</strong></td>
+<td>Single response</td>
+<td>Iteratively refined answer</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<blockquote>
+<p>Traditional RAG is a <strong>lookup tool</strong>. Agentic RAG is a <strong>research assistant</strong>.</p>
+</blockquote>
+</div>
+</section>
+<section id="agentic-rag-architecture" class="slide level2 scrollable">
+<h2>Agentic RAG Architecture</h2>
+<div class="cell" data-fig-width="16" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="480" viewbox="0.00 0.00 1584.87 330.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 326)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-326 1580.87,-326 1580.87,4 -4,4"></polygon>
+<g id="clust1" class="cluster">
+<title>cluster_agent</title>
+<polygon fill="none" stroke="#c0392b" stroke-dasharray="5,2" points="209,-64 209,-211 875,-211 875,-64 209,-64"></polygon>
+<text text-anchor="middle" x="542" y="-190.8" font-family="Palatino" font-size="18.00">Agentic RAG System</text>
+</g>
+<!-- Q -->
+<g id="node1" class="node">
+<title>Q</title>
+<polygon fill="#2c3e50" stroke="black" points="180,-173.5 0,-173.5 0,-72.5 180,-72.5 180,-173.5"></polygon>
+<text text-anchor="middle" x="90" y="-128.4" font-family="Palatino" font-size="18.00" fill="white">User</text>
+<text text-anchor="middle" x="90" y="-106.8" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+</g>
+<!-- O -->
+<g id="node2" class="node">
+<title>O</title>
+<polygon fill="#c0392b" stroke="black" points="433,-173.5 217,-173.5 217,-72.5 433,-72.5 433,-173.5"></polygon>
+<text text-anchor="middle" x="325" y="-128.4" font-family="Palatino" font-size="18.00" fill="white">Orchestrator</text>
+<text text-anchor="middle" x="325" y="-106.8" font-family="Palatino" font-size="18.00" fill="white">Agent</text>
+</g>
+<!-- Q&#45;&gt;O -->
+<g id="edge1" class="edge">
+<title>Q-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M180.08,-123C188.77,-123 197.66,-123 206.56,-123"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="206.61,-126.5 216.61,-123 206.61,-119.5 206.61,-126.5"></polygon>
+</g>
+<!-- P -->
+<g id="node3" class="node">
+<title>P</title>
+<polygon fill="#e74c3c" stroke="black" points="650,-168 470,-168 470,-82 650,-82 650,-168"></polygon>
+<text text-anchor="middle" x="560" y="-130.4" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+<text text-anchor="middle" x="560" y="-108.8" font-family="Palatino" font-size="18.00" fill="white">Planner</text>
+</g>
+<!-- O&#45;&gt;P -->
+<g id="edge2" class="edge">
+<title>O-&gt;P</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M433.29,-123.92C442.05,-124 450.88,-124.07 459.57,-124.15"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="459.68,-127.65 469.71,-124.23 459.74,-120.65 459.68,-127.65"></polygon>
+</g>
+<!-- RT -->
+<g id="node4" class="node">
+<title>RT</title>
+<polygon fill="#f39c12" stroke="black" points="867,-170 687,-170 687,-84 867,-84 867,-170"></polygon>
+<text text-anchor="middle" x="777" y="-132.4" font-family="Palatino" font-size="18.00" fill="white">Router</text>
+<text text-anchor="middle" x="777" y="-110.8" font-family="Palatino" font-size="18.00" fill="white">Agent</text>
+</g>
+<!-- P&#45;&gt;RT -->
+<g id="edge3" class="edge">
+<title>P-&gt;RT</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M650,-125.83C658.81,-125.91 667.8,-125.99 676.71,-126.08"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="676.69,-129.58 686.72,-126.17 676.75,-122.58 676.69,-129.58"></polygon>
+</g>
+<!-- V -->
+<g id="node5" class="node">
+<title>V</title>
+<polygon fill="#3498db" stroke="black" points="1084,-322 904,-322 904,-236 1084,-236 1084,-322"></polygon>
+<text text-anchor="middle" x="994" y="-284.4" font-family="Palatino" font-size="18.00" fill="white">Vector DB</text>
+<text text-anchor="middle" x="994" y="-262.8" font-family="Palatino" font-size="18.00" fill="white">(Documents)</text>
+</g>
+<!-- RT&#45;&gt;V -->
+<g id="edge4" class="edge">
+<title>RT-&gt;V</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M828.85,-170.06C851.33,-188.38 878.41,-209.5 904,-227 905.61,-228.1 907.24,-229.2 908.89,-230.3"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="906.98,-233.23 917.27,-235.76 910.81,-227.37 906.98,-233.23"></polygon>
+</g>
+<!-- SQL -->
+<g id="node6" class="node">
+<title>SQL</title>
+<polygon fill="#27ae60" stroke="black" points="1084,-218 904,-218 904,-132 1084,-132 1084,-218"></polygon>
+<text text-anchor="middle" x="994" y="-180.4" font-family="Palatino" font-size="18.00" fill="white">SQL DB</text>
+<text text-anchor="middle" x="994" y="-158.8" font-family="Palatino" font-size="18.00" fill="white">(Structured)</text>
+</g>
+<!-- RT&#45;&gt;SQL -->
+<g id="edge5" class="edge">
+<title>RT-&gt;SQL</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M867,-146.87C875.81,-148.84 884.8,-150.84 893.71,-152.83"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="893.2,-156.3 903.72,-155.07 894.72,-149.47 893.2,-156.3"></polygon>
+</g>
+<!-- API -->
+<g id="node7" class="node">
+<title>API</title>
+<polygon fill="#8e44ad" stroke="black" points="1084,-114 904,-114 904,-28 1084,-28 1084,-114"></polygon>
+<text text-anchor="middle" x="994" y="-76.4" font-family="Palatino" font-size="18.00" fill="white">Web APIs</text>
+<text text-anchor="middle" x="994" y="-54.8" font-family="Palatino" font-size="18.00" fill="white">(Live data)</text>
+</g>
+<!-- RT&#45;&gt;API -->
+<g id="edge6" class="edge">
+<title>RT-&gt;API</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M867,-103.82C875.91,-101.5 884.99,-99.13 893.99,-96.79"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="894.92,-100.16 903.72,-94.25 893.16,-93.39 894.92,-100.16"></polygon>
+</g>
+<!-- E -->
+<g id="node8" class="node">
+<title>E</title>
+<polygon fill="#f39c12" stroke="black" points="1301,-146 1121,-146 1121,-60 1301,-60 1301,-146"></polygon>
+<text text-anchor="middle" x="1211" y="-108.4" font-family="Palatino" font-size="18.00" fill="white">Evaluator</text>
+<text text-anchor="middle" x="1211" y="-86.8" font-family="Palatino" font-size="18.00" fill="white">Agent</text>
+</g>
+<!-- V&#45;&gt;E -->
+<g id="edge7" class="edge">
+<title>V-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1071.57,-235.98C1075.85,-233.05 1080.02,-230.04 1084,-227 1112.48,-205.21 1141.22,-177.47 1164.04,-153.76"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1166.86,-155.87 1171.23,-146.22 1161.8,-151.04 1166.86,-155.87"></polygon>
+</g>
+<!-- SQL&#45;&gt;E -->
+<g id="edge8" class="edge">
+<title>SQL-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1084,-145.2C1092.91,-142.21 1101.99,-139.17 1110.99,-136.16"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1112.35,-139.39 1120.72,-132.9 1110.13,-132.76 1112.35,-139.39"></polygon>
+</g>
+<!-- API&#45;&gt;E -->
+<g id="edge9" class="edge">
+<title>API-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1084,-84.25C1092.81,-85.56 1101.8,-86.9 1110.71,-88.22"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1110.31,-91.7 1120.72,-89.71 1111.34,-84.78 1110.31,-91.7"></polygon>
+</g>
+<!-- E&#45;&gt;O -->
+<g id="edge10" class="edge">
+<title>E-&gt;O</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,2" d="M1155.2,-59.91C1133.98,-45.03 1108.83,-29.47 1084,-19 1046.73,-3.28 1035.45,0 995,0 559,0 559,0 559,0 497.42,0 436.18,-34.01 391.94,-66.27"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="389.82,-63.48 383.88,-72.26 393.99,-69.1 389.82,-63.48"></polygon>
+<text text-anchor="middle" x="777" y="-4.2" font-family="Times,serif" font-size="14.00"> &nbsp;refine?</text>
+</g>
+<!-- G -->
+<g id="node9" class="node">
+<title>G</title>
+<polygon fill="#2c3e50" stroke="black" points="1576.87,-153.5 1396.87,-153.5 1396.87,-52.5 1576.87,-52.5 1576.87,-153.5"></polygon>
+<text text-anchor="middle" x="1486.87" y="-108.4" font-family="Palatino" font-size="18.00" fill="white">Generator</text>
+<text text-anchor="middle" x="1486.87" y="-86.8" font-family="Palatino" font-size="18.00" fill="white">(LLM)</text>
+</g>
+<!-- E&#45;&gt;G -->
+<g id="edge11" class="edge">
+<title>E-&gt;G</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1301.3,-103C1328.54,-103 1358.67,-103 1386.54,-103"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1386.69,-106.5 1396.69,-103 1386.69,-99.5 1386.69,-106.5"></polygon>
+<text text-anchor="middle" x="1348.93" y="-107.2" font-family="Times,serif" font-size="14.00"> &nbsp;sufficient</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-four-agent-roles" class="slide level2 scrollable">
+<h2>The Four Agent Roles</h2>
+<p>Agentic RAG decomposes the retrieval process across specialized agents:</p>
+<div class="fragment">
+<p><strong>1. Router Agent</strong> — directs the query to the appropriate data source. A question about survey demographics goes to the SQL database; a question about policy language goes to the vector store; a question about current events goes to a web API.</p>
+</div>
+<div class="fragment">
+<p><strong>2. Query Planner</strong> — decomposes complex questions into sub-queries. “Compare nuclear vs.&nbsp;conventional force modernization across 2015 and 2025 reports” becomes four targeted retrievals.</p>
+</div>
+<div class="fragment">
+<p><strong>3. Retrieval Agent</strong> — executes the search, evaluates results, and reformulates queries if initial retrieval is insufficient. If the first search returns low-relevance chunks, it tries alternative phrasings or broader queries.</p>
+</div>
+<div class="fragment">
+<p><strong>4. Evaluator Agent</strong> — assesses whether the retrieved context is sufficient to answer the question. If not, it triggers additional retrieval rounds. If context is contradictory, it flags the conflict.</p>
+</div>
+</section>
+<section id="agentic-rag-the-feedback-loop" class="slide level2 scrollable">
+<h2>Agentic RAG: The Feedback Loop</h2>
+<p>The critical difference is the <strong>iterative refinement loop</strong>:</p>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 1310.89 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1306.89,-90 1306.89,4 -4,4"></polygon>
+<!-- Q -->
+<g id="node1" class="node">
+<title>Q</title>
+<polygon fill="#2c3e50" stroke="black" points="144,-86 0,-86 0,0 144,0 144,-86"></polygon>
+<text text-anchor="middle" x="72" y="-37.6" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+</g>
+<!-- D -->
+<g id="node2" class="node">
+<title>D</title>
+<polygon fill="#3498db" stroke="black" points="397,-86 181,-86 181,0 397,0 397,-86"></polygon>
+<text text-anchor="middle" x="289" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Decompose</text>
+<text text-anchor="middle" x="289" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">into sub-queries</text>
+</g>
+<!-- Q&#45;&gt;D -->
+<g id="edge1" class="edge">
+<title>Q-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M144.29,-43C152.82,-43 161.69,-43 170.65,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="170.8,-46.5 180.8,-43 170.8,-39.5 170.8,-46.5"></polygon>
+</g>
+<!-- R -->
+<g id="node3" class="node">
+<title>R</title>
+<polygon fill="#27ae60" stroke="black" points="650,-86 434,-86 434,0 650,0 650,-86"></polygon>
+<text text-anchor="middle" x="542" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Retrieve</text>
+<text text-anchor="middle" x="542" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">from sources</text>
+</g>
+<!-- D&#45;&gt;R -->
+<g id="edge2" class="edge">
+<title>D-&gt;R</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M397.17,-43C405.89,-43 414.73,-43 423.51,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="423.78,-46.5 433.78,-43 423.78,-39.5 423.78,-46.5"></polygon>
+</g>
+<!-- E -->
+<g id="node4" class="node">
+<title>E</title>
+<polygon fill="#f39c12" stroke="black" points="991.02,-86 775.02,-86 775.02,0 991.02,0 991.02,-86"></polygon>
+<text text-anchor="middle" x="883.02" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Evaluate</text>
+<text text-anchor="middle" x="883.02" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">sufficiency</text>
+</g>
+<!-- R&#45;&gt;E -->
+<g id="edge3" class="edge">
+<title>R-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M650.02,-53.04C656.1,-53.42 662.12,-53.74 668,-54 707.53,-55.74 717.49,-55.74 757.02,-54 759.59,-53.89 762.19,-53.76 764.81,-53.62"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="765.22,-57.11 775,-53.04 764.82,-50.12 765.22,-57.11"></polygon>
+</g>
+<!-- E&#45;&gt;R -->
+<g id="edge4" class="edge">
+<title>E-&gt;R</title>
+<path fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,2" d="M774.86,-18.68C768.84,-17.79 762.86,-17.02 757.02,-16.4 717.67,-12.26 707.35,-12.26 668,-16.4 665.44,-16.67 662.86,-16.97 660.26,-17.29"></path>
+<polygon fill="#e74c3c" stroke="#e74c3c" stroke-width="2" points="659.59,-13.85 650.16,-18.68 660.54,-20.79 659.59,-13.85"></polygon>
+<text text-anchor="middle" x="712.51" y="-38" font-family="Times,serif" font-size="14.00"> &nbsp;insufficient</text>
+<text text-anchor="middle" x="712.51" y="-21.2" font-family="Times,serif" font-size="14.00"> &nbsp;→ refine query</text>
+</g>
+<!-- G -->
+<g id="node5" class="node">
+<title>G</title>
+<polygon fill="#c0392b" stroke="black" points="1302.89,-86 1086.89,-86 1086.89,0 1302.89,0 1302.89,-86"></polygon>
+<text text-anchor="middle" x="1194.89" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Generate</text>
+<text text-anchor="middle" x="1194.89" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">final answer</text>
+</g>
+<!-- E&#45;&gt;G -->
+<g id="edge5" class="edge">
+<title>E-&gt;G</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M991.09,-43C1018.67,-43 1048.49,-43 1076.56,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1076.81,-46.5 1086.81,-43 1076.81,-39.5 1076.81,-46.5"></polygon>
+<text text-anchor="middle" x="1038.95" y="-47.2" font-family="Times,serif" font-size="14.00"> &nbsp;sufficient</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>This loop enables the system to handle <strong>progressively harder</strong> questions:</p>
+<ul>
+<li class="fragment">Simple: “What does the 2025 report say about hypersonic missiles?” → single retrieval</li>
+<li class="fragment">Medium: “How has hypersonic language changed from 2020 to 2025?” → multi-document retrieval</li>
+<li class="fragment">Complex: “What do the reports reveal about China’s A2/AD strategy evolution and how does it compare to independent analyst assessments?” → multi-source, multi-step retrieval with synthesis</li>
+</ul>
+</div>
+</section>
+<section id="graph-rag-knowledge-graphs-rag" class="slide level2 scrollable">
+<h2>Graph RAG: Knowledge Graphs + RAG</h2>
+<p><strong>Graph RAG</strong> augments vector retrieval with structured knowledge graphs:</p>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 908.00 198.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 194)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-194 904,-194 904,4 -4,4"></polygon>
+<!-- Q -->
+<g id="node1" class="node">
+<title>Q</title>
+<polygon fill="#2c3e50" stroke="black" points="144,-138 0,-138 0,-52 144,-52 144,-138"></polygon>
+<text text-anchor="middle" x="72" y="-89.6" font-family="Palatino" font-size="18.00" fill="white">Query</text>
+</g>
+<!-- VR -->
+<g id="node2" class="node">
+<title>VR</title>
+<polygon fill="#3498db" stroke="black" points="396,-190 180,-190 180,-104 396,-104 396,-190"></polygon>
+<text text-anchor="middle" x="288" y="-152.4" font-family="Palatino" font-size="18.00" fill="white">Vector</text>
+<text text-anchor="middle" x="288" y="-130.8" font-family="Palatino" font-size="18.00" fill="white">Retrieval</text>
+</g>
+<!-- Q&#45;&gt;VR -->
+<g id="edge1" class="edge">
+<title>Q-&gt;VR</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M144.26,-112.32C152.56,-114.33 161.19,-116.43 169.91,-118.55"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="169.24,-121.99 179.78,-120.95 170.89,-115.18 169.24,-121.99"></polygon>
+</g>
+<!-- GR -->
+<g id="node3" class="node">
+<title>GR</title>
+<polygon fill="#27ae60" stroke="black" points="396,-86 180,-86 180,0 396,0 396,-86"></polygon>
+<text text-anchor="middle" x="288" y="-48.4" font-family="Palatino" font-size="18.00" fill="white">Graph</text>
+<text text-anchor="middle" x="288" y="-26.8" font-family="Palatino" font-size="18.00" fill="white">Traversal</text>
+</g>
+<!-- Q&#45;&gt;GR -->
+<g id="edge3" class="edge">
+<title>Q-&gt;GR</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M144.26,-77.68C152.56,-75.67 161.19,-73.57 169.91,-71.45"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="170.89,-74.82 179.78,-69.05 169.24,-68.01 170.89,-74.82"></polygon>
+</g>
+<!-- M -->
+<g id="node4" class="node">
+<title>M</title>
+<polygon fill="#f39c12" stroke="black" points="648,-138 432,-138 432,-52 648,-52 648,-138"></polygon>
+<text text-anchor="middle" x="540" y="-100.4" font-family="Palatino" font-size="18.00" fill="white">Merge &amp;</text>
+<text text-anchor="middle" x="540" y="-78.8" font-family="Palatino" font-size="18.00" fill="white">Re-rank</text>
+</g>
+<!-- VR&#45;&gt;M -->
+<g id="edge2" class="edge">
+<title>VR-&gt;M</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M396.11,-124.72C404.59,-122.96 413.18,-121.17 421.72,-119.39"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="422.64,-122.78 431.71,-117.32 421.21,-115.93 422.64,-122.78"></polygon>
+</g>
+<!-- GR&#45;&gt;M -->
+<g id="edge4" class="edge">
+<title>GR-&gt;M</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M396.11,-65.28C404.59,-67.04 413.18,-68.83 421.72,-70.61"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="421.21,-74.07 431.71,-72.68 422.64,-67.22 421.21,-74.07"></polygon>
+</g>
+<!-- G -->
+<g id="node5" class="node">
+<title>G</title>
+<polygon fill="#c0392b" stroke="black" points="900,-138 684,-138 684,-52 900,-52 900,-138"></polygon>
+<text text-anchor="middle" x="792" y="-89.6" font-family="Palatino" font-size="18.00" fill="white">Generate</text>
+</g>
+<!-- M&#45;&gt;G -->
+<g id="edge5" class="edge">
+<title>M-&gt;G</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M648.11,-95C656.5,-95 664.99,-95 673.44,-95"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="673.71,-98.5 683.71,-95 673.71,-91.5 673.71,-98.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Knowledge graphs capture <strong>relationships</strong> (entity → relation → entity) that vector similarity cannot. For political science research: “Xi Jinping” → “commands” → “PLA Rocket Force” → “deploys” → “DF-41 ICBMs” — this chain of relations enables multi-hop reasoning that pure vector search misses.</p>
+</div>
+</section>
+<section id="rag-architecture-landscape-2026" class="slide level2 scrollable">
+<h2>RAG Architecture Landscape (2026)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 38%">
+<col style="width: 32%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Architecture</th>
+<th>Complexity</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Naive RAG</strong></td>
+<td>Low</td>
+<td>Simple Q&amp;A over single document</td>
+</tr>
+<tr class="even">
+<td><strong>Hybrid RAG</strong></td>
+<td>Medium</td>
+<td>Production baseline — dense + sparse search</td>
+</tr>
+<tr class="odd">
+<td><strong>Self-RAG</strong></td>
+<td>Medium</td>
+<td>Model decides when to retrieve</td>
+</tr>
+<tr class="even">
+<td><strong>Corrective RAG</strong></td>
+<td>Medium</td>
+<td>Validates retrieval relevance before generation</td>
+</tr>
+<tr class="odd">
+<td><strong>Graph RAG</strong></td>
+<td>High</td>
+<td>Multi-hop reasoning over connected entities</td>
+</tr>
+<tr class="even">
+<td><strong>Agentic RAG</strong></td>
+<td>High</td>
+<td>Complex, multi-source research workflows</td>
+</tr>
+<tr class="odd">
+<td><strong>Agentic Graph RAG</strong></td>
+<td>Very High</td>
+<td>Autonomous exploration of knowledge networks</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Practical Advice</strong></p>
+</div>
+<div class="callout-content">
+<p>Start with Hybrid RAG. Move to Agentic RAG only when your queries require multi-step reasoning, multiple data sources, or iterative refinement. Complexity has costs — more LLM calls, higher latency, harder debugging.</p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="part-iv-rag-for-research" class="title-slide slide level1 center" data-background-color="#27ae60">
+<h1>Part IV: RAG for Research</h1>
+
+</section>
+<section id="research-applications" class="slide level2 scrollable">
+<h2>Research Applications</h2>
+<p>RAG transforms several common research workflows:</p>
+<div class="fragment">
+<p><strong>Literature review</strong>: Build a vector database from thousands of papers. Query with research questions. Get synthesized answers with citations to specific passages.</p>
+</div>
+<div class="fragment">
+<p><strong>Policy document analysis</strong>: Index government reports (DOD, UN, WHO). Track how specific concepts evolve across years of reporting. Compare framing across agencies or countries.</p>
+</div>
+<div class="fragment">
+<p><strong>Qualitative data analysis</strong>: Index interview transcripts or focus group data. Query for themes, contradictions, or specific respondent perspectives. Ground findings in specific quotes.</p>
+</div>
+<div class="fragment">
+<p><strong>Survey data augmentation</strong>: Combine structured survey data (SQL) with unstructured policy documents (vector DB) via Agentic RAG to contextualize quantitative findings.</p>
+</div>
+</section>
+<section id="example-dod-china-reports-pipeline" class="slide level2 scrollable">
+<h2>Example: DOD China Reports Pipeline</h2>
+<p>Building a RAG system over the US DOD China Military Power Reports (1999–2025):</p>
+<div class="cell" data-fig-width="16" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="288" viewbox="0.00 0.00 1414.00 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1410,-90 1410,4 -4,4"></polygon>
+<!-- P -->
+<g id="node1" class="node">
+<title>P</title>
+<polygon fill="#3498db" stroke="black" points="216,-86 0,-86 0,0 216,0 216,-86"></polygon>
+<text text-anchor="middle" x="108" y="-47.8" font-family="Palatino" font-size="16.00" fill="white">27 PDF Reports</text>
+<text text-anchor="middle" x="108" y="-28.6" font-family="Palatino" font-size="16.00" fill="white">(1999–2025)</text>
+</g>
+<!-- X -->
+<g id="node2" class="node">
+<title>X</title>
+<polygon fill="#2980b9" stroke="black" points="454,-86 252,-86 252,0 454,0 454,-86"></polygon>
+<text text-anchor="middle" x="353" y="-47.8" font-family="Palatino" font-size="16.00" fill="white">Extract Text</text>
+<text text-anchor="middle" x="353" y="-28.6" font-family="Palatino" font-size="16.00" fill="white">(pdftools)</text>
+</g>
+<!-- P&#45;&gt;X -->
+<g id="edge1" class="edge">
+<title>P-&gt;X</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M216.29,-43C224.7,-43 233.2,-43 241.62,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="241.85,-46.5 251.85,-43 241.85,-39.5 241.85,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#2471a3" stroke="black" points="692,-86 490,-86 490,0 692,0 692,-86"></polygon>
+<text text-anchor="middle" x="591" y="-47.8" font-family="Palatino" font-size="16.00" fill="white">Chunk by</text>
+<text text-anchor="middle" x="591" y="-28.6" font-family="Palatino" font-size="16.00" fill="white">Section/Paragraph</text>
+</g>
+<!-- X&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>X-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M454.09,-43C462.57,-43 471.19,-43 479.75,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="479.76,-46.5 489.76,-43 479.76,-39.5 479.76,-46.5"></polygon>
+</g>
+<!-- E -->
+<g id="node4" class="node">
+<title>E</title>
+<polygon fill="#27ae60" stroke="black" points="930,-86 728,-86 728,0 930,0 930,-86"></polygon>
+<text text-anchor="middle" x="829" y="-47.8" font-family="Palatino" font-size="16.00" fill="white">Embed Chunks</text>
+<text text-anchor="middle" x="829" y="-28.6" font-family="Palatino" font-size="16.00" fill="white">(OpenAI / BGE)</text>
+</g>
+<!-- C&#45;&gt;E -->
+<g id="edge3" class="edge">
+<title>C-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M692.09,-43C700.57,-43 709.19,-43 717.75,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="717.76,-46.5 727.76,-43 717.76,-39.5 717.76,-46.5"></polygon>
+</g>
+<!-- V -->
+<g id="node5" class="node">
+<title>V</title>
+<polygon fill="#229954" stroke="black" points="1168,-86 966,-86 966,0 1168,0 1168,-86"></polygon>
+<text text-anchor="middle" x="1067" y="-47.8" font-family="Palatino" font-size="16.00" fill="white">Store in</text>
+<text text-anchor="middle" x="1067" y="-28.6" font-family="Palatino" font-size="16.00" fill="white">Chroma DB</text>
+</g>
+<!-- E&#45;&gt;V -->
+<g id="edge4" class="edge">
+<title>E-&gt;V</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M930.09,-43C938.57,-43 947.19,-43 955.75,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="955.76,-46.5 965.76,-43 955.76,-39.5 955.76,-46.5"></polygon>
+</g>
+<!-- Q -->
+<g id="node6" class="node">
+<title>Q</title>
+<polygon fill="#c0392b" stroke="black" points="1406,-86 1204,-86 1204,0 1406,0 1406,-86"></polygon>
+<text text-anchor="middle" x="1305" y="-47.8" font-family="Palatino" font-size="16.00" fill="white">Research</text>
+<text text-anchor="middle" x="1305" y="-28.6" font-family="Palatino" font-size="16.00" fill="white">Queries</text>
+</g>
+<!-- V&#45;&gt;Q -->
+<g id="edge5" class="edge">
+<title>V-&gt;Q</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1168.09,-43C1176.57,-43 1185.19,-43 1193.75,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1193.76,-46.5 1203.76,-43 1193.76,-39.5 1193.76,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>With this pipeline, you can ask: “How has the DOD’s assessment of China’s naval capabilities changed over the past decade?” — and get an answer grounded in specific passages from specific reports, with year and page citations.</p>
+</div>
+</section>
+<section id="evaluation-is-rag-working" class="slide level2 scrollable">
+<h2>Evaluation: Is RAG Working?</h2>
+<p>RAG systems require evaluation at <strong>two stages</strong>:</p>
+<div class="fragment">
+<p><strong>Retrieval quality</strong> — Are the right chunks being retrieved?</p>
+<ul>
+<li class="fragment"><strong>Recall@k</strong>: What fraction of relevant documents appear in the top-k results?</li>
+<li class="fragment"><strong>Precision@k</strong>: What fraction of retrieved documents are actually relevant?</li>
+<li class="fragment"><strong>MRR</strong> (Mean Reciprocal Rank): How high does the first relevant result rank?</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Generation quality</strong> — Is the LLM using the context correctly?</p>
+<ul>
+<li class="fragment"><strong>Faithfulness</strong>: Does the answer accurately reflect the retrieved context?</li>
+<li class="fragment"><strong>Answer relevance</strong>: Does the answer address the user’s question?</li>
+<li class="fragment"><strong>Groundedness</strong>: Can every claim be traced to a retrieved source?</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Frameworks: <strong>RAGAS</strong>, <strong>LlamaIndex Evaluation</strong>, <strong>Trulens</strong> provide automated metrics for RAG evaluation.</p>
+</div>
+</section>
+<section id="common-failure-modes" class="slide level2 scrollable">
+<h2>Common Failure Modes</h2>
+<p>Understanding how RAG fails is essential for building robust research systems:</p>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 21%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Failure Mode</th>
+<th>Cause</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Missing retrieval</strong></td>
+<td>Relevant chunks not indexed or poorly chunked</td>
+<td>Improve chunking, add metadata filters</td>
+</tr>
+<tr class="even">
+<td><strong>Low relevance</strong></td>
+<td>Embedding model does not capture domain semantics</td>
+<td>Use domain-specific embeddings or hybrid search</td>
+</tr>
+<tr class="odd">
+<td><strong>Context overflow</strong></td>
+<td>Too many chunks exceed LLM context window</td>
+<td>Re-rank and select top-k, use longer-context models</td>
+</tr>
+<tr class="even">
+<td><strong>Hallucinated synthesis</strong></td>
+<td>LLM ignores or misrepresents retrieved context</td>
+<td>Use structured prompts, require citations</td>
+</tr>
+<tr class="odd">
+<td><strong>Stale data</strong></td>
+<td>Vector index not updated when source documents change</td>
+<td>Automate re-indexing pipelines</td>
+</tr>
+<tr class="even">
+<td><strong>Cross-document confusion</strong></td>
+<td>LLM conflates information from different sources</td>
+<td>Include metadata (source, date) in prompt</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section></section>
+<section>
+<section id="part-v-ethical-and-practical-considerations" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Part V: Ethical and Practical Considerations</h1>
+
+</section>
+<section id="data-governance-and-privacy" class="slide level2 scrollable">
+<h2>Data Governance and Privacy</h2>
+<p>RAG introduces specific research ethics considerations:</p>
+<div class="fragment">
+<ul>
+<li class="fragment"><strong>Data residency</strong>: If using cloud embedding APIs or managed vector databases, your research data leaves your network. Sensitive data (interview transcripts, protected records) may require <strong>self-hosted</strong> solutions</li>
+<li class="fragment"><strong>Embedding irreversibility</strong>: Embeddings cannot be decoded back to original text — but proximity attacks can reveal content. Embeddings of sensitive data should be treated as sensitive</li>
+<li class="fragment"><strong>Attribution and provenance</strong>: RAG enables citation of sources, but the system must be designed to preserve and surface provenance metadata</li>
+<li class="fragment"><strong>Reproducibility</strong>: RAG outputs depend on the state of the vector index at query time. Version your indexes alongside your code and data</li>
+</ul>
+</div>
+</section>
+<section id="summary" class="slide level2 scrollable">
+<h2>Summary</h2>
+<div class="cell" data-fig-width="15" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="288" viewbox="0.00 0.00 1268.00 287.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 283)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-283 1264,-283 1264,4 -4,4"></polygon>
+<!-- A1 -->
+<g id="node1" class="node">
+<title>A1</title>
+<polygon fill="#85c1e9" stroke="black" points="288,-279 0,-279 0,-178 288,-178 288,-279"></polygon>
+<text text-anchor="middle" x="144" y="-244.7" font-family="Palatino" font-size="18.00" fill="#2c3e50">Embeddings</text>
+<text text-anchor="middle" x="144" y="-223.1" font-family="Palatino" font-size="18.00" fill="#2c3e50">Vector DBs</text>
+<text text-anchor="middle" x="144" y="-201.5" font-family="Palatino" font-size="18.00" fill="#2c3e50">Hybrid search</text>
+</g>
+<!-- A -->
+<g id="node2" class="node">
+<title>A</title>
+<polygon fill="#3498db" stroke="black" points="612,-279 324,-279 324,-178 612,-178 612,-279"></polygon>
+<text text-anchor="middle" x="468" y="-233.9" font-family="Palatino" font-size="18.00" fill="white">Traditional RAG</text>
+<text text-anchor="middle" x="468" y="-212.3" font-family="Palatino" font-size="18.00" fill="white">(Retrieve + Generate)</text>
+</g>
+<!-- A1&#45;&gt;A -->
+<g id="edge1" class="edge">
+<title>A1-&gt;A</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M288.11,-228.5C296.62,-228.5 305.2,-228.5 313.75,-228.5"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="313.77,-232 323.77,-228.5 313.77,-225 313.77,-232"></polygon>
+</g>
+<!-- B -->
+<g id="node4" class="node">
+<title>B</title>
+<polygon fill="#27ae60" stroke="black" points="936,-220 648,-220 648,-119 936,-119 936,-220"></polygon>
+<text text-anchor="middle" x="792" y="-174.9" font-family="Palatino" font-size="18.00" fill="white">Advanced RAG</text>
+<text text-anchor="middle" x="792" y="-153.3" font-family="Palatino" font-size="18.00" fill="white">(Precision + Structure)</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge2" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M612.11,-202.28C620.62,-200.72 629.2,-199.15 637.75,-197.58"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="638.56,-200.99 647.77,-195.74 637.3,-194.1 638.56,-200.99"></polygon>
+</g>
+<!-- B1 -->
+<g id="node3" class="node">
+<title>B1</title>
+<polygon fill="#82e0aa" stroke="black" points="612,-160 324,-160 324,-59 612,-59 612,-160"></polygon>
+<text text-anchor="middle" x="468" y="-125.7" font-family="Palatino" font-size="18.00" fill="#2c3e50">Re-ranking</text>
+<text text-anchor="middle" x="468" y="-104.1" font-family="Palatino" font-size="18.00" fill="#2c3e50">Graph RAG</text>
+<text text-anchor="middle" x="468" y="-82.5" font-family="Palatino" font-size="18.00" fill="#2c3e50">Self/Corrective RAG</text>
+</g>
+<!-- B1&#45;&gt;B -->
+<g id="edge3" class="edge">
+<title>B1-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M612.11,-136.17C620.62,-137.75 629.2,-139.35 637.75,-140.94"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="637.29,-144.42 647.77,-142.81 638.58,-137.54 637.29,-144.42"></polygon>
+</g>
+<!-- C -->
+<g id="node6" class="node">
+<title>C</title>
+<polygon fill="#c0392b" stroke="black" points="1260,-160 972,-160 972,-59 1260,-59 1260,-160"></polygon>
+<text text-anchor="middle" x="1116" y="-114.9" font-family="Palatino" font-size="18.00" fill="white">Agentic RAG</text>
+<text text-anchor="middle" x="1116" y="-93.3" font-family="Palatino" font-size="18.00" fill="white">(Research Assistant)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge4" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M936.11,-142.83C944.62,-141.25 953.2,-139.65 961.75,-138.06"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="962.58,-141.46 971.77,-136.19 961.29,-134.58 962.58,-141.46"></polygon>
+</g>
+<!-- C1 -->
+<g id="node5" class="node">
+<title>C1</title>
+<polygon fill="#f5b7b1" stroke="black" points="936,-101 648,-101 648,0 936,0 936,-101"></polygon>
+<text text-anchor="middle" x="792" y="-66.7" font-family="Palatino" font-size="18.00" fill="#2c3e50">Router, Planner</text>
+<text text-anchor="middle" x="792" y="-45.1" font-family="Palatino" font-size="18.00" fill="#2c3e50">Evaluator, Memory</text>
+<text text-anchor="middle" x="792" y="-23.5" font-family="Palatino" font-size="18.00" fill="#2c3e50">Multi-source</text>
+</g>
+<!-- C1&#45;&gt;C -->
+<g id="edge5" class="edge">
+<title>C1-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M936.11,-76.72C944.62,-78.28 953.2,-79.85 961.75,-81.42"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="961.3,-84.9 971.77,-83.26 962.56,-78.01 961.3,-84.9"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment"><strong>RAG</strong> grounds LLMs in external, verifiable knowledge — essential for research integrity</li>
+<li class="fragment"><strong>Hybrid search</strong> (dense + sparse) is the 2026 production baseline at 91% recall</li>
+<li class="fragment"><strong>Agentic RAG</strong> transforms retrieval from a static lookup into an iterative, intelligent research process</li>
+<li class="fragment">Start simple (Hybrid RAG), add complexity (agents) only when your research questions demand it</li>
+</ol>
+</div>
+</section>
+<section id="key-references" class="slide level2 scrollable">
+<h2>Key References</h2>
+<ul>
+<li class="fragment">Lewis et al.&nbsp;(2020). <a href="https://arxiv.org/abs/2005.11401">Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</a>. <em>NeurIPS</em>.</li>
+<li class="fragment">Gao et al.&nbsp;(2024). <a href="https://arxiv.org/abs/2312.10997">Retrieval-Augmented Generation for Large Language Models: A Survey</a>. <em>arXiv</em>.</li>
+<li class="fragment">Asai et al.&nbsp;(2024). <a href="https://iclr.cc/virtual/2024/oral/19736">Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection</a>. <em>ICLR</em>.</li>
+<li class="fragment">Edge et al.&nbsp;(2024). <a href="https://arxiv.org/abs/2404.16130">From Local to Global: A Graph RAG Approach to Query-Focused Summarization</a>. <em>arXiv</em>.</li>
+<li class="fragment">NVIDIA (2025). <a href="https://developer.nvidia.com/blog/traditional-rag-vs-agentic-rag-why-ai-agents-need-dynamic-knowledge-to-get-smarter/">Traditional RAG vs.&nbsp;Agentic RAG</a>. Technical Blog.</li>
+<li class="fragment">Es et al.&nbsp;(2024). <a href="https://arxiv.org/abs/2309.15217">RAGAS: Automated Evaluation of Retrieval Augmented Generation</a>. <em>arXiv</em>.</li>
+</ul>
+</section>
+<section id="qa" class="slide level2 center scrollable">
+<h2>Q&amp;A</h2>
+<p>Questions?</p>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="images/eppslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><h10>EPPS 6323 Knowledge Mining</h10></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="RAG_pipelines_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="RAG_pipelines_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

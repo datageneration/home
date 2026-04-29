@@ -1,0 +1,2279 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="AIevaluations_files/libs/clipboard/clipboard.min.js"></script>
+<script src="AIevaluations_files/libs/quarto-html/tabby.min.js"></script>
+<script src="AIevaluations_files/libs/quarto-html/popper.min.js"></script>
+<script src="AIevaluations_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="AIevaluations_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="AIevaluations_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="AIevaluations_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Karl Ho">
+  <title>Evaluating AI Systems</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="AIevaluations_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="AIevaluations_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="AIevaluations_files/libs/revealjs/dist/theme/quarto-ed71c0bbd1b1bcfdee8a19950f2015f2.css">
+  <link href="AIevaluations_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="AIevaluations_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="AIevaluations_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="AIevaluations_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="AIevaluations_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="AIevaluations_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Evaluating AI Systems</h1>
+  <p class="subtitle">Evaluation Metrics, Hallucination Detection, and Model Selection</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Karl Ho 
+</div>
+</div>
+</div>
+
+</section>
+<section id="why-evaluation-matters" class="slide level2">
+<h2>Why Evaluation Matters</h2>
+<p>Large language models now write policy briefs, code legislative analyses, and summarize scholarly literature. But:</p>
+<ul>
+<li>How do we know a model is <strong>correct</strong>?</li>
+<li>How do we know it isn’t <strong>making things up</strong>?</li>
+<li>How do we <strong>choose</strong> among dozens of competing models?</li>
+</ul>
+<div class="fragment">
+<p><strong>Evaluation is not an afterthought — it is the foundation of responsible deployment.</strong></p>
+</div>
+<div class="fragment">
+<p>For political and social science applications, the cost of silent error is high: misattributed quotes, fabricated citations, biased coding of survey responses, spurious causal claims.</p>
+</div>
+</section>
+<section id="the-three-questions-of-ai-evaluation" class="slide level2">
+<h2>The Three Questions of AI Evaluation</h2>
+<div class="cell" data-fig-width="14" data-fig-height="4.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1344" height="432" viewbox="0.00 0.00 345.45 239.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 235.2)">
+<title>EvalQuestions</title>
+<!-- Q1 -->
+<g id="node1" class="node">
+<title>Q1</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M138.23,-65.3C138.23,-65.3 29.25,-65.3 29.25,-65.3 23.25,-65.3 17.25,-59.3 17.25,-53.3 17.25,-53.3 17.25,-11.9 17.25,-11.9 17.25,-5.9 23.25,0.1 29.25,0.1 29.25,0.1 138.23,0.1 138.23,0.1 144.23,0.1 150.23,-5.9 150.23,-11.9 150.23,-11.9 150.23,-53.3 150.23,-53.3 150.23,-59.3 144.23,-65.3 138.23,-65.3"></path>
+<text text-anchor="middle" x="83.74" y="-38" font-family="Palatino" font-size="18.00">How GOOD</text>
+<text text-anchor="middle" x="83.74" y="-16.4" font-family="Palatino" font-size="18.00">is the output?</text>
+</g>
+<!-- EM -->
+<g id="node4" class="node">
+<title>EM</title>
+<path fill="#f5f5f5" stroke="#696969" stroke-width="2" d="M315.44,-65.3C315.44,-65.3 225.48,-65.3 225.48,-65.3 219.48,-65.3 213.48,-59.3 213.48,-53.3 213.48,-53.3 213.48,-11.9 213.48,-11.9 213.48,-5.9 219.48,0.1 225.48,0.1 225.48,0.1 315.44,0.1 315.44,0.1 321.44,0.1 327.44,-5.9 327.44,-11.9 327.44,-11.9 327.44,-53.3 327.44,-53.3 327.44,-59.3 321.44,-65.3 315.44,-65.3"></path>
+<text text-anchor="middle" x="270.46" y="-38" font-family="Palatino" font-size="18.00">Evaluation</text>
+<text text-anchor="middle" x="270.46" y="-16.4" font-family="Palatino" font-size="18.00">Metrics</text>
+</g>
+<!-- Q1&#45;&gt;EM -->
+<g id="edge1" class="edge">
+<title>Q1-&gt;EM</title>
+<path fill="none" stroke="black" stroke-width="2" d="M150.38,-32.6C167.39,-32.6 185.71,-32.6 202.77,-32.6"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="203.2,-36.1 213.2,-32.6 203.2,-29.1 203.2,-36.1"></polygon>
+</g>
+<!-- Q2 -->
+<g id="node2" class="node">
+<title>Q2</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M133.22,-137.2C133.22,-137.2 34.25,-137.2 34.25,-137.2 28.25,-137.2 22.25,-131.2 22.25,-125.2 22.25,-125.2 22.25,-106 22.25,-106 22.25,-100 28.25,-94 34.25,-94 34.25,-94 133.22,-94 133.22,-94 139.22,-94 145.22,-100 145.22,-106 145.22,-106 145.22,-125.2 145.22,-125.2 145.22,-131.2 139.22,-137.2 133.22,-137.2"></path>
+<text text-anchor="middle" x="83.74" y="-110.2" font-family="Palatino" font-size="18.00">Is it TRUE?</text>
+</g>
+<!-- HD -->
+<g id="node5" class="node">
+<title>HD</title>
+<path fill="#f5f5f5" stroke="#696969" stroke-width="2" d="M325.43,-148.3C325.43,-148.3 215.49,-148.3 215.49,-148.3 209.49,-148.3 203.49,-142.3 203.49,-136.3 203.49,-136.3 203.49,-94.9 203.49,-94.9 203.49,-88.9 209.49,-82.9 215.49,-82.9 215.49,-82.9 325.43,-82.9 325.43,-82.9 331.43,-82.9 337.43,-88.9 337.43,-94.9 337.43,-94.9 337.43,-136.3 337.43,-136.3 337.43,-142.3 331.43,-148.3 325.43,-148.3"></path>
+<text text-anchor="middle" x="270.46" y="-121" font-family="Palatino" font-size="18.00">Hallucination</text>
+<text text-anchor="middle" x="270.46" y="-99.4" font-family="Palatino" font-size="18.00">Detection</text>
+</g>
+<!-- Q2&#45;&gt;HD -->
+<g id="edge2" class="edge">
+<title>Q2-&gt;HD</title>
+<path fill="none" stroke="black" stroke-width="2" d="M145.22,-115.6C160.5,-115.6 177.1,-115.6 193.05,-115.6"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="193.42,-119.1 203.42,-115.6 193.42,-112.1 193.42,-119.1"></polygon>
+</g>
+<!-- Q3 -->
+<g id="node3" class="node">
+<title>Q3</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M155.71,-231.3C155.71,-231.3 11.76,-231.3 11.76,-231.3 5.76,-231.3 -0.24,-225.3 -0.24,-219.3 -0.24,-219.3 -0.24,-177.9 -0.24,-177.9 -0.24,-171.9 5.76,-165.9 11.76,-165.9 11.76,-165.9 155.71,-165.9 155.71,-165.9 161.71,-165.9 167.71,-171.9 167.71,-177.9 167.71,-177.9 167.71,-219.3 167.71,-219.3 167.71,-225.3 161.71,-231.3 155.71,-231.3"></path>
+<text text-anchor="middle" x="83.74" y="-204" font-family="Palatino" font-size="18.00">Is this the</text>
+<text text-anchor="middle" x="83.74" y="-182.4" font-family="Palatino" font-size="18.00">RIGHT MODEL?</text>
+</g>
+<!-- MS -->
+<g id="node6" class="node">
+<title>MS</title>
+<path fill="#f5f5f5" stroke="#696969" stroke-width="2" d="M309.94,-231.3C309.94,-231.3 230.98,-231.3 230.98,-231.3 224.98,-231.3 218.98,-225.3 218.98,-219.3 218.98,-219.3 218.98,-177.9 218.98,-177.9 218.98,-171.9 224.98,-165.9 230.98,-165.9 230.98,-165.9 309.94,-165.9 309.94,-165.9 315.94,-165.9 321.94,-171.9 321.94,-177.9 321.94,-177.9 321.94,-219.3 321.94,-219.3 321.94,-225.3 315.94,-231.3 309.94,-231.3"></path>
+<text text-anchor="middle" x="270.46" y="-204" font-family="Palatino" font-size="18.00">Model</text>
+<text text-anchor="middle" x="270.46" y="-182.4" font-family="Palatino" font-size="18.00">Selection</text>
+</g>
+<!-- Q3&#45;&gt;MS -->
+<g id="edge3" class="edge">
+<title>Q3-&gt;MS</title>
+<path fill="none" stroke="black" stroke-width="2" d="M167.64,-198.6C181.42,-198.6 195.48,-198.6 208.57,-198.6"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="208.85,-202.1 218.85,-198.6 208.85,-195.1 208.85,-202.1"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Each question demands a different methodology, different tooling, and a different research design.</p>
+</div>
+</section>
+<section id="lecture-outline" class="slide level2 scrollable">
+<h2>Lecture Outline</h2>
+<ol type="1">
+<li><strong>Part I — Evaluation Metrics</strong>
+<ul>
+<li>From BLEU to LLM-as-judge</li>
+<li>Benchmarks and leaderboards</li>
+</ul></li>
+<li><strong>Part II — Hallucination Detection</strong>
+<ul>
+<li>What hallucinations are (and aren’t)</li>
+<li>Detection and mitigation strategies</li>
+</ul></li>
+<li><strong>Part III — Model Selection</strong>
+<ul>
+<li>Capability, cost, latency trade-offs</li>
+<li>A decision framework for researchers</li>
+</ul></li>
+</ol>
+</section>
+<section>
+<section id="part-i-evaluation-metrics" class="title-slide slide level1 center" data-background-color="#2C3E50">
+<h1>Part I — Evaluation Metrics</h1>
+
+</section>
+<section id="evaluation-is-a-measurement-problem" class="slide level2 scrollable">
+<h2>Evaluation is a Measurement Problem</h2>
+<p>We cannot improve what we cannot measure. But language is not a quantity:</p>
+<ul>
+<li>There is rarely a single “correct” answer.</li>
+<li>Two different outputs can both be correct, or both wrong.</li>
+<li>Human judgments disagree even among trained annotators.</li>
+</ul>
+<div class="fragment">
+<p>So evaluation in NLP has evolved through four generations:</p>
+<ol type="1">
+<li><strong>Reference-based n-gram overlap</strong> (BLEU, ROUGE)</li>
+<li><strong>Embedding-based similarity</strong> (BERTScore)</li>
+<li><strong>Benchmark suites</strong> (MMLU, HELM, BIG-bench)</li>
+<li><strong>LLM-as-judge and human preference</strong> (Chatbot Arena, MT-Bench)</li>
+</ol>
+</div>
+</section>
+<section id="generation-1-n-gram-overlap-metrics" class="slide level2">
+<h2>Generation 1: N-gram Overlap Metrics</h2>
+<h3 id="bleu-bilingual-evaluation-understudy">BLEU (Bilingual Evaluation Understudy)</h3>
+<p>Developed in 2002 for machine translation. Measures <em>precision</em> of n-grams in the candidate against reference(s).</p>
+<div class="fragment">
+<p><span class="math display">\[
+\text{BLEU} = \underbrace{\text{BP}}_{\substack{\text{brevity} \\ \text{penalty}}} \cdot \exp\left( \underbrace{\sum_{n=1}^{N} w_n \log p_n}_{\substack{\text{weighted log} \\ \text{n-gram precision}}} \right)
+\]</span></p>
+</div>
+<div class="fragment">
+<p>where <span class="math inline">\(p_n\)</span> is the fraction of candidate n-grams that appear in any reference, and BP penalizes outputs shorter than the reference to prevent gaming.</p>
+</div>
+</section>
+<section id="bleu-strengths-and-limits" class="slide level2">
+<h2>BLEU: Strengths and Limits</h2>
+<p><strong>Strengths</strong></p>
+<ul>
+<li>Fast, deterministic, widely reported.</li>
+<li>Correlates with human judgment at the <em>corpus</em> level.</li>
+</ul>
+<p><strong>Limits</strong></p>
+<ul>
+<li>Poor correlation at the <em>sentence</em> level.</li>
+<li>Blind to meaning: “The vote passed” and “The measure carried” share no n-grams.</li>
+<li>Penalizes legitimate paraphrase.</li>
+<li>Useless for open-ended generation.</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Do not use BLEU to compare two similarly-capable LLMs on the same task. The metric is too coarse.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="rouge-recall-where-bleu-is-precision" class="slide level2">
+<h2>ROUGE: Recall Where BLEU is Precision</h2>
+<p>ROUGE (Recall-Oriented Understudy for Gisting Evaluation) is the standard metric for summarization.</p>
+<ul>
+<li><strong>ROUGE-N</strong>: recall of n-grams</li>
+<li><strong>ROUGE-L</strong>: longest common subsequence</li>
+<li><strong>ROUGE-W</strong>: weighted LCS favoring contiguous matches</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\text{ROUGE-N} = \underbrace{\frac{\sum_{S \in \text{Ref}} \sum_{\text{n-gram} \in S} \text{Count}_{\text{match}}(\text{n-gram})}{\sum_{S \in \text{Ref}} \sum_{\text{n-gram} \in S} \text{Count}(\text{n-gram})}}_{\substack{\text{fraction of reference n-grams} \\ \text{recovered by the summary}}}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Good for “did the summary cover the main points?” Bad for “is the summary well-written?”</p>
+</div>
+</section>
+<section id="generation-2-embedding-based-metrics" class="slide level2">
+<h2>Generation 2: Embedding-based Metrics</h2>
+<p>The core insight: instead of matching surface tokens, match <em>meanings</em> using contextual embeddings.</p>
+<h3 id="bertscore">BERTScore</h3>
+<p>Embed each token with BERT, then compute token-level cosine similarity between candidate and reference.</p>
+<div class="fragment">
+<p><span class="math display">\[
+R_{\text{BERT}} = \underbrace{\frac{1}{|x|} \sum_{x_i \in x} \max_{\hat{x}_j \in \hat{x}} \mathbf{x}_i^\top \hat{\mathbf{x}}_j}_{\substack{\text{each reference token finds its best} \\ \text{matching candidate token (greedy)}}}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Precision, recall, and F1 variants exist. Correlates far better with human judgment than BLEU or ROUGE — but still requires a reference.</p>
+</div>
+</section>
+<section id="classification-metrics-for-llm-tasks" class="slide level2">
+<h2>Classification Metrics for LLM Tasks</h2>
+<p>Many political science uses of LLMs reduce to classification: sentiment, topic, stance, policy category, ideology placement.</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 30%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>Formula</th>
+<th>When to use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Accuracy</td>
+<td><span class="math inline">\((TP+TN)/N\)</span></td>
+<td>Balanced classes</td>
+</tr>
+<tr class="even">
+<td>Precision</td>
+<td><span class="math inline">\(TP/(TP+FP)\)</span></td>
+<td>Cost of false positive high</td>
+</tr>
+<tr class="odd">
+<td>Recall</td>
+<td><span class="math inline">\(TP/(TP+FN)\)</span></td>
+<td>Cost of false negative high</td>
+</tr>
+<tr class="even">
+<td>F1</td>
+<td><span class="math inline">\(2 \cdot \frac{P \cdot R}{P + R}\)</span></td>
+<td>Imbalanced, need balance</td>
+</tr>
+<tr class="odd">
+<td>Macro-F1</td>
+<td>mean of per-class F1</td>
+<td>Multi-class, care about minority</td>
+</tr>
+<tr class="even">
+<td>Cohen’s <span class="math inline">\(\kappa\)</span></td>
+<td>chance-corrected agreement</td>
+<td>Human-LLM reliability</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>For inter-coder reliability between human and LLM annotators, <strong>Cohen’s <span class="math inline">\(\kappa\)</span></strong> and <strong>Krippendorff’s <span class="math inline">\(\alpha\)</span></strong> are the disciplinary standard.</p>
+</div>
+</section>
+<section id="cohens-kappa" class="slide level2">
+<h2>Cohen’s Kappa</h2>
+<p><span class="math display">\[
+\kappa = \underbrace{\frac{p_o - p_e}{1 - p_e}}_{\substack{\text{agreement corrected} \\ \text{for chance}}}
+\]</span></p>
+<p>where <span class="math inline">\(p_o\)</span> is observed agreement and <span class="math inline">\(p_e\)</span> is expected agreement by chance.</p>
+<div class="fragment">
+<p><strong>Interpretation (Landis &amp; Koch 1977)</strong></p>
+<ul>
+<li><span class="math inline">\(\kappa &lt; 0.20\)</span>: slight</li>
+<li><span class="math inline">\(0.21\)</span>–<span class="math inline">\(0.40\)</span>: fair</li>
+<li><span class="math inline">\(0.41\)</span>–<span class="math inline">\(0.60\)</span>: moderate</li>
+<li><span class="math inline">\(0.61\)</span>–<span class="math inline">\(0.80\)</span>: substantial</li>
+<li><span class="math inline">\(0.81\)</span>–<span class="math inline">\(1.00\)</span>: almost perfect</li>
+</ul>
+</div>
+<div class="fragment">
+<p>A well-specified LLM annotator should achieve <span class="math inline">\(\kappa \geq 0.60\)</span> against trained human coders to be usable for research.</p>
+</div>
+</section>
+<section id="perplexity-intrinsic-generation-quality" class="slide level2">
+<h2>Perplexity: Intrinsic Generation Quality</h2>
+<p>For language models, <strong>perplexity</strong> is the exponentiated average negative log-likelihood.</p>
+<p><span class="math display">\[
+\text{PPL}(X) = \exp\left\{ -\underbrace{\frac{1}{t} \sum_{i=1}^{t} \log p_\theta(x_i \mid x_{&lt;i})}_{\substack{\text{average per-token} \\ \text{log-likelihood}}} \right\}
+\]</span></p>
+<div class="fragment">
+<ul>
+<li>Lower is better. PPL of 1 means the model is certain and correct.</li>
+<li>Useful for comparing language models on the <em>same</em> tokenizer and dataset.</li>
+<li><strong>Not comparable across tokenizers</strong> — a foundational caveat.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Perplexity evaluates fit to a distribution. It says nothing about whether the model’s outputs are <em>useful</em> or <em>true</em>.</p>
+</div>
+</section>
+<section id="generation-3-benchmark-suites" class="slide level2">
+<h2>Generation 3: Benchmark Suites</h2>
+<p>Benchmarks package hundreds or thousands of evaluation tasks into a single score.</p>
+<div class="cell" data-fig-width="15" data-fig-height="20" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="1920" viewbox="0.00 0.00 205.94 1048.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 1044)">
+<title>Benchmarks</title>
+<g id="clust1" class="cluster">
+<title>cluster_knowledge</title>
+<polygon fill="transparent" stroke="black" stroke-dasharray="5,2" points="0,-8 0,-332 197.94,-332 197.94,-8 0,-8"></polygon>
+<text text-anchor="middle" x="98.97" y="-311.8" font-family="Palatino" font-size="18.00">Knowledge &amp; Reasoning</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_math</title>
+<polygon fill="transparent" stroke="black" stroke-dasharray="5,2" points="17.66,-340 17.66,-664 180.28,-664 180.28,-340 17.66,-340"></polygon>
+<text text-anchor="middle" x="98.97" y="-643.8" font-family="Palatino" font-size="18.00">Math &amp; Code</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_safety</title>
+<polygon fill="transparent" stroke="black" stroke-dasharray="5,2" points="11.32,-672 11.32,-848 186.62,-848 186.62,-672 11.32,-672"></polygon>
+<text text-anchor="middle" x="98.97" y="-827.8" font-family="Palatino" font-size="18.00">Truthfulness &amp; Safety</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_agent</title>
+<polygon fill="transparent" stroke="black" stroke-dasharray="5,2" points="25.65,-856 25.65,-1032 172.29,-1032 172.29,-856 25.65,-856"></polygon>
+<text text-anchor="middle" x="98.97" y="-1011.8" font-family="Palatino" font-size="18.00">Agents &amp; Tools</text>
+</g>
+<!-- MMLU -->
+<g id="node1" class="node">
+<title>MMLU</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M136.52,-294.4C136.52,-294.4 61.42,-294.4 61.42,-294.4 55.42,-294.4 49.42,-288.4 49.42,-282.4 49.42,-282.4 49.42,-249.6 49.42,-249.6 49.42,-243.6 55.42,-237.6 61.42,-237.6 61.42,-237.6 136.52,-237.6 136.52,-237.6 142.52,-237.6 148.52,-243.6 148.52,-249.6 148.52,-249.6 148.52,-282.4 148.52,-282.4 148.52,-288.4 142.52,-294.4 136.52,-294.4"></path>
+<text text-anchor="middle" x="98.97" y="-270.8" font-family="Palatino" font-size="16.00">MMLU</text>
+<text text-anchor="middle" x="98.97" y="-251.6" font-family="Palatino" font-size="16.00">57 subjects</text>
+</g>
+<!-- MMLU_Pro -->
+<g id="node2" class="node">
+<title>MMLU_Pro</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M156.91,-220.4C156.91,-220.4 41.03,-220.4 41.03,-220.4 35.03,-220.4 29.03,-214.4 29.03,-208.4 29.03,-208.4 29.03,-175.6 29.03,-175.6 29.03,-169.6 35.03,-163.6 41.03,-163.6 41.03,-163.6 156.91,-163.6 156.91,-163.6 162.91,-163.6 168.91,-169.6 168.91,-175.6 168.91,-175.6 168.91,-208.4 168.91,-208.4 168.91,-214.4 162.91,-220.4 156.91,-220.4"></path>
+<text text-anchor="middle" x="98.97" y="-196.8" font-family="Palatino" font-size="16.00">MMLU-Pro</text>
+<text text-anchor="middle" x="98.97" y="-177.6" font-family="Palatino" font-size="16.00">harder, 10-choice</text>
+</g>
+<!-- ARC -->
+<g id="node3" class="node">
+<title>ARC</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M138.16,-146.4C138.16,-146.4 59.78,-146.4 59.78,-146.4 53.78,-146.4 47.78,-140.4 47.78,-134.4 47.78,-134.4 47.78,-101.6 47.78,-101.6 47.78,-95.6 53.78,-89.6 59.78,-89.6 59.78,-89.6 138.16,-89.6 138.16,-89.6 144.16,-89.6 150.16,-95.6 150.16,-101.6 150.16,-101.6 150.16,-134.4 150.16,-134.4 150.16,-140.4 144.16,-146.4 138.16,-146.4"></path>
+<text text-anchor="middle" x="98.97" y="-122.8" font-family="Palatino" font-size="16.00">ARC</text>
+<text text-anchor="middle" x="98.97" y="-103.6" font-family="Palatino" font-size="16.00">science QA</text>
+</g>
+<!-- GPQA -->
+<g id="node4" class="node">
+<title>GPQA</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M156.52,-72.4C156.52,-72.4 41.42,-72.4 41.42,-72.4 35.42,-72.4 29.42,-66.4 29.42,-60.4 29.42,-60.4 29.42,-27.6 29.42,-27.6 29.42,-21.6 35.42,-15.6 41.42,-15.6 41.42,-15.6 156.52,-15.6 156.52,-15.6 162.52,-15.6 168.52,-21.6 168.52,-27.6 168.52,-27.6 168.52,-60.4 168.52,-60.4 168.52,-66.4 162.52,-72.4 156.52,-72.4"></path>
+<text text-anchor="middle" x="98.97" y="-48.8" font-family="Palatino" font-size="16.00">GPQA</text>
+<text text-anchor="middle" x="98.97" y="-29.6" font-family="Palatino" font-size="16.00">PhD-level STEM</text>
+</g>
+<!-- GSM8K -->
+<g id="node5" class="node">
+<title>GSM8K</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M160.09,-626.4C160.09,-626.4 37.84,-626.4 37.84,-626.4 31.84,-626.4 25.84,-620.4 25.84,-614.4 25.84,-614.4 25.84,-581.6 25.84,-581.6 25.84,-575.6 31.84,-569.6 37.84,-569.6 37.84,-569.6 160.09,-569.6 160.09,-569.6 166.09,-569.6 172.09,-575.6 172.09,-581.6 172.09,-581.6 172.09,-614.4 172.09,-614.4 172.09,-620.4 166.09,-626.4 160.09,-626.4"></path>
+<text text-anchor="middle" x="98.97" y="-602.8" font-family="Palatino" font-size="16.00">GSM8K</text>
+<text text-anchor="middle" x="98.97" y="-583.6" font-family="Palatino" font-size="16.00">grade-school math</text>
+</g>
+<!-- MATH -->
+<g id="node6" class="node">
+<title>MATH</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M157.39,-552.4C157.39,-552.4 40.55,-552.4 40.55,-552.4 34.55,-552.4 28.55,-546.4 28.55,-540.4 28.55,-540.4 28.55,-507.6 28.55,-507.6 28.55,-501.6 34.55,-495.6 40.55,-495.6 40.55,-495.6 157.39,-495.6 157.39,-495.6 163.39,-495.6 169.39,-501.6 169.39,-507.6 169.39,-507.6 169.39,-540.4 169.39,-540.4 169.39,-546.4 163.39,-552.4 157.39,-552.4"></path>
+<text text-anchor="middle" x="98.97" y="-528.8" font-family="Palatino" font-size="16.00">MATH</text>
+<text text-anchor="middle" x="98.97" y="-509.6" font-family="Palatino" font-size="16.00">competition math</text>
+</g>
+<!-- HumanEval -->
+<g id="node7" class="node">
+<title>HumanEval</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M155.36,-478.4C155.36,-478.4 42.58,-478.4 42.58,-478.4 36.58,-478.4 30.58,-472.4 30.58,-466.4 30.58,-466.4 30.58,-433.6 30.58,-433.6 30.58,-427.6 36.58,-421.6 42.58,-421.6 42.58,-421.6 155.36,-421.6 155.36,-421.6 161.36,-421.6 167.36,-427.6 167.36,-433.6 167.36,-433.6 167.36,-466.4 167.36,-466.4 167.36,-472.4 161.36,-478.4 155.36,-478.4"></path>
+<text text-anchor="middle" x="98.97" y="-454.8" font-family="Palatino" font-size="16.00">HumanEval</text>
+<text text-anchor="middle" x="98.97" y="-435.6" font-family="Palatino" font-size="16.00">Python functions</text>
+</g>
+<!-- SWEbench -->
+<g id="node8" class="node">
+<title>SWEbench</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M160.17,-404.4C160.17,-404.4 37.77,-404.4 37.77,-404.4 31.77,-404.4 25.77,-398.4 25.77,-392.4 25.77,-392.4 25.77,-359.6 25.77,-359.6 25.77,-353.6 31.77,-347.6 37.77,-347.6 37.77,-347.6 160.17,-347.6 160.17,-347.6 166.17,-347.6 172.17,-353.6 172.17,-359.6 172.17,-359.6 172.17,-392.4 172.17,-392.4 172.17,-398.4 166.17,-404.4 160.17,-404.4"></path>
+<text text-anchor="middle" x="98.97" y="-380.8" font-family="Palatino" font-size="16.00">SWE-bench</text>
+<text text-anchor="middle" x="98.97" y="-361.6" font-family="Palatino" font-size="16.00">real GitHub issues</text>
+</g>
+<!-- TruthfulQA -->
+<g id="node9" class="node">
+<title>TruthfulQA</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M150.51,-810.4C150.51,-810.4 47.43,-810.4 47.43,-810.4 41.43,-810.4 35.43,-804.4 35.43,-798.4 35.43,-798.4 35.43,-765.6 35.43,-765.6 35.43,-759.6 41.43,-753.6 47.43,-753.6 47.43,-753.6 150.51,-753.6 150.51,-753.6 156.51,-753.6 162.51,-759.6 162.51,-765.6 162.51,-765.6 162.51,-798.4 162.51,-798.4 162.51,-804.4 156.51,-810.4 150.51,-810.4"></path>
+<text text-anchor="middle" x="98.97" y="-786.8" font-family="Palatino" font-size="16.00">TruthfulQA</text>
+<text text-anchor="middle" x="98.97" y="-767.6" font-family="Palatino" font-size="16.00">misconceptions</text>
+</g>
+<!-- HaluEval -->
+<g id="node10" class="node">
+<title>HaluEval</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M153.77,-736.4C153.77,-736.4 44.16,-736.4 44.16,-736.4 38.16,-736.4 32.16,-730.4 32.16,-724.4 32.16,-724.4 32.16,-691.6 32.16,-691.6 32.16,-685.6 38.16,-679.6 44.16,-679.6 44.16,-679.6 153.77,-679.6 153.77,-679.6 159.77,-679.6 165.77,-685.6 165.77,-691.6 165.77,-691.6 165.77,-724.4 165.77,-724.4 165.77,-730.4 159.77,-736.4 153.77,-736.4"></path>
+<text text-anchor="middle" x="98.97" y="-712.8" font-family="Palatino" font-size="16.00">HaluEval</text>
+<text text-anchor="middle" x="98.97" y="-693.6" font-family="Palatino" font-size="16.00">hallucination set</text>
+</g>
+<!-- GAIA -->
+<g id="node11" class="node">
+<title>GAIA</title>
+<path fill="#d8bfd8" stroke="#8b4789" stroke-width="2" d="M152.1,-994.4C152.1,-994.4 45.84,-994.4 45.84,-994.4 39.84,-994.4 33.84,-988.4 33.84,-982.4 33.84,-982.4 33.84,-949.6 33.84,-949.6 33.84,-943.6 39.84,-937.6 45.84,-937.6 45.84,-937.6 152.1,-937.6 152.1,-937.6 158.1,-937.6 164.1,-943.6 164.1,-949.6 164.1,-949.6 164.1,-982.4 164.1,-982.4 164.1,-988.4 158.1,-994.4 152.1,-994.4"></path>
+<text text-anchor="middle" x="98.97" y="-970.8" font-family="Palatino" font-size="16.00">GAIA</text>
+<text text-anchor="middle" x="98.97" y="-951.6" font-family="Palatino" font-size="16.00">real-world tasks</text>
+</g>
+<!-- WebArena -->
+<g id="node12" class="node">
+<title>WebArena</title>
+<path fill="#d8bfd8" stroke="#8b4789" stroke-width="2" d="M136.5,-920.4C136.5,-920.4 61.44,-920.4 61.44,-920.4 55.44,-920.4 49.44,-914.4 49.44,-908.4 49.44,-908.4 49.44,-875.6 49.44,-875.6 49.44,-869.6 55.44,-863.6 61.44,-863.6 61.44,-863.6 136.5,-863.6 136.5,-863.6 142.5,-863.6 148.5,-869.6 148.5,-875.6 148.5,-875.6 148.5,-908.4 148.5,-908.4 148.5,-914.4 142.5,-920.4 136.5,-920.4"></path>
+<text text-anchor="middle" x="98.97" y="-896.8" font-family="Palatino" font-size="16.00">WebArena</text>
+<text text-anchor="middle" x="98.97" y="-877.6" font-family="Palatino" font-size="16.00">web agents</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="notable-benchmarks-in-detail" class="slide level2">
+<h2>Notable Benchmarks in Detail</h2>
+<ul>
+<li><strong><a href="https://crfm.stanford.edu/helm/mmlu/latest/">MMLU</a></strong> (Massive Multitask Language Understanding): 57 subjects from elementary to professional. <em>Near-saturated</em> by frontier models.</li>
+<li><strong><a href="https://github.com/TIGER-AI-Lab/MMLU-Pro">MMLU-Pro</a></strong>: harder replacement, 10-way multiple choice, more reasoning.</li>
+<li><strong><a href="https://epoch.ai/benchmarks/gpqa-diamond">GPQA Diamond</a> | <a href="https://arxiv.org/abs/2311.12022">citation</a></strong>: 198 PhD-level questions Google-proof even for experts.</li>
+<li><strong>GSM8K</strong> / <strong>MATH</strong> / <strong>AIME</strong>: math at increasing difficulty.</li>
+<li><strong><a href="https://github.com/openai/human-eval">HumanEval</a></strong> / <strong><a href="https://www.swebench.com/">SWE-bench</a></strong>: code generation → real bug-fixing.</li>
+<li><strong><a href="https://github.com/sylinrl/truthfulqa">TruthfulQA</a></strong>: 817 questions designed to elicit common misconceptions.</li>
+<li><strong><a href="https://crfm.stanford.edu/helm/">HELM</a></strong>: Stanford’s holistic framework — accuracy, calibration, robustness, fairness, bias, toxicity, efficiency — across scenarios.</li>
+</ul>
+<div class="fragment">
+<p><strong>A single benchmark is a data point, not a verdict.</strong> A model excellent on MMLU may fail on real analytical writing.</p>
+</div>
+</section>
+<section id="benchmark-contamination" class="slide level2">
+<h2>Benchmark Contamination</h2>
+<p>The original sin of modern evaluation: training data leakage.</p>
+<div class="fragment">
+<ul>
+<li>Benchmarks are public. Scraped web training data contains them.</li>
+<li>Models memorize test answers rather than learning to reason.</li>
+<li>Observed: model scores 90% on a benchmark version seen in training, 50% on a paraphrased version.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Mitigations</strong></p>
+<ul>
+<li>Held-out evaluation sets (private test sets, e.g., FrontierMath, SWE-bench Verified held portions).</li>
+<li>Paraphrased variants and dynamic benchmarks.</li>
+<li>Temporal validation: evaluate on tasks from <em>after</em> the training cutoff.</li>
+</ul>
+</div>
+</section>
+<section id="generation-4-human-preference-and-llm-as-judge" class="slide level2">
+<h2>Generation 4: Human Preference and LLM-as-Judge</h2>
+<p>Benchmarks miss what matters most to users: “which response do I prefer?”</p>
+<h3 id="chatbot-arena-lmsys">Chatbot Arena (LMSYS)</h3>
+<ul>
+<li>Users chat with two anonymous models side by side, vote on preferred response.</li>
+<li>Pairwise outcomes aggregated via <strong>Elo / Bradley-Terry</strong> rating.</li>
+<li>Hundreds of thousands of votes per model.</li>
+</ul>
+<div class="fragment">
+<p>The Arena Elo has become the de facto leaderboard because it captures <em>real user preferences on real prompts</em> — not curated multiple choice.</p>
+</div>
+</section>
+<section id="bradley-terry-model-for-pairwise-preferences" class="slide level2">
+<h2>Bradley-Terry Model for Pairwise Preferences</h2>
+<p><span class="math display">\[
+P(i \succ j) = \underbrace{\frac{e^{\beta_i}}{e^{\beta_i} + e^{\beta_j}}}_{\substack{\text{logit probability that} \\ \text{model } i \text{ beats model } j}}
+\]</span></p>
+<div class="fragment">
+<p>Fit by maximum likelihood on observed pairwise outcomes. Equivalent to logistic regression with model-pair indicators.</p>
+</div>
+<div class="fragment">
+<p><strong>Caveats</strong></p>
+<ul>
+<li>Style bias: users prefer longer, more confident answers even when wrong.</li>
+<li>Population bias: who votes? Not a random sample of researchers.</li>
+<li>Prompt bias: casual prompts dominate; technical prompts under-represented.</li>
+</ul>
+</div>
+</section>
+<section id="llm-as-judge" class="slide level2">
+<h2>LLM-as-Judge</h2>
+<p>Use a strong LLM (typically GPT-4 or Claude) to grade outputs from weaker models.</p>
+<p><strong>Frameworks</strong></p>
+<ul>
+<li><strong>MT-Bench</strong>: 80 multi-turn prompts, GPT-4 scores 1–10.</li>
+<li><strong>AlpacaEval</strong>: pairwise win-rate against a reference model.</li>
+<li><strong>Arena-Hard</strong>: filtered Arena prompts judged by GPT-4.</li>
+</ul>
+<div class="fragment">
+<p><strong>When it works</strong></p>
+<ul>
+<li>Scales cheaply to thousands of evaluations.</li>
+<li>Correlates ~0.8 with human judgments on many tasks.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>When it fails</strong></p>
+<ul>
+<li><strong>Self-preference bias</strong>: GPT-4 rates GPT-4 higher.</li>
+<li><strong>Position bias</strong>: first or second option advantaged.</li>
+<li><strong>Length bias</strong>: longer answers preferred.</li>
+<li>Breaks down on tasks beyond the judge’s own capability.</li>
+</ul>
+</div>
+</section>
+<section id="mitigating-judge-bias" class="slide level2 scrollable">
+<h2>Mitigating Judge Bias</h2>
+<p>Practical corrections from the literature:</p>
+<div class="fragment">
+<ol type="1">
+<li><strong>Randomize position</strong> across trials and average.</li>
+<li><strong>Use multiple judges</strong> (ensemble) including at least one from a different model family.</li>
+<li><strong>Calibrate against human gold</strong> on a subset.</li>
+<li><strong>Provide a rubric</strong> — structured criteria beat “which is better?”</li>
+<li><strong>Avoid self-evaluation</strong> — don’t let a model judge itself.</li>
+</ol>
+</div>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>For publication-grade research, combine LLM-as-judge for scale with a stratified human-coded subsample to estimate bias and agreement.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="task-specific-metrics-for-social-science" class="slide level2">
+<h2>Task-Specific Metrics for Social Science</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 46%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Primary metric</th>
+<th>Secondary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Text classification</td>
+<td>Macro-F1, Cohen’s <span class="math inline">\(\kappa\)</span></td>
+<td>Per-class P/R</td>
+</tr>
+<tr class="even">
+<td>Topic assignment</td>
+<td>Coherence (<span class="math inline">\(C_v\)</span>, UMass), <span class="math inline">\(\kappa\)</span> vs human</td>
+<td>Exclusivity</td>
+</tr>
+<tr class="odd">
+<td>Ideological scaling</td>
+<td>Correlation with DW-NOMINATE / expert coding</td>
+<td>Test-retest</td>
+</tr>
+<tr class="even">
+<td>Stance detection</td>
+<td>Macro-F1, confusion matrix</td>
+<td>Per-target F1</td>
+</tr>
+<tr class="odd">
+<td>Summarization</td>
+<td>Human rating, factuality</td>
+<td>ROUGE-L</td>
+</tr>
+<tr class="even">
+<td>Information extraction</td>
+<td>Entity-level P/R/F1</td>
+<td>Exact match</td>
+</tr>
+<tr class="odd">
+<td>Question answering</td>
+<td>Exact match, F1 on token overlap</td>
+<td>BERTScore</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>The best evaluation almost always combines an automated metric with a human audit on a stratified subsample.</p>
+</div>
+</section></section>
+<section>
+<section id="part-ii-hallucination-detection" class="title-slide slide level1 center" data-background-color="#7B241C">
+<h1>Part II — Hallucination Detection</h1>
+
+</section>
+<section id="what-is-a-hallucination" class="slide level2">
+<h2>What is a Hallucination?</h2>
+<p>A <strong>hallucination</strong> is model output that is plausible but not faithful to inputs, training data, or verifiable reality.</p>
+<div class="fragment">
+<p>The term is contested:</p>
+<ul>
+<li>Some argue it anthropomorphizes; prefer “<strong>confabulation</strong>” or “<strong>fabrication</strong>.”</li>
+<li>Others distinguish hallucination (perception-like error) from fabrication (generation of false claims).</li>
+<li>For our purposes: any output that is <strong>confidently wrong</strong>.</li>
+</ul>
+</div>
+</section>
+<section id="taxonomy-of-hallucinations" class="slide level2">
+<h2>Taxonomy of Hallucinations</h2>
+<div class="cell" data-fig-width="14" data-fig-height="7" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1344" height="672" viewbox="0.00 0.00 611.45 370.40" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 366.4)">
+<title>HalluTaxonomy</title>
+<!-- Root -->
+<g id="node1" class="node">
+<title>Root</title>
+<path fill="#f5f5f5" stroke="#696969" stroke-width="2" d="M103.13,-200.9C103.13,-200.9 11.96,-200.9 11.96,-200.9 5.96,-200.9 -0.04,-194.9 -0.04,-188.9 -0.04,-188.9 -0.04,-173.5 -0.04,-173.5 -0.04,-167.5 5.96,-161.5 11.96,-161.5 11.96,-161.5 103.13,-161.5 103.13,-161.5 109.13,-161.5 115.13,-167.5 115.13,-173.5 115.13,-173.5 115.13,-188.9 115.13,-188.9 115.13,-194.9 109.13,-200.9 103.13,-200.9"></path>
+<text text-anchor="middle" x="57.54" y="-176.4" font-family="Palatino" font-size="16.00">Hallucination</text>
+</g>
+<!-- Intrinsic -->
+<g id="node2" class="node">
+<title>Intrinsic</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M295.32,-286.6C295.32,-286.6 184.14,-286.6 184.14,-286.6 178.14,-286.6 172.14,-280.6 172.14,-274.6 172.14,-274.6 172.14,-239.8 172.14,-239.8 172.14,-233.8 178.14,-227.8 184.14,-227.8 184.14,-227.8 295.32,-227.8 295.32,-227.8 301.32,-227.8 307.32,-233.8 307.32,-239.8 307.32,-239.8 307.32,-274.6 307.32,-274.6 307.32,-280.6 301.32,-286.6 295.32,-286.6"></path>
+<text text-anchor="middle" x="239.73" y="-262" font-family="Palatino" font-size="16.00">Intrinsic</text>
+<text text-anchor="middle" x="239.73" y="-242.8" font-family="Palatino" font-size="16.00">contradicts input</text>
+</g>
+<!-- Root&#45;&gt;Intrinsic -->
+<g id="edge1" class="edge">
+<title>Root-&gt;Intrinsic</title>
+<path fill="none" stroke="black" stroke-width="2" d="M105.41,-200.97C122.89,-208.34 143.21,-216.91 162.63,-225.1"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="161.51,-228.43 172.08,-229.09 164.23,-221.98 161.51,-228.43"></polygon>
+</g>
+<!-- Extrinsic -->
+<g id="node3" class="node">
+<title>Extrinsic</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M316.52,-172.6C316.52,-172.6 162.94,-172.6 162.94,-172.6 156.94,-172.6 150.94,-166.6 150.94,-160.6 150.94,-160.6 150.94,-125.8 150.94,-125.8 150.94,-119.8 156.94,-113.8 162.94,-113.8 162.94,-113.8 316.52,-113.8 316.52,-113.8 322.52,-113.8 328.52,-119.8 328.52,-125.8 328.52,-125.8 328.52,-160.6 328.52,-160.6 328.52,-166.6 322.52,-172.6 316.52,-172.6"></path>
+<text text-anchor="middle" x="239.73" y="-148" font-family="Palatino" font-size="16.00">Extrinsic</text>
+<text text-anchor="middle" x="239.73" y="-128.8" font-family="Palatino" font-size="16.00">unverifiable from input</text>
+</g>
+<!-- Root&#45;&gt;Extrinsic -->
+<g id="edge2" class="edge">
+<title>Root-&gt;Extrinsic</title>
+<path fill="none" stroke="black" stroke-width="2" d="M115.56,-169.18C123.72,-167.45 132.31,-165.64 140.99,-163.81"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="141.75,-167.23 150.81,-161.74 140.31,-160.38 141.75,-167.23"></polygon>
+</g>
+<!-- Contradiction -->
+<g id="node4" class="node">
+<title>Contradiction</title>
+<path fill="#ffe5e5" stroke="#cd5c5c" stroke-width="2" d="M591.49,-362.6C591.49,-362.6 376.34,-362.6 376.34,-362.6 370.34,-362.6 364.34,-356.6 364.34,-350.6 364.34,-350.6 364.34,-315.8 364.34,-315.8 364.34,-309.8 370.34,-303.8 376.34,-303.8 376.34,-303.8 591.49,-303.8 591.49,-303.8 597.49,-303.8 603.49,-309.8 603.49,-315.8 603.49,-315.8 603.49,-350.6 603.49,-350.6 603.49,-356.6 597.49,-362.6 591.49,-362.6"></path>
+<text text-anchor="middle" x="483.91" y="-338" font-family="Palatino" font-size="16.00">Contradiction</text>
+<text text-anchor="middle" x="483.91" y="-318.8" font-family="Palatino" font-size="16.00">'Paper says X, output says not-X'</text>
+</g>
+<!-- Intrinsic&#45;&gt;Contradiction -->
+<g id="edge3" class="edge">
+<title>Intrinsic-&gt;Contradiction</title>
+<path fill="none" stroke="black" stroke-width="2" d="M307.55,-278.17C329.92,-285.19 355.41,-293.19 379.89,-300.87"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="378.99,-304.25 389.58,-303.91 381.08,-297.58 378.99,-304.25"></polygon>
+</g>
+<!-- Misattribution -->
+<g id="node5" class="node">
+<title>Misattribution</title>
+<path fill="#ffe5e5" stroke="#cd5c5c" stroke-width="2" d="M586.64,-286.6C586.64,-286.6 381.19,-286.6 381.19,-286.6 375.19,-286.6 369.19,-280.6 369.19,-274.6 369.19,-274.6 369.19,-239.8 369.19,-239.8 369.19,-233.8 375.19,-227.8 381.19,-227.8 381.19,-227.8 586.64,-227.8 586.64,-227.8 592.64,-227.8 598.64,-233.8 598.64,-239.8 598.64,-239.8 598.64,-274.6 598.64,-274.6 598.64,-280.6 592.64,-286.6 586.64,-286.6"></path>
+<text text-anchor="middle" x="483.91" y="-262" font-family="Palatino" font-size="16.00">Misattribution</text>
+<text text-anchor="middle" x="483.91" y="-242.8" font-family="Palatino" font-size="16.00">claim assigned to wrong source</text>
+</g>
+<!-- Intrinsic&#45;&gt;Misattribution -->
+<g id="edge4" class="edge">
+<title>Intrinsic-&gt;Misattribution</title>
+<path fill="none" stroke="black" stroke-width="2" d="M307.55,-257.2C323.47,-257.2 340.96,-257.2 358.55,-257.2"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="358.9,-260.7 368.9,-257.2 358.9,-253.7 358.9,-260.7"></polygon>
+</g>
+<!-- Fabrication -->
+<g id="node6" class="node">
+<title>Fabrication</title>
+<path fill="#fff5e5" stroke="#cd853f" stroke-width="2" d="M587.07,-210.6C587.07,-210.6 380.76,-210.6 380.76,-210.6 374.76,-210.6 368.76,-204.6 368.76,-198.6 368.76,-198.6 368.76,-163.8 368.76,-163.8 368.76,-157.8 374.76,-151.8 380.76,-151.8 380.76,-151.8 587.07,-151.8 587.07,-151.8 593.07,-151.8 599.07,-157.8 599.07,-163.8 599.07,-163.8 599.07,-198.6 599.07,-198.6 599.07,-204.6 593.07,-210.6 587.07,-210.6"></path>
+<text text-anchor="middle" x="483.91" y="-186" font-family="Palatino" font-size="16.00">Fabrication</text>
+<text text-anchor="middle" x="483.91" y="-166.8" font-family="Palatino" font-size="16.00">invented citations, facts, people</text>
+</g>
+<!-- Extrinsic&#45;&gt;Fabrication -->
+<g id="edge5" class="edge">
+<title>Extrinsic-&gt;Fabrication</title>
+<path fill="none" stroke="black" stroke-width="2" d="M328.51,-156.97C338.25,-158.5 348.31,-160.08 358.4,-161.66"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="358.07,-165.15 368.49,-163.25 359.16,-158.24 358.07,-165.15"></polygon>
+</g>
+<!-- Factual -->
+<g id="node7" class="node">
+<title>Factual</title>
+<path fill="#fff5e5" stroke="#cd853f" stroke-width="2" d="M560.31,-134.6C560.31,-134.6 407.52,-134.6 407.52,-134.6 401.52,-134.6 395.52,-128.6 395.52,-122.6 395.52,-122.6 395.52,-87.8 395.52,-87.8 395.52,-81.8 401.52,-75.8 407.52,-75.8 407.52,-75.8 560.31,-75.8 560.31,-75.8 566.31,-75.8 572.31,-81.8 572.31,-87.8 572.31,-87.8 572.31,-122.6 572.31,-122.6 572.31,-128.6 566.31,-134.6 560.31,-134.6"></path>
+<text text-anchor="middle" x="483.91" y="-110" font-family="Palatino" font-size="16.00">Factual error</text>
+<text text-anchor="middle" x="483.91" y="-90.8" font-family="Palatino" font-size="16.00">real topic, wrong detail</text>
+</g>
+<!-- Extrinsic&#45;&gt;Factual -->
+<g id="edge6" class="edge">
+<title>Extrinsic-&gt;Factual</title>
+<path fill="none" stroke="black" stroke-width="2" d="M328.51,-129.43C346.98,-126.53 366.58,-123.45 385.38,-120.5"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="386.1,-123.93 395.44,-118.93 385.02,-117.02 386.1,-123.93"></polygon>
+</g>
+<!-- Outdated -->
+<g id="node8" class="node">
+<title>Outdated</title>
+<path fill="#fff5e5" stroke="#cd853f" stroke-width="2" d="M568.26,-58.6C568.26,-58.6 399.57,-58.6 399.57,-58.6 393.57,-58.6 387.57,-52.6 387.57,-46.6 387.57,-46.6 387.57,-11.8 387.57,-11.8 387.57,-5.8 393.57,0.2 399.57,0.2 399.57,0.2 568.26,0.2 568.26,0.2 574.26,0.2 580.26,-5.8 580.26,-11.8 580.26,-11.8 580.26,-46.6 580.26,-46.6 580.26,-52.6 574.26,-58.6 568.26,-58.6"></path>
+<text text-anchor="middle" x="483.91" y="-34" font-family="Palatino" font-size="16.00">Outdated</text>
+<text text-anchor="middle" x="483.91" y="-14.8" font-family="Palatino" font-size="16.00">true in training, false now</text>
+</g>
+<!-- Extrinsic&#45;&gt;Outdated -->
+<g id="edge7" class="edge">
+<title>Extrinsic-&gt;Outdated</title>
+<path fill="none" stroke="black" stroke-width="2" d="M282.8,-113.82C306.09,-98.48 335.98,-80.24 364.38,-67.2 368.75,-65.19 373.26,-63.24 377.84,-61.36"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="379.35,-64.53 387.35,-57.6 376.77,-58.03 379.35,-64.53"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="faithfulness-vs.-factuality" class="slide level2">
+<h2>Faithfulness vs.&nbsp;Factuality</h2>
+<p>Two distinct properties, often conflated:</p>
+<div class="fragment">
+<p><strong>Faithfulness</strong> — does the output accurately reflect the <em>input</em> (source document, retrieved context)?</p>
+<ul>
+<li>Relevant for: summarization, RAG, translation, extraction.</li>
+<li>Violated by: adding claims not in the source; contradicting the source.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Factuality</strong> — does the output accurately reflect <em>the world</em>?</p>
+<ul>
+<li>Relevant for: open-ended QA, scholarly claims, current events.</li>
+<li>Violated by: stating incorrect dates, inventing authors, wrong numerical values.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>A model can be <strong>faithful but not factual</strong> (accurately summarizes a document that is itself wrong) or <strong>factual but not faithful</strong> (adds correct information not in the source).</p>
+</div>
+</section>
+<section id="why-do-llms-hallucinate" class="slide level2 scrollable">
+<h2>Why Do LLMs Hallucinate?</h2>
+<p>Hallucination is a structural feature, not a bug to be patched:</p>
+<ol type="1">
+<li><strong>Training objective</strong> rewards fluent, plausible continuations — not truth.</li>
+<li><strong>No native uncertainty</strong>: the model always produces <em>some</em> next token.</li>
+<li><strong>Parametric memory is lossy</strong>: facts are compressed into weights and can be confidently misremembered.</li>
+<li><strong>Distributional shift</strong>: questions beyond training distribution produce confident interpolation.</li>
+<li><strong>Instruction following</strong>: asked for a citation, the model produces something that <em>looks</em> like one.</li>
+</ol>
+<div class="fragment">
+<p>The standard mitigation insight: <strong>separate knowing from asserting</strong>. Give the model tools to check itself.</p>
+</div>
+</section>
+<section id="detection-strategy-1-self-consistency" class="slide level2 scrollable">
+<h2>Detection Strategy 1: Self-Consistency</h2>
+<p>Ask the same question multiple times with non-zero temperature. If answers disagree, the model is uncertain — and likely hallucinating.</p>
+<div class="fragment">
+<h3 id="selfcheckgpt-manakul-et-al.-2023">SelfCheckGPT (Manakul et al.&nbsp;2023)</h3>
+<ol type="1">
+<li>Generate <span class="math inline">\(N\)</span> samples at temperature <span class="math inline">\(T &gt; 0\)</span>.</li>
+<li>For each sentence in the original response, measure agreement with the samples.</li>
+<li>High disagreement <span class="math inline">\(\Rightarrow\)</span> likely hallucination.</li>
+</ol>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+S_{\text{hallu}}(s) = \underbrace{1 - \frac{1}{N} \sum_{n=1}^{N} \text{sim}(s, \text{sample}_n)}_{\substack{\text{inconsistency across} \\ N \text{ independent generations}}}
+\]</span></p>
+</div>
+</section>
+<section id="detection-strategy-2-semantic-entropy" class="slide level2">
+<h2>Detection Strategy 2: Semantic Entropy</h2>
+<p>Farquhar et al.&nbsp;(<em>Nature</em>, 2024): cluster sampled outputs by semantic equivalence (using an NLI model), then compute entropy over <em>meanings</em>, not tokens.</p>
+<div class="fragment">
+<p><span class="math display">\[
+H_{\text{sem}} = -\underbrace{\sum_{c \in \text{Clusters}} p(c) \log p(c)}_{\substack{\text{entropy over} \\ \text{semantic clusters}}}
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li>Resolves the problem that “Paris” and “The capital is Paris” look different at the token level but are the same meaning.</li>
+<li>Substantially outperforms token-level log-likelihood uncertainty.</li>
+<li>State-of-the-art among reference-free detectors.</li>
+</ul>
+</div>
+</section>
+<section id="detection-strategy-3-retrieval-verification" class="slide level2">
+<h2>Detection Strategy 3: Retrieval Verification</h2>
+<p>Ground every claim against an external knowledge source.</p>
+<div class="cell" data-fig-width="14" data-fig-height="4.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1344" height="432" viewbox="0.00 0.00 792.77 85.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 81.6)">
+<title>RetrievalVerify</title>
+<!-- Output -->
+<g id="node1" class="node">
+<title>Output</title>
+<path fill="#e6e6fa" stroke="#6a5acd" stroke-width="2" d="M98.5,-58.5C98.5,-58.5 12.17,-58.5 12.17,-58.5 6.17,-58.5 0.17,-52.5 0.17,-46.5 0.17,-46.5 0.17,-31.1 0.17,-31.1 0.17,-25.1 6.17,-19.1 12.17,-19.1 12.17,-19.1 98.5,-19.1 98.5,-19.1 104.5,-19.1 110.5,-25.1 110.5,-31.1 110.5,-31.1 110.5,-46.5 110.5,-46.5 110.5,-52.5 104.5,-58.5 98.5,-58.5"></path>
+<text text-anchor="middle" x="55.33" y="-34" font-family="Palatino" font-size="16.00">LLM output</text>
+</g>
+<!-- Extract -->
+<g id="node2" class="node">
+<title>Extract</title>
+<path fill="#fff8dc" stroke="#daa520" stroke-width="2" d="M256.12,-68.2C256.12,-68.2 158.51,-68.2 158.51,-68.2 152.51,-68.2 146.51,-62.2 146.51,-56.2 146.51,-56.2 146.51,-21.4 146.51,-21.4 146.51,-15.4 152.51,-9.4 158.51,-9.4 158.51,-9.4 256.12,-9.4 256.12,-9.4 262.12,-9.4 268.12,-15.4 268.12,-21.4 268.12,-21.4 268.12,-56.2 268.12,-56.2 268.12,-62.2 262.12,-68.2 256.12,-68.2"></path>
+<text text-anchor="middle" x="207.32" y="-43.6" font-family="Palatino" font-size="16.00">Extract</text>
+<text text-anchor="middle" x="207.32" y="-24.4" font-family="Palatino" font-size="16.00">atomic claims</text>
+</g>
+<!-- Output&#45;&gt;Extract -->
+<g id="edge1" class="edge">
+<title>Output-&gt;Extract</title>
+<path fill="none" stroke="black" stroke-width="2" d="M110.9,-38.8C119.21,-38.8 127.88,-38.8 136.46,-38.8"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="136.46,-42.3 146.46,-38.8 136.46,-35.3 136.46,-42.3"></polygon>
+</g>
+<!-- Retrieve -->
+<g id="node3" class="node">
+<title>Retrieve</title>
+<path fill="#e0ffe0" stroke="#228b22" stroke-width="2" d="M466.24,-77.4C466.24,-77.4 315.88,-77.4 315.88,-77.4 309.88,-77.4 303.88,-71.4 303.88,-65.4 303.88,-65.4 303.88,-12.2 303.88,-12.2 303.88,-6.2 309.88,-0.2 315.88,-0.2 315.88,-0.2 466.24,-0.2 466.24,-0.2 472.24,-0.2 478.24,-6.2 478.24,-12.2 478.24,-12.2 478.24,-65.4 478.24,-65.4 478.24,-71.4 472.24,-77.4 466.24,-77.4"></path>
+<text text-anchor="middle" x="391.06" y="-53.2" font-family="Palatino" font-size="16.00">Retrieve</text>
+<text text-anchor="middle" x="391.06" y="-34" font-family="Palatino" font-size="16.00">evidence</text>
+<text text-anchor="middle" x="391.06" y="-14.8" font-family="Palatino" font-size="16.00">(Wikipedia, web, DB)</text>
+</g>
+<!-- Extract&#45;&gt;Retrieve -->
+<g id="edge2" class="edge">
+<title>Extract-&gt;Retrieve</title>
+<path fill="none" stroke="black" stroke-width="2" d="M268.08,-38.8C276.33,-38.8 284.97,-38.8 293.69,-38.8"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="293.92,-42.3 303.92,-38.8 293.92,-35.3 293.92,-42.3"></polygon>
+</g>
+<!-- Verify -->
+<g id="node4" class="node">
+<title>Verify</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M640.6,-68.2C640.6,-68.2 526.33,-68.2 526.33,-68.2 520.33,-68.2 514.33,-62.2 514.33,-56.2 514.33,-56.2 514.33,-21.4 514.33,-21.4 514.33,-15.4 520.33,-9.4 526.33,-9.4 526.33,-9.4 640.6,-9.4 640.6,-9.4 646.6,-9.4 652.6,-15.4 652.6,-21.4 652.6,-21.4 652.6,-56.2 652.6,-56.2 652.6,-62.2 646.6,-68.2 640.6,-68.2"></path>
+<text text-anchor="middle" x="583.46" y="-43.6" font-family="Palatino" font-size="16.00">NLI / entailment</text>
+<text text-anchor="middle" x="583.46" y="-24.4" font-family="Palatino" font-size="16.00">per claim</text>
+</g>
+<!-- Retrieve&#45;&gt;Verify -->
+<g id="edge3" class="edge">
+<title>Retrieve-&gt;Verify</title>
+<path fill="none" stroke="black" stroke-width="2" d="M478.35,-38.8C486.88,-38.8 495.51,-38.8 503.96,-38.8"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="504.16,-42.3 514.16,-38.8 504.16,-35.3 504.16,-42.3"></polygon>
+</g>
+<!-- Score -->
+<g id="node5" class="node">
+<title>Score</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M772.76,-68.2C772.76,-68.2 700.79,-68.2 700.79,-68.2 694.79,-68.2 688.79,-62.2 688.79,-56.2 688.79,-56.2 688.79,-21.4 688.79,-21.4 688.79,-15.4 694.79,-9.4 700.79,-9.4 700.79,-9.4 772.76,-9.4 772.76,-9.4 778.76,-9.4 784.76,-15.4 784.76,-21.4 784.76,-21.4 784.76,-56.2 784.76,-56.2 784.76,-62.2 778.76,-68.2 772.76,-68.2"></path>
+<text text-anchor="middle" x="736.77" y="-43.6" font-family="Palatino" font-size="16.00">Factuality</text>
+<text text-anchor="middle" x="736.77" y="-24.4" font-family="Palatino" font-size="16.00">score</text>
+</g>
+<!-- Verify&#45;&gt;Score -->
+<g id="edge4" class="edge">
+<title>Verify-&gt;Score</title>
+<path fill="none" stroke="black" stroke-width="2" d="M653.04,-38.8C661.6,-38.8 670.28,-38.8 678.64,-38.8"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="678.65,-42.3 688.65,-38.8 678.65,-35.3 678.65,-42.3"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>FActScore</strong> (Min et al.&nbsp;2023): decompose biography into atomic facts, check each against Wikipedia. Widely used for long-form factuality evaluation.</p>
+</div>
+</section>
+<section id="detection-strategy-4-chain-of-verification" class="slide level2 scrollable">
+<h2>Detection Strategy 4: Chain-of-Verification</h2>
+<p>Dhuliawala et al.&nbsp;(2023): have the model verify its own draft.</p>
+<div class="fragment">
+<ol type="1">
+<li>Produce initial response.</li>
+<li>Generate a list of verification questions that, if answered correctly, would confirm the response.</li>
+<li>Answer each verification question <strong>independently</strong> (fresh context, no access to the draft).</li>
+<li>Revise the response in light of verification answers.</li>
+</ol>
+</div>
+<div class="fragment">
+<p>The independence step is the key — it prevents the model from rubber-stamping its own errors.</p>
+</div>
+</section>
+<section id="detection-strategy-5-uncertainty-from-logits" class="slide level2">
+<h2>Detection Strategy 5: Uncertainty from Logits</h2>
+<p>When available, raw token probabilities are informative:</p>
+<ul>
+<li><strong>Mean log-probability</strong> of generated tokens — low = uncertain.</li>
+<li><strong>Minimum token probability</strong> — catches single weak links.</li>
+<li><strong>Predictive entropy</strong> per token.</li>
+<li><strong>Margin</strong> between top-1 and top-2 probabilities.</li>
+</ul>
+<div class="fragment">
+<p><strong>Problems</strong></p>
+<ul>
+<li>Closed-source models (GPT-4, Claude via API) rarely expose full logits.</li>
+<li>Well-calibrated on MMLU is <em>not</em> well-calibrated on fabrication.</li>
+<li>RLHF systematically reduces calibration: the model becomes overconfident.</li>
+</ul>
+</div>
+</section>
+<section id="evaluation-sets-for-hallucination" class="slide level2">
+<h2>Evaluation Sets for Hallucination</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Benchmark</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>TruthfulQA</strong></td>
+<td>817 questions eliciting common misconceptions</td>
+</tr>
+<tr class="even">
+<td><strong>HaluEval</strong></td>
+<td>35K examples across QA, dialogue, summarization</td>
+</tr>
+<tr class="odd">
+<td><strong>FEVER</strong></td>
+<td>claim verification against Wikipedia</td>
+</tr>
+<tr class="even">
+<td><strong>FELM</strong></td>
+<td>fine-grained factuality across five domains</td>
+</tr>
+<tr class="odd">
+<td><strong>FactScore</strong></td>
+<td>atomic-fact decomposition protocol</td>
+</tr>
+<tr class="even">
+<td><strong>SimpleQA</strong></td>
+<td>4,326 short factual questions (OpenAI 2024)</td>
+</tr>
+<tr class="odd">
+<td><strong>BIG-bench Hard</strong></td>
+<td>subset emphasizing reasoning failures</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>For political science applications: build your own domain-specific evaluation set. Generic benchmarks do not measure whether a model correctly attributes Supreme Court opinions or reports policy content.</p>
+</div>
+</section>
+<section id="mitigation-retrieval-augmented-generation" class="slide level2">
+<h2>Mitigation: Retrieval-Augmented Generation</h2>
+<p>The single most effective hallucination reducer in production.</p>
+<div class="fragment">
+<p><span class="math display">\[
+p(y \mid x) = \underbrace{\int p(y \mid x, z) \, p(z \mid x) \, dz}_{\substack{\text{marginalize over} \\ \text{retrieved documents } z}}
+\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li>Retrieve top-<span class="math inline">\(k\)</span> relevant documents, condition generation on them.</li>
+<li>Require in-text citations to the retrieved documents.</li>
+<li>Measure faithfulness via NLI between claim and cited document.</li>
+</ul>
+</div>
+<div class="fragment">
+<p>RAG reduces but does not eliminate hallucination. Models still:</p>
+<ul>
+<li>Ignore retrieved context in favor of parametric memory.</li>
+<li>Confidently paraphrase inaccurately.</li>
+<li>Cite documents that do not support the claim made.</li>
+</ul>
+</div>
+</section>
+<section id="mitigation-abstention-and-calibrated-refusal" class="slide level2">
+<h2>Mitigation: Abstention and Calibrated Refusal</h2>
+<p>A model that knows what it does not know is more valuable than one that knows more but asserts it all.</p>
+<div class="fragment">
+<p><strong>Selective prediction</strong>: output a confidence score and abstain below a threshold.</p>
+<p><span class="math display">\[
+\hat{y} = \begin{cases}
+\text{prediction} &amp; \text{if } \text{conf} \geq \tau \\
+\text{abstain} &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Evaluate with <strong>risk-coverage curves</strong>: as the abstention rate increases (lower coverage), accuracy on the answered portion should rise.</p>
+<p>A model useful for research should abstain appropriately on questions requiring facts it cannot verify.</p>
+</div>
+</section>
+<section id="a-workflow-for-detecting-hallucination-in-your-research" class="slide level2">
+<h2>A Workflow for Detecting Hallucination in Your Research</h2>
+<div class="cell" data-fig-width="15" data-fig-height="5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="480" viewbox="0.00 0.00 944.43 64.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 60)">
+<title>Workflow</title>
+<!-- Gen -->
+<g id="node1" class="node">
+<title>Gen</title>
+<path fill="#e6e6fa" stroke="#6a5acd" stroke-width="2" d="M101.36,-56C101.36,-56 11.88,-56 11.88,-56 5.88,-56 -0.12,-50 -0.12,-44 -0.12,-44 -0.12,-12 -0.12,-12 -0.12,-6 5.88,0 11.88,0 11.88,0 101.36,0 101.36,0 107.36,0 113.36,-6 113.36,-12 113.36,-12 113.36,-44 113.36,-44 113.36,-50 107.36,-56 101.36,-56"></path>
+<text text-anchor="middle" x="56.62" y="-32.5" font-family="Palatino" font-size="15.00">Generate</text>
+<text text-anchor="middle" x="56.62" y="-14.5" font-family="Palatino" font-size="15.00">with citations</text>
+</g>
+<!-- Atomize -->
+<g id="node2" class="node">
+<title>Atomize</title>
+<path fill="#fff8dc" stroke="#daa520" stroke-width="2" d="M279.95,-56C279.95,-56 161.34,-56 161.34,-56 155.34,-56 149.34,-50 149.34,-44 149.34,-44 149.34,-12 149.34,-12 149.34,-6 155.34,0 161.34,0 161.34,0 279.95,0 279.95,0 285.95,0 291.95,-6 291.95,-12 291.95,-12 291.95,-44 291.95,-44 291.95,-50 285.95,-56 279.95,-56"></path>
+<text text-anchor="middle" x="220.64" y="-32.5" font-family="Palatino" font-size="15.00">Decompose</text>
+<text text-anchor="middle" x="220.64" y="-14.5" font-family="Palatino" font-size="15.00">into atomic claims</text>
+</g>
+<!-- Gen&#45;&gt;Atomize -->
+<g id="edge1" class="edge">
+<title>Gen-&gt;Atomize</title>
+<path fill="none" stroke="black" stroke-width="2" d="M113.38,-28C121.67,-28 130.35,-28 139.03,-28"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="139.19,-31.5 149.19,-28 139.19,-24.5 139.19,-31.5"></polygon>
+</g>
+<!-- Verify -->
+<g id="node3" class="node">
+<title>Verify</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M445.13,-56C445.13,-56 340.02,-56 340.02,-56 334.02,-56 328.02,-50 328.02,-44 328.02,-44 328.02,-12 328.02,-12 328.02,-6 334.02,0 340.02,0 340.02,0 445.13,0 445.13,0 451.13,0 457.13,-6 457.13,-12 457.13,-12 457.13,-44 457.13,-44 457.13,-50 451.13,-56 445.13,-56"></path>
+<text text-anchor="middle" x="392.57" y="-32.5" font-family="Palatino" font-size="15.00">Verify each</text>
+<text text-anchor="middle" x="392.57" y="-14.5" font-family="Palatino" font-size="15.00">claim vs. source</text>
+</g>
+<!-- Atomize&#45;&gt;Verify -->
+<g id="edge2" class="edge">
+<title>Atomize-&gt;Verify</title>
+<path fill="none" stroke="black" stroke-width="2" d="M292.23,-28C300.66,-28 309.28,-28 317.76,-28"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="317.99,-31.5 327.99,-28 317.99,-24.5 317.99,-31.5"></polygon>
+</g>
+<!-- Flag -->
+<g id="node4" class="node">
+<title>Flag</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M587.34,-56C587.34,-56 505.02,-56 505.02,-56 499.02,-56 493.02,-50 493.02,-44 493.02,-44 493.02,-12 493.02,-12 493.02,-6 499.02,0 505.02,0 505.02,0 587.34,0 587.34,0 593.34,0 599.34,-6 599.34,-12 599.34,-12 599.34,-44 599.34,-44 599.34,-50 593.34,-56 587.34,-56"></path>
+<text text-anchor="middle" x="546.18" y="-32.5" font-family="Palatino" font-size="15.00">Flag</text>
+<text text-anchor="middle" x="546.18" y="-14.5" font-family="Palatino" font-size="15.00">unsupported</text>
+</g>
+<!-- Verify&#45;&gt;Flag -->
+<g id="edge3" class="edge">
+<title>Verify-&gt;Flag</title>
+<path fill="none" stroke="black" stroke-width="2" d="M457.43,-28C465.83,-28 474.43,-28 482.8,-28"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="482.88,-31.5 492.88,-28 482.88,-24.5 482.88,-31.5"></polygon>
+</g>
+<!-- Human -->
+<g id="node5" class="node">
+<title>Human</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M773.71,-56C773.71,-56 647.11,-56 647.11,-56 641.11,-56 635.11,-50 635.11,-44 635.11,-44 635.11,-12 635.11,-12 635.11,-6 641.11,0 647.11,0 647.11,0 773.71,0 773.71,0 779.71,0 785.71,-6 785.71,-12 785.71,-12 785.71,-44 785.71,-44 785.71,-50 779.71,-56 773.71,-56"></path>
+<text text-anchor="middle" x="710.41" y="-32.5" font-family="Palatino" font-size="15.00">Human audit</text>
+<text text-anchor="middle" x="710.41" y="-14.5" font-family="Palatino" font-size="15.00">on stratified sample</text>
+</g>
+<!-- Flag&#45;&gt;Human -->
+<g id="edge4" class="edge">
+<title>Flag-&gt;Human</title>
+<path fill="none" stroke="black" stroke-width="2" d="M599.4,-28C607.59,-28 616.23,-28 624.93,-28"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="625.13,-31.5 635.13,-28 625.13,-24.5 625.13,-31.5"></polygon>
+</g>
+<!-- Report -->
+<g id="node6" class="node">
+<title>Report</title>
+<path fill="#e0ffe0" stroke="#228b22" stroke-width="2" d="M924.36,-56C924.36,-56 833.63,-56 833.63,-56 827.63,-56 821.63,-50 821.63,-44 821.63,-44 821.63,-12 821.63,-12 821.63,-6 827.63,0 833.63,0 833.63,0 924.36,0 924.36,0 930.36,0 936.36,-6 936.36,-12 936.36,-12 936.36,-44 936.36,-44 936.36,-50 930.36,-56 924.36,-56"></path>
+<text text-anchor="middle" x="878.99" y="-32.5" font-family="Palatino" font-size="15.00">Report</text>
+<text text-anchor="middle" x="878.99" y="-14.5" font-family="Palatino" font-size="15.00">factuality rate</text>
+</g>
+<!-- Human&#45;&gt;Report -->
+<g id="edge5" class="edge">
+<title>Human-&gt;Report</title>
+<path fill="none" stroke="black" stroke-width="2" d="M785.93,-28C794.43,-28 803.05,-28 811.44,-28"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="811.53,-31.5 821.53,-28 811.53,-24.5 811.53,-31.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Every published finding that relies on LLM-generated text should include an empirical factuality estimate with a confidence interval.</p>
+</div>
+</section></section>
+<section>
+<section id="part-iii-model-selection" class="title-slide slide level1 center" data-background-color="#1B4F72">
+<h1>Part III — Model Selection</h1>
+
+</section>
+<section id="the-model-selection-problem" class="slide level2">
+<h2>The Model Selection Problem</h2>
+<p>There are now dozens of frontier models and hundreds of open-weights models. Which do you use?</p>
+<div class="fragment">
+<p>The question is not <em>“which is best?”</em> but <em>“which is best for my task, at my budget, with my constraints?”</em></p>
+</div>
+</section>
+<section id="the-selection-axes" class="slide level2">
+<h2>The Selection Axes</h2>
+<div class="cell" data-fig-width="15" data-fig-height="6.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="624" viewbox="0.00 0.00 269.56 458.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 454)">
+<title>SelectionAxes</title>
+<!-- Task -->
+<g id="node1" class="node">
+<title>Task</title>
+<path fill="#f5f5f5" stroke="#696969" stroke-width="2" d="M74.61,-247C74.61,-247 12.13,-247 12.13,-247 6.13,-247 0.13,-241 0.13,-235 0.13,-235 0.13,-223 0.13,-223 0.13,-217 6.13,-211 12.13,-211 12.13,-211 74.61,-211 74.61,-211 80.61,-211 86.61,-217 86.61,-223 86.61,-223 86.61,-235 86.61,-235 86.61,-241 80.61,-247 74.61,-247"></path>
+<text text-anchor="middle" x="43.37" y="-224.5" font-family="Palatino" font-size="15.00">Your task</text>
+</g>
+<!-- Capability -->
+<g id="node2" class="node">
+<title>Capability</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M239.86,-450C239.86,-450 144.43,-450 144.43,-450 138.43,-450 132.43,-444 132.43,-438 132.43,-438 132.43,-408 132.43,-408 132.43,-402 138.43,-396 144.43,-396 144.43,-396 239.86,-396 239.86,-396 245.86,-396 251.86,-402 251.86,-408 251.86,-408 251.86,-438 251.86,-438 251.86,-444 245.86,-450 239.86,-450"></path>
+<text text-anchor="middle" x="192.15" y="-427.5" font-family="Palatino" font-size="15.00">Capability</text>
+<text text-anchor="middle" x="192.15" y="-409.5" font-family="Palatino" font-size="15.00">what can it do?</text>
+</g>
+<!-- Task&#45;&gt;Capability -->
+<g id="edge1" class="edge">
+<title>Task-&gt;Capability</title>
+<path fill="none" stroke="black" stroke-width="2" d="M49.28,-247.04C58.74,-278.85 82.21,-345.48 122.74,-387 123.51,-387.79 124.31,-388.57 125.12,-389.34"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="122.99,-392.11 132.9,-395.85 127.48,-386.75 122.99,-392.11"></polygon>
+</g>
+<!-- Cost -->
+<g id="node3" class="node">
+<title>Cost</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M232.07,-378C232.07,-378 152.23,-378 152.23,-378 146.23,-378 140.23,-372 140.23,-366 140.23,-366 140.23,-336 140.23,-336 140.23,-330 146.23,-324 152.23,-324 152.23,-324 232.07,-324 232.07,-324 238.07,-324 244.07,-330 244.07,-336 244.07,-336 244.07,-366 244.07,-366 244.07,-372 238.07,-378 232.07,-378"></path>
+<text text-anchor="middle" x="192.15" y="-355.5" font-family="Palatino" font-size="15.00">Cost</text>
+<text text-anchor="middle" x="192.15" y="-337.5" font-family="Palatino" font-size="15.00">$/1M tokens</text>
+</g>
+<!-- Task&#45;&gt;Cost -->
+<g id="edge2" class="edge">
+<title>Task-&gt;Cost</title>
+<path fill="none" stroke="black" stroke-width="2" d="M57.84,-247.17C72.34,-265.86 96.85,-294.99 122.74,-315 125.53,-317.16 128.47,-319.25 131.5,-321.28"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="129.89,-324.4 140.22,-326.77 133.63,-318.48 129.89,-324.4"></polygon>
+</g>
+<!-- Latency -->
+<g id="node4" class="node">
+<title>Latency</title>
+<path fill="#d8bfd8" stroke="#8b4789" stroke-width="2" d="M249.46,-306C249.46,-306 134.83,-306 134.83,-306 128.83,-306 122.83,-300 122.83,-294 122.83,-294 122.83,-246 122.83,-246 122.83,-240 128.83,-234 134.83,-234 134.83,-234 249.46,-234 249.46,-234 255.46,-234 261.46,-240 261.46,-246 261.46,-246 261.46,-294 261.46,-294 261.46,-300 255.46,-306 249.46,-306"></path>
+<text text-anchor="middle" x="192.15" y="-283.5" font-family="Palatino" font-size="15.00">Latency</text>
+<text text-anchor="middle" x="192.15" y="-265.5" font-family="Palatino" font-size="15.00">time to first token,</text>
+<text text-anchor="middle" x="192.15" y="-247.5" font-family="Palatino" font-size="15.00">tokens/sec</text>
+</g>
+<!-- Task&#45;&gt;Latency -->
+<g id="edge3" class="edge">
+<title>Task-&gt;Latency</title>
+<path fill="none" stroke="black" stroke-width="2" d="M86.82,-240.86C95.09,-243.17 104,-245.66 113.01,-248.17"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="112.22,-251.59 122.8,-250.91 114.11,-244.85 112.22,-251.59"></polygon>
+</g>
+<!-- Context -->
+<g id="node5" class="node">
+<title>Context</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M243.73,-216C243.73,-216 140.57,-216 140.57,-216 134.57,-216 128.57,-210 128.57,-204 128.57,-204 128.57,-174 128.57,-174 128.57,-168 134.57,-162 140.57,-162 140.57,-162 243.73,-162 243.73,-162 249.73,-162 255.73,-168 255.73,-174 255.73,-174 255.73,-204 255.73,-204 255.73,-210 249.73,-216 243.73,-216"></path>
+<text text-anchor="middle" x="192.15" y="-193.5" font-family="Palatino" font-size="15.00">Context window</text>
+<text text-anchor="middle" x="192.15" y="-175.5" font-family="Palatino" font-size="15.00">&amp; &nbsp;throughput</text>
+</g>
+<!-- Task&#45;&gt;Context -->
+<g id="edge4" class="edge">
+<title>Task-&gt;Context</title>
+<path fill="none" stroke="black" stroke-width="2" d="M86.82,-217.43C96.74,-214.73 107.58,-211.77 118.4,-208.82"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="119.58,-212.13 128.31,-206.12 117.74,-205.38 119.58,-212.13"></polygon>
+</g>
+<!-- License -->
+<g id="node6" class="node">
+<title>License</title>
+<path fill="#e0ffe0" stroke="#228b22" stroke-width="2" d="M231.22,-144C231.22,-144 153.08,-144 153.08,-144 147.08,-144 141.08,-138 141.08,-132 141.08,-132 141.08,-102 141.08,-102 141.08,-96 147.08,-90 153.08,-90 153.08,-90 231.22,-90 231.22,-90 237.22,-90 243.22,-96 243.22,-102 243.22,-102 243.22,-132 243.22,-132 243.22,-138 237.22,-144 231.22,-144"></path>
+<text text-anchor="middle" x="192.15" y="-121.5" font-family="Palatino" font-size="15.00">Licensing &amp;</text>
+<text text-anchor="middle" x="192.15" y="-103.5" font-family="Palatino" font-size="15.00">data policy</text>
+</g>
+<!-- Task&#45;&gt;License -->
+<g id="edge5" class="edge">
+<title>Task-&gt;License</title>
+<path fill="none" stroke="black" stroke-width="2" d="M60.23,-210.9C75.24,-194.47 98.96,-170.24 122.74,-153 125.74,-150.82 128.89,-148.7 132.12,-146.64"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="134.1,-149.53 140.83,-141.34 130.46,-143.55 134.1,-149.53"></polygon>
+</g>
+<!-- Deploy -->
+<g id="node7" class="node">
+<title>Deploy</title>
+<path fill="#fff8dc" stroke="#daa520" stroke-width="2" d="M231.3,-72C231.3,-72 153,-72 153,-72 147,-72 141,-66 141,-60 141,-60 141,-12 141,-12 141,-6 147,0 153,0 153,0 231.3,0 231.3,0 237.3,0 243.3,-6 243.3,-12 243.3,-12 243.3,-60 243.3,-60 243.3,-66 237.3,-72 231.3,-72"></path>
+<text text-anchor="middle" x="192.15" y="-49.5" font-family="Palatino" font-size="15.00">Deployment</text>
+<text text-anchor="middle" x="192.15" y="-31.5" font-family="Palatino" font-size="15.00">API / local /</text>
+<text text-anchor="middle" x="192.15" y="-13.5" font-family="Palatino" font-size="15.00">fine-tune</text>
+</g>
+<!-- Task&#45;&gt;Deploy -->
+<g id="edge6" class="edge">
+<title>Task-&gt;Deploy</title>
+<path fill="none" stroke="black" stroke-width="2" d="M50.58,-210.83C61.47,-181.01 86.36,-121.01 122.74,-81 125.92,-77.5 129.43,-74.16 133.13,-70.98"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="135.33,-73.69 140.94,-64.7 130.95,-68.24 135.33,-73.69"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="capability-tiers-as-of-2026" class="slide level2">
+<h2>Capability Tiers (as of 2026)</h2>
+<ul>
+<li><strong>Frontier</strong> — Claude Opus, GPT-4.x, Gemini 2.x Ultra, o-series reasoners. Best quality, highest cost, typically closed-source.</li>
+<li><strong>Workhorse</strong> — Claude Sonnet, GPT mid-tier, open models 70B–200B. Near-frontier quality on most tasks at ~10× lower cost.</li>
+<li><strong>Small</strong> — Haiku, GPT-mini, Llama/Qwen 7B–13B. Fast, cheap, good for classification, retrieval, short generation.</li>
+<li><strong>Specialized</strong> — code models (Codestral), math (DeepSeek-Math), domain models (Med-PaLM, BloombergGPT).</li>
+</ul>
+<div class="fragment">
+<p><strong>Rule of thumb for research</strong>: prototype on a frontier model, then try to distill or match with a workhorse or small model for the production run.</p>
+</div>
+</section>
+<section id="open-weights-vs.-closed-api" class="slide level2">
+<h2>Open-Weights vs.&nbsp;Closed API</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 36%">
+<col style="width: 51%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dimension</th>
+<th>Closed API (GPT, Claude, Gemini)</th>
+<th>Open Weights (Llama, Qwen, Mistral, DeepSeek)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Quality ceiling</td>
+<td>Highest</td>
+<td>Catching up, sometimes matching</td>
+</tr>
+<tr class="even">
+<td>Cost per call</td>
+<td>Per-token fees</td>
+<td>Compute cost (often cheaper at scale)</td>
+</tr>
+<tr class="odd">
+<td>Data privacy</td>
+<td>Data leaves your institution</td>
+<td>Can run fully on-premise</td>
+</tr>
+<tr class="even">
+<td>Reproducibility</td>
+<td>Model versions change</td>
+<td>Weights are fixed artifacts</td>
+</tr>
+<tr class="odd">
+<td>Fine-tuning</td>
+<td>Limited, expensive</td>
+<td>Full control (LoRA, QLoRA)</td>
+</tr>
+<tr class="even">
+<td>Regulatory</td>
+<td>Review every update</td>
+<td>Pin a version</td>
+</tr>
+<tr class="odd">
+<td>Speed to ship</td>
+<td>Instant</td>
+<td>Infrastructure required</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p>For <strong>replicable academic research</strong>, open-weights models with a pinned checkpoint are strongly preferred. Closed APIs are moving targets.</p>
+</div>
+</section>
+<section id="cost-mathematics" class="slide level2">
+<h2>Cost Mathematics</h2>
+<p><span class="math display">\[
+\text{Cost}_{\text{total}} = \underbrace{N_{\text{calls}}}_{\substack{\text{number of} \\ \text{API calls}}} \cdot \left( \underbrace{p_{\text{in}} \cdot t_{\text{in}}}_{\substack{\text{input tokens} \\ \times \text{ price}}} + \underbrace{p_{\text{out}} \cdot t_{\text{out}}}_{\substack{\text{output tokens} \\ \times \text{ price}}} \right)
+\]</span></p>
+<div class="fragment">
+<p>Output tokens typically cost 3–5× input tokens. Concrete example:</p>
+<ul>
+<li>Annotating 10,000 documents at 2K input tokens + 50 output tokens each</li>
+<li>Frontier pricing (example): $15/1M input, $75/1M output</li>
+<li>Cost: <span class="math inline">\(10000 \cdot (15 \cdot 0.002 + 75 \cdot 0.00005) = \$338\)</span></li>
+<li>Same on a workhorse at $3/$15: about $68 — a 5× saving.</li>
+</ul>
+</div>
+</section>
+<section id="cost-reduction-strategies" class="slide level2 scrollable">
+<h2>Cost Reduction Strategies</h2>
+<div class="fragment">
+<ol type="1">
+<li><strong>Prompt caching</strong> — charge once per repeated system prompt, not per call.</li>
+<li><strong>Batch inference</strong> — 50% discounts on major APIs for async workloads.</li>
+<li><strong>Smaller models + few-shot</strong> — often match larger models on classification.</li>
+<li><strong>Distillation</strong> — label with the frontier model, fine-tune a small model on the labels.</li>
+<li><strong>Structured output</strong> — shorter, schema-constrained outputs cost less.</li>
+<li><strong>Truncation</strong> — do not send the full document if the first 500 tokens suffice.</li>
+</ol>
+</div>
+<div class="fragment">
+<p>For large-scale annotation (&gt;10K documents), serious cost engineering can reduce a $5,000 bill to $500 without measurable quality loss.</p>
+</div>
+</section>
+<section id="latency-and-throughput" class="slide level2">
+<h2>Latency and Throughput</h2>
+<p>Two distinct quantities:</p>
+<ul>
+<li><strong>Latency</strong> — time from submission to first (or last) token of a single request.</li>
+<li><strong>Throughput</strong> — tokens per second across a batch of parallel requests.</li>
+</ul>
+<div class="fragment">
+<p>Research batch jobs prioritize throughput. Interactive applications prioritize latency.</p>
+<ul>
+<li>For 10K document classification: run in parallel, maximize throughput, use the batch API, wait overnight.</li>
+<li>For a live policy dashboard: keep a small fast model warm.</li>
+</ul>
+</div>
+</section>
+<section id="context-window-considerations" class="slide level2">
+<h2>Context Window Considerations</h2>
+<p>Modern models support 128K–2M tokens. But:</p>
+<div class="fragment">
+<ul>
+<li><strong>Quality decays with length.</strong> The “needle in a haystack” test is passed by many models, but reasoning over the full context is harder.</li>
+<li><strong>Cost scales with input tokens.</strong> 1M tokens at $3/1M = $3 per call.</li>
+<li><strong>Latency scales super-linearly</strong> with input length.</li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Decision rule</strong>: use long context when the task requires cross-document reasoning. Use retrieval when you can localize the relevant passages.</p>
+</div>
+</section>
+<section id="fine-tuning-decision-tree" class="slide level2">
+<h2>Fine-tuning Decision Tree</h2>
+<div class="cell" data-fig-width="15" data-fig-height="6" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="576" viewbox="0.00 0.00 925.65 197.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 193)">
+<title>FineTune</title>
+<!-- Start -->
+<g id="node1" class="node">
+<title>Start</title>
+<path fill="#f5f5f5" stroke="#696969" stroke-width="2" d="M125.53,-54C125.53,-54 11.82,-54 11.82,-54 5.82,-54 -0.18,-48 -0.18,-42 -0.18,-42 -0.18,-12 -0.18,-12 -0.18,-6 5.82,0 11.82,0 11.82,0 125.53,0 125.53,0 131.53,0 137.53,-6 137.53,-12 137.53,-12 137.53,-42 137.53,-42 137.53,-48 131.53,-54 125.53,-54"></path>
+<text text-anchor="middle" x="68.68" y="-31.5" font-family="Palatino" font-size="15.00">Task doesn't work</text>
+<text text-anchor="middle" x="68.68" y="-13.5" font-family="Palatino" font-size="15.00">with base model</text>
+</g>
+<!-- Prompt -->
+<g id="node2" class="node">
+<title>Prompt</title>
+<path fill="#fff8dc" stroke="#daa520" stroke-width="2" d="M253.1,-54C253.1,-54 186.1,-54 186.1,-54 180.1,-54 174.1,-48 174.1,-42 174.1,-42 174.1,-12 174.1,-12 174.1,-6 180.1,0 186.1,0 186.1,0 253.1,0 253.1,0 259.1,0 265.1,-6 265.1,-12 265.1,-12 265.1,-42 265.1,-42 265.1,-48 259.1,-54 253.1,-54"></path>
+<text text-anchor="middle" x="219.6" y="-31.5" font-family="Palatino" font-size="15.00">Try better</text>
+<text text-anchor="middle" x="219.6" y="-13.5" font-family="Palatino" font-size="15.00">prompting</text>
+</g>
+<!-- Start&#45;&gt;Prompt -->
+<g id="edge1" class="edge">
+<title>Start-&gt;Prompt</title>
+<path fill="none" stroke="black" stroke-width="2" d="M137.6,-27C146.44,-27 155.39,-27 163.97,-27"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="164.22,-30.5 174.22,-27 164.22,-23.5 164.22,-30.5"></polygon>
+</g>
+<!-- Few -->
+<g id="node3" class="node">
+<title>Few</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M395.69,-97C395.69,-97 313.9,-97 313.9,-97 307.9,-97 301.9,-91 301.9,-85 301.9,-85 301.9,-55 301.9,-55 301.9,-49 307.9,-43 313.9,-43 313.9,-43 395.69,-43 395.69,-43 401.69,-43 407.69,-49 407.69,-55 407.69,-55 407.69,-85 407.69,-85 407.69,-91 401.69,-97 395.69,-97"></path>
+<text text-anchor="middle" x="354.79" y="-74.5" font-family="Palatino" font-size="15.00">Try few-shot</text>
+<text text-anchor="middle" x="354.79" y="-56.5" font-family="Palatino" font-size="15.00">examples</text>
+</g>
+<!-- Prompt&#45;&gt;Few -->
+<g id="edge2" class="edge">
+<title>Prompt-&gt;Few</title>
+<path fill="none" stroke="black" stroke-width="2" d="M264.95,-41.32C273.71,-44.15 283.06,-47.16 292.27,-50.14"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="291.2,-53.47 301.79,-53.21 293.35,-46.81 291.2,-53.47"></polygon>
+</g>
+<!-- Done -->
+<g id="node6" class="node">
+<title>Done</title>
+<path fill="#e0ffe0" stroke="#228b22" stroke-width="2" d="M905.4,-98C905.4,-98 874.38,-98 874.38,-98 868.38,-98 862.38,-92 862.38,-86 862.38,-86 862.38,-74 862.38,-74 862.38,-68 868.38,-62 874.38,-62 874.38,-62 905.4,-62 905.4,-62 911.4,-62 917.4,-68 917.4,-74 917.4,-74 917.4,-86 917.4,-86 917.4,-92 911.4,-98 905.4,-98"></path>
+<text text-anchor="middle" x="889.89" y="-75.5" font-family="Palatino" font-size="15.00">Ship</text>
+</g>
+<!-- Prompt&#45;&gt;Done -->
+<g id="edge6" class="edge">
+<title>Prompt-&gt;Done</title>
+<path fill="none" stroke="black" stroke-width="2" stroke-dasharray="5,2" d="M264.91,-21C290.78,-18 324.08,-15 353.79,-15 353.79,-15 353.79,-15 750.71,-15 790.66,-15 831.46,-37.52 858.26,-56.05"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="856.28,-58.94 866.45,-61.89 860.34,-53.24 856.28,-58.94"></polygon>
+<text text-anchor="middle" x="526.84" y="-18.6" font-family="Palatino" font-size="12.00">works</text>
+</g>
+<!-- RAG -->
+<g id="node4" class="node">
+<title>RAG</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M597.04,-139C597.04,-139 456.64,-139 456.64,-139 450.64,-139 444.64,-133 444.64,-127 444.64,-127 444.64,-97 444.64,-97 444.64,-91 450.64,-85 456.64,-85 456.64,-85 597.04,-85 597.04,-85 603.04,-85 609.04,-91 609.04,-97 609.04,-97 609.04,-127 609.04,-127 609.04,-133 603.04,-139 597.04,-139"></path>
+<text text-anchor="middle" x="526.84" y="-116.5" font-family="Palatino" font-size="15.00">Try RAG</text>
+<text text-anchor="middle" x="526.84" y="-98.5" font-family="Palatino" font-size="15.00">(knowledge problem?)</text>
+</g>
+<!-- Few&#45;&gt;RAG -->
+<g id="edge3" class="edge">
+<title>Few-&gt;RAG</title>
+<path fill="none" stroke="black" stroke-width="2" d="M407.74,-82.83C416.27,-84.94 425.34,-87.18 434.5,-89.44"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="433.91,-92.9 444.46,-91.9 435.59,-86.1 433.91,-92.9"></polygon>
+</g>
+<!-- Few&#45;&gt;Done -->
+<g id="edge7" class="edge">
+<title>Few-&gt;Done</title>
+<path fill="none" stroke="black" stroke-width="2" stroke-dasharray="5,2" d="M407.88,-70.98C515.35,-72.99 759.36,-77.57 852.15,-79.31"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="852.12,-82.81 862.19,-79.5 852.25,-75.81 852.12,-82.81"></polygon>
+<text text-anchor="middle" x="641.61" y="-78.6" font-family="Palatino" font-size="12.00">works</text>
+</g>
+<!-- Finetune -->
+<g id="node5" class="node">
+<title>Finetune</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M813.07,-189C813.07,-189 686.34,-189 686.34,-189 680.34,-189 674.34,-183 674.34,-177 674.34,-177 674.34,-147 674.34,-147 674.34,-141 680.34,-135 686.34,-135 686.34,-135 813.07,-135 813.07,-135 819.07,-135 825.07,-141 825.07,-147 825.07,-147 825.07,-177 825.07,-177 825.07,-183 819.07,-189 813.07,-189"></path>
+<text text-anchor="middle" x="749.71" y="-166.5" font-family="Palatino" font-size="15.00">Fine-tune</text>
+<text text-anchor="middle" x="749.71" y="-148.5" font-family="Palatino" font-size="15.00">(behavior problem?)</text>
+</g>
+<!-- RAG&#45;&gt;Finetune -->
+<g id="edge4" class="edge">
+<title>RAG-&gt;Finetune</title>
+<path fill="none" stroke="black" stroke-width="2" d="M609.14,-130.41C627.1,-134.47 646.16,-138.78 664.23,-142.88"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="663.64,-146.33 674.16,-145.12 665.18,-139.5 663.64,-146.33"></polygon>
+</g>
+<!-- RAG&#45;&gt;Done -->
+<g id="edge8" class="edge">
+<title>RAG-&gt;Done</title>
+<path fill="none" stroke="black" stroke-width="2" stroke-dasharray="5,2" d="M609.32,-104.78C685.33,-98.04 795.26,-88.3 851.97,-83.27"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="852.6,-86.73 862.25,-82.36 851.98,-79.76 852.6,-86.73"></polygon>
+<text text-anchor="middle" x="749.71" y="-101.6" font-family="Palatino" font-size="12.00">works</text>
+</g>
+<!-- Finetune&#45;&gt;Done -->
+<g id="edge5" class="edge">
+<title>Finetune-&gt;Done</title>
+<path fill="none" stroke="black" stroke-width="2" d="M812.67,-134.77C823.41,-129.32 834.28,-123.31 844.14,-117 849.96,-113.27 855.87,-108.89 861.4,-104.47"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="863.71,-107.1 869.19,-98.04 859.25,-101.7 863.71,-107.1"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Fine-tune only when prompting, few-shot, and retrieval have all been exhausted. It is the most expensive, least portable option.</p>
+</div>
+</section>
+<section id="licensing-the-often-ignored-constraint" class="slide level2">
+<h2>Licensing: The Often-Ignored Constraint</h2>
+<p>Matters especially for publication and replication:</p>
+<div class="fragment">
+<ul>
+<li><strong>Commercial APIs</strong>: terms of service usually prohibit training competing models on outputs.</li>
+<li><strong>Llama family</strong>: community license with an attribution and 700M-MAU clause.</li>
+<li><strong>Apache 2.0 / MIT</strong>: most permissive (Mistral, Qwen, Falcon variants).</li>
+<li><strong>Research-only</strong> licenses: fine for the dissertation, not for a product.</li>
+<li><strong>Output data ownership</strong>: who owns the LLM-annotated data? Usually you do; verify.</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>For IRB and replication packages: document the exact model version, API endpoint, temperature, seed, and license. Models change — reproducibility requires this metadata.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-selection-framework-for-research" class="slide level2">
+<h2>A Selection Framework for Research</h2>
+<div class="cell" data-fig-width="15" data-fig-height="6.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1440" height="624" viewbox="0.00 0.00 993.15 80.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 76)">
+<title>SelectionFramework</title>
+<!-- Step1 -->
+<g id="node1" class="node">
+<title>Step1</title>
+<path fill="#e6e6fa" stroke="#6a5acd" stroke-width="2" d="M119.21,-63C119.21,-63 11.93,-63 11.93,-63 5.93,-63 -0.07,-57 -0.07,-51 -0.07,-51 -0.07,-21 -0.07,-21 -0.07,-15 5.93,-9 11.93,-9 11.93,-9 119.21,-9 119.21,-9 125.21,-9 131.21,-15 131.21,-21 131.21,-21 131.21,-51 131.21,-51 131.21,-57 125.21,-63 119.21,-63"></path>
+<text text-anchor="middle" x="65.57" y="-40.5" font-family="Palatino" font-size="15.00">1. Define task &amp;</text>
+<text text-anchor="middle" x="65.57" y="-22.5" font-family="Palatino" font-size="15.00">primary metric</text>
+</g>
+<!-- Step2 -->
+<g id="node2" class="node">
+<title>Step2</title>
+<path fill="#fff8dc" stroke="#daa520" stroke-width="2" d="M289.98,-72C289.98,-72 179.2,-72 179.2,-72 173.2,-72 167.2,-66 167.2,-60 167.2,-60 167.2,-12 167.2,-12 167.2,-6 173.2,0 179.2,0 179.2,0 289.98,0 289.98,0 295.98,0 301.98,-6 301.98,-12 301.98,-12 301.98,-60 301.98,-60 301.98,-66 295.98,-72 289.98,-72"></path>
+<text text-anchor="middle" x="234.59" y="-49.5" font-family="Palatino" font-size="15.00">2. Build small</text>
+<text text-anchor="middle" x="234.59" y="-31.5" font-family="Palatino" font-size="15.00">gold-standard set</text>
+<text text-anchor="middle" x="234.59" y="-13.5" font-family="Palatino" font-size="15.00">(50-200 items)</text>
+</g>
+<!-- Step1&#45;&gt;Step2 -->
+<g id="edge1" class="edge">
+<title>Step1-&gt;Step2</title>
+<path fill="none" stroke="black" stroke-width="2" d="M131.14,-36C139.59,-36 148.31,-36 156.93,-36"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="156.98,-39.5 166.98,-36 156.98,-32.5 156.98,-39.5"></polygon>
+</g>
+<!-- Step3 -->
+<g id="node3" class="node">
+<title>Step3</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M486.47,-63C486.47,-63 349.89,-63 349.89,-63 343.89,-63 337.89,-57 337.89,-51 337.89,-51 337.89,-21 337.89,-21 337.89,-15 343.89,-9 349.89,-9 349.89,-9 486.47,-9 486.47,-9 492.47,-9 498.47,-15 498.47,-21 498.47,-21 498.47,-51 498.47,-51 498.47,-57 492.47,-63 486.47,-63"></path>
+<text text-anchor="middle" x="418.18" y="-40.5" font-family="Palatino" font-size="15.00">3. Benchmark</text>
+<text text-anchor="middle" x="418.18" y="-22.5" font-family="Palatino" font-size="15.00">3-5 candidate models</text>
+</g>
+<!-- Step2&#45;&gt;Step3 -->
+<g id="edge2" class="edge">
+<title>Step2-&gt;Step3</title>
+<path fill="none" stroke="black" stroke-width="2" d="M302.17,-36C310.54,-36 319.2,-36 327.85,-36"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="327.97,-39.5 337.97,-36 327.97,-32.5 327.97,-39.5"></polygon>
+</g>
+<!-- Step4 -->
+<g id="node4" class="node">
+<title>Step4</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M647,-63C647,-63 546.09,-63 546.09,-63 540.09,-63 534.09,-57 534.09,-51 534.09,-51 534.09,-21 534.09,-21 534.09,-15 540.09,-9 546.09,-9 546.09,-9 647,-9 647,-9 653,-9 659,-15 659,-21 659,-21 659,-51 659,-51 659,-57 653,-63 647,-63"></path>
+<text text-anchor="middle" x="596.55" y="-40.5" font-family="Palatino" font-size="15.00">4. Check cost,</text>
+<text text-anchor="middle" x="596.55" y="-22.5" font-family="Palatino" font-size="15.00">latency, license</text>
+</g>
+<!-- Step3&#45;&gt;Step4 -->
+<g id="edge3" class="edge">
+<title>Step3-&gt;Step4</title>
+<path fill="none" stroke="black" stroke-width="2" d="M498.33,-36C506.86,-36 515.51,-36 523.94,-36"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="524.1,-39.5 534.1,-36 524.1,-32.5 524.1,-39.5"></polygon>
+</g>
+<!-- Step5 -->
+<g id="node5" class="node">
+<title>Step5</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M806.1,-63C806.1,-63 706.67,-63 706.67,-63 700.67,-63 694.67,-57 694.67,-51 694.67,-51 694.67,-21 694.67,-21 694.67,-15 700.67,-9 706.67,-9 706.67,-9 806.1,-9 806.1,-9 812.1,-9 818.1,-15 818.1,-21 818.1,-21 818.1,-51 818.1,-51 818.1,-57 812.1,-63 806.1,-63"></path>
+<text text-anchor="middle" x="756.38" y="-40.5" font-family="Palatino" font-size="15.00">5. Pilot on 1K</text>
+<text text-anchor="middle" x="756.38" y="-22.5" font-family="Palatino" font-size="15.00">real documents</text>
+</g>
+<!-- Step4&#45;&gt;Step5 -->
+<g id="edge4" class="edge">
+<title>Step4-&gt;Step5</title>
+<path fill="none" stroke="black" stroke-width="2" d="M659.02,-36C667.33,-36 675.91,-36 684.37,-36"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="684.6,-39.5 694.6,-36 684.6,-32.5 684.6,-39.5"></polygon>
+</g>
+<!-- Step6 -->
+<g id="node6" class="node">
+<title>Step6</title>
+<path fill="#e0ffe0" stroke="#228b22" stroke-width="2" d="M973.22,-63C973.22,-63 865.91,-63 865.91,-63 859.91,-63 853.91,-57 853.91,-51 853.91,-51 853.91,-21 853.91,-21 853.91,-15 859.91,-9 865.91,-9 865.91,-9 973.22,-9 973.22,-9 979.22,-9 985.22,-15 985.22,-21 985.22,-21 985.22,-51 985.22,-51 985.22,-57 979.22,-63 973.22,-63"></path>
+<text text-anchor="middle" x="919.57" y="-40.5" font-family="Palatino" font-size="15.00">6. Audit sample,</text>
+<text text-anchor="middle" x="919.57" y="-22.5" font-family="Palatino" font-size="15.00">report u03BA</text>
+</g>
+<!-- Step5&#45;&gt;Step6 -->
+<g id="edge5" class="edge">
+<title>Step5-&gt;Step6</title>
+<path fill="none" stroke="black" stroke-width="2" d="M818.32,-36C826.56,-36 835.09,-36 843.54,-36"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="843.78,-39.5 853.78,-36 843.78,-32.5 843.78,-39.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Steps 2 and 6 are where most projects fail. A hand-coded evaluation set of even 100 items from your corpus is worth more than any public benchmark.</p>
+</div>
+</section>
+<section id="pitfalls-to-avoid" class="slide level2 scrollable">
+<h2>Pitfalls to Avoid</h2>
+<div class="fragment">
+<ol type="1">
+<li><strong>Leaderboard chasing</strong>: the #1 model on MMLU may not be the #1 for your political text.</li>
+<li><strong>Single-model lock-in</strong>: always build your pipeline to support multiple backends.</li>
+<li><strong>No held-out set</strong>: never tune prompts on the same data you evaluate on.</li>
+<li><strong>Evaluation drift</strong>: models update; re-run your evaluation quarterly.</li>
+<li><strong>Cost discovery at scale</strong>: estimate costs on 1% before running on 100%.</li>
+<li><strong>Ignoring variance</strong>: run with multiple seeds; a single run is not an estimate.</li>
+</ol>
+</div>
+</section>
+<section id="political-and-social-science-case-studies" class="slide level2">
+<h2>Political and Social Science Case Studies</h2>
+<ul>
+<li><strong>Congressional speech classification</strong> (ideology): small fine-tuned RoBERTa (~125M) competitive with GPT-4 at 1000× lower cost.</li>
+<li><strong>Open-ended survey coding</strong>: frontier model with few-shot achieves <span class="math inline">\(\kappa \approx 0.75\)</span> vs human; workhorse achieves <span class="math inline">\(\kappa \approx 0.70\)</span> at 10× lower cost.</li>
+<li><strong>News article topic detection</strong>: any modern model achieves &gt;95% on major categories; differences appear on subtle topics (e.g., constitutional vs.&nbsp;administrative law).</li>
+<li><strong>Ideological scaling of judges</strong>: LLM-derived scales correlate <span class="math inline">\(r &gt; 0.9\)</span> with Martin-Quinn scores; frontier &gt; workhorse on edge cases.</li>
+</ul>
+<div class="fragment">
+<p><strong>Lesson</strong>: match model size to task difficulty. Do not use a frontier model to classify sentiment.</p>
+</div>
+</section>
+<section id="putting-it-together-the-evaluation-triad" class="slide level2">
+<h2>Putting It Together: The Evaluation Triad</h2>
+<div class="cell" data-fig-width="13" data-fig-height="5.5" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1248" height="528" viewbox="0.00 0.00 326.08 293.20" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 289.2)">
+<title>Triad</title>
+<!-- Metric -->
+<g id="node1" class="node">
+<title>Metric</title>
+<path fill="#ffe4b5" stroke="#cd853f" stroke-width="2" d="M146.61,-285.3C146.61,-285.3 20.14,-285.3 20.14,-285.3 14.14,-285.3 8.14,-279.3 8.14,-273.3 8.14,-273.3 8.14,-213.9 8.14,-213.9 8.14,-207.9 14.14,-201.9 20.14,-201.9 20.14,-201.9 146.61,-201.9 146.61,-201.9 152.61,-201.9 158.61,-207.9 158.61,-213.9 158.61,-213.9 158.61,-273.3 158.61,-273.3 158.61,-279.3 152.61,-285.3 146.61,-285.3"></path>
+<text text-anchor="middle" x="83.37" y="-258.9" font-family="Palatino" font-size="17.00">Metric</text>
+<text text-anchor="middle" x="83.37" y="-238.5" font-family="Palatino" font-size="17.00">fit-for-purpose,</text>
+<text text-anchor="middle" x="83.37" y="-218.1" font-family="Palatino" font-size="17.00">human-validated</text>
+</g>
+<!-- Goal -->
+<g id="node4" class="node">
+<title>Goal</title>
+<path fill="#e0ffe0" stroke="#228b22" stroke-width="2" d="M306.24,-184.3C306.24,-184.3 214.58,-184.3 214.58,-184.3 208.58,-184.3 202.58,-178.3 202.58,-172.3 202.58,-172.3 202.58,-112.9 202.58,-112.9 202.58,-106.9 208.58,-100.9 214.58,-100.9 214.58,-100.9 306.24,-100.9 306.24,-100.9 312.24,-100.9 318.24,-106.9 318.24,-112.9 318.24,-112.9 318.24,-172.3 318.24,-172.3 318.24,-178.3 312.24,-184.3 306.24,-184.3"></path>
+<text text-anchor="middle" x="260.41" y="-157.9" font-family="Palatino" font-size="17.00">Publishable</text>
+<text text-anchor="middle" x="260.41" y="-137.5" font-family="Palatino" font-size="17.00">AI-assisted</text>
+<text text-anchor="middle" x="260.41" y="-117.1" font-family="Palatino" font-size="17.00">research</text>
+</g>
+<!-- Metric&#45;&gt;Goal -->
+<g id="edge1" class="edge">
+<title>Metric-&gt;Goal</title>
+<path fill="none" stroke="black" stroke-width="2" d="M156.58,-201.94C168.93,-194.81 181.7,-187.44 193.87,-180.42"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="195.69,-183.41 202.61,-175.38 192.19,-177.34 195.69,-183.41"></polygon>
+</g>
+<!-- Factual -->
+<g id="node2" class="node">
+<title>Factual</title>
+<path fill="#ffb6c1" stroke="#cd5c5c" stroke-width="2" d="M154.62,-184.3C154.62,-184.3 12.13,-184.3 12.13,-184.3 6.13,-184.3 0.13,-178.3 0.13,-172.3 0.13,-172.3 0.13,-112.9 0.13,-112.9 0.13,-106.9 6.13,-100.9 12.13,-100.9 12.13,-100.9 154.62,-100.9 154.62,-100.9 160.62,-100.9 166.62,-106.9 166.62,-112.9 166.62,-112.9 166.62,-172.3 166.62,-172.3 166.62,-178.3 160.62,-184.3 154.62,-184.3"></path>
+<text text-anchor="middle" x="83.37" y="-157.9" font-family="Palatino" font-size="17.00">Factuality</text>
+<text text-anchor="middle" x="83.37" y="-137.5" font-family="Palatino" font-size="17.00">retrieval-grounded,</text>
+<text text-anchor="middle" x="83.37" y="-117.1" font-family="Palatino" font-size="17.00">audited</text>
+</g>
+<!-- Factual&#45;&gt;Goal -->
+<g id="edge2" class="edge">
+<title>Factual-&gt;Goal</title>
+<path fill="none" stroke="black" stroke-width="2" d="M166.77,-142.6C175.4,-142.6 184.11,-142.6 192.54,-142.6"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="192.67,-146.1 202.67,-142.6 192.67,-139.1 192.67,-146.1"></polygon>
+</g>
+<!-- Choice -->
+<g id="node3" class="node">
+<title>Choice</title>
+<path fill="#b0e0e6" stroke="#4682b4" stroke-width="2" d="M132.28,-83.3C132.28,-83.3 34.47,-83.3 34.47,-83.3 28.47,-83.3 22.47,-77.3 22.47,-71.3 22.47,-71.3 22.47,-11.9 22.47,-11.9 22.47,-5.9 28.47,0.1 34.47,0.1 34.47,0.1 132.28,0.1 132.28,0.1 138.28,0.1 144.28,-5.9 144.28,-11.9 144.28,-11.9 144.28,-71.3 144.28,-71.3 144.28,-77.3 138.28,-83.3 132.28,-83.3"></path>
+<text text-anchor="middle" x="83.37" y="-56.9" font-family="Palatino" font-size="17.00">Choice</text>
+<text text-anchor="middle" x="83.37" y="-36.5" font-family="Palatino" font-size="17.00">cost-aware,</text>
+<text text-anchor="middle" x="83.37" y="-16.1" font-family="Palatino" font-size="17.00">reproducible</text>
+</g>
+<!-- Choice&#45;&gt;Goal -->
+<g id="edge3" class="edge">
+<title>Choice-&gt;Goal</title>
+<path fill="none" stroke="black" stroke-width="2" d="M144.61,-76.36C160.46,-85.51 177.64,-95.42 193.77,-104.72"></path>
+<polygon fill="black" stroke="black" stroke-width="2" points="192.19,-107.85 202.6,-109.82 195.69,-101.79 192.19,-107.85"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary</h2>
+<p><strong>Evaluation Metrics</strong></p>
+<ul>
+<li>BLEU/ROUGE for historical comparison, BERTScore for semantic similarity.</li>
+<li>Classification metrics + <span class="math inline">\(\kappa\)</span> for annotation tasks.</li>
+<li>Benchmarks are samples, not verdicts; watch for contamination.</li>
+<li>LLM-as-judge scales cheaply but is biased — validate against human gold.</li>
+</ul>
+<p><strong>Hallucination Detection</strong></p>
+<ul>
+<li>Self-consistency and semantic entropy for reference-free detection.</li>
+<li>Retrieval verification and chain-of-verification for factuality.</li>
+<li>RAG reduces, does not eliminate.</li>
+<li>Abstention is a feature, not a failure.</li>
+</ul>
+<p><strong>Model Selection</strong></p>
+<ul>
+<li>Match capability tier to task difficulty.</li>
+<li>Budget for cost, latency, licensing before choosing.</li>
+<li>Build your own evaluation set on a small gold standard.</li>
+<li>Reproducibility requires pinned models and documented configurations.</li>
+</ul>
+</section>
+<section id="readings-and-references" class="slide level2 scrollable">
+<h2>Readings and References</h2>
+<p><strong>Core</strong></p>
+<ul>
+<li>Manakul, P., Liusie, A., &amp; Gales, M. J. F. (2023). SelfCheckGPT: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models. <em>Proceedings of EMNLP 2023</em>, 9004–9017. <a href="https://aclanthology.org/2023.emnlp-main.557/" class="uri">https://aclanthology.org/2023.emnlp-main.557/</a></li>
+<li>Farquhar, S., Kossen, J., Kuhn, L., &amp; Gal, Y. (2024). Detecting hallucinations in large language models using semantic entropy. <em>Nature</em> 630(8017), 625–630. <a href="https://doi.org/10.1038/s41586-024-07421-0" class="uri">https://doi.org/10.1038/s41586-024-07421-0</a></li>
+<li>Min, S., Krishna, K., Lyu, X., Lewis, M., Yih, W., Koh, P. W., Iyyer, M., Zettlemoyer, L., &amp; Hajishirzi, H. (2023). FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation. <em>Proceedings of EMNLP 2023</em>, 12076–12100. <a href="https://aclanthology.org/2023.emnlp-main.741/" class="uri">https://aclanthology.org/2023.emnlp-main.741/</a></li>
+<li>Liang, P., Bommasani, R., Lee, T., et al.&nbsp;(2023). Holistic Evaluation of Language Models. <em>Transactions on Machine Learning Research</em>. <a href="https://openreview.net/forum?id=iO4LZibEqW" class="uri">https://openreview.net/forum?id=iO4LZibEqW</a></li>
+<li>Chiang, W.-L., Zheng, L., Sheng, Y., Angelopoulos, A. N., Li, T., Li, D., Zhu, B., Zhang, H., Jordan, M. I., Gonzalez, J. E., &amp; Stoica, I. (2024). Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference. <em>Proceedings of ICML 2024</em>, PMLR 235, 8359–8388. <a href="https://proceedings.mlr.press/v235/chiang24b.html" class="uri">https://proceedings.mlr.press/v235/chiang24b.html</a></li>
+<li>Zheng, L., Chiang, W.-L., Sheng, Y., et al.&nbsp;(2023). Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena. <em>NeurIPS 2023 Datasets and Benchmarks Track</em>. <a href="https://openreview.net/forum?id=uccHPGDlao" class="uri">https://openreview.net/forum?id=uccHPGDlao</a></li>
+</ul>
+<p><strong>Social science applications</strong></p>
+<ul>
+<li>Gilardi, F., Alizadeh, M., &amp; Kubli, M. (2023). ChatGPT outperforms crowd workers for text-annotation tasks. <em>Proceedings of the National Academy of Sciences</em> 120(30), e2305016120. <a href="https://doi.org/10.1073/pnas.2305016120" class="uri">https://doi.org/10.1073/pnas.2305016120</a></li>
+<li>Ornstein, J. T., Blasingame, E. N., &amp; Truscott, J. S. (2025). How to train your stochastic parrot: large language models for political texts. <em>Political Science Research and Methods</em> 13(2), 264–281. <a href="https://doi.org/10.1017/psrm.2024.64" class="uri">https://doi.org/10.1017/psrm.2024.64</a></li>
+<li>Ziems, C., Held, W., Shaikh, O., Chen, J., Zhang, Z., &amp; Yang, D. (2024). Can Large Language Models Transform Computational Social Science? <em>Computational Linguistics</em> 50(1), 237–291. <a href="https://doi.org/10.1162/coli_a_00502" class="uri">https://doi.org/10.1162/coli_a_00502</a></li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="eppslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>EPPS 6323 Knowledge Mining | Evaluating AI Systems</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="AIevaluations_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="AIevaluations_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="AIevaluations_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="AIevaluations_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

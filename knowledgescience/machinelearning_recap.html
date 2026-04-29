@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="machinelearning_recap_files/libs/clipboard/clipboard.min.js"></script>
+<script src="machinelearning_recap_files/libs/quarto-html/tabby.min.js"></script>
+<script src="machinelearning_recap_files/libs/quarto-html/popper.min.js"></script>
+<script src="machinelearning_recap_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="machinelearning_recap_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="machinelearning_recap_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="machinelearning_recap_files/libs/quarto-html/quarto-syntax-highlighting-597958c53c93a607afca12fd375c57ed.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
+
+  <meta name="author" content="Karl Ho">
+  <title>Machine Learning Recap</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="machinelearning_recap_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="machinelearning_recap_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="machinelearning_recap_files/libs/revealjs/dist/theme/quarto-ed71c0bbd1b1bcfdee8a19950f2015f2.css">
+  <link href="machinelearning_recap_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="machinelearning_recap_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="machinelearning_recap_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="machinelearning_recap_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="machinelearning_recap_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="machinelearning_recap_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Machine Learning Recap</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Karl Ho 
+</div>
+</div>
+</div>
+
+</section>
+<section>
+<section id="part-i-statistical-learning" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Part I: Statistical Learning</h1>
+
+</section>
+<section id="what-is-statistical-learning" class="slide level2 scrollable">
+<h2>What is Statistical Learning?</h2>
+<ul>
+<li class="fragment"><p>Statistical learning refers to a set of approaches for estimating the relationship between inputs and outputs</p></li>
+<li class="fragment"><p>Given a response variable <span class="math inline">\(Y\)</span> and <span class="math inline">\(p\)</span> predictors <span class="math inline">\(X_1, X_2, \ldots, X_p\)</span>, we assume:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[Y = f(X) + \epsilon\]</span></p>
+</div>
+<ul>
+<li class="fragment"><span class="math inline">\(f\)</span> represents the <strong>systematic information</strong> that <span class="math inline">\(X\)</span> provides about <span class="math inline">\(Y\)</span></li>
+<li class="fragment"><span class="math inline">\(\epsilon\)</span> is the <strong>irreducible error</strong> term</li>
+</ul>
+</section>
+<section id="ml-vs.-conventional-statistics" class="slide level2 scrollable">
+<h2>ML vs.&nbsp;Conventional Statistics</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Machine Learning</th>
+<th>Conventional Statistics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Focus</strong></td>
+<td>Prediction</td>
+<td>Inference</td>
+</tr>
+<tr class="even">
+<td><strong>Interpretability</strong></td>
+<td>Often secondary</td>
+<td>Primary concern</td>
+</tr>
+<tr class="odd">
+<td><strong>Significance testing</strong></td>
+<td>Less emphasis</td>
+<td>Central role</td>
+</tr>
+<tr class="even">
+<td><strong>Sampling</strong></td>
+<td>Large datasets</td>
+<td>Sample-based</td>
+</tr>
+<tr class="odd">
+<td><strong>Nonlinear relations</strong></td>
+<td>Embraced</td>
+<td>Often linearized</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prediction-trade-offs" class="slide level2 scrollable">
+<h2>Prediction Trade-offs</h2>
+<ul>
+<li class="fragment"><p><strong>Accuracy vs.&nbsp;Interpretability</strong>: More flexible models may predict better but are harder to interpret</p></li>
+<li class="fragment"><p><strong>Parsimony vs.&nbsp;All-in models</strong>: Simpler models generalize better (Occam’s razor) vs.&nbsp;complex models capturing more variance</p></li>
+<li class="fragment"><p><strong>Linear vs.&nbsp;Non-linear</strong>: Linear models are interpretable but constrained; non-linear models are flexible but risk overfitting</p></li>
+</ul>
+</section>
+<section id="prediction-error" class="slide level2 scrollable">
+<h2>Prediction Error</h2>
+<p>The expected prediction error can be decomposed:</p>
+<div class="fragment">
+<p><span class="math display">\[E\left[(Y - \hat{f}(X))^2\right] = \underbrace{\text{Var}(\hat{f}(X))}_{\text{Variance}} + \underbrace{[\text{Bias}(\hat{f}(X))]^2}_{\text{Bias}^2} + \underbrace{\text{Var}(\epsilon)}_{\text{Irreducible}}\]</span></p>
+</div>
+<ul>
+<li class="fragment"><strong>Reducible error</strong>: Can be minimized by improving <span class="math inline">\(\hat{f}\)</span></li>
+<li class="fragment"><strong>Irreducible error</strong>: Intrinsic variability in <span class="math inline">\(Y\)</span> that cannot be predicted</li>
+</ul>
+</section>
+<section id="parametric-vs.-non-parametric-models" class="slide level2 scrollable">
+<h2>Parametric vs.&nbsp;Non-parametric Models</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="parametric">Parametric</h3>
+<ul>
+<li class="fragment">Assume a functional form for <span class="math inline">\(f\)</span> (e.g., linear)</li>
+<li class="fragment">Reduce the problem to estimating parameters</li>
+<li class="fragment">Risk: model misspecification</li>
+<li class="fragment">Examples: Linear regression, logistic regression</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="non-parametric">Non-parametric</h3>
+<ul>
+<li class="fragment">Make no assumptions about the form of <span class="math inline">\(f\)</span></li>
+<li class="fragment">Require more observations to estimate <span class="math inline">\(f\)</span></li>
+<li class="fragment">Risk: overfitting</li>
+<li class="fragment">Examples: KNN, splines, random forests</li>
+</ul>
+</div></div>
+</section>
+<section id="supervised-vs.-unsupervised-learning" class="slide level2 scrollable">
+<h2>Supervised vs.&nbsp;Unsupervised Learning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="supervised">Supervised</h3>
+<ul>
+<li class="fragment">Response variable <span class="math inline">\(Y\)</span> is <strong>known</strong> (labeled)</li>
+<li class="fragment">Goal: predict <span class="math inline">\(Y\)</span> from <span class="math inline">\(X\)</span></li>
+<li class="fragment">Regression (quantitative <span class="math inline">\(Y\)</span>)</li>
+<li class="fragment">Classification (qualitative <span class="math inline">\(Y\)</span>)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="unsupervised">Unsupervised</h3>
+<ul>
+<li class="fragment"><strong>No</strong> response variable <span class="math inline">\(Y\)</span></li>
+<li class="fragment">Goal: find structure in <span class="math inline">\(X\)</span></li>
+<li class="fragment">Clustering</li>
+<li class="fragment">Dimensionality reduction</li>
+</ul>
+</div></div>
+</section>
+<section id="model-flexibility-spectrum" class="slide level2 scrollable">
+<h2>Model Flexibility Spectrum</h2>
+<div class="cell" data-fig-width="16" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="480" viewbox="0.00 0.00 1772.00 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1768,-90 1768,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#27ae60" stroke="black" points="324,-86 0,-86 0,0 324,0 324,-86"></polygon>
+<text text-anchor="middle" x="162" y="-50.8" font-family="Palatino" font-size="26.00" fill="white">Subset Selection</text>
+<text text-anchor="middle" x="162" y="-19.6" font-family="Palatino" font-size="26.00" fill="white">Lasso</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#3498db" stroke="black" points="684,-86 360,-86 360,0 684,0 684,-86"></polygon>
+<text text-anchor="middle" x="522" y="-35.2" font-family="Palatino" font-size="26.00" fill="white">Least Squares</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M324.2,-43C332.73,-43 341.33,-43 349.89,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="349.93,-46.5 359.93,-43 349.93,-39.5 349.93,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#f39c12" stroke="black" points="1044,-86 720,-86 720,0 1044,0 1044,-86"></polygon>
+<text text-anchor="middle" x="882" y="-50.8" font-family="Palatino" font-size="26.00" fill="white">Generalized Additive</text>
+<text text-anchor="middle" x="882" y="-19.6" font-family="Palatino" font-size="26.00" fill="white">Models / Trees</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M684.2,-43C692.73,-43 701.33,-43 709.89,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="709.93,-46.5 719.93,-43 709.93,-39.5 709.93,-46.5"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#c0392b" stroke="black" points="1404,-86 1080,-86 1080,0 1404,0 1404,-86"></polygon>
+<text text-anchor="middle" x="1242" y="-50.8" font-family="Palatino" font-size="26.00" fill="white">Bagging</text>
+<text text-anchor="middle" x="1242" y="-19.6" font-family="Palatino" font-size="26.00" fill="white">Boosting</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1044.2,-43C1052.73,-43 1061.33,-43 1069.89,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1069.93,-46.5 1079.93,-43 1069.93,-39.5 1069.93,-46.5"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="#8e44ad" stroke="black" points="1764,-86 1440,-86 1440,0 1764,0 1764,-86"></polygon>
+<text text-anchor="middle" x="1602" y="-50.8" font-family="Palatino" font-size="26.00" fill="white">Support Vector</text>
+<text text-anchor="middle" x="1602" y="-19.6" font-family="Palatino" font-size="26.00" fill="white">Machines</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1404.2,-43C1412.73,-43 1421.33,-43 1429.89,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1429.93,-46.5 1439.93,-43 1429.93,-39.5 1429.93,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<center>
+<p><strong>Low Flexibility</strong> <span class="math inline">\(\longleftrightarrow\)</span> <strong>High Flexibility</strong></p>
+<p>More interpretable <span class="math inline">\(\longleftrightarrow\)</span> More flexible (less interpretable)</p>
+</center>
+</section>
+<section id="philosophical-perspectives" class="slide level2 scrollable">
+<h2>Philosophical Perspectives</h2>
+<blockquote>
+<p><em>“You shall know a word by the company it keeps.”</em> — J.R. Firth</p>
+</blockquote>
+<ul>
+<li class="fragment"><p><strong>Chomsky</strong>: Let theory guide data — structure and understanding first</p></li>
+<li class="fragment"><p><strong>Norvig</strong>: The unreasonable effectiveness of data — more data, better predictions</p></li>
+<li class="fragment"><p><strong>Pearl</strong>: Causal reasoning vs.&nbsp;purely probabilistic association</p></li>
+<li class="fragment"><p><strong>Da Vinci</strong>: The science of art, the art of science — bridging rigor and creativity</p></li>
+</ul>
+</section></section>
+<section>
+<section id="part-ii-linear-regression" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Part II: Linear Regression</h1>
+
+</section>
+<section id="linear-regression-overview" class="slide level2 scrollable">
+<h2>Linear Regression: Overview</h2>
+<ul>
+<li class="fragment"><p>A simple approach to supervised learning assuming the dependence of <span class="math inline">\(Y\)</span> on <span class="math inline">\(X_i\)</span> is <strong>linear</strong></p></li>
+<li class="fragment"><p><strong>True regression functions are never linear!</strong></p></li>
+<li class="fragment"><p>Yet linear regression is very powerful and useful both <strong>conceptually</strong> and <strong>practically</strong></p></li>
+</ul>
+</section>
+<section id="why-data-are-never-truly-linear" class="slide level2 scrollable">
+<h2>Why Data Are Never Truly Linear</h2>
+<p>Real data deviate from linearity due to different types of errors:</p>
+<ul>
+<li class="fragment"><p><strong>Measurement error</strong>: Imprecision in recording values</p></li>
+<li class="fragment"><p><strong>Sampling error</strong>: Variability from observing a subset of the population</p></li>
+<li class="fragment"><p><strong>Multiple covariates</strong>: Omitted variables and complex interactions</p></li>
+</ul>
+</section>
+<section id="simple-linear-regression-model" class="slide level2 scrollable">
+<h2>Simple Linear Regression Model</h2>
+<p>Assume a model:</p>
+<div class="fragment">
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X + \epsilon\]</span></p>
+</div>
+<ul>
+<li class="fragment"><span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>: unknown constants (intercept and slope), also known as <strong>coefficients</strong> or <strong>parameters</strong></li>
+<li class="fragment"><span class="math inline">\(\epsilon\)</span>: the error term</li>
+</ul>
+<div class="fragment">
+<p>Given estimates <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span>, we predict:</p>
+<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\]</span></p>
+<p>where <span class="math inline">\(\hat{y}\)</span> indicates a prediction of <span class="math inline">\(Y\)</span> on the basis of <span class="math inline">\(X = x\)</span>. The <strong>hat</strong> symbol denotes an estimated value.</p>
+</div>
+</section>
+<section id="where-is-the-epsilon" class="slide level2 scrollable">
+<h2>Where is the <span class="math inline">\(\epsilon\)</span>?</h2>
+<div class="fragment">
+<p><span class="math display">\[\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 x\]</span></p>
+</div>
+<ul>
+<li class="fragment"><p>The predicted value <span class="math inline">\(\hat{y}\)</span> does <strong>not</strong> include the error term</p></li>
+<li class="fragment"><p>The error <span class="math inline">\(\epsilon\)</span> represents the gap between the <strong>true</strong> <span class="math inline">\(Y\)</span> and the <strong>estimated</strong> <span class="math inline">\(\hat{y}\)</span></p></li>
+<li class="fragment"><p>We can only estimate <span class="math inline">\(f(X)\)</span>; the irreducible error remains</p></li>
+</ul>
+</section>
+<section id="estimation-by-least-squares" class="slide level2 scrollable">
+<h2>Estimation by Least Squares</h2>
+<div class="fragment">
+<p>Let <span class="math inline">\(\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1 x_i\)</span> be the prediction for <span class="math inline">\(Y\)</span> based on the <span class="math inline">\(i\)</span>th value of <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Then <span class="math inline">\(e_i = y_i - \hat{y}_i\)</span> represents the <span class="math inline">\(i\)</span>th <strong>residual</strong>.</p>
+</div>
+<div class="fragment">
+<p>The <strong>Residual Sum of Squares (RSS)</strong>:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\text{RSS} = e_1^2 + e_2^2 + \cdots + e_n^2 = \sum_{i=1}^n (y_i - \hat{\beta}_0 - \hat{\beta}_1 x_i)^2\]</span></p>
+</div>
+<div class="fragment">
+<p>The least squares approach chooses <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> to <strong>minimize</strong> the RSS.</p>
+</div>
+</section>
+<section id="least-squares-estimators" class="slide level2 scrollable">
+<h2>Least Squares Estimators</h2>
+<div class="fragment">
+<p>The minimizing values are:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\hat{\beta}_1 = \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}\]</span></p>
+</div>
+<div class="fragment">
+<p>where <span class="math inline">\(\bar{y} \equiv \frac{1}{n}\sum_{i=1}^{n} y_i\)</span> and <span class="math inline">\(\bar{x} \equiv \frac{1}{n}\sum_{i=1}^{n} x_i\)</span> are the <strong>sample means</strong>.</p>
+</div>
+</section>
+<section id="advertising-example" class="slide level2 scrollable">
+<h2>Advertising Example</h2>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>The least squares fit for the regression of <strong>sales</strong> onto <strong>TV</strong> advertising budget</p></li>
+<li class="fragment"><p>A linear fit captures the essence of the relationship</p></li>
+<li class="fragment"><p>Example: <code>Sales ~ TV</code> using the <code>Advertising</code> dataset</p></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = sales ~ TV, data = Advertising)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-8.3860 -1.9545 -0.1913  2.0671  7.2124 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 7.032594   0.457843   15.36   &lt;2e-16 ***
+TV          0.047537   0.002691   17.67   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.259 on 198 degrees of freedom
+Multiple R-squared:  0.6119,    Adjusted R-squared:  0.6099 
+F-statistic: 312.1 on 1 and 198 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="assessment-standard-errors" class="slide level2 scrollable">
+<h2>Assessment: Standard Errors</h2>
+<ul>
+<li class="fragment"><p><strong>Standard errors</strong> quantify uncertainty in estimated coefficients</p></li>
+<li class="fragment"><p>Using SE and estimated coefficients, we compute the <strong>t-statistic</strong> for significance:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[t = \frac{\hat{\beta}}{SE(\hat{\beta})}\]</span></p>
+</div>
+<ul>
+<li class="fragment">A large <span class="math inline">\(|t|\)</span> provides evidence against the null hypothesis <span class="math inline">\(H_0: \beta = 0\)</span></li>
+</ul>
+</section>
+<section id="assessment-confidence-intervals" class="slide level2 scrollable">
+<h2>Assessment: Confidence Intervals</h2>
+<ul>
+<li class="fragment"><p>Standard errors can be used to compute <strong>confidence intervals</strong></p></li>
+<li class="fragment"><p>A 95% confidence interval: a range of values such that with 95% probability, it contains the true unknown parameter value</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\hat{\beta}_1 \pm 2 \cdot SE(\hat{\beta}_1)\]</span></p>
+</div>
+<ul>
+<li class="fragment">Confidence intervals are important for both <strong>frequentists</strong> and <strong>Bayesians</strong> to determine if a predictor is “significant”</li>
+</ul>
+</section>
+<section id="assessment-model-fit" class="slide level2 scrollable">
+<h2>Assessment: Model Fit</h2>
+<ul>
+<li class="fragment"><strong>Residual Standard Error (RSE)</strong>: Estimate of the standard deviation of <span class="math inline">\(\epsilon\)</span></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[\text{RSE} = \sqrt{\frac{1}{n-2}\text{RSS}}\]</span></p>
+</div>
+<ul>
+<li class="fragment"><strong><span class="math inline">\(R^2\)</span> Statistic</strong>: Proportion of variance explained</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[R^2 = \frac{\text{TSS} - \text{RSS}}{\text{TSS}} = 1 - \frac{\text{RSS}}{\text{TSS}}\]</span></p>
+</div>
+<div class="fragment">
+<p>where <span class="math inline">\(\text{TSS} = \sum(y_i - \bar{y})^2\)</span> is the Total Sum of Squares.</p>
+</div>
+</section>
+<section id="multiple-linear-regression" class="slide level2 scrollable">
+<h2>Multiple Linear Regression</h2>
+<p>Multiple regression extends the model to <span class="math inline">\(p\)</span> predictors:</p>
+<div class="fragment">
+<p><span class="math display">\[Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p + \epsilon\]</span></p>
+</div>
+<ul>
+<li class="fragment"><p>We interpret <span class="math inline">\(\beta_j\)</span> as the <strong>average effect</strong> on <span class="math inline">\(Y\)</span> of a one unit increase in <span class="math inline">\(X_j\)</span>, <strong>holding all other predictors fixed</strong></p></li>
+<li class="fragment"><p>Advertising example: <code>Sales ~ TV + Radio + Newspaper</code></p></li>
+</ul>
+</section>
+<section id="linear-regression-summary" class="slide level2 scrollable">
+<h2>Linear Regression: Summary</h2>
+<p><strong>Strengths:</strong></p>
+<ul>
+<li class="fragment">Simple and highly interpretable</li>
+<li class="fragment">Good starting point for predictive analytics</li>
+<li class="fragment">Effective error management</li>
+</ul>
+<div class="fragment">
+<p><strong>Limitations:</strong></p>
+<ul>
+<li class="fragment">Requires numeric, quantitative variables</li>
+<li class="fragment">Needs clear interpretations of coefficients</li>
+<li class="fragment">Other regression problems (multicollinearity, heteroscedasticity, non-linearity)</li>
+<li class="fragment"><strong>Next</strong>: Classification methods for qualitative responses</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="part-iii-classification" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Part III: Classification</h1>
+
+</section>
+<section id="classification-overview" class="slide level2 scrollable">
+<h2>Classification: Overview</h2>
+<ul>
+<li class="fragment"><strong>Qualitative variables</strong> take values in an unordered set <span class="math inline">\(\mathcal{C}\)</span>, such as:
+<ul>
+<li class="fragment"><span class="math inline">\(\text{PartyID} \in \{\text{Democrat, Republican, Independent}\}\)</span></li>
+<li class="fragment"><span class="math inline">\(\text{Voted} \in \{\text{Yes, No}\}\)</span></li>
+</ul></li>
+<li class="fragment">Given a feature vector <span class="math inline">\(X\)</span> and a qualitative response <span class="math inline">\(Y\)</span> taking values in <span class="math inline">\(\mathcal{C}\)</span>, the <strong>classification task</strong> is to build a function <span class="math inline">\(C(X)\)</span> that predicts <span class="math inline">\(Y\)</span></li>
+</ul>
+</section>
+<section id="why-not-linear-regression" class="slide level2 scrollable">
+<h2>Why Not Linear Regression?</h2>
+<ul>
+<li class="fragment"><p>For a <strong>binary</strong> outcome (0/1), linear regression can still generate meaningful results</p></li>
+<li class="fragment"><p>But for <strong>three or more categories</strong>, linear regression cannot be used given the <strong>lack of natural ordering</strong></p></li>
+<li class="fragment"><p>Even for binary outcomes, linear regression predictions can <strong>go out of bound</strong> (below 0 or above 1)</p></li>
+<li class="fragment"><p>We need a model that produces outputs between 0 and 1</p></li>
+</ul>
+</section>
+<section id="probability-estimation" class="slide level2 scrollable">
+<h2>Probability Estimation</h2>
+<ul>
+<li class="fragment"><p>From a prediction standpoint, we estimate the <strong>probabilities</strong> that <span class="math inline">\(X\)</span> belongs to each category in <span class="math inline">\(\mathcal{C}\)</span></p></li>
+<li class="fragment"><p>Example: Will a student credit card owner <strong>default</strong>?</p></li>
+<li class="fragment"><p>We cannot say with 100% certainty — but we can estimate the <strong>probability</strong> of default</p></li>
+<li class="fragment"><p>Default data example: overall default rate ≈ 3%; higher balance tends to lead to default</p></li>
+</ul>
+</section>
+<section id="logistic-regression" class="slide level2 scrollable">
+<h2>Logistic Regression</h2>
+<p>Instead of modeling <span class="math inline">\(Y\)</span> directly, logistic regression models the <strong>probability</strong> that <span class="math inline">\(Y\)</span> belongs to a particular category:</p>
+<div class="fragment">
+<p><span class="math display">\[p(X) = Pr(\text{default} = \text{Yes} \mid \text{balance})\]</span></p>
+</div>
+<ul>
+<li class="fragment"><p>Prediction: classify as default if <span class="math inline">\(p(X) &gt; 0.5\)</span></p></li>
+<li class="fragment"><p>Can set other thresholds (e.g., <span class="math inline">\(p(X) &gt; 0.3\)</span>) depending on the cost of errors</p></li>
+</ul>
+</section>
+<section id="the-logistic-function" class="slide level2 scrollable">
+<h2>The Logistic Function</h2>
+<p>To ensure outputs between 0 and 1, we use the <strong>logistic function</strong>:</p>
+<div class="fragment">
+<p><span class="math display">\[p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}\]</span></p>
+</div>
+<ul>
+<li class="fragment"><span class="math inline">\(e \approx 2.71828\)</span> (Euler’s number)</li>
+<li class="fragment">No matter the values of <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, or <span class="math inline">\(X\)</span>, <span class="math inline">\(p(X) \in (0,1)\)</span></li>
+</ul>
+</section>
+<section id="odds-and-log-odds" class="slide level2 scrollable">
+<h2>Odds and Log-Odds</h2>
+<div class="fragment">
+<p>The <strong>odds</strong> are defined as:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1 X}\]</span></p>
+</div>
+<div class="fragment">
+<p>Taking the logarithm of both sides:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + \beta_1 X\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">The left-hand side is called the <strong>log-odds</strong> or <strong>logit</strong></li>
+<li class="fragment">The logit is linear in <span class="math inline">\(X\)</span>, but <span class="math inline">\(p(X)\)</span> and <span class="math inline">\(X\)</span> are <strong>not</strong> linearly related</li>
+</ul>
+</div>
+</section>
+<section id="maximum-likelihood-estimation" class="slide level2 scrollable">
+<h2>Maximum Likelihood Estimation</h2>
+<div class="fragment">
+<p>Logistic regression is estimated using <strong>Maximum Likelihood</strong>:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\ell(\beta_0, \beta_1) = \prod_{i:y_i=1} p(x_i) \prod_{i:y_i=0} (1 - p(x_i))\]</span></p>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><p>We seek <span class="math inline">\(\hat{\beta}_0\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span> that <strong>maximize</strong> the likelihood of the observed data</p></li>
+<li class="fragment"><p>In R, we use the <code>glm</code> function:</p></li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>glm.fit <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance, <span class="at">family =</span> binomial)</span>
+<span id="cb2-2"><a href=""></a><span class="fu">summary</span>(glm.fit)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section>
+<section id="logistic-regression-in-r-output" class="slide level2 scrollable">
+<h2>Logistic Regression in R: Output</h2>
+<pre><code>Coefficients:
+                Estimate   Std. Error  z value   Pr(&gt;|z|)
+(Intercept)   -1.065e+01  3.612e-01   -29.49    &lt;2e-16 ***
+balance        5.499e-03  2.204e-04    24.95    &lt;2e-16 ***</code></pre>
+<ul>
+<li class="fragment">Both intercept and balance are highly significant</li>
+<li class="fragment">Suppose an individual has a balance of $1,000 — we can compute <span class="math inline">\(\hat{p}(X)\)</span></li>
+</ul>
+</section>
+<section id="multiple-logistic-regression" class="slide level2 scrollable">
+<h2>Multiple Logistic Regression</h2>
+<p>Extending to multiple predictors:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>glm.nfit <span class="ot">&lt;-</span> <span class="fu">glm</span>(default <span class="sc">~</span> balance <span class="sc">+</span> income <span class="sc">+</span> student,</span>
+<span id="cb4-2"><a href=""></a>                <span class="at">data =</span> Default, <span class="at">family =</span> binomial)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>Coefficients:
+                Estimate    Std. Error  z value   Pr(&gt;|z|)
+(Intercept)   -1.087e+01   4.923e-01  -22.080   &lt; 2e-16 ***
+balance        5.737e-03   2.319e-04   24.738   &lt; 2e-16 ***
+income         3.033e-06   8.203e-06    0.370    0.71152
+student[Yes]  -6.468e-01   2.363e-01   -2.738    0.00619 **</code></pre>
+<ul>
+<li class="fragment">Why does <code>student</code> become <strong>negative</strong> in the multiple model?</li>
+</ul>
+</section>
+<section id="confounding-effect" class="slide level2 scrollable">
+<h2>Confounding Effect</h2>
+<ul>
+<li class="fragment"><p><strong>Confounding</strong>: When other predictors are in the model, the student effect changes direction</p></li>
+<li class="fragment"><p>Students tend to have <strong>higher balances</strong> than non-students → marginal default rate is higher</p></li>
+<li class="fragment"><p>But for each level of balance, students default <strong>less</strong> than non-students</p></li>
+<li class="fragment"><p>Multiple logistic regression reveals this by <strong>controlling</strong> for other variables</p></li>
+</ul>
+</section>
+<section id="discriminant-analysis" class="slide level2 scrollable">
+<h2>Discriminant Analysis</h2>
+<ul>
+<li class="fragment"><p>An alternative approach: model the <strong>distribution of <span class="math inline">\(X\)</span></strong> in each class, then use <strong>Bayes’ theorem</strong> to obtain <span class="math inline">\(Pr(Y = k \mid X = x)\)</span></p></li>
+<li class="fragment"><p><strong>Bayes classifier</strong>: predict class 1 if <span class="math inline">\(Pr(Y = 1 \mid X = x_0) &gt; 0.5\)</span></p></li>
+<li class="fragment"><p>Requires specifying:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\pi_k = Pr(Y = k)\)</span>: the <strong>prior</strong> probability for class <span class="math inline">\(k\)</span></li>
+<li class="fragment"><span class="math inline">\(f_k(x) = Pr(X = x \mid Y = k)\)</span>: the <strong>density</strong> of <span class="math inline">\(X\)</span> in class <span class="math inline">\(k\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="bayes-theorem-for-classification" class="slide level2 scrollable">
+<h2>Bayes’ Theorem for Classification</h2>
+<div class="fragment">
+<p><span class="math display">\[Pr(Y = k \mid X = x) = \frac{\pi_k \, f_k(x)}{\sum_{l=1}^{K} \pi_l \, f_l(x)}\]</span></p>
+</div>
+<ul>
+<li class="fragment"><span class="math inline">\(\pi_k\)</span>: prior probability for class <span class="math inline">\(k\)</span></li>
+<li class="fragment"><span class="math inline">\(f_k(x)\)</span>: density function of <span class="math inline">\(X\)</span> in class <span class="math inline">\(k\)</span> (assumed Gaussian)</li>
+<li class="fragment">The decision boundary shifts when priors differ across classes</li>
+</ul>
+</section>
+<section id="linear-discriminant-analysis-lda" class="slide level2 scrollable">
+<h2>Linear Discriminant Analysis (LDA)</h2>
+<p>When <span class="math inline">\(p = 1\)</span>, assume Gaussian density with class-specific mean <span class="math inline">\(\mu_k\)</span> and <strong>common</strong> variance <span class="math inline">\(\sigma^2\)</span>:</p>
+<ul>
+<li class="fragment"><p>LDA improves prediction by accounting for the normally distributed <span class="math inline">\(X\)</span></p></li>
+<li class="fragment"><p><strong>Why not just use linear regression?</strong> LDA provides a principled probabilistic framework</p></li>
+</ul>
+<div class="fragment">
+<p>LDA is preferred when:</p>
+<ul>
+<li class="fragment">Classes are well-separated (logistic regression estimates become unstable)</li>
+<li class="fragment"><span class="math inline">\(n\)</span> is small and <span class="math inline">\(X\)</span> is approximately normal in each class</li>
+<li class="fragment"><span class="math inline">\(K &gt; 2\)</span> classes</li>
+</ul>
+</div>
+</section>
+<section id="lda-vs.-logistic-regression" class="slide level2 scrollable">
+<h2>LDA vs.&nbsp;Logistic Regression</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>LDA</th>
+<th>Logistic Regression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Assumption</strong></td>
+<td>Gaussian with common covariance</td>
+<td>No distributional assumption</td>
+</tr>
+<tr class="even">
+<td><strong>When better</strong></td>
+<td>Small <span class="math inline">\(n\)</span>, well-separated classes, <span class="math inline">\(K &gt; 2\)</span></td>
+<td>Non-Gaussian distributions</td>
+</tr>
+<tr class="odd">
+<td><strong>Estimation</strong></td>
+<td>Based on mean and covariance</td>
+<td>Maximum likelihood</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment">LDA can outperform logistic regression when Gaussian assumptions hold</li>
+<li class="fragment">Logistic regression is more robust when they do not</li>
+</ul>
+</section>
+<section id="lda-for-p-1-multivariate-case" class="slide level2 scrollable">
+<h2>LDA for <span class="math inline">\(p &gt; 1\)</span>: Multivariate Case</h2>
+<ul>
+<li class="fragment"><p>Extends to multivariate Gaussian with class-specific mean vectors and common covariance matrix</p></li>
+<li class="fragment"><p>Decision boundaries are <strong>linear</strong> functions of <span class="math inline">\(X\)</span></p></li>
+<li class="fragment"><p>With three classes and <span class="math inline">\(p = 2\)</span> predictors: ellipses contain 95% of the probability for each class</p></li>
+</ul>
+</section>
+<section id="confusion-matrix" class="slide level2 scrollable">
+<h2>Confusion Matrix</h2>
+<p>Example with Default data:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Predicted: No</th>
+<th>Predicted: Yes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Actual: No</strong></td>
+<td>✓ Correct</td>
+<td>Incorrect</td>
+</tr>
+<tr class="even">
+<td><strong>Actual: Yes</strong></td>
+<td>Incorrect</td>
+<td>✓ Correct</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li class="fragment"><p>LDA error rate: <span class="math inline">\((23 + 252) / 10{,}000 = 2.75\%\)</span></p></li>
+<li class="fragment"><p>But what matters: how many who <strong>actually defaulted</strong> were correctly predicted?</p></li>
+</ul>
+</section>
+<section id="sensitivity-and-specificity" class="slide level2 scrollable">
+<h2>Sensitivity and Specificity</h2>
+<ul>
+<li class="fragment"><strong>Sensitivity</strong> (True Positive Rate): percentage of true defaulters correctly identified
+<ul>
+<li class="fragment"><span class="math inline">\(81/333 = 24.3\%\)</span> in the default example</li>
+</ul></li>
+<li class="fragment"><strong>Specificity</strong> (True Negative Rate): percentage of non-defaulters correctly identified
+<ul>
+<li class="fragment"><span class="math inline">\((1 - 23/9{,}667) \times 100 = 99.8\%\)</span></li>
+</ul></li>
+<li class="fragment">Trade-off: lowering the threshold increases sensitivity but decreases specificity</li>
+</ul>
+</section>
+<section id="roc-curve" class="slide level2 scrollable">
+<h2>ROC Curve</h2>
+<ul>
+<li class="fragment"><p>The <strong>Receiver Operating Characteristics (ROC)</strong> curve displays classifier performance across all possible thresholds</p></li>
+<li class="fragment"><p><strong>AUC</strong> (Area Under the Curve): summarizes overall performance</p>
+<ul>
+<li class="fragment">An ideal ROC curve hugs the <strong>top left corner</strong></li>
+<li class="fragment">Larger AUC = better classifier</li>
+<li class="fragment">AUC = 0.5 implies random guessing</li>
+<li class="fragment">AUC = 1.0 implies perfect classification</li>
+</ul></li>
+</ul>
+</section>
+<section id="classification-methods-summary" class="slide level2 scrollable">
+<h2>Classification Methods: Summary</h2>
+<div class="cell" data-fig-width="18" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1728" height="480" viewbox="0.00 0.00 2384.00 305.60" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 301.6)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-301.6 2380,-301.6 2380,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#2c3e50" stroke="black" points="1350,-297.7 1026,-297.7 1026,-222.3 1350,-222.3 1350,-297.7"></polygon>
+<text text-anchor="middle" x="1188" y="-268.4" font-family="Palatino" font-size="28.00" fill="white">Classification Problem</text>
+<text text-anchor="middle" x="1188" y="-234.8" font-family="Palatino" font-size="28.00" fill="white">(Qualitative Y)</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#3498db" stroke="black" points="837,-184.8 513,-184.8 513,-112.8 837,-112.8 837,-184.8"></polygon>
+<text text-anchor="middle" x="675" y="-140.4" font-family="Palatino" font-size="28.00" fill="white">Logistic Regression</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1025.68,-224.45C968.8,-212.34 904.74,-198.7 847.08,-186.43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="847.65,-182.97 837.14,-184.31 846.19,-189.82 847.65,-182.97"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#e74c3c" stroke="black" points="1692,-186.5 1368,-186.5 1368,-111.1 1692,-111.1 1692,-186.5"></polygon>
+<text text-anchor="middle" x="1530" y="-157.2" font-family="Palatino" font-size="28.00" fill="white">Linear Discriminant</text>
+<text text-anchor="middle" x="1530" y="-123.6" font-family="Palatino" font-size="28.00" fill="white">Analysis</text>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1302.83,-222.33C1335.77,-211.82 1371.84,-200.3 1405.34,-189.6"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1406.72,-192.84 1415.18,-186.46 1404.59,-186.17 1406.72,-192.84"></polygon>
+</g>
+<!-- B1 -->
+<g id="node4" class="node">
+<title>B1</title>
+<polygon fill="#aed6f1" stroke="black" points="324,-73.6 0,-73.6 0,-1.6 324,-1.6 324,-73.6"></polygon>
+<text text-anchor="middle" x="162" y="-29.2" font-family="Palatino" font-size="28.00" fill="#2c3e50">Popular for K = 2</text>
+</g>
+<!-- B&#45;&gt;B1 -->
+<g id="edge3" class="edge">
+<title>B-&gt;B1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M512.76,-113.42C458.68,-101.94 397.88,-89.03 333.89,-75.39"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="334.52,-71.94 324.01,-73.28 333.06,-78.79 334.52,-71.94"></polygon>
+</g>
+<!-- B2 -->
+<g id="node5" class="node">
+<title>B2</title>
+<polygon fill="#aed6f1" stroke="black" points="666,-75.3 342,-75.3 342,0.1 666,0.1 666,-75.3"></polygon>
+<text text-anchor="middle" x="504" y="-46" font-family="Palatino" font-size="28.00" fill="#2c3e50">No distributional</text>
+<text text-anchor="middle" x="504" y="-12.4" font-family="Palatino" font-size="28.00" fill="#2c3e50">assumptions</text>
+</g>
+<!-- B&#45;&gt;B2 -->
+<g id="edge4" class="edge">
+<title>B-&gt;B2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M619.95,-112.65C604.07,-102.51 586.58,-91.34 570.1,-80.81"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="571.9,-77.81 561.59,-75.38 568.14,-83.71 571.9,-77.81"></polygon>
+</g>
+<!-- B3 -->
+<g id="node6" class="node">
+<title>B3</title>
+<polygon fill="#aed6f1" stroke="black" points="1008,-75.3 684,-75.3 684,0.1 1008,0.1 1008,-75.3"></polygon>
+<text text-anchor="middle" x="846" y="-46" font-family="Palatino" font-size="28.00" fill="#2c3e50">Maximum likelihood</text>
+<text text-anchor="middle" x="846" y="-12.4" font-family="Palatino" font-size="28.00" fill="#2c3e50">estimation</text>
+</g>
+<!-- B&#45;&gt;B3 -->
+<g id="edge5" class="edge">
+<title>B-&gt;B3</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M730.05,-112.65C745.93,-102.51 763.42,-91.34 779.9,-80.81"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="781.86,-83.71 788.41,-75.38 778.1,-77.81 781.86,-83.71"></polygon>
+</g>
+<!-- C1 -->
+<g id="node7" class="node">
+<title>C1</title>
+<polygon fill="#f5b7b1" stroke="black" points="1350,-73.6 1026,-73.6 1026,-1.6 1350,-1.6 1350,-73.6"></polygon>
+<text text-anchor="middle" x="1188" y="-29.2" font-family="Palatino" font-size="28.00" fill="#2c3e50">Useful when n is small</text>
+</g>
+<!-- C&#45;&gt;C1 -->
+<g id="edge6" class="edge">
+<title>C-&gt;C1</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1415.17,-111.13C1380.58,-100.09 1342.54,-87.95 1307.65,-76.8"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1308.49,-73.4 1297.9,-73.69 1306.36,-80.07 1308.49,-73.4"></polygon>
+</g>
+<!-- C2 -->
+<g id="node8" class="node">
+<title>C2</title>
+<polygon fill="#f5b7b1" stroke="black" points="1692,-73.6 1368,-73.6 1368,-1.6 1692,-1.6 1692,-73.6"></polygon>
+<text text-anchor="middle" x="1530" y="-29.2" font-family="Palatino" font-size="28.00" fill="#2c3e50">Classes well-separated</text>
+</g>
+<!-- C&#45;&gt;C2 -->
+<g id="edge7" class="edge">
+<title>C-&gt;C2</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1530,-111.13C1530,-102.4 1530,-92.98 1530,-83.91"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1533.5,-83.87 1530,-73.87 1526.5,-83.87 1533.5,-83.87"></polygon>
+</g>
+<!-- C3 -->
+<g id="node9" class="node">
+<title>C3</title>
+<polygon fill="#f5b7b1" stroke="black" points="2034,-75.3 1710,-75.3 1710,0.1 2034,0.1 2034,-75.3"></polygon>
+<text text-anchor="middle" x="1872" y="-46" font-family="Palatino" font-size="28.00" fill="#2c3e50">Gaussian assumptions</text>
+<text text-anchor="middle" x="1872" y="-12.4" font-family="Palatino" font-size="28.00" fill="#2c3e50">reasonable</text>
+</g>
+<!-- C&#45;&gt;C3 -->
+<g id="edge8" class="edge">
+<title>C-&gt;C3</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1644.83,-111.13C1677.77,-100.62 1713.84,-89.1 1747.34,-78.4"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1748.72,-81.64 1757.18,-75.26 1746.59,-74.97 1748.72,-81.64"></polygon>
+</g>
+<!-- C4 -->
+<g id="node10" class="node">
+<title>C4</title>
+<polygon fill="#f5b7b1" stroke="black" points="2376,-73.6 2052,-73.6 2052,-1.6 2376,-1.6 2376,-73.6"></polygon>
+<text text-anchor="middle" x="2214" y="-29.2" font-family="Palatino" font-size="28.00" fill="#2c3e50">Preferred when K &gt; 2</text>
+</g>
+<!-- C&#45;&gt;C4 -->
+<g id="edge9" class="edge">
+<title>C-&gt;C4</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1692.2,-127.81C1790.69,-114.96 1919.12,-96.94 2041.65,-75.41"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="2042.35,-78.84 2051.59,-73.65 2041.13,-71.94 2042.35,-78.84"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="part-iv-reasoning-models-newest-trends" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Part IV: Reasoning Models &amp; Newest Trends</h1>
+
+</section>
+<section id="beyond-traditional-ml-the-ai-landscape-in-2026" class="slide level2 scrollable">
+<h2>Beyond Traditional ML: The AI Landscape in 2026</h2>
+<p>The machine learning toolkit has expanded dramatically. While statistical learning, regression, and classification remain foundational, new paradigms have emerged:</p>
+<ul>
+<li class="fragment"><strong>Reasoning models</strong> that “think” before answering</li>
+<li class="fragment"><strong>Agentic AI</strong> systems that plan, act, and self-correct</li>
+<li class="fragment"><strong>Foundation models</strong> that learn general representations from massive data</li>
+<li class="fragment"><strong>Open-source revolution</strong> closing the gap with proprietary models</li>
+</ul>
+</section>
+<section id="what-are-reasoning-models" class="slide level2 scrollable">
+<h2>What Are Reasoning Models?</h2>
+<p>Traditional LLMs generate tokens left-to-right in a single pass. <strong>Reasoning models</strong> add an internal deliberation step — chain-of-thought (CoT) — before producing a final answer.</p>
+<ul>
+<li class="fragment">Model generates intermediate <strong>thinking steps</strong> (often hidden from the user)</li>
+<li class="fragment">Multi-stage computation during inference: the model “works through” the problem</li>
+<li class="fragment">Trade-off: slower and more compute-intensive, but solves harder problems</li>
+</ul>
+<div class="fragment">
+<p>Key examples:</p>
+<ul>
+<li class="fragment"><strong>OpenAI o-series</strong> (o1, o3): step-by-step reasoning with tool use</li>
+<li class="fragment"><strong>DeepSeek-R1</strong>: open-source reasoning model that shocked the field in early 2025</li>
+<li class="fragment"><strong>Claude’s extended thinking</strong>: deliberation before responding</li>
+<li class="fragment"><strong>Gemini 2.5 Pro</strong>: reasoning with 1M+ token context windows</li>
+</ul>
+</div>
+</section>
+<section id="reasoning-models-how-they-work" class="slide level2 scrollable">
+<h2>Reasoning Models: How They Work</h2>
+<div class="cell" data-fig-width="14" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1344" height="480" viewbox="0.00 0.00 1416.00 160.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 156)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-156 1412,-156 1412,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#3498db" stroke="black" points="252,-86 0,-86 0,0 252,0 252,-86"></polygon>
+<text text-anchor="middle" x="126" y="-49" font-family="Palatino" font-size="20.00" fill="white">Input</text>
+<text text-anchor="middle" x="126" y="-25" font-family="Palatino" font-size="20.00" fill="white">Prompt</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#e67e22" stroke="black" points="541,-86 289,-86 289,0 541,0 541,-86"></polygon>
+<text text-anchor="middle" x="415" y="-49" font-family="Palatino" font-size="20.00" fill="white">Internal</text>
+<text text-anchor="middle" x="415" y="-25" font-family="Palatino" font-size="20.00" fill="white">Chain-of-Thought</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M252.05,-43C260.94,-43 269.92,-43 278.87,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="278.94,-46.5 288.94,-43 278.94,-39.5 278.94,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#9b59b6" stroke="black" points="830,-152 578,-152 578,-66 830,-66 830,-152"></polygon>
+<text text-anchor="middle" x="704" y="-115" font-family="Palatino" font-size="20.00" fill="white">Tool Use</text>
+<text text-anchor="middle" x="704" y="-91" font-family="Palatino" font-size="20.00" fill="white">(Search, Code)</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M541.05,-71.76C550.03,-73.82 559.12,-75.91 568.15,-77.99"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="567.41,-81.41 577.94,-80.24 568.98,-74.59 567.41,-81.41"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#e74c3c" stroke="black" points="1119,-86 867,-86 867,0 1119,0 1119,-86"></polygon>
+<text text-anchor="middle" x="993" y="-49" font-family="Palatino" font-size="20.00" fill="white">Self-Check</text>
+<text text-anchor="middle" x="993" y="-25" font-family="Palatino" font-size="20.00" fill="white">Verification</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M830.05,-80.24C839.03,-78.18 848.12,-76.09 857.15,-74.01"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="857.98,-77.41 866.94,-71.76 856.41,-70.59 857.98,-77.41"></polygon>
+</g>
+<!-- D&#45;&gt;B -->
+<g id="edge5" class="edge">
+<title>D-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,2" d="M866.86,-40.62C854.4,-40.45 841.95,-40.3 830,-40.2 718,-39.23 690,-39.23 578,-40.2 569.31,-40.28 560.37,-40.37 551.35,-40.49"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="551.1,-36.99 541.14,-40.62 551.19,-43.99 551.1,-36.99"></polygon>
+<text text-anchor="middle" x="704" y="-45.2" font-family="Palatino" font-size="14.00"> &nbsp;revise</text>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="#27ae60" stroke="black" points="1408,-86 1156,-86 1156,0 1408,0 1408,-86"></polygon>
+<text text-anchor="middle" x="1282" y="-49" font-family="Palatino" font-size="20.00" fill="white">Final</text>
+<text text-anchor="middle" x="1282" y="-25" font-family="Palatino" font-size="20.00" fill="white">Answer</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1119.05,-43C1127.94,-43 1136.92,-43 1145.87,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1145.94,-46.5 1155.94,-43 1145.94,-39.5 1145.94,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Unlike standard generation: <strong>deliberation loop</strong> with self-correction</li>
+<li class="fragment">Inference compute scales with problem difficulty</li>
+<li class="fragment">The line between training and inference is blurring</li>
+</ul>
+</section>
+<section id="why-reasoning-matters-for-ml" class="slide level2 scrollable">
+<h2>Why Reasoning Matters for ML</h2>
+<p>Reasoning models connect to classical ML concepts:</p>
+<ul>
+<li class="fragment"><strong>Bias-variance trade-off</strong>: More inference compute reduces bias on hard problems but at higher cost</li>
+<li class="fragment"><strong>Ensemble intuition</strong>: Internal deliberation is analogous to aggregating multiple “reasoning paths”</li>
+<li class="fragment"><strong>Model selection</strong>: Reasoning models excel at multi-step logic, math, and code — not all tasks need them</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Practical Rule of Thumb</strong></p>
+</div>
+<div class="callout-content">
+<p>Use <strong>standard models</strong> for routine generation tasks. Use <strong>reasoning models</strong> for complex analysis, multi-step problem-solving, and tasks requiring verification.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="agentic-ai" class="slide level2 scrollable">
+<h2>Agentic AI</h2>
+<p><strong>Agentic AI</strong> systems go beyond single-turn prediction. They autonomously plan, execute, and adapt:</p>
+<ul>
+<li class="fragment"><strong>Tool use</strong>: Accessing databases, APIs, search engines, code interpreters</li>
+<li class="fragment"><strong>Planning</strong>: Breaking complex goals into sub-tasks</li>
+<li class="fragment"><strong>Reflection</strong>: Evaluating and revising their own outputs</li>
+<li class="fragment"><strong>Multi-agent orchestration</strong>: Specialized agents collaborating (researcher, coder, reviewer)</li>
+</ul>
+<div class="fragment">
+<p>By 2028, Gartner projects <strong>33% of enterprise applications</strong> will embed AI agents. The market grew from $7.6B (2025) to $10.9B (2026).</p>
+</div>
+</section>
+<section id="the-open-source-revolution" class="slide level2 scrollable">
+<h2>The Open-Source Revolution</h2>
+<p>The competitive landscape shifted fundamentally:</p>
+<ul>
+<li class="fragment"><strong>DeepSeek-R1</strong> (Jan 2025): Frontier-level reasoning from a small Chinese lab with limited resources — open-source</li>
+<li class="fragment"><strong>GPT-OSS</strong> (2025): OpenAI released 120B and 20B open-weight models under Apache 2.0</li>
+<li class="fragment"><strong>Mixture-of-Experts (MoE)</strong>: Architectures that activate only a fraction of parameters per query — enabling large models on small hardware</li>
+</ul>
+<div class="fragment">
+<p>Open-weight models now match closed models on most benchmarks, giving researchers a viable self-hosted path with full data privacy and no API costs.</p>
+</div>
+</section>
+<section id="multimodal-ai" class="slide level2 scrollable">
+<h2>Multimodal AI</h2>
+<p>Models now process <strong>text, images, audio, and video</strong> together:</p>
+<ul>
+<li class="fragment"><strong>GPT-4o</strong>: Real-time text + image + audio understanding</li>
+<li class="fragment"><strong>Gemini 2.0/2.5</strong>: Native multimodal with long-context reasoning</li>
+<li class="fragment"><strong>Claude</strong>: Vision + document understanding + extended thinking</li>
+</ul>
+<div class="fragment">
+<p>Implications for knowledge mining:</p>
+<ul>
+<li class="fragment">Analyze survey data <strong>and</strong> images/documents simultaneously</li>
+<li class="fragment">Extract structured data from PDFs, tables, charts</li>
+<li class="fragment">Bridge qualitative (text) and quantitative (numeric) analysis</li>
+</ul>
+</div>
+</section>
+<section id="ai-for-science" class="slide level2 scrollable">
+<h2>AI for Science</h2>
+<p>ML is transforming scientific discovery:</p>
+<ul>
+<li class="fragment"><strong>Drug discovery</strong>: AI-designed candidates reaching mid-to-late clinical trials in 2026</li>
+<li class="fragment"><strong>Materials science</strong>: Generative models proposing novel compounds</li>
+<li class="fragment"><strong>AlphaEvolve</strong>: LLMs discovering new algorithms and mathematical proofs</li>
+<li class="fragment"><strong>Protein structure</strong>: AlphaFold and successors enabling structural biology at scale</li>
+</ul>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The New Paradigm</strong></p>
+</div>
+<div class="callout-content">
+<p>AI for Science (AI4S) combines foundation models + domain knowledge + experimental validation. The goal is not to replace scientists but to <strong>accelerate discovery</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-evolving-ml-spectrum-2026" class="slide level2 scrollable">
+<h2>The Evolving ML Spectrum (2026)</h2>
+<div class="cell" data-fig-width="16" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class=""><p></p>
+<div>
+<svg width="1536" height="480" viewbox="0.00 0.00 1832.00 94.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none; display: block; margin: auto auto auto auto">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 90)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-90 1828,-90 1828,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="#27ae60" stroke="black" points="274,-86 0,-86 0,0 274,0 274,-86"></polygon>
+<text text-anchor="middle" x="137" y="-50.2" font-family="Palatino" font-size="24.00" fill="white">Linear Models</text>
+<text text-anchor="middle" x="137" y="-21.4" font-family="Palatino" font-size="24.00" fill="white">Lasso / Ridge</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="#3498db" stroke="black" points="584,-86 310,-86 310,0 584,0 584,-86"></polygon>
+<text text-anchor="middle" x="447" y="-50.2" font-family="Palatino" font-size="24.00" fill="white">Trees &amp;</text>
+<text text-anchor="middle" x="447" y="-21.4" font-family="Palatino" font-size="24.00" fill="white">Ensembles</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M274.44,-43C282.79,-43 291.21,-43 299.6,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="299.81,-46.5 309.81,-43 299.81,-39.5 299.81,-46.5"></polygon>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="#8e44ad" stroke="black" points="894,-86 620,-86 620,0 894,0 894,-86"></polygon>
+<text text-anchor="middle" x="757" y="-50.2" font-family="Palatino" font-size="24.00" fill="white">SVMs &amp;</text>
+<text text-anchor="middle" x="757" y="-21.4" font-family="Palatino" font-size="24.00" fill="white">Kernel Methods</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M584.44,-43C592.79,-43 601.21,-43 609.6,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="609.81,-46.5 619.81,-43 609.81,-39.5 609.81,-46.5"></polygon>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="#f39c12" stroke="black" points="1204,-86 930,-86 930,0 1204,0 1204,-86"></polygon>
+<text text-anchor="middle" x="1067" y="-50.2" font-family="Palatino" font-size="24.00" fill="white">Deep Learning</text>
+<text text-anchor="middle" x="1067" y="-21.4" font-family="Palatino" font-size="24.00" fill="white">Neural Networks</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M894.44,-43C902.79,-43 911.21,-43 919.6,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="919.81,-46.5 929.81,-43 919.81,-39.5 919.81,-46.5"></polygon>
+</g>
+<!-- E -->
+<g id="node5" class="node">
+<title>E</title>
+<polygon fill="#c0392b" stroke="black" points="1514,-86 1240,-86 1240,0 1514,0 1514,-86"></polygon>
+<text text-anchor="middle" x="1377" y="-50.2" font-family="Palatino" font-size="24.00" fill="white">Foundation</text>
+<text text-anchor="middle" x="1377" y="-21.4" font-family="Palatino" font-size="24.00" fill="white">Models (LLMs)</text>
+</g>
+<!-- D&#45;&gt;E -->
+<g id="edge4" class="edge">
+<title>D-&gt;E</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1204.44,-43C1212.79,-43 1221.21,-43 1229.6,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1229.81,-46.5 1239.81,-43 1229.81,-39.5 1229.81,-46.5"></polygon>
+</g>
+<!-- F -->
+<g id="node6" class="node">
+<title>F</title>
+<polygon fill="#2c3e50" stroke="black" points="1824,-86 1550,-86 1550,0 1824,0 1824,-86"></polygon>
+<text text-anchor="middle" x="1687" y="-50.2" font-family="Palatino" font-size="24.00" fill="white">Reasoning &amp;</text>
+<text text-anchor="middle" x="1687" y="-21.4" font-family="Palatino" font-size="24.00" fill="white">Agentic AI</text>
+</g>
+<!-- E&#45;&gt;F -->
+<g id="edge5" class="edge">
+<title>E-&gt;F</title>
+<path fill="none" stroke="#7f8c8d" stroke-width="2" d="M1514.44,-43C1522.79,-43 1531.21,-43 1539.6,-43"></path>
+<polygon fill="#7f8c8d" stroke="#7f8c8d" stroke-width="2" points="1539.81,-46.5 1549.81,-43 1539.81,-39.5 1539.81,-46.5"></polygon>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<center>
+<p><strong>Classical ML</strong> <span class="math inline">\(\longleftrightarrow\)</span> <strong>Modern AI</strong></p>
+More interpretable, less data <span class="math inline">\(\longleftrightarrow\)</span> More capable, more compute
+</center>
+</section>
+<section id="key-trends-summary" class="slide level2 scrollable">
+<h2>Key Trends Summary</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 46%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Trend</th>
+<th>What Changed</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Reasoning models</strong></td>
+<td>Models “think” before answering</td>
+<td>Higher accuracy on hard problems</td>
+</tr>
+<tr class="even">
+<td><strong>Agentic AI</strong></td>
+<td>Autonomous planning + tool use</td>
+<td>Workflow automation at scale</td>
+</tr>
+<tr class="odd">
+<td><strong>Open-source models</strong></td>
+<td>DeepSeek-R1, GPT-OSS</td>
+<td>Democratized access to frontier AI</td>
+</tr>
+<tr class="even">
+<td><strong>Multimodal AI</strong></td>
+<td>Text + image + audio + video</td>
+<td>Richer data analysis</td>
+</tr>
+<tr class="odd">
+<td><strong>AI for Science</strong></td>
+<td>LLMs accelerating discovery</td>
+<td>New drugs, materials, algorithms</td>
+</tr>
+<tr class="even">
+<td><strong>MoE architectures</strong></td>
+<td>Sparse activation</td>
+<td>Large models on small hardware</td>
+</tr>
+<tr class="odd">
+<td><strong>Long context windows</strong></td>
+<td>1M+ tokens</td>
+<td>Entire datasets in a single prompt</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section>
+<section id="key-takeaways" class="title-slide slide level1 center" data-background-color="#2c3e50">
+<h1>Key Takeaways</h1>
+
+</section>
+<section id="recap-the-big-picture" class="slide level2 scrollable">
+<h2>Recap: The Big Picture</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Statistical Learning</strong> provides the framework: prediction vs.&nbsp;inference, bias-variance trade-off, parametric vs.&nbsp;non-parametric</p></li>
+<li class="fragment"><p><strong>Linear Regression</strong> is the foundation of supervised learning for quantitative <span class="math inline">\(Y\)</span>: simple, interpretable, but assumes linearity</p></li>
+<li class="fragment"><p><strong>Classification</strong> extends to qualitative <span class="math inline">\(Y\)</span>: logistic regression for probability modeling, LDA for distributional approaches</p></li>
+<li class="fragment"><p><strong>Model assessment</strong> matters: <span class="math inline">\(R^2\)</span>, RSE, confusion matrices, sensitivity/specificity, ROC/AUC</p></li>
+<li class="fragment"><p><strong>Reasoning models &amp; agentic AI</strong> represent the new frontier: chain-of-thought deliberation, tool use, and multi-agent systems are reshaping what ML can accomplish</p></li>
+</ol>
+</section>
+<section id="qa" class="slide level2 center scrollable">
+<h2>Q&amp;A</h2>
+<p>Questions?</p>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="eppslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><h10>EPPS 6323 Knowledge Mining</h10></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="machinelearning_recap_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="machinelearning_recap_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
