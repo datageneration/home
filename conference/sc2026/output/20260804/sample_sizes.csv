@@ -1,0 +1,4 @@
+YEAR,n_raw,n_analytic,retention,n_synthetic,n_per_regime,n_interventional
+2016,1690,1274,75.4,6370,6370,57330
+2020,1680,1369,81.5,6845,6845,61605
+2024,1206,1012,83.9,5060,5060,45540
