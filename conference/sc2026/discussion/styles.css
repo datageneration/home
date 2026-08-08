@@ -1,0 +1,13 @@
+/* css styles */
+body {
+    font-family: 'Palatino', sans-serif;
+    color: #333;
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+a {
+    color: #d9534f;
+}
