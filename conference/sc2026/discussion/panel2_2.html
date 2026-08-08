@@ -32,6 +32,8 @@
   <link href="panel2_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="panel2_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="panel2_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="panel2_2_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="panel2_2_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="panel2_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -44,6 +46,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -156,8 +159,18 @@ Lu-huei Chen &amp; Tsung-Han Liao
 <h2>Design and Method</h2>
 <ul>
 <li class="fragment"><strong>The forced-choice measure is doing more work than it can bear.</strong> Items ask “<em>which</em> candidate makes you feel angry?” — one answer. Emotions are therefore mechanically exclusive across candidates, so part of the cross-candidate spillover is definitional. Abelson et al.&nbsp;(1982) and ANES ask each emotion of each candidate</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/panel2_2_angrywording.png" style="width:80.0%"></p>
+<figcaption>Affective questions wording</figcaption>
+</figure>
+</div>
+</div>
+<ul>
 <li class="fragment"><strong>The “Others” baseline pools <em>all candidates</em> and <em>no candidate</em></strong> — two opposite response types, 16.6–20.8% of cases, treated as one reference</li>
-<li class="fragment"><strong>Mediation is claimed but not tested.</strong> Tables 6→7 compare <em>significance</em> across nested logits; rescaling makes those coefficients non-comparable. Use <strong>KHB decomposition</strong>. The thermometer is also post-treatment and near-tautological with vote</li>
+<li class="fragment"><strong>Mediation is claimed but not tested.</strong> Tables 6→7 compare <em>significance</em> across nested logits; rescaling makes those coefficients non-comparable. Use <strong>Karlson-Holm-Breen (KHB) method decomposition</strong> to split the total effect of a key independent variable into direct and indirect (mediated) effects. The thermometer is also post-treatment and near-tautological with vote</li>
 <li class="fragment"><strong>Log-odds relative to Ko are unreadable</strong> — report AMEs or predicted probabilities with CIs</li>
 <li class="fragment"><strong>IIA is exactly the assumption at issue</strong> with a third-party baseline. Test it or move to multinomial probit</li>
 <li class="fragment">Missing throughout: model <span class="math inline">\(N\)</span>, weights, fit statistics, design-based SEs, cell counts</li>
@@ -167,22 +180,26 @@ Lu-huei Chen &amp; Tsung-Han Liao
 <h2>Framing</h2>
 <ul>
 <li class="fragment">The theory section <strong>catalogues</strong> the literature where it should build an argument. No numbered hypotheses appear</li>
-<li class="fragment"><strong>AIT is invoked but not tested.</strong> Its core claim is <em>moderation</em> — anxiety loosens partisan habit. That implies emotion × party ID interactions, and they are absent</li>
+<li class="fragment"><strong>Affective Intelligence Theory (AIT) is invoked but not tested.</strong> Its core claim is <em>moderation</em> — anxiety loosens partisan habit. That implies emotion × party ID interactions, and they are absent</li>
 <li class="fragment"><strong>The multiparty contribution is asserted, not theorized.</strong> What specifically should differ under three-way competition — viability perceptions? strategic voting? Give the mechanism</li>
 <li class="fragment"><strong>“Not observed in previous elections”</strong> invites the immediate question about <strong>2000 and James Soong</strong>. Meet it head-on</li>
 <li class="fragment">“Hope for <em>Taiwan’s future</em>” and “pride as a <em>Taiwanese</em>” are identity-inflected rather than generic positive affect — and national identity is also a control</li>
 <li class="fragment">Emotions measured <em>after</em> the vote: hedge the causal language explicitly</li>
 </ul>
 </section>
-<section id="what-could-be-done-next" class="slide level2">
+<section id="what-could-be-done-next" class="slide level2 scrollable">
 <h2>What Could Be Done Next</h2>
 <ol type="1">
 <li class="fragment"><strong>Add emotion × party ID interactions</strong> — tests AIT’s actual prediction and directly serves the multiparty framing</li>
 <li class="fragment"><strong>Replace Table 7 with a KHB decomposition</strong>, or reframe it as a conservative lower bound</li>
 <li class="fragment"><strong>Exploit the 2020 panel</strong> (1,972 respondents) for lagged predispositions — the single biggest gain available in the existing data</li>
 <li class="fragment"><strong>Write a measurement-validity subsection</strong> on the forced-choice design; split the “Others” baseline as a robustness check</li>
-<li class="fragment"><strong>Report AMEs and predicted probabilities</strong>; move Tables 2–5 to an appendix; cut the literature review by ~40% and add a hypotheses section</li>
+<li class="fragment"><strong>Report AMEs and/or predicted probabilities</strong>; move Tables 2–5 to an appendix; compact the literature review and add a hypotheses section</li>
+<li class="fragment"><strong>Multinomial Probit?</strong>; Easy implementation and mute reviewers’ protests of IIA</li>
 </ol>
+<div class="fragment">
+<p><a href="index.html">Home</a></p>
+</div>
 
 </section></section>
     </div>
@@ -202,6 +219,7 @@ Conference on Electoral Politics in Taiwan 2026 Panel 2
   <script src="panel2_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="panel2_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="panel2_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="panel2_2_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="panel2_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -223,7 +241,8 @@ Conference on Electoral Politics in Taiwan 2026 Panel 2
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -394,7 +413,7 @@ Conference on Electoral Politics in Taiwan 2026 Panel 2
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
           RevealMath,
           RevealNotes,
