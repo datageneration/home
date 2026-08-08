@@ -46,6 +46,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -158,8 +159,18 @@ Lu-huei Chen &amp; Tsung-Han Liao
 <h2>Design and Method</h2>
 <ul>
 <li class="fragment"><strong>The forced-choice measure is doing more work than it can bear.</strong> Items ask “<em>which</em> candidate makes you feel angry?” — one answer. Emotions are therefore mechanically exclusive across candidates, so part of the cross-candidate spillover is definitional. Abelson et al.&nbsp;(1982) and ANES ask each emotion of each candidate</li>
+</ul>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/panel2_2_angrywording.png" style="width:80.0%"></p>
+<figcaption>Affective questions wording</figcaption>
+</figure>
+</div>
+</div>
+<ul>
 <li class="fragment"><strong>The “Others” baseline pools <em>all candidates</em> and <em>no candidate</em></strong> — two opposite response types, 16.6–20.8% of cases, treated as one reference</li>
-<li class="fragment"><strong>Mediation is claimed but not tested.</strong> Tables 6→7 compare <em>significance</em> across nested logits; rescaling makes those coefficients non-comparable. Use <strong>KHB decomposition</strong>. The thermometer is also post-treatment and near-tautological with vote</li>
+<li class="fragment"><strong>Mediation is claimed but not tested.</strong> Tables 6→7 compare <em>significance</em> across nested logits; rescaling makes those coefficients non-comparable. Use <strong>Karlson-Holm-Breen (KHB) method decomposition</strong> to split the total effect of a key independent variable into direct and indirect (mediated) effects. The thermometer is also post-treatment and near-tautological with vote</li>
 <li class="fragment"><strong>Log-odds relative to Ko are unreadable</strong> — report AMEs or predicted probabilities with CIs</li>
 <li class="fragment"><strong>IIA is exactly the assumption at issue</strong> with a third-party baseline. Test it or move to multinomial probit</li>
 <li class="fragment">Missing throughout: model <span class="math inline">\(N\)</span>, weights, fit statistics, design-based SEs, cell counts</li>
@@ -176,7 +187,7 @@ Lu-huei Chen &amp; Tsung-Han Liao
 <li class="fragment">Emotions measured <em>after</em> the vote: hedge the causal language explicitly</li>
 </ul>
 </section>
-<section id="what-could-be-done-next" class="slide level2">
+<section id="what-could-be-done-next" class="slide level2 scrollable">
 <h2>What Could Be Done Next</h2>
 <ol type="1">
 <li class="fragment"><strong>Add emotion × party ID interactions</strong> — tests AIT’s actual prediction and directly serves the multiparty framing</li>
