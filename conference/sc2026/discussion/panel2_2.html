@@ -131,107 +131,58 @@
 <h1></h1>
 <div id="title-slide" class="center">
 <h2>
-Paper Review: Voting on Promises — Perceived Pledge Knowledge and Its Effects on Electoral Behavior
+Paper Review: Emotions and the 2024 Presidential Election in Taiwan
 </h2>
 <h4>
-Tsung-han Tsai &amp; Wen-Yang Chang
+Lu-huei Chen &amp; Tsung-Han Liao
 </h4>
 <p><br>
 <br>
 </p>
 </div>
 </section>
-<section id="the-paper-in-brief" class="slide level2">
-<h2>The Paper in Brief</h2>
+<section id="summary-and-findings" class="slide level2">
+<h2>Summary and Findings</h2>
 <ul>
-<li class="fragment"><strong>Question</strong>: Does self-reported understanding of campaign pledges measure real knowledge — and does it shape how voters decide?</li>
-<li class="fragment"><strong>Data</strong>: TEDS 2024 face-to-face; new sample <span class="math inline">\(N\)</span> = 1,206, panel sample <span class="math inline">\(N\)</span> = 1,972 in appendix; weighted</li>
-<li class="fragment"><strong>Outcomes</strong>: perceived pledge understanding (1–5); frequency of considering pledges when voting (1–4)</li>
-<li class="fragment"><strong>Three rival accounts</strong>: genuine knowledge (H1), partisan cue-taking (H2), social desirability (H3a–c)</li>
-<li class="fragment"><strong>Method</strong>: OLS, four specifications</li>
+<li class="fragment"><strong>Question</strong>: do emotional evaluations of candidates shape vote choice, net of party ID? <strong>Data</strong>: TEDS 2024, <span class="math inline">\(N\)</span> = 1,206; anger, fear, hope, pride; multinomial logit with Ko as reference</li>
+<li class="fragment">Ko draws the most <strong>anger</strong> (33.9%) and <strong>fear</strong> (34.1%); Lai the most <strong>hope</strong> (36.9%) and <strong>pride</strong> (36.1%)</li>
+<li class="fragment"><strong>Negative emotions reject, positive emotions retain.</strong> Among those angry at Ko, 2.2% vote Ko, 65.7% Lai, 32.1% Hou; hope yields 76–94% retention</li>
+<li class="fragment">Anger at Ko raises the odds of voting Lai <em>and</em> Hou; adding feeling thermometers absorbs most emotion effects</li>
+<li class="fragment"><strong>Headline claim</strong>: the third-party candidate is an <em>emotional pivot</em> restructuring both established camps</li>
+<li class="fragment"><strong>Assessment</strong>: the pivot idea is genuinely novel, but it is currently carried by the descriptives rather than the models</li>
 </ul>
 </section>
-<section id="what-the-paper-finds" class="slide level2">
-<h2>What the Paper Finds</h2>
+<section id="design-and-method" class="slide level2">
+<h2>Design and Method</h2>
 <ul>
-<li class="fragment"><strong>H1 supported</strong>: political knowledge predicts higher perceived pledge understanding</li>
-<li class="fragment"><strong>H2 supported</strong>: partisans exceed independents — but only <strong>KMT and TPP</strong> identifiers, not DPP</li>
-<li class="fragment"><strong>H3a–c rejected</strong>: efficacy, trust, and interest all run <em>positive</em>, not negative</li>
-<li class="fragment">Media exposure and education positive; gender and age null</li>
-<li class="fragment">Perceived pledge knowledge predicts pledge-based voting; <strong>general political knowledge does not</strong></li>
-<li class="fragment"><strong>Claim</strong>: political knowledge works <em>indirectly</em>, by enabling pledge comprehension</li>
-</ul>
-</section>
-<section id="overall-assessment" class="slide level2">
-<h2>Overall Assessment</h2>
-<ul>
-<li class="fragment">A well-posed measurement question that the survey-methods literature genuinely needs answered, and the indirect-effect story is an elegant resolution of a real puzzle</li>
-<li class="fragment">The KMT/TPP-versus-DPP asymmetry is the most interesting substantive result in the paper — and it is currently buried in a “supplementary analysis”</li>
-<li class="fragment">Two structural problems: the design has <strong>no objective pledge-knowledge criterion</strong> against which to validate, and the <strong>social desirability hypothesis is tested in a form it cannot fail</strong></li>
-<li class="fragment">The paper is also two papers — a validation paper and a representation paper — and would be stronger as one</li>
-</ul>
-</section>
-<section id="design" class="slide level2">
-<h2>Design</h2>
-<ul>
-<li class="fragment"><strong>The validation claim has no criterion variable.</strong> Establishing that self-reports track objective knowledge requires an objective <em>pledge</em> measure. Correlation with <em>general</em> knowledge is convergent evidence at best</li>
-<li class="fragment">And it is weak evidence: over-claimers are known to be <em>more</em> politically knowledgeable, not less. Pure over-claiming would produce the same correlation</li>
-<li class="fragment"><strong>H1 and H2 are not rival hypotheses.</strong> Both can hold at once — and both are “supported.” Partisans reporting higher understanding is equally consistent with partisans simply knowing more</li>
-<li class="fragment"><strong>Common-method variance</strong>: both outcomes are self-reports, same respondent, same instrument, same moment. The key association may be response style</li>
-<li class="fragment"><strong>The panel is underused.</strong> A 2020→2024 lagged design would address the endogeneity of interest and knowledge far better than an appendix replication</li>
+<li class="fragment"><strong>The forced-choice measure is doing more work than it can bear.</strong> Items ask “<em>which</em> candidate makes you feel angry?” — one answer. Emotions are therefore mechanically exclusive across candidates, so part of the cross-candidate spillover is definitional. Abelson et al.&nbsp;(1982) and ANES ask each emotion of each candidate</li>
+<li class="fragment"><strong>The “Others” baseline pools <em>all candidates</em> and <em>no candidate</em></strong> — two opposite response types, 16.6–20.8% of cases, treated as one reference</li>
+<li class="fragment"><strong>Mediation is claimed but not tested.</strong> Tables 6→7 compare <em>significance</em> across nested logits; rescaling makes those coefficients non-comparable. Use <strong>KHB decomposition</strong>. The thermometer is also post-treatment and near-tautological with vote</li>
+<li class="fragment"><strong>Log-odds relative to Ko are unreadable</strong> — report AMEs or predicted probabilities with CIs</li>
+<li class="fragment"><strong>IIA is exactly the assumption at issue</strong> with a third-party baseline. Test it or move to multinomial probit</li>
+<li class="fragment">Missing throughout: model <span class="math inline">\(N\)</span>, weights, fit statistics, design-based SEs, cell counts</li>
 </ul>
 </section>
 <section id="framing" class="slide level2">
 <h2>Framing</h2>
 <ul>
-<li class="fragment"><strong>Social desirability is mischaracterized as a main effect.</strong> The hypotheses predict low trust/efficacy/interest → <em>more</em> over-claiming. But social desirability is a property of the <strong>response process</strong>, and uniform over-claiming across all respondents would leave these coefficients untouched</li>
-<li class="fragment">The right instruments exist: a <strong>fictitious-pledge item</strong> (Bishop et al.), a <strong>list experiment</strong>, an <strong>over-claiming index</strong> (Paulhus), or a <strong>DK-encouraging split ballot</strong></li>
-<li class="fragment"><strong>The literature bridge is asserted.</strong> Naurin, Thomson, and Matthieß study <em>retrospective</em> evaluation of promise-keeping; this paper studies <em>prospective</em> comprehension. The “pledge puzzle” motivates the introduction but not the hypotheses</li>
-<li class="fragment">No engagement with the <strong>self-reported versus objective knowledge</strong> literature, which is directly on point</li>
-<li class="fragment"><strong>Taiwan is a data source, not a case.</strong> Why here?</li>
+<li class="fragment">The theory section <strong>catalogues</strong> the literature where it should build an argument. No numbered hypotheses appear</li>
+<li class="fragment"><strong>AIT is invoked but not tested.</strong> Its core claim is <em>moderation</em> — anxiety loosens partisan habit. That implies emotion × party ID interactions, and they are absent</li>
+<li class="fragment"><strong>The multiparty contribution is asserted, not theorized.</strong> What specifically should differ under three-way competition — viability perceptions? strategic voting? Give the mechanism</li>
+<li class="fragment"><strong>“Not observed in previous elections”</strong> invites the immediate question about <strong>2000 and James Soong</strong>. Meet it head-on</li>
+<li class="fragment">“Hope for <em>Taiwan’s future</em>” and “pride as a <em>Taiwanese</em>” are identity-inflected rather than generic positive affect — and national identity is also a control</li>
+<li class="fragment">Emotions measured <em>after</em> the vote: hedge the causal language explicitly</li>
 </ul>
 </section>
-<section id="data-and-measurement" class="slide level2">
-<h2>Data and Measurement</h2>
-<ul>
-<li class="fragment"><strong>A concrete inconsistency</strong>: §3.1 describes political trust as “government officials often waste money,” while Appendix A gives “most decisions made by the government are correct.” These are different items — and one reverses the sign</li>
-<li class="fragment"><strong>Internal efficacy</strong> is coded so that <em>agreeing</em> politics is too complicated = 1. The direction relative to the hypothesis needs stating explicitly; as written the Table 1 signs are ambiguous</li>
-<li class="fragment"><strong>Political knowledge</strong> is three items on a nonstandard 0/0.5/1 open-versus-multiple-choice scale, cited to an unpublished working paper. Report reliability and show robustness to a conventional 0–3 count</li>
-<li class="fragment">Efficacy, trust, and interest are <strong>single dichotomized items</strong> — attenuation and lost variance</li>
-<li class="fragment"><strong>Tables 1 and 2 render empty in the circulated file.</strong> No coefficients, no <span class="math inline">\(N\)</span>, no <span class="math inline">\(R^2\)</span></li>
-</ul>
-</section>
-<section id="analytics" class="slide level2">
-<h2>Analytics</h2>
-<ul>
-<li class="fragment"><strong>The headline is a mediation claim with no mediation model.</strong> Two regressions plus a null direct effect is not an indirect-effect test. Estimate it, bootstrap the CI, and state sequential ignorability plainly — political interest almost certainly confounds both paths. Add an Imai-style sensitivity analysis</li>
-<li class="fragment"><strong>Nulls are read as absences.</strong> Political knowledge → pledge voting is the paper’s central finding <em>and it is a null</em>. With modest <span class="math inline">\(N\)</span> and dichotomized regressors it may simply be underpowered. Report CIs; consider equivalence testing</li>
-<li class="fragment"><strong>DV2 has a serious ceiling</strong>: 81% sit in the top two of four categories. OLS is hard to defend here — show ordered logit</li>
-<li class="fragment"><strong>Model 2 tests each party against independents only.</strong> The interesting claim is KMT ≠ DPP — report that contrast directly</li>
-<li class="fragment">Weighted, but no design-based SEs for a stratified, clustered sample</li>
-<li class="fragment"><strong>Untested implication of their own H2</strong>: does partisan cue-taking <em>substitute</em> for knowledge among the ill-informed? Interact them</li>
-</ul>
-</section>
-<section id="priority-revisions" class="slide level2">
-<h2>Priority Revisions</h2>
+<section id="what-could-be-done-next" class="slide level2">
+<h2>What Could Be Done Next</h2>
 <ol type="1">
-<li class="fragment"><strong>Add a discriminating validity test.</strong> A fictitious-pledge item is cheap and decisive. Absent one, reframe the validation claim as suggestive rather than established</li>
-<li class="fragment"><strong>Estimate the mediation model formally</strong>, with bootstrapped indirect effects and sensitivity analysis</li>
-<li class="fragment"><strong>Promote the KMT/TPP-versus-DPP result</strong> to a headline finding and theorize it — opposition pledges were more distinctive in 2024; the TPP built its appeal on policy specificity; the incumbent ran on record, not promises</li>
-<li class="fragment"><strong>Rename the outcome.</strong> “Pledge-based voting” overclaims a self-reported general habit. Use <em>self-reported pledge consideration</em> throughout</li>
-<li class="fragment"><strong>Reposition as a measurement paper.</strong> It is the more novel and more defensible of the two papers currently interleaved</li>
-<li class="fragment"><strong>Use the panel</strong> for lagged estimates rather than appendix replication</li>
+<li class="fragment"><strong>Add emotion × party ID interactions</strong> — tests AIT’s actual prediction and directly serves the multiparty framing</li>
+<li class="fragment"><strong>Replace Table 7 with a KHB decomposition</strong>, or reframe it as a conservative lower bound</li>
+<li class="fragment"><strong>Exploit the 2020 panel</strong> (1,972 respondents) for lagged predispositions — the single biggest gain available in the existing data</li>
+<li class="fragment"><strong>Write a measurement-validity subsection</strong> on the forced-choice design; split the “Others” baseline as a robustness check</li>
+<li class="fragment"><strong>Report AMEs and predicted probabilities</strong>; move Tables 2–5 to an appendix; cut the literature review by ~40% and add a hypotheses section</li>
 </ol>
-</section>
-<section id="smaller-points-venues" class="slide level2">
-<h2>Smaller Points &amp; Venues</h2>
-<ul>
-<li class="fragment">Scale back the conclusion: two covarying self-reports do not “confirm the functioning of democratic representation”</li>
-<li class="fragment">Report <span class="math inline">\(N\)</span>, <span class="math inline">\(R^2\)</span>, and full tables; document listwise deletion — item nonresponse is systematically concentrated among the low-knowledge respondents central to the argument</li>
-<li class="fragment">The 36% / 41% / 21% spread on the outcome is offered as evidence <em>against</em> social pressure; that inference needs an explicit benchmark</li>
-<li class="fragment">Fix the H´eroux-Legault and Mu¨ller encoding artifacts throughout the bibliography</li>
-<li class="fragment"><strong>Possible venues</strong>: <em>Journal of Elections, Public Opinion and Parties</em> (strong fit); <em>International Journal of Public Opinion Research</em>; <em>Public Opinion Quarterly</em> (with the validation experiment); <em>Electoral Studies</em>; <em>Survey Research Methods</em></li>
-</ul>
 
 </section></section>
     </div>
