@@ -1,0 +1,23 @@
+.reveal .slide-logo {
+  display: block;
+  position: fixed;
+  bottom: unset !important;
+  left: unset !important;
+  top: 5px;
+  right: 12px;
+  height: 60px !important;
+  width: auto!important;
+  max-width: unset !important;
+  max-height: unset !important;
+}
+.slide-number {
+    bottom: 14px !important;
+    right: 50px !important;
+    top: unset !important;
+    color: #777777 !important;
+  }
+
+
+.reveal .slides {
+  font-size: 32px;
+}
