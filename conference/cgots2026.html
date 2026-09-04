@@ -34,7 +34,7 @@
     }
   </style>
   <link rel="stylesheet" href="cgots2026_files/libs/revealjs/dist/theme/quarto-99eeafcedac04850354b682963cedae3.css">
-  <link rel="stylesheet" href="qslides_1.css">
+  <link rel="stylesheet" href="qslides.css">
   <link href="cgots2026_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="cgots2026_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="cgots2026_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -163,48 +163,24 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 </h4>
 </div>
 </section>
-<section id="this-is-happening-now" class="slide level2">
-<h2>This Is Happening Now</h2>
+<section id="two-headlines-one-month-apart" class="slide level2">
+<h2>Two Headlines, One Month Apart</h2>
 <blockquote>
-<p><strong>用「AI虛擬市民」做民調準嗎？</strong> <em>Are AI virtual citizens accurate for polling?</em></p>
-<p>風傳媒 Storm Media, 7 August 2026</p>
+<p><strong>用「AI虛擬市民」做民調準嗎？「矽基民調」模擬民意</strong> <em>Are AI virtual citizens accurate for polling?</em> 風傳媒 Storm Media · 7 August 2026</p>
+</blockquote>
+<blockquote>
+<p><strong>15分鐘訪完十萬人 … 市調巨頭為何仍要找真人？</strong> <em>100,000 interviews in 15 minutes — so why do market research giants still want real people?</em> 未來城市＠天下 CommonWealth · 4 September 2026</p>
 </blockquote>
 <div class="fragment">
-<blockquote>
-<p><strong>15分鐘訪完十萬人 … 市調巨頭為何仍要找真人？</strong> <em>100,000 interviews in 15 minutes — so why do market research giants still want real people?</em></p>
-<p>未來城市＠天下 CommonWealth, 4 September 2026</p>
-</blockquote>
+<p>Taiwanese phone polls face <strong>90% refusal rates</strong>. TPOC now sells silicon-sample polling at NT$100 per question — benchmarked at <strong>4.56 pp</strong> average error against real phone surveys.</p>
 </div>
 <div class="fragment">
-<p>Taiwanese phone polls now face <strong>90% refusal rates</strong>.</p>
-</div>
-</section>
-<section id="silicon-samples-are-already-commercial" class="slide level2">
-<h2>Silicon Samples Are Already Commercial</h2>
-<p><strong>TPOC 台灣議題研究中心</strong>, August 2026:</p>
-<ul>
-<li class="fragment">3,000 AI agents, 28 attributes, 26 years of polling data</li>
-<li class="fragment">Benchmarked against Meilidao and TVBS phone polls</li>
-<li class="fragment"><strong>Average error: 4.56 percentage points</strong></li>
-<li class="fragment">Subscription launched September — NT$100 per question</li>
-</ul>
-<div class="fragment">
-<p>This is not a hypothetical alternative. It is a product.</p>
-</div>
-</section>
-<section id="but-three-warnings-from-that-room" class="slide level2">
-<h2>But Three Warnings From That Room</h2>
-<p><strong>Variance compression.</strong> NTU’s 馮勃翰: AI answers cluster in middle options, almost never extreme. <em>Bisbee, replicated in Taiwan.</em></p>
-<div class="fragment">
-<p><strong>Echo-chamber bias.</strong> 莊伯仲: feeding agents social media produces 同溫層偏誤 and breaks external validity.</p>
-</div>
-<div class="fragment">
-<p><strong>Ecological fallacy.</strong> UT Austin’s 林澤民: AI agents are prone to it.</p>
+<p>The alternative to survey research is no longer hypothetical.</p>
 </div>
 </section>
 <section id="the-warning-that-decides-this-paper" class="slide level2">
 <h2>The Warning That Decides This Paper</h2>
-<p>TPOC’s research director 趙玉娟 reports the models <strong>stereotype by age</strong>:</p>
+<p>TPOC’s own research director reports the models <strong>stereotype by age</strong>:</p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -231,44 +207,34 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <p><strong>A study of generational cleavage cannot use a method that already holds beliefs about generations.</strong></p>
 </div>
 <div class="fragment">
-<p>A Bayesian network holds none. Its cohort probabilities are estimated, and where thin, the smoothing is explicit.</p>
+<p>A Bayesian network holds none. Cohort probabilities are estimated; where thin, the smoothing is a stated prior with a known weight.</p>
 </div>
 </section>
 <section id="a-cleavage-that-is-closing" class="slide level2">
 <h2>A Cleavage That Is Closing</h2>
-<p>Taiwanese national identity has moved in one direction for three decades.</p>
+<p>Taiwanese identity has moved one direction for three decades.</p>
 <div class="fragment">
-<p><strong>Voters over 60 in 2024:</strong> roughly split between exclusively Taiwanese and dual identity</p>
-<p><strong>Voters under 30:</strong> overwhelmingly Taiwanese</p>
+<p><strong>Over 60 in 2024:</strong> roughly split between exclusively Taiwanese and dual identity</p>
+<p><strong>Under 30:</strong> overwhelmingly Taiwanese</p>
 </div>
 <div class="fragment">
-<p>Usually read as a story about <strong>where Taiwanese politics is heading</strong>.</p>
-<p>We are interested in a different implication — about <strong>how political influence works</strong>.</p>
+<p>Usually read as a story about <strong>where Taiwan is heading</strong>.</p>
+<p>We ask a different question — about <strong>how political influence works</strong> once a cleavage closes.</p>
 </div>
 </section>
 <section id="the-argument" class="slide level2">
 <h2>The Argument</h2>
-<p>Achen and Wang (2017): Taiwanese electoral behavior is organized by national identity.</p>
+<p>Achen and Wang (2017): Taiwanese voting is organized by national identity.</p>
 <p>That is a claim about the electorate <strong>in aggregate</strong>.</p>
 <div class="fragment">
 <p>But a variable can organize an electorate while losing its power to <strong>discriminate within a subgroup</strong>.</p>
 </div>
 <div class="fragment">
-<p>If nearly all young voters identify as Taiwanese, then identity tells you very little about how one young voter differs from another.</p>
+<p>If nearly all young voters identify as Taiwanese, identity tells you little about how one young voter differs from another.</p>
 </div>
 <div class="fragment">
-<p><strong>Something else has to fill that space.</strong></p>
-</div>
-</section>
-<section id="the-hypothesis" class="slide level2">
-<h2>The Hypothesis</h2>
-<p>Media exposure matters <strong>more</strong> for the cohort whose identity is most settled.</p>
-<div class="fragment">
-<p>This runs against a common intuition — young voters watch less television news, so they should be less exposed.</p>
-</div>
-<div class="fragment">
-<p><strong>Reach and effect are different quantities.</strong></p>
-<p>A cohort can be harder to reach through television while being more movable by the television it does watch, because the anchors that hold older voters are weaker.</p>
+<p><strong>Hypothesis:</strong> media fills that space — mattering <em>more</em>, not less, for the cohort whose identity is most settled.</p>
+<p>Reach and effect are different quantities.</p>
 </div>
 </section>
 <section id="three-elections" class="slide level2">
@@ -290,12 +256,12 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <tr class="odd">
 <td>2016</td>
 <td>Tsai 56.1 / Chu 31.0 / Soong 12.8</td>
-<td>Post-Sunflower — occupation was overwhelmingly young</td>
+<td>Post-Sunflower</td>
 </tr>
 <tr class="even">
 <td>2020</td>
 <td>Tsai 57.1 / Han 38.6 / Soong 4.3</td>
-<td>Hong Kong protests; effect strongest among the young</td>
+<td>Hong Kong shock</td>
 </tr>
 <tr class="odd">
 <td>2024</td>
@@ -308,28 +274,20 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <p>2024 is the puzzle: the cohort with the <strong>most</strong> Taiwan-centric identity declined to vote for the party that owns that position.</p>
 </div>
 </section>
-<section id="what-we-estimate" class="slide level2">
-<h2>What We Estimate</h2>
+<section id="design" class="slide level2">
+<h2>Design</h2>
 <p><span class="math display">\[\Delta_a(m) = P\!\left(Y \mid do(M = m),\, A = a\right) - P\!\left(Y \mid A = a\right)\]</span></p>
+<p>Change in outcome within age band <span class="math inline">\(a\)</span>, measured against <strong>that band’s own baseline</strong>.</p>
 <div class="fragment">
-<p>The change in outcome within age band <span class="math inline">\(a\)</span> under an intervention assigning media regime <span class="math inline">\(m\)</span>.</p>
-</div>
-<div class="fragment">
-<p>Measured against <strong>that band’s own baseline</strong> — not the population baseline.</p>
-<p>Young and old differ in turnout and vote share for reasons unrelated to media. A common baseline would let those differences masquerade as differences in treatment response.</p>
-</div>
-</section>
-<section id="how" class="slide level2">
-<h2>How</h2>
 <ul>
-<li class="fragment">Latent class segmentation of the electorate, by wave</li>
-<li class="fragment">Segment enters a year-specific <strong>Bayesian network</strong> as a node</li>
-<li class="fragment">Identity → cross-Strait position on the causal spine, following Achen and Wang</li>
-<li class="fragment">Synthetic microdata by ancestral sampling, 5× the observed size</li>
+<li class="fragment">Latent class segmentation, then a year-specific <strong>Bayesian network</strong></li>
+<li class="fragment">Identity → cross-Strait position on the causal spine</li>
+<li class="fragment">Synthetic microdata at 5× observed size</li>
 <li class="fragment">Interventions by <strong>graph mutilation</strong> — delete edges into the node, then sample</li>
 </ul>
+</div>
 <div class="fragment">
-<p>That last step is what separates <span class="math inline">\(do(M = m)\)</span> from conditioning on <span class="math inline">\(M = m\)</span> — which matters, because Taiwanese voters select media consistent with their identity.</p>
+<p>That last step separates <span class="math inline">\(do(M=m)\)</span> from conditioning — necessary, because Taiwanese voters select media consistent with identity.</p>
 </div>
 </section></section>
 <section>
@@ -343,8 +301,6 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <div class="column" style="width:62%;">
 <p><a href="output/figures/figG1_media_by_cohort.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="output/figures/figG1_media_by_cohort.png"></a></p>
 </div><div class="column" style="width:38%;">
-<p>Spread across media regimes, <strong>within</strong> age band.</p>
-<p>. . .</p>
 <p><strong>Monotonic in every wave.</strong> Rank correlation with age: −0.9, −0.8, −0.9.</p>
 <p>. . .</p>
 <p>Ages 20–29: <strong>10.2 → 15.4 → 22.6</strong></p>
@@ -414,95 +370,46 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <p>Young cohorts are homogeneous on identity <strong>specifically</strong>, not in general.</p>
 <p>That is the discriminating evidence.</p>
 </div></div>
-</section>
-<section id="turnout-is-not-vote-choice" class="slide level2">
-<h2>Turnout Is Not Vote Choice</h2>
-<p>The generational gradient appears on <strong>party support only</strong>.</p>
-<div class="fragment">
-<p>Rank correlation of media effect with age:</p>
-<p><strong>Vote choice:</strong> −0.9, −0.8, −0.9</p>
-<p><strong>Turnout:</strong> +0.2, +0.4, +0.1</p>
-</div>
-<div class="fragment">
-<p>Turnout effects are also small — 1.5 to 6.0 points against 3.0 to 22.6.</p>
-</div>
-<div class="fragment">
-<p>Self-reported turnout runs far above official. We read this as <strong>uninformative</strong>, not null.</p>
-</div>
 </section></section>
 <section>
-<section id="predicting-younger-voters" class="title-slide slide level1 center">
-<h1>Predicting Younger Voters</h1>
+<section id="the-cohort-we-cannot-predict" class="title-slide slide level1 center">
+<h1>The Cohort We Cannot Predict</h1>
 
 </section>
-<section id="two-problems-stacked" class="slide level2">
-<h2>Two Problems, Stacked</h2>
-<p><strong>First:</strong> young voters are the hardest group to reach. Lowest response rates, landline frames miss them, thin cells.</p>
+<section id="unpredictable-on-both-outcomes" class="slide level2">
+<h2>Unpredictable on Both Outcomes</h2>
+<p><strong>Vote choice:</strong> full-model AUC <strong>0.68–0.76</strong> under 40, against <strong>0.90–0.93</strong> over 60.</p>
+<p>Two-thirds of that gap survives adding identity, cross-Strait position, and media together.</p>
 <div class="fragment">
-<p><strong>Second, and this is our argument:</strong> even with adequate sample, the variable that predicts an older voter’s choice predicts a younger voter’s <strong>poorly</strong> — because it barely varies within their cohort.</p>
+<p><strong>Turnout:</strong> self-reported, inflated <strong>13–20 points</strong>, compressed against a ceiling.</p>
+<p>Heterogeneous effects could not be estimated at all — the latent solution partitioned on turnout, not engagement.</p>
 </div>
 <div class="fragment">
-<p>If the argument holds, media consumption items earn their place on a questionnaire in a way identity items do not.</p>
+<p><strong>The cohort that matters most to the argument is the one we predict least well — on both quantities.</strong></p>
 </div>
 </section>
-<section id="does-media-recover-purchase" class="slide level2">
-<h2>Does Media Recover Purchase?</h2>
+<section id="why-identity-stops-discriminating" class="slide level2">
+<h2>Why: Identity Stops Discriminating</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><a href="output/figures/figG5_predictability.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="output/figures/figG5_predictability.png"></a></p>
 </div><div class="column" style="width:40%;">
-<p><strong>Young voters are harder to predict.</strong></p>
-<p>Full-model AUC: <strong>0.68–0.76</strong> under 40 against <strong>0.90–0.93</strong> over 60.</p>
-<p>. . .</p>
 <p>China factor adds <strong>0.154</strong> for the young, <strong>0.251</strong> for the old.</p>
 <p>. . .</p>
 <p>Media adds ~<strong>0.03</strong> — flat across all cohorts.</p>
 <p>. . .</p>
-<p>The gap narrows because identity does less, <strong>not</strong> because media does more.</p>
-</div></div>
-</section>
-<section id="does-synthetic-data-help" class="slide level2">
-<h2>Does Synthetic Data Help?</h2>
-<div class="columns">
-<div class="column" style="width:58%;">
-<p><a href="output/figures/figG6_augmentation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="output/figures/figG6_augmentation.png"></a></p>
-</div><div class="column" style="width:42%;">
-<p><strong>It does not work.</strong></p>
-<p>Mean gain: 40–59 = <strong>+0.026</strong>, under 40 = <strong>+0.011</strong>, 60+ = <strong>+0.006</strong>.</p>
+<p>The gap narrows because identity does <strong>less</strong>, not because media does more.</p>
 <p>. . .</p>
-<p>The largest gain goes to the <strong>largest</strong> sample — backwards from the sparsity story.</p>
-<p>. . .</p>
-<p>Two of three under-40 gains are ≈ 0.</p>
-<p>We report this as a null.</p>
+<p>Nothing we have replaces it.</p>
 </div></div>
-</section>
-<section id="what-synthetic-data-can-and-cannot-add" class="slide level2">
-<h2>What Synthetic Data Can and Cannot Add</h2>
-<p>Strictly, the synthetic sample contains <strong>no information</strong> the network did not already extract from the observed data.</p>
-<div class="fragment">
-<p>Any gain is <strong>variance reduction</strong>, not information gain.</p>
-</div>
-<div class="fragment">
-<p>That is still worth having where cells are thin — but it should be claimed as what it is.</p>
-<p>A null result here is equally reportable.</p>
-</div>
-</section>
-<section id="what-teds-can-and-cannot-show" class="slide level2">
-<h2>What TEDS Can and Cannot Show</h2>
-<p>Three cross-sections give a <strong>snapshot</strong> of a closing cleavage — not a film of one.</p>
-<div class="fragment">
-<p>We observe that younger cohorts are more uniformly Taiwanese and more media-responsive.</p>
-</div>
-<div class="fragment">
-<p>We <strong>cannot</strong> observe whether an individual becomes less responsive as they age.</p>
-</div>
-<div class="fragment">
-<p>Cohort, period, and life cycle are not separable here. The panel components are the route.</p>
-</div>
 </section>
 <section id="what-the-synthetic-data-is-actually-for" class="slide level2">
 <h2>What the Synthetic Data Is Actually For</h2>
 <table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -512,7 +419,7 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <tbody>
 <tr class="odd">
 <td>Marginals, joint distributions</td>
-<td>reproduced almost exactly</td>
+<td>reproduced almost exactly (TVD 0.001–0.016)</td>
 </tr>
 <tr class="even">
 <td>Individual prediction (AUC)</td>
@@ -524,35 +431,32 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <p>Not a tension. <strong>The same finding from two directions.</strong></p>
 </div>
 <div class="fragment">
-<p>It is a <strong>variance-reduction device for distributional quantities</strong>, not an information-generation device for individual ones.</p>
-<p>We tested it against the wrong target.</p>
-</div>
-</section>
-<section id="a-cohort-that-resists-prediction-on-both-outcomes" class="slide level2">
-<h2>A Cohort That Resists Prediction — On Both Outcomes</h2>
-<p><strong>Vote choice:</strong> full-model AUC 0.68–0.76 under 40, against 0.90–0.93 over 60.</p>
-<div class="fragment">
-<p><strong>Turnout:</strong> self-reported, inflated 13–20 points, compressed against a ceiling.</p>
-<p>HTE could not be estimated at all.</p>
+<p>A <strong>variance-reduction device for distributional quantities</strong> — not an information-generation device for individual ones.</p>
 </div>
 <div class="fragment">
-<p>The cohort that matters most to the argument is the one we predict least well — on <strong>both</strong> quantities.</p>
+<p>Augmentation gains were largest for the <strong>largest</strong> sample. We tested it against the wrong target.</p>
 </div>
+</section></section>
+<section>
+<section id="would-better-data-help" class="title-slide slide level1 center">
+<h1>Would Better Data Help?</h1>
+
 </section>
-<section id="would-social-media-data-help" class="slide level2">
-<h2>Would Social Media Data Help?</h2>
+<section id="social-media-the-variance-argument-fails" class="slide level2">
+<h2>Social Media: The Variance Argument Fails</h2>
 <p><strong>Only 2020 has the platform battery.</strong> 2016 has none; 2024 has one generic item.</p>
 <div class="fragment">
-<p><strong>The variance argument fails.</strong> Media entropy among 20–29 is already 0.96–0.98. TV exposure is not low-variance for them.</p>
+<p>Media entropy among 20–29 is already <strong>0.96–0.98</strong>. TV exposure is <em>not</em> low-variance for them.</p>
 </div>
 <div class="fragment">
-<p><strong>LINE and YouTube adoption is near-universal</strong> — a use-indicator would be near-constant in exactly the cohort needing discrimination.</p>
+<p>LINE and YouTube adoption is <strong>near-universal</strong> — a use-indicator would be near-constant in exactly the cohort needing discrimination.</p>
+<p>Same failure mode as identity.</p>
 </div>
 </section>
-<section id="why-scraped-data-is-worse-not-better" class="slide level2">
-<h2>Why Scraped Data Is Worse, Not Better</h2>
+<section id="scraped-data-is-worse-not-better" class="slide level2">
+<h2>Scraped Data Is Worse, Not Better</h2>
 <p>PTT posters, YouTube commenters, Facebook sharers are <strong>not samples of users</strong>.</p>
-<p>They are the vocal minority — the most engaged, most partisan, most willing to broadcast.</p>
+<p>They are the vocal minority — most engaged, most partisan, most willing to broadcast.</p>
 <div class="fragment">
 <p><strong>A tail-weighted measure for a median-voter prediction problem.</strong></p>
 </div>
@@ -560,11 +464,11 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <p>莊伯仲 warned of exactly this at the TPOC symposium: 同溫層偏誤.</p>
 </div>
 <div class="fragment">
-<p>Plus: no platform carries age. Linkage runs through geography — back to the ecological problem.</p>
+<p>And no platform carries age. Linkage runs through geography — back to the ecological problem.</p>
 </div>
 </section>
-<section id="aggregate-data-will-not-rescue-turnout-either" class="slide level2">
-<h2>Aggregate Data Will Not Rescue Turnout Either</h2>
+<section id="aggregate-data-will-not-rescue-turnout" class="slide level2">
+<h2>Aggregate Data Will Not Rescue Turnout</h2>
 <p>CEC publishes <strong>registered voters</strong> by age. That is the denominator.</p>
 <p><strong>Turnout by age</strong>: we could not confirm it is published.</p>
 <div class="fragment">
@@ -592,32 +496,14 @@ Prepared for presentation at the Conference Group on Taiwan Studies, 2026.
 <h2>Conclusion</h2>
 <p><strong>A closing cleavage does not just become less contested.</strong> It loses its power to discriminate where closure is most complete.</p>
 <div class="fragment">
-<p>In Taiwan that weight is shifting toward media — but the convergence runs <strong>both ways</strong>.</p>
 <p>Media effects among the young double: 10.2 → 22.6</p>
 <p>Identity effects among the young <strong>more than halve</strong>: 48.7 → 22.3</p>
 </div>
 <div class="fragment">
-<p>We did not anticipate the second movement and cannot explain it from three cross-sections.</p>
-</div>
-</section>
-<section id="three-qualifications" class="slide level2">
-<h2>Three Qualifications</h2>
-<p><strong>Turnout shows no gradient</strong> — the ceiling binds.</p>
-<div class="fragment">
-<p><strong>The mechanism weakens in 2024</strong> — per-wave rho falls to 0.6, in the wave where convergence is strongest.</p>
+<p>Three qualifications: turnout shows no gradient; the mechanism weakens in 2024 (rho 0.6); the predictive payoff is small.</p>
 </div>
 <div class="fragment">
-<p><strong>The predictive payoff is small.</strong> Media’s contribution to prediction is flat across cohorts. Young voters are harder to predict, and nothing we have fixes it.</p>
-</div>
-</section>
-<section id="the-methodological-point" class="slide level2">
-<h2>The Methodological Point</h2>
-<p>Zaller predicts heterogeneity in media effects by <strong>political awareness</strong>.</p>
-<div class="fragment">
-<p>This suggests a complementary axis: heterogeneity by <strong>how much room the organizing variable has left to move</strong> within a subgroup.</p>
-</div>
-<div class="fragment">
-<p>Effect heterogeneity should be estimated with respect to the distribution of the dominant cleavage — not assumed uniform.</p>
+<p>Three cross-sections give a <strong>snapshot</strong>, not a film. Cohort, period, and life cycle are not separable here.</p>
 </div>
 </section>
 <section id="section-1" class="slide level2 center">
@@ -641,6 +527,65 @@ Data: Taiwan’s Election and Democratization Study, 2016 · 2020 · 2024
 <h4>
 Slides below are held for discussion
 </h4>
+</section>
+<section id="silicon-samples-are-already-commercial" class="slide level2">
+<h2>Silicon Samples Are Already Commercial</h2>
+<p><strong>TPOC 台灣議題研究中心</strong>, August 2026:</p>
+<ul>
+<li class="fragment">3,000 AI agents, 28 attributes, 26 years of polling data</li>
+<li class="fragment">Benchmarked against Meilidao and TVBS phone polls</li>
+<li class="fragment"><strong>Average error: 4.56 percentage points</strong></li>
+<li class="fragment">Subscription launched September — NT$100 per question</li>
+</ul>
+</section>
+<section id="three-warnings-from-that-room" class="slide level2">
+<h2>Three Warnings From That Room</h2>
+<p><strong>Variance compression.</strong> NTU’s 馮勃翰: AI answers cluster in middle options. <em>Bisbee, replicated in Taiwan.</em></p>
+<div class="fragment">
+<p><strong>Echo-chamber bias.</strong> 莊伯仲: feeding agents social media produces 同溫層偏誤.</p>
+</div>
+<div class="fragment">
+<p><strong>Ecological fallacy.</strong> UT Austin’s 林澤民: AI agents are prone to it.</p>
+</div>
+<div class="fragment">
+<p><strong>Bayesian calibration.</strong> 謝邦昌: hybrid human-agent designs will require it.</p>
+</div>
+</section>
+<section id="turnout-is-not-vote-choice" class="slide level2">
+<h2>Turnout Is Not Vote Choice</h2>
+<p>Rank correlation of media effect with age:</p>
+<p><strong>Vote choice:</strong> −0.9, −0.8, −0.9</p>
+<p><strong>Turnout:</strong> +0.2, +0.4, +0.1</p>
+<div class="fragment">
+<p>Turnout effects are small — 1.5 to 6.0 points against 3.0 to 22.6.</p>
+</div>
+<div class="fragment">
+<p>Self-reported turnout runs far above official. We read this as <strong>uninformative</strong>, not null.</p>
+</div>
+</section>
+<section id="does-synthetic-augmentation-help" class="slide level2">
+<h2>Does Synthetic Augmentation Help?</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><a href="output/figures/figG6_augmentation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="output/figures/figG6_augmentation.png"></a></p>
+</div><div class="column" style="width:42%;">
+<p><strong>It does not.</strong></p>
+<p>Mean gain: 40–59 = <strong>+0.026</strong>, under 40 = <strong>+0.011</strong>, 60+ = <strong>+0.006</strong>.</p>
+<p>. . .</p>
+<p>The largest gain goes to the <strong>largest</strong> sample — backwards from the sparsity story.</p>
+<p>. . .</p>
+<p>Two of three under-40 gains are ≈ 0.</p>
+</div></div>
+</section>
+<section id="the-methodological-point" class="slide level2">
+<h2>The Methodological Point</h2>
+<p>Zaller predicts heterogeneity in media effects by <strong>political awareness</strong>.</p>
+<div class="fragment">
+<p>This suggests a complementary axis: heterogeneity by <strong>how much room the organizing variable has left to move</strong> within a subgroup.</p>
+</div>
+<div class="fragment">
+<p>Effect heterogeneity should be estimated with respect to the distribution of the dominant cleavage — not assumed uniform.</p>
+</div>
 </section>
 <section id="the-measurement-caveat" class="slide level2">
 <h2>The Measurement Caveat</h2>
