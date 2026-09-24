@@ -1,0 +1,58 @@
+<svg width="1020" height="500" viewBox="0 0 1020 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Figure 3.3 Internal articulation of imperialism and the maintenance of quasi-feudalism">
+<defs>
+<marker id="c1" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto"><path d="M0,0 L0,6.4 L9,3.2 z" fill="#E87500"/></marker>
+</defs>
+<style>
+.lb{font:600 13px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.06em}
+.hd{font:600 19px 'Trebuchet MS',sans-serif;fill:#1c1c1c}
+.tx{font:14px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:12.5px Palatino,Georgia,serif;fill:#5f6b6b}
+</style>
+
+<rect x="30" y="58" width="230" height="300" rx="8" style="fill:#e8efe9;stroke:#008542;stroke-width:2"/>
+<text class="lb" x="50" y="90" style="fill:#008542">WORLD CAPITALISM</text>
+<text class="hd" x="50" y="120">The core</text>
+<text class="tn" x="50" y="152">The same system of unequal</text>
+<text class="tn" x="50" y="171">exchange described in</text>
+<text class="tn" x="50" y="190">Figures 3.1 and 3.2 —</text>
+<text class="tn" x="50" y="209">now reaching inside the</text>
+<text class="tn" x="50" y="228">peripheral country itself.</text>
+
+<rect x="300" y="42" width="690" height="332" rx="8" style="fill:#fcfcfa;stroke:#d8d8d0;stroke-width:2;stroke-dasharray:7 5"/>
+<text class="lb" x="322" y="72">INSIDE THE PERIPHERAL COUNTRY</text>
+
+<rect x="330" y="92" width="290" height="150" rx="6" style="fill:#fdf4ec;stroke:#E87500;stroke-width:2"/>
+<text class="hd" x="350" y="124">Enclave of modernity</text>
+<text class="tn" x="350" y="152">Coastal cities where import and</text>
+<text class="tn" x="350" y="171">export activity is pursued. Many of</text>
+<text class="tn" x="350" y="190">the amenities of the industrial West.</text>
+<text class="tn" x="350" y="218" style="font-weight:bold">Home of the comprador bourgeoisie</text>
+
+<rect x="660" y="92" width="300" height="150" rx="6" style="fill:#fff;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="hd" x="680" y="124">The comprador class</text>
+<text class="tn" x="680" y="152">Wealth comes from <tspan style="font-style:italic">trade</tspan>, not from</text>
+<text class="tn" x="680" y="171">industrial production — so it has no</text>
+<text class="tn" x="680" y="190">incentive to change the system.</text>
+<text class="tn" x="680" y="218">Not socially progressive. Not a</text>
+<text class="tn" x="680" y="237">champion of democracy.</text>
+
+<rect x="330" y="262" width="290" height="94" rx="6" style="fill:#fff;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="hd" x="350" y="292">The rural hinterland</text>
+<text class="tn" x="350" y="318">Hacienda and plantation system,</text>
+<text class="tn" x="350" y="337">strengthened by export demand</text>
+
+<rect x="660" y="262" width="300" height="94" rx="6" style="fill:#fff;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="hd" x="680" y="292">Feudal landlords</text>
+<text class="tn" x="680" y="318">Common economic interest with</text>
+<text class="tn" x="680" y="337">the compradors — an alliance</text>
+
+<path d="M620 152 H652" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#c1)"/>
+<path d="M620 300 H652" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#c1)"/>
+<path d="M475 262 V250" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#c1)"/>
+<text class="tn" x="486" y="258">internal unequal exchange</text>
+<path d="M330 150 H268" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#c1)"/>
+
+<rect x="30" y="404" width="960" height="66" rx="8" style="fill:#fdfdfb;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="tx" x="52" y="434">Samir Amin's "articulation": the core–periphery structure is <tspan style="font-weight:bold">replicated inside</tspan> the dependent country.</text>
+<text class="tx" x="52" y="458">Quasi-feudal relations in the countryside are not a leftover. They are actively maintained by the system.</text>
+</svg>

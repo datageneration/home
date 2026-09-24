@@ -1,0 +1,42 @@
+<svg width="1020" height="470" viewBox="0 0 1020 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Figure 3.1 Imperialism, nineteenth century">
+<defs>
+<marker id="a1" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto"><path d="M0,0 L0,6.4 L9,3.2 z" fill="#E87500"/></marker>
+<marker id="a2" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto"><path d="M0,0 L0,6.4 L9,3.2 z" fill="#008542"/></marker>
+</defs>
+<style>
+.lb{font:600 13px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.06em}
+.hd{font:600 21px 'Trebuchet MS',sans-serif;fill:#1c1c1c}
+.tx{font:14px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:13px Palatino,Georgia,serif;fill:#5f6b6b}
+</style>
+
+<rect x="40" y="70" width="330" height="200" rx="8" style="fill:#e8efe9;stroke:#008542;stroke-width:2"/>
+<text class="lb" x="62" y="102" style="fill:#008542">THE CORE</text>
+<text class="hd" x="62" y="134">Industrial capitalist states</text>
+<text class="tn" x="62" y="166">Surplus production of</text>
+<text class="tn" x="62" y="186">manufactured goods</text>
+<text class="tn" x="62" y="214">Needs: markets to sell into,</text>
+<text class="tn" x="62" y="234">raw materials to buy cheaply</text>
+
+<rect x="650" y="70" width="330" height="200" rx="8" style="fill:#fdf4ec;stroke:#E87500;stroke-width:2"/>
+<text class="lb" x="672" y="102" style="fill:#E87500">THE PERIPHERY</text>
+<text class="hd" x="672" y="134">Colonies and dependencies</text>
+<text class="tn" x="672" y="166">Dependencies are formally</text>
+<text class="tn" x="672" y="186">independent but economically</text>
+<text class="tn" x="672" y="206">tied to the imperial state</text>
+<text class="tn" x="672" y="234">Compelled to trade only with the core</text>
+
+<path d="M376 132 H640" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#a1)"/>
+<text class="tx" x="508" y="122" text-anchor="middle">manufactured goods —</text>
+<text class="tx" x="508" y="104" text-anchor="middle" style="font-weight:bold">expensive</text>
+
+<path d="M640 212 H380" style="fill:none;stroke:#008542;stroke-width:2.2" marker-end="url(#a2)"/>
+<text class="tx" x="510" y="238" text-anchor="middle">raw materials —</text>
+<text class="tx" x="510" y="256" text-anchor="middle" style="font-weight:bold">cheap</text>
+
+<rect x="40" y="318" width="940" height="122" rx="8" style="fill:#fdfdfb;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="lb" x="62" y="348">THE MECHANISM — "UNEQUAL EXCHANGE"</text>
+<text class="tx" x="62" y="380">Enormous surplus value is extracted from the periphery and carried back to the core.</text>
+<text class="tx" x="62" y="404">The core spends part of it on reform at home — higher wages, better conditions — and so</text>
+<text class="tx" x="62" y="428">staves off revolution. In Ishiyama's phrase, capitalists <tspan style="font-weight:bold">buy off their own workers</tspan> off the backs of the poor.</text>
+</svg>

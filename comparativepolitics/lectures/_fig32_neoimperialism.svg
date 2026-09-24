@@ -1,0 +1,58 @@
+<svg width="1020" height="500" viewBox="0 0 1020 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Figure 3.2 Neo-imperialism, twentieth century">
+<defs>
+<marker id="b1" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto"><path d="M0,0 L0,6.4 L9,3.2 z" fill="#E87500"/></marker>
+<marker id="b2" markerWidth="10" markerHeight="10" refX="9" refY="3.2" orient="auto"><path d="M0,0 L0,6.4 L9,3.2 z" fill="#008542"/></marker>
+</defs>
+<style>
+.lb{font:600 13px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.06em}
+.hd{font:600 20px 'Trebuchet MS',sans-serif;fill:#1c1c1c}
+.tx{font:14px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:12.5px Palatino,Georgia,serif;fill:#5f6b6b}
+</style>
+
+<rect x="30" y="86" width="290" height="286" rx="8" style="fill:#e8efe9;stroke:#008542;stroke-width:2"/>
+<text class="lb" x="50" y="118" style="fill:#008542">THE CORE</text>
+<text class="hd" x="50" y="148">Capitalist core</text>
+<text class="tn" x="50" y="180">Political imperialism ended with</text>
+<text class="tn" x="50" y="199">post-war decolonization —</text>
+<text class="tn" x="50" y="218" style="font-weight:bold">economic imperialism did not.</text>
+<text class="tn" x="50" y="248">It was strengthened by the new</text>
+<text class="tn" x="50" y="267">liberal post-war economic order,</text>
+<text class="tn" x="50" y="286">and the ties grew more complex.</text>
+<text class="tn" x="50" y="322">Final assembly, and the bulk of</text>
+<text class="tn" x="50" y="341">the profit, stay here.</text>
+
+<rect x="700" y="86" width="290" height="286" rx="8" style="fill:#fdf4ec;stroke:#E87500;stroke-width:2"/>
+<text class="lb" x="720" y="118" style="fill:#E87500">THE PERIPHERY</text>
+<text class="hd" x="720" y="148">Formally independent</text>
+<text class="tn" x="720" y="180">Parts are "farmed out" rather</text>
+<text class="tn" x="720" y="199">than finished goods produced —</text>
+<text class="tn" x="720" y="218">auto parts in the maquiladoras</text>
+<text class="tn" x="720" y="237">on the Mexican–US border,</text>
+<text class="tn" x="720" y="256">not finished automobiles.</text>
+<text class="tn" x="720" y="292">Marginal material benefit;</text>
+<text class="tn" x="720" y="311">the value added is captured</text>
+<text class="tn" x="720" y="330">elsewhere.</text>
+
+<rect x="352" y="112" width="316" height="72" rx="6" style="fill:#fff;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="lb" x="370" y="138">FOREIGN DIRECT INVESTMENT</text>
+<text class="tn" x="370" y="164">Held out as the cure — it shackles instead</text>
+<path d="M326 148 H346" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#b1)"/>
+<path d="M674 148 H694" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#b1)"/>
+
+<rect x="352" y="212" width="316" height="72" rx="6" style="fill:#fff;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="lb" x="370" y="238">LOANS</text>
+<text class="tn" x="370" y="264">Capital now, interest payments for ever</text>
+<path d="M326 248 H346" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#b1)"/>
+<path d="M674 248 H694" style="fill:none;stroke:#E87500;stroke-width:2.2" marker-end="url(#b1)"/>
+
+<rect x="352" y="312" width="316" height="60" rx="6" style="fill:#f3f7f4;stroke:#008542;stroke-width:1.8"/>
+<text class="lb" x="370" y="338" style="fill:#008542">PROFITS REPATRIATED</text>
+<text class="tn" x="370" y="360">Interest and profit flow back to the core</text>
+<path d="M694 342 H674" style="fill:none;stroke:#008542;stroke-width:2.2" marker-end="url(#b2)"/>
+<path d="M346 342 H326" style="fill:none;stroke:#008542;stroke-width:2.2" marker-end="url(#b2)"/>
+
+<rect x="30" y="404" width="960" height="66" rx="8" style="fill:#fdfdfb;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="tx" x="52" y="434">Dependency theory's claim: imperialism did not disappear after 1945. It became</text>
+<text class="tx" x="52" y="458" style="font-weight:bold">more complex and more insidious — and harder to see.</text>
+</svg>

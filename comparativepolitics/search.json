@@ -1,5 +1,523 @@
 [
   {
+    "objectID": "lectures/lecture_03_economics_development.html#todays-puzzle",
+    "href": "lectures/lecture_03_economics_development.html#todays-puzzle",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s puzzle",
+    "text": "Today’s puzzle\n\nDoes economic development cause political development — and if it does, in which direction does the causal arrow run?\n\n\nIshiyama surveys three answers that disagree about almost everything: where to look, what the unit of analysis is, and whether the Western path can be repeated at all.\n\n[Sources] - Ishiyama, Comparative Politics, Chapter 3.\nFrame it against Chapter 2. There, the explanation was historical sequence. Here, the explanation is economic structure — and the three schools fight over whether that structure is internal, international, or something the state itself can choose."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#learning-goals",
+    "href": "lectures/lecture_03_economics_development.html#learning-goals",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of class you should be able to:\n\nState what modernization theory claims and name the main versions of “political development” inside it\nDistinguish social mobilization from political institutionalization, and explain why Huntington needs both\nExplain how dependency theory inverts the modernization story\nSay what statism adds that neither of the other two can explain\nCompare all three on the dimensions in Table 3.4"
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#part-1-modernization-theory",
+    "href": "lectures/lecture_03_economics_development.html#part-1-modernization-theory",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 1: Modernization theory",
+    "text": "Part 1: Modernization theory"
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#older-than-political-science",
+    "href": "lectures/lecture_03_economics_development.html#older-than-political-science",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Older than political science",
+    "text": "Older than political science\nModernization theory is “less a coherent theory than an approach.” Its roots run back to the Enlightenment conviction that people can change their own conditions.\n\n\n\n\n\n\n\nCondorcet\nTechnology and economic transformation let humankind alter its moral and cultural values\n\n\nSaint-Simon (1760–1825)\nEconomic development and technology can better social conditions\n\n\nComte (1798–1857)\nModernization ushers in a “positive” scientific era\n\n\nMarx\nIndustrialization of the economic base changes the social and political superstructure\n\n\n\n\n\nThe common thread: economic change comes first, and political change follows."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#durkheim-complexity-and-anomie",
+    "href": "lectures/lecture_03_economics_development.html#durkheim-complexity-and-anomie",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Durkheim: complexity and anomie",
+    "text": "Durkheim: complexity and anomie\nDurkheim asked what industrialization does to the division of labour.\n\nAll societies must perform certain functions — security, political leadership, spiritual leadership\nWhat differs is the complexity of the division of labour that performs them\nSimple societies need little complexity to hold order; industrial capitalism forces functional differentiation\n\n\n\nAnomie. Older certainties — God above all — are called into question by science and technology, producing a widespread sense of rootlessness, and with it criminality and social violence.\n\n\n[Sources] Ishiyama ch. 3; Durkheim ([1893] 1964).\nConnect back: this is the same disruption Chapter 2 called the storm. Durkheim gives it a psychological mechanism."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#parsons-traditional-and-modern-as-ideal-types",
+    "href": "lectures/lecture_03_economics_development.html#parsons-traditional-and-modern-as-ideal-types",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Parsons: traditional and modern as ideal types",
+    "text": "Parsons: traditional and modern as ideal types\nTable 3.1 · Traditional vs. modern societies\n\n\n\n\n\n\n\n\n\nTraditional societies\nModern societies\n\n\n\n\nHow is social status determined?\nAscriptive status\nAchievement status\n\n\nWhat social roles do people play?\nDiffuse roles\nSpecific roles\n\n\nAre values universal or case-dependent?\nParticularistic values\nUniversalistic values\n\n\nWhich matters more, group or individual?\nCollectivity orientation\nSelf-orientation\n\n\nImmediate reward, or postponed for future benefit?\nAffectivity\nAffective neutrality\n\n\n\n\n\nThese are ideal types anchoring a continuum, not descriptions. No society is purely one or the other — every real society sits somewhere between.\n\n\n[Sources] Ishiyama ch. 3, Table 3.1, after Parsons (1951, 1971).\nIshiyama is careful here and students often are not: ascription has not vanished from modern societies — he names race, ethnicity and gender explicitly — and achievement is not absent from poor ones.\nAffectivity vs affective neutrality is the row worth explaining: in traditional societies people act to meet immediate needs; in modern ones, basic needs being met, people forgo present satisfaction for future gain. Mill called it enlightened rationality."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#lipset-the-strong-claim",
+    "href": "lectures/lecture_03_economics_development.html#lipset-the-strong-claim",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Lipset: the strong claim",
+    "text": "Lipset: the strong claim\nIn Political Man (1959) Lipset argued for a direct relationship between industrialization and political democracy.\n\nEconomic modernization creates the social requisites of democracy: a large, vibrant, literate middle class, and wealth\nHe found direct correlations between democracy and higher urbanization, higher literacy, and greater per capita income\n\n\n\nFrom correlation he concluded causation: economic development has a direct causal relationship with political democracy."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#deutsch-not-democracy-mobilization",
+    "href": "lectures/lecture_03_economics_development.html#deutsch-not-democracy-mobilization",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Deutsch: not democracy — mobilization",
+    "text": "Deutsch: not democracy — mobilization\nKarl Deutsch (1961) accepted the disruption but refused Lipset’s conclusion.\n\nthe process in which the major cluster of old social, economic and psychological commitments are eroded or broken and people become available for new patterns of socialization and behavior\n— Deutsch (1961, p. 494), defining social mobilization\n\n\nIndustrialization moved populations from countryside to city. People who had identified with a locality now made new acquaintances, learned new things, and questioned their own identity — which is how national identities emerged.\n\n\n\nPolitically, mobilization expands “the politically relevant strata of the population” — those persons who must be taken into account. Whether that ends in stability or disorder depends on how the existing system copes."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#almond-and-coleman-five-crises",
+    "href": "lectures/lecture_03_economics_development.html#almond-and-coleman-five-crises",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Almond and Coleman: five crises",
+    "text": "Almond and Coleman: five crises\nEconomic modernization creates crises a political system must resolve. What results depends on how it copes.\n\n\n\n\n\n\n\nCrisis\nWhat it is\n\n\n\n\nIdentity\nLocal ties break; a new sense of community — usually national — must form\n\n\nLegitimacy\nDivine right gives way to the idea that rule rests on the consent of the governed\n\n\nParticipation\nA “revolution in rising expectations” generates demands to take part in governing\n\n\nPenetration\nNew institutions must link rulers to ruled directly, replacing indirect rule through nobles\n\n\nDistribution\nNew social groups demand their material share of the economic pie\n\n\n\n\n[Sources] Ishiyama ch. 3, citing Almond and Coleman (1960; text gives 1966), The Politics of the Developing Areas.\nThe penetration crisis is the one students find least intuitive. Before modernization, kings ruled through local nobles who collected the taxes and kept considerable autonomy — including warring with each other. Direct rule had to be built."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#what-is-political-development",
+    "href": "lectures/lecture_03_economics_development.html#what-is-political-development",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What is “political development”?",
+    "text": "What is “political development”?\nThe term does not mean one thing, and the disagreement matters.\n\n\nLipset\nA politically developed state is one that is democratic.\n\nBeer (1973)\nDevelopment is the expansion of the bureaucratic state — patterns of interests create patterns of power, which generate new interests, ad infinitum.\n\nHuntington (1965, 1968)\nDevelopment is political institutionalization: “the process by which organizations and procedures acquire value and stability.”\n\n\n\nNotice what follows. On Beer’s and Huntington’s definitions, a country can develop politically without becoming any more democratic."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#huntingtons-four-dimensions",
+    "href": "lectures/lecture_03_economics_development.html#huntingtons-four-dimensions",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Huntington’s four dimensions",
+    "text": "Huntington’s four dimensions\nHow do you tell whether a political system is institutionalized?\n\n\n\n\n\n\n\nDimension\nThe question\n\n\n\n\nAdaptability / rigidity\nCan it survive a change in its environment?\n\n\nComplexity / simplicity\nIs there a division of labour, with redundant structures?\n\n\nAutonomy / subordination\nIs it independent of any single social group?\n\n\nCoherence / disunity\nIs there a unity of purpose holding it together?\n\n\n\n\nAdaptability has three measures: chronological age, generational age (how many leadership transitions), and functional age (how many times it has changed what it does).\n\nIshiyama’s example for functional age is worth telling. The YMCA began as a religious body for young Christian men, took on recreation, then women, then everyone — and survives as something quite different. The Women’s Christian Temperance Union achieved national prohibition in 1919, could not adapt to another function, and disappeared."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#check-what-does-institutionalization-measure",
+    "href": "lectures/lecture_03_economics_development.html#check-what-does-institutionalization-measure",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Check: what does institutionalization measure?",
+    "text": "Check: what does institutionalization measure?\nHuntington’s generational age measures a system’s adaptability by counting:\n\nThe number of years since the organization was founded\nThe number of leadership transitions it has been through\nThe number of times it has changed its function\nThe number of social groups it represents\n\n\n\nThe second. A system can be chronologically ancient and still fragile if one leader has never been replaced.\n\n\n[Key] The second. The first is chronological age and the third is functional age — both are real Huntington measures, which makes them good distractors; the student has to keep three similar terms apart.\nAsk for a contemporary example of an old system with a low generational age. It is a fast route into the succession problem, which their China/Vietnam and Hungary/Poland teams will meet directly."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#two-variables-four-outcomes",
+    "href": "lectures/lecture_03_economics_development.html#two-variables-four-outcomes",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Two variables, four outcomes",
+    "text": "Two variables, four outcomes\nTable 3.2 · Huntington’s classification of regime types\n\n\n\n\nInstitutionalization high\nInstitutionalization low\n\n\n\n\nSocial mobilization high\nCivic\nCorrupt (praetorian)\n\n\nSocial mobilization low\nContained\nPrimitive\n\n\n\n\nTable 3.3 · Country examples\n\n\n\n\n\n\n\n\n\nInstitutionalization high\nInstitutionalization low\n\n\n\n\nSocial mobilization high\nThe United States · Great Britain · the Soviet Union\nMost of the developing world\n\n\nSocial mobilization low\nContained — perhaps colonial societies\nTraditional agrarian monarchies (Imperial Ethiopia)\n\n\n\n\n\n\nOutcomes are the product of the interaction of the two, not of either alone. Mobilization without institutions is not development but decay."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#the-entry-that-should-stop-you",
+    "href": "lectures/lecture_03_economics_development.html#the-entry-that-should-stop-you",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The entry that should stop you",
+    "text": "The entry that should stop you\n\nThe Soviet Union is filed under civic — beside the United States and Great Britain.\n\n\nIshiyama’s reasoning: the USSR modernized massively and fast in the 1930s, generating extensive mobilization pressure. The system was complex, autonomous, and armed with a legitimising ideology, so it met those demands — or contained them by repression and violence — and survived.\n\n\n\nBritain and the United States built institutions before industrialization, which Chapter 2 treated as something close to a historical accident. The Soviet Union built the state and transformed the economy at the same time — rather like building a ship in a stormy sea.\n\n\nThis is the payoff slide for the whole first half. It also shows the cost of Huntington’s definition: if development is institutionalization rather than democracy, a totalitarian state can be a developmental success.\nWorth naming aloud: Huntington, at least in the 1960s work, appeared to favour a one-party solution for the developing world. Ishiyama lays out the argument — one-party states are more complex than personalist dictatorships, allow interests to be articulated internally, are autonomous, and rely on rules rather than individuals — and notes India’s Congress, Japan’s LDP, and Mexico’s PRI as long dominant-party cases."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#modernization-theory-in-summary",
+    "href": "lectures/lecture_03_economics_development.html#modernization-theory-in-summary",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Modernization theory in summary",
+    "text": "Modernization theory in summary\nWhatever version, three commitments recur:\n\nPolitical development is a consequence of economic development — the political system evolves in response to economic stimuli\nThe approaches rest on historical observation of the West, particularly Europe\nThe key intervening variable is often political culture — the subject of Chapter 4\n\n\n\nPoint 2 is the opening dependency theory will attack, and it is the same parochialism Macridis complained about in Chapter 1."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#part-2-dependency",
+    "href": "lectures/lecture_03_economics_development.html#part-2-dependency",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 2: Dependency",
+    "text": "Part 2: Dependency"
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#a-different-room-a-different-answer",
+    "href": "lectures/lecture_03_economics_development.html#a-different-room-a-different-answer",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "A different room, a different answer",
+    "text": "A different room, a different answer\nWhile modernization theory developed among North American political scientists, a rival grew in post-war Latin America, rooted in neo-Marxism and dissatisfied with the international economic order.\n\n\n\n\n\n\n\nPrebisch (1950)\nResearch at ECLA: falling wealth in poor countries correlates with rising wealth in rich ones\n\n\nBaran (1957) · Frank (1966, 1967)\nInternational capitalism produced the de-development of the developing world\n\n\ndos Santos (1970)\nA “new dependency” — external relations are articulated internally\n\n\nCardoso\nGrowing disparities between centre and periphery, written in exile\n\n\nWallerstein (2004)\nThe “World System” and the history of international capitalism\n\n\n\n\nCardoso is worth a sentence: he wrote as a dependency theorist in exile and later served as President of Brazil — and governed as something closer to an orthodox reformer. Students enjoy the irony, and it opens the question of whether the theory implies any workable policy."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#the-development-of-underdevelopment",
+    "href": "lectures/lecture_03_economics_development.html#the-development-of-underdevelopment",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The development of underdevelopment",
+    "text": "The development of underdevelopment\nFrank’s claim, introduced to an American audience in 1966: poverty in the developing world is not a starting condition that development will cure. It is a product of world capitalism.\n\n\nThe Indian textile case. Before the British East India Company, textile production — largely household industry — employed a great many people and was extensive. Cheap manufactured imports followed the British, destroyed the indigenous industry, and created mass unemployment and poverty.\n\n\n\nSo the periphery is not “behind.” It was actively de-developed."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#two-more-breaks-with-modernization-theory",
+    "href": "lectures/lecture_03_economics_development.html#two-more-breaks-with-modernization-theory",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Two more breaks with modernization theory",
+    "text": "Two more breaks with modernization theory\n1 · The international system is missing. Modernization theory explains development by internal structural factors, with no reference to the international environment.\n\n2 · The Western path is assumed repeatable. Marx himself wrote, in the 1867 preface to Das Kapital, that “the country that is more developed industrially only shows, to the less developed, the image of its own future.”\n\n\n\nDependency’s reply: the West industrialized before the world capitalist system consolidated — indeed the West created it. Countries developing now face an obstacle their predecessors never had to pass."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#figure-3.1-imperialism-nineteenth-century",
+    "href": "lectures/lecture_03_economics_development.html#figure-3.1-imperialism-nineteenth-century",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Figure 3.1 · Imperialism, nineteenth century",
+    "text": "Figure 3.1 · Imperialism, nineteenth century\n\n\n\n\n\n\nFigure 1: Recreated from Ishiyama, Figure 3.1. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 3, Figure 3.1 and surrounding text.\nNote for the instructor: the source file we worked from carries the chapter’s text and tables but not its artwork, so this diagram is a faithful reconstruction from the caption and the paragraphs around it, not a scan of the original.\nThe line to land is the last one. The surplus does not merely enrich the core — it is spent on reform at home, which is why the revolution Marx predicted in the industrial core did not arrive."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#figure-3.2-neo-imperialism-twentieth-century",
+    "href": "lectures/lecture_03_economics_development.html#figure-3.2-neo-imperialism-twentieth-century",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Figure 3.2 · Neo-imperialism, twentieth century",
+    "text": "Figure 3.2 · Neo-imperialism, twentieth century\n\n\n\n\n\n\nFigure 2: Recreated from Ishiyama, Figure 3.2. FDI, foreign direct investment. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 3, Figure 3.2 and surrounding text. Reconstruction, as above.\nThe maquiladora example does the work: parts are farmed out rather than finished goods produced, so the value added — and the profit — is captured on the other side of the border. Ask what a country could do about that, and you have arrived at statism before the next section."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#figure-3.3-the-internal-articulation",
+    "href": "lectures/lecture_03_economics_development.html#figure-3.3-the-internal-articulation",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Figure 3.3 · The internal articulation",
+    "text": "Figure 3.3 · The internal articulation\n\n\n\n\n\n\nFigure 3: Recreated from Ishiyama, Figure 3.3. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 3, Figure 3.3; Amin (1974, 1976); Frank (1967). Reconstruction, as above.\nThis is the figure that explains why dependency theory is a theory of politics and not only of economics. The comprador bourgeoisie is the hinge: a propertied class with no interest in dismantling the order that enriches it, allied with feudal landlords, and hostile to empowering the masses."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#why-dependency-implies-authoritarianism",
+    "href": "lectures/lecture_03_economics_development.html#why-dependency-implies-authoritarianism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Why dependency implies authoritarianism",
+    "text": "Why dependency implies authoritarianism\nIn the West the bourgeoisie was the progressive class — it dismantled feudalism and opened the way to democracy.\n\nIn the periphery the comprador bourgeoisie is nothing of the kind. Its wealth comes from trade, not industrial production, so it has no reason to change the system, and every reason to keep the masses unempowered.\n\n\n\nAnd if a populist leader does emerge from the masses — usually through the ranks of the military — he is likely to reject bourgeois democracy as Western and corrupt. So from this perspective there is little hope for democracy while dependent relations persist."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#check-what-does-de-development-claim",
+    "href": "lectures/lecture_03_economics_development.html#check-what-does-de-development-claim",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Check: what does “de-development” claim?",
+    "text": "Check: what does “de-development” claim?\n\nPoor countries have not yet begun the development process\nPoverty in the periphery is a product of the expansion of world capitalism, not a starting condition\nDevelopment stalls because peripheral states adopt the wrong values\nPeripheral countries will eventually resemble the core, as classical Marxists expected\n\n\n\nThe second. The periphery is not behind. It was actively made poor.\n\n\n[Key] The second. The third is modernization theory’s answer, and the fourth is the classical Marxist expectation — Lenin, Luxemburg, Kautsky — which neo-Marxist dependency theory explicitly denies.\nThat fourth option is worth dwelling on: classical Marxists expected capital to relocate to the periphery as wages rose in the core, eventually producing a peripheral bourgeoisie and proletariat and the conditions for international revolution. Dependency theory says that never happens."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#part-3-statism",
+    "href": "lectures/lecture_03_economics_development.html#part-3-statism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 3: Statism",
+    "text": "Part 3: Statism"
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#the-anomaly",
+    "href": "lectures/lecture_03_economics_development.html#the-anomaly",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The anomaly",
+    "text": "The anomaly\nClassical dependency says the periphery can never catch up. But some countries plainly did.\n\nJapan · Russia · Turkey, and more recently the Asian Tigers — Taiwan, Singapore, South Korea.\n\n\nScholars trained in the dependency tradition — Evans, Rueschemeyer, Skocpol — began to question whether dependency travelled beyond Latin America. Some peripheral countries were catching up, and doing it through state-led industrialization."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#what-both-other-theories-missed",
+    "href": "lectures/lecture_03_economics_development.html#what-both-other-theories-missed",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What both other theories missed",
+    "text": "What both other theories missed\nThe statist critique: modernization theory and dependency theory are both society-centred. Each ignores the role the state itself plays in capital accumulation and investment.\n\n\n\nLiberal state\nAn arena in which interests compete.\n\nMarxist state\nA tool of the dominant class.\n\nWeberian state\n“A human community which claims the monopoly of the legitimate use of physical force within a given territory.”\n\n\n\n\nIn the first two the state is an object with no interests of its own. For Weber it is a community — so it has interests, and the paramount one is survival."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#politics-as-the-cause",
+    "href": "lectures/lecture_03_economics_development.html#politics-as-the-cause",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Politics as the cause",
+    "text": "Politics as the cause\nWhat drives a state to modernize is the threat posed by external enemies. Rapid industrialization raises military capacity, and military capacity buys security.\n\n\nSo the arrow reverses. For modernization theory politics reflects internal economic change; for dependency it reflects external economic structure. For statism, politics is a cause of economic transformation.\n\n\nLink forward to the team project. Statism is the school that gives a constitutional engineer something to do — it is the one that treats state action as a choice rather than a reflection. That is the same move the course makes in Chapter 1’s neo-institutionalism."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#part-4-comparing-the-three",
+    "href": "lectures/lecture_03_economics_development.html#part-4-comparing-the-three",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 4: Comparing the three",
+    "text": "Part 4: Comparing the three"
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#table-3.4-the-three-approaches-compared",
+    "href": "lectures/lecture_03_economics_development.html#table-3.4-the-three-approaches-compared",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Table 3.4 · The three approaches compared",
+    "text": "Table 3.4 · The three approaches compared\n\n\n\n\n\n\n\n\n\n\nModernization theory\nDependency\nStatism\n\n\n\n\nUnit of analysis\nState\nGlobal system\nState\n\n\nCan earlier models be replicated?\nYes\nNo\nYes\n\n\nEconomic development is possible…\nwhen modern values are adopted\nonly when the international economic order changes\nas the result of voluntaristic action by the state\n\n\n\n\n\nRead the middle row as the fault line. If earlier models cannot be replicated, then every reform proposal built on a Western template is answering the wrong question.\n\n\n[Sources] Ishiyama ch. 3, Table 3.4.\nFor modernization theory the models are the developed West; for the statists they are the state-led industrializers — Japan, Turkey. Same answer on the row, different exemplars."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#check-whose-unit-of-analysis",
+    "href": "lectures/lecture_03_economics_development.html#check-whose-unit-of-analysis",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Check: whose unit of analysis?",
+    "text": "Check: whose unit of analysis?\nWhich approach takes the global system rather than the state as its unit of analysis?\n\nModernization theory\nDependency theory\nStatism\nAll three, since each studies countries in an international context\n\n\n\nDependency. For modernization theory and statism alike the unit is the state — development is a function of what happens inside a country’s borders, or of what its state chooses to do.\n\n\n[Key] Dependency theory. The fourth option is the plausible-sounding trap: it is true that all three are aware of the international environment, but only dependency theory makes the world system the thing being analysed.\nThis is the item most worth connecting to their own projects. A team whose diagnosis is entirely domestic has implicitly chosen modernization theory or statism — and should say so rather than stumble into it."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#where-this-leaves-the-argument",
+    "href": "lectures/lecture_03_economics_development.html#where-this-leaves-the-argument",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Where this leaves the argument",
+    "text": "Where this leaves the argument\n\nIshiyama’s own summing up: there is broad consensus that the economic environment is a crucial explanatory factor for the emergence of political forms, including democracy — while the debate over how it matters remains open.\n\n\nChapter 4 turns to the variable modernization theory kept treating as the intervening step: political culture."
+  },
+  {
+    "objectID": "lectures/lecture_03_economics_development.html#for-your-dossier",
+    "href": "lectures/lecture_03_economics_development.html#for-your-dossier",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For your dossier",
+    "text": "For your dossier\nRound 2 asks for a context diagnosis including political economy. This chapter gives you three incompatible ways to write that section.\nThree things to try this week:\n\nAsk which of the three approaches your focal country’s trajectory best fits — and which one your comparator fits. If they differ, that difference is your Round 3 argument\nLocate your focal country on Huntington’s two dimensions. Is its problem mobilization, institutionalization, or the gap between them?\nIf your team is drawn to a structural explanation, name the mechanism linking structure to politics. Haggard and Kaufman’s complaint about structural theories was precisely that the mechanism goes missing"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#lecture-1-what-does-comparison-explain",
+    "href": "lectures/lecture_01_introduction.html#lecture-1-what-does-comparison-explain",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Lecture 1: What does comparison explain?",
+    "text": "Lecture 1: What does comparison explain?\n\nComparative politics is both a subject and a method.\n\n\nBy the end of today, you should be able to:\n\ndistinguish comparative politics from country description;\nexplain the many variables, few cases problem;\nrecognize most-similar and most-different designs; and\nconnect the field’s history to our constitutional-engineering project.\n\n\nSuggested time: 2 minutes. Open with the central question and preview the four learning outcomes.\n[Sources] - Ishiyama (2012), Introduction."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#start-with-a-comparison",
+    "href": "lectures/lecture_01_introduction.html#start-with-a-comparison",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Start with a comparison",
+    "text": "Start with a comparison\n\n\nTaiwan\n\nSemi-presidential system\nMixed electoral rules\nCompetitive democracy\n\n\nSouth Korea\n\nPresidential system\nMixed electoral rules\nCompetitive democracy\n\n\n\n\nWhat could this pairing help us explain—and what could it not establish by itself?\n\n\nSuggested time: 2 minutes. Take two quick responses. The aim is to surface the difference between noticing variation and designing a comparison.\n[Sources] - Instructor application of Ishiyama’s comparative-method framework."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#the-book-begins-with-a-problem",
+    "href": "lectures/lecture_01_introduction.html#the-book-begins-with-a-problem",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The book begins with a problem",
+    "text": "The book begins with a problem\nIshiyama does not organize the course as a tour of countries.\n\nHe organizes it around a practical question:\n\nUnder what conditions can political democracy develop—and when will institutional engineering fail?\n\n\n\n\nTheories become useful when applied to a consequential problem.\nInstitutional choices must fit historical, economic, social, cultural, and international conditions.\nDemocracy is not assumed to be easy, inevitable, or universally transplantable.\n\n\nSuggested time: 2 minutes. Emphasize problem-based learning and the conditional—not prescriptive—character of the question.\n[Sources] - Ishiyama (2012), Introduction, opening section."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#a-problem-based-course",
+    "href": "lectures/lecture_01_introduction.html#a-problem-based-course",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "A problem-based course",
+    "text": "A problem-based course\nProblem → diagnose a focal country’s political constraints\nComparison → use a shadow case to test explanations\nDesign → evaluate institutional alternatives and trade-offs\nDefense → explain why the recommendation fits the evidence\n\n\nThe goal is not to discover a perfect constitution. It is to make a defensible comparative claim.\n\n\nSuggested time: 2 minutes. Connect the chapter directly to the semester project.\n[Sources] - Ishiyama (2012), Introduction, opening and “The Plan of this Book.”"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#defining-comparative-politics",
+    "href": "lectures/lecture_01_introduction.html#defining-comparative-politics",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Defining comparative politics",
+    "text": "Defining comparative politics\n\nTransition: We know the course problem. Now define the field that will help us solve it."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#three-definitions-compete",
+    "href": "lectures/lecture_01_introduction.html#three-definitions-compete",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Three definitions compete",
+    "text": "Three definitions compete\n\nThe study of foreign countries\nThe study of comparative government\nA subject and method of political inquiry\n\n\n\nIshiyama adopts the third definition: systematic comparison of political phenomena within political systems.\n\n\n\nThe United States is therefore one case among many—not a separate universe.\n\nSuggested time: 2 minutes. Cold call: Which definition would exclude the United States, and why is that limiting?\n[Sources] - Ishiyama (2012), “Comparative Politics and the Comparative Method.”"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#subject-and-method-work-together",
+    "href": "lectures/lecture_01_introduction.html#subject-and-method-work-together",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Subject and method work together",
+    "text": "Subject and method work together\n\n\nAs a subject\nPolitical phenomena within a state, society, country, or political system:\n\ninstitutions;\nbehavior; and\npolitical ideas.\n\n\nAs a method\nSystematic comparison used to:\n\nidentify similarities and differences;\ndiscover patterns; and\nexplain variation.\n\n\n\nSuggested time: 2 minutes. Stress that a country report is not automatically comparative politics.\n[Sources] - Ishiyama (2012), drawing on Wiarda, Mahler, and Lim."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#comparative-politics-asks-why",
+    "href": "lectures/lecture_01_introduction.html#comparative-politics-asks-why",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Comparative politics asks “why?”",
+    "text": "Comparative politics asks “why?”\n\n\nDescription\nHow does a legislature work?\nWho selects the executive?\nWhat electoral formula is used?\n\nExplanation\nWhy did this institution emerge?\nWhy does it produce different outcomes elsewhere?\nUnder what conditions will it change?\n\n\n\nDescription supplies evidence. Comparison turns evidence into an explanation.\n\n\nSuggested time: 2 minutes. Ask students to turn one descriptive question into an explanatory question.\n[Sources] - Ishiyama (2012), discussion of Macridis and the traditional approach."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#within-statesor-between-them",
+    "href": "lectures/lecture_01_introduction.html#within-statesor-between-them",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Within states—or between them?",
+    "text": "Within states—or between them?\n\n\n\n\n\n\n\nComparative politics\nInternational relations\n\n\n\n\nPolitics primarily within political systems\nPolitics primarily between political systems\n\n\nElections, parties, courts, executives, identity, participation\nWar, alliances, trade, diplomacy, international organizations\n\n\nWhy outcomes vary across cases\nWhy states and other actors interact as they do\n\n\n\n\nThe boundary is useful, but not absolute: international forces also shape domestic politics.\n\nSuggested time: 1.5 minutes. Use EU politics or foreign election interference as a boundary case.\n[Sources] - Ishiyama (2012), “Comparative Politics and the Comparative Method.”"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#the-comparative-method",
+    "href": "lectures/lecture_01_introduction.html#the-comparative-method",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The comparative method",
+    "text": "The comparative method\n\nTransition: The field’s subject is broad. Its distinctive leverage comes from research design."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#the-central-constraint",
+    "href": "lectures/lecture_01_introduction.html#the-central-constraint",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The central constraint",
+    "text": "The central constraint\nImagine explaining the Russian Revolution with one case.\n\nMilitary defeat and wartime strain?\nEconomic and social transformation?\nBolshevik organization and Lenin’s leadership?\nParalysis at the top of the imperial regime?\n\n\n\nMany plausible causes + one observed outcome = weak causal leverage.\n\n\n\nLijphart’s formulation: comparative politics often has too many variables and too few cases.\n\nSuggested time: 2.5 minutes. Cold call: Why can evidence consistent with a theory still fail to prove that theory?\n[Sources] - Ishiyama (2012), discussion of Lijphart (1971)."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#three-strategies-for-causal-leverage",
+    "href": "lectures/lecture_01_introduction.html#three-strategies-for-causal-leverage",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Three strategies for causal leverage",
+    "text": "Three strategies for causal leverage\n\n\n\n\n\n\n\n\nStrategy\nHow it controls alternatives\nMain constraint\n\n\n\n\nExperiment\nRandomization and a control group\nCountries cannot usually be assigned to treatments\n\n\nStatistical method\nEstimates several relationships at once\nRequires enough cases and defensible measures\n\n\nComparative method\nSelects cases to hold key factors constant\nConclusions depend heavily on case-selection logic\n\n\n\n\n\nThe comparative method is a quasi-experimental strategy for a small number of cases.\n\n\nSuggested time: 3 minutes. Briefly distinguish experimental control, statistical control, and control by case selection.\n[Sources] - Ishiyama (2012), discussion of experimental, statistical, and comparative methods."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#most-similar-systems-design",
+    "href": "lectures/lecture_01_introduction.html#most-similar-systems-design",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Most-Similar Systems Design",
+    "text": "Most-Similar Systems Design\nCompare cases that are similar on relevant background conditions but differ on the outcome or institution of interest.\n\n\nSimilar cases + different outcome → investigate the remaining difference.\n\n\n\nThis is Mill’s Method of Difference.\n\nStrength: controls many rival explanations through case selection.\nRisk: the cases may differ in an unnoticed but consequential way.\n\n\nSuggested time: 2 minutes. Introduce MSSD as a logic, not a claim that cases are identical.\n[Sources] - Ishiyama (2012), MSSD discussion."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#estonia-and-latvia-illustrate-mssd",
+    "href": "lectures/lecture_01_introduction.html#estonia-and-latvia-illustrate-mssd",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Estonia and Latvia illustrate MSSD",
+    "text": "Estonia and Latvia illustrate MSSD\nBoth cases shared important conditions before the Soviet collapse:\n\nannexation in 1940;\nindigenous and Russophone populations;\nrelatively high Soviet-era development;\nunitary, roughly parliamentary systems.\n\n\n\n\n\n\n\n\n\n\nKey difference\nLatvia\nEstonia\n\n\n\n\n1989–90 electoral rule\nSingle-member plurality\nSingle Transferable Vote\n\n\n\n\n\nDifferent party-system development could then be investigated through the electoral-rule difference.\n\nSuggested time: 3 minutes. Stress “investigated,” not mechanically “proved.” Ask what omitted difference might still matter.\n[Sources] - Ishiyama (2012), Estonia–Latvia example; Ishiyama (1993)."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#cold-call-defend-a-pairing",
+    "href": "lectures/lecture_01_introduction.html#cold-call-defend-a-pairing",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Cold call: defend a pairing",
+    "text": "Cold call: defend a pairing\nReturn to Taiwan and South Korea.\n\nWhat important conditions does the pairing approximately hold constant?\nWhat institutional or political difference could provide leverage?\nWhat unmeasured difference could undermine the comparison?\n\n\n\nA defensible comparison identifies both its leverage and its limits.\n\n\nSuggested time: 3 minutes. Cold-call one student for each question, then invite one amendment from the room.\n[Sources] - Instructor application of Ishiyama’s MSSD framework."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#most-different-systems-design",
+    "href": "lectures/lecture_01_introduction.html#most-different-systems-design",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Most-Different Systems Design",
+    "text": "Most-Different Systems Design\nCompare cases that differ widely but share the same outcome.\n\n\nDifferent cases + same outcome → search for a common cause.\n\n\n\nThis is Mill’s Method of Similarity.\n\nStrength: a shared factor may travel across diverse contexts.\nRisk: different causal paths can generate the same outcome.\n\n\nSuggested time: 2 minutes. Introduce equifinality: the same outcome can have multiple causes.\n[Sources] - Ishiyama (2012), MDSD discussion."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#design-check",
+    "href": "lectures/lecture_01_introduction.html#design-check",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Design check",
+    "text": "Design check\nScenario A\nTwo economically and culturally similar democracies adopt different electoral systems and develop different party systems.\nScenario B\nThree societies with different histories, economies, and institutions all experience democratic breakdown after elected leaders disable checks and balances.\n\nWhich is MSSD? Which is MDSD? What would each comparison need to measure?\n\nSuggested time: 2 minutes. Ask for the design first, then the dependent variable and candidate explanatory factor.\n[Sources] - Instructor examples based on Ishiyama’s comparative-design framework."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#how-the-field-evolved",
+    "href": "lectures/lecture_01_introduction.html#how-the-field-evolved",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "How the field evolved",
+    "text": "How the field evolved\n\nTransition: The field’s history is a recurring debate over what counts as knowledge and what political inquiry is for."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#two-tensions-organize-the-history",
+    "href": "lectures/lecture_01_introduction.html#two-tensions-organize-the-history",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Two tensions organize the history",
+    "text": "Two tensions organize the history\n\n\nNormative ↔︎ empirical\nShould scholars ask what political order ought to be—or explain what can be observed?\n\nUnderstanding ↔︎ application\nIs the purpose to build general knowledge—or improve political institutions?\n\n\n\nComparative politics repeatedly moves between these poles rather than permanently choosing one side.\n\n\nSuggested time: 2 minutes. Use these tensions as the thread through the historical sequence.\n[Sources] - Ishiyama (2012), “The Evolution of Comparative Politics.”"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#plato-and-aristotle-offer-two-traditions",
+    "href": "lectures/lecture_01_introduction.html#plato-and-aristotle-offer-two-traditions",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Plato and Aristotle offer two traditions",
+    "text": "Plato and Aristotle offer two traditions\n\n\nPlato\n\nKnowledge through reason and insight\nEmphasis on justice and the ideal order\nFoundation of a normative tradition\n\n\nAristotle\n\nApproximately 150 constitutions as evidence\nComparison of institutions and social foundations\nFoundation of an empirical tradition\n\n\n\nBoth nevertheless asked how political life might be improved.\n\nSuggested time: 2.5 minutes. Use the cave briefly, but do not let it displace the comparative point.\n[Sources] - Ishiyama (2012), discussion of Plato and Aristotle."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#aristotle-classified-regimes",
+    "href": "lectures/lecture_01_introduction.html#aristotle-classified-regimes",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Aristotle classified regimes",
+    "text": "Aristotle classified regimes\n\n\n\nRule by\nPublic-serving form\nSelf-serving form\n\n\n\n\nOne\nMonarchy\nTyranny\n\n\nFew\nAristocracy\nOligarchy\n\n\nMany\nPolity\nDemocracy\n\n\n\n\nFor Aristotle, “democracy” meant corrupt rule by the many—not the modern idea of constitutional democracy.\n\n\nHis larger claim: mixed government supported by a strong middle class was more stable than pure oligarchy or pure democracy.\n\nSuggested time: 3 minutes. Clarify the historical meaning of “democracy” before students interpret the table using modern definitions.\n[Sources] - Ishiyama (2012), Aristotle and Table 1.2."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#comparison-revived-with-a-changing-world",
+    "href": "lectures/lecture_01_introduction.html#comparison-revived-with-a-changing-world",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Comparison revived with a changing world",
+    "text": "Comparison revived with a changing world\n\nExploration exposed Europeans to political systems beyond Europe.\nModern states developed distinct institutions, economies, and political cultures.\nRenaissance science restored confidence in observation and systematic inquiry.\n\n\n\n\nMachiavelli\nCompared political practices to find models that rulers could emulate.\n\nMontesquieu\nCompared political systems and advanced separation of powers—but also made dubious climate-based claims.\n\n\nSuggested time: 2 minutes. Use climate theory as a reminder that comparison can generate bad inference as well as insight.\n[Sources] - Ishiyama (2012), Middle Ages and Enlightenment discussion."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#marx-and-weber-disagree-about-causation",
+    "href": "lectures/lecture_01_introduction.html#marx-and-weber-disagree-about-causation",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Marx and Weber disagree about causation",
+    "text": "Marx and Weber disagree about causation\n\n\nMarx\nEconomic relations and class power shape political and social institutions.\nPrimary causal emphasis: political economy\n\nWeber\nCulture, religion, institutions, and political leadership have partly autonomous effects.\nPrimary causal emphasis: multicausal explanation\n\n\nCold call: What evidence would distinguish these explanations?\n\nSuggested time: 2.5 minutes. Ask students to name an observable implication rather than choose a favorite theorist.\n[Sources] - Ishiyama (2012), discussion of Marx and Weber."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#the-american-field-started-descriptively",
+    "href": "lectures/lecture_01_introduction.html#the-american-field-started-descriptively",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The American field started descriptively",
+    "text": "The American field started descriptively\nEarly twentieth-century American comparative politics largely emphasized:\n\nEuropean governments;\nformal and legal institutions; and\ndescription of legislatures, executives, and courts.\n\n\nWorld War II and the Cold War increased demand for knowledge about:\n\nrebuilding Germany and Japan;\nSoviet and communist politics;\ndecolonization and political instability; and\ndemocratic development.\n\n\nSuggested time: 2 minutes. Note how world events and funding priorities shaped the field’s agenda.\n[Sources] - Ishiyama (2012), American comparative politics and the behavioral revolution."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#macridis-demanded-explanation",
+    "href": "lectures/lecture_01_introduction.html#macridis-demanded-explanation",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Macridis demanded explanation",
+    "text": "Macridis demanded explanation\nThe “traditional approach” was criticized as:\n\nparochial—centered on Europe;\ndescriptive—missing the why question;\nmonographic—focused narrowly on formal institutions;\nnot genuinely comparative—countries appeared in separate silos; and\nstatic—unable to explain political change.\n\n\n\nThis critique helped shift the field from describing governments to explaining political behavior and change.\n\n\nSuggested time: 2.5 minutes. Ask which criticism is still most relevant to student research today.\n[Sources] - Ishiyama (2012), discussion of Macridis (1955)."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#categories-can-distort-what-we-observe",
+    "href": "lectures/lecture_01_introduction.html#categories-can-distort-what-we-observe",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Categories can distort what we observe",
+    "text": "Categories can distort what we observe\nIshiyama recounts an example from precolonial West Africa:\n\nsome communities selected “kings” by rotation among notable families;\nBritish officials interpreted kingship as hereditary;\nindirect rule converted a rotating office into a life appointment inherited by heirs.\n\n\n\nUsing a familiar European label obscured the institution—and colonial policy then changed it.\n\n\n\nComparison requires concepts that travel without erasing local meaning.\n\nSuggested time: 2 minutes. Treat this as the chapter’s warning about conceptual stretching and parochialism.\n[Sources] - Ishiyama (2012), West African example in the Macridis discussion; Crowder (1968)."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#the-behavioral-revolution-changed-the-unit-of-analysis",
+    "href": "lectures/lecture_01_introduction.html#the-behavioral-revolution-changed-the-unit-of-analysis",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The behavioral revolution changed the unit of analysis",
+    "text": "The behavioral revolution changed the unit of analysis\nBehavioralists emphasized:\n\ntheory joined to empirical observation;\nsurveys, content analysis, statistics, history, and qualitative evidence;\ninsights from economics, sociology, and psychology;\ncommon concepts such as power, political system, and democracy; and\nan aspiration toward value-free science.\n\n\n\nThe field moved beyond constitutions on paper to study what political actors actually do.\n\n\nSuggested time: 2.5 minutes. Mention the Chicago School and its students as a bridge to the postwar behavioral revolution.\n[Sources] - Ishiyama (2012), behavioral-revolution discussion."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#easton-put-politics-inside-an-environment",
+    "href": "lectures/lecture_01_introduction.html#easton-put-politics-inside-an-environment",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Easton put politics inside an environment",
+    "text": "Easton put politics inside an environment\nEnvironment supplies demands and support\n↓\nPolitical system converts inputs into authoritative decisions\n↓\nOutputs reshape society and the international environment\n↺ Feedback creates new demands and support\n\nThe system includes government, parties, interest groups, and leaders—not only formal institutions.\n\nSuggested time: 3 minutes. Walk once around the input–conversion–output–feedback cycle using a tax-policy example.\n[Sources] - Ishiyama (2012), Easton’s systems approach and Figure 1.1."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#eastons-black-box-remains-a-problem",
+    "href": "lectures/lecture_01_introduction.html#eastons-black-box-remains-a-problem",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Easton’s “black box” remains a problem",
+    "text": "Easton’s “black box” remains a problem\nThe systems model clarifies interdependence, but it leaves major questions open:\n\nWhat actually happens inside the conversion process?\nWhy do political systems process similar demands differently?\nCan the model explain democratic collapse or institutional change?\nDoes naming a system’s components produce a testable explanation?\n\n\n\nA framework organizes observation; a theory must also specify causal expectations.\n\n\nSuggested time: 2 minutes. Distinguish a conceptual framework from a causal theory.\n[Sources] - Ishiyama (2012), critiques of Easton’s systems approach."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#structural-functionalism-looks-beneath-labels",
+    "href": "lectures/lecture_01_introduction.html#structural-functionalism-looks-beneath-labels",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Structural functionalism looks beneath labels",
+    "text": "Structural functionalism looks beneath labels\nAlmond and Coleman asked two separate questions:\n\nWhat structures exist?\nWhat political functions must be performed?\n\n\nThe same function can be performed by different structures:\n\nparties may aggregate interests in one system;\nthe military, a ruling party, or patronage networks may do so elsewhere;\ncourts, bureaucracies, or party organs may regulate and adjudicate.\n\n\nSuggested time: 2.5 minutes. Emphasize that similar institutional names do not guarantee similar functions.\n[Sources] - Ishiyama (2012), structural-functionalism discussion; Almond and Coleman (1960)."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#political-systems-must-perform-recurring-functions",
+    "href": "lectures/lecture_01_introduction.html#political-systems-must-perform-recurring-functions",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Political systems must perform recurring functions",
+    "text": "Political systems must perform recurring functions\n\n\nProcess functions\n\nInterest articulation\nInterest aggregation\nPolicy making\nRegulation\nAdjudication\n\n\nSystem-maintenance functions\n\nPolitical socialization\nRecruitment of leaders\nPolitical communication\n\n\n\nCold call: Which structures perform these functions in China? In Taiwan?\n\nSuggested time: 3 minutes. Accept multiple answers; press students to separate the function from the organization performing it.\n[Sources] - Ishiyama (2012), Almond’s structural-functional framework."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#structural-functionalism-also-has-limits",
+    "href": "lectures/lecture_01_introduction.html#structural-functionalism-also-has-limits",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Structural functionalism also has limits",
+    "text": "Structural functionalism also has limits\n\nIt assumes system survival is the central goal.\nIt can portray political systems as static rather than adaptive.\nIts categories may reflect Western democratic experience.\nIt says little about how institutions emerged or changed.\n\n\n\nThe field escaped narrow formalism, but risked replacing it with abstract concepts that explained too little.\n\n\nSuggested time: 1.5 minutes. Link the critique back to Macridis: every framework highlights some phenomena and obscures others.\n[Sources] - Ishiyama (2012), critique of structural functionalism."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#post-behavioralism-reopened-purpose",
+    "href": "lectures/lecture_01_introduction.html#post-behavioralism-reopened-purpose",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Post-behavioralism reopened purpose",
+    "text": "Post-behavioralism reopened purpose\nCritics challenged two behavioralist commitments:\n\nValue-free science: political facts require interpretation, and interpretation cannot be fully separated from values.\nMethod over substance: technical refinement can displace consequential political questions.\n\n\nPost-behavioral and constructivist approaches emphasized how political realities and categories are socially constructed.\n\nSuggested time: 2 minutes. Avoid presenting this as a rejection of evidence; it is a dispute over objectivity, meaning, and purpose.\n[Sources] - Ishiyama (2012), post-behavioral critique; Bay (1965)."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#neo-institutionalism-brought-rules-back-in",
+    "href": "lectures/lecture_01_introduction.html#neo-institutionalism-brought-rules-back-in",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Neo-institutionalism brought rules back in",
+    "text": "Neo-institutionalism brought rules back in\nBehavioralism looked beyond formal rules; neo-institutionalism asked what had been lost.\n\n\nElectoral systems shape representation and party competition.\nExecutive design shapes coordination and deadlock.\nFederal arrangements distribute authority and conflict.\nCourts and constitutions structure enforcement and restraint.\n\n\n\n\nInstitutions matter because people can redesign rules more readily than they can redesign history, culture, or economic structure.\n\n\nSuggested time: 2.5 minutes. Stress that institutions interact with context; rules are malleable but never unconstrained.\n[Sources] - Ishiyama (2012), neo-institutional movement and constitutional design."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#the-field-comes-full-circle",
+    "href": "lectures/lecture_01_introduction.html#the-field-comes-full-circle",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The field comes full circle",
+    "text": "The field comes full circle\nAncient question: What political arrangement supports a good and stable order?\nBehavioral correction: Explain politics empirically, beyond formal rules.\nNeo-institutional synthesis: Use comparative evidence to understand how rules shape outcomes in context.\n\n\nComparative politics becomes applicable again—but with greater methodological discipline.\n\n\nSuggested time: 1.5 minutes. This resolves the historical arc and returns to the course project.\n[Sources] - Ishiyama (2012), conclusion of “The Evolution of Comparative Politics.”"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#context-before-design",
+    "href": "lectures/lecture_01_introduction.html#context-before-design",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Context before design",
+    "text": "Context before design\nIshiyama organizes the book in two stages:\n\n\nThe political “soil”\n\nHistorical development\nEconomy\nPolitical culture and identity\nSocial structure\nInternational environment\n\n\nInstitutional choices\n\nElectoral system\nExecutive and legislature\nCourts\nFederalism and local authority\nInteractions among the rules\n\n\n\nDesign cannot compensate automatically for hostile contextual conditions.\n\nSuggested time: 2 minutes. Explain why the course studies context before institutional options.\n[Sources] - Ishiyama (2012), “The Plan of this Book.”"
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#your-teams-comparative-logic",
+    "href": "lectures/lecture_01_introduction.html#your-teams-comparative-logic",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Your team’s comparative logic",
+    "text": "Your team’s comparative logic\nEvery team should eventually complete this sentence:\n\nBecause our focal country and shadow comparator are similar on [background conditions] but differ on [key factor or outcome], their comparison helps us evaluate the claim that [cause] conditions [outcome].\n\n\nThen add:\n\nThe comparison cannot rule out [rival explanation], so we will seek additional evidence from [source or case].\n\n\nSuggested time: 3 minutes. Give students 60 seconds to draft a version with one of the course pairings, then hear two examples.\n[Sources] - Instructor application of Ishiyama’s comparative-method framework."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#five-ideas-to-carry-forward",
+    "href": "lectures/lecture_01_introduction.html#five-ideas-to-carry-forward",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Five ideas to carry forward",
+    "text": "Five ideas to carry forward\n\nComparative politics is a subject and method.\nIts central challenge is many explanations, few cases.\nMSSD and MDSD create leverage through case selection.\nThe field repeatedly negotiates values, evidence, and application.\nInstitutional design works only when evaluated in context.\n\n\n\nThe standard for this course: make a clear claim, show comparative evidence, and state the limits of the inference.\n\n\nSuggested time: 2 minutes. Use as a retrieval check: hide the body and ask students to name the five ideas first.\n[Sources] - Ishiyama (2012), Introduction."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#exit-question",
+    "href": "lectures/lecture_01_introduction.html#exit-question",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Exit question",
+    "text": "Exit question\n\nWhat makes a comparison persuasive rather than merely interesting?\n\n\nSubmit three sentences:\n\none claim about a political outcome;\none case pairing that could evaluate it; and\none rival explanation the pairing cannot eliminate.\n\n\nSuggested time: 2 minutes. Collect in Teams or use as the bridge to the claim–evidence map assignment.\n[Sources] - Instructor synthesis based on Ishiyama (2012), Introduction."
+  },
+  {
+    "objectID": "lectures/lecture_01_introduction.html#chapter-source",
+    "href": "lectures/lecture_01_introduction.html#chapter-source",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Chapter source",
+    "text": "Chapter source\nIshiyama, John T. 2012. Comparative Politics: Principles of Democracy and Democratization. Wiley-Blackwell. Introduction: “Comparative Politics and Democracy.”\n\nThis slide provides the student-facing source record for the lecture.\n[Sources] - Ishiyama (2012), Introduction."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lecture Notes",
+    "section": "",
+    "text": "Fall 2026\n    Comparative Politics\n    Open the lecture slides or download a PDF copy for reading and annotation.\n  \n  CP\n\n\n  Lectures\n  New sessions will appear here as they are published.\n\n\n  \n    01\n    \n      What does comparison explain?\n      Comparative politics as a subject and a method, including the many-variables, few-cases problem and comparative research designs.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    02\n    \n      Democracy, democratization, and comparative history\n      Ishiyama's historical explanation of democratization, six country trajectories, Lijphart's framework for evaluating small-N comparisons, and Haggard and Kaufman on the Third Wave and the limits of general theory.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    03\n    \n      Economics and political development\n      Modernization theory, dependency theory, and statism — three incompatible accounts of how economic change and political change are related.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n\n\n  Viewing tip: Use the arrow keys to move through a slide deck. The lower-left controls return to this index or download the lecture as a PDF."
+  },
+  {
     "objectID": "lectures/lecture_02_democratization_history.html#todays-puzzle",
     "href": "lectures/lecture_02_democratization_history.html#todays-puzzle",
     "title": "PSCI 3350.001 Comparative Politics",
@@ -425,292 +943,5 @@
     "title": "PSCI 3350.001 Comparative Politics",
     "section": "Core takeaways",
     "text": "Core takeaways\n\nDefinitions determine the outcome we are trying to explain\nIshiyama emphasizes the sequence of identity, accountability, and social transformation before industrialization\nThe six histories become comparable only when organized by common questions\nLijphart identifies the central weakness of the design: many causes and few cases\nPairing, parsimony, rival explanations, and deviant cases can strengthen comparative inference"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Lecture Notes",
-    "section": "",
-    "text": "Fall 2026\n    Comparative Politics\n    Open the lecture slides or download a PDF copy for reading and annotation.\n  \n  CP\n\n\n  Lectures\n  New sessions will appear here as they are published.\n\n\n  \n    01\n    \n      August 27, 2026\n      What does comparison explain?\n      Comparative politics as a subject and a method, including the many-variables, few-cases problem and comparative research designs.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    02\n    \n      September 10, 2026\n      Democracy, democratization, and comparative history\n      Ishiyama's historical explanation of democratization, six country trajectories, Lijphart's framework for evaluating small-N comparisons, and Haggard and Kaufman on the Third Wave and the limits of general theory.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n\n\n  Viewing tip: Use the arrow keys to move through a slide deck. The lower-left controls return to this index or download the lecture as a PDF."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#lecture-1-what-does-comparison-explain",
-    "href": "lectures/lecture_01_introduction.html#lecture-1-what-does-comparison-explain",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Lecture 1: What does comparison explain?",
-    "text": "Lecture 1: What does comparison explain?\n\nComparative politics is both a subject and a method.\n\n\nBy the end of today, you should be able to:\n\ndistinguish comparative politics from country description;\nexplain the many variables, few cases problem;\nrecognize most-similar and most-different designs; and\nconnect the field’s history to our constitutional-engineering project.\n\n\nSuggested time: 2 minutes. Open with the central question and preview the four learning outcomes.\n[Sources] - Ishiyama (2012), Introduction."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#start-with-a-comparison",
-    "href": "lectures/lecture_01_introduction.html#start-with-a-comparison",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Start with a comparison",
-    "text": "Start with a comparison\n\n\nTaiwan\n\nSemi-presidential system\nMixed electoral rules\nCompetitive democracy\n\n\nSouth Korea\n\nPresidential system\nMixed electoral rules\nCompetitive democracy\n\n\n\n\nWhat could this pairing help us explain—and what could it not establish by itself?\n\n\nSuggested time: 2 minutes. Take two quick responses. The aim is to surface the difference between noticing variation and designing a comparison.\n[Sources] - Instructor application of Ishiyama’s comparative-method framework."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#the-book-begins-with-a-problem",
-    "href": "lectures/lecture_01_introduction.html#the-book-begins-with-a-problem",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "The book begins with a problem",
-    "text": "The book begins with a problem\nIshiyama does not organize the course as a tour of countries.\n\nHe organizes it around a practical question:\n\nUnder what conditions can political democracy develop—and when will institutional engineering fail?\n\n\n\n\nTheories become useful when applied to a consequential problem.\nInstitutional choices must fit historical, economic, social, cultural, and international conditions.\nDemocracy is not assumed to be easy, inevitable, or universally transplantable.\n\n\nSuggested time: 2 minutes. Emphasize problem-based learning and the conditional—not prescriptive—character of the question.\n[Sources] - Ishiyama (2012), Introduction, opening section."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#a-problem-based-course",
-    "href": "lectures/lecture_01_introduction.html#a-problem-based-course",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "A problem-based course",
-    "text": "A problem-based course\nProblem → diagnose a focal country’s political constraints\nComparison → use a shadow case to test explanations\nDesign → evaluate institutional alternatives and trade-offs\nDefense → explain why the recommendation fits the evidence\n\n\nThe goal is not to discover a perfect constitution. It is to make a defensible comparative claim.\n\n\nSuggested time: 2 minutes. Connect the chapter directly to the semester project.\n[Sources] - Ishiyama (2012), Introduction, opening and “The Plan of this Book.”"
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#defining-comparative-politics",
-    "href": "lectures/lecture_01_introduction.html#defining-comparative-politics",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Defining comparative politics",
-    "text": "Defining comparative politics\n\nTransition: We know the course problem. Now define the field that will help us solve it."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#three-definitions-compete",
-    "href": "lectures/lecture_01_introduction.html#three-definitions-compete",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Three definitions compete",
-    "text": "Three definitions compete\n\nThe study of foreign countries\nThe study of comparative government\nA subject and method of political inquiry\n\n\n\nIshiyama adopts the third definition: systematic comparison of political phenomena within political systems.\n\n\n\nThe United States is therefore one case among many—not a separate universe.\n\nSuggested time: 2 minutes. Cold call: Which definition would exclude the United States, and why is that limiting?\n[Sources] - Ishiyama (2012), “Comparative Politics and the Comparative Method.”"
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#subject-and-method-work-together",
-    "href": "lectures/lecture_01_introduction.html#subject-and-method-work-together",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Subject and method work together",
-    "text": "Subject and method work together\n\n\nAs a subject\nPolitical phenomena within a state, society, country, or political system:\n\ninstitutions;\nbehavior; and\npolitical ideas.\n\n\nAs a method\nSystematic comparison used to:\n\nidentify similarities and differences;\ndiscover patterns; and\nexplain variation.\n\n\n\nSuggested time: 2 minutes. Stress that a country report is not automatically comparative politics.\n[Sources] - Ishiyama (2012), drawing on Wiarda, Mahler, and Lim."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#comparative-politics-asks-why",
-    "href": "lectures/lecture_01_introduction.html#comparative-politics-asks-why",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Comparative politics asks “why?”",
-    "text": "Comparative politics asks “why?”\n\n\nDescription\nHow does a legislature work?\nWho selects the executive?\nWhat electoral formula is used?\n\nExplanation\nWhy did this institution emerge?\nWhy does it produce different outcomes elsewhere?\nUnder what conditions will it change?\n\n\n\nDescription supplies evidence. Comparison turns evidence into an explanation.\n\n\nSuggested time: 2 minutes. Ask students to turn one descriptive question into an explanatory question.\n[Sources] - Ishiyama (2012), discussion of Macridis and the traditional approach."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#within-statesor-between-them",
-    "href": "lectures/lecture_01_introduction.html#within-statesor-between-them",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Within states—or between them?",
-    "text": "Within states—or between them?\n\n\n\n\n\n\n\nComparative politics\nInternational relations\n\n\n\n\nPolitics primarily within political systems\nPolitics primarily between political systems\n\n\nElections, parties, courts, executives, identity, participation\nWar, alliances, trade, diplomacy, international organizations\n\n\nWhy outcomes vary across cases\nWhy states and other actors interact as they do\n\n\n\n\nThe boundary is useful, but not absolute: international forces also shape domestic politics.\n\nSuggested time: 1.5 minutes. Use EU politics or foreign election interference as a boundary case.\n[Sources] - Ishiyama (2012), “Comparative Politics and the Comparative Method.”"
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#the-comparative-method",
-    "href": "lectures/lecture_01_introduction.html#the-comparative-method",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "The comparative method",
-    "text": "The comparative method\n\nTransition: The field’s subject is broad. Its distinctive leverage comes from research design."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#the-central-constraint",
-    "href": "lectures/lecture_01_introduction.html#the-central-constraint",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "The central constraint",
-    "text": "The central constraint\nImagine explaining the Russian Revolution with one case.\n\nMilitary defeat and wartime strain?\nEconomic and social transformation?\nBolshevik organization and Lenin’s leadership?\nParalysis at the top of the imperial regime?\n\n\n\nMany plausible causes + one observed outcome = weak causal leverage.\n\n\n\nLijphart’s formulation: comparative politics often has too many variables and too few cases.\n\nSuggested time: 2.5 minutes. Cold call: Why can evidence consistent with a theory still fail to prove that theory?\n[Sources] - Ishiyama (2012), discussion of Lijphart (1971)."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#three-strategies-for-causal-leverage",
-    "href": "lectures/lecture_01_introduction.html#three-strategies-for-causal-leverage",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Three strategies for causal leverage",
-    "text": "Three strategies for causal leverage\n\n\n\n\n\n\n\n\nStrategy\nHow it controls alternatives\nMain constraint\n\n\n\n\nExperiment\nRandomization and a control group\nCountries cannot usually be assigned to treatments\n\n\nStatistical method\nEstimates several relationships at once\nRequires enough cases and defensible measures\n\n\nComparative method\nSelects cases to hold key factors constant\nConclusions depend heavily on case-selection logic\n\n\n\n\n\nThe comparative method is a quasi-experimental strategy for a small number of cases.\n\n\nSuggested time: 3 minutes. Briefly distinguish experimental control, statistical control, and control by case selection.\n[Sources] - Ishiyama (2012), discussion of experimental, statistical, and comparative methods."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#most-similar-systems-design",
-    "href": "lectures/lecture_01_introduction.html#most-similar-systems-design",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Most-Similar Systems Design",
-    "text": "Most-Similar Systems Design\nCompare cases that are similar on relevant background conditions but differ on the outcome or institution of interest.\n\n\nSimilar cases + different outcome → investigate the remaining difference.\n\n\n\nThis is Mill’s Method of Difference.\n\nStrength: controls many rival explanations through case selection.\nRisk: the cases may differ in an unnoticed but consequential way.\n\n\nSuggested time: 2 minutes. Introduce MSSD as a logic, not a claim that cases are identical.\n[Sources] - Ishiyama (2012), MSSD discussion."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#estonia-and-latvia-illustrate-mssd",
-    "href": "lectures/lecture_01_introduction.html#estonia-and-latvia-illustrate-mssd",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Estonia and Latvia illustrate MSSD",
-    "text": "Estonia and Latvia illustrate MSSD\nBoth cases shared important conditions before the Soviet collapse:\n\nannexation in 1940;\nindigenous and Russophone populations;\nrelatively high Soviet-era development;\nunitary, roughly parliamentary systems.\n\n\n\n\n\n\n\n\n\n\nKey difference\nLatvia\nEstonia\n\n\n\n\n1989–90 electoral rule\nSingle-member plurality\nSingle Transferable Vote\n\n\n\n\n\nDifferent party-system development could then be investigated through the electoral-rule difference.\n\nSuggested time: 3 minutes. Stress “investigated,” not mechanically “proved.” Ask what omitted difference might still matter.\n[Sources] - Ishiyama (2012), Estonia–Latvia example; Ishiyama (1993)."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#cold-call-defend-a-pairing",
-    "href": "lectures/lecture_01_introduction.html#cold-call-defend-a-pairing",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Cold call: defend a pairing",
-    "text": "Cold call: defend a pairing\nReturn to Taiwan and South Korea.\n\nWhat important conditions does the pairing approximately hold constant?\nWhat institutional or political difference could provide leverage?\nWhat unmeasured difference could undermine the comparison?\n\n\n\nA defensible comparison identifies both its leverage and its limits.\n\n\nSuggested time: 3 minutes. Cold-call one student for each question, then invite one amendment from the room.\n[Sources] - Instructor application of Ishiyama’s MSSD framework."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#most-different-systems-design",
-    "href": "lectures/lecture_01_introduction.html#most-different-systems-design",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Most-Different Systems Design",
-    "text": "Most-Different Systems Design\nCompare cases that differ widely but share the same outcome.\n\n\nDifferent cases + same outcome → search for a common cause.\n\n\n\nThis is Mill’s Method of Similarity.\n\nStrength: a shared factor may travel across diverse contexts.\nRisk: different causal paths can generate the same outcome.\n\n\nSuggested time: 2 minutes. Introduce equifinality: the same outcome can have multiple causes.\n[Sources] - Ishiyama (2012), MDSD discussion."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#design-check",
-    "href": "lectures/lecture_01_introduction.html#design-check",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Design check",
-    "text": "Design check\nScenario A\nTwo economically and culturally similar democracies adopt different electoral systems and develop different party systems.\nScenario B\nThree societies with different histories, economies, and institutions all experience democratic breakdown after elected leaders disable checks and balances.\n\nWhich is MSSD? Which is MDSD? What would each comparison need to measure?\n\nSuggested time: 2 minutes. Ask for the design first, then the dependent variable and candidate explanatory factor.\n[Sources] - Instructor examples based on Ishiyama’s comparative-design framework."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#how-the-field-evolved",
-    "href": "lectures/lecture_01_introduction.html#how-the-field-evolved",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "How the field evolved",
-    "text": "How the field evolved\n\nTransition: The field’s history is a recurring debate over what counts as knowledge and what political inquiry is for."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#two-tensions-organize-the-history",
-    "href": "lectures/lecture_01_introduction.html#two-tensions-organize-the-history",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Two tensions organize the history",
-    "text": "Two tensions organize the history\n\n\nNormative ↔︎ empirical\nShould scholars ask what political order ought to be—or explain what can be observed?\n\nUnderstanding ↔︎ application\nIs the purpose to build general knowledge—or improve political institutions?\n\n\n\nComparative politics repeatedly moves between these poles rather than permanently choosing one side.\n\n\nSuggested time: 2 minutes. Use these tensions as the thread through the historical sequence.\n[Sources] - Ishiyama (2012), “The Evolution of Comparative Politics.”"
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#plato-and-aristotle-offer-two-traditions",
-    "href": "lectures/lecture_01_introduction.html#plato-and-aristotle-offer-two-traditions",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Plato and Aristotle offer two traditions",
-    "text": "Plato and Aristotle offer two traditions\n\n\nPlato\n\nKnowledge through reason and insight\nEmphasis on justice and the ideal order\nFoundation of a normative tradition\n\n\nAristotle\n\nApproximately 150 constitutions as evidence\nComparison of institutions and social foundations\nFoundation of an empirical tradition\n\n\n\nBoth nevertheless asked how political life might be improved.\n\nSuggested time: 2.5 minutes. Use the cave briefly, but do not let it displace the comparative point.\n[Sources] - Ishiyama (2012), discussion of Plato and Aristotle."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#aristotle-classified-regimes",
-    "href": "lectures/lecture_01_introduction.html#aristotle-classified-regimes",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Aristotle classified regimes",
-    "text": "Aristotle classified regimes\n\n\n\nRule by\nPublic-serving form\nSelf-serving form\n\n\n\n\nOne\nMonarchy\nTyranny\n\n\nFew\nAristocracy\nOligarchy\n\n\nMany\nPolity\nDemocracy\n\n\n\n\nFor Aristotle, “democracy” meant corrupt rule by the many—not the modern idea of constitutional democracy.\n\n\nHis larger claim: mixed government supported by a strong middle class was more stable than pure oligarchy or pure democracy.\n\nSuggested time: 3 minutes. Clarify the historical meaning of “democracy” before students interpret the table using modern definitions.\n[Sources] - Ishiyama (2012), Aristotle and Table 1.2."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#comparison-revived-with-a-changing-world",
-    "href": "lectures/lecture_01_introduction.html#comparison-revived-with-a-changing-world",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Comparison revived with a changing world",
-    "text": "Comparison revived with a changing world\n\nExploration exposed Europeans to political systems beyond Europe.\nModern states developed distinct institutions, economies, and political cultures.\nRenaissance science restored confidence in observation and systematic inquiry.\n\n\n\n\nMachiavelli\nCompared political practices to find models that rulers could emulate.\n\nMontesquieu\nCompared political systems and advanced separation of powers—but also made dubious climate-based claims.\n\n\nSuggested time: 2 minutes. Use climate theory as a reminder that comparison can generate bad inference as well as insight.\n[Sources] - Ishiyama (2012), Middle Ages and Enlightenment discussion."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#marx-and-weber-disagree-about-causation",
-    "href": "lectures/lecture_01_introduction.html#marx-and-weber-disagree-about-causation",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Marx and Weber disagree about causation",
-    "text": "Marx and Weber disagree about causation\n\n\nMarx\nEconomic relations and class power shape political and social institutions.\nPrimary causal emphasis: political economy\n\nWeber\nCulture, religion, institutions, and political leadership have partly autonomous effects.\nPrimary causal emphasis: multicausal explanation\n\n\nCold call: What evidence would distinguish these explanations?\n\nSuggested time: 2.5 minutes. Ask students to name an observable implication rather than choose a favorite theorist.\n[Sources] - Ishiyama (2012), discussion of Marx and Weber."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#the-american-field-started-descriptively",
-    "href": "lectures/lecture_01_introduction.html#the-american-field-started-descriptively",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "The American field started descriptively",
-    "text": "The American field started descriptively\nEarly twentieth-century American comparative politics largely emphasized:\n\nEuropean governments;\nformal and legal institutions; and\ndescription of legislatures, executives, and courts.\n\n\nWorld War II and the Cold War increased demand for knowledge about:\n\nrebuilding Germany and Japan;\nSoviet and communist politics;\ndecolonization and political instability; and\ndemocratic development.\n\n\nSuggested time: 2 minutes. Note how world events and funding priorities shaped the field’s agenda.\n[Sources] - Ishiyama (2012), American comparative politics and the behavioral revolution."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#macridis-demanded-explanation",
-    "href": "lectures/lecture_01_introduction.html#macridis-demanded-explanation",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Macridis demanded explanation",
-    "text": "Macridis demanded explanation\nThe “traditional approach” was criticized as:\n\nparochial—centered on Europe;\ndescriptive—missing the why question;\nmonographic—focused narrowly on formal institutions;\nnot genuinely comparative—countries appeared in separate silos; and\nstatic—unable to explain political change.\n\n\n\nThis critique helped shift the field from describing governments to explaining political behavior and change.\n\n\nSuggested time: 2.5 minutes. Ask which criticism is still most relevant to student research today.\n[Sources] - Ishiyama (2012), discussion of Macridis (1955)."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#categories-can-distort-what-we-observe",
-    "href": "lectures/lecture_01_introduction.html#categories-can-distort-what-we-observe",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Categories can distort what we observe",
-    "text": "Categories can distort what we observe\nIshiyama recounts an example from precolonial West Africa:\n\nsome communities selected “kings” by rotation among notable families;\nBritish officials interpreted kingship as hereditary;\nindirect rule converted a rotating office into a life appointment inherited by heirs.\n\n\n\nUsing a familiar European label obscured the institution—and colonial policy then changed it.\n\n\n\nComparison requires concepts that travel without erasing local meaning.\n\nSuggested time: 2 minutes. Treat this as the chapter’s warning about conceptual stretching and parochialism.\n[Sources] - Ishiyama (2012), West African example in the Macridis discussion; Crowder (1968)."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#the-behavioral-revolution-changed-the-unit-of-analysis",
-    "href": "lectures/lecture_01_introduction.html#the-behavioral-revolution-changed-the-unit-of-analysis",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "The behavioral revolution changed the unit of analysis",
-    "text": "The behavioral revolution changed the unit of analysis\nBehavioralists emphasized:\n\ntheory joined to empirical observation;\nsurveys, content analysis, statistics, history, and qualitative evidence;\ninsights from economics, sociology, and psychology;\ncommon concepts such as power, political system, and democracy; and\nan aspiration toward value-free science.\n\n\n\nThe field moved beyond constitutions on paper to study what political actors actually do.\n\n\nSuggested time: 2.5 minutes. Mention the Chicago School and its students as a bridge to the postwar behavioral revolution.\n[Sources] - Ishiyama (2012), behavioral-revolution discussion."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#easton-put-politics-inside-an-environment",
-    "href": "lectures/lecture_01_introduction.html#easton-put-politics-inside-an-environment",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Easton put politics inside an environment",
-    "text": "Easton put politics inside an environment\nEnvironment supplies demands and support\n↓\nPolitical system converts inputs into authoritative decisions\n↓\nOutputs reshape society and the international environment\n↺ Feedback creates new demands and support\n\nThe system includes government, parties, interest groups, and leaders—not only formal institutions.\n\nSuggested time: 3 minutes. Walk once around the input–conversion–output–feedback cycle using a tax-policy example.\n[Sources] - Ishiyama (2012), Easton’s systems approach and Figure 1.1."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#eastons-black-box-remains-a-problem",
-    "href": "lectures/lecture_01_introduction.html#eastons-black-box-remains-a-problem",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Easton’s “black box” remains a problem",
-    "text": "Easton’s “black box” remains a problem\nThe systems model clarifies interdependence, but it leaves major questions open:\n\nWhat actually happens inside the conversion process?\nWhy do political systems process similar demands differently?\nCan the model explain democratic collapse or institutional change?\nDoes naming a system’s components produce a testable explanation?\n\n\n\nA framework organizes observation; a theory must also specify causal expectations.\n\n\nSuggested time: 2 minutes. Distinguish a conceptual framework from a causal theory.\n[Sources] - Ishiyama (2012), critiques of Easton’s systems approach."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#structural-functionalism-looks-beneath-labels",
-    "href": "lectures/lecture_01_introduction.html#structural-functionalism-looks-beneath-labels",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Structural functionalism looks beneath labels",
-    "text": "Structural functionalism looks beneath labels\nAlmond and Coleman asked two separate questions:\n\nWhat structures exist?\nWhat political functions must be performed?\n\n\nThe same function can be performed by different structures:\n\nparties may aggregate interests in one system;\nthe military, a ruling party, or patronage networks may do so elsewhere;\ncourts, bureaucracies, or party organs may regulate and adjudicate.\n\n\nSuggested time: 2.5 minutes. Emphasize that similar institutional names do not guarantee similar functions.\n[Sources] - Ishiyama (2012), structural-functionalism discussion; Almond and Coleman (1960)."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#political-systems-must-perform-recurring-functions",
-    "href": "lectures/lecture_01_introduction.html#political-systems-must-perform-recurring-functions",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Political systems must perform recurring functions",
-    "text": "Political systems must perform recurring functions\n\n\nProcess functions\n\nInterest articulation\nInterest aggregation\nPolicy making\nRegulation\nAdjudication\n\n\nSystem-maintenance functions\n\nPolitical socialization\nRecruitment of leaders\nPolitical communication\n\n\n\nCold call: Which structures perform these functions in China? In Taiwan?\n\nSuggested time: 3 minutes. Accept multiple answers; press students to separate the function from the organization performing it.\n[Sources] - Ishiyama (2012), Almond’s structural-functional framework."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#structural-functionalism-also-has-limits",
-    "href": "lectures/lecture_01_introduction.html#structural-functionalism-also-has-limits",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Structural functionalism also has limits",
-    "text": "Structural functionalism also has limits\n\nIt assumes system survival is the central goal.\nIt can portray political systems as static rather than adaptive.\nIts categories may reflect Western democratic experience.\nIt says little about how institutions emerged or changed.\n\n\n\nThe field escaped narrow formalism, but risked replacing it with abstract concepts that explained too little.\n\n\nSuggested time: 1.5 minutes. Link the critique back to Macridis: every framework highlights some phenomena and obscures others.\n[Sources] - Ishiyama (2012), critique of structural functionalism."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#post-behavioralism-reopened-purpose",
-    "href": "lectures/lecture_01_introduction.html#post-behavioralism-reopened-purpose",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Post-behavioralism reopened purpose",
-    "text": "Post-behavioralism reopened purpose\nCritics challenged two behavioralist commitments:\n\nValue-free science: political facts require interpretation, and interpretation cannot be fully separated from values.\nMethod over substance: technical refinement can displace consequential political questions.\n\n\nPost-behavioral and constructivist approaches emphasized how political realities and categories are socially constructed.\n\nSuggested time: 2 minutes. Avoid presenting this as a rejection of evidence; it is a dispute over objectivity, meaning, and purpose.\n[Sources] - Ishiyama (2012), post-behavioral critique; Bay (1965)."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#neo-institutionalism-brought-rules-back-in",
-    "href": "lectures/lecture_01_introduction.html#neo-institutionalism-brought-rules-back-in",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Neo-institutionalism brought rules back in",
-    "text": "Neo-institutionalism brought rules back in\nBehavioralism looked beyond formal rules; neo-institutionalism asked what had been lost.\n\n\nElectoral systems shape representation and party competition.\nExecutive design shapes coordination and deadlock.\nFederal arrangements distribute authority and conflict.\nCourts and constitutions structure enforcement and restraint.\n\n\n\n\nInstitutions matter because people can redesign rules more readily than they can redesign history, culture, or economic structure.\n\n\nSuggested time: 2.5 minutes. Stress that institutions interact with context; rules are malleable but never unconstrained.\n[Sources] - Ishiyama (2012), neo-institutional movement and constitutional design."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#the-field-comes-full-circle",
-    "href": "lectures/lecture_01_introduction.html#the-field-comes-full-circle",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "The field comes full circle",
-    "text": "The field comes full circle\nAncient question: What political arrangement supports a good and stable order?\nBehavioral correction: Explain politics empirically, beyond formal rules.\nNeo-institutional synthesis: Use comparative evidence to understand how rules shape outcomes in context.\n\n\nComparative politics becomes applicable again—but with greater methodological discipline.\n\n\nSuggested time: 1.5 minutes. This resolves the historical arc and returns to the course project.\n[Sources] - Ishiyama (2012), conclusion of “The Evolution of Comparative Politics.”"
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#context-before-design",
-    "href": "lectures/lecture_01_introduction.html#context-before-design",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Context before design",
-    "text": "Context before design\nIshiyama organizes the book in two stages:\n\n\nThe political “soil”\n\nHistorical development\nEconomy\nPolitical culture and identity\nSocial structure\nInternational environment\n\n\nInstitutional choices\n\nElectoral system\nExecutive and legislature\nCourts\nFederalism and local authority\nInteractions among the rules\n\n\n\nDesign cannot compensate automatically for hostile contextual conditions.\n\nSuggested time: 2 minutes. Explain why the course studies context before institutional options.\n[Sources] - Ishiyama (2012), “The Plan of this Book.”"
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#your-teams-comparative-logic",
-    "href": "lectures/lecture_01_introduction.html#your-teams-comparative-logic",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Your team’s comparative logic",
-    "text": "Your team’s comparative logic\nEvery team should eventually complete this sentence:\n\nBecause our focal country and shadow comparator are similar on [background conditions] but differ on [key factor or outcome], their comparison helps us evaluate the claim that [cause] conditions [outcome].\n\n\nThen add:\n\nThe comparison cannot rule out [rival explanation], so we will seek additional evidence from [source or case].\n\n\nSuggested time: 3 minutes. Give students 60 seconds to draft a version with one of the course pairings, then hear two examples.\n[Sources] - Instructor application of Ishiyama’s comparative-method framework."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#five-ideas-to-carry-forward",
-    "href": "lectures/lecture_01_introduction.html#five-ideas-to-carry-forward",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Five ideas to carry forward",
-    "text": "Five ideas to carry forward\n\nComparative politics is a subject and method.\nIts central challenge is many explanations, few cases.\nMSSD and MDSD create leverage through case selection.\nThe field repeatedly negotiates values, evidence, and application.\nInstitutional design works only when evaluated in context.\n\n\n\nThe standard for this course: make a clear claim, show comparative evidence, and state the limits of the inference.\n\n\nSuggested time: 2 minutes. Use as a retrieval check: hide the body and ask students to name the five ideas first.\n[Sources] - Ishiyama (2012), Introduction."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#exit-question",
-    "href": "lectures/lecture_01_introduction.html#exit-question",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Exit question",
-    "text": "Exit question\n\nWhat makes a comparison persuasive rather than merely interesting?\n\n\nSubmit three sentences:\n\none claim about a political outcome;\none case pairing that could evaluate it; and\none rival explanation the pairing cannot eliminate.\n\n\nSuggested time: 2 minutes. Collect in Teams or use as the bridge to the claim–evidence map assignment.\n[Sources] - Instructor synthesis based on Ishiyama (2012), Introduction."
-  },
-  {
-    "objectID": "lectures/lecture_01_introduction.html#chapter-source",
-    "href": "lectures/lecture_01_introduction.html#chapter-source",
-    "title": "PSCI 3350.001 Comparative Politics",
-    "section": "Chapter source",
-    "text": "Chapter source\nIshiyama, John T. 2012. Comparative Politics: Principles of Democracy and Democratization. Wiley-Blackwell. Introduction: “Comparative Politics and Democracy.”\n\nThis slide provides the student-facing source record for the lecture.\n[Sources] - Ishiyama (2012), Introduction."
   }
 ]
