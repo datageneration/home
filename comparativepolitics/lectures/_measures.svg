@@ -1,0 +1,35 @@
+<svg width="1000" height="392" viewBox="0 0 1000 392" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two datasets disagree about which transitions count">
+<style>
+.lb{font:600 14px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.05em}
+.hd{font:600 18px 'Trebuchet MS',sans-serif;fill:#1c1c1c}
+.tx{font:15px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:13px Palatino,Georgia,serif;fill:#5f6b6b}
+.big{font:600 30px 'Trebuchet MS',sans-serif;fill:#E87500}
+</style>
+
+<text class="hd" x="40" y="36">Cheibub et al. (2010)</text>
+<text class="tn" x="40" y="60">Minimalist and dichotomous: free elections plus turnover</text>
+<rect x="40" y="76" width="620" height="44" rx="5" style="fill:#e8efe9;stroke:#008542;stroke-width:1.5"/>
+<text class="tx" x="58" y="104">65 transitions identified</text>
+
+<text class="hd" x="40" y="168">Polity Project</text>
+<text class="tn" x="40" y="192">Continuous, −10 to +10: executive recruitment, constraints, participation</text>
+<rect x="40" y="208" width="344" height="44" rx="5" style="fill:#fdf4ec;stroke:#E87500;stroke-width:1.5"/>
+<text class="tx" x="58" y="236">agree on 55.4%</text>
+<rect x="392" y="208" width="268" height="44" rx="5" style="fill:#fff;stroke:#d8d8d0;stroke-width:1.5;stroke-dasharray:5 4"/>
+<text class="tn" x="410" y="236">the rest do not match</text>
+
+<line x1="40" y1="282" x2="960" y2="282" style="stroke:#d8d8d0;stroke-width:1.5"/>
+
+<text class="big" x="40" y="330">21 of 65</text>
+<text class="tx" x="220" y="322">of the transitions Cheibub counts score below 6 on Polity —</text>
+<text class="tx" x="220" y="348">closer to competitive authoritarianism than to democracy.</text>
+
+<rect x="700" y="76" width="260" height="176" rx="6" style="fill:#fdfdfb;stroke:#d8d8d0;stroke-width:1.5"/>
+<text class="lb" x="720" y="108">THE LESSON</text>
+<text class="tn" x="720" y="138">Two respected datasets.</text>
+<text class="tn" x="720" y="160">The same phenomenon.</text>
+<text class="tn" x="720" y="182">Barely half agreement.</text>
+<text class="tn" x="720" y="214">Name your measure,</text>
+<text class="tn" x="720" y="236">and say why.</text>
+</svg>

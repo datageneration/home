@@ -1,0 +1,48 @@
+<svg width="1000" height="430" viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What makes two cases comparable">
+<style>
+.hd{font:600 17px 'Trebuchet MS',sans-serif;fill:#1c1c1c}
+.lb{font:600 13px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.05em}
+.tx{font:14px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:13px Palatino,Georgia,serif;fill:#5f6b6b}
+</style>
+
+<text class="lb" x="40" y="34">HELD CONSTANT — the controls</text>
+<text class="hd" x="470" y="34">Case A</text>
+<text class="hd" x="700" y="34">Case B</text>
+
+<g>
+<text class="tx" x="40" y="80">Colonial inheritance</text>
+<rect x="440" y="62" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<rect x="670" y="62" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<text class="tn" x="880" y="80">same</text>
+
+<text class="tx" x="40" y="124">Level of development</text>
+<rect x="440" y="106" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<rect x="670" y="106" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<text class="tn" x="880" y="124">same</text>
+
+<text class="tx" x="40" y="168">Regime history</text>
+<rect x="440" y="150" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<rect x="670" y="150" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<text class="tn" x="880" y="168">same</text>
+
+<text class="tx" x="40" y="212">Region</text>
+<rect x="440" y="194" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<rect x="670" y="194" width="180" height="24" rx="4" style="fill:#e8efe9;stroke:#008542"/>
+<text class="tn" x="880" y="212">same</text>
+</g>
+
+<line x1="40" y1="240" x2="960" y2="240" style="stroke:#d8d8d0;stroke-width:1.5"/>
+
+<text class="lb" x="40" y="272" style="fill:#E87500">ALLOWED TO VARY — the suspected cause</text>
+<text class="tx" x="40" y="312">The institution under study</text>
+<rect x="440" y="294" width="180" height="24" rx="4" style="fill:#fdf4ec;stroke:#E87500;stroke-width:2"/>
+<rect x="670" y="294" width="180" height="24" rx="4" style="fill:#f7e3cf;stroke:#E87500;stroke-width:2"/>
+<text class="tn" x="880" y="312" style="fill:#E87500">differs</text>
+
+<text class="lb" x="40" y="356" style="fill:#E87500">THE OUTCOME</text>
+<text class="tx" x="40" y="396">What you are trying to explain</text>
+<rect x="440" y="378" width="180" height="24" rx="4" style="fill:#fdf4ec;stroke:#E87500;stroke-width:2"/>
+<rect x="670" y="378" width="180" height="24" rx="4" style="fill:#f7e3cf;stroke:#E87500;stroke-width:2"/>
+<text class="tn" x="880" y="396" style="fill:#E87500">differs</text>
+</svg>

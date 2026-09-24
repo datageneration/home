@@ -1,0 +1,56 @@
+<svg width="1000" height="452" viewBox="0 0 1000 452" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four methods arranged by number of cases">
+<style>
+.ttl{font:600 15px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.06em}
+.nm{font:600 20px 'Trebuchet MS',sans-serif;fill:#E87500}
+.tx{font:14px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:13px Palatino,Georgia,serif;fill:#5f6b6b}
+.bx{fill:#fff;stroke:#d8d8d0;stroke-width:1.5;rx:6}
+.ax{stroke:#5f6b6b;stroke-width:1.6;fill:none}
+</style>
+<text class="ttl" x="40" y="34">HOW CONTROL IS ACHIEVED</text>
+
+<rect class="bx" x="40" y="58" width="215" height="196"/>
+<text class="nm" x="58" y="92">Experimental</text>
+<text class="tx" x="58" y="122">Control by</text>
+<text class="tx" x="58" y="144">randomization</text>
+<text class="tn" x="58" y="180">Rarely available in</text>
+<text class="tn" x="58" y="200">political science —</text>
+<text class="tn" x="58" y="220">practical and ethical</text>
+<text class="tn" x="58" y="240">impediments</text>
+
+<rect class="bx" x="285" y="58" width="215" height="196"/>
+<text class="nm" x="303" y="92">Statistical</text>
+<text class="tx" x="303" y="122">Control by partial</text>
+<text class="tx" x="303" y="144">correlations</text>
+<text class="tn" x="303" y="180">An approximation of</text>
+<text class="tn" x="303" y="200">the experimental</text>
+<text class="tn" x="303" y="220">method — needs many</text>
+<text class="tn" x="303" y="240">cases to work</text>
+
+<rect class="bx" x="530" y="58" width="215" height="196" style="fill:#f3f7f4;stroke:#008542;stroke-width:2"/>
+<text class="nm" x="548" y="92" style="fill:#008542">Comparative</text>
+<text class="tx" x="548" y="122">Control by</text>
+<text class="tx" x="548" y="144">case selection</text>
+<text class="tn" x="548" y="180">Too few cases for</text>
+<text class="tn" x="548" y="200">partial correlations.</text>
+<text class="tn" x="548" y="220">"An imperfect</text>
+<text class="tn" x="548" y="240">substitute"</text>
+
+<rect class="bx" x="775" y="58" width="185" height="196"/>
+<text class="nm" x="793" y="92">Case study</text>
+<text class="tx" x="793" y="122">One case;</text>
+<text class="tx" x="793" y="144">no control</text>
+<text class="tn" x="793" y="180">Cannot on its own</text>
+<text class="tn" x="793" y="200">establish or disprove</text>
+<text class="tn" x="793" y="220">a generalization</text>
+
+<path class="ax" d="M40 300 H960"/>
+<path class="ax" d="M40 294 V306"/><path class="ax" d="M960 294 V306"/>
+<text class="ttl" x="40" y="330">MANY CASES</text>
+<text class="ttl" x="852" y="330">ONE CASE</text>
+
+<rect x="285" y="352" width="460" height="84" rx="6" style="fill:#fdf4ec;stroke:#E87500;stroke-width:1.5"/>
+<text class="tx" x="305" y="378">Lijphart: there is no clear dividing line between the</text>
+<text class="tx" x="305" y="400">statistical and comparative methods. The difference</text>
+<text class="tx" x="305" y="422" style="font-weight:bold">depends entirely on the number of cases.</text>
+</svg>
