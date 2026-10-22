@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1000 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four tests of evidence, after Bennett 2010 and Collier 2011">
+<style>
+.hd{font:600 15px 'Trebuchet MS',sans-serif;fill:#5f6b6b;letter-spacing:.06em}
+.nm{font:600 19px 'Trebuchet MS',sans-serif;fill:#E87500}
+.tx{font:14px Palatino,Georgia,serif;fill:#1c1c1c}
+.tn{font:13px Palatino,Georgia,serif;fill:#5f6b6b}
+.cell{fill:#fff;stroke:#d8d8d0;stroke-width:1.5;rx:6}
+</style>
+
+<text class="hd" x="300" y="34">SUFFICIENT for affirming the inference?</text>
+<text class="hd" x="330" y="60">NO</text>
+<text class="hd" x="700" y="60">YES</text>
+<text class="hd" x="18" y="200" transform="rotate(-90 18 200)">NECESSARY?   NO</text>
+<text class="hd" x="18" y="420" transform="rotate(-90 18 420)">NECESSARY?   YES</text>
+
+<rect class="cell" x="60" y="75" width="430" height="185"/>
+<text class="nm" x="80" y="108">1 · Straw-in-the-wind</text>
+<text class="tx" x="80" y="140">Pass → affirms relevance, does not confirm</text>
+<text class="tx" x="80" y="166">Fail → does not eliminate, slightly weakens</text>
+<text class="tn" x="80" y="204">The weakest evidence. Most of what students</text>
+<text class="tn" x="80" y="224">bring to Round 1 lives here — which is fine,</text>
+<text class="tn" x="80" y="244">so long as they say so.</text>
+
+<rect class="cell" x="520" y="75" width="430" height="185"/>
+<text class="nm" x="540" y="108">3 · Smoking gun</text>
+<text class="tx" x="540" y="140">Pass → <tspan font-weight="bold">confirms</tspan> the hypothesis</text>
+<text class="tx" x="540" y="166">Fail → does not eliminate, somewhat weakens</text>
+<text class="tn" x="540" y="204">Rare and powerful. Finding one is worth</text>
+<text class="tn" x="540" y="224">more than ten straws — but absence of a</text>
+<text class="tn" x="540" y="244">smoking gun proves very little.</text>
+
+<rect class="cell" x="60" y="280" width="430" height="185"/>
+<text class="nm" x="80" y="313">2 · Hoop</text>
+<text class="tx" x="80" y="345">Pass → affirms relevance, does not confirm</text>
+<text class="tx" x="80" y="371">Fail → <tspan font-weight="bold">eliminates</tspan> the hypothesis</text>
+<text class="tn" x="80" y="409">The workhorse of comparative politics.</text>
+<text class="tn" x="80" y="429">Your explanation must jump through the hoop;</text>
+<text class="tn" x="80" y="449">clearing it does not make it true.</text>
+
+<rect class="cell" x="520" y="280" width="430" height="185" style="fill:#f3f7f4;stroke:#008542"/>
+<text class="nm" x="540" y="313" fill="#008542">4 · Doubly decisive</text>
+<text class="tx" x="540" y="345">Pass → confirms, and eliminates rivals</text>
+<text class="tx" x="540" y="371">Fail → eliminates the hypothesis</text>
+<text class="tn" x="540" y="409">Almost never available in a small-N design.</text>
+<text class="tn" x="540" y="429">If you think you have one, you have probably</text>
+<text class="tn" x="540" y="449">misread the evidence.</text>
+</svg>
