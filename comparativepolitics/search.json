@@ -196,6 +196,300 @@
     "text": "Fall 2026\n    Comparative Politics\n    Craft guides for the work the course asks of you — presenting, arguing, and building a dossier.\n  \n  CP\n\n\n  How to\n  Practical guides for presentations, dossiers, and coursework.\n\n\n\n  \n    How to\n    \n      Presenting comparative politics\n      A six-minute team presentation model for comparative arguments, evidence, equitable speaking roles, legal-style advocacy, and constructive assigned and open-floor discussion.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    How to\n    \n      Building the claim-evidence map\n      Where the claim-evidence map comes from in Toulmin and the CER framework, why the comparative method needs it, the anatomy of one, the six moves that build it, a worked Kenya-Ghana example, and the four failures that separate a good map from a bad one.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n\n\n  Viewing tip: Use the arrow keys to move through a slide deck. The lower-left controls return to the lecture index or download the deck as a PDF."
   },
   {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#todays-puzzle",
+    "href": "lectures/lecture_09_judiciaries_territory.html#todays-puzzle",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s puzzle",
+    "text": "Today’s puzzle\n\nWho should restrain the centre — and how much power should unelected judges, or distant regions, be given to do it?\n\n\nChapter 8 divided power horizontally, between branches. Chapter 9 divides it two more ways: by review, and by territory.\n\n[Sources] - Ishiyama, Comparative Politics, Chapter 9.\nTwo halves, and they are genuinely separate topics joined by one question: what constrains a majority? Courts constrain it by law; federalism constrains it by geography.\nThe chapter is unusually honest that both answers are contested. There is “considerable debate over just how independent the courts should be relative to elected authorities, and whether an active court is a good thing.”"
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#learning-goals",
+    "href": "lectures/lecture_09_judiciaries_territory.html#learning-goals",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of class you should be able to:\n\nName Shapiro’s three functions of courts, and the three legal traditions\nDefine judicial review, and name two democracies that lack it\nDistinguish a posteriori from a priori review, and the all-courts from the constitutional-court model\nList the institutional features that make a court independent — and say why independence is not activism\nExplain the judicialization of politics\nDistinguish unitary, federal and confederal systems\nDistinguish congruent from incongruent federalism, and say what ethnofederalism is for"
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#part-1-courts",
+    "href": "lectures/lecture_09_judiciaries_territory.html#part-1-courts",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 1: Courts",
+    "text": "Part 1: Courts"
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#what-a-court-is-and-what-it-does",
+    "href": "lectures/lecture_09_judiciaries_territory.html#what-a-court-is-and-what-it-does",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What a court is, and what it does",
+    "text": "What a court is, and what it does\n\nBecker (1970): a body with power to decide a dispute, before whom parties present facts and cite “existent, expressed, primary normative principles (in statutes, constitutions, rules, previous cases)” — and which decides as an independent body.\n\n\nShapiro (1981) gives courts three functions in a democracy:\n\nConflict resolution\nSocial control\nLaw-making — filling gaps in statute by interpretation, and creating law and policy through rulings on constitutionality\n\n\n\n\nThat third one is the controversial one, and the rest of the chapter is about how much of it a democracy should permit."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#three-legal-traditions",
+    "href": "lectures/lecture_09_judiciaries_territory.html#three-legal-traditions",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Three legal traditions",
+    "text": "Three legal traditions\n\n\n\n\n\n\n\n\nCommon law\nBased on precedent — rulings follow principles set by previous cases. Judges have considerable flexibility in interpreting precedent, and so considerable autonomy\nAnglo-American nations\n\n\nCivil law\nRelies on specifically codified laws and written rules that guide judges, leaving relatively little latitude for interpretation\nContinental Europe, Latin America, much of the rest of the world\n\n\nReligious law\nRelies extensively on sacred texts to direct judges in their decisions\nSharia law in some Muslim states\n\n\n\n\n\nThe variable that matters for politics is latitude. Common law gives judges room to interpret; civil law constrains them with code — which is a different distribution of power between judges and legislators."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#judicial-review",
+    "href": "lectures/lecture_09_judiciaries_territory.html#judicial-review",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Judicial review",
+    "text": "Judicial review\n\nJudicial review is the ability of a court to overturn a piece of legislation, an act of the executive, or a lower court decision.\n\n\nMost countries have some form of it. Two notable exceptions: Great Britain and the Netherlands, where courts are not charged with reviewing the constitutionality of statutes.\n\n\nThe idea is old — constitutional review existed in France by the mid-thirteenth century, in Portugal in the seventeenth, in the Norwegian, Danish and Greek constitutions in the nineteenth, and the Austrian State Court gained the power in 1867.\n\n\n\nBut the defining moment was Marbury v. Madison (1803), in which the US Supreme Court asserted the power for itself."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#two-dimensions-of-review",
+    "href": "lectures/lecture_09_judiciaries_territory.html#two-dimensions-of-review",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Two dimensions of review",
+    "text": "Two dimensions of review\n\nBuilt from Ishiyama ch. 9, after Tate (1992) and Stone (1992)\n\n\n\n\n\n\n\n1\nA posteriori (concrete) — review only after a law takes effect, and only with a concrete case before the court\nUnited States, Japan, Denmark, Estonia, several African states\n\n\n\nA priori (abstract) — review before a law takes effect, without an actual case or controversy; the court may rule on principles not raised by any party\nAustria, Portugal, Spain, Germany, France, most of new Central and Eastern Europe — these systems usually do both\n\n\n2\nAll-courts model — higher and lower courts may declare a statute unconstitutional\nUnited States\n\n\n\nConstitutional-court (concentrated) model — one special court is charged with ruling on constitutionality\nMost of Europe\n\n\n\n\n\nPut the two together and you have the American and European models: concrete review in any court, against abstract review in one specialized court."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#what-makes-a-court-independent",
+    "href": "lectures/lecture_09_judiciaries_territory.html#what-makes-a-court-independent",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What makes a court independent",
+    "text": "What makes a court independent\nFour institutional features, from Smithey and Ishiyama (2000):\n\n\n\n\n\n\n\nLength of term\nLonger terms insulate judges from retaliation — but what matters is length relative to other actors. A term shorter than one parliamentary term lets a single parliament punish a judge by removal or non-renewal\n\n\nNumber of actors in appointment\nJudges selected through a process involving several political actors are more independent than judges all chosen by one\n\n\nControl of procedure\nA court that sets its own rules of proceeding is far more independent than one whose procedures are set elsewhere\n\n\nDifficulty of removal\nThe easier removal is, the less independent the judge. Constitutional vagueness favours independence, since judges can interpret vague provisions to their own benefit\n\n\n\n\n\nIndependence is not activism. Ginsburg (2003): in a court’s early years judges are less likely to rule against other political actors. Smithey and Ishiyama: in post-communist Europe, how independent a court was did not explain whether it exercised review.\n\n\nThat last finding is the one to dwell on, because it separates a design variable from a behavioural one. You can build an independent court and get a timid one. A Round 4 option that promises activism by granting independence has skipped a step."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#the-judicialization-of-politics",
+    "href": "lectures/lecture_09_judiciaries_territory.html#the-judicialization-of-politics",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The judicialization of politics",
+    "text": "The judicialization of politics\nCourts have increased their influence over policy and politics generally (Stone 1992; Tate and Vallinder 1995).\n\nAnticipation. Politicians adjust policy positions in advance to avoid nullification. Judges in some European constitutional courts “actually provide the draft statutory language that the judges say they would find constitutional”\nThe reference procedure. Referrals act as “a kind of jurisprudential transmission belt: the more petitions the court receives, the more opportunity they have to elaborate jurisprudential techniques of control”\nConstitutionalization. Rights claims become an effective avenue of social change, so parties, lawyers and citizen groups become “the political constituencies of the judges”\nSupport structure (Epp 1998). The financial resources and legal expertise that let litigants pursue claims they could not finance alone\nSupranational courts. The European Court of Justice, the European Court of Human Rights, the ICJ — their rulings now used as precedent in national constitutional courts"
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#part-2-territory",
+    "href": "lectures/lecture_09_judiciaries_territory.html#part-2-territory",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 2: Territory",
+    "text": "Part 2: Territory"
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#three-ways-to-divide-space",
+    "href": "lectures/lecture_09_judiciaries_territory.html#three-ways-to-divide-space",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Three ways to divide space",
+    "text": "Three ways to divide space\nThe vertical division of power — between central, regional and local authorities — is as important as the horizontal division between branches.\n\nBuilt from Ishiyama ch. 9, after Riker (1964) and Forsyth (1981)\n\n\n\n\n\n\n\nUnitary\nPowers concentrated centrally. Law-making, revenue and defence belong to the centre; any regional powers are delegated by it\nFrance, Japan, China. Most states in the world\n\n\nFederal\nShared rule. Riker: two levels rule the same land and people, each has at least one area where it is autonomous, and the autonomy of each is guaranteed\nUnited States, Canada, India, Belgium, Russia\n\n\nConfederal\nSubnational units are stronger than the centre, which cannot act without their consent. Decisions typically need unanimity, making each unit a veto player\nMostly historical: the Articles of Confederation, Switzerland 1291–1847, the CIS; arguably the EU\n\n\n\n\n\nConfederations are rare for a reason: they struggle when a weak centre cannot enforce law, raise resources, or adjudicate between regions — even at defence and foreign policy, the functions assigned to it."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#unitary-states-the-trade-off",
+    "href": "lectures/lecture_09_judiciaries_territory.html#unitary-states-the-trade-off",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Unitary states: the trade-off",
+    "text": "Unitary states: the trade-off\n\n\n\n\n\n\n\nAdvantages\nClarity in the lines of political accountability; greater policy coordination; equal treatment across the country through uniform law; the promotion of political unity against regional or ethnic difference\n\n\nDisadvantages\nDifficulty accommodating local difference — the sense that local interests are trampled by national ones — and excessive concentration of power in a bloated central bureaucracy\n\n\n\n\n\nWhich is a clean Round 4 trade-off: uniformity and accountability bought at the cost of accommodation."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#congruent-and-incongruent-federalism",
+    "href": "lectures/lecture_09_judiciaries_territory.html#congruent-and-incongruent-federalism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Congruent and incongruent federalism",
+    "text": "Congruent and incongruent federalism\nLijphart’s distinction: how far the regional units resemble the whole.\n\n\n\n\n\n\n\nCongruent\nEach sub-unit is a smaller replica of the whole. The classic case is the United States — each state culturally heterogeneous like the nation, with bicameral legislatures and mini-presidential systems led by governors\n\n\nIncongruent\nEach sub-unit is a distinct subsection of the whole — culturally homogeneous regions composing a heterogeneous country. Canada with francophone Quebec, India, Belgium with Flemish and Walloons\n\n\n\n\n\nLijphart saw advantages in incongruent federalism for divided societies: it secures representation and control for subgroups, and so can stabilize an otherwise volatile society.\n\n\nNote the older American distinction the chapter also gives — dual versus cooperative federalism — which concerns only how far power disperses from the centre. Lijphart’s cut is different and more useful comparatively, because it is about what kind of place each unit is."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#ethnofederalism",
+    "href": "lectures/lecture_09_judiciaries_territory.html#ethnofederalism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Ethnofederalism",
+    "text": "Ethnofederalism\nGiving the “nations” inside a state self-governance as regions — appealing in post-colonial contexts, and a form of incongruent federalism.\n\n\n\n\n\n\n\nEthiopia, 1991–95\nThe most extreme case. After communist rule collapsed, provinces were recombined into nine ethnic-based regional states plus two federal city-states, formalized in the 1995 constitution. Each region may set its own official language — Oromiya adopted its own and abandoned Amharic script for the Latin alphabet\n\n\nThe result\nAn asymmetric federation pairing populous Oromiya and Amhara with sparse, underdeveloped Gambella and Somali. Though the constitution vests residual powers in them, the regional states are in fact quite weak and subject to manipulation by the centre\n\n\nOthers\nBelgium, Bosnia-Herzegovina, and potentially Iraq, where federalism was adopted in 2005\n\n\n\n\n\nRussia’s republics are the comparable case — each headed by an elected president, each entitled to its own official language and constitution, rights other federal subjects lack. Secessionist movements arose in Chechnya, Bashkortostan, Tatarstan and Sakha; only in Chechnya did it turn violent."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#the-devolution-revolution",
+    "href": "lectures/lecture_09_judiciaries_territory.html#the-devolution-revolution",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The devolution revolution",
+    "text": "The devolution revolution\nMany unitary states have decentralized. Ishiyama gives four drivers:\n\nFiscal adaptation to the economic contractions from the 1970s — passing programmatic and bureaucratic burdens to regional government\nElectoral promises — opposition parties campaigning on dismantling the unitary state, as UK Labour did on Scottish and Welsh autonomy, and sometimes delivering\nPacifying regional nationalisms, as in Italy\nSupranational opportunity — the EU emboldening subnational movements to seek greater local autonomy\n\n\n\nThe UK is the headline case: historically unitary, but devolving since 1997 to Scotland, Wales and Northern Ireland — including the power to tax, in Scotland’s case."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#where-this-leaves-the-argument",
+    "href": "lectures/lecture_09_judiciaries_territory.html#where-this-leaves-the-argument",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Where this leaves the argument",
+    "text": "Where this leaves the argument\n\nJudiciaries are held out as the best check on the political excesses of other branches — but there remains considerable debate over how independent, and how active, an unelected branch should be.\n\n\n\nTerritorial dispersion protects regional and local interests against a political majority. But how far should decentralization go? Should subnational units be organized along ethnolinguistic lines, as in Ethiopia and potentially Iraq — or should more congruent forms be adopted to handle cultural pluralism?\n\n\n\nThese are questions every constitutional designer faces, alongside the electoral system and the structure of executive–legislative relations."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#todays-article-lijphart",
+    "href": "lectures/lecture_09_judiciaries_territory.html#todays-article-lijphart",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s article: Lijphart",
+    "text": "Today’s article: Lijphart\n“Constitutional Choices for New Democracies.” The same Lijphart from Session 1 and Chapter 4 — and this is where his project arrives.\n\nThe consensus/majoritarian distinction you met as a political culture in Chapter 4 is here an institutional menu\nHis recommendation for divided societies is consistent across all of it: PR, parliamentarism, and incongruent federalism\n\n\n\nRead it as the counterpart to Linz. Linz says what not to choose; Lijphart says what to choose instead."
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#for-your-dossier",
+    "href": "lectures/lecture_09_judiciaries_territory.html#for-your-dossier",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For your dossier",
+    "text": "For your dossier\n\nIf your option touches the courts, say which model you are moving toward — concrete or abstract, all-courts or concentrated\nRemember the Smithey and Ishiyama finding: granting independence does not buy you activism. Say which one your reform needs\nIf you propose decentralization, say whether the units are congruent or incongruent — and what that predicts for a divided society\nEthiopia is the cautionary case: constitutional residual powers meant little against a centre that could manipulate the regions"
+  },
+  {
+    "objectID": "lectures/lecture_09_judiciaries_territory.html#for-next-session",
+    "href": "lectures/lecture_09_judiciaries_territory.html#for-next-session",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For next session",
+    "text": "For next session\nSession 10 · November 12 — Who participates, and who is represented?\n\nIshiyama, Chapter 5, pp. 118–133\nClayton and Zetterberg, “Quota Shocks”\nGroup A · Round 5 presentations — the reform package\n\n\n\nThe institutional chapters are done. What remains is who all this machinery is for."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#todays-puzzle",
+    "href": "lectures/lecture_07_electoral_systems.html#todays-puzzle",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s puzzle",
+    "text": "Today’s puzzle\n\nHow do votes become seats and parties — and can you change a party system by changing a rule?\n\n\nSix chapters of background conditions end here. From now on the variables are things somebody chooses.\n\n[Sources] - Ishiyama, Comparative Politics, Chapter 7.\nIshiyama’s framing sentence is worth reading aloud: political democracy is “as much a product of human choices as it is a product of context.” Everything since Chapter 2 has been context. This is the first chapter about choice.\nKeep the dossier in view throughout. Round 4 asked for institutional options; this chapter is where most of them come from."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#learning-goals",
+    "href": "lectures/lecture_07_electoral_systems.html#learning-goals",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of class you should be able to:\n\nName the four choices that make up an electoral system\nDistinguish plurality, majority and proportional formulae\nDefine district magnitude and say why it matters\nExplain Duverger’s Law and its two effects\nSay what an electoral threshold does, and name a high and a low one\nDistinguish closed from open party lists, and additional-member from parallel mixed systems\nState the Lijphart–Horowitz disagreement about divided societies"
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#part-1-what-is-an-electoral-system",
+    "href": "lectures/lecture_07_electoral_systems.html#part-1-what-is-an-electoral-system",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 1: What is an electoral system?",
+    "text": "Part 1: What is an electoral system?"
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#who-is-elected-and-how",
+    "href": "lectures/lecture_07_electoral_systems.html#who-is-elected-and-how",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Who is elected, and how",
+    "text": "Who is elected, and how\n\nAn electoral system is the method by which voters make a choice between different options — a set of crucial choices about who is to be elected, and how.\n\n\nChief executives can be elected directly — France, Russia, Argentina — or indirectly, as in the US Electoral College, or by parliament, as in Germany and Italy.\n\n\n\nOne stated advantage of indirect election is to insulate the executive from a populist demagogue. The US framers in 1787 were suspicious of the general population’s ability to choose wisely and wanted an elite-level check on the mass electorate.\n\n\n[Sources] Ishiyama ch. 7, on direct and indirect election.\nLegislators too: before 1913 US Senators were chosen by state legislatures, and French Senators are still elected indirectly by roughly 150,000 local officials — a system that favours the more conservative rural areas.\nThe 2000 US election is the chapter’s illustration of an electoral college diverging from the popular vote."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#the-anatomy-of-an-electoral-system",
+    "href": "lectures/lecture_07_electoral_systems.html#the-anatomy-of-an-electoral-system",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The anatomy of an electoral system",
+    "text": "The anatomy of an electoral system\n\n\n\n\n\n\nFigure 1: An electoral system is four choices, not one. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 7, after Farrell (1997, 2001).\nLeave this up. Students arrive thinking “electoral system” means “PR or not,” and the four-part decomposition is what lets them talk about real designs. Every option a team proposes in Round 4 is a change to one of these four boxes.\nThresholds are the box most often forgotten and the easiest to change — which makes them the most practical reform lever on the slide."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#the-three-formulae",
+    "href": "lectures/lecture_07_electoral_systems.html#the-three-formulae",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The three formulae",
+    "text": "The three formulae\n\n\n\n\n\n\n\n\nPlurality (FPTP)\nThe candidate with the most votes wins — not necessarily a majority\nBritain and many former British colonies: the US, Canada, India, Kenya, Nigeria\n\n\nMajority\nWin outright with 50% + 1, or go to a run-off between the top two\nFrance, Russia, Poland, Argentina for the executive; France for the legislature\n\n\nProportional\nA party’s seat share reflects its strength in the electorate — 25% of votes, about 25% of seats\nMost of continental Europe\n\n\n\n\n\nUnder plurality a candidate can win with far less than a majority. Clinton took the 1992 presidency with about 43 per cent; Russian Duma candidates have won districts with as little as 19 per cent."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#district-magnitude",
+    "href": "lectures/lecture_07_electoral_systems.html#district-magnitude",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "District magnitude",
+    "text": "District magnitude\n\nDistrict magnitude is the number of members elected from any one constituency — and the basic divide is between single-member and multimember districts.\n\n\n\n\n\n\n\n\n\nSingle-member\nOften paired with plurality in former British colonies — the US, Britain, Canada, Ghana, India. France uses single-member districts with two rounds\n\n\nMultimember\nThe Netherlands treats the whole country as one district; Belgium has eleven; Ireland’s single transferable vote uses districts of 3–5 seats\n\n\n\n\n\n\nSartori extended Duverger by arguing that district magnitude is the best predictor of the effective number of parties in a district."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#the-case-for-single-member-districts",
+    "href": "lectures/lecture_07_electoral_systems.html#the-case-for-single-member-districts",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The case for single-member districts",
+    "text": "The case for single-member districts\n\nClarity of responsibility — citizens in each district can hold one representative accountable\nConstituency service — voters can call on a named person to address their concerns\nModeration — candidates maximizing votes gravitate to the ideological centre, toward Downs’s median voter\n\n\n\nSo such systems are often lauded as a hedge against extremism.\n\n\n\n\nThe objection: aggregating district winner-take-all contests into a national whole produces representational distortion. A party running a respectable second everywhere and winning nowhere takes no seats at all."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#ballots-and-thresholds",
+    "href": "lectures/lecture_07_electoral_systems.html#ballots-and-thresholds",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Ballots and thresholds",
+    "text": "Ballots and thresholds\n\n\n\n\n\n\n\nCategorical ballot\nA single either/or choice of one candidate or one party. The vote cannot be divided. The commoner form\n\n\nOrdinal ballot\nVoters rank their preferences. The single transferable vote — the Hare–Clark system in Australia, “choice voting” to American reformers — is used for parliaments in Ireland and Malta\n\n\n\n\n\nA threshold is the minimum vote share that qualifies a party for any representation. Israel 2 per cent · Germany and Belgium 5 per cent · Turkey 10 per cent.\n\n\n\n\nThresholds are an increasingly common way for PR systems to limit the entry of minor, and sometimes extremist, parties."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#lists-and-mixed-systems",
+    "href": "lectures/lecture_07_electoral_systems.html#lists-and-mixed-systems",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Lists and mixed systems",
+    "text": "Lists and mixed systems\n\n\n\n\n\n\nFigure 2: Three families, two kinds of list, and two kinds of mixed system. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 7; Lijphart (1994); Ishiyama (1997).\nThe closed/open distinction is about who controls the order, and therefore who controls careers. In a closed list the party decides; if a party wins 5 per cent, the top 5 per cent of the list is seated. That is enormous leverage over any member who wants to be re-elected.\nThe additional-member/parallel distinction is about whether the two halves of the ballot are linked. Germany links them, so the list vote determines the party’s overall total. Russia 1993–2007 did not, so district seats and list seats were simply added. Ishiyama’s own finding: mixed systems create two types of legislator and coordination problems inside parties."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#part-2-what-electoral-systems-do",
+    "href": "lectures/lecture_07_electoral_systems.html#part-2-what-electoral-systems-do",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 2: What electoral systems do",
+    "text": "Part 2: What electoral systems do"
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#duvergers-law",
+    "href": "lectures/lecture_07_electoral_systems.html#duvergers-law",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Duverger’s Law",
+    "text": "Duverger’s Law\n\n\n\n\n\n\nFigure 3: Two effects, one tendency. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 7; Duverger (1954); Sartori (1968); and the empirical line through Rae, Riker, Taagepera and Shugart, Lijphart and Cox.\nMake students say which effect is which. The mechanical effect is what the counting rules do to seats — it happens whether or not anyone notices. The psychological effect is what voters do once they have noticed. One is arithmetic, the other is behaviour, and the law needs both.\nThe UK 2005 figures are the cleanest illustration available: Liberal Democrats 22.1 per cent of votes and 9.6 per cent of seats, while Labour took 35.3 per cent of votes, 55.2 per cent of seats and 100 per cent of the Cabinet."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#what-pr-does-instead",
+    "href": "lectures/lecture_07_electoral_systems.html#what-pr-does-instead",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What PR does instead",
+    "text": "What PR does instead\nPR has no reductive effect on the number of parties, because there is little incentive to coalesce when small vote shares still yield seats.\n\n\nBut coalition formation becomes the problem. Belgium, 2007: a PR list system with a 5 per cent threshold returned eleven parties; the largest held 18 per cent of 150 seats. Negotiations ran 196 days to an interim caretaker government, and 79 more to a full one — which did not survive the year.\n\n\n\nAnd the standing objection to PR: an extremist party can win seats on a small vote share with no incentive to moderate. Detractors read the Weimar Republic this way — a low-threshold list system that let the National Socialists gain a toehold in 1928."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#turnout-and-voter-behaviour",
+    "href": "lectures/lecture_07_electoral_systems.html#turnout-and-voter-behaviour",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Turnout and voter behaviour",
+    "text": "Turnout and voter behaviour\n\n\n\n\n\n\n\nUnder plurality\nStrategic voting — voters back their second or third choice to block their least preferred. “Voting against” makes electorates susceptible to negative campaigning\n\n\n\nLijphart: majoritarian systems dilute turnout, because minor-party supporters conclude their ballot changes nothing and stop voting\n\n\nUnder PR\nLarge district magnitude and low thresholds let voters express their real preference, so efficacy and turnout rise\n\n\n\nNorris: participation is maximized “in elections using PR, with small electoral districts, regular but relatively infrequent national contests, and competitive party systems”\n\n\n\n\n\nLijphart’s 36-country study also finds satisfaction highest in proportional systems — Ireland’s STV highest of all — and lowest in FPTP systems like the US and UK."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#divided-societies-two-prescriptions",
+    "href": "lectures/lecture_07_electoral_systems.html#divided-societies-two-prescriptions",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Divided societies: two prescriptions",
+    "text": "Divided societies: two prescriptions\n\n\n\n\n\n\nFigure 4: The disagreement that matters most for new democracies. Click to enlarge.\n\n\n\n\n[Sources] Ishiyama ch. 7; Lijphart (1974); Horowitz (1985, 1991, 1993); Fraenkel and Grofman (2004, 2006).\nThis is the slide to connect to Chapter 4. Lijphart’s case is the consociational one students met there. Horowitz’s objection is also from Chapter 4 — ethnic parties and outbidding — and his remedy is procedural rather than representational.\nHorowitz’s mechanism in one sentence: “The purpose of incentives is to create floating voters at some level of preference.” A radical party can lead on first preferences and still lose on transfers.\nHe grants the hard part himself — in divided societies “voters will generally not cross ethnic lines” — and rests the argument on lower-order preferences rather than first ones."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#who-else-gets-represented",
+    "href": "lectures/lecture_07_electoral_systems.html#who-else-gets-represented",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Who else gets represented",
+    "text": "Who else gets represented\nElectoral systems also shape the political opportunities of women and minorities (Rule and Zimmerman 1994).\n\n\nThe countries that consistently top the rankings for women’s parliamentary representation — Sweden, Iceland, Finland, the Netherlands — all use PR with relatively low thresholds.\n\n\n\nAdvocates add the inclusion argument: bringing even extreme parties and their voters inside gives them a stake in maintaining the system, which should moderate them.\n\nTie this to Chapter 5 and the Clayton and Zetterberg reading on quotas. Electoral system and quota are two different levers on the same outcome, and a Round 4 team may need to say which one it is pulling."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#engineering-and-its-limits",
+    "href": "lectures/lecture_07_electoral_systems.html#engineering-and-its-limits",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Engineering, and its limits",
+    "text": "Engineering, and its limits\nCan you build democracy by designing rules? Norris names two traditions that answer differently.\n\n\n\n\n\n\n\nRational choice institutionalism\nActors respond to the incentives generated by magnitudes, thresholds and ballots. So changing the rules “should have the capacity to generate important consequences”\n\n\nCultural modernization\nCultural habits constrain how far rules can alter behaviour — which is why wholesale transplants into culturally divided countries often fail\n\n\n\n\n\nTwo recent designs built on cross-national lessons: Iraq 2005 — PR list for 230 of 275 seats across 18 governorates, 45 compensatory seats at a 5 per cent national threshold, and a requirement that at least 25 per cent of members be women. Afghanistan 2005 — the single non-transferable vote in 34 multimember constituencies, with parties not recognized by the governing law."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#part-3-changing-the-rules",
+    "href": "lectures/lecture_07_electoral_systems.html#part-3-changing-the-rules",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 3: Changing the rules",
+    "text": "Part 3: Changing the rules"
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#three-countries-that-rewrote-the-rules",
+    "href": "lectures/lecture_07_electoral_systems.html#three-countries-that-rewrote-the-rules",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Three countries that rewrote the rules",
+    "text": "Three countries that rewrote the rules\n\n\n\n\n\n\n\nFrance, 1958 →\nThe Fifth Republic replaced the Fourth’s list PR with single-member districts and two rounds, to end weak collapsing coalitions. Mitterrand’s Socialists switched to PR in 1986 hoping to split the right — the National Front won 9.6 per cent and 35 seats. The system was switched back; the Front won 9.7 per cent and one seat\n\n\nJapan, 1994\nThe single non-transferable vote was scrapped for a parallel mixed system — 300 single-member district seats and 200 PR list seats — to craft competitive two-party, issue-oriented politics\n\n\nNew Zealand, 1993\nA referendum replaced FPTP with a German-style mixed system: 70 of 120 seats by district, 50 allocated for proportionality. Two dominant parties became seven winning seats consistently\n\n\n\n\n\nThe French episode is the cleanest natural experiment in the chapter: same party, same country, two rules, two results — and the governing party did not get what it wanted either time."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#where-this-leaves-the-argument",
+    "href": "lectures/lecture_07_electoral_systems.html#where-this-leaves-the-argument",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Where this leaves the argument",
+    "text": "Where this leaves the argument\n\nElectoral system design is “one of the clearest areas where political science scholarship can have practical effects” — changing the rules can alter participation and satisfaction, change the fit between preferences and policy, and reshape system stability.\n\n\nBut Ishiyama’s warning is the one to carry into Round 4: Western experience cannot be casually transported to new democracies without accounting for a country’s social, economic, cultural and political constraints.\n\n\n\nWhich is the Chapter 6 lesson again — availability is not only about adoption, but about whether the mechanism travels."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#todays-article-bormann-and-golder",
+    "href": "lectures/lecture_07_electoral_systems.html#todays-article-bormann-and-golder",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s article: Bormann and Golder",
+    "text": "Today’s article: Bormann and Golder\n“Democratic Electoral Systems around the World, 1946–2020.”\n\nA dataset, not an argument — it codes the electoral system of every democratic legislative and presidential election in the period\nThe categories are the ones on today’s anatomy slide: formula, district magnitude, tiers, thresholds\n\n\n\nRead it as the measurement paper for this chapter. When your team claims a country “has PR,” this is where you check what that actually means — and where you discover how many systems resist the three-family typology.\n\n\nWorth making the methodological point explicitly, since it recurs all term: a typology that is clean on a lecture slide gets messy when someone codes every case in the world. That is not a failure of the typology; it is what coding is for."
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#for-your-dossier",
+    "href": "lectures/lecture_07_electoral_systems.html#for-your-dossier",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For your dossier",
+    "text": "For your dossier\nRound 4 asked for three institutional options. This chapter is the largest single source of them.\n\nName which of the four choices your option changes — formula, magnitude, ballot, threshold. “Adopt PR” is not yet an option\nIf your focal country is divided, say whether you are taking Lijphart’s route or Horowitz’s, and why\nCheck your country’s system against Bormann and Golder before describing it\nEvery rule change has a predicted effect and an observed one. France 1986 is the warning"
+  },
+  {
+    "objectID": "lectures/lecture_07_electoral_systems.html#for-next-session",
+    "href": "lectures/lecture_07_electoral_systems.html#for-next-session",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For next session",
+    "text": "For next session\nSession 8 · October 29 — Which form of government fits which context?\n\nIshiyama, Chapter 8, pp. 177–199\nLinz, “The Perils of Presidentialism”\nGroup A · Round 4 presentations\n\n\n\nChapter 7 chose how votes become seats. Chapter 8 asks who the seats answer to."
+  },
+  {
     "objectID": "lectures/lecture_05_social_structure.html#todays-puzzle",
     "href": "lectures/lecture_05_social_structure.html#todays-puzzle",
     "title": "PSCI 3350.001 Comparative Politics",
@@ -1096,7 +1390,7 @@
     "href": "index.html",
     "title": "Lecture Notes",
     "section": "",
-    "text": "Fall 2026\n    Comparative Politics\n    Open the lecture slides or download a PDF copy for reading and annotation.\n  \n  CP\n\n\n  Lectures\n  New sessions will appear here as they are published.\n\n\n\n  \n    01\n    \n      What does comparison explain?\n      Comparative politics as a subject and a method, including the many-variables, few-cases problem and comparative research designs.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    02\n    \n      Democracy, democratization, and comparative history\n      Ishiyama's historical explanation of democratization, six country trajectories, Lijphart's framework for evaluating small-N comparisons, and Haggard and Kaufman on the Third Wave and the limits of general theory.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    03\n    \n      Economics and political development\n      Modernization theory, dependency theory, and statism — three incompatible accounts of how economic change and political change are related — together with Przeworski and Limongi's test of modernization theory and the prior question of state capacity in Tilly and Fukuyama.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    04\n    \n      Political culture and ethnopolitics\n      Almond and Verba's political culture types, the three criticisms and Inglehart's post-materialist renaissance, primordial and constructivist accounts of ethnicity, Greenfeld's typology of nationalism, and the fractionalization-versus-polarization debate over diversity and democracy.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    05\n    \n      Social structure and politics\n      Pluralism and cross-cutting cleavages, the two-sided argument about feudalism and Moore's resolution, Dahl on inequality and dictatorship, civil society from Aristotle to Putnam, Almond's interest-group typology, social capital and its decline, and the critiques of the civil-society-democracy nexus.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    06\n    \n      Democratization and the global environment\n      Huntington's waves of democratization and the causes of the third wave, the three routes out of authoritarian rule, regime-legacy typologies from Kitschelt and from Bratton and Van de Walle, the clash-of-civilizations thesis and hybrid regimes, colonial legacies, globalization, and imposed democracy.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n\n\n  Viewing tip: Use the arrow keys to move through a slide deck. The lower-left controls return to this index or download the lecture as a PDF."
+    "text": "Fall 2026\n    Comparative Politics\n    Open the lecture slides or download a PDF copy for reading and annotation.\n  \n  CP\n\n\n  Lectures\n  New sessions will appear here as they are published.\n\n\n\n  \n    01\n    \n      What does comparison explain?\n      Comparative politics as a subject and a method, including the many-variables, few-cases problem and comparative research designs.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    02\n    \n      Democracy, democratization, and comparative history\n      Ishiyama's historical explanation of democratization, six country trajectories, Lijphart's framework for evaluating small-N comparisons, and Haggard and Kaufman on the Third Wave and the limits of general theory.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    03\n    \n      Economics and political development\n      Modernization theory, dependency theory, and statism — three incompatible accounts of how economic change and political change are related — together with Przeworski and Limongi's test of modernization theory and the prior question of state capacity in Tilly and Fukuyama.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    04\n    \n      Political culture and ethnopolitics\n      Almond and Verba's political culture types, the three criticisms and Inglehart's post-materialist renaissance, primordial and constructivist accounts of ethnicity, Greenfeld's typology of nationalism, and the fractionalization-versus-polarization debate over diversity and democracy.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    05\n    \n      Social structure and politics\n      Pluralism and cross-cutting cleavages, the two-sided argument about feudalism and Moore's resolution, Dahl on inequality and dictatorship, civil society from Aristotle to Putnam, Almond's interest-group typology, social capital and its decline, and the critiques of the civil-society-democracy nexus.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    06\n    \n      Democratization and the global environment\n      Huntington's waves of democratization and the causes of the third wave, the three routes out of authoritarian rule, regime-legacy typologies from Kitschelt and from Bratton and Van de Walle, the clash-of-civilizations thesis and hybrid regimes, colonial legacies, globalization, and imposed democracy.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    07\n    \n      Electoral systems\n      The four choices that make up an electoral system, the three formulae, district magnitude and thresholds, Duverger's Law and its mechanical and psychological effects, closed and open lists, mixed systems, and the Lijphart-Horowitz disagreement over divided societies.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    08\n    \n      Legislatures and executives\n      Presidentialism and its five features, superpresidentialism, parliamentary government formation and the confidence vote, semi-presidentialism and cohabitation, Linz's four perils and the three rebuttals, Sartori on prime ministers, and the US and UK committee systems.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    09\n    \n      Judiciaries and the territorial state\n      Shapiro on the functions of courts, the three legal traditions, a priori and a posteriori judicial review, the American and European models, what makes a court independent, the judicialization of politics, and unitary, federal and confederal arrangements including ethnofederalism.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n  \n    10\n    \n      Principles in application\n      The contextual factors summarized in Table 10.1, the advantages and disadvantages of electoral systems in Table 10.2, and the Afghan case - context, institutional choices, and why design may matter less than the realities on the ground.\n      \n        Open slides\n        Download PDF\n      \n    \n  \n\n\n  Viewing tip: Use the arrow keys to move through a slide deck. The lower-left controls return to this index or download the lecture as a PDF."
   },
   {
     "objectID": "lectures/lecture_02_democratization_history.html#todays-puzzle",
@@ -2245,6 +2539,293 @@
     "title": "PSCI 3350.001 Comparative Politics",
     "section": "For next session",
     "text": "For next session\nSession 7 · October 22 — How do votes become seats and parties?\n\nIshiyama, Chapter 7, pp. 157–176\nBormann and Golder, “Democratic Electoral Systems around the World, 1946–2020”\nQuiz 4 at the start of the meeting\nGroup B · Round 3 presentations\n\n\n\nSix chapters of background conditions end here. Chapter 7 begins the part of the course where the variables are things somebody chooses."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#todays-puzzle",
+    "href": "lectures/lecture_08_legislatures_executives.html#todays-puzzle",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s puzzle",
+    "text": "Today’s puzzle\n\nWhich form of government fits which context — and is presidentialism actually dangerous for a new democracy?\n\n\nChapter 7 decided how votes become seats. Chapter 8 decides what the seats control, and whether the executive answers to them at all.\n\n[Sources] - Ishiyama, Comparative Politics, Chapter 8.\nIshiyama notes the evidence that the choice affects outcomes as far afield as public spending and trade policy, not only stability. The chapter has two halves: the presidential/parliamentary choice and the Linz debate; then the internal organization of cabinets and legislatures.\nToday’s article is Linz himself, so the second half of the lecture is the textbook arguing with the reading."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#learning-goals",
+    "href": "lectures/lecture_08_legislatures_executives.html#learning-goals",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of class you should be able to:\n\nName the defining features of a presidential system, and say why having a president is not enough\nDescribe cabinet formation and the confidence vote in a parliamentary system\nExplain what a constructive vote of confidence adds\nDescribe semi-presidentialism and cohabitation, and what makes a superpresidency\nState Linz’s four perils, and the three main rebuttals\nPlace a prime minister on Sartori’s three-way scale\nContrast the US and UK committee systems"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#part-1-presidentialism",
+    "href": "lectures/lecture_08_legislatures_executives.html#part-1-presidentialism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 1: Presidentialism",
+    "text": "Part 1: Presidentialism"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#having-a-president-is-not-enough",
+    "href": "lectures/lecture_08_legislatures_executives.html#having-a-president-is-not-enough",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Having a president is not enough",
+    "text": "Having a president is not enough\n\nA presidential system has a directly elected executive who represents the whole country and whose tenure does not depend on legislative support.\n\n\nGermany, Hungary and India all have presidents. They are largely ceremonial heads of state — much like the monarch in the United Kingdom, the Netherlands or Japan.\n\n\n\nSo the test is not the title. It is whether the executive survives without the legislature’s confidence."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#five-features",
+    "href": "lectures/lecture_08_legislatures_executives.html#five-features",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Five features",
+    "text": "Five features\n\n\n\n\n\n\n\nSeparation of powers\nExecutive administers, legislature writes, judiciary reviews. In parliamentary systems the first two are fused\n\n\nDirect election\nBy plurality in much of Latin America, Asia and Africa; by two-round majority in France and Poland; indirectly through an electoral college in the United States\n\n\nFixed terms\nUsually four to five years; France’s was seven. Removal normally only by impeachment — Clinton and Yeltsin both survived theirs\n\n\nOwn cabinet\nThe president appoints it, sometimes with upper-house confirmation; ministers advise and serve at the president’s pleasure\n\n\nLaw-making authority\nExecutive orders in the US; in Russia and Ukraine, powers that rival the legislature’s\n\n\n\n\n\nA president “can be eternally at odds with legislators and not jeopardize his or her own political survival.”"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#superpresidentialism",
+    "href": "lectures/lecture_08_legislatures_executives.html#superpresidentialism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Superpresidentialism",
+    "text": "Superpresidentialism\nSteven Fish (2000) on Russia and Ukraine — a regime type, not just a strong presidency:\n\nAn executive apparatus that dwarfs all other agencies in size and resources\nA president who enjoys decree powers\nA president who controls most of the powers of the purse\nA toothless legislature that cannot repeal presidential decrees and has scant capacity to monitor\nProvisions that make impeachment virtually impossible\nA court system controlled by the chief executive\n\n\n\nIt is not autocracy. The chief executive does not enjoy total power and is subject to bona fide, periodic challenge in national elections."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#part-2-parliamentarism",
+    "href": "lectures/lecture_08_legislatures_executives.html#part-2-parliamentarism",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 2: Parliamentarism",
+    "text": "Part 2: Parliamentarism"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#the-westminster-model",
+    "href": "lectures/lecture_08_legislatures_executives.html#the-westminster-model",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The Westminster model",
+    "text": "The Westminster model\nParliamentary systems outnumber presidential ones in the world.\n\n\n\n\n\n\n\nSplit roles\nHead of state is largely ceremonial — the Crown in the UK — while the prime minister is head of government\n\n\nFusion\nThe head of government’s authority depends on maintaining support in the legislature; executive and legislature are fused rather than separated\n\n\nNo fixed term\nA government can fail at any time. Terms are often cut short — sometimes by the government itself, seeking elections while approval is high\n\n\nParty discipline\nEssential. A party that cannot deliver its members as a bloc is not an attractive coalition partner\n\n\n\n\n[Sources] Ishiyama ch. 8.\nOn early elections, the chapter reports a nice strategic result (Smith 2003): leaders hold early elections when they anticipate strife or turmoil, because better information lets them lock in a term before conditions worsen — and voters, catching on, sometimes punish parties for going early."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#forming-a-government",
+    "href": "lectures/lecture_08_legislatures_executives.html#forming-a-government",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Forming a government",
+    "text": "Forming a government\n\nThe general election allocates seats to parties\nA party with a clear majority simply selects the prime minister, cabinet and legislative leadership\nWith no majority, the largest party — the formateur — seeks partners, negotiates, and divides ministerial portfolios\nWhere no coalition can be built, a minority government may form — Canada’s Conservatives governed with the acquiescence of parties that would not join, and so would not be blamed\n\n\n\nThe government ends when it loses a vote of confidence, initiated by the government, or a vote of no confidence, called by the opposition. Then a new coalition is assembled, or an election is held."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#the-constructive-vote-of-confidence",
+    "href": "lectures/lecture_08_legislatures_executives.html#the-constructive-vote-of-confidence",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The constructive vote of confidence",
+    "text": "The constructive vote of confidence\n\nIn Germany and Hungary, the legislature must agree on a replacement government before it can dissolve the current one.\n\n\nThe purpose is a stable transition of power rather than continual instability from repeated no-confidence votes.\n\n\n\nThis is also why the shadow cabinet matters more in such systems: the opposition must be able to show a ready-made government if the vote succeeds.\n\n\nA good one-line design lesson: the constructive variant does not make governments harder to criticize, it makes them harder to remove without an alternative. That is a different thing, and it is a model of how a small procedural change alters a large political incentive."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#part-3-hybrids",
+    "href": "lectures/lecture_08_legislatures_executives.html#part-3-hybrids",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 3: Hybrids",
+    "text": "Part 3: Hybrids"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#semi-presidential-systems",
+    "href": "lectures/lecture_08_legislatures_executives.html#semi-presidential-systems",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Semi-presidential systems",
+    "text": "Semi-presidential systems\nHybrid regimes combine elements of both, and usually arise from a crisis — France — or from an authoritarian legacy of strong executives — Russia.\nThe French Fifth Republic appended a strengthened presidency to a parliamentary system. The president:\n\nIs head of state, and commander-in-chief\nMay make law by decree, and refer laws to the Constitutional Council before promulgation\nMay dissolve the National Assembly and call elections\nMay refer treaties or some laws to referendum, with the prime minister’s or parliament’s agreement\nNames the prime minister — who is confirmed by the legislature and cannot be dismissed by the president\nNames some members of the Constitutional Council\nHas all decisions countersigned by the prime minister"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#cohabitation",
+    "href": "lectures/lecture_08_legislatures_executives.html#cohabitation",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Cohabitation",
+    "text": "Cohabitation\n\nWhen president and parliamentary majority share a party, the prime minister is “second” to the president, who dominates domestic policy.\n\n\n\nWhen they do not, cohabitation divides the labour: the prime minister leads the government and handles domestic policy, the president handles foreign affairs — and retains the veto.\n\n\n\nRussia looks like France on paper — direct presidential election, a prime minister and cabinet answerable to both president and parliament.\n\n\n\nIn practice the prime minister answers to the president, and the Russian president holds executive, legislative and even judicial powers — first jurisdiction in disputes between regions, and first determination on whether a regional law is constitutional. In reality a superpresidential system."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#part-4-does-presidentialism-endanger-democracy",
+    "href": "lectures/lecture_08_legislatures_executives.html#part-4-does-presidentialism-endanger-democracy",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 4: Does presidentialism endanger democracy?",
+    "text": "Part 4: Does presidentialism endanger democracy?"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#the-case-for-each",
+    "href": "lectures/lecture_08_legislatures_executives.html#the-case-for-each",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The case for each",
+    "text": "The case for each\n\n\n\n\n\n\n\n\n\nPresidentialism offers\nParliamentarism offers\n\n\n\n\n\nEfficiency — voters know before casting a ballot what the government will look like, rather than learning after the deals are done\nAccountability — no scapegoating the legislature, because executive and legislature are fused\n\n\n\nNational constituency — a candidate must appeal beyond narrow interests, which is an incentive to moderate\nRemoval at any time by a no-confidence vote, rather than waiting out a fixed term\n\n\n\nSeparation of powers — multiple points of influence, divided government, a hedge against tyranny\nInterpellation — ministers must appear before the legislature and answer questions, allowing continuous monitoring\n\n\n\n\nStronger parties — coalition politics rewards organizational discipline\n\n\n\n\n\nAnd the mirror: strong presidencies are held to chill party development, because concentrating authority in one person makes politics personal and gives actors little reason to invest in parties (Mainwaring; Fish; Hale)."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#linzs-four-perils",
+    "href": "lectures/lecture_08_legislatures_executives.html#linzs-four-perils",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Linz’s four perils",
+    "text": "Linz’s four perils\n\n\n\n\n\n\n\n1\nCompeting legitimacies. President and assembly are both popularly elected, and “no democratic principle exists to resolve disputes between the executive and the legislature about which of the two actually represents the will of the people”\n\n\n2\nRigidity of the fixed term. A bad president cannot easily be removed, and a good one cannot be extended — which breeds an “exaggerated sense of urgency,” ill-conceived initiatives and anger at the lawful opposition\n\n\n3\nZero-sum stakes. Winner-take-all elections plus a fixed term mean “the losers must wait at least four or five years without any access to executive power and patronage”\n\n\n4\nThe style of presidential politics. Head of state and head of government in one person personalizes politics and raises the pressure toward dictatorship\n\n\n\n\n\nLinz’s opening observation: few stable democracies are presidential, and “the superior historical performance of parliamentary democracies is no accident.”\n\n\n[Sources] Ishiyama ch. 8; Linz (1990, pp. 52, 56, 63, 66).\nAngola 1994 is the chapter’s illustration of peril 3. Savimbi lost the presidential election, declared it fraudulent, and returned to the bush to relaunch the civil war. In a consolidated democracy the loser waits; where future elections are uncertain, waiting is not obviously rational."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#three-rebuttals",
+    "href": "lectures/lecture_08_legislatures_executives.html#three-rebuttals",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Three rebuttals",
+    "text": "Three rebuttals\n\n\n\n\n\n\n\nHorowitz (1990)\nThe thesis was accepted with little evidence. Linz generalizes from Latin America and neglects stable presidencies elsewhere and unstable parliamentary systems in Thailand, Malaysia and 1960s Nigeria. The problems blamed on presidentialism are really the effects of FPTP rules. And the benefits of presidentialism go unweighed\n\n\nPower and Gasiorowski (1997)\nStepan and Skach (1993) found support for Linz — but their parliamentary cases were mostly European and their presidential cases mostly Latin American, a sampling bias. In a more representative sample of 50 developing countries, no real relationship\n\n\nCheibub (2007)\nIt is not presidentialism that is dangerous but the background conditions. Whether a military regime previously existed matters far more — which also explains the Latin American pattern\n\n\n\n\n\nIshiyama and Velten (1998), across 27 post-communist states, support Horowitz: the electoral system, not presidentialism, did the explaining.\n\n\nThis is the methodological heart of the chapter, and it repeats a move students have now seen three times — in Przeworski and Limongi, in the fractionalization debate, and here. A correlation survives until someone measures the rival properly.\nName the specific failure: Stepan and Skach’s sample confounds regime type with region and with prior military rule. Cheibub’s answer is to measure the confounder directly."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#part-5-inside-the-branches",
+    "href": "lectures/lecture_08_legislatures_executives.html#part-5-inside-the-branches",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 5: Inside the branches",
+    "text": "Part 5: Inside the branches"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#how-powerful-is-a-prime-minister",
+    "href": "lectures/lecture_08_legislatures_executives.html#how-powerful-is-a-prime-minister",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "How powerful is a prime minister?",
+    "text": "How powerful is a prime minister?\nSartori places prime ministers on a three-point scale.\n\n\n\n\n\n\n\n\nFirst above unequals\nThe strongest\nGermany, Greece, the United Kingdom\n\n\nFirst among unequals\nIntermediate\n—\n\n\nFirst among equals\nThe weakest\nItaly, the Netherlands, Norway\n\n\n\n\n\nWhat researchers actually measure: authority over fellow ministers, the ability to navigate the policy process, and the power to appoint and remove members of the executive.\n\n\n[Sources] Ishiyama ch. 8; Sartori (1994); King (1994); Lijphart (1999).\nThe contrast with a president is the point. A prime minister in a coalition must persuade ministers who are not from their party, and cabinet decides collectively by vote. A president’s cabinet advises and serves at pleasure."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#cabinets-compared",
+    "href": "lectures/lecture_08_legislatures_executives.html#cabinets-compared",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Cabinets compared",
+    "text": "Cabinets compared\n\n\n\n\n\n\n\n\n\nParliamentary\nPresidential\n\n\n\n\nWho they are\nSitting members of parliament, who remain legislators while serving\nAppointees — “Secretaries” in the US and the Philippines\n\n\nStanding\nIndependent standing; in coalitions, from different parties, with portfolios negotiated in the coalition agreement\nNo status independent of the president; part of the executive branch\n\n\nHow decisions are made\nInternal debate, then a collective secret vote, usually by simple majority — after which the cabinet presents a unified front\nTheoretically they execute rather than make policy, though in practice they shape it\n\n\nSize\nUsually 10–20 ministers; Kenya’s has exceeded 50\nVaries"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#two-legislatures-two-committee-systems",
+    "href": "lectures/lecture_08_legislatures_executives.html#two-legislatures-two-committee-systems",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Two legislatures, two committee systems",
+    "text": "Two legislatures, two committee systems\n\nThe key difference between the US Congress and the British Parliament is the role committees play in making law.\n\n\n\n\n\n\n\n\n\nUnited States\nCommittees and subcommittees are extremely powerful and can alter or block legislation before it ever reaches the floor. A subcommittee that ignores a bill kills it\n\n\nUnited Kingdom\nA dense network of select committees — overseeing departments, examining issues, advising on procedure — but they cannot block legislation. As permanent structures they are recent, adopted only in 1979–80\n\n\n\n\n\n\nThe US route: sponsor → committee → subcommittee → hearings → mark-up → full committee → floor → the other chamber → conference committee if versions differ → appropriations → signature. Every arrow is a place the bill can die."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#where-this-leaves-the-argument",
+    "href": "lectures/lecture_08_legislatures_executives.html#where-this-leaves-the-argument",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Where this leaves the argument",
+    "text": "Where this leaves the argument\n\nBoth forms have real advantages, which is why hybrid systems are attractive to constitutional engineers — France and Russia both tried to combine them.\n\n\n\nLinz’s thesis remains popular and remains contested\nThe empirical record is mixed, and the better-specified studies find the effect in electoral rules and prior regime type rather than in presidentialism itself\nThe live test cases are parliamentarism in Iraq and presidentialism in Afghanistan, where conditions are not conducive to either"
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#todays-article-linz",
+    "href": "lectures/lecture_08_legislatures_executives.html#todays-article-linz",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s article: Linz",
+    "text": "Today’s article: Linz\n“The Perils of Presidentialism.” You have the textbook’s summary; read the original for what summaries lose.\n\nLinz is arguing about new democracies, not consolidated ones. The US works, and he says so — the question is whether it transfers\nThe four perils are not independent. Peril 3 is dangerous because of peril 2: zero-sum stakes compound rigidity\n\n\n\nRead it alongside the rebuttals and ask the Round 3 question: what evidence would have made you keep the rival? Cheibub thinks he has it."
+  },
+  {
+    "objectID": "lectures/lecture_08_legislatures_executives.html#for-your-dossier",
+    "href": "lectures/lecture_08_legislatures_executives.html#for-your-dossier",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For your dossier",
+    "text": "For your dossier\n\nIf your option changes the executive format, say which of Linz’s four perils it addresses — and which it does not\nWhere your country has a president, check whether it is presidential, semi-presidential, or superpresidential. The label on the constitution is not the answer\nA constructive vote of confidence is a small, adoptable change with a large incentive effect — worth considering before redesigning the whole executive\nIf your diagnosis blames presidentialism, Cheibub’s confounder is the rival you must reject: was there a prior military regime?\n\n\nChapter 8 divided power between the executive and the legislature. Chapter 9 asks who checks both — the courts, and the regions."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#todays-puzzle",
+    "href": "lectures/lecture_10_conclusion.html#todays-puzzle",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s puzzle",
+    "text": "Today’s puzzle\n\nPut the whole course together on one country. What does everything we have learned actually let you say about building democracy somewhere hard?\n\n\nChapter 10 does two things: it summarizes the contextual factors into a single table, and then it runs them against Afghanistan.\n\n[Sources] - Ishiyama, Comparative Politics, Chapter 10.\nIshiyama is explicit that the book is not prescriptive. The point of knowing what affects democratization is to understand why building democracy is so difficult — “or perhaps impossible” — in places like Iraq or Afghanistan, and to let students conclude that democracy may not be the best arrangement given a particular set of circumstances.\nThat is a useful thing to say out loud to a class that has spent eleven weeks designing reforms."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#learning-goals",
+    "href": "lectures/lecture_10_conclusion.html#learning-goals",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Learning goals",
+    "text": "Learning goals\nBy the end of class you should be able to:\n\nReconstruct Table 10.1 — the contextual factors, and which chapter each comes from\nUse Table 10.2 to state the advantages and disadvantages of the two main electoral families\nDescribe Afghanistan’s context across the course’s categories\nDescribe Afghanistan’s institutional choices and say what they were meant to do\nExplain why formal design may matter less than the realities on the ground\nState what problem-based learning asks of you, and why there is no correct answer"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#part-1-the-course-on-one-page",
+    "href": "lectures/lecture_10_conclusion.html#part-1-the-course-on-one-page",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 1: The course on one page",
+    "text": "Part 1: The course on one page"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#what-the-book-has-argued",
+    "href": "lectures/lecture_10_conclusion.html#what-the-book-has-argued",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What the book has argued",
+    "text": "What the book has argued\n\n\n\n\n\n\n\nHistory matters (ch. 2)\nWhat preceded the attempted transition has “legacy” effects. The historical approach focuses on the West and may travel badly — but the notion that the past leaves legacies is relevant everywhere\n\n\nDevelopment matters (ch. 3)\nWhether causal or merely correlational, wealthier countries have an easier time transitioning. Economics is not the only explanation\n\n\nCulture matters (ch. 4)\nParticipant political culture supports democracy; subject and parochial cultures do not\n\n\nCleavages matter (ch. 4)\nDeep, politicized ethnic or cultural divisions make it harder\n\n\nSocial structure matters (ch. 5)\nHierarchy and large gaps between rich and poor work against it; dense associational networks work for it\n\n\nThe outside matters (ch. 6)\nProximity to democracies, colonial legacy, globalization, imposition\n\n\nThen choice (chs. 7–9)\nElectoral system, executive format, courts and territory"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#table-10.1-contextual-factors",
+    "href": "lectures/lecture_10_conclusion.html#table-10.1-contextual-factors",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Table 10.1 · Contextual factors",
+    "text": "Table 10.1 · Contextual factors\n\nIshiyama, Table 10.1\n\n\n\n\n\n\n\n\nFactor\nPositive effect on development of democracy\nNegative effect on development of democracy\nChapter\n\n\n\n\nHistorical legacy\nFeudalism disappears, development of bourgeoisie; early development of national identity\nFeudalism does not disappear, bourgeoisie does not develop, or only develops as comprador bourgeoisie; late or incomplete development of national identity\n2\n\n\n\nTransition process = transplacement\nTransition process = replacement, transformation (that does not evolve into transplacement)\n6\n\n\nEconomic development\nEconomic development and wealth\nPoverty and lack of development\n3\n\n\nPolitical culture\nParticipant political culture dominant\nSubject and parochial political culture\n4\n\n\nEthnic, cultural, politics\nRelative ethnic homogeneity, or at least no deep, politicized ethnic or cultural cleavages\nDeep-seated and politicized ethnic or cultural cleavages\n4\n\n\nSocial structure\nSociety not structured hierarchically; not large gaps between rich and poor\nLarge gaps between rich and poor\n5\n\n\nCivil society\nExistence of dense networks of interest groups; promotion of cross-cutting cleavages\nNo, or poorly developed, civil society\n5\n\n\nExternal factors\nCountry is geographically proximate with other democracies\nCountry is geographically isolated from other democracies\n6\n\n\n\nGlobalization is high (debate in literature)\nGlobalization is high (debate in literature)\n6\n\n\n\nBritish colonial legacy\nNon-British colonial legacy\n6\n\n\n\n\n[Sources] Ishiyama ch. 10, Table 10.1, reproduced in full.\nPoint at the globalization row. It is the only row where the same entry appears on both sides, and Ishiyama flags it as a debate in the literature rather than resolving it. That honesty is worth pointing out — a summary table that pretends to settle an open question would be worse.\nUse this as the final-exam scaffold. Each row names a chapter; a student who can walk the column and say what the chapter argued has the course."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#table-10.2-advantages-and-disadvantages-of-electoral-systems",
+    "href": "lectures/lecture_10_conclusion.html#table-10.2-advantages-and-disadvantages-of-electoral-systems",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Table 10.2 · Advantages and disadvantages of electoral systems",
+    "text": "Table 10.2 · Advantages and disadvantages of electoral systems\n\nIshiyama, Table 10.2\n\n\n\n\n\n\n\nElectoral system\nAdvantages\nDisadvantages\n\n\n\n\nSingle-member district plurality(the United States, the United Kingdom, Canada, India, Nigeria, Ethiopia)\nProvides incentives for political moderation, and disincentives for political extremismReduces the number of parties and hence promotes governmental stabilityPromotes constituency service by legislative representatives\nLeads to large number of wasted votes, and excludes from representation large portions of the populationReduces competition to conflict between personalities as opposed to competition over programs (weakens political parties)Lowers sense of voter efficacy and reduces voter turnout\n\n\nList proportional representation(The Netherlands, Belgium, Israel, South Africa, Iraq, Poland, Czech Republic, Slovakia)\nProvides for broad representation and cooptation of political interests, thus promoting long-term political stability, particularly in ethnically or culturally divided societiesProvides for competition based on party programs as opposed to competition over personalitiesHigher sense of voter efficacy and higher voter turnout\nLeads to fractionalization of the party system. Often produces weak coalition governmentsMay provide openings for extremists to enter politics and gain a foothold in governmentEliminates direct connection between voter and representative. Reduces level of constituency service\n\n\n\n\n[Sources] Ishiyama ch. 10, Table 10.2, reproduced in full.\nRead the rows against each other: every advantage on one side is the mirror of a disadvantage on the other. That symmetry is the trade-off structure Round 4 asked teams to find, laid out by the textbook.\n\n\nA note on the chapter’s own text: it refers to a Table 10.3 on combinations of institutional design, but no such table appears in the file we have. If your edition includes it, bring it."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#part-2-afghanistan",
+    "href": "lectures/lecture_10_conclusion.html#part-2-afghanistan",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 2: Afghanistan",
+    "text": "Part 2: Afghanistan"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#the-context",
+    "href": "lectures/lecture_10_conclusion.html#the-context",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The context",
+    "text": "The context\n\n\n\n\n\n\n\nGeography\nAt the crossroads of Central, West and South Asia — waves of migration producing deep ethnic, religious and linguistic diversity\n\n\nState formation\nNot an integrated political entity until Ahmad Shah Durrani founded a monarchy in 1747. The Durrani dynasty ruled in name until the 1973 coup, amid almost continuous infighting among clans who ruled their own areas autonomously\n\n\nExternal intrigue\n“The Great Game” — British and Russian empires competing; boundaries set by them; Afghanistan nominally self-governing but a British protectorate. Foreign-affairs control regained 19 August 1919, still independence day\n\n\nThe twentieth century\nZahir Shah’s 1964 constitution allowed elections; the “experiment in democracy” produced few lasting reforms but let unofficial parties grow, including the communist PDPA, which split into Khalq and Parcham in 1967. The 1973 coup ended 226 years of royal rule; the communists seized power in the 1978 Saur Revolution"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#deeply-divided",
+    "href": "lectures/lecture_10_conclusion.html#deeply-divided",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Deeply divided",
+    "text": "Deeply divided\n\nBuilt from Ishiyama ch. 10\n\n\n\n\n\n\n\nGroup\nShare\nWhere, and who\n\n\n\n\nPashtun\n~42%\nLargely Sunni; divided into many tribes, the Durrani historically dominant, with the Ghilzai and Kasi also important. Rural, in the south and east\n\n\nTajik\n~27%\nConcentrated in Kabul and the north. Historically the urban elite, and the backbone of the Northern Alliance\n\n\nHazara\n~9%\nDescended in part from the Mongol population. Shiite, unlike most of the country, and long subject to discrimination. Central Afghanistan\n\n\nUzbek\n~9%\nThe north, adjacent to Uzbekistan. Aligned with the Parchami regime before 1992, then largely with the Northern Alliance\n\n\n\n\n\nAbout 80 per cent of the population is Sunni Muslim — so the religious cleavage and the ethnic one do not run along the same line.\n\n\nAsk the class to score Afghanistan against Table 10.1 before showing the institutional choices. Almost every row lands in the negative column — which is the chapter’s point, and the reason the Afghan case closes the book rather than opening it.\nThen ask the Chapter 4 question: are these cleavages cross-cutting or reinforcing? The Hazara case is the interesting one, since ethnicity and sect coincide there but not elsewhere."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#the-institutional-choices",
+    "href": "lectures/lecture_10_conclusion.html#the-institutional-choices",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "The institutional choices",
+    "text": "The institutional choices\n\n\n\n\n\n\n\nExecutive\nA strong presidential system — the designers’ clear intent was to centralize authority\n\n\nLegislature\nThe 2005 lower-house elections used the single non-transferable vote in 34 multimember constituencies, designed to address ethnic division. Parties and lists were not recognized by the governing law, so candidates ran independently\n\n\nCourts\nThe Supreme Court has some measure of a priori review — it may review the constitutionality of laws, legislative decrees and international treaties without a case before it, at the request of the government or lower courts (Article 121)\n\n\nTerritory\nA unitary state. Local administration is subject to the principle of “centralism” (Article 138); local and district councils exist, but their powers are delegated by the centre\n\n\n\n\n\nA deeply divided country, designed as a centralized unitary presidential state — and the SNTV system produced a highly fragmented parliament, which further enhanced the president’s authority relative to the National Assembly."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#design-against-reality",
+    "href": "lectures/lecture_10_conclusion.html#design-against-reality",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Design against reality",
+    "text": "Design against reality\n\n“Despite the formal constitutional features of the system, the realities on the ground, at least in the short run, will have far more impact.”\n\n\n\nDespite constitutional centralization, Karzai relied on deals and power-sharing with local warlords, particularly former Northern Alliance figures such as Dostum and Fahim\nDespite the unitary design, the central government controlled little outside Kabul\nThe government’s reputation as an imposed regime backed by the US and the West reduced its legitimacy, especially among Pashtuns in the south, where the insurgency was strongest\n\n\n\n\nEvery one of those three is a Chapter 6 problem — imposition, state capacity, and the bargain that was never struck."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#part-3-what-the-course-was-for",
+    "href": "lectures/lecture_10_conclusion.html#part-3-what-the-course-was-for",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Part 3: What the course was for",
+    "text": "Part 3: What the course was for"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#more-questions-not-more-answers",
+    "href": "lectures/lecture_10_conclusion.html#more-questions-not-more-answers",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "More questions, not more answers",
+    "text": "More questions, not more answers\n\nProblem-based learning asks you to apply principles to open-ended problems — where there is no right answer, “only a best effort, based upon information we know (or we think we know).”\n\n\nIshiyama grants this is hard after years of testing for the correct answer.\n\n\n\n“This book, thus, has not been designed to provide answers, but to provide a way to think about problems” — and to show that understanding comparative politics is about asking the right questions, not providing the right answers.\n\n\nThis is the sentence to leave on the screen while teams work on their final presentations. It is also the fairest description of what the rubric rewards: a qualified claim that survives scrutiny beats a confident one that does not."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#what-the-framework-also-explains",
+    "href": "lectures/lecture_10_conclusion.html#what-the-framework-also-explains",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "What the framework also explains",
+    "text": "What the framework also explains\n\nThe book sacrifices breadth for depth — political violence and political organizations are not treated directly.\n\n\nBut Ishiyama’s claim is that the same framework — historical, social, economic, cultural and international factors, then institutional choice — can be turned on those questions too.\n\n\n\nThat is a testable claim about a framework, and a reasonable thing to try in a final paper: take the apparatus somewhere the book did not go."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#todays-article-bermeo",
+    "href": "lectures/lecture_10_conclusion.html#todays-article-bermeo",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "Today’s article: Bermeo",
+    "text": "Today’s article: Bermeo\n“On Democratic Backsliding.” The course has spent eleven weeks on how democracies are built. This asks how they come apart.\n\nBacksliding today is less often the coup and more often incremental — executive aggrandizement, strategic election manipulation, promissory coups\nThe actors are frequently elected ones, using legal instruments\n\n\n\nRead it against Table 10.1. Every row in that table is written as a condition for emergence. Bermeo’s question is whether the same conditions govern survival — and whether a design that helped a democracy arrive can be turned against it."
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#for-your-dossier",
+    "href": "lectures/lecture_10_conclusion.html#for-your-dossier",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For your dossier",
+    "text": "For your dossier\nRound 5 asks for the reform package and how its parts interact.\n\nScore your focal country against Table 10.1, row by row. The rows that land negative are the constraints your package must survive\nUse Table 10.2 for the trade-offs your electoral option carries — the textbook has done that work for you\nAfghanistan is the warning about interaction: SNTV plus no recognized parties plus a strong presidency produced a fragmented legislature and a stronger president. None of those three alone would have done it\nName your failure mode. How could the package be captured, deadlocked, or circumvented?"
+  },
+  {
+    "objectID": "lectures/lecture_10_conclusion.html#for-next-session",
+    "href": "lectures/lecture_10_conclusion.html#for-next-session",
+    "title": "PSCI 3350.001 Comparative Politics",
+    "section": "For next session",
+    "text": "For next session\nFinal class · December 3 — Final presentations\n\nNo new reading — teams work from their own sources\nPresentations begin at 6:40\n\n\n\nOne last time: the qualified claim that survives scrutiny beats the confident one that does not. Say what you do not know, and what would settle it."
   },
   {
     "objectID": "lectures/lecture_how_to_present.html#todays-puzzle",
